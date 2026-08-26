@@ -28,6 +28,19 @@ Full gold/prompts (no videos): `huggingface-cli download Suchenl/VMem-Bench --re
 
 `main` is production. `paper-reproduction` is the Track A Stage-1 freeze. See [`REPRODUCE.md`](REPRODUCE.md).
 
+## Evaluate your own method
+
+Copy [`scripts/evaluate_baselines/your_method/`](scripts/evaluate_baselines/your_method/) — a
+stdlib-only bring-your-own-method template. Implement two hooks (`compose`, `observe`),
+run the CPU dry run to validate the plumbing on bundled gold, then score with the two
+`vmem_bench.scoring` commands. Full walkthrough + fairness checklist in its
+[`README.md`](scripts/evaluate_baselines/your_method/README.md).
+
+```bash
+python scripts/evaluate_baselines/your_method/run_tracka_example.py \
+    --movie-dir assets/trackA/BlenderOpenMovies/charge --limit 5
+```
+
 ## What it measures
 
 | Track | Question | SUT input | Scoring gold |
