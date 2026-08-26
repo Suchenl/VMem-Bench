@@ -54,10 +54,9 @@ from pathlib import Path
 from typing import Any
 
 from contract import ComposeRequest, MovieContext, RetrievedItem, RetrievedMemory, SegmentObservation
+from _local_roots import find_memstrata_src
 
-# baseline_adapters live at scripts/evaluate_baselines/trackA/baseline_adapters/causal/;
-# import the MemStrata method (post-split) from <repo>/methods/MemStrata/src (parents[7]).
-_SRC = Path(os.environ["MEMSTRATA_SRC"]).expanduser().resolve() if os.environ.get("MEMSTRATA_SRC") else Path(__file__).resolve().parents[7] / "MemStrata" / "src"
+_SRC = find_memstrata_src()
 _DEFAULT_PUBLIC_MODELS_ROOT = ""
 # WeDetect-Ref is the DEFAULT crop backend (describe->bbox); the isolated service normally
 # listens here. Override with MEMSTRATA_WEDETECT_URL; set it to "" only to force it off.

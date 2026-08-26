@@ -53,6 +53,7 @@ from pathlib import Path
 
 from contract import ComposeRequest, MovieContext, RetrievedItem, SegmentObservation
 from frame_materializer import materialize_record_checkpoint, materialize_system
+from _local_roots import expand_dataset_root
 
 _DEFAULT_FFMPEG = "ffmpeg"
 _HOSTNAME = socket.gethostname()
@@ -208,12 +209,12 @@ def _resolve_source_video(movie_dir: Path) -> Path:
                 continue
             key, val = line.split(":", 1)
             roots[key.strip()] = val.strip()
-    # movie_dir = data/<dataset>/<movie_id>
     dataset = movie_dir.parent.name
     movie_id = movie_dir.name
-    root = roots.get(dataset)
-    if not root:
+    raw_root = roots.get(dataset)
+    if not raw_root:
         raise SystemExit(f"dataset root not found for {dataset!r} in {dataset_dirs}")
+    root = expand_dataset_root(raw_root)
     exts = {".mp4", ".mkv", ".mov", ".webm", ".avi"}
     cand_dir = Path(root) / movie_id
     # Layout A (e.g. BlenderOpenMovies): data root/<movie_id>/<video>.
