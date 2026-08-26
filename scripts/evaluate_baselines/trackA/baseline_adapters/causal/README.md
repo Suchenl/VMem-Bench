@@ -85,14 +85,14 @@ MemStrata is resolved from `../MemStrata/src` or `MEMSTRATA_SRC`.
 
 ## 现状
 
-| baseline | env | adapter | 原生记忆 / 检索 | 状态 |
+| baseline | Python / libs | adapter | 原生记忆 / 检索 | 状态 |
 |---|---|---|---|---|
 | **MemStrata（本系统）** | torch + transformers（SAM3 vendored bundle 前置 PYTHONPATH） | `memstrata.py` | 分层 AssetBank（SAM3-concept+DINOv3 感知写入）/ IntentInterpreter 名锚 + model-free compose | **TrackA minismoke PASS**：BlenderOpenMovies:`big_buck_bunny` + LSMDC:`0001_American_Beauty`，各 limit=6，均生成 `visual_selections`。 |
-| SlotMem | `vace`（仅诊断） | `slotmem.py` | 角色 slot（RoleWiseSlotMemoryBank） | **不进入无 oracle 主表**：其 released interface 需要外部/scripted `role_names` 才能稳定定位 slot；这属于 oracle-role / Scripted 诊断条件，不符合 TrackA/B prompt-only 因果生产评测。runner 通过 `scripts/evaluate_baselines/trackA/.disable_slotmem_mainline` 在主线中快速跳过。 |
-| LongLive-RAG | `wan2_1` | `longlive_rag.py` | 自编码 latent 描述子 + AE 余弦 top-k | **TrackA minismoke PASS**：两数据集各 1 样本 limit=6 均通过；纯描述子运算，无需生成器前向。 |
-| MemFlow (w/o SMA) | `wan2_1`(torch2.6+flash_attn2.6.3) | `memflow.py` | sink + 局部窗 + KV bank（文本显著性 top-k） | **TrackA minismoke PASS**：两数据集各 1 样本 limit=6 均通过。 |
+| SlotMem | torch 2.5 + flash-attn 2.8（仅诊断） | `slotmem.py` | 角色 slot（RoleWiseSlotMemoryBank） | **不进入无 oracle 主表**：其 released interface 需要外部/scripted `role_names` 才能稳定定位 slot；这属于 oracle-role / Scripted 诊断条件，不符合 TrackA/B prompt-only 因果生产评测。runner 通过 `scripts/evaluate_baselines/trackA/.disable_slotmem_mainline` 在主线中快速跳过。 |
+| LongLive-RAG | torch（VAE + AE；可不跑 DiT） | `longlive_rag.py` | 自编码 latent 描述子 + AE 余弦 top-k | **TrackA minismoke PASS**：两数据集各 1 样本 limit=6 均通过；纯描述子运算，无需生成器前向。 |
+| MemFlow (w/o SMA) | torch 2.6 + flash-attn 2.6 | `memflow.py` | sink + 局部窗 + KV bank（文本显著性 top-k） | **TrackA minismoke PASS**：两数据集各 1 样本 limit=6 均通过。 |
 | MemFlow (with SMA) | 同上 | `memflow.py`(`sma=True`/`memflow_sma`) | 同上，读取用 `dynamic_topk_routing_attention` φ top-3 chunk 路由 | **TrackA minismoke PASS**：两数据集各 1 样本 limit=6 均通过。 |
-| IAMFlow | `vace`(fp8→bf16 反量化，无需新 env) | `iamflow.py` | 实体感知 active-memory 帧（entity+VLM 融合选帧） | **TrackA minismoke PASS**：两数据集各 1 样本 limit=6 均通过。 |
+| IAMFlow | torch 2.5 + flash-attn；fp8→bf16 反量化 | `iamflow.py` | 实体感知 active-memory 帧（entity+VLM 融合选帧） | **TrackA minismoke PASS**：两数据集各 1 样本 limit=6 均通过。 |
 
 > 三者共用 `_video_io.py` 解码真 segment 为 Wan 像素张量（480×832、[-1,1]、16fps），这是纯 IO，不是感知/记忆——每个 baseline 仍用**自己的 VAE + 原生记忆/检索**。
 >
@@ -103,9 +103,9 @@ MemStrata is resolved from `../MemStrata/src` or `MEMSTRATA_SRC`.
 > `experiments/results/e2e/tracka_full_20260726/IAMFLOW_SERVICE.md`。
 >
 > 完成度说明：
-> - **LongLive-RAG** 检索是纯描述子运算（无需跑生成器前向），已按发布的 `latentmem` 规则（`memory_size=6/recent_exclude=5/sink_size=1`）完整实现，**已 smoke 通过**（wan2_1 env，12 参考帧）。
+> - **LongLive-RAG** 检索是纯描述子运算（无需跑生成器前向），已按发布的 `latentmem` 规则（`memory_size=6/recent_exclude=5/sink_size=1`）完整实现，**已 smoke 通过**（12 参考帧）。
 > - **MemFlow / IAMFlow** 的记忆写入发生在生成器前向内部，用 teacher-force 真 latent 单次前向填原生记忆；两数据集 minismoke 已确认这些写入/读取路径均可产生可物化的 `visual_selections`。SlotMem 仅保留为 oracle-role 诊断，不参与主线批量。
-> - **检索族（真实编码器）**：文本 Qwen3-Embedding + 帧 `seg_uniform`（均匀采样）变体此前已 smoke 通过（helios env，27 参考帧、future_dropped=0）。默认 `seg_framererank`（SigLIP2 帧-文本重排）在 `helios`/`wan2_1`/`diffsynth`/`diffusers` 的 transformers 5.x 环境下会因 `get_text_features(...)` 返回 `BaseModelOutputWithPooling` 而非张量（`.float()` 崩），属版本不匹配、非数据/权重问题；CPU 探测下 **首个 OK env 为 `MultiShotMaster`（transformers 4.57.6 / torch 2.6.0+cu124）**，其他可用 env 包括 `qwen`（4.57.1 / torch 2.9.1+cu128）、`vace`（4.57.3 / torch 2.5.1+cu124）、`vino`（4.57.1 / torch 2.6.0+cu124）、`vllm`（4.57.6 / torch 2.10.0+cu129），SigLIP2 text+image tower 均正常返回 Tensor（`text_feat_shape=(1,768)`，`SIGLIP2_OK`）。故 `seg_framererank` 变体建议优先用 `qwen` env 的 python 运行（`RETR_VARIANT`/`MEMSTRATA_RETRIEVAL_VARIANT` 选变体；SigLIP2 权重 `${PUBLIC_MODELS_ROOT}/google/siglip2-base-patch16-512`）。
+> - **检索族（真实编码器）**：文本 Qwen3-Embedding + 帧 `seg_uniform`（均匀采样）变体此前已 smoke 通过（27 参考帧、future_dropped=0）。默认 `seg_framererank`（SigLIP2 帧-文本重排）在 **transformers 5.x** 下会因 `get_text_features(...)` 返回 `BaseModelOutputWithPooling` 而非张量（`.float()` 崩）。请用 **transformers 4.57.x**（已验证 4.57.1–4.57.6）。SigLIP2 权重 `${PUBLIC_MODELS_ROOT}/google/siglip2-base-patch16-512`。
 > - **Track A 批量前置状态**：**PASS**。BlenderOpenMovies:`big_buck_bunny` 与 LSMDC:`0001_American_Beauty` 各 1 个样本已覆盖当前无 oracle 主表行（MemStrata、LongLive-RAG、MemFlow、MemFlow-SMA、IAMFlow、frame_text、seg_uniform、seg_dinokey、seg_framererank）。SlotMem 已移至 Scripted/oracle-role 诊断类。
 > - 尚未做完整语料打分：Stage 2 VLM scoring + `aggregate_trackA_outputs.py` 汇总仍待启动。
 >

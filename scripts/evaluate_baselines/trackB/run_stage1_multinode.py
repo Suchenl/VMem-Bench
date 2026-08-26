@@ -46,9 +46,9 @@ REPO_ROOT = Path(__file__).resolve().parents[5]
 ASSETS_EN = BENCH_ROOT / "assets" / "trackB" / "en" / "sut_prompts"
 OUT_ROOT = BENCH_ROOT / "outputs" / "evaluation" / "trackB"
 
-PY_WAN = "wan2_1/bin/python"
-PY_VACE = "python3"
-PY_VLLM = "vllm/bin/python"
+PY_WAN = os.environ.get("WAN_PYTHON", "python3")
+PY_VACE = os.environ.get("IAMFLOW_PYTHON", "python3")
+PY_VLLM = os.environ.get("VLLM_PYTHON", "python3")
 
 STEPS = {"memflow": 5, "longlive_rag": 10, "iamflow": 5}
 # Per-story dispatch order (lighter first, VLM-heavy iamflow last).

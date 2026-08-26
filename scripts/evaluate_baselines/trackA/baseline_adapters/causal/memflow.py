@@ -32,8 +32,7 @@ each chunk's own prompt (text saliency is prompt-conditioned). The vendored repo
 stays pristine; all glue lives here. Retrieval maps sink/local/bank/routed source
 latents to absolute source seconds for frame materialization.
 
-Env: ``wan2_1`` (torch2.6.0+cu124, flash_attn2.6.3) — verified to run the forward;
-``wan21-dr`` is a fallback. Weights are symlinked into the vendored repo:
+Env: torch 2.6 + flash-attn 2.6 — verified to run the forward.
   baselines/Causal/MemFlow/wan_models/Wan2.1-T2V-1.3B -> Wan-AI/Wan2.1-T2V-1.3B
   baselines/Causal/MemFlow/checkpoints/{base.pt,lora.pt} -> KlingTeam/MemFlow
 Run via runner.py --adapter memflow.

@@ -8,12 +8,12 @@ BENCH=.
 ADIR=$BENCH/scripts/evaluate_baselines/trackA/baseline_adapters/causal
 AGG=$BENCH/scripts/evaluate_baselines/trackA/aggregate_two_movie_run.py
 VACE=python3
-WAN=wan2_1/bin/python
-HELIOS=helios/bin/python
-MSM=MultiShotMaster/bin/python
+WAN="${WAN_PYTHON:-python3}"
+HELIOS="${MEMSTRATA_PYTHON:-python3}"
+MSM="${RETRIEVAL_PYTHON:-python3}"
 STAGE1_GPU=${STAGE1_GPU:-0}
 
-export MAVE_REQUIRE_A800_KEEPALIVE=${MAVE_REQUIRE_A800_KEEPALIVE:-1}
+export GPU_REQUIRE_KEEPALIVE=${GPU_REQUIRE_KEEPALIVE:-0}
 export MAVE_TASK_NICE=${MAVE_TASK_NICE:-10}
 export MAVE_FFMPEG_THREADS=${MAVE_FFMPEG_THREADS:-1}
 export OMP_NUM_THREADS=${OMP_NUM_THREADS:-1}
@@ -32,7 +32,7 @@ ln -sfn "$LOGDIR" "$BENCH/_overnight_run/latest"
 
 log(){ echo "[$(date '+%m-%d %H:%M:%S')] $*" | tee -a "$MASTER"; }
 
-# system -> conda python
+# system -> python interpreter (override WAN_PYTHON / MEMSTRATA_PYTHON / RETRIEVAL_PYTHON)
 env_of(){
   case "$1" in
     memstrata) echo "$HELIOS";;

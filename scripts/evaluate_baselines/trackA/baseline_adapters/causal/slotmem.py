@@ -36,8 +36,7 @@ Earlier notes called this "BLOCKED / protocol-forbidden". That was wrong. Two co
 
 * **Env (available):** SlotMem uses its **vendored** ``diffsynth`` (via ``sys.path``) +
   ``flash_attn==2.8.0.post2`` (see ``requirements_slotmem.txt``); it does **not** use
-  lightx2v. The ``vace`` conda env has ``flash_attn 2.8.3`` + ``torch 2.5.1+cu124`` and is
-  the right place to run it (the ``slotmem`` env has torch 2.7.1 but no flash_attn built).
+  lightx2v. Run it under torch 2.5 + flash-attn 2.8.
 * **Weights (present):** base ``Wan-AI/Wan2.2-I2V-A14B`` + SlotMem LoRA
   ``Causal_Video_Generation/SlotMem/ckpt/{stage1,stage2}/{stage*_high,stage*_low}.pt``.
 * **Do not use distilled Wan2.2 for Track A.** A distilled Wan2.2 + SlotMem LoRA smoke
@@ -48,7 +47,7 @@ Earlier notes called this "BLOCKED / protocol-forbidden". That was wrong. Two co
   A native smoke on H800 with stage1+stage2 LoRA showed 10 steps gives stable video,
   while 5 steps is only a plumbing check (blur/smear/detail loss).
 
-Run via runner.py --adapter slotmem in the ``vace`` env.
+Run via runner.py --adapter slotmem.
 """
 
 from __future__ import annotations

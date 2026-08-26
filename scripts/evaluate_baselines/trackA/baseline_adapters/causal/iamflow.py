@@ -27,7 +27,7 @@ by block so ``kv_cache1`` / ``crossattn_cache`` are populated from real frames (
 denoising / generation). Eviction (lag>=4) / archival / VLM scoring mirror the
 driver verbatim. The vendored repo stays pristine; all glue lives here.
 
-Env: ``vace`` (torch2.5.1 + flash_attn2.8.3). The fp8 checkpoint is dequantized to
+Env: torch 2.5 + flash-attn 2.8. The fp8 checkpoint is dequantized to
 bf16 so it runs on Ampere/SM80 without fp8 tensor cores (same as the driver).
 
 **HANG FIX (2026-07-25) — offload LLM/VLM to vLLM, do NOT run them in-process.**

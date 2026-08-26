@@ -122,7 +122,7 @@ the frozen GT history: it loads the published DiT `iamflow_fp8.safetensors`
 so `w_bf16 = w_fp8·scale` recovers the published weights exactly and runs on Ampere/SM80
 without fp8 tensor cores), the LLM `Qwen3-4B-Instruct-2507` (HF backend), and the VLM
 `Qwen3-VL-2B-Instruct` (transformers backend — same weights vLLM would serve, just an HF
-forward, since `vllm` is absent from `vace`). Per npb-block it (1) commits the GT latent
+forward; a separate vLLM process is optional). Per npb-block it (1) commits the GT latent
 block through the DiT clean-context path so the `kv_cache`/`crossattn_cache` the bank reads
 are the model's real self-/cross-attention keys over the **gold** visuals, (2) VAE-decodes
 the block to pixels and scores them with the VLM (0.3-weighted visual score), and (3) runs

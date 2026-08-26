@@ -72,10 +72,10 @@ huggingface-cli download Suchenl/VMem-Bench --repo-type dataset --local-dir ./VM
 
 ## Install and unit tests
 
-There is no `pip` package yet. From this directory:
+There is no PyPI release yet. From this directory:
 
 ```bash
-python -m pip install -r requirements-dev.txt
+python -m pip install -e ".[dev]"
 python -m pytest -q
 ```
 
@@ -86,6 +86,20 @@ python -m pytest -q
 That is **not** `pytest`. It needs GPUs, generator / encoder weights, and the source videos. See [`REPRODUCE.md`](REPRODUCE.md).
 
 Use git branch `paper-reproduction` (tag `paper-reproduction-v1` when frozen). `main` may move.
+
+## Citation
+
+```bibtex
+@article{chen2026memstrata,
+  title={Stratifying and Benchmarking Long-Range Memory for Causal Long Video Generation},
+  author={Chen, Yuzhuo and Shi, Huafeng and Wang, Xinyu and Wang, Yucheng and Hong, Haoqin and Zhang, Guoxin and Ma, Zehua},
+  year={2026}
+}
+```
+
+When using LSMDC titles, also cite Rohrbach et al., IJCV 2017 (see [`docs/DATA.md`](docs/DATA.md)).
+
+See [`CITATION.cff`](CITATION.cff).
 
 ## License
 

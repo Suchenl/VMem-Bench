@@ -16,7 +16,7 @@ Segment metadata comes from the frozen TrackB ground truth
 (``assets/trackB/sut_prompts/<story>_<register>.json``). Segment->frame
 mapping comes from ``input/trackb_generation_params.json`` (frames_per_segment).
 
-Runs under the vace env (has cv2 + PIL):
+Runs under a Python that has cv2 + PIL:
   python3 annotate_long_video.py \
       --run-dir <trackB run dir> --tag-lang en
 

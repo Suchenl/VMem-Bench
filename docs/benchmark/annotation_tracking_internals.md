@@ -345,7 +345,7 @@ vlm_model = "Qwen/Qwen3-VL-8B-Instruct"   # 命名/起草用 8B，不用 32B
 ```
 
 **运行环境（2026-07-09 定）**：实跑放 **H800**（显卡更快，用户指定）；感知模型（GroundingDINO/DINOv3/
-SigLIP2）进程内单例，可用 `vace`(transformers 4.57.3) / `MultiShotMaster`(4.57.6) 环境。VLM 走**常驻
+SigLIP2）进程内单例，需要 transformers ≥4.57 的 Python。VLM 走**常驻
 vLLM OpenAI 服务**（H800 上另起 8B；本机 `:8000` 已有一个 `Qwen3-VL-8B-Instruct` 服务可作备用/本机调试）。
 
 ---

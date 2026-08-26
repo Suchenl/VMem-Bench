@@ -29,3 +29,7 @@ The SUT sees prompt text + the **real** segment video; gold never goes to the SU
 ## What this snapshot does not claim
 
 Full 91-movie Track A Stage 1 and 30-story Track B GPU rollouts are **not** executed in CI. Matching the paper tables is Phase 3 work: weights, videos, and GPUs must be supplied by the reader.
+
+## Citation
+
+See [`CITATION.cff`](CITATION.cff).

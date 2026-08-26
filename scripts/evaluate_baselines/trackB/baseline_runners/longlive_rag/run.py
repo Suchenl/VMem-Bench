@@ -38,7 +38,7 @@ LONGLIVE_SLOT_WAIT = float(os.environ.get("TRACKB_LONGLIVE_SLOT_WAIT", "15"))
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser, default_system="longlive_rag")
-    parser.set_defaults(python="wan2_1/bin/python")
+    parser.set_defaults(python="python3")
     parser.add_argument("--config-path", type=Path, default=None)
     parser.add_argument("--frames-per-segment", type=int, default=39)
     parser.add_argument("--fps", type=int, default=16)

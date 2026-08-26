@@ -22,9 +22,9 @@
 | baseline | 原生记忆空间 | 原生检索 | 我们的落地方式 | 完成度 |
 |---|---|---|---|---|
 | **LongLive-RAG** | 每 latent 一个 **AE 描述子** 的增长池 | **AE 余弦 top-k**：用最近 latent 描述子查询，池 = `[sink, 池, recent_exclude]` 之间；`memory_size=6/recent_exclude=5/sink_size=1` | 直接引 `wan.modules.vae._video_vae` + `ae.model.LatentAE`（**绕开 DiT/flash_attn**）；`observe` 把真 segment 编码成 latent → 每帧 AE 描述子入池并打源秒标签；`compose` 复刻发布的余弦 top-k，返回命中项源秒 | **完整实现，可跑**（无需生成器前向） |
-| **MemFlow (w/o SMA)** | **sink + 局部窗 + KV bank**（bank 为逐层文本显著性 top-k 压缩的历史块） | **写入**：`compress_kv_bank` 逐层文本 top-k；**读取**：整块 bank 进 attention，不再筛 | teacher-force 真 latent（`context_noise=0`，**该 segment prompt** 条件化）逐 segment 前向填 KV/bank；**指纹追溯**把存活 bank 块映射回源 latent（逐层 + 投票）；`compose` 汇总 sink∪局部窗∪bank 的源秒 | **忠实实现，已 GPU 验证**（wan2_1 env，5 segment：base+LoRA 生效、126 参考帧、future_dropped=0） |
-| **MemFlow (with SMA)** | 同上（**写入与 w/o SMA 完全相同**） | **读取**：`dynamic_topk_routing_attention` 用 φ=mean-pool 紧凑描述子 `φ_q·φ_k` 从 `sink∪bank` 路由 **top-3 chunk** 再进 attention（`SMA=True`） | 复用 `memflow.py`（`sma` 开关）：reset 时把所有 self-attn 的 `SMA` 置 True，hook 路由捕获 φ 选中的历史 chunk（query=真段，仅留早于当前 chunk 的源）；`compose` 引用回填于 `observe`（runner 循环后 materialize） | **忠实实现，已 GPU 验证**（wan2_1 env，5 chunk：31 模块置 SMA、118 参考帧、future_dropped=0；`memflow_sma`） |
-| **IAMFlow** | **实体感知 active-memory 帧**（每帧带 KV 切片 + 关联实体） | `select_frame_from_chunk`（DiT 注意力 entity_score + 0.3·VLM 视觉分融合；上游函数名保留）+ prompt 边界 `retrieve_initial_frames` 贪心实体覆盖 | 正式 adapter 内自包含 fp8→bf16 反量化和 HF/vLLM 后端 glue：teacher-force 真 latent 逐 segment 前向填 KV/crossattn（**该 segment prompt** 条件化）+ 归档/驱逐 + VLM 帧打分；`compose` 用 LLM **逐 segment 因果**抽实体（不预计算全 prompt）→ `retrieve_initial_frames`；frame_id→源秒登记表 | **忠实实现，已 GPU 验证**（vace env，**无需新环境**；15 segment：18 参考帧、segment 9–14 角色复现后正确召回、future_dropped=0） |
+| **MemFlow (w/o SMA)** | **sink + 局部窗 + KV bank**（bank 为逐层文本显著性 top-k 压缩的历史块） | **写入**：`compress_kv_bank` 逐层文本 top-k；**读取**：整块 bank 进 attention，不再筛 | teacher-force 真 latent（`context_noise=0`，**该 segment prompt** 条件化）逐 segment 前向填 KV/bank；**指纹追溯**把存活 bank 块映射回源 latent（逐层 + 投票）；`compose` 汇总 sink∪局部窗∪bank 的源秒 | **忠实实现，已 GPU 验证**（torch 2.6 + flash-attn 2.6，5 segment：base+LoRA 生效、126 参考帧、future_dropped=0） |
+| **MemFlow (with SMA)** | 同上（**写入与 w/o SMA 完全相同**） | **读取**：`dynamic_topk_routing_attention` 用 φ=mean-pool 紧凑描述子 `φ_q·φ_k` 从 `sink∪bank` 路由 **top-3 chunk** 再进 attention（`SMA=True`） | 复用 `memflow.py`（`sma` 开关）：reset 时把所有 self-attn 的 `SMA` 置 True，hook 路由捕获 φ 选中的历史 chunk（query=真段，仅留早于当前 chunk 的源）；`compose` 引用回填于 `observe`（runner 循环后 materialize） | **忠实实现，已 GPU 验证**（torch 2.6 + flash-attn 2.6，5 chunk：31 模块置 SMA、118 参考帧、future_dropped=0；`memflow_sma`） |
+| **IAMFlow** | **实体感知 active-memory 帧**（每帧带 KV 切片 + 关联实体） | `select_frame_from_chunk`（DiT 注意力 entity_score + 0.3·VLM 视觉分融合；上游函数名保留）+ prompt 边界 `retrieve_initial_frames` 贪心实体覆盖 | 正式 adapter 内自包含 fp8→bf16 反量化和 HF/vLLM 后端 glue：teacher-force 真 latent 逐 segment 前向填 KV/crossattn（**该 segment prompt** 条件化）+ 归档/驱逐 + VLM 帧打分；`compose` 用 LLM **逐 segment 因果**抽实体（不预计算全 prompt）→ `retrieve_initial_frames`；frame_id→源秒登记表 | **忠实实现，已 GPU 验证**（torch 2.5 + flash-attn；15 segment：18 参考帧、segment 9–14 角色复现后正确召回、future_dropped=0） |
 
 各 baseline 所需权重/环境见对应 adapter 模块头注释；运行方式见 `causal/README.md` §运行。
 
@@ -57,7 +57,7 @@
 - **缺口1 已修**：`compress_kv_bank` 的 bank 选择是**文本条件**的。observe 前向现按**该 chunk 的 prompt** 编码 crossattn，文本显著性信号真实。
 - **缺口2 已修**：不再用 recency 占位。`compress_kv_bank` 逐字复制 K/V 块，故用**指纹匹配**把每个存活 bank 块映射回其被提交时的源 latent（逐层 + 投票聚合），与原 Track-A 驱动器 `run_bank_trace.py` 同法。这是 MemFlow 真实的文本显著性选择，非近似。
 - **长视频 RoPE**：按整片时长扩展时序 RoPE 表（精确、非近似），避免超出默认 1024 位置。
-- **验证**：wan2_1 env（torch2.6+flash_attn2.6.3）5 chunk 跑通，base+LoRA 生效（trainable 19.78%），126 参考帧、`future_dropped=0`，检索标记 `memflow_sink+local+kv_bank_fingerprint_trace_on_real_latents`。
+- **验证**：torch 2.6 + flash-attn 2.6，5 chunk 跑通，base+LoRA 生效（trainable 19.78%），126 参考帧、`future_dropped=0`，检索标记 `memflow_sink+local+kv_bank_fingerprint_trace_on_real_latents`。
 - **SMA 变体（`memflow_sma`）**：MemFlow 源码另有 `dynamic_topk_routing_attention`（φ=mean-pool 紧凑描述子的 `φ_q·φ_k` top-3 chunk 路由），由 `SMA` 开关门控、shipped 配置默认关。**写入与 w/o SMA 完全相同，只差读取**。adapter 以 `sma=True` reset 时把所有 self-attn 的 `SMA` 置 True，并 hook 路由记录 φ 选中的历史 chunk（用真段作 query，仅保留早于当前 chunk 的源，因果合法）；因路由是 query 相关的，`compose` 返回的 rec 在 `observe` 内按引用回填（runner 循环后统一 materialize）。5 chunk GPU 验证：31 模块置 SMA、118 参考帧、`future_dropped=0`。打分（judge=qwen3-vl-32b，limit 5）SMA 全面更好：prec 0.44→0.56 / rec 0.67→1.00 / f1 0.62→0.84，帧数 31.5→29.5。
 
 ### IAMFlow —— 路线忠实，但当前实现**有损**，须先补 ⚠️
@@ -73,12 +73,10 @@
 
 | baseline | 权重 | 环境 | 现在能跑吗 |
 |---|---|---|---|
-| **MemStrata（本系统）** | ✅ SAM3 (`facebook/sam3`) + DINOv3 (`facebook/dinov3-vitb16-...`)（`PUBLIC_MODELS_ROOT`）；GroundingDINO 缺 → SAM3-concept-only | ✅ 复用 `helios`（torch2.10；SAM3 走 vendored `sam3_transformers59`(tf5.9) 前置 PYTHONPATH） | **能**（本轮已 GPU 验证：big_buck_bunny name_anchored limit=4） |
-| LongLive-RAG | ✅ 已就位（`wan_models/Wan2.1-T2V-1.3B` + `ae_latent_mem.pt`/`longlive_base.pt`/`longlive_lora.pt`） | 复用 `vace`（torch2.5+einops，仅需 VAE+AE） | **能**（本轮已跑样本） |
-| MemFlow | ✅ `KlingTeam/MemFlow/{base.pt,lora.pt}`（symlink 进 repo） | ✅ 复用 `wan2_1`（+omegaconf/peft） | **能**（本轮已 GPU 验证） |
-| IAMFlow | ✅ `Causal_Video_Generation/IAMFlow/{iamflow_fp8.safetensors,tinyvae.pth}` | ✅ 复用 `vace`（fp8→bf16 反量化）+ 可选 `vllm` 服务 | 待 §3 实体/VLM 接线修复 + 验证（**无需新 env**） |
-| SlotMem | ✅ LoRA/encoder `Causal_Video_Generation/SlotMem/ckpt/{stage1,stage2}/{stage*_high,stage*_low}.pt` + native base `Wan-AI/Wan2.2-I2V-A14B` | `vace`（flash_attn 2.8.3 + torch 2.5.1）；SlotMem 用自带 vendored diffsynth，非 lightx2v | ✅ 已接入：VAE 编码真 segment，选 SlotMem 单 bank timestep 加噪，单次 native DiT 前向注意力探针抽角色 slot，再用 stage2 encoder/writer 写 `RoleWiseSlotMemoryBank`；**正式 TrackA 禁用 distilled/lightx2v Wan2.2**（可加载但烟测画质不可用） |
+| **MemStrata（本系统）** | ✅ SAM3 (`facebook/sam3`) + DINOv3 (`facebook/dinov3-vitb16-...`)（`PUBLIC_MODELS_ROOT`）；GroundingDINO 缺 → SAM3-concept-only | CPython 3.11 + torch；SAM3 走 vendored `sam3_transformers59`(tf5.9) 前置 PYTHONPATH | **能**（本轮已 GPU 验证：big_buck_bunny name_anchored limit=4） |
+| LongLive-RAG | ✅ 已就位（`wan_models/Wan2.1-T2V-1.3B` + `ae_latent_mem.pt`/`longlive_base.pt`/`longlive_lora.pt`） | torch 2.5 + einops（仅需 VAE+AE） | **能**（本轮已跑样本） |
+| MemFlow | ✅ `KlingTeam/MemFlow/{base.pt,lora.pt}`（symlink 进 repo） | torch 2.6 + flash-attn 2.6（+omegaconf/peft） | **能**（本轮已 GPU 验证） |
+| IAMFlow | ✅ `Causal_Video_Generation/IAMFlow/{iamflow_fp8.safetensors,tinyvae.pth}` | torch 2.5 + flash-attn；可选独立 vLLM 进程 | 待 §3 实体/VLM 接线修复 + 验证 |
+| SlotMem | ✅ LoRA/encoder `Causal_Video_Generation/SlotMem/ckpt/{stage1,stage2}/{stage*_high,stage*_low}.pt` + native base `Wan-AI/Wan2.2-I2V-A14B` | torch 2.5 + flash-attn 2.8；SlotMem 用自带 vendored diffsynth，非 lightx2v | ✅ 已接入：VAE 编码真 segment，选 SlotMem 单 bank timestep 加噪，单次 native DiT 前向注意力探针抽角色 slot，再用 stage2 encoder/writer 写 `RoleWiseSlotMemoryBank`；**正式 TrackA 禁用 distilled/lightx2v Wan2.2**（可加载但烟测画质不可用） |
 
-> 权重与环境登记见 [`WEIGHTS.md`](WEIGHTS.md)。**LongLive-RAG、MemFlow 现已端到端 GPU 验证**；IAMFlow 用
-> `vace` 反量化 bf16 跑 DiT（正式 adapter 内自包含），LLM/VLM 走
-> vace HF 或 vllm 服务，无需专用环境；待实体/VLM 接线修复后验证。
+> 权重与环境登记见 [`WEIGHTS.md`](WEIGHTS.md)。**LongLive-RAG、MemFlow 现已端到端 GPU 验证**；IAMFlow 在 adapter 内反量化 bf16 跑 DiT，LLM/VLM 走 HF 或独立 vLLM 服务。

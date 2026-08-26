@@ -52,16 +52,16 @@ H800 uses one GPU per service (`6:8110`), while A800 uses two GPUs per service
 
 ## Environment Mapping
 
-Track B should use the same baseline environments that already passed Track A
-minismoke:
+Use the same library stacks that already passed Track A minismoke. Override the
+interpreter with `--python` / `WAN_PYTHON` if needed (default `python3`).
 
-| system | environment | notes |
+| system | stack | notes |
 |---|---|---|
-| `memstrata` | `helios` | Also needs MemStrata `src` and any vendored perception bundles on `PYTHONPATH`, matching Track A. |
-| `memflow` | `wan2_1` | Torch 2.6 + flash-attn 2.6.3; same env as Track A MemFlow. |
-| `memflow_sma` | `wan2_1` | Same native MemFlow checkout with `model_kwargs.SMA=True`. |
-| `longlive_rag` | `wan2_1` | Same env as Track A LongLive-RAG. |
-| `iamflow` | `vace` | Track A passed with `vace` fp8->bf16 fallback. Full Track B VLM mode needs a working vLLM-backed IAMFlow environment/service; `vace` lacks `vllm`, so smoke-only `no_vlm_hf` runs are recorded separately and must not be reported as full IAMFlow. |
+| `memstrata` | CPython 3.11 + torch; SAM3 vendored bundle on `PYTHONPATH` | Sibling `../MemStrata/src` or `MEMSTRATA_SRC` |
+| `memflow` | torch 2.6 + flash-attn 2.6 | Same as Track A MemFlow |
+| `memflow_sma` | same | Native MemFlow with `model_kwargs.SMA=True` |
+| `longlive_rag` | torch (VAE + AE) | Same as Track A LongLive-RAG |
+| `iamflow` | torch 2.5 + flash-attn; optional vLLM for Qwen | Full Track B VLM mode needs a working vLLM service; `no_vlm_hf` smokes must not be reported as full IAMFlow |
 
 For causal Wan-style runners, keep `--frames-per-segment` block-aligned
 (`39` in the 2026-07-26 smoke) because the native pipelines generate in
@@ -79,7 +79,7 @@ story.
 # On each kml-a800 node that will run IAMFlow workers:
 cd .
 IAMFLOW_SERVICE_GPU=6 \
-IAMFLOW_VLLM_PY=vllm/bin/python \
+IAMFLOW_VLLM_PY=python3 \
 IAMFLOW_LLM_PORT=8100 \
 IAMFLOW_VLM_PORT=8101 \
 bash benchmarks/VMem-Bench/scripts/evaluate_baselines/trackB/baseline_runners/iamflow/launch_vllm_services.sh
@@ -87,7 +87,7 @@ bash benchmarks/VMem-Bench/scripts/evaluate_baselines/trackB/baseline_runners/ia
 source benchmarks/VMem-Bench/outputs/evaluation/trackB/_services/iamflow_vllm/latest/iamflow_service.env
 ```
 
-Then launch `iamflow/run.py` in the normal `vace` worker environment. The native
+Then launch `iamflow/run.py` in the same Python that has IAMFlow + Wan. The native
 IAMFlow LLM/VLM agents read `IAMFLOW_LLM_ENDPOINT` and `IAMFLOW_VLM_ENDPOINT`;
 when unset, they fall back to in-process loading, which is suitable only for tiny
 smoke runs and will be too slow for full Track B.
