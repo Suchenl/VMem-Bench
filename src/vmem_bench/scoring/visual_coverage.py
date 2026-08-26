@@ -739,7 +739,7 @@ def run(movie: Path, system: str, video: Path, out_dir: Path, api: str | PooledJ
 
 
 def main():
-    ap = argparse.ArgumentParser(description="VLM-based visual-coverage scorer (MemStrata v2)")
+    ap = argparse.ArgumentParser(description="VMem-Bench Track A visual-coverage scorer (VLM judge)")
     ap.add_argument("--movie", required=True, type=Path)
     ap.add_argument("--system", required=True, help="visual_selections/<system>.json basename")
     ap.add_argument("--video", required=True, type=Path)

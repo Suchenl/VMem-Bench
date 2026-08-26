@@ -15,8 +15,20 @@ from statistics import mean
 from typing import Any
 
 HERE = Path(__file__).resolve().parent.parent  # trackB root (scripts/ lives one level down)
-GT_DIR = HERE / "gt"
-SUT_DIR = HERE / "sut_prompts"
+
+
+def _locale_root() -> Path:
+    if (HERE / "gt").is_dir() or (HERE / "sut_prompts").is_dir():
+        return HERE
+    for loc in (HERE / "en", HERE / "zh"):
+        if (loc / "gt").is_dir() or (loc / "sut_prompts").is_dir():
+            return loc
+    return HERE
+
+
+_PACK = _locale_root()
+GT_DIR = _PACK / "gt"
+SUT_DIR = _PACK / "sut_prompts"
 
 PROBE_MIN = {
     "lookalike_disambiguation": 5,

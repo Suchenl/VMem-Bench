@@ -49,8 +49,20 @@ from pathlib import Path
 from typing import Any
 
 HERE = Path(__file__).resolve().parent.parent  # trackB root (scripts/ lives one level down)
-SRC_DIR = HERE / "gt_source"
-OUT_DIR = HERE / "gt"
+
+
+def _locale_root() -> Path:
+    if (HERE / "gt_source").is_dir() or (HERE / "gt").is_dir():
+        return HERE
+    for loc in (HERE / "en", HERE / "zh"):
+        if (loc / "gt_source").is_dir() or (loc / "gt").is_dir():
+            return loc
+    return HERE
+
+
+_PACK = _locale_root()
+SRC_DIR = _PACK / "gt_source"
+OUT_DIR = _PACK / "gt"
 
 DEFAULT_GAP_LONG = 30
 DEFAULT_AVOID_WINDOW = 4

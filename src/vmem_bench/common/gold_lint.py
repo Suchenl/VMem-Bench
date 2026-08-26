@@ -290,7 +290,7 @@ def write_lint_report(violations: list[LintViolation], out: Path, *, title: str)
 
 def main() -> int:
     import argparse
-    parser = argparse.ArgumentParser(description="Lint MemStrata gold or build checkpoint annotations.")
+    parser = argparse.ArgumentParser(description="Lint VMem-Bench gold or build checkpoint annotations.")
     parser.add_argument("--movie-dir", type=Path, required=True)
     parser.add_argument("--checkpoint", action="store_true",
                         help="lint tmp/checkpoint*.json instead of gold/")
@@ -305,7 +305,7 @@ def main() -> int:
     payload = {"summary": summary, "violations": [v.to_dict() for v in violations]}
     print(json.dumps(payload, ensure_ascii=False, indent=2))
     if args.out:
-        title = f"MemStrata {'Checkpoint' if args.checkpoint else 'Gold'} Lint"
+        title = f"VMem-Bench {'Checkpoint' if args.checkpoint else 'Gold'} Lint"
         write_lint_report(violations, args.out, title=title)
     return 1 if not summary["ok"] else 0
 

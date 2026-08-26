@@ -3,7 +3,7 @@
   "track": "B",
   "freeze_policy": {
     "meaning": "Rows listed under frozen_samples are immutable official TrackB gold artifacts. Any change requires adding a new freeze_version rather than editing in place.",
-    "sut_contract": "SUTs read only assets/trackB/sut_prompts/*.json. GT files are scoring-only.",
+    "sut_contract": "SUTs read only assets/trackB/en/sut_prompts/*.json (or zh/). GT files are scoring-only.",
     "regeneration": "GT must be regenerated from gt_source with complete_gt.py; SUT prompts must be regenerated from GT with get_sut_prompts.py and match the recorded hashes."
   },
   "frozen_samples": [
@@ -15,24 +15,24 @@
       "date_utc": "2026-07-26",
       "files": {
         "gt_source": {
-          "path": "assets/trackB/gt_source/0001_lighthouse_keeper.json",
-          "sha256": "72e5a39b9daa7c0553446729d24faa860fa24b5bbecd7d9c0b124aed2ebfeb92"
+          "path": "assets/trackB/en/gt_source/0001_lighthouse_keeper.json",
+          "sha256": "3e40c8583ee3f537008571a4cba60d0a0ccadfd14cfd99bc47a13b4a2a582918"
         },
         "gt": {
-          "path": "assets/trackB/gt/0001_lighthouse_keeper.json",
-          "sha256": "a04c9730462f172bd83e8969ddaac4e47ccde1dbe5ea2c3485bc553b4fccdb2c"
+          "path": "assets/trackB/en/gt/0001_lighthouse_keeper.json",
+          "sha256": "1e61664acf18a0535c3072768f116a0d6a1b95a326b0fbce611cb980e4156114"
         },
         "sut_prompt_name_anchored": {
-          "path": "assets/trackB/sut_prompts/0001_lighthouse_keeper_name_anchored.json",
-          "sha256": "a96da30f09aead1657738358e584c0a43119346af4165109da0e2d329c203197"
+          "path": "assets/trackB/en/sut_prompts/0001_lighthouse_keeper_name_anchored.json",
+          "sha256": "8d00e75bdb1192c313699ed25276afa70cf62f5e27f1552b114063e2818dc9f6"
         },
         "complete_gt_script": {
-          "path": "assets/trackB/complete_gt.py",
-          "sha256": "a4ccbdb3d46e786d9ffb495ae88d489cba12b114f5ca2d0af80405fc18b8f985"
+          "path": "assets/trackB/scripts/complete_gt.py",
+          "sha256": "94cef117ec11037d78f714f3fa1784b99faca6a3d1713031861a4331eda5aa6c"
         },
         "get_sut_prompts_script": {
-          "path": "assets/trackB/get_sut_prompts.py",
-          "sha256": "18d40ae5fb8237fa23c2a5736031e086c54133af6af746218c4db6bb608d5ac8"
+          "path": "assets/trackB/scripts/get_sut_prompts.py",
+          "sha256": "9e8e85ee970e25b82e1276e910adc97fefd20f19364b4793a59b8bf1d14adeab"
         }
       },
       "audit": {
