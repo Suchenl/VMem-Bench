@@ -94,12 +94,12 @@
 
 **步骤（在 KML 节点上）**
 
-1. 起 vLLM 服务（从 `vllm` env，DiT 仍留在 `vace` env）：
+1. 起 vLLM 服务（DiT 仍在训练 Python 进程里）：
    ```bash
    bash scripts/baselines/iamflow/servers/serve_iamflow_vllm.sh 0        # LLM :8100 + VLM :8101 同卡
    curl -s http://127.0.0.1:8100/v1/models             # ready 后再跑
    ```
-2. 单卡串行（`vace` python）跑全部未完成影片：
+2. 单卡串行跑全部未完成影片：
    ```bash
    CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src \
      python3 \
@@ -115,7 +115,7 @@
        --submit kml-a100:1:0 kml-a100:2:0
    ```
 
-忠实性保证：DiT/VAE 始终在本地 `vace` 进程跑（与已冻结的 BBB trace KV 数值一致），
+忠实性保证：DiT/VAE 始终在本地训练进程跑（与已冻结的 BBB trace KV 数值一致），
 vLLM 只承接 IAMFlow 本就用 vLLM 的 LLM/VLM（同权重、贪心解码）；不 truncate、不换小
 模型、不用 budget 代理。
 

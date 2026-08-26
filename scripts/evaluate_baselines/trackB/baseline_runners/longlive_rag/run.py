@@ -25,7 +25,7 @@ from common import (  # noqa: E402
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser, default_system="longlive_rag")
-    parser.set_defaults(python="${CONDA_ENVS_ROOT}/wan2_1/bin/python")
+    parser.set_defaults(python="python3")
     parser.add_argument("--config-path", type=Path, default=None)
     parser.add_argument("--frames-per-segment", type=int, default=39)
     parser.add_argument("--fps", type=int, default=16)

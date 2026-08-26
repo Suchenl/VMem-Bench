@@ -36,7 +36,7 @@ Track A 评测「视觉记忆的检索质量」。**旧的 gold-replay 协议已
   `char_latent_boxes` 仅为可选精修）。因此**没有任何 chunk 需要真正的多步生成**。
 
 > **SlotMem 现状：已接入 TrackA adapter。** adapter 使用 native `Wan2.2-I2V-A14B`
-> + SlotMem 自己的 stage1/stage2 LoRA/encoder，在 `vace` 环境（flash_attn 2.8.3 + torch 2.5.1）
+> + SlotMem 自己的 stage1/stage2 LoRA/encoder，在 torch 2.5 + flash-attn 2.8
 > 里执行：VAE 编码真 segment → 选 SlotMem 单 bank timestep 加噪 → 单次 native DiT 前向带注意力探针
 > → stage2 slot encoder/writer 写 `RoleWiseSlotMemoryBank`。**TrackA 正式实验禁止使用 distilled
 > Wan2.2/lightx2v 版本**：distilled + SlotMem LoRA 虽可加载并生成视频，但烟测视觉质量不稳定（涂抹、
@@ -100,9 +100,9 @@ Track A 的规范输入模式**只有两个**：`name_anchored` 与 `description
 ## 运行
 
 ```bash
-# 每个 baseline 用它自己的 conda env（env 名见各 adapter 模块头注释）
-PY=${CONDA_ENVS_ROOT}/<baseline_env>/bin/python
-cd benchmarks/VMem-Bench/scripts/evaluate_baselines/trackA/baseline_adapters/causal
+# 每个 baseline 用装好对应依赖的 Python（见各 adapter 模块头注释）
+PY=python3
+cd scripts/evaluate_baselines/trackA/baseline_adapters/causal
 
 # Stage 1：驱动一个 baseline 跑完一部电影（name_anchored 主表）
 $PY runner.py --adapter longlive_rag \

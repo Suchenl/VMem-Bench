@@ -14,7 +14,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # servers/start_annotation_vllm.sh -> servers -> vmem_bench -> scripts -> MemStrata
 MEMSTRATA_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
 SRC_ROOT="${MEMSTRATA_ROOT}/src"
-VLLM_ENV="${VLLM_ENV:-${CONDA_ENVS_ROOT}/vllm}"
+VLLM_ENV="${VLLM_ENV:-}"
 MODEL_SIZE="${MODEL_SIZE:-8B}"
 case "${MODEL_SIZE}" in
   8B|8b)
@@ -35,9 +35,11 @@ esac
 
 [[ -d "${MODEL_PATH}" ]] || { echo "model path missing: ${MODEL_PATH}" >&2; exit 1; }
 
-export PATH="${VLLM_ENV}/bin:${PATH}"
+if [[ -n "${VLLM_ENV:-}" && -d "${VLLM_ENV}/bin" ]]; then
+  export PATH="${VLLM_ENV}/bin:${PATH}"
+fi
 _nvjitlink_lib="$(
-  "${VLLM_ENV}/bin/python" - <<'PY'
+  "${PYTHON_BIN:-python3}" - <<'PY'
 import pathlib, sys
 site = pathlib.Path(sys.prefix) / "lib" / f"python{sys.version_info.major}.{sys.version_info.minor}" / "site-packages" / "nvidia" / "nvjitlink" / "lib"
 print(site if site.is_dir() else "")
@@ -53,9 +55,9 @@ export PYTHONUNBUFFERED=1
 export PYTHONPATH="${SRC_ROOT}${PYTHONPATH:+:${PYTHONPATH}}"
 export SERVED_MODEL_NAME
 
-ALLOWED_LOCAL_MEDIA_PATH="${ALLOWED_LOCAL_MEDIA_PATH:-${ALLOWED_LOCAL_MEDIA_PATH:-.}}"
+ALLOWED_LOCAL_MEDIA_PATH="${ALLOWED_LOCAL_MEDIA_PATH:-.}"
 # vLLM accepts a SINGLE directory. Comma-separated values are treated as one
-# nonexistent path (e.g. "${ALLOWED_LOCAL_MEDIA_PATH:-.},/tmp") and break all file:// video reviews.
+# nonexistent path (e.g. "/data,/tmp") and break all file:// video reviews.
 if [[ "${ALLOWED_LOCAL_MEDIA_PATH}" == *","* ]]; then
   echo "WARNING: ALLOWED_LOCAL_MEDIA_PATH must be one directory; got '${ALLOWED_LOCAL_MEDIA_PATH}'. Using first entry." >&2
   ALLOWED_LOCAL_MEDIA_PATH="${ALLOWED_LOCAL_MEDIA_PATH%%,*}"
@@ -64,7 +66,7 @@ if [[ ! -d "${ALLOWED_LOCAL_MEDIA_PATH}" ]]; then
   echo "ALLOWED_LOCAL_MEDIA_PATH is not a directory: ${ALLOWED_LOCAL_MEDIA_PATH}" >&2
   exit 1
 fi
-PYTHON_BIN="${PYTHON_BIN:-${VLLM_ENV}/bin/python}"
+PYTHON_BIN="${PYTHON_BIN:-python3}"
 
 VLLM_CMD=(
   vllm serve "${MODEL_PATH}"

@@ -1,6 +1,6 @@
 # baseline_adapters — baseline 权重与环境登记
 
-> 本文件记录各因果 baseline 的**权重绝对路径**、共享 backbone、以及可用 conda env。
+> 本文件记录各因果 baseline 的**权重绝对路径**、共享 backbone、以及推荐的 Python 依赖栈。
 > 采集日期 2026-07-24。改动权重位置时更新此处，不要在 adapter 里硬编码散落路径。
 
 ## 共享 backbone / 辅助模型
@@ -24,15 +24,15 @@
 | MemStrata（本系统，感知权重） | `${PUBLIC_MODELS_ROOT}`（`PUBLIC_MODELS_ROOT`） | SAM3：`facebook/sam3`；DINOv3：`facebook/dinov3-vitb16-pretrain-lvd1689m`；GroundingDINO：**缺**（`IDEA-Research/*` 为空，adapter 走 SAM3-concept-only，`detector=None`） |
 | （备）DecMem | `${PUBLIC_MODELS_ROOT}/KlingTeam/DecMem` | 需 H100/WorldMem，暂不接 |
 
-## conda env 映射
+## Python / library mapping
 
-| baseline | env | 关键版本 | 备注 |
-|---|---|---|---|
-| LongLive-RAG | `vace` | torch2.5.1+cu124, einops | 仅用 VAE+AE，绕开 DiT/flash_attn，已跑通 |
-| MemFlow | `wan2_1` | torch2.6.0+cu124, flash_attn2.6.3 | 复用现有 env（README 标 2.8，实测 2.6+flash 可跑 forward）；`wan21-dr`(flash2.7.4) 备选 |
-| IAMFlow | `vace`（DiT/VAE/LLM/VLM，HF 后端）+ 可选 `vllm`（offload LLM/VLM 服务） | vace torch2.5.1；vllm 起 Qwen3-4B/Qwen3-VL-2B | **无需新 env**：`iamflow_fp8.safetensors` 在正式 adapter 内反量化成 bf16，可在 SM80 上跑。README 的 torch2.9.1+vllm0.16+flash_attn 是上游建议，本仓库不采用 |
-| SlotMem | `vace`（flash_attn 2.8.3 + torch 2.5.1；SlotMem 用自带 vendored diffsynth，非 lightx2v。`slotmem` 环境 torch 2.7.1 但未构建 flash_attn） | 见 repo `requirements_slotmem.txt`（`flash_attn==2.8.0.post2`） | **已接入**：adapter VAE 编码真 segment，选 SlotMem 单 bank timestep 加噪，单次 native DiT 前向注意力探针抽角色 slot，再用 stage2 encoder/writer 写 `RoleWiseSlotMemoryBank`。TrackA 正式实验禁止 distilled/lightx2v Wan2.2。 |
-| MemStrata（本系统） | `helios`（py3.11, torch2.10+cu128, transformers 5.3；SAM3 走 vendored `models/vendor/sam3_transformers59`(tf5.9) 前置 PYTHONPATH） | SAM3 + DINOv3 in-process | **已 GPU 验证**（big_buck_bunny name_anchored limit=4，本地 gpu0）：SAM3-concept + DINOv3 感知建 AssetBank，IntentInterpreter+compose 读取，产出 6 参考帧、future_dropped=0 |
+| baseline | stack | 备注 |
+|---|---|---|
+| LongLive-RAG | torch 2.5 + einops | 仅用 VAE+AE，绕开 DiT/flash_attn |
+| MemFlow | torch 2.6 + flash-attn 2.6 | 已验证 forward |
+| IAMFlow | torch 2.5 + flash-attn；可选独立 vLLM 进程跑 Qwen | `iamflow_fp8.safetensors` 在 adapter 内反量化成 bf16，可在 SM80 上跑 |
+| SlotMem | torch 2.5 + flash-attn 2.8（vendored diffsynth，非 lightx2v） | TrackA 正式实验禁止 distilled/lightx2v Wan2.2 |
+| MemStrata | CPython 3.11 + torch；SAM3 vendored `models/vendor/sam3_transformers59` | GPU 验证：BBB name_anchored limit=4 |
 
 ## backbone/ckpt 接线方式（保持 vendored repo 零改动）
 
@@ -45,7 +45,7 @@
 - MemStrata: 无需 vendored symlink；感知权重按 `PUBLIC_MODELS_ROOT` 解析。跑法（本地 gpu0）：
 
 ```bash
-SAM3=${MONTAGE_ROOT}/models/vendor/sam3_transformers59
+SAM3=./models/vendor/sam3_transformers59
 SRC=./src
 cd benchmarks/VMem-Bench/scripts/evaluate_baselines/trackA/baseline_adapters/causal
 PUBLIC_MODELS_ROOT=${PUBLIC_MODELS_ROOT} \
@@ -63,27 +63,26 @@ python3 -u runner.py \
 ## 打分 judge（Qwen3-VL-32B）—— 已接通并验证
 
 权重：`${PUBLIC_MODELS_ROOT}/Qwen/Qwen3-VL-32B-Instruct`
-env：`vllm`（torch2.10+vllm0.16.1rc1）。`scoring.visual_coverage` 默认 `127.0.0.1:8110`、model `qwen3-vl-32b`。
+栈：torch + vLLM。`scoring.visual_coverage` 默认 `127.0.0.1:8110`、model `qwen3-vl-32b`。
 
 **起服务**（共享节点，加载 64GB 权重时若被外部任务抢卡会 OOM，重试即可；用 `nvidia-smi` 选空闲卡）：
 
 ```bash
-VLLM=${CONDA_ENVS_ROOT}/vllm
-NVJIT=$($VLLM/bin/python -c "import pathlib,sys;p=pathlib.Path(sys.prefix)/'lib'/f'python{sys.version_info.major}.{sys.version_info.minor}'/'site-packages'/'nvidia'/'nvjitlink'/'lib';print(p if p.is_dir() else '')")
+NVJIT=$(python3 -c "import pathlib,sys;p=pathlib.Path(sys.prefix)/'lib'/f'python{sys.version_info.major}.{sys.version_info.minor}'/'site-packages'/'nvidia'/'nvjitlink'/'lib';print(p if p.is_dir() else '')")
 CUDA_VISIBLE_DEVICES=<free_gpu> LD_LIBRARY_PATH=$NVJIT NO_PROXY=localhost,127.0.0.1,0.0.0.0 PYTORCH_ALLOC_CONF=expandable_segments:True \
-$VLLM/bin/vllm serve $Qwen3-VL-32B-Instruct \
+python3 -m vllm.entrypoints.openai.api_server --model $Qwen3-VL-32B-Instruct \
   --served-model-name qwen3-vl-32b --host 0.0.0.0 --port 8110 --tensor-parallel-size 1 \
   --max-model-len 28672 --gpu-memory-utilization 0.92 \
-  --limit-mm-per-prompt '{"image":96,"video":1}' --allowed-local-media-path ${ALLOWED_LOCAL_MEDIA_PATH:-.} --trust-remote-code
+  --limit-mm-per-prompt '{"image":96,"video":1}' --allowed-local-media-path /data --trust-remote-code
 ```
 
 - `--limit-mm-per-prompt image=96`：大足迹系统（MemFlow 每 segment 可达 40+ 参考图）需要更高的单请求图上限（默认 24 不够）。
 - `--max-model-len 28672`：0.92 显存利用率下 KV cache 可容纳的稳妥上限（32768 会 KV 不足）。
 
-**跑打分**（env `vace`，含 `vmem_bench`；`NO_PROXY` 直连本地服务）：
+**跑打分**（`NO_PROXY` 直连本地 judge）：
 
 ```bash
-cd benchmarks/MemStrata
+cd VMem-Bench
 NO_PROXY=localhost,127.0.0.1 CUDA_VISIBLE_DEVICES=<free_gpu> PYTHONPATH=src \
 python3 -m vmem_bench.scoring.visual_coverage \
   --movie data/BlenderOpenMovies/big_buck_bunny --system <memflow|longlive_rag|...> \
@@ -101,7 +100,7 @@ python3 -m vmem_bench.scoring.visual_coverage \
 - MemFlow (w/o SMA)（5 segment）：prec 0.44 / rec 0.67 / f1 0.62 / redun_vlm 0.62 / redun_sim 0.79 / eff 0.04 / budget 31.5
 - MemFlow (with SMA)（5 segment）：prec 0.56 / rec 1.00 / f1 0.84 / redun_vlm 0.88 / redun_sim 0.83 / eff 0.06 / budget 29.5
   - **两变体写入完全相同**（`compress_kv_bank` 文本显著性 top-k），**只差读取**：w/o SMA 用整块 bank；with SMA 用 φ 紧凑描述子路由 top-3 chunk（`dynamic_topk_routing_attention`，`memflow.py` 的 `sma` 开关）。φ 路由聚焦更相关的历史块 → 精度/召回/F1 更高、帧数略少。adapter 名：`memflow` / `memflow_sma`。
-- IAMFlow（15 segment，6 个有召回；vace env，无需新环境）：prec 1.00 / rec 0.22 / f1 0.65 / redun_vlm 0.04 / redun_sim 0.72 / eff 0.96 / budget 3.0（有召回段均值）/ 1.2（全段均值）
+- IAMFlow（15 segment，6 个有召回）：prec 1.00 / rec 0.22 / f1 0.65 / redun_vlm 0.04 / redun_sim 0.72 / eff 0.96 / budget 3.0（有召回段均值）/ 1.2（全段均值）
   - rec 偏低是因为前 9 个 chunk 无角色复现、召回=0 被计入 15 块均值；仅看有召回块 rec 明显更高。IAMFlow 特点：**少而准、几乎零冗余**（与 MemFlow 的大足迹高冗余正相反）。
 
 **两种冗余口径（redun_vlm vs redun_sim）**：

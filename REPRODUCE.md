@@ -99,3 +99,16 @@ python scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py --he
 | `VMEM_KEEPALIVE_STATUS_DIR` | 仅内部 GPU 保活；公开复现不要设 |
 
 未设置 `PUBLIC_MODELS_ROOT` 时不要跑需要 SAM3/VLM 的 adapter。
+
+## Citation
+
+```bibtex
+@article{chen2026memstrata,
+  title={Stratifying and Benchmarking Long-Range Memory for Causal Long Video Generation},
+  author={Chen, Yuzhuo and Shi, Huafeng and Wang, Xinyu and Wang, Yucheng and Hong, Haoqin and Zhang, Guoxin and Ma, Zehua},
+  year={2026}
+}
+```
+
+See [`CITATION.cff`](CITATION.cff).
+

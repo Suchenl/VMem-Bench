@@ -227,7 +227,7 @@ LSMDC: ${VMEM_DATASETS_ROOT}/LSMDC/LSMDC_Videos_Stitched
 
 ## 附录 A：解释器
 
-本机没有裸 `python`，仓库根 `.venv` 软链当前是坏的。用任一装好依赖的 conda env（如 `vace`，与 scorer 默认 ffmpeg 同 env）：
+用任一装好依赖的 Python（与 scorer 同一解释器即可，ffmpeg 需在 PATH 上）：
 
 ```bash
 PY=python3

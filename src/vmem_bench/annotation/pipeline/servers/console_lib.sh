@@ -22,19 +22,6 @@ if [[ -z "${MEMSTRATA_NODES_TSV:-}" ]]; then
   unset _workspace_root _nodes_candidate
 fi
 PYTHON_BIN="${PYTHON_BIN:-python3}"
-# Prefer the F3GS env used by this machine's annotation console when unset/default.
-if [[ "${PYTHON_BIN}" == "python3" || "${PYTHON_BIN}" == "python" ]]; then
-  for _py in \
-    "${CONDA_ENVS_ROOT}/F3GS/bin/python" \
-    "${HOME}/miniconda3/envs/F3GS/bin/python"
-  do
-    if [[ -x "${_py}" ]]; then
-      PYTHON_BIN="${_py}"
-      break
-    fi
-  done
-  unset _py
-fi
 BACKEND_HOST="${BACKEND_HOST:-127.0.0.1}"
 BACKEND_PORT="${BACKEND_PORT:-7864}"
 FRONTEND_HOST="${FRONTEND_HOST:-0.0.0.0}"
