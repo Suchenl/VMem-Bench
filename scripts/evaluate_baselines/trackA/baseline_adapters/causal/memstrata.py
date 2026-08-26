@@ -38,7 +38,7 @@ Protocol-faithfulness notes
 
 Env: run the runner under a Python that has torch + transformers (>=5.9 for SAM3, via
 the vendored ``models/vendor/sam3_transformers59`` bundle prepended on PYTHONPATH) and
-can import ``memstrata`` (``methods/MemStrata/src`` on PYTHONPATH, post-split). ``helios``
+can import ``memstrata`` (sibling ``../MemStrata/src``, or ``MEMSTRATA_SRC``). ``helios``
 (py3.11, torch 2.10) matches. Weights resolve under ``PUBLIC_MODELS_ROOT`` (SAM3 at
 ``facebook/sam3``, DINOv3 at ``facebook/dinov3-vitb16-pretrain-lvd1689m``).
 Run via runner.py --adapter memstrata.
@@ -54,11 +54,10 @@ from pathlib import Path
 from typing import Any
 
 from contract import ComposeRequest, MovieContext, RetrievedItem, RetrievedMemory, SegmentObservation
+from _local_roots import find_memstrata_src
 
-# baseline_adapters live at scripts/evaluate_baselines/trackA/baseline_adapters/causal/;
-# import the MemStrata method (post-split) from <repo>/methods/MemStrata/src (parents[7]).
-_SRC = Path(__file__).resolve().parents[7] / "methods" / "MemStrata" / "src"
-_DEFAULT_PUBLIC_MODELS_ROOT = "${PUBLIC_MODELS_ROOT}"
+_SRC = find_memstrata_src()
+_DEFAULT_PUBLIC_MODELS_ROOT = ""
 # WeDetect-Ref is the DEFAULT crop backend (describe->bbox); the isolated service normally
 # listens here. Override with MEMSTRATA_WEDETECT_URL; set it to "" only to force it off.
 _DEFAULT_WEDETECT_URL = "http://127.0.0.1:8710"
@@ -107,9 +106,11 @@ class MemStrataAdapter:
         decompose_frames: int = 3,
         decompose_fps: float = 2.0,
     ) -> None:
-        self.public_models_root = str(public_models_root or os.environ.get(
-            "PUBLIC_MODELS_ROOT", _DEFAULT_PUBLIC_MODELS_ROOT))
-        os.environ.setdefault("PUBLIC_MODELS_ROOT", self.public_models_root)
+        self.public_models_root = str(
+            public_models_root or os.environ.get("PUBLIC_MODELS_ROOT") or ""
+        )
+        if self.public_models_root:
+            os.environ.setdefault("PUBLIC_MODELS_ROOT", self.public_models_root)
         self.ffmpeg = ffmpeg
         self.device = str(device)
         self.enable_perception = bool(enable_perception)

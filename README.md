@@ -1,12 +1,29 @@
 # VMem-Bench
 
-Memory-aware benchmark for **causal long-video generation**.
+# Getting started
 
-- Code: this repository (`vmem_bench`)
-- Gold / prompts (no source videos): [huggingface.co/datasets/Suchenl/VMem-Bench](https://huggingface.co/datasets/Suchenl/VMem-Bench)
-- Method under test (one SUT among others): [github.com/Suchenl/MemStrata](https://github.com/Suchenl/MemStrata)
+Clone **next to** [MemStrata](https://github.com/Suchenl/MemStrata) (the adapter looks in `../MemStrata/src`):
 
-`main` is the production tree. `paper-reproduction` is a distinct Track A Stage-1 freeze (internal `VMem-Track-A-MemStrata` @ `51be2914`); it is not `main`. Track B paper tables were scored on later code — see that branch's `REPRODUCE.md`.
+```bash
+git clone https://github.com/Suchenl/MemStrata.git
+git clone https://github.com/Suchenl/VMem-Bench.git
+cd VMem-Bench
+python -m pip install -e ".[dev]"
+python scripts/doctor.py
+python -m pytest -q
+```
+
+`doctor.py` prints the exact next command for anything missing (ffmpeg, sibling MemStrata, BBB video, SAM3).
+
+```bash
+bash scripts/prepare_blender.sh    # official BBB 720p; gold is already in assets/trackA/
+# Track A Stage-1 smoke (needs PUBLIC_MODELS_ROOT + GPU perception):
+bash scripts/run_tracka_smoke.sh
+```
+
+Full gold/prompts (no videos): `huggingface-cli download Suchenl/VMem-Bench --repo-type dataset --local-dir ./VMem-Bench-data`
+
+`main` is production. `paper-reproduction` is the Track A Stage-1 freeze. See [`REPRODUCE.md`](REPRODUCE.md).
 
 ## What it measures
 

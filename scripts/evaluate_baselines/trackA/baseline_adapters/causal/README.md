@@ -52,14 +52,13 @@ runner.py  ──每 segment 时间序──▶  adapter.compose(prompt)      �
 ## 运行
 
 ```bash
-# 每个 baseline 用它自己的 env 起（env 名见各 adapter 模块头注释）
-PY=<baseline_env>/bin/python
-cd benchmarks/VMem-Bench/scripts/evaluate_baselines/trackA/baseline_adapters/causal
-$PY runner.py --adapter longlive_rag \
+cd scripts/evaluate_baselines/trackA/baseline_adapters/causal
+python runner.py --adapter memstrata \
   --movie-dir ../../../../../assets/trackA/BlenderOpenMovies/big_buck_bunny --limit 5
-# 产物：outputs/evaluation/trackA/<system>/<dataset>/<movie>/visual_selections/<adapter>.json（+ _ref_frames/ 切出的真帧）
-# 之后照常跑 scoring.visual_coverage --system <adapter>
 ```
+
+Or from the repo root: `bash scripts/run_tracka_smoke.sh` (runs `scripts/doctor.py` first).
+MemStrata is resolved from `../MemStrata/src` or `MEMSTRATA_SRC`.
 
 ## runner 的批量保护（所有因果 baseline 共用）
 
