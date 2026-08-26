@@ -7,7 +7,7 @@
 | Branch | Meaning |
 |---|---|
 | `main` | Production harness. May move. |
-| `paper-reproduction` | Intended freeze for paper metrics. **Currently the same commit as `main`** (first public snapshot). |
+| `paper-reproduction` | Track A Stage-1 freeze (internal `VMem-Track-A-MemStrata` @ `51be2914`). Not `main`. Track B paper tables used later code; that branch does not claim those numbers. |
 
 ## Track A (retrieval / visual coverage)
 

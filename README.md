@@ -6,7 +6,7 @@ Memory-aware benchmark for **causal long-video generation**.
 - Gold / prompts (no source videos): [huggingface.co/datasets/Suchenl/VMem-Bench](https://huggingface.co/datasets/Suchenl/VMem-Bench)
 - Method under test (one SUT among others): [github.com/Suchenl/MemStrata](https://github.com/Suchenl/MemStrata)
 
-`main` is the production tree. `paper-reproduction` freezes the paper-metric snapshot (currently the same commit as the first public `main`).
+`main` is the production tree. `paper-reproduction` is a distinct Track A Stage-1 freeze (internal `VMem-Track-A-MemStrata` @ `51be2914`); it is not `main`. Track B paper tables were scored on later code — see that branch's `REPRODUCE.md`.
 
 ## What it measures
 
