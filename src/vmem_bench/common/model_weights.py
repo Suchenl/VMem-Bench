@@ -1,8 +1,8 @@
-"""Weight-path resolution for vmem_bench (self-contained copy, principle #7).
+"""Weight-path resolution for vmem_bench (self-contained; principle #7).
 
-Weights live under the repo's ``models/model_weights`` (override with
-``MONTAGE_WEIGHTS_ROOT``); shared public checkpoints resolve through
-``PUBLIC_MODELS_ROOT``. Adjust on standalone release.
+Local caches live under this checkout's ``models/model_weights`` (override with
+``MONTAGE_WEIGHTS_ROOT``). Shared public checkpoints resolve through
+``PUBLIC_MODELS_ROOT``; that env var is required, weights are not in git.
 """
 
 from __future__ import annotations
@@ -12,24 +12,17 @@ from pathlib import Path
 
 
 def repo_root() -> Path:
-    """Montage monorepo root (or MemStrata standalone root after split).
-
-    Nested ``benchmarks/MemStrata/AGENTS.md`` must not win: a previous bug also
-    mkdir'd ``benchmarks/MemStrata/models/model_weights``, which would otherwise
-    keep stealing HF hub resolution away from Montage ``models/model_weights/hub``.
-    """
+    """This VMem-Bench checkout (directory that owns ``src/vmem_bench``)."""
     current = Path(__file__).resolve()
     for parent in current.parents:
-        if (parent / "src" / "montage").is_dir() and (parent / "models" / "model_weights").is_dir():
-            return parent
-    for parent in current.parents:
-        if (parent / ".git").exists() and (parent / "models" / "model_weights").is_dir():
+        if (parent / "src" / "vmem_bench").is_dir() and (
+            (parent / "AGENTS.md").is_file() or (parent / ".git").exists()
+        ):
             return parent
     for parent in current.parents:
         if (parent / "AGENTS.md").is_file() or (parent / ".git").exists():
             return parent
-    # .../benchmarks/MemStrata/src/vmem_bench/common/model_weights.py -> Montage
-    return current.parents[5]
+    return current.parents[3]
 
 
 def weights_root() -> Path:

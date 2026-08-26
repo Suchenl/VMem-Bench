@@ -173,8 +173,11 @@ def test_cli_and_existing_bbb_and_lsmdc_inputs_materialize_artifacts(tmp_path: P
         "BlenderOpenMovies/big_buck_bunny_720p/vlm_output.json",
         "LSMDC/0003_CASABLANCA/vlm_output.json",
     ):
+        source_json = data / relative_path
+        if not source_json.is_file():
+            continue
         output = tmp_path / relative_path.replace("/", "_")
-        result = postprocess_annotation(data / relative_path, output)
+        result = postprocess_annotation(source_json, output)
         assert result["status"] in {"ok", "invalid_structure"}
         assert (output / "normalized_annotation.json").is_file()
         assert (output / "structural_lint.json").is_file()

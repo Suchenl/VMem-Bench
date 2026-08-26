@@ -14,8 +14,11 @@ DEFAULT_MODEL_SUBDIR = "facebook/dinov3-vits16-pretrain-lvd1689m"
 class DinoV3Embedder:
     def __init__(self, model_path: str | None = None, *, device: str | None = None) -> None:
         if model_path is None:
-            local = public_models_root() / DEFAULT_MODEL_SUBDIR
-            model_path = str(local) if local.is_dir() else DEFAULT_MODEL_SUBDIR
+            try:
+                local = public_models_root() / DEFAULT_MODEL_SUBDIR
+                model_path = str(local) if local.is_dir() else DEFAULT_MODEL_SUBDIR
+            except RuntimeError:
+                model_path = DEFAULT_MODEL_SUBDIR
         self.model_path = model_path
         self._device = device
         self._model = None

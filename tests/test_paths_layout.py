@@ -18,7 +18,7 @@ from vmem_bench.common.paths import (
 SCRIPT = (
     Path(__file__).resolve().parents[1]
     / "scripts"
-    / "vmem_bench"
+    / "get_trackA_assets"
     / "maintenance"
     / "migrate_flat_layout.py"
 )
