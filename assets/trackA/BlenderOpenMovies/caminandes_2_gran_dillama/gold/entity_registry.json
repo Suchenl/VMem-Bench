@@ -1,0 +1,313 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "caminandes_2_gran_dillama",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "d73a251e7fe1ab39",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "Llama",
+      "description": "橙棕色的动画美洲驼，有着超大的白色眼睛、长长的脖子和稀疏的皮毛。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          7,
+          34
+        ],
+        [
+          42,
+          74
+        ],
+        [
+          77,
+          88
+        ],
+        [
+          93,
+          118
+        ],
+        [
+          129,
+          135
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 7.0,
+      "last_frame": null,
+      "last_seconds": 135.0,
+      "screen_time_seconds": 101.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 11.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c008_char_001",
+          "chunk_id": 8,
+          "description": "appearance_changed: Fur becomes singed and darker after electric shock",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 65.0
+        },
+        {
+          "event_id": "evt_c012_char_001.1",
+          "chunk_id": 12,
+          "description": "appearance_changed: Fur is heavily charred and matted after night-time electrocution",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 102.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "Barbed Wire Fence",
+      "description": "带刺铁丝绳的质朴木柱栅栏。",
+      "first_chunk": 3,
+      "presence_spans": [
+        [
+          21,
+          34
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 21.0,
+      "last_frame": null,
+      "last_seconds": 34.0,
+      "screen_time_seconds": 13.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c003",
+          "chunk_id": 3,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "Electric Fence",
+      "description": "金属柱栅栏，配有水平绝缘线、红色绝缘体、警示灯（橙色/蓝色）和控制箱。",
+      "first_chunk": 5,
+      "presence_spans": [
+        [
+          42,
+          74
+        ],
+        [
+          77,
+          88
+        ],
+        [
+          93,
+          118
+        ],
+        [
+          129,
+          135
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 42.0,
+      "last_frame": null,
+      "last_seconds": 135.0,
+      "screen_time_seconds": 74.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 11.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c005",
+          "chunk_id": 5,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c008_prop_002",
+          "chunk_id": 8,
+          "description": "appearance_changed: Wires glow blue during discharge; control box emits sparks",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 65.0
+        },
+        {
+          "event_id": "evt_c011_prop_002.1",
+          "chunk_id": 11,
+          "description": "appearance_changed: Wires emit intense blue arcs during night-time discharge",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 93.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "Berry Bush",
+      "description": "小灌木，有绿叶和蓝色浆果簇。",
+      "first_chunk": 4,
+      "presence_spans": [
+        [
+          34,
+          41
+        ],
+        [
+          102,
+          118
+        ],
+        [
+          135,
+          144
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 34.0,
+      "last_frame": null,
+      "last_seconds": 144.0,
+      "screen_time_seconds": 32.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 61.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c004",
+          "chunk_id": 4,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c012_prop_003",
+          "chunk_id": 12,
+          "description": "destroyed: Bush bursts into flames and turns blackened/collapsed after llama exhales",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 111.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "Desert Plateau",
+      "description": "干旱的沙地，稀疏的黄色草丛，散落的岩石，淡蓝色的天空下远处的雪山。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          3,
+          41
+        ],
+        [
+          42,
+          74
+        ],
+        [
+          77,
+          92
+        ],
+        [
+          93,
+          118
+        ],
+        [
+          120,
+          144
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 3.0,
+      "last_frame": null,
+      "last_seconds": 144.0,
+      "screen_time_seconds": 134.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 3.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c010_loc_001",
+          "chunk_id": 10,
+          "description": "appearance_changed: Sky darkens to night; stars appear; fence glows blue",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 90.0
+        },
+        {
+          "event_id": "evt_c015_loc_001.1",
+          "chunk_id": 15,
+          "description": "appearance_changed: Rainbow arches across distant mountains; berry bushes multiply across landscape",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 136.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

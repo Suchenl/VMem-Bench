@@ -1,0 +1,747 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "sintel",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "e13bf16af2ad75e7",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "红发女子",
+      "description": "短发，红棕色头发，身穿灰色背心和棕色裤子，手臂有纹身，手持长矛",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          15,
+          147
+        ],
+        [
+          150,
+          717
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 15.0,
+      "last_frame": null,
+      "last_seconds": 717.0,
+      "screen_time_seconds": 699.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 3.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c004_char_001",
+          "chunk_id": 4,
+          "description": "acquired: 获得长矛",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 70.0
+        },
+        {
+          "event_id": "evt_c046_char_001.1",
+          "chunk_id": 46,
+          "description": "appearance_changed: 头发出现灰白色条纹，显示岁月流逝",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 645.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "光头男子",
+      "description": "光头，有胡子，身穿深色衣服，手持短刀",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          30,
+          75
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 30.0,
+      "last_frame": null,
+      "last_seconds": 75.0,
+      "screen_time_seconds": 45.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c004_char_002",
+          "chunk_id": 4,
+          "description": "destroyed: 被红发女子杀死",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 73.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "萨满",
+      "description": "老男人，大胡子，面部有金属装饰，身穿红色长袍",
+      "first_chunk": 7,
+      "presence_spans": [
+        [
+          102,
+          147
+        ],
+        [
+          435,
+          465
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 102.0,
+      "last_frame": null,
+      "last_seconds": 465.0,
+      "screen_time_seconds": 75.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 288.0,
+      "representations": [
+        {
+          "representation_id": "char_003@c007",
+          "chunk_id": 7,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_004",
+      "kind": "character",
+      "name": "小龙",
+      "description": "小型龙类生物，有翅膀，鳞片呈浅棕色",
+      "first_chunk": 13,
+      "presence_spans": [
+        [
+          180,
+          338
+        ],
+        [
+          517,
+          532
+        ],
+        [
+          607,
+          632
+        ],
+        [
+          692,
+          707
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 180.0,
+      "last_frame": null,
+      "last_seconds": 707.0,
+      "screen_time_seconds": 213.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 179.0,
+      "representations": [
+        {
+          "representation_id": "char_004@c013",
+          "chunk_id": 13,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c039_char_004",
+          "chunk_id": 39,
+          "description": "destroyed: 在洞穴中仅余骸骨（已死亡）",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 540.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_005",
+      "kind": "character",
+      "name": "大龙",
+      "description": "大型龙类生物，深色鳞片，有角",
+      "first_chunk": 22,
+      "presence_spans": [
+        [
+          308,
+          338
+        ],
+        [
+          502,
+          517
+        ],
+        [
+          532,
+          617
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 308.0,
+      "last_frame": null,
+      "last_seconds": 617.0,
+      "screen_time_seconds": 130.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 164.0,
+      "representations": [
+        {
+          "representation_id": "char_005@c022",
+          "chunk_id": 22,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c048_char_005",
+          "chunk_id": 48,
+          "description": "destroyed: 在洞穴战斗中被红发女子杀死",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 666.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "长矛",
+      "description": "长柄，末端有金属装饰和树纹图案",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          15,
+          90
+        ],
+        [
+          450,
+          617
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 15.0,
+      "last_frame": null,
+      "last_seconds": 617.0,
+      "screen_time_seconds": 242.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 360.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "碗",
+      "description": "红色陶碗，盛有白色液体",
+      "first_chunk": 8,
+      "presence_spans": [
+        [
+          117,
+          147
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 117.0,
+      "last_frame": null,
+      "last_seconds": 147.0,
+      "screen_time_seconds": 30.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c008",
+          "chunk_id": 8,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "苹果",
+      "description": "红色水果",
+      "first_chunk": 12,
+      "presence_spans": [
+        [
+          165,
+          180
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 165.0,
+      "last_frame": null,
+      "last_seconds": 180.0,
+      "screen_time_seconds": 15.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c012",
+          "chunk_id": 12,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c012_prop_003",
+          "chunk_id": 12,
+          "description": "consumed: 红发女子吃掉苹果",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 171.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "榴莲",
+      "description": "带刺的水果",
+      "first_chunk": 12,
+      "presence_spans": [
+        [
+          165,
+          180
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 165.0,
+      "last_frame": null,
+      "last_seconds": 180.0,
+      "screen_time_seconds": 15.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_004@c012",
+          "chunk_id": 12,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "雪山",
+      "description": "覆盖着厚厚积雪的山脉",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          102
+        ],
+        [
+          393,
+          435
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 435.0,
+      "screen_time_seconds": 144.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 291.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "帐篷",
+      "description": "内部有火堆，挂着各种装饰物",
+      "first_chunk": 7,
+      "presence_spans": [
+        [
+          102,
+          150
+        ],
+        [
+          435,
+          502
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 102.0,
+      "last_frame": null,
+      "last_seconds": 502.0,
+      "screen_time_seconds": 115.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 285.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c007",
+          "chunk_id": 7,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "城市废墟",
+      "description": "破败的建筑，街道布满瓦砾",
+      "first_chunk": 11,
+      "presence_spans": [
+        [
+          150,
+          349
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 150.0,
+      "last_frame": null,
+      "last_seconds": 349.0,
+      "screen_time_seconds": 199.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c011",
+          "chunk_id": 11,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "沙漠",
+      "description": "广阔的沙丘，阳光强烈",
+      "first_chunk": 25,
+      "presence_spans": [
+        [
+          349,
+          435
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 349.0,
+      "last_frame": null,
+      "last_seconds": 435.0,
+      "screen_time_seconds": 86.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_004@c025",
+          "chunk_id": 25,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_005",
+      "kind": "location",
+      "name": "竹林",
+      "description": "茂密的绿色竹子森林",
+      "first_chunk": 27,
+      "presence_spans": [
+        [
+          379,
+          386
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 379.0,
+      "last_frame": null,
+      "last_seconds": 386.0,
+      "screen_time_seconds": 7.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_005@c027",
+          "chunk_id": 27,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_006",
+      "kind": "location",
+      "name": "峡谷",
+      "description": "红色岩石构成的峡谷地形",
+      "first_chunk": 28,
+      "presence_spans": [
+        [
+          386,
+          393
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 386.0,
+      "last_frame": null,
+      "last_seconds": 393.0,
+      "screen_time_seconds": 7.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_006@c028",
+          "chunk_id": 28,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_007",
+      "kind": "location",
+      "name": "洞穴",
+      "description": "黑暗的内部空间，有发光晶体",
+      "first_chunk": 35,
+      "presence_spans": [
+        [
+          480,
+          717
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 480.0,
+      "last_frame": null,
+      "last_seconds": 717.0,
+      "screen_time_seconds": 237.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_007@c035",
+          "chunk_id": 35,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c048_loc_007",
+          "chunk_id": 48,
+          "description": "broken: 洞穴坍塌",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 675.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_008",
+      "kind": "location",
+      "name": "悬崖边",
+      "description": "高处的岩石边缘，可俯瞰远方山脉",
+      "first_chunk": 47,
+      "presence_spans": [
+        [
+          647,
+          717
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 647.0,
+      "last_frame": null,
+      "last_seconds": 717.0,
+      "screen_time_seconds": 70.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_008@c047",
+          "chunk_id": 47,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

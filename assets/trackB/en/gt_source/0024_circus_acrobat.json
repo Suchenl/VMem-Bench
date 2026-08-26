@@ -1,0 +1,991 @@
+{
+  "story_id": "0024_circus_acrobat",
+  "title": "Wire Under the Big Top",
+  "premise": "A long circus drama under the red-and-white big top with flashing magnesium light. Annuan and Anchuan have faces easily confused; the aerial rings go intact→rope worn→rope replaced; the carriage 'Spark Star' must be avoided after it is wrecked; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Pei Lie",
+      "kind": "character",
+      "states": {
+        "prime_ringmaster": "Ringmaster Pei Lie in his fifties, gray buzz cut, deep-red tailcoat and black vest, a gilt whistle pinned to his chest, hands covered in calluses and old scars.",
+        "injured_with_cane": "The same Pei Lie injured: right leg in a splint, leaning on a black lacquer cane as he walks slowly, still wearing that faded deep-red tailcoat.",
+        "deceased": "Pei Lie has closed his eyes and passed away, lying quietly on the narrow couch in the dressing room behind the tent, face peaceful, breath gone."
+      }
+    },
+    "E2": {
+      "name": "Annuan",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Annuan: a fifteen-year-old lean aerial apprentice, coral-red hair ribbon, cream practice leotard, cyan ankle guard on her left ankle, bright stubborn eyes.",
+        "adult_lead": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+      }
+    },
+    "E3": {
+      "name": "aerial rings",
+      "kind": "prop",
+      "states": {
+        "intact_taut": "A pair of aerial rings suspended from the big-top dome, chrome steel rings intact, hemp rope taut and gleaming, magnesium light making the rings snow-bright.",
+        "rope_worn": "The same aerial rings with frayed worn hemp rope, rings tilted, tension slack so they sway.",
+        "rope_replaced": "The aerial rings with new hemp rope restored to tautness, fresh rope knots on the rings, distinct from the original intact state."
+      }
+    },
+    "E4": {
+      "name": "show rehearsal book",
+      "kind": "prop",
+      "states": {
+        "intact": "A hardcover show rehearsal book, circus emblem on the cover, pages marked in red pen with beats and blocking.",
+        "paint_stained": "The same show rehearsal book stained when paint was knocked over, cover sticky, writing blurred into color patches."
+      }
+    },
+    "E5": {
+      "name": "Spark Star",
+      "kind": "prop",
+      "states": {
+        "intact": "A vermilion circus carriage, doors spray-painted with gold letters 'Spark Star', triangular pennant on the roof, prop crates inside.",
+        "shaft_broken": "The vermilion carriage with broken shaft overturned, pennant snapped, an un-tourable wreck."
+      }
+    },
+    "E6": {
+      "name": "Anchuan",
+      "kind": "character",
+      "states": {
+        "young_cameo": "Young Anchuan: face extremely similar to Annuan's, but indigo hair ribbon, silver bell ankle guard on right ankle, more playful expression.",
+        "adult_clown": "Adult Anchuan: face extremely similar to adult Annuan's, still indigo ribbon and bell ankle guard, half the face painted white."
+      }
+    },
+    "E7": {
+      "name": "circus big top",
+      "kind": "location",
+      "appearance": "Inside the red-and-white striped circus big top, rings and safety net hang from the dome, a performance circle drawn on the sand floor."
+    },
+    "E8": {
+      "name": "outdoor practice yard",
+      "kind": "location",
+      "appearance": "The packed-earth practice yard outside the tent, old mats laid out, a portable high-low bar standing to one side."
+    },
+    "E9": {
+      "name": "props alley",
+      "kind": "location",
+      "appearance": "A narrow alley behind the tent leading to the prop store, fake flowers and fire hoops stacked on both sides, pine-resin smell in the air."
+    },
+    "E10": {
+      "name": "old camp ruins",
+      "kind": "location",
+      "appearance": "An old camp ruin in weedy ground, half-collapsed wooden stakes and rusted iron hooks standing empty."
+    },
+    "E11": {
+      "name": "founding plaque",
+      "kind": "prop",
+      "appearance": "A founding plaque nailed to the tent doorpost, carved with Pei Lie's name and the year the troupe was founded, edges green with patina."
+    },
+    "E12": {
+      "name": "balance balls",
+      "kind": "prop",
+      "appearance": "Three red-and-blue balance balls, arranged by size at the edge of the practice-yard mats."
+    },
+    "E13": {
+      "name": "Luminous Stream parade cart",
+      "kind": "prop",
+      "appearance": "A brand-new silver-gray parade electric cart spray-painted 'Luminous Stream', no carriage shaft, utterly unlike Spark Star."
+    },
+    "E14": {
+      "name": "Supervisor Chao",
+      "kind": "character",
+      "appearance": "Supervisor Chao the touring inspector in his fifties, gray buzz cut and deep-red tailcoat like Pei Lie's build, but silver supervisor embroidery on the cuffs."
+    },
+    "E15": {
+      "name": "magnesium floodlights",
+      "kind": "prop",
+      "appearance": "A row of five magnesium floodlights hung from the big-top steel beams, shades polished clear."
+    },
+    "E16": {
+      "name": "opening gongs",
+      "kind": "prop",
+      "appearance": "Two opening gongs hanging at the circus big-top entrance, faces chased with the character for 'star', trembling lightly when the wind rises."
+    },
+    "E17": {
+      "name": "Tangtang the acrobatics school girl",
+      "kind": "character",
+      "appearance": "Tangtang the acrobatics school girl, fifteen or sixteen, coral-red hair ribbon; at a glance somewhat like young Annuan, but no cyan ankle guard on the left and shy timid eyes."
+    },
+    "E18": {
+      "name": "practice rings",
+      "kind": "prop",
+      "appearance": "A waist-high pair of practice rings shaped much like the aerial rings but with shorter rope and plastic rings."
+    },
+    "E19": {
+      "name": "ochre props truck",
+      "kind": "prop",
+      "appearance": "An unfamiliar ochre props pickup with mats in the bed, no Spark Star lettering on the body, definitely not Spark Star."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_ringmaster",
+      "injured_with_cane",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_lead"
+    ],
+    "E3": [
+      "intact_taut",
+      "rope_worn",
+      "rope_replaced"
+    ],
+    "E4": [
+      "intact",
+      "paint_stained"
+    ],
+    "E5": [
+      "intact",
+      "shaft_broken"
+    ],
+    "E6": [
+      "young_cameo",
+      "adult_clown"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+        "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+      },
+      "note": "Hard confusion sample: Annuan and Anchuan look alike; tell them apart only by ribbon color and ankle guard."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Circus big top search (introduce five magnesium floodlights · two opening gongs)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, Pei Lie lifts the flap and enters the circus big top; the aerial rings hang taut and gleaming under dome magnesium light.",
+        {
+          "action": "A row of five magnesium floodlights hangs from the big-top steel beams; Pei Lie polishes each lamp shade one by one.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two opening gongs hang at the tent entrance; Pei Lie reaches up and lets the gong faces tremble softly.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Pei Lie walks the shadow of the aerial rings, checking hemp-rope tension and safety clasps.",
+        "Pei Lie gazes out the tent door at the sky over the practice yard.",
+        {
+          "action": "The intact aerial rings hang quietly from the circus big-top dome.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Pei Lie sits at the sand's edge and dozes in the magnesium light.",
+        "Night wind pours through the tent door; Pei Lie pulls his tailcoat collar tight."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Annotating the show rehearsal book",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Pei Lie opens the show rehearsal book and marks the evening's beats in red pen.",
+        "Pei Lie draws a blocking arc on the show rehearsal book.",
+        "Pei Lie closes the show rehearsal book and puts it in the director's desk drawer.",
+        {
+          "action": "Magnesium light from the aerial rings sweeps across Pei Lie's profile.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Pei Lie wipes fingerprints from the gilt whistle with a soft cloth."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Practice yard greets the apprentice (introduce three balance balls)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "At dawn in the outdoor practice yard, Pei Lie welcomes young Annuan arriving on the vermilion Spark Star.",
+        {
+          "action": "Annuan hops down from Spark Star and reties her coral-red hair ribbon.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Pei Lie points at the three balance balls by the mats and teaches Annuan to read center of gravity and landing points.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Annuan crouches on the old mat, curiously tracing the wear marks on the high-low bar.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Pei Lie points at the circus big-top dome and explains the aerial rings opening to Annuan.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Annuan looks back at Spark Star parked nearby, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "The two stand shoulder to shoulder by the portable high-low bar, listening to the canvas snap in the wind."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Props alley (Anchuan alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the props alley, indigo-ribboned Anchuan glances back from behind the fake flowers.",
+        "Anchuan fiddles with a fire hoop in the alley, bell ankle guard chiming softly.",
+        "Anchuan snaps a photo of an old poster on the wall with his phone and laughs playfully.",
+        "Anchuan carries a white-face paint box through the shadows of the props alley.",
+        "Pine-resin smell fills the air; Anchuan stops to listen to the creak of rings overhead."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Twin lookalikes on screen together",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "On the outdoor practice yard, Annuan and Anchuan stand side by side, one coral-red ribbon, one indigo ribbon.",
+        "Annuan hands a balance ball to Anchuan; they smile at each other.",
+        "Anchuan straightens Annuan's hair ribbon; the two walk slowly along the mat edge.",
+        "Annuan and Anchuan part at the west end of the practice yard, each heading the opposite way.",
+        "Dust rises; their retreating backs, one red ribbon, one blue, pull farther apart."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Show rehearsal book paint-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Pei Lie keeps watch alone in the circus big top; the aerial rings hang quietly.",
+        {
+          "action": "Pei Lie opens the show rehearsal book and finds the cover stained by spilled paint, writing blurred into color patches.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "paint_stained"
+            }
+          ]
+        },
+        "Pei Lie wipes magnesium powder from the aerial rings hemp rope.",
+        "Pei Lie stands by the tent door, gazing at the dark practice yard.",
+        {
+          "action": "The outline of the aerial rings slowly emerges in the magnesium light.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Pei Lie slips the stained show rehearsal book into a leather sleeve and sighs."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Touring seasons pass (filler · long gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Seasons turn; day after day Pei Lie lifts the flap and enters the circus big top.",
+        "On another snow night, Pei Lie wraps his tailcoat tight under the aerial rings.",
+        "Spring tour opens; Pei Lie calibrates the safety net at center sand.",
+        "Midsummer noon, Pei Lie wipes the sun-scorched iron stakes outside the tent.",
+        "Autumn rains linger; the aerial rings hemp rope turns stiff in the damp.",
+        "On another New Year's Eve, Pei Lie keeps the circus big top alone until dawn.",
+        "On the extra-show eve, Pei Lie checks safety clasps two hours early.",
+        "On a full-moon night, Pei Lie test-lights every magnesium floodlight."
+      ]
+    },
+    {
+      "id": "S6c",
+      "setting": "Long nights guarding the tent (supplement)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Three showless nights in a row, Pei Lie revises the blocking chart again and again.",
+        "One windy night, Pei Lie has to tie down the tent ropes extra tight.",
+        "Rope creaks; Pei Lie looks up quickly to check the aerial rings.",
+        "At three in the morning, Pei Lie sips cold tea from a thermos.",
+        "He sorts balance ball numbers at the director's desk.",
+        "Opening gongs tremble softly in the wind; Pei Lie lifts his head to listen.",
+        "As the horizon pales, Pei Lie notes the last beat group of the night.",
+        "Before lowering the canvas, he takes one last look at the intact hemp rope on the aerial rings."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Practice yard patrol (recall balance balls · ochre props truck)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak, Pei Lie patrols the outdoor practice yard; vermilion Spark Star is parked by the high-low bar.",
+        {
+          "action": "Pei Lie crouches to inspect Spark Star's shaft and pennant.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Pei Lie walks to the mat edge; the same three balance balls still stand in neat order.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "An unfamiliar ochre props truck drives along the camp road, mats in the bed, not Spark Star.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Pei Lie stands on the packed-earth yard, recording last night's peak wind speed.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Pei Lie realigns the edges of the old mats.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Morning mist recedes in the distance, revealing deeper riverbank shadows."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Storm night (rope worn · Spark Star shaft broken)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "A storm bursts; the circus big top billows in gale wind; the aerial rings swing violently.",
+        "Magnesium light flickers wildly; Pei Lie rushes to the emergency winch.",
+        {
+          "action": "A dull crack—the aerial rings hemp rope frays and wears, rings tilting and swaying.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "rope_worn"
+            }
+          ]
+        },
+        {
+          "action": "On the camp road, vermilion Spark Star shakes violently in the jolts.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "A side roll breaks Spark Star's shaft and overturns it; the pennant snaps.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "shaft_broken",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Inside the big top, Pei Lie lunges for the aerial rings safety clasp and steadies the swaying rings.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (Spark Star old photo indirect · magnesium floodlights recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after the storm, Pei Lie stands in the circus big top, staring at the worn aerial rings.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Pei Lie runs a finger over the frayed hemp rope, face downcast.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Pei Lie notes the date of Spark Star's broken shaft on a slip beside the show rehearsal book.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo of Spark Star hangs on the tent wall; Pei Lie gazes at it for a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Pei Lie takes one of the five magnesium floodlights from the dome and sits alone in its dim glow.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The damaged aerial rings still hang tilted from the circus big-top dome.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Rope replaced (third state · practice rings false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Pei Lie brings new hemp rope and a splicing knife to repair the aerial rings.",
+        {
+          "action": "Pei Lie takes a pair of practice rings from a wooden crate—they look like the aerial rings but with shorter rope.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Pei Lie carefully replaces the rope, splices knots, and retensions the line.",
+        {
+          "action": "The last knot tightens; the aerial rings reach the rope-replaced state.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "rope_replaced"
+            }
+          ]
+        },
+        "The repaired aerial rings hang steady again; Pei Lie watches them with relief."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: Luminous Stream parade cart and Supervisor Chao",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A silver-gray Luminous Stream parade cart rolls onto the outdoor practice yard, nothing like the broken-shaft Spark Star.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Supervisor Chao walks onto the practice yard and talks beside Pei Lie; the two builds are much alike.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "Supervisor Chao points at the Luminous Stream parade cart and explains the new touring schedule to Pei Lie.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The Luminous Stream parade cart drives away; Pei Lie stays alone on the practice yard watching it go.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Wind flaps the schedule sheet Supervisor Chao left behind."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Tangtang the acrobatics school girl who resembles Annuan",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Outside camp arrives Tangtang the acrobatics school girl with a coral-red ribbon; at a glance she somewhat resembles young Annuan.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Tangtang the acrobatics school girl tries a stretch; Pei Lie shakes his head—she is not Annuan after all.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Tangtang the acrobatics school girl carries her practice shoes away from the outdoor practice yard, back fading down the camp road.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Injured with cane (opening gongs long recall)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Pei Lie with a splinted right leg stands at the circus big-top entrance leaning on a black lacquer cane.",
+          "present": [
+            "E1",
+            "E7"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "injured_with_cane"
+            }
+          ]
+        },
+        "Cane in hand, Pei Lie looks up at the red-and-white striped dome, gaze far away.",
+        {
+          "action": "The two opening gongs at the entrance tremble softly in the wind; Pei Lie pauses on his cane to listen.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Cane in hand, Pei Lie presses his palm beside the cool founding plaque on the doorpost, as if saying goodbye.",
+        "He slowly sits on a wooden crate on the practice yard, splinted leg stretched straight."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Annuan returns · Pei Lie passes away",
+      "present": [
+        "E1",
+        "E2",
+        "E7"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Annuan comes back along the camp road, hurrying toward the circus big top.",
+          "present": [
+            "E2",
+            "E7"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_lead"
+            }
+          ]
+        },
+        "Annuan reunites with cane-leaning Pei Lie outside the tent; they embrace.",
+        {
+          "action": "Beside the narrow couch in the dressing room, Annuan holds Pei Lie's calloused yet cold hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Pei Lie's breath fades; at last he closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Annuan gently sets Pei Lie's gilt whistle back on the pillow.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · founding plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Pei Lie's deep-red tailcoat still hangs behind the tent door; Annuan reaches out and touches it lightly.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By the doorpost, adult Annuan stands before a newly nailed founding plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Annuan's fingertips trace Pei Lie's name carved on the founding plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        "Wind rises; opening gongs tremble faintly in the distance; Annuan lifts her head."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Reunion (adult lookalikes both present)",
+      "present": [
+        "E2",
+        "E6",
+        "E7"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Adult Anchuan arrives from a neighboring troupe and embraces Annuan tightly under the circus big-top door.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "adult_clown"
+            }
+          ]
+        },
+        "Annuan and Anchuan stand side by side by the doorpost, one steady, one playful.",
+        "The two look at each other in silence, studying faces alike yet different.",
+        "Anchuan lifts a white-face brush but sets it down again, simply standing with Annuan."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Flashback recall (temporal anchoring)",
+      "present": [],
+      "_comment": "Temporal flashback name-free",
+      "actions": [
+        {
+          "action": "The camera returns to years ago—the youth on the old mat tracing wear marks on the high-low bar appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth on the old mat tracing wear marks on the high-low bar",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the big top, a chrome-steel ring pair is tensioned for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact_taut",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the chrome-steel ring pair tensioned for the first time at opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the props alley of that year—a figure with indigo ribbon and bell ankle guard flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_cameo",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the indigo-ribbon figure in the alley that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Before the eyes rises again that row of five old magnesium floodlights on the dome.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old magnesium floodlights on the dome",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Return to the packed-earth practice yard at first meeting, old mats spread as they once were.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the packed-earth practice yard at first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Closure (paint-stained rehearsal book · balance balls long recall)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Annuan opens the paint-stained show rehearsal book again and walks into the circus big top.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "By the mats, the same three balance balls still stand in neat order.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Annuan takes up the watch over the aerial rings; magnesium light brightens the ring faces again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "Outside the tent, red-and-white stripes snap in the morning wind."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1079 @@
+{
+  "story_id": "0032_beekeeper_meadow",
+  "title": "Ranch Beekeeper",
+  "premise": "A long master-apprentice drama on the alfalfa apiary and creek-side extracting flat. Adeng and Azhou are easily confused by looks; the oak smoker goes intact→bellows_burst→reskinned; after the bee truck overturns it must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "_state_note": "Entities with state machines use states; stateless use appearance. On transfer inject only the current-state appearance.",
+  "entities": {
+    "E1": {
+      "name": "Chen Xing",
+      "kind": "character",
+      "states": {
+        "prime_hivekeep": "Ranch beekeeper Chen Xing around fifty, long lean face, cream protective suit and straw hat, veil flipped onto the brim, hands callused from stings.",
+        "sting_weary": "The same Chen Xing: protective-suit cuff torn, red swollen sting on the neck side, walking slowly propped on the smoker, eyes heavy.",
+        "deceased": "Chen Xing lies still on the apiary cabin plank bed with eyes closed, face peaceful, no breath left."
+      }
+    },
+    "E2": {
+      "name": "Adeng",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Adeng: a lean beekeeping apprentice of fourteen or fifteen, amber beeswax button on the hat brim, oversized cream protective suit, bright stubborn eyes.",
+        "adult_successor": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+      }
+    },
+    "E3": {
+      "name": "oak smoker",
+      "kind": "prop",
+      "states": {
+        "intact": "An oak smoker with intact bellows leather cup, pale-blue pine smoke from the nozzle, bee patterns carved on the pot.",
+        "bellows_burst": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black.",
+        "reskinned": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+      }
+    },
+    "E4": {
+      "name": "honey extract daybook",
+      "kind": "prop",
+      "states": {
+        "intact": "A cowhide honey extract daybook recording each hive's strength and extract yield, handwriting neat.",
+        "honey_stained": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+      }
+    },
+    "E5": {
+      "name": "bee truck",
+      "kind": "prop",
+      "states": {
+        "intact": "A dark-green migratory bee truck with twelve standard hives fixed in the bed, white bee patterns sprayed on the door.",
+        "overturned_wrecked": "The bee truck overturned on a mud slope; hives scattered and broken, bed twisted, bee patterns buried in mud."
+      }
+    },
+    "E6": {
+      "name": "Azhou",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young beekeeping hand Azhou whose face closely matches Adeng's, but wearing vermilion rubber gloves and a dark-green vest over the suit, swaggering look.",
+        "disguised_return": "After a change of look Azhou still wears vermilion rubber gloves; vest swapped for matte black, expression deeper."
+      }
+    },
+    "E7": {
+      "name": "alfalfa apiary",
+      "kind": "location",
+      "appearance": "An apiary in ranch alfalfa, hives in three rows, purple blossoms all around, air thick with honey scent and bee hum."
+    },
+    "E8": {
+      "name": "creek extracting flat",
+      "kind": "location",
+      "appearance": "An extracting flat by the ranch creek, wooden table with extractor and strainer, shallow clear water, laundry stone on the bank."
+    },
+    "E9": {
+      "name": "tool-shed narrow lane",
+      "kind": "location",
+      "appearance": "A narrow lane between bee-tool sheds, veils and queen excluders hung on both sides, damp-proof sacks on the ground, heavy shadow."
+    },
+    "E10": {
+      "name": "old migration camp",
+      "kind": "location",
+      "appearance": "Ruins of the old migration camp, leftover concrete piers and rusted hooks, weeds drowning the tire tracks."
+    },
+    "E11": {
+      "name": "apiary memorial wood plaque",
+      "kind": "prop",
+      "appearance": "A cypress plaque nailed to the cabin doorpost, carved with Chen Xing and the founding year, corners polished bright by beeswax."
+    },
+    "E12": {
+      "name": "frame number tags",
+      "kind": "prop",
+      "appearance": "Three aluminum frame number tags hung on the front-row hives, carved A1, A2, and A3."
+    },
+    "E13": {
+      "name": "orange-red pickup",
+      "kind": "prop",
+      "appearance": "A brand-new orange-red pickup with a toolbox in the bed, no bee patterns and no hive rack—nothing like the bee truck."
+    },
+    "E14": {
+      "name": "ranch veterinarian",
+      "kind": "character",
+      "appearance": "A lean ranch veterinarian in a khaki hat and gray-green work clothes, build somewhat like Chen Xing's, but with a veterinary badge on the sleeve."
+    },
+    "E15": {
+      "name": "apiary lanterns",
+      "kind": "prop",
+      "appearance": "A row of five apiary lanterns hung on iron hooks under the alfalfa apiary cabin beam, glass shades polished bright."
+    },
+    "E16": {
+      "name": "hive-opening bronze bells",
+      "kind": "prop",
+      "appearance": "Two hive-opening bronze bells hung under the cabin eaves, tongues nicked from striking, chimed twice lightly before opening."
+    },
+    "E17": {
+      "name": "Xiao He",
+      "kind": "character",
+      "appearance": "New intern beekeeper Xiao He, light-yellow headscarf and brand-new protective suit; at a glance much like young Adeng, but sharper chin and shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "tin smoke can",
+      "kind": "prop",
+      "appearance": "A tin smoke can shaped somewhat like a smoker but without the oak pot body and without carved bee patterns."
+    },
+    "E19": {
+      "name": "ash-gray trailer",
+      "kind": "prop",
+      "appearance": "An ash-gray feed trailer, body wide and flat, no hive rack—nothing like the bee truck."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_hivekeep",
+      "sting_weary",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "bellows_burst",
+      "reskinned"
+    ],
+    "E4": [
+      "intact",
+      "honey_stained"
+    ],
+    "E5": [
+      "intact",
+      "overturned_wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised_return"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+        "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+      },
+      "note": "Hard confuse sample: amber beeswax button vs vermilion rubber gloves."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Apiary at dusk (five lanterns · two hive-opening bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk Chen Xing lifts his veil and walks into the alfalfa apiary, testing a puff from the oak smoker.",
+        {
+          "action": "A row of five apiary lanterns hangs on the cabin beam; Chen Xing wipes each glass shade clean.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two hive-opening bronze bells hang under the cabin eaves; Chen Xing taps them lightly, the ring clear.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Chen Xing checks the oak smoker leather cup and bee patterns for leaks.",
+        "Chen Xing looks through the alfalfa sea toward dusk at the ranch edge.",
+        {
+          "action": "The intact oak smoker rests on a hive lid, nozzle catching lantern warm light.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Chen Xing sits on the cabin steps and drinks a sip of cold tea.",
+        "Distant cattle bells chime lightly; he puts the veil back on."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Filling the honey extract daybook",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Chen Xing opens the cowhide honey extract daybook and records today's colony-strength scores.",
+        "He sketches a bar chart of each hive's extract yield in the book.",
+        "Chen Xing closes the honey extract daybook and tucks it back into the cabin drawer.",
+        {
+          "action": "Pale-blue pine smoke from the oak smoker sweeps his profile.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "He tears a scrap of wax paper and wipes sticky honey from his gloves."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Extracting flat greets the apprentice (three number tags)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        {
+          "action": "On the creek extracting flat at dawn, Chen Xing greets the approaching dark-green bee truck.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Young Adeng jumps down from the bee truck; the amber beeswax button on his hat brim shines in morning light.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Chen Xing points to the three frame number tags on the front row and teaches Adeng to read A1 through A3.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Adeng crouches by the creek and curiously touches the extractor crank.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Chen Xing tells Adeng the hive-opening bronze bells must ring twice before lids come off.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Adeng looks back at the intact bee truck, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Purple alfalfa sways; they walk toward the alfalfa apiary."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Tool-shed narrow lane (Azhou alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the tool-shed narrow lane, Azhou in vermilion rubber gloves glances back from veil shadows.",
+        "Azhou steps slowly on the sacks; the dark-green vest stands out.",
+        "He brushes past a mate carrying a queen excluder; the vermilion gloves flash in the reflection.",
+        "Azhou knocks a hook to confirm the veil hangs firm.",
+        "He passes the lane end toward the honey-wash room."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Extracting-flat misrecognition co-present",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "On the creek extracting flat, Adeng and Azhou stand side by side: one with an amber beeswax button, one in vermilion rubber gloves.",
+        "Adeng hands Azhou a honey-test wooden spoon; they meet eyes briefly.",
+        "Azhou smooths Adeng's oversized protective-suit collar, then turns his face away.",
+        "They walk opposite ways along the creek, figures crossing among the reeds.",
+        "A surge of bee hum rises; only the strainer sways lightly on the flat."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Daybook honey-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Chen Xing keeps watch alone at the alfalfa apiary.",
+        {
+          "action": "He opens the honey extract daybook; the cover is soaked sticky with honey, writing bled.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "honey_stained"
+            }
+          ]
+        },
+        "Chen Xing wipes tar from the oak smoker nozzle with a rag.",
+        "He leans in the cabin doorway looking toward fireflies on the black ranch.",
+        {
+          "action": "The oak smoker rests on a hive lid; the leather cup has gone a little hard.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "A hive-opening bronze bell is bumped by night wind for half a chime, then falls silent."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years turn (filler · stretch the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "When spring flowers first open, Chen Xing patrols hives in the alfalfa day after day.",
+        "Another rainy night, he wraps his protective suit tight beside the oak smoker.",
+        "At high summer noon colonies grow restless; he rotates cooling sprays.",
+        "In autumn fog, lantern light struggles through the honey scent.",
+        "On New Year's Eve Chen Xing alone fills the honey extract daybook to the last page.",
+        "At spring start he rechecks queen excluders and keeps rearing queens.",
+        "Before rainy season Chen Xing reinforces ant-proof hive stands.",
+        "After Frost's Descent he adds a small bag of white sugar in a cabin corner.",
+        "Another year before migration he checks colony strength hive by hive.",
+        "On a snow night with work stopped, Chen Xing keeps only one lantern until dawn.",
+        "After Awakening of Insects he resets dried foundation sheets.",
+        "Around Qingming he clears weeds at the old migration camp entrance."
+      ]
+    },
+    {
+      "id": "S6c",
+      "setting": "Daily hive patrol (keep stretching the gap)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "Chen Xing changes the veil and shakes off stuck bee wings.",
+        "He checks the extractor gears and drips edible oil.",
+        {
+          "action": "He lifts the intact oak smoker again and gives three short puffs.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Water sounds rise from the creek; he looks up to listen.",
+        "Chen Xing drops waste wax scrap into an iron bucket and lids it.",
+        "At noon rest he drinks tea in the cabin; tea smoke curls past the straw hat.",
+        "In the afternoon he goes out again to sugar-feed weak colonies.",
+        "At sunset he seals hives and locks the tool shed."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Extracting-flat patrol (recall number tags · ash-gray trailer false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak Chen Xing patrols the creek extracting flat; the bee truck still sits by the concrete pier.",
+        {
+          "action": "He crouches to check whether the bee truck bed hive straps are loose.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "On the front row, those three frame number tags still hang in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "An ash-gray trailer drives along the ranch road, body wide and flat, no bee patterns.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Chen Xing stands on the extracting flat and logs foundation sheets dampened overnight.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "He retightens the bee truck hooks.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        "A ranch dog barks once afar; morning fog begins to lift."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Apiary watch again",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At nightfall Chen Xing returns to the alfalfa apiary and opens the honey-stained honey extract daybook.",
+        "He compares old scores and adds today's colony strength.",
+        {
+          "action": "He briefly puffs the oak smoker; pine smoke lights the sticky daybook cover.",
+          "present": [
+            "E1",
+            "E7",
+            "E3",
+            "E4"
+          ]
+        },
+        "He wipes wax crumbs from the veil.",
+        "Ranch wind rises; cabin planks creak lightly.",
+        "Chen Xing puts out half the lanterns, leaving only the one by the bed."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Mud-slope accident (smoker bursts · bee truck overturns)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "In the storm a mud slope suddenly collapses; the alfalfa apiary falls into chaos.",
+        "Floodwater rushes toward the cabin; lanterns swing hard.",
+        {
+          "action": "While Chen Xing rescues, the oak smoker bellows leather cup bursts and leaks.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "bellows_burst"
+            }
+          ]
+        },
+        {
+          "action": "On the slope road the bee truck tires skid and jolt hard.",
+          "present": [
+            "E5",
+            "E8"
+          ]
+        },
+        {
+          "action": "Another dull crash—the bee truck overturns; hives scatter and break.",
+          "present": [
+            "E5",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "overturned_wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Chen Xing clutches the burst oak smoker and will not let go.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Colonies explode from the hives; hum drowns the rain."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (bee truck indirect reference · lantern recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day when rain stops, Chen Xing stands in the apiary staring at the bellows-burst oak smoker.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "He traces the burst leather cup with a finger, face dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a blank page of the honey extract daybook he writes the date the bee truck overturned.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "A bee truck migration route map is still taped to the wall; Chen Xing gazes long.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "He takes down one of the five apiary lanterns from the beam and sits alone in the faint light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The burst oak smoker rests on a hive lid like a deflated lung.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Afar a mud-clearing tractor roar sweeps the ranch."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Reskinning (third state · tin smoke can false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Chen Xing brings leather stock and prepares to repair the oak smoker.",
+        {
+          "action": "He takes a tin smoke can from the toolbox—somewhat like a smoker but without bee patterns.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Chen Xing fits a new leather cup and cleans tar from the nozzle.",
+        {
+          "action": "Bee patterns return; the oak smoker can smoke again.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "reskinned"
+            }
+          ]
+        },
+        "He tests short puffs; pale-blue pine smoke steadies again.",
+        "Chen Xing puts the tin smoke can back in the toolbox so they will not be mixed."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: pickup and veterinarian",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "An orange-red pickup rolls onto the creek extracting flat—nothing like the already-overturned bee truck.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "A ranch veterinarian in a khaki hat and gray-green work clothes walks onto the extracting flat and talks shoulder to shoulder with Chen Xing; their builds are alike.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The veterinarian points at the orange-red pickup and explains the temporary hive-haul plan.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The pickup drives off; Chen Xing alone watches it leave the extracting flat.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "He rehangs the frame number tags straight and walks back to the apiary."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: intern beekeeper Xiao He",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "Intern beekeeper Xiao He in a light-yellow headscarf arrives in the tool-shed narrow lane; at a glance she looks somewhat like young Adeng.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiao He tries tying a veil, but Chen Xing shakes his head—she is not Adeng after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiao He bows her head and steps back; only queen-excluder shadows remain in the lane."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Sting-weary (bronze-bell long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Chen Xing with torn cuff and swollen neck leans on the smoker under the old migration camp.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "sting_weary"
+            }
+          ]
+        },
+        "He looks up at rusted hooks, gaze far away.",
+        {
+          "action": "Those two hive-opening bronze bells under the distant cabin eaves chime lightly in the wind; Chen Xing stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "He presses his palm to a concrete pier, as if saying goodbye.",
+        "Weeds sway; the camp grows quieter."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Adeng returns · Chen Xing dies",
+      "present": [
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Adeng returns along the ranch road and hurries toward the old migration camp.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        {
+          "action": "Adeng reunites with sting-weary Chen Xing under the camp; they steady each other.",
+          "present": [
+            "E1",
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "By the apiary cabin plank bed, Adeng holds Chen Xing's withered hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Chen Xing's breath fades; at last he closes his eyes and dies.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Bee hum outside the window falls still; ranch wind goes quiet for an instant.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · wood plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Chen Xing's cream protective suit still hangs behind the cabin door; Adeng reaches out and gently strokes it.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By the doorpost, adult Adeng stands before the newly nailed apiary memorial wood plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Adeng's fingertip traces Chen Xing's name carved on the plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "He softly speaks the page number of the daybook entry on the bee truck overturn, as if answering.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15b",
+      "setting": "Name the dead and wrecked again (indirect avoidance)",
+      "present": [
+        "E2",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "After mud is cleared from the creek extracting flat, Adeng writes the words bee truck in the empty bay then erases them.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "Passing the cabin corridor, he sees Chen Xing's old straw hat on a hook.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "In night, Adeng softly repeats the hive-opening password Chen Xing taught before the empty hive rows.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        "In the alfalfa scent Adeng grips the amber beeswax button tight in his palm."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Both sides reunite (long-range + co-present)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Disguised Azhou arrives from the tool shed and briefly locks eyes with Adeng under the old migration camp.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "disguised_return"
+            }
+          ]
+        },
+        "Adeng and Azhou stand side by side by the concrete pier: one quiet-eyed, one deep-faced.",
+        "Azhou still wears vermilion rubber gloves; Adeng still wears the amber beeswax button.",
+        "They stand mute a moment, then each turn and leave the camp."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns years—that youth jumping from a dark-green migratory truck with an amber button on the hat brim appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth jumping from a dark-green migratory truck with an amber button on the hat brim",
+                "resolves_to": "E2"
+              },
+              "state": "young_apprentice"
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the apiary, an oak smoke pot carved with bee patterns first exhales pale-blue pine smoke.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the oak pot carved with bee patterns that first smoked at the opening",
+                "resolves_to": "E3"
+              },
+              "state": "intact"
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the tool narrow lane—a figure in vermilion rubber gloves and dark-green vest flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in vermilion rubber gloves and dark-green vest in the narrow lane",
+                "resolves_to": "E6"
+              },
+              "state": "young_rival"
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old covered hand lamps on the cabin beam.",
+          "present": [
+            {
+              "eid": "E15",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old covered hand lamps on the cabin beam",
+                "resolves_to": "E15"
+              },
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Back to that creek-side extracting wooden-table flat of first meeting; the reeds as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that creek-side extracting wooden-table flat of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrase reference; no formal entity names; avoid the dead/wrecked."
+    },
+    {
+      "id": "S18",
+      "setting": "Close (daybook long-range · number-tag long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Adeng reopens the honey-stained honey extract daybook and walks into the alfalfa apiary.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "On the front-row hives, those three frame number tags still hang.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Adeng lifts the already-reskinned oak smoker; pine smoke rises again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "He rolls his protective-suit cuffs tight and nods confirmation as Chen Xing once did.",
+        "In ranch dusk the new shift's hive-opening bronze bells chime twice lightly.",
+        "Adeng lays today's first thread of smoke before the hive lid.",
+        "Alfalfa blossoms bow lightly in the night wind."
+      ]
+    }
+  ]
+}

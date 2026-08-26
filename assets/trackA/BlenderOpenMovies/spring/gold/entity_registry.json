@@ -1,0 +1,581 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "spring",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "afbce2270db96856",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "红衣女孩",
+      "description": "身穿红色长袍、深色围巾和靴子的年轻女孩，黑发盘起，手持一根顶部有螺旋雕刻的木质法杖；法杖顶端有一片小绿叶。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          23,
+          80
+        ],
+        [
+          84,
+          110
+        ],
+        [
+          134,
+          277
+        ],
+        [
+          297,
+          337
+        ],
+        [
+          346,
+          354
+        ],
+        [
+          372,
+          410
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 23.0,
+      "last_frame": null,
+      "last_seconds": 410.0,
+      "screen_time_seconds": 312.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 24.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c020_char_001",
+          "chunk_id": 20,
+          "description": "acquired: 从巨型生物体内获得并发光的蓝色能量体融入其手中的法杖，使法杖顶端长出金色叶片并持续发光。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 229.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "灰毛小狗",
+      "description": "一只灰色卷毛、大耳朵的小狗，脖子上系着橙红色项圈，体型娇小。",
+      "first_chunk": 3,
+      "presence_spans": [
+        [
+          37,
+          80
+        ],
+        [
+          110,
+          134
+        ],
+        [
+          177,
+          186
+        ],
+        [
+          229,
+          245
+        ],
+        [
+          255,
+          265
+        ],
+        [
+          277,
+          297
+        ],
+        [
+          327,
+          337
+        ],
+        [
+          346,
+          354
+        ],
+        [
+          372,
+          410
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 37.0,
+      "last_frame": null,
+      "last_seconds": 410.0,
+      "screen_time_seconds": 178.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 43.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c003",
+          "chunk_id": 3,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "木棍",
+      "description": "一根普通的棕色短木棍，表面粗糙。",
+      "first_chunk": 3,
+      "presence_spans": [
+        [
+          37,
+          52
+        ],
+        [
+          110,
+          124
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 37.0,
+      "last_frame": null,
+      "last_seconds": 124.0,
+      "screen_time_seconds": 29.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 58.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c003",
+          "chunk_id": 3,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c009_prop_001",
+          "chunk_id": 9,
+          "description": "detached: 被小狗遗落在黑暗森林的地面上。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 114.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "饼干",
+      "description": "一块方形棕色饼干。",
+      "first_chunk": 4,
+      "presence_spans": [
+        [
+          52,
+          63
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 52.0,
+      "last_frame": null,
+      "last_seconds": 63.0,
+      "screen_time_seconds": 11.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c004",
+          "chunk_id": 4,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c004_prop_002",
+          "chunk_id": 4,
+          "description": "consumed: 被小狗吃掉。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 59.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "螺旋木法杖",
+      "description": "一根由天然树枝制成的法杖，顶部有复杂的螺旋雕刻结构，顶端有一片微小绿叶。",
+      "first_chunk": 5,
+      "presence_spans": [
+        [
+          63,
+          78
+        ],
+        [
+          98,
+          110
+        ],
+        [
+          134,
+          158
+        ],
+        [
+          177,
+          277
+        ],
+        [
+          297,
+          337
+        ],
+        [
+          346,
+          354
+        ],
+        [
+          372,
+          410
+        ],
+        [
+          453,
+          463
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 63.0,
+      "last_frame": null,
+      "last_seconds": 463.0,
+      "screen_time_seconds": 247.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 43.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c005",
+          "chunk_id": 5,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c020_prop_003",
+          "chunk_id": 20,
+          "description": "appearance_changed: 吸收蓝色能量后，法杖顶端的螺旋结构内生长出发光的金色叶片/花朵，整体散发暖橙色光芒。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 229.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "蓝色光球",
+      "description": "一个半透明、发出青蓝色光芒的能量球体，内部似乎有流动的光纹。",
+      "first_chunk": 17,
+      "presence_spans": [
+        [
+          196,
+          220
+        ],
+        [
+          255,
+          265
+        ],
+        [
+          277,
+          297
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 196.0,
+      "last_frame": null,
+      "last_seconds": 297.0,
+      "screen_time_seconds": 54.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 35.0,
+      "representations": [
+        {
+          "representation_id": "prop_004@c017",
+          "chunk_id": 17,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c020_prop_004",
+          "chunk_id": 20,
+          "description": "destroyed: 被女孩的法杖吸收并转化为金色光芒。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 229.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "冰封岩壁",
+      "description": "布满冰柱和冻结有机物的垂直岩壁，光线昏暗，呈现蓝紫色调，环境寒冷潮湿。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          22
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 22.0,
+      "screen_time_seconds": 22.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "高山云海山脊",
+      "description": "位于云层之上的高山草甸与岩石山脊，阳光呈金黄色，视野开阔，下方是翻涌的白色云海。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          23,
+          80
+        ],
+        [
+          338,
+          354
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 23.0,
+      "last_frame": null,
+      "last_seconds": 354.0,
+      "screen_time_seconds": 73.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 258.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "迷雾幽暗森林",
+      "description": "被浓雾笼罩的阴冷森林，树木枯槁扭曲，地面覆盖落叶与裸露树根，色调偏青蓝，能见度低。",
+      "first_chunk": 7,
+      "presence_spans": [
+        [
+          84,
+          144
+        ],
+        [
+          245,
+          337
+        ],
+        [
+          338,
+          371
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 84.0,
+      "last_frame": null,
+      "last_seconds": 371.0,
+      "screen_time_seconds": 185.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 101.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c007",
+          "chunk_id": 7,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c035_loc_003",
+          "chunk_id": 35,
+          "description": "appearance_changed: 随着阳光穿透，森林恢复生机，长出绿草和紫色花朵，色调转为温暖的黄绿色。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 372.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "巨型生物巢穴",
+      "description": "森林深处的巨大空洞或地下空间，充斥着巨大的骨骼状结构和青蓝色雾气，光线来自上方缝隙。",
+      "first_chunk": 12,
+      "presence_spans": [
+        [
+          144,
+          245
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 144.0,
+      "last_frame": null,
+      "last_seconds": 245.0,
+      "screen_time_seconds": 101.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_004@c012",
+          "chunk_id": 12,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_005",
+      "kind": "location",
+      "name": "复苏后的山地",
+      "description": "阳光普照的绿色山坡与岩石地带，植被茂盛，远处雪山清晰可见。",
+      "first_chunk": 35,
+      "presence_spans": [
+        [
+          372,
+          418
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 372.0,
+      "last_frame": null,
+      "last_seconds": 418.0,
+      "screen_time_seconds": 46.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_005@c035",
+          "chunk_id": 35,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

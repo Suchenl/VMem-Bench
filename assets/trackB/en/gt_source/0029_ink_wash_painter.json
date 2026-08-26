@@ -1,0 +1,1073 @@
+{
+  "story_id": "0029_ink_wash_painter",
+  "title": "Ink-Wash Studio",
+  "premise": "A long master-apprentice drama of Listening Rain studio and the bamboo-corridor brush-washing pool. Ayue and Amo look nearly alike and are easily mistaken; the goat-hair doubi brush goes intact→tip splayed→tip rewrapped; the pine-soot inkstone boat shatters and must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "_state_note": "Entities with state machines use states; entities without use appearance. On transfer, only the current-state appearance is injected.",
+  "entities": {
+    "E1": {
+      "name": "Wu Yue",
+      "kind": "character",
+      "states": {
+        "prime_brushman": "Ink-wash painter Wu Yue around fifty, lean long face, washed moon-white long robe with pale ink on the cuffs, right hand forever gripping goat hair, quiet look.",
+        "frail_leaning": "The same Wu Yue: pale face, moon-white robe hanging loose, must lean on the painting-table edge to walk slowly, knuckles trembling from long illness.",
+        "deceased": "Wu Yue has closed his eyes and passed away, lying quietly on a bamboo couch in the studio, face peaceful, no breath left."
+      }
+    },
+    "E2": {
+      "name": "Ayue",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Ayue: a lean studio apprentice of fourteen or fifteen, a bamboo-green hairpin in the hair, light-gray short jacket, bright stubborn eyes.",
+        "adult_successor": "Adult Ayue: a young painter in the twenties with an easy upright back, still the bamboo-green hairpin, short jacket swapped for a moon-white cover shirt, steady eyes."
+      }
+    },
+    "E3": {
+      "name": "goat-hair doubi brush",
+      "kind": "prop",
+      "states": {
+        "intact": "An oversized goat-hair doubi brush, bamboo shaft carved with the words Listening Rain, tip neat and full, root wrapped in cream silk thread.",
+        "tip_splayed": "The same goat-hair doubi brush with tip splayed and stiffened, ink seeping from a crack in the bamboo shaft, silk thread loose and soaked with overnight ink.",
+        "tip_rewrapped": "After tip repair the goat-hair doubi brush tip gathers again; the bamboo crack is filled with raw lacquer; the silk thread is rewound tight."
+      }
+    },
+    "E4": {
+      "name": "teaching painting manual",
+      "kind": "prop",
+      "states": {
+        "intact": "A thread-bound teaching painting manual with a deep-cyan cover, pages demonstrating texture strokes and washes, paper white and writing clear.",
+        "ink_soaked": "The same teaching painting manual soaked through by spilled inkstone ink, cover wrinkled, demonstration drawings blurred into a blot."
+      }
+    },
+    "E5": {
+      "name": "pine-soot inkstone boat",
+      "kind": "prop",
+      "states": {
+        "intact": "An elm inkstone boat: a boat-shaped stone set with a Duan inkstone, pine-soot ink stick and water pot beside it, wave patterns carved on the gunwales.",
+        "shattered_overturned": "The elm inkstone boat has fallen from the painting table and shattered; the Duan inkstone broken in two, ink spilled across the floor."
+      }
+    },
+    "E6": {
+      "name": "Amo",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young painter Amo whose face closely resembles Ayue's, but a vermilion silk cord around the wrist, black short jacket over, flamboyant look.",
+        "remade_face": "After remaking his look, Amo still wears the vermilion silk cord on the wrist; black short jacket swapped for crow-blue, expression deeper."
+      }
+    },
+    "E7": {
+      "name": "Listening Rain studio",
+      "kind": "location",
+      "appearance": "Waterside Listening Rain studio, north window pasted with white xuan, a wide elm painting table at center, undried landscape scrolls on the wall, air rich with ink scent."
+    },
+    "E8": {
+      "name": "bamboo-corridor brush-washing pool",
+      "kind": "location",
+      "appearance": "The bamboo corridor outside the studio; a bluestone brush-washing pool holds pale-gray ink water; bamboo shadows fall sparsely on the stone rim."
+    },
+    "E9": {
+      "name": "xuan-paper storeroom alley",
+      "kind": "location",
+      "appearance": "A narrow alley between xuan-paper storerooms, paper racks towering on both sides, damp-proof bamboo mats on the floor, light chopped by paper rolls."
+    },
+    "E10": {
+      "name": "old gallery ruin hall",
+      "kind": "location",
+      "appearance": "The south-city old gallery ruin hall; peeling white walls still show hanging-nail marks; empty scroll shafts and torn silk piled in a corner."
+    },
+    "E11": {
+      "name": "studio memorial wood plaque",
+      "kind": "prop",
+      "appearance": "A nanmu plaque nailed to the studio doorpost, carved with Wu Yue and the founding year, corners polished bright by touch."
+    },
+    "E12": {
+      "name": "mineral-color saucers",
+      "kind": "prop",
+      "appearance": "Three blue-white porcelain mineral-color saucers holding azurite, malachite, and vermilion respectively, set at the upper-right of the painting table."
+    },
+    "E13": {
+      "name": "rosewood seal-box cart",
+      "kind": "prop",
+      "appearance": "A small cart pushing a rosewood seal box, body lacquered black, brass corners bright—utterly unlike the elm inkstone boat."
+    },
+    "E14": {
+      "name": "academy steward",
+      "kind": "character",
+      "appearance": "A lean academy steward in a deep-brown skullcap and blue-gray long robe, build somewhat like Wu Yue's, but a jade waist plaque on the chest."
+    },
+    "E15": {
+      "name": "tung-oil shade lamps",
+      "kind": "prop",
+      "appearance": "A row of five tung-oil shade lamps hung on iron hooks under the studio beams, shades polished clear."
+    },
+    "E16": {
+      "name": "apprentice-calling bronze qing",
+      "kind": "prop",
+      "appearance": "Two apprentice-calling bronze qing hung under the bamboo-corridor eaves, strike marks on the rims, tapped twice before class."
+    },
+    "E17": {
+      "name": "Xiaodi",
+      "kind": "character",
+      "appearance": "New mounting apprentice Xiaodi in a light-brown hairband and brand-new short jacket; at a glance like young Ayue, but a sharper chin and shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "weasel-hair small-kai brush",
+      "kind": "prop",
+      "appearance": "A weasel-hair small-kai brush somewhat like a doubi but much shorter; black-lacquer shaft, no Listening Rain carving."
+    },
+    "E19": {
+      "name": "rosewood brush rest",
+      "kind": "prop",
+      "appearance": "A rosewood brush rest with scrolling-cloud carving on the bed, able to hold several brushes—not the same as a boat-shaped inkstone."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_brushman",
+      "frail_leaning",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "tip_splayed",
+      "tip_rewrapped"
+    ],
+    "E4": [
+      "intact",
+      "ink_soaked"
+    ],
+    "E5": [
+      "intact",
+      "shattered_overturned"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_face"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Ayue: bamboo-green hairpin in the hair, light-gray/moon-white clothes.",
+        "E6": "Amo: face nearly identical to Ayue's, but vermilion silk cord on the wrist, black short jacket."
+      },
+      "note": "Hard misidentification sample: bamboo-green hairpin vs vermilion silk cord."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Studio dusk (introduce five tung-oil lamps · two bronze qing)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, Wu Yue lifts the moon-white long-robe sleeve and enters Listening Rain studio, dips the goat-hair doubi brush in ink to test the tip.",
+        {
+          "action": "A row of five tung-oil shade lamps hangs under the studio beams; Wu Yue polishes each shade.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two apprentice-calling bronze qing hang under the bamboo-corridor eaves; Wu Yue taps lightly; the tone rings clear.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Wu Yue checks the goat-hair doubi brush tip and silk wrapping, confirming no splay.",
+        "Through the north window, Wu Yue looks at ink-colored reflections wrinkled by wind on the pool.",
+        {
+          "action": "The intact goat-hair doubi brush rests on the brush mountain; the tip catches warm tung-oil light.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Wu Yue sits by the painting table and drinks a sip of warm tea.",
+        "Distant boat sounds rise; he spreads half-sized raw xuan again.",
+        "He first outlines distant mountains in pale ink, lines like floating silk.",
+        "Night deepens; he hangs the undried scroll at a draft to dry."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the teaching painting manual",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Wu Yue opens the thread-bound teaching painting manual and notes today's texture-stroke points with weasel hair on a blank page.",
+        "At a corner of the manual he sketches an axe-cut texture stroke.",
+        "Wu Yue closes the teaching painting manual and tucks it into the lower drawer of the painting table.",
+        {
+          "action": "Ink rhyme from the goat-hair doubi brush on paper sweeps his profile.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "He tears a scrap of waste xuan and wipes overnight ink from the inkstone edge."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Bamboo corridor greets apprentice (introduce three mineral-color saucers)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        {
+          "action": "By the morning bamboo-corridor brush-washing pool, Wu Yue greets the figure hurrying in with the pine-soot inkstone boat.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Young Ayue sets the pine-soot inkstone boat steadily on the bluestone rim; the bamboo-green hairpin sways lightly.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Wu Yue points to the three mineral-color saucers at the upper-right of the painting table and teaches Ayue to tell azurite from malachite.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ayue crouches by the brush-washing pool, curiously stirring a pool of pale ink water.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Wu Yue explains to Ayue that when the bronze qing sounds twice, the brush must stop and the tip be gathered.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Ayue glances back at the intact pine-soot inkstone boat, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Bamboo shadows sway; the two walk back along the bamboo corridor to Listening Rain studio."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Xuan-paper storeroom alley (only Amo)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the xuan-paper storeroom alley, Amo with a vermilion silk cord on the wrist turns from behind a paper-rack shadow.",
+        "Amo steps slowly along the bamboo mats; the black short jacket stands out.",
+        "He brushes past a paper-delivery helper; the vermilion silk cord flashes in the paper-roll reflection.",
+        "Amo taps a paper rack to confirm the damp-proof mat is pressed firm.",
+        "He crosses the alley end toward the mounting room."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Bamboo-corridor misidentification co-presence",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "By the bamboo-corridor brush-washing pool, Ayue and Amo stand side by side: one with a bamboo-green hairpin, one with a vermilion silk cord on the wrist.",
+        "Ayue hands tip-test waste paper to Amo; they briefly meet eyes.",
+        "Amo smooths Ayue's light-gray short-jacket collar, then turns away.",
+        "They walk opposite ways along the bamboo corridor; figures cross in bamboo shadow.",
+        "A beat of paper-pounding starts; only ripples remain on the brush-washing pool."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Manual ink-soaked",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Wu Yue keeps watch alone in Listening Rain studio.",
+        {
+          "action": "He opens the teaching painting manual; the cover is already soaked through by spilled ink, wrinkled and blurred.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "ink_soaked"
+            }
+          ]
+        },
+        "Wu Yue wipes overnight ink from the goat-hair doubi brush shaft with waste xuan.",
+        "From the north window he looks at a single fishing light on the pitch-dark pool.",
+        {
+          "action": "The goat-hair doubi brush rests on the brush mountain; the silk thread stiffens slightly.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "An apprentice-calling bronze qing is brushed half a tone by night wind, then falls silent."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years turn (filler · stretch the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In the spring-rain season, Wu Yue day after day outlines, textures, and washes in the studio.",
+        "Another rainy night, he pulls the moon-white long robe tight and keeps watch by the goat-hair doubi brush.",
+        "At high summer noon, xuan softens with damp; he rotates sheets to dry.",
+        "Autumn mist fills the air; tung-oil light struggles through the ink scent.",
+        "On New Year's Eve, Wu Yue alone fills teaching notes to the last page.",
+        "In early spring he regrinds pine soot and continues teaching demonstrations.",
+        "Before plum-rain season, Wu Yue reinforces the storeroom damp-proof mats.",
+        "After Frost's Descent he adds a small charcoal basin in a studio corner.",
+        "Another year before a gathering, he checks each scroll for exhibit.",
+        "On a snowy night he stops the brush, leaves only one tung-oil shade lamp, and keeps watch until dawn.",
+        "After Jingzhe he rebound the loose attachment pages of the teaching painting manual."
+      ]
+    },
+    {
+      "id": "S6c",
+      "setting": "Daily teaching and patrol (keep stretching the gap)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "Wu Yue changes the brush curtain and hangs washed brushes to air-dry.",
+        "He checks the brush-washing pool water level and scoops out ink that is too thick.",
+        {
+          "action": "He lifts the intact goat-hair doubi brush again and tests the tip once in pale ink.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Paper-pounding rhythm comes from outside the corridor; he looks up to listen.",
+        "Wu Yue pours waste ink into a pottery jar and covers it.",
+        "At noon rest he drinks tea under the bamboo corridor; tea smoke coils past bamboo green.",
+        "In the afternoon he returns to the painting table and continues texturing a stretch of distant mountain.",
+        "At sunset he covers the inkstone pool and locks the studio door.",
+        "Before night he patrols the paper storeroom once more to confirm no rats."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Bamboo-corridor patrol (recall mineral-color saucers · rosewood brush-rest false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn, Wu Yue patrols along the bamboo-corridor brush-washing pool; the pine-soot inkstone boat still rests on the stone rim.",
+        {
+          "action": "He crouches to check whether the wave-pattern carving on the pine-soot inkstone boat gunwales is intact.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "At the upper-right of the painting table, those earlier three mineral-color saucers still sit in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A rosewood brush rest is carried past the bamboo corridor—scrolling-cloud bed, not the pine-soot inkstone boat.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Standing in the bamboo corridor, Wu Yue logs ripples last night's damp left on the xuan.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "He resets the inkstone boat and presses a sheet of blotting paper on it.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        "Distant market sounds rise; morning mist begins to clear."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Studio watch again",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At nightfall, Wu Yue returns to Listening Rain studio and opens the ink-soaked teaching painting manual.",
+        "He checks old pages and fills in today's teaching points.",
+        {
+          "action": "He briefly dips the goat-hair doubi brush; ink rhyme mirrors the wrinkled manual cover.",
+          "present": [
+            "E1",
+            "E7",
+            "E3",
+            "E4"
+          ]
+        },
+        "He wipes oil soot from the inner shade.",
+        "Pool wind rises; window paper rustles lightly.",
+        "Wu Yue puts out half the row of tung-oil shade lamps, leaving only the one by the painting table."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Leak disaster (brush tip splayed · inkstone boat shattered)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "In the storm a beam suddenly leaks; Listening Rain studio falls into scramble.",
+        "Standing water nears the painting table; tung-oil shade lamps sway hard.",
+        {
+          "action": "While Wu Yue rescues, the goat-hair doubi brush tip splays and stiffens; silk thread loosens, soaked with overnight ink.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "tip_splayed"
+            }
+          ]
+        },
+        {
+          "action": "At the table edge, the pine-soot inkstone boat is knocked over and rocks hard.",
+          "present": [
+            "E5",
+            "E7"
+          ]
+        },
+        {
+          "action": "Another crisp crack—the pine-soot inkstone boat shatters; the Duan inkstone breaks in two.",
+          "present": [
+            "E5",
+            "E7"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "shattered_overturned",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Wu Yue clutches the tip-splayed goat-hair doubi brush and will not let go.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Someone shouts outside the door; rain chops the cry to pieces."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (inkstone-boat indirect reference · tung-oil-lamp recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day when rain stops, Wu Yue stands in the studio staring at the tip-splayed goat-hair doubi brush.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "He brushes the splayed hairs with a finger, face dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a blank page of the teaching painting manual he writes the date the pine-soot inkstone boat was ruined by the leak.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "An old rubbing of the pine-soot inkstone boat still hangs on the wall; Wu Yue gazes a long while.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "He takes one of the five tung-oil shade lamps from the beams and sits alone in the faint light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The splayed goat-hair doubi brush rests on the brush mountain like an injured feather.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Far off, bamboo drain tubes drip."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Tip repair (third state · weasel-hair small-kai false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Wu Yue brings knives and raw lacquer to repair the goat-hair doubi brush.",
+        {
+          "action": "From a brush case he takes out a weasel-hair small-kai brush—somewhat like a doubi but short, with no carving.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Wu Yue trims the splayed hairs and rewinds the cream silk thread tight.",
+        {
+          "action": "The bamboo crack is filled with raw lacquer; the goat-hair doubi brush tip gathers again.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "tip_rewrapped"
+            }
+          ]
+        },
+        "He tests the tip in pale ink; the line is steady and sharp once more.",
+        "Wu Yue returns the weasel-hair small-kai brush to the case so they will not be confused."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: seal-box cart and academy steward",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A rosewood seal-box cart is pushed past the bamboo corridor—nothing like the shattered pine-soot inkstone boat.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "An academy steward in a skullcap walks into the bamboo corridor and talks beside Wu Yue; the two builds are alike.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The steward points at the rosewood seal-box cart to explain the seal-borrowing plan.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The cart leaves; Wu Yue alone watches it go from the brush-washing pool.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "He resets the mineral-color saucers and walks back to the studio."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: mounting apprentice Xiaodi",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "Into the xuan-paper storeroom alley comes mounting apprentice Xiaodi in a light-brown hairband; at a glance she somewhat resembles young Ayue.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaodi practices rolling xuan; Wu Yue shakes his head—she is not Ayue after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaodi bows her head and steps back; only paper-rack shadows remain in the alley."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Frail (bronze-qing long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, pale Wu Yue, as if leaning on a painting table, stands under the old gallery ruin hall.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "frail_leaning"
+            }
+          ]
+        },
+        "He looks up at hanging-nail marks on the peeling white wall, gaze far away.",
+        {
+          "action": "Far under the bamboo-corridor eaves those two apprentice-calling bronze qing chime lightly in the wind; Wu Yue stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "He sets a palm on the pile of empty scroll shafts, as if saying goodbye.",
+        "Wind crosses the ruin hall; dust lifts lightly."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Ayue returns · Wu Yue passes",
+      "present": [
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Ayue returns along the bamboo corridor and hurries toward the old gallery ruin hall.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        {
+          "action": "Under the ruin hall Ayue reunites with frail Wu Yue; they support each other.",
+          "present": [
+            "E1",
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Beside the studio bamboo couch, Ayue holds Wu Yue's thin hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Wu Yue's breath fades; he finally closes his eyes and quietly passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Outside the window bamboo shadows freeze; pool wind falls still for an instant.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · wood plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the studio door Wu Yue's moon-white long robe still hangs; Ayue reaches to stroke it gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By the doorpost, adult Ayue stands before a newly nailed studio memorial wood plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Ayue's fingertip traces Wu Yue's name carved on the plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "He softly reads the page number of the manual that recorded the pine-soot inkstone boat's ruin, as if answering.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15b",
+      "setting": "Name the dead and destroyed again (indirect avoidance)",
+      "present": [
+        "E2",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "After clearing silt from the bamboo-corridor brush-washing pool, Ayue writes the four characters for pine-soot inkstone boat on the stone rim, then erases them.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "Passing the studio bamboo couch, he sees Wu Yue's old brush curtain on the rack.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        "Pool water murmurs; Ayue grips the bamboo-green hairpin tight in his palm."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Both sides reunite (long-range + co-presence)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Remade-face Amo arrives from the xuan-paper storeroom and briefly meets Ayue's eyes under the old gallery ruin hall.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_face"
+            }
+          ]
+        },
+        "Ayue and Amo stand side by side by empty scroll shafts: one quiet-eyed, one deep-faced.",
+        "Amo still wears the vermilion silk cord on the wrist; Ayue still wears the bamboo-green hairpin.",
+        "They say nothing for a moment, then each turns and leaves the ruin hall."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth placing a boat-shaped inkstone by the brush-washing pool with a bamboo-green hairpin appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth placing a boat-shaped inkstone by the brush-washing pool with a bamboo-green hairpin",
+                "resolves_to": "E2"
+              },
+              "state": "young_apprentice"
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the studio, an oversized bamboo-shaft doubi brush dips ink to test the tip for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the oversized bamboo-shaft doubi brush that first tested the tip at the opening",
+                "resolves_to": "E3"
+              },
+              "state": "intact"
+            }
+          ]
+        },
+        {
+          "action": "Flashback to the paper-storeroom alley—the figure with a vermilion silk cord on the wrist and a black short jacket flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure with a vermilion silk cord on the wrist and a black short jacket in the narrow alley",
+                "resolves_to": "E6"
+              },
+              "state": "young_rival"
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old shaded oil lamps under the studio beams.",
+          "present": [
+            {
+              "eid": "E15",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old shaded oil lamps under the studio beams",
+                "resolves_to": "E15"
+              },
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Back to that waterside bamboo corridor of first meeting; the bluestone brush-washing pool is as it was.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that waterside bamboo corridor of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrases as referents; no formal entity names; avoid the deceased/destroyed."
+    },
+    {
+      "id": "S18",
+      "setting": "Close (manual long-range · mineral-color-saucer long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Ayue reopens that ink-soaked teaching painting manual and walks into Listening Rain studio.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "At the upper-right of the painting table, those earlier three mineral-color saucers still sit.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ayue lifts the tip-rewrapped goat-hair doubi brush; ink rhyme spreads again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "He rolls the long-robe cuff tight and nods confirmation the way Wu Yue once did.",
+        "In dusk on the pool, a new round of apprentice-calling bronze qing chimes twice softly.",
+        "Before the north window Ayue lays the last stroke of distant mountain."
+      ]
+    }
+  ]
+}

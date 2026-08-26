@@ -1,0 +1,830 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "hero",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "c5c26a498bb1685a",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "红发男子",
+      "description": "红色头发向后梳起，穿着深色上衣配白色毛领",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          14,
+          30
+        ],
+        [
+          35,
+          42
+        ],
+        [
+          52,
+          57
+        ],
+        [
+          66,
+          70
+        ],
+        [
+          83,
+          86
+        ],
+        [
+          87,
+          92
+        ],
+        [
+          102,
+          107
+        ],
+        [
+          206,
+          218
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 14.0,
+      "last_frame": null,
+      "last_seconds": 218.0,
+      "screen_time_seconds": 57.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 99.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "兜帽男子",
+      "description": "穿着深灰色连帽外套，背着背包，戴着护目镜",
+      "first_chunk": 7,
+      "presence_spans": [
+        [
+          42,
+          52
+        ],
+        [
+          57,
+          66
+        ],
+        [
+          74,
+          83
+        ],
+        [
+          87,
+          102
+        ],
+        [
+          107,
+          112
+        ],
+        [
+          112,
+          132
+        ],
+        [
+          152,
+          206
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 42.0,
+      "last_frame": null,
+      "last_seconds": 206.0,
+      "screen_time_seconds": 122.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 19.5,
+      "representations": [
+        {
+          "representation_id": "char_002@c007",
+          "chunk_id": 7,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c014_char_002",
+          "chunk_id": 14,
+          "description": "appearance_changed: 戴上带有蓝色镜片的面罩",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 77.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "白发老妇",
+      "description": "白发盘成发髻，穿着紫色高领毛衣和酒红色围巾",
+      "first_chunk": 23,
+      "presence_spans": [
+        [
+          115,
+          132
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 115.0,
+      "last_frame": null,
+      "last_seconds": 132.5,
+      "screen_time_seconds": 17.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_003@c023",
+          "chunk_id": 23,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_004",
+      "kind": "character",
+      "name": "白发壮汉",
+      "description": "体型魁梧，白发蓬松，穿着深色装甲背心",
+      "first_chunk": 8,
+      "presence_spans": [
+        [
+          47,
+          52
+        ],
+        [
+          107,
+          112
+        ],
+        [
+          165,
+          192
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 47.0,
+      "last_frame": null,
+      "last_seconds": 192.0,
+      "screen_time_seconds": 36.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 55.0,
+      "representations": [
+        {
+          "representation_id": "char_004@c008",
+          "chunk_id": 8,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_005",
+      "kind": "character",
+      "name": "戴墨镜白发男子",
+      "description": "白发蓬松，戴着黑色墨镜，穿着深色服装",
+      "first_chunk": 8,
+      "presence_spans": [
+        [
+          47,
+          52
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 47.0,
+      "last_frame": null,
+      "last_seconds": 52.0,
+      "screen_time_seconds": 5.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_005@c008",
+          "chunk_id": 8,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "发光能量球",
+      "description": "金色发光的球形物体",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          14,
+          20
+        ],
+        [
+          24,
+          30
+        ],
+        [
+          62,
+          66
+        ],
+        [
+          92,
+          97
+        ],
+        [
+          120,
+          132
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 14.0,
+      "last_frame": null,
+      "last_seconds": 132.5,
+      "screen_time_seconds": 33.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 32.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c004_prop_001",
+          "chunk_id": 4,
+          "description": "acquired: 被放入机器核心装置中",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 27.0
+        },
+        {
+          "event_id": "evt_c011_prop_001.1",
+          "chunk_id": 11,
+          "description": "acquired: 被兜帽男子从机器中取出",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 65.0
+        },
+        {
+          "event_id": "evt_c025_prop_001.2",
+          "chunk_id": 25,
+          "description": "consumed: 被放入树根洞穴中激活",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 130.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "大型机器装置",
+      "description": "橙红色圆柱形装置，底部有蓝色发光圆环",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          7,
+          14
+        ],
+        [
+          20,
+          34
+        ],
+        [
+          57,
+          70
+        ],
+        [
+          152,
+          165
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 7.0,
+      "last_frame": null,
+      "last_seconds": 165.0,
+      "screen_time_seconds": 46.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 82.5,
+      "representations": [
+        {
+          "representation_id": "prop_002@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "喷气靴",
+      "description": "黑色长靴，鞋底喷射白色气流",
+      "first_chunk": 7,
+      "presence_spans": [
+        [
+          42,
+          47
+        ],
+        [
+          57,
+          62
+        ],
+        [
+          74,
+          79
+        ],
+        [
+          92,
+          97
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 42.0,
+      "last_frame": null,
+      "last_seconds": 97.0,
+      "screen_time_seconds": 20.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 13.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c007",
+          "chunk_id": 7,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "红色飞机",
+      "description": "红白相间的螺旋桨飞机",
+      "first_chunk": 13,
+      "presence_spans": [
+        [
+          70,
+          74
+        ],
+        [
+          79,
+          86
+        ],
+        [
+          192,
+          206
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 70.0,
+      "last_frame": null,
+      "last_seconds": 206.0,
+      "screen_time_seconds": 25.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 105.5,
+      "representations": [
+        {
+          "representation_id": "prop_004@c013",
+          "chunk_id": 13,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c015_prop_004",
+          "chunk_id": 15,
+          "description": "destroyed: 机翼被破坏，机身受损",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 80.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_005",
+      "kind": "prop",
+      "name": "飞艇",
+      "description": "深色大型飞艇",
+      "first_chunk": 17,
+      "presence_spans": [
+        [
+          87,
+          112
+        ],
+        [
+          165,
+          178
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 87.0,
+      "last_frame": null,
+      "last_seconds": 178.0,
+      "screen_time_seconds": 37.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 53.5,
+      "representations": [
+        {
+          "representation_id": "prop_005@c017",
+          "chunk_id": 17,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_006",
+      "kind": "prop",
+      "name": "手枪",
+      "description": "枪械",
+      "first_chunk": 20,
+      "presence_spans": [
+        [
+          102,
+          107
+        ],
+        [
+          206,
+          218
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 102.0,
+      "last_frame": null,
+      "last_seconds": 218.0,
+      "screen_time_seconds": 17.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 99.0,
+      "representations": [
+        {
+          "representation_id": "prop_006@c020",
+          "chunk_id": 20,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_007",
+      "kind": "prop",
+      "name": "烟雾弹",
+      "description": "蓝色圆柱形物体",
+      "first_chunk": 9,
+      "presence_spans": [
+        [
+          52,
+          57
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 52.0,
+      "last_frame": null,
+      "last_seconds": 57.0,
+      "screen_time_seconds": 5.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_007@c009",
+          "chunk_id": 9,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c009_prop_007",
+          "chunk_id": 9,
+          "description": "consumed: 爆炸产生烟雾",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 54.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "未来城市广场",
+      "description": "粉橙色调的未来主义城市，有大量建筑和高台广场",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          14,
+          34
+        ],
+        [
+          35,
+          70
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 14.0,
+      "last_frame": null,
+      "last_seconds": 69.5,
+      "screen_time_seconds": 55.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.5,
+      "representations": [
+        {
+          "representation_id": "loc_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "高空云层",
+      "description": "粉紫色天空中的云层区域",
+      "first_chunk": 13,
+      "presence_spans": [
+        [
+          70,
+          86
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 70.0,
+      "last_frame": null,
+      "last_seconds": 86.5,
+      "screen_time_seconds": 16.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c013",
+          "chunk_id": 13,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "暴风雨夜空",
+      "description": "黑暗暴雨天气，闪电频繁",
+      "first_chunk": 17,
+      "presence_spans": [
+        [
+          87,
+          112
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 87.0,
+      "last_frame": null,
+      "last_seconds": 111.5,
+      "screen_time_seconds": 24.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c017",
+          "chunk_id": 17,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "荒漠峡谷",
+      "description": "橙红色岩石地貌的干旱地区，有废弃机械残骸",
+      "first_chunk": 22,
+      "presence_spans": [
+        [
+          112,
+          132
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 112.0,
+      "last_frame": null,
+      "last_seconds": 132.5,
+      "screen_time_seconds": 20.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_004@c022",
+          "chunk_id": 22,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_005",
+      "kind": "location",
+      "name": "巨树瀑布景观",
+      "description": "巨大树木生长在岩石平台上，下方有瀑布，周围是绿色植被",
+      "first_chunk": 26,
+      "presence_spans": [
+        [
+          133,
+          144
+        ],
+        [
+          218,
+          226
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 133.0,
+      "last_frame": null,
+      "last_seconds": 226.0,
+      "screen_time_seconds": 18.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 74.5,
+      "representations": [
+        {
+          "representation_id": "loc_005@c026",
+          "chunk_id": 26,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c026_loc_005",
+          "chunk_id": 26,
+          "description": "appearance_changed: 从荒芜变为绿意盎然的森林景观",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 134.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1069 @@
+{
+  "story_id": "0028_shipyard_welder",
+  "title": "Shipyard Welder",
+  "premise": "A long master-apprentice drama in the dry-dock welding shed and on the outfitting pier. Xingzi and Alan are easily mistaken for each other; the TIG welding torch goes intact→nozzle-burned→nozzle-replaced; Rust Harbor must be avoided after it capsizes; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "_state_note": "Entities with state machines use states; entities without use appearance. On transition only the current-state appearance is injected.",
+  "entities": {
+    "E1": {
+      "name": "Zhou Lin",
+      "kind": "character",
+      "states": {
+        "on_duty_prime": "Zhou Lin, a shipyard welder in his thirties, buzz cut, weld scar on the cheekbone, scorched-brown fire suit and steel-toe boots, dark-green TIG welding helmet on the shoulder, rough hands dusted with iron filings.",
+        "exhausted_injured": "The same Zhou Lin: fire-suit cuff burned through, gauze on the left brow, walking slowly with a torch case as cane, gaze heavy but still locked on the weld.",
+        "deceased": "Zhou Lin lies still with eyes closed on an iron bed in the shipyard clinic, face peaceful, breath gone."
+      }
+    },
+    "E2": {
+      "name": "Xingzi",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Xingzi: a lean welding apprentice around fifteen, copper-button work badge on the chest, oversized canvas coveralls, eyes clear and stubborn.",
+        "adult_successor": "Adult Xingzi: a welder in his twenties with broader shoulders, still wearing that copper-button work badge, fitted canvas coveralls, eyes steady."
+      }
+    },
+    "E3": {
+      "name": "TIG welding torch",
+      "kind": "prop",
+      "states": {
+        "intact": "A deep-blue-handled TIG welding torch, tungsten tip bright, gas hose coiled, nozzle undamaged.",
+        "nozzle_burned": "The same TIG welding torch with ceramic nozzle cracked and blackened, tungsten askew, gas hose greasy.",
+        "nozzle_replaced": "The TIG welding torch fitted with a new milky-white ceramic nozzle, tungsten re-sharpened, gas hose wiped clean, ready to restrike an arc."
+      }
+    },
+    "E4": {
+      "name": "weld inspection log",
+      "kind": "prop",
+      "states": {
+        "intact": "A blue hard-cover weld inspection log with thickness-gauge readouts clipped in, neat writing, clean cover.",
+        "oil_soaked": "The same weld inspection log soaked through with hydraulic oil, cover sticky and curling, writing blurred into a blot."
+      }
+    },
+    "E5": {
+      "name": "Rust Harbor",
+      "kind": "prop",
+      "states": {
+        "intact": "A rust-red riveted barge named Rust Harbor, white-painted name on the gunwale, deck piled with angle steel and a gas-cylinder cage.",
+        "capsized_sunk": "Rust Harbor tips after a crane cable snaps, hull bottom-up half-sunk in dry-dock mud water, mast light out."
+      }
+    },
+    "E6": {
+      "name": "Alan",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young welder Alan whose face closely resembles Xingzi's, but wearing charcoal-black long welding gloves and a bright-red epaulette vest over coveralls, manner bold.",
+        "remade_look": "Alan after remaking his look still wears charcoal-black long welding gloves; the epaulette vest is now matte black, manner deeper."
+      }
+    },
+    "E7": {
+      "name": "dry-dock welding shed",
+      "kind": "location",
+      "appearance": "An iron-sheet welding shed on the dry dock's west side, explosion-proof lamps and fume hoods overhead, weld slag and grinding discs on the floor, ozone in the air."
+    },
+    "E8": {
+      "name": "outfitting pier",
+      "kind": "location",
+      "appearance": "An outfitting pier reaching into the basin, bollards on the concrete quay, crane boom sweeping past, rust-red hulls in the distance."
+    },
+    "E9": {
+      "name": "plate-yard narrow aisle",
+      "kind": "location",
+      "appearance": "A narrow aisle between upright plate racks, steel walls on both sides, white-powder safety lines on the ground, heavy shadows."
+    },
+    "E10": {
+      "name": "abandoned slipway",
+      "kind": "location",
+      "appearance": "An old slipway ruin, rotten sleepers, water in the rail slots, a half keel support and a rusted gantry remaining."
+    },
+    "E11": {
+      "name": "shipyard memorial brass plaque",
+      "kind": "prop",
+      "appearance": "A brass memorial plaque nailed to the welding-shed brick pillar, carved with 'Zhou Lin' and the hire year, edges already verdigris."
+    },
+    "E12": {
+      "name": "electrode-spec tags",
+      "kind": "prop",
+      "appearance": "Three enamel electrode-spec tags hung on the gas-cylinder cage, labeled J422, J506, and stainless wire."
+    },
+    "E13": {
+      "name": "orange-red mobile welding cart",
+      "kind": "prop",
+      "appearance": "A brand-new orange-red mobile welding cart with an inverter welder in the bed, white lettering 'Temporary Support'—utterly unlike Rust Harbor."
+    },
+    "E14": {
+      "name": "shipyard safety officer",
+      "kind": "character",
+      "appearance": "A lean shipyard safety officer, full beard, yellow reflective vest, white hard hat, build somewhat like Zhou Lin's, but with a safety-office badge on the shoulder."
+    },
+    "E15": {
+      "name": "explosion-proof work lamps",
+      "kind": "prop",
+      "appearance": "A row of five brass-hood explosion-proof work lamps hung on iron hooks on the shed crossbeam, glass chimneys polished bright."
+    },
+    "E16": {
+      "name": "shift-change bronze bells",
+      "kind": "prop",
+      "appearance": "Two shift-change bronze bells hung under the shed eaves, bodies scarred by strikes, sounding two low notes at shift change."
+    },
+    "E17": {
+      "name": "Xiaoman",
+      "kind": "character",
+      "appearance": "New intern Xiaoman in a light-gray headscarf and brand-new coveralls, at a glance like young Xingzi, but with a sharper chin and shy eyes."
+    },
+    "E18": {
+      "name": "spare torch head",
+      "kind": "prop",
+      "appearance": "A half-person-long spare torch head shaped much like the main torch, but with a black-rubber handle and no gas-hose fitting."
+    },
+    "E19": {
+      "name": "Tide Sound",
+      "kind": "prop",
+      "appearance": "A blue-gray harbor tug named Tide Sound, broad flat hull, no rust-red riveted-barge name—not the same as Rust Harbor."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "on_duty_prime",
+      "exhausted_injured",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "nozzle_burned",
+      "nozzle_replaced"
+    ],
+    "E4": [
+      "intact",
+      "oil_soaked"
+    ],
+    "E5": [
+      "intact",
+      "capsized_sunk"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_look"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Xingzi: copper-button work badge on the chest, canvas coveralls.",
+        "E6": "Alan: face nearly identical to Xingzi's, but charcoal-black long welding gloves and a bright-red epaulette vest."
+      },
+      "note": "Hard misidentification sample: copper-button work badge vs charcoal welding gloves."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Welding shed at dusk (introducing five explosion-proof lamps · two shift bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk Zhou Lin carries a dark-green welding helmet into the dry-dock welding shed and strikes a test arc with the TIG welding torch.",
+        {
+          "action": "A row of five brass-hood explosion-proof work lamps hangs on the shed crossbeam; Zhou Lin wipes each glass chimney clean.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two shift-change bronze bells hang under the shed eaves; Zhou Lin taps them lightly and the dull notes echo.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Zhou Lin checks the TIG welding torch tungsten and gas-hose fitting, confirming no leak.",
+        "Through the shed opening Zhou Lin watches rust-red hull outlines in the basin.",
+        {
+          "action": "The intact TIG welding torch rests on the welding bench, nozzle reflecting the explosion-proof lamps' warm light.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Zhou Lin sits by the slag bin and unscrews his canteen for a few sips.",
+        "A distant crane whistle sounds; Zhou Lin puts the helmet back on.",
+        "He lightly grinds the bevel to be welded with an angle grinder; sparks briefly fly."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Filling the weld inspection log",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Zhou Lin opens the blue weld inspection log and notes the day's weld numbers in ballpoint.",
+        "He sketches the bevel angle in the inspection log and marks thickness readings.",
+        "Zhou Lin closes the weld inspection log and tucks it back into the second drawer of the tool cabinet.",
+        {
+          "action": "Blue-white arc light from the TIG welding torch sweeps across his cheek.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "He tears off a scrap of sandpaper and wipes iron powder from his gloves."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Outfitting pier greets the apprentice (introducing three spec tags)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        {
+          "action": "At the outfitting pier in the morning Zhou Lin greets the moored rust-red barge Rust Harbor.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Young Xingzi jumps from Rust Harbor onto the pier and loops the cable onto a concrete bollard.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Zhou Lin points to the three enamel electrode-spec tags on the gas-cylinder cage and teaches Xingzi to tell J422 from J506.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xingzi squats at the pier edge and curiously touches the rivets on Rust Harbor's gunwale.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Zhou Lin explains to Xingzi that when the shipyard shift bells sound twice the arc must stop.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Xingzi looks back at intact Rust Harbor; the copper-button work badge sways lightly on his chest.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Tide slaps the shore; the two walk along the pier toward the dry-dock welding shed."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Plate-yard narrow aisle (Alan alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the plate-yard narrow aisle Alan in charcoal-black long welding gloves looks back from the upright-plate shadows.",
+        "Alan walks slowly along the white-powder safety line; the bright-red epaulette vest stands out.",
+        "He brushes past a material cart; charcoal gloves flash in the plate reflection.",
+        "Alan knocks the rack to confirm the plate pins are locked.",
+        "He passes a figure at the aisle end and walks toward the outfitting area."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Pier misidentification shared screen",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "On the outfitting pier Xingzi and Alan stand side by side: one with a copper-button work badge, one in charcoal welding gloves.",
+        "Xingzi hands Alan a knocked-off slag chunk; they meet eyes briefly.",
+        "Alan straightens Xingzi's oversized coverall collar, then turns his face away.",
+        "They walk opposite ways along the pier; figures cross in the crane's shadow.",
+        "A burst of grinding rises; only cables sway lightly on the pier."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Inspection log oil-soaked",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On a night months later Zhou Lin alone keeps watch in the dry-dock welding shed.",
+        {
+          "action": "He opens the weld inspection log; the cover is already soaked with hydraulic oil, sticky and curling.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "oil_soaked"
+            }
+          ]
+        },
+        "Zhou Lin wipes grease from the TIG welding torch body with a rag.",
+        "Through the shed opening he watches warning buoys in the pitch-black basin.",
+        {
+          "action": "The TIG welding torch rests quiet on the welding bench, gas hose coiled.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "A shift-change bronze bell is bumped half a note by night wind, then falls silent."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years turn (filler · stretching the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In spring flood season Zhou Lin day after day restrikes arcs and patch-welds in the shed.",
+        "On another rain night he wraps the fire suit tight and keeps watch by the TIG welding torch.",
+        "At high summer noon the shed iron sheet burns hot; he rotates cooling.",
+        "In autumn fog the explosion-proof lamps' light struggles through smoke and dust.",
+        "On New Year's Eve Zhou Lin alone fills the weld inspection record to the last page.",
+        "In early spring he recalibrates the thickness gauge and resumes shipyard patrols.",
+        "Before typhoon season Zhou Lin reinforces the gas-cylinder cage straps.",
+        "After Frost's Descent he adds a small bucket of dry sand in the shed corner for backup.",
+        "In another ship-survey season he taps section by section listening to weld echoes.",
+        "On a snow-night shutdown Zhou Lin leaves only one explosion-proof lamp and keeps watch until dawn."
+      ]
+    },
+    {
+      "id": "S6c",
+      "setting": "Daily patch-welding and patrol (further stretching the interval)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "Zhou Lin changes the grinding disc and dresses a newly arrived rib-plate bevel.",
+        "He checks the fume-hood filter and shakes out settled weld ash.",
+        {
+          "action": "He lifts the intact TIG welding torch again and short-arc test-welds a bead.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Rivet-gun rhythm rises from the pier; he looks up to listen.",
+        "Zhou Lin drops spent electrode stubs into an iron bucket and closes the lid.",
+        "At noon break he smokes outside the shed, tapping ash into a tin can.",
+        "In the afternoon he returns to the welding bench and continues patch-welding the manhole coaming.",
+        "At sunset he shuts the gas valve and locks the tool cabinet."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Pier patrol (recall spec tags · Tide Sound false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn Zhou Lin patrols the outfitting pier; Rust Harbor still lies in the shallow bay.",
+        {
+          "action": "He crouches to check whether Rust Harbor's gunwale rivets have loosened.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "On the gas-cylinder cage those three electrode-spec tags still hang in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A blue-gray tug Tide Sound crosses the basin—broad flat hull, not Rust Harbor.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Zhou Lin stands on the pier recording fender wear exposed after the ebb.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "He recoils the cable and presses it beside Rust Harbor's deck edge.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        "A distant crane slowly swings; morning fog begins to thin."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Welding shed watch again (persist and gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At nightfall Zhou Lin returns to the dry-dock welding shed and opens the oil-soaked weld inspection log.",
+        "He matches old numbers and adds today's patrol results.",
+        {
+          "action": "He briefly restrikes the TIG welding torch; light shows the inspection log's sticky cover.",
+          "present": [
+            "E1",
+            "E7",
+            "E3",
+            "E4"
+          ]
+        },
+        "He wipes spatter dots from the helmet lens.",
+        "Basin wind rises; the shed iron sheet rattles lightly.",
+        "Zhou Lin extinguishes half the row of explosion-proof lamps, leaving only the work-station one."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Crane accident (torch burned · Rust Harbor capsizes)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "In a rainstorm a crane cable suddenly snaps; the dry-dock welding shed shudders hard.",
+        "Standing water floods the welding bench; explosion-proof lamps swing violently.",
+        {
+          "action": "While Zhou Lin rushes to save gear the TIG welding torch ceramic nozzle cracks black and the tungsten skews.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "nozzle_burned"
+            }
+          ]
+        },
+        {
+          "action": "In the basin Rust Harbor is swept by a runaway hook and jolts hard.",
+          "present": [
+            "E5",
+            "E8"
+          ]
+        },
+        {
+          "action": "Another crack—Rust Harbor tips; hull bottom-up half-sinks into mud water.",
+          "present": [
+            "E5",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "capsized_sunk",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Zhou Lin rushes from the shed, clamping hard on the burned TIG welding torch.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Alarms blare; a safety whistle shatters into fragments in the rain."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (Rust Harbor indirect reference · explosion-proof lamp recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day when rain eases Zhou Lin stands in the shed staring at the nozzle-burned TIG welding torch.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "He traces the cracked ceramic nozzle with a finger, expression dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a blank page of the weld inspection log he writes the date Rust Harbor was lost.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "A berth diagram of Rust Harbor is still taped to the shed wall; Zhou Lin gazes at it a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "He takes one of the five explosion-proof work lamps from the crossbeam and sits alone in the faint light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The burned TIG welding torch rests on the bench, gas hose hanging like a wounded snake.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "A distant dredger rumbles; muddy spray rises in the basin."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Replace nozzle (third state · spare torch-head false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Zhou Lin brings tools and prepares to repair the TIG welding torch.",
+        {
+          "action": "From a wooden crate he takes a spare torch head—much like the main torch but with a black-rubber handle.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Zhou Lin removes the cracked nozzle and fits a new milky-white ceramic tip.",
+        {
+          "action": "Tungsten re-sharpened, the TIG welding torch is usable again; gas hose wiped clean.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "nozzle_replaced"
+            }
+          ]
+        },
+        "He short-arc test-welds; the arc is steady and sharp again.",
+        "Zhou Lin puts the spare torch head back in the crate, no longer confused."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: mobile welding cart and safety officer",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "An orange-red mobile welding cart rolls onto the outfitting pier—nothing like the already capsized Rust Harbor.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "A yellow-vest white-hat shipyard safety officer jumps onto the pier and talks beside Zhou Lin; the two look similar in build.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The safety officer points at the orange-red mobile welding cart and explains the temporary support grouping.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The welding cart horns and drives off; Zhou Lin alone watches from the pier.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "He resets the safety cones and walks back to the shed along the bollards."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: intern Xiaoman",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "Into the plate-yard narrow aisle comes intern Xiaoman in a light-gray headscarf—at a glance somewhat like young Xingzi.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaoman tries tying a cable; Zhou Lin shakes his head—she is not Xingzi after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaoman bows and withdraws; only upright-plate shadows remain in the aisle."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Injured (shift bells long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "At dusk years later Zhou Lin, cuff burned through and brow gauze on, leans on a torch case under the abandoned slipway.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "exhausted_injured"
+            }
+          ]
+        },
+        "He looks up at the rusted gantry, gaze distant.",
+        {
+          "action": "In the distance those two shift-change bronze bells under the shed eaves ring lightly in the wind; Zhou Lin stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "He presses a palm to a rotten sleeper as if saying goodbye.",
+        "Tide sounds far; slipway puddles mirror his figure."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Xingzi returns · Zhou Lin passes",
+      "present": [
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day adult Xingzi returns along the pier and hurries toward the abandoned slipway.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        {
+          "action": "Under the slipway Xingzi reunites with injured Zhou Lin; they support each other.",
+          "present": [
+            "E1",
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "By the shipyard-clinic iron bed Xingzi holds Zhou Lin's wasted hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Zhou Lin's breath grows weak; at last he closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Outside the window the crane is still; basin wind falls quiet for an instant.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · brass plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the shed door Zhou Lin's scorched-brown fire suit still hangs; Xingzi reaches to stroke it gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By the brick pillar adult Xingzi stands before the newly nailed shipyard memorial brass plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Xingzi's fingertip traces Zhou Lin's name carved on the brass plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "He softly speaks the page number of the inspection record of Rust Harbor's loss, as if answering.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15b",
+      "setting": "Mention again the deceased and destroyed (indirect avoidance)",
+      "present": [
+        "E2",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "After the outfitting pier is dredged Xingzi writes the three characters of Rust Harbor on the empty berth and then erases them.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "Passing the clinic corridor he sees Zhou Lin's old work badge in a glass cabinet.",
+          "present": [
+            "E2"
+          ]
+        },
+        "Tide slaps the shore; Xingzi grips the copper-button work badge tight in his palm."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Both reunite (long-range + shared screen)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Alan with his remade look arrives from the plate yard and briefly meets Xingzi's eyes under the abandoned slipway.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_look"
+            }
+          ]
+        },
+        "Xingzi and Alan stand side by side by the keel support: one quiet-eyed, one deep-mannered.",
+        "Alan still wears charcoal-black long welding gloves; Xingzi still wears the copper-button work badge.",
+        "They are silent a moment, then each turns and leaves the slipway."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate · name-free)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth jumping from the barge onto the pier with a copper-button work badge appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth jumping from the barge onto the pier with a copper-button work badge",
+                "resolves_to": "E2"
+              },
+              "state": "young_apprentice"
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the shed a deep-blue-handled torch strikes a test arc for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the deep-blue-handled torch that first struck a test arc at the opening",
+                "resolves_to": "E3"
+              },
+              "state": "intact"
+            }
+          ]
+        },
+        {
+          "action": "Flashback to the plate aisle—that charcoal-gloved figure in a bright-red epaulette vest slips past.",
+          "present": [
+            {
+              "eid": "E6",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the charcoal-gloved red-epaulette figure in the narrow aisle",
+                "resolves_to": "E6"
+              },
+              "state": "young_rival"
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five brass-hood explosion-proof lamps on the shed crossbeam appears.",
+          "present": [
+            {
+              "eid": "E15",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five brass-hood explosion-proof lamps on the shed crossbeam",
+                "resolves_to": "E15"
+              },
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Back to that pier of first meeting reaching into the basin, bollards and crane as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that pier of first meeting reaching into the basin",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Each beat uses a temporal phrase to point at past entities/frames without names; avoid referring to deceased/destroyed entities."
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (inspection log long-range · spec tags long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Xingzi opens again that oil-soaked weld inspection log and walks into the dry-dock welding shed.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "By the gas-cylinder cage those three electrode-spec tags still hang.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xingzi lifts the nozzle-replaced TIG welding torch; arc light fills the shed again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "He rolls the fire-suit cuffs tight and nods to confirm as Zhou Lin once did.",
+        "In basin dusk the new shift's shift-change bronze bells sound two light notes."
+      ]
+    }
+  ]
+}

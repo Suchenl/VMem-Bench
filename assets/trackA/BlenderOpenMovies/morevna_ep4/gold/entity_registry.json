@@ -1,0 +1,924 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "morevna_ep4",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "a37df89f4d764724",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "紫发女战士",
+      "description": "紫色长发，身穿黑色夹克、白色绷带胸衣和黑色紧身裤，胸前佩戴发光蓝色水晶吊坠。",
+      "first_chunk": 4,
+      "presence_spans": [
+        [
+          34,
+          39
+        ],
+        [
+          53,
+          59
+        ],
+        [
+          71,
+          80
+        ],
+        [
+          129,
+          136
+        ],
+        [
+          377,
+          380
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 34.0,
+      "last_frame": null,
+      "last_seconds": 380.0,
+      "screen_time_seconds": 30.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 241.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c004",
+          "chunk_id": 4,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c011_char_001",
+          "chunk_id": 11,
+          "description": "appearance_changed: 从平躺状态变为在实验室平台上悬浮，身体散发光芒。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 76.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "红发青年",
+      "description": "红色刺猬头，身穿蓝白相间的夹克和深色裤子。",
+      "first_chunk": 14,
+      "presence_spans": [
+        [
+          102,
+          148
+        ],
+        [
+          158,
+          167
+        ],
+        [
+          177,
+          185
+        ],
+        [
+          198,
+          212
+        ],
+        [
+          232,
+          240
+        ],
+        [
+          246,
+          251
+        ],
+        [
+          256,
+          266
+        ],
+        [
+          274,
+          288
+        ],
+        [
+          295,
+          320
+        ],
+        [
+          330,
+          355
+        ],
+        [
+          371,
+          374
+        ],
+        [
+          377,
+          380
+        ],
+        [
+          383,
+          386
+        ],
+        [
+          400,
+          404
+        ],
+        [
+          411,
+          456
+        ],
+        [
+          464,
+          468
+        ],
+        [
+          480,
+          490
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 102.0,
+      "last_frame": null,
+      "last_seconds": 490.0,
+      "screen_time_seconds": 236.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 20.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c014",
+          "chunk_id": 14,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "巨型机器人",
+      "description": "深灰色重型机甲，拥有骷髅状面部，眼睛和胸部发出橙色/红色光芒，体型巨大。",
+      "first_chunk": 14,
+      "presence_spans": [
+        [
+          102,
+          107
+        ],
+        [
+          111,
+          117
+        ],
+        [
+          140,
+          145
+        ],
+        [
+          162,
+          182
+        ],
+        [
+          185,
+          198
+        ],
+        [
+          200,
+          215
+        ],
+        [
+          217,
+          232
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 102.0,
+      "last_frame": null,
+      "last_seconds": 232.0,
+      "screen_time_seconds": 79.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 23.0,
+      "representations": [
+        {
+          "representation_id": "char_003@c014",
+          "chunk_id": 14,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c029_char_003",
+          "chunk_id": 29,
+          "description": "appearance_changed: 挣脱锁链束缚，展开背部装甲板，完全激活战斗形态。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 185.0
+        },
+        {
+          "event_id": "evt_c038_char_003.1",
+          "chunk_id": 38,
+          "description": "broken: 被光束击中后受损，喷射火焰逃离现场。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 220.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_004",
+      "kind": "character",
+      "name": "莫霍克头男子",
+      "description": "金色莫霍克发型，身穿黑色背心，面部有伤痕和污渍。",
+      "first_chunk": 4,
+      "presence_spans": [
+        [
+          34,
+          39
+        ],
+        [
+          282,
+          295
+        ],
+        [
+          298,
+          320
+        ],
+        [
+          323,
+          333
+        ],
+        [
+          337,
+          341
+        ],
+        [
+          355,
+          362
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 34.0,
+      "last_frame": null,
+      "last_seconds": 362.0,
+      "screen_time_seconds": 61.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 243.0,
+      "representations": [
+        {
+          "representation_id": "char_004@c004",
+          "chunk_id": 4,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c098_char_004",
+          "chunk_id": 98,
+          "description": "destroyed: 躺在担架上，心电监护仪显示直线，确认死亡。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 595.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_005",
+      "kind": "character",
+      "name": "白发神秘人",
+      "description": "银白色短发，身穿黑色大衣和围巾。",
+      "first_chunk": 62,
+      "presence_spans": [
+        [
+          355,
+          362
+        ],
+        [
+          408,
+          411
+        ],
+        [
+          445,
+          449
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 355.0,
+      "last_frame": null,
+      "last_seconds": 449.0,
+      "screen_time_seconds": 14.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 46.0,
+      "representations": [
+        {
+          "representation_id": "char_005@c062",
+          "chunk_id": 62,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_006",
+      "kind": "character",
+      "name": "绿衣士兵",
+      "description": "身穿绿色军装。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          11,
+          34
+        ],
+        [
+          39,
+          48
+        ],
+        [
+          59,
+          66
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 11.0,
+      "last_frame": null,
+      "last_seconds": 66.0,
+      "screen_time_seconds": 39.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 11.0,
+      "representations": [
+        {
+          "representation_id": "char_006@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "发光水晶吊坠",
+      "description": "悬挂的长条形蓝色发光晶体，镶嵌在金属底座中。",
+      "first_chunk": 9,
+      "presence_spans": [
+        [
+          66,
+          76
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 66.0,
+      "last_frame": null,
+      "last_seconds": 76.0,
+      "screen_time_seconds": 10.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c009",
+          "chunk_id": 9,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "改装赛车",
+      "description": "白红配色的肌肉车，侧面装有巨大的排气管和机械结构，车头有黄色格栅。",
+      "first_chunk": 40,
+      "presence_spans": [
+        [
+          235,
+          263
+        ],
+        [
+          352,
+          355
+        ],
+        [
+          365,
+          391
+        ],
+        [
+          397,
+          408
+        ],
+        [
+          414,
+          419
+        ],
+        [
+          427,
+          432
+        ],
+        [
+          445,
+          480
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 235.0,
+      "last_frame": null,
+      "last_seconds": 480.0,
+      "screen_time_seconds": 113.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 89.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c040",
+          "chunk_id": 40,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "心电监护仪",
+      "description": "便携式医疗设备，屏幕显示绿色波形或直线。",
+      "first_chunk": 62,
+      "presence_spans": [
+        [
+          355,
+          365
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 355.0,
+      "last_frame": null,
+      "last_seconds": 365.0,
+      "screen_time_seconds": 10.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c062",
+          "chunk_id": 62,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c098_prop_003",
+          "chunk_id": 98,
+          "description": "appearance_changed: 屏幕从绿色心跳波形变为平直绿线。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 603.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "急救箱",
+      "description": "带有红十字标志的红色手提箱。",
+      "first_chunk": 56,
+      "presence_spans": [
+        [
+          327,
+          330
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 327.0,
+      "last_frame": null,
+      "last_seconds": 330.0,
+      "screen_time_seconds": 3.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_004@c056",
+          "chunk_id": 56,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "战后废墟基地",
+      "description": "阴沉天空下的山地军事基地，有阶梯、掩体、废弃车辆和倒地的士兵。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          11,
+          48
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 11.0,
+      "last_frame": null,
+      "last_seconds": 48.0,
+      "screen_time_seconds": 37.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "地下实验室",
+      "description": "昏暗的工业风格房间，有控制台、破碎屏幕、管道和悬浮平台。",
+      "first_chunk": 6,
+      "presence_spans": [
+        [
+          48,
+          80
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 48.0,
+      "last_frame": null,
+      "last_seconds": 80.0,
+      "screen_time_seconds": 32.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c006",
+          "chunk_id": 6,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "夜间城堡",
+      "description": "星空下的宏伟建筑群，融合了古典圆顶与未来科技塔楼，灯火通明。",
+      "first_chunk": 13,
+      "presence_spans": [
+        [
+          97,
+          102
+        ],
+        [
+          148,
+          158
+        ],
+        [
+          215,
+          217
+        ],
+        [
+          220,
+          232
+        ],
+        [
+          243,
+          246
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 97.0,
+      "last_frame": null,
+      "last_seconds": 246.0,
+      "screen_time_seconds": 32.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 57.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c013",
+          "chunk_id": 13,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c060_loc_003",
+          "chunk_id": 60,
+          "description": "destroyed: 建筑主体被巨型机器人的光束击中并发生爆炸。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 342.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "砖墙密室",
+      "description": "深蓝色砖墙构成的封闭空间，顶部有一排圆形照明灯。",
+      "first_chunk": 14,
+      "presence_spans": [
+        [
+          102,
+          237
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 102.0,
+      "last_frame": null,
+      "last_seconds": 237.0,
+      "screen_time_seconds": 135.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_004@c014",
+          "chunk_id": 14,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c060_loc_004",
+          "chunk_id": 60,
+          "description": "destroyed: 天花板坍塌，墙壁破损，地面布满碎石。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 347.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_005",
+      "kind": "location",
+      "name": "车库",
+      "description": "存放改装赛车的室内空间，墙上有工具和架子。",
+      "first_chunk": 40,
+      "presence_spans": [
+        [
+          235,
+          263
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 235.0,
+      "last_frame": null,
+      "last_seconds": 263.0,
+      "screen_time_seconds": 28.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_005@c040",
+          "chunk_id": 40,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_006",
+      "kind": "location",
+      "name": "燃烧的路边酒吧",
+      "description": "夜间路边的商业建筑，霓虹灯招牌写着'BAR POLNY GAZ'等字样，周围堆满摩托车残骸并着火。",
+      "first_chunk": 47,
+      "presence_spans": [
+        [
+          263,
+          365
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 263.0,
+      "last_frame": null,
+      "last_seconds": 365.0,
+      "screen_time_seconds": 102.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_006@c047",
+          "chunk_id": 47,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_007",
+      "kind": "location",
+      "name": "乡村公路",
+      "description": "白天或黄昏时分的开阔道路，背景有山丘、树木和远处的城堡。",
+      "first_chunk": 64,
+      "presence_spans": [
+        [
+          365,
+          391
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 365.0,
+      "last_frame": null,
+      "last_seconds": 391.0,
+      "screen_time_seconds": 26.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_007@c064",
+          "chunk_id": 64,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_008",
+      "kind": "location",
+      "name": "雨夜废弃工业区",
+      "description": "暴雨中的荒废工业设施，有卫星天线、烟囱和倒塌的建筑，月光穿透云层。",
+      "first_chunk": 71,
+      "presence_spans": [
+        [
+          391,
+          500
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 391.0,
+      "last_frame": null,
+      "last_seconds": 500.0,
+      "screen_time_seconds": 109.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_008@c071",
+          "chunk_id": 71,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

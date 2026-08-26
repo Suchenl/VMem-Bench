@@ -1,0 +1,941 @@
+{
+  "story_id": "0013_salt_flat_photographer",
+  "title": "Salt-Marsh Exposure Log",
+  "premise": "A multi-year salt-lake photography drama. Yaya and Aci are easily confused by looks; the dry-plate camera goes intact→salt-seized→repaired; after the salt-flat jeep is wrecked it must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Ye Zhou",
+      "kind": "character",
+      "states": {
+        "prime_photographer": "Photographer Ye Zhou in his forties, short frost-streaked hair, khaki photo vest, light meter on his chest, skin deep wheat-brown from salt wind.",
+        "sandburned": "The same Ye Zhou burned: cheekbones peeling, left eye bandaged, vest torn open along one seam, still wearing the light meter.",
+        "deceased": "Ye Zhou has closed his eyes in death, lying still on the darkroom plank bed, face peaceful, no breath left."
+      }
+    },
+    "E2": {
+      "name": "Yaya",
+      "kind": "character",
+      "states": {
+        "young_assistant": "Young Yaya: a lean tall photo assistant of fifteen or sixteen, orange-yellow headscarf, canvas film bag on her back, bright clear eyes.",
+        "adult_successor": "Adult Yaya: a broad-shouldered steady young photographer in her twenties, still in orange-yellow headscarf, canvas bag replaced by a hard gear case."
+      }
+    },
+    "E3": {
+      "name": "dry-plate camera",
+      "kind": "prop",
+      "states": {
+        "intact": "A walnut box dry-plate camera, brass lens ring intact, bellows pliant, tripod legs painted black.",
+        "salt_seized": "The same dry-plate camera with bellows whitened by salt frost, shutter seized, verdigris spots on the lens ring.",
+        "repaired": "Dry-plate camera bellows replaced, shutter recalibrated, lens ring polished bright, ready for steady exposures again."
+      }
+    },
+    "E4": {
+      "name": "exposure log",
+      "kind": "prop",
+      "states": {
+        "intact": "A cowhide-covered exposure log holding a gray card and metering slips, handwriting neat.",
+        "salt_blotted": "The same exposure log soaked by salt mist; cover whitened and curling, ink bled into gray-purple blotches."
+      }
+    },
+    "E5": {
+      "name": "salt-flat jeep",
+      "kind": "prop",
+      "states": {
+        "intact": "A cream-white modified jeep, reflector boards lashed to the roof, a blue 'Zhou' sprayed on the door, salt crust on the tires.",
+        "crack_wrecked": "The cream-white jeep sunk into a salt-crust crack, chassis twisted, tires burst—a wreck that cannot drive out."
+      }
+    },
+    "E6": {
+      "name": "Aci",
+      "kind": "character",
+      "states": {
+        "young_rival": "Aci, whose face closely resembles young Yaya's, in a blue-gray headscarf, manner bold, a shell bracelet on the wrist.",
+        "adult_rival": "Adult Aci still in blue-gray headscarf and shell bracelet, manner deeper."
+      }
+    },
+    "E7": {
+      "name": "salt-marsh mirror",
+      "kind": "location",
+      "appearance": "An endless salt-marsh mirror lake, sky reflected like a polished silver disc, salt ridges and dead branches in the distance."
+    },
+    "E8": {
+      "name": "salt-shed darkroom",
+      "kind": "location",
+      "appearance": "A lakeside tin salt shed converted to a darkroom; under a red bulb sit developing trays and a print-drying line."
+    },
+    "E9": {
+      "name": "supply town",
+      "kind": "location",
+      "appearance": "A supply town on the east shore of the salt lake; mud-brick station, petrol drums, and walls of dried salt sacks."
+    },
+    "E10": {
+      "name": "abandoned salt works",
+      "kind": "location",
+      "appearance": "A rusted abandoned salt works; huge crystallization ponds cracked dry, chimney askew, wind moaning through tin."
+    },
+    "E11": {
+      "name": "memorial brass plaque",
+      "kind": "prop",
+      "appearance": "A brass memorial plaque nailed to the salt-shed doorframe, engraved with Ye Zhou's name and a year, salt frost on the edges."
+    },
+    "E12": {
+      "name": "metering gray cards",
+      "kind": "prop",
+      "appearance": "Three palm-sized metering gray cards clipped to a wooden stake outside the salt shed, fine salt frost on the surface."
+    },
+    "E13": {
+      "name": "rented off-roader",
+      "kind": "prop",
+      "appearance": "A brand-new orange-red off-roader, empty roof rack, no 'Zhou' lettering and no reflector boards."
+    },
+    "E14": {
+      "name": "reserve ranger",
+      "kind": "character",
+      "appearance": "A lean reserve ranger in khaki uniform and wide-brim hat, build close to Ye Zhou's, but with green shoulder boards."
+    },
+    "E15": {
+      "name": "kerosene lanterns",
+      "kind": "prop",
+      "appearance": "A row of five kerosene lanterns hung on the darkroom wall, glass covers polished, brass lamp pans."
+    },
+    "E16": {
+      "name": "wind copper bells",
+      "kind": "prop",
+      "appearance": "Two wind copper bells hung under the salt-shed eaves; when wind rises they toll low to warn of salt dust."
+    },
+    "E17": {
+      "name": "travel-photo girl",
+      "kind": "character",
+      "appearance": "A travel-photo girl at the supply town, light-brown headscarf, compact camera bag, at a glance like young Yaya, shy eyes."
+    },
+    "E18": {
+      "name": "plastic toy camera",
+      "kind": "prop",
+      "appearance": "A half-foot plastic toy camera shaped like a box camera, but no bellows and a painted fake lens ring."
+    },
+    "E19": {
+      "name": "stranger white pickup",
+      "kind": "prop",
+      "appearance": "A stranger white pickup with salt sacks in the bed, no reflector boards or 'Zhou' lettering—not the salt-flat jeep."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_photographer",
+      "sandburned",
+      "deceased"
+    ],
+    "E2": [
+      "young_assistant",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "salt_seized",
+      "repaired"
+    ],
+    "E4": [
+      "intact",
+      "salt_blotted"
+    ],
+    "E5": [
+      "intact",
+      "crack_wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "adult_rival"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Yaya: orange-yellow headscarf, canvas film bag, calm eyes.",
+        "E6": "Aci: face nearly identical to Yaya's, but blue-gray headscarf, shell bracelet, bold manner."
+      },
+      "note": "MisID: tell Yaya from Aci by headscarf color and bracelet."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Salt-marsh dusk metering (five lanterns · two copper bells)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "At dusk Ye Zhou steps onto brittle salt crust into the salt-marsh mirror and sets up his tripod.",
+        {
+          "action": "A row of five kerosene lanterns hangs on the salt-shed darkroom wall; Ye Zhou returns to polish each glass cover.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two wind copper bells hang under the salt-shed eaves; Ye Zhou reaches to let them chime lightly.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Ye Zhou aims the dry-plate camera at the mirror lake and turns the brass focus ring.",
+        "Guided by his light meter, Ye Zhou looks toward salt ridges flushed red by sunset.",
+        {
+          "action": "The dry-plate camera's bellows draw out slowly; the lens mirrors the full salt-marsh sky.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Ye Zhou sits on the salt crust and listens to wind rolling salt dust far off."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Logging the exposure log",
+      "present": [
+        "E1",
+        "E8",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Under the darkroom red lamp Ye Zhou opens the exposure log and notes aperture and shutter.",
+        "Ye Zhou sketches the salt-marsh cloud drift on a blank log page.",
+        "Ye Zhou closes the log and tucks it into a canvas side pocket.",
+        {
+          "action": "The dry-plate camera's brass ring flashes light across Ye Zhou's cheek.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Salt marsh greets the assistant (three metering gray cards)",
+      "present": [
+        "E1",
+        "E7",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "At dawn beside the salt marsh, Ye Zhou greets young Yaya driving the cream-white salt-flat jeep ashore.",
+        {
+          "action": "Yaya jumps down from the jeep and unties the reflector boards from the roof.",
+          "present": [
+            "E7",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Ye Zhou points to the three metering gray cards clipped on the wooden stake, teaching Yaya to read the gray scale.",
+          "present": [
+            "E1",
+            "E7",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Yaya crouches at the salt-crust edge and curiously pokes a corner of salt crystal to bits.",
+          "present": [
+            "E7",
+            "E2"
+          ]
+        },
+        {
+          "action": "Ye Zhou explains to Yaya the exposure traps of the mirror lake.",
+          "present": [
+            "E1",
+            "E7",
+            "E2"
+          ]
+        },
+        {
+          "action": "Yaya looks back at the parked salt-flat jeep, eyes full of longing.",
+          "present": [
+            "E7",
+            "E2",
+            "E5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Supply town (Aci alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "At the supply town station door, Aci in a blue-gray headscarf turns from behind the salt-sack wall.",
+        "Aci strides boldly through the petrol-drum alley.",
+        "Aci haggles with the shopkeeper; the shell bracelet on the wrist clicks lightly.",
+        "Aci carries a water bucket across the town's dirt street."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Salt-marsh misidentification shared frame",
+      "present": [
+        "E2",
+        "E6",
+        "E7"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "At the salt-marsh edge Yaya and Aci stand side by side—one orange-yellow headscarf, one blue-gray.",
+        "Yaya hands a gray card to Aci; they meet eyes briefly.",
+        "Aci straightens Yaya's orange-yellow headscarf, then turns away.",
+        "The two part along the salt ridge in opposite directions."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Exposure log salt-stained",
+      "present": [
+        "E1",
+        "E8",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Ye Zhou alone stands watch in the darkroom; the dry-plate camera stands in the corner.",
+        {
+          "action": "Ye Zhou opens the exposure log; the cover is whitened by salt mist and the ink has bled.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "salt_blotted"
+            }
+          ]
+        },
+        "Ye Zhou soft-cloths salt frost off the dry-plate camera bellows.",
+        "Ye Zhou pushes open the darkroom small window and looks toward the black salt marsh.",
+        {
+          "action": "The dry-plate camera lens glints cold under the red lamp.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years turn (stretch the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In the dry season Ye Zhou sets up on the salt marsh day after day.",
+        "Another sand-wind night, Ye Zhou wraps his vest tight and keeps watch by the tripod.",
+        "In the brief rainy-season thaw Ye Zhou shoots puddle reflections on the salt ridge.",
+        "At midsummer noon Ye Zhou wipes the sun-hot brass lens ring.",
+        "On the eve of an autumn salt-dust storm Ye Zhou waits alone by the mirror lake until dawn.",
+        "Another year's end, Ye Zhou sorts old negatives under the darkroom red lamp.",
+        "On the first clear spring day Ye Zhou recalibrates the tripod bubble."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Salt-marsh patrol (recall gray cards · stranger white pickup)",
+      "present": [
+        "E1",
+        "E7",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak Ye Zhou patrols the salt-marsh edge; the cream-white salt-flat jeep sits on hard salt crust.",
+        {
+          "action": "Ye Zhou crouches to check whether the jeep chassis is jammed by salt crust.",
+          "present": [
+            "E7",
+            "E5"
+          ]
+        },
+        {
+          "action": "Ye Zhou walks to the wooden stake; those three metering gray cards are still clipped in place.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A stranger white pickup drives the salt road, bed loaded with salt sacks—not the salt-flat jeep.",
+          "present": [
+            "E7",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Ye Zhou stands on a salt ridge and logs new cracks wind-etched overnight.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Ye Zhou hangs reflector boards to dry on a wooden rack by the salt marsh.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Salt crust collapses (camera seized · jeep wrecked)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "The salt crust suddenly collapses; the mirror lake surface heaves violently; the dry-plate camera shivers on the tripod.",
+        "A salt-dust storm rises; the sky is swallowed by white fog.",
+        {
+          "action": "A blast of hard salt grains whitened the dry-plate camera bellows and seized the shutter dead.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "salt_seized"
+            }
+          ]
+        },
+        {
+          "action": "On the distant salt road the cream-white salt-flat jeep's front wheel suddenly sinks into a crack.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "Chassis twisted, tires burst—the salt-flat jeep becomes a wreck that cannot drive out.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "crack_wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Ye Zhou lunges to the tripod and clutches the seized dry-plate camera tight.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (jeep indirect mention · lantern recall)",
+      "present": [
+        "E1",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day Ye Zhou stands in the darkroom, staring at the salt-seized dry-plate camera.",
+          "present": [
+            "E1",
+            "E8",
+            "E3"
+          ]
+        },
+        {
+          "action": "Ye Zhou fingertips the salt-frost cracks on the bellows, expression dark.",
+          "present": [
+            "E1",
+            "E8",
+            "E3"
+          ]
+        },
+        {
+          "action": "Ye Zhou writes on the darkroom wallboard the date the salt-flat jeep cracked and wrecked.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "An old photo of the salt-flat jeep is nailed in the darkroom; Ye Zhou gazes at it a long time.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Ye Zhou takes one of the five kerosene lanterns from the wall and sits alone in the faint light.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The seized dry-plate camera still stands in the corner; the lens ring is mottled with verdigris.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Repair the camera (toy-camera false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Ye Zhou brings bellows and lubricant and begins repairing the dry-plate camera.",
+        {
+          "action": "Ye Zhou takes a plastic toy camera from a wooden crate—box-camera shape but no real bellows.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Ye Zhou carefully fits new bellows to the dry-plate camera and calibrates the shutter.",
+        {
+          "action": "The shutter bites again; the dry-plate camera is usable once more, lens ring bright.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "repaired"
+            }
+          ]
+        },
+        "The repaired dry-plate camera focuses steadily; Ye Zhou looks at it with relief."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: rented off-roader and ranger",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        {
+          "action": "An orange-red rented off-roader enters the salt road—nothing like the long-wrecked salt-flat jeep.",
+          "present": [
+            "E7",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "A reserve ranger jumps down and talks beside Ye Zhou; the two builds are alike.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The ranger points at the orange-red off-roader to explain the temporary road block and borrowed-vehicle plan.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The off-roader horns and drives off; Ye Zhou alone at the salt-marsh edge watches it go.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: travel-photo girl",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "A travel-photo girl in a light-brown headscarf arrives at the supply town; at a glance she somewhat resembles young Yaya.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "The girl lifts a small camera as if practicing; Ye Zhou shakes his head—she is never Yaya.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Abandoned salt works burn (copper-bell long range)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "At dusk years later, Ye Zhou with peeling cheekbones and left eye bandaged stands under the abandoned salt works chimney.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "sandburned"
+            }
+          ]
+        },
+        "Ye Zhou looks up at the askew chimney, gaze far away.",
+        {
+          "action": "Those two wind copper bells under the salt-works tin eaves toll low in the wind; Ye Zhou stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Ye Zhou presses a palm to the hot tin wall, as if saying goodbye."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Yaya returns · Ye Zhou dies",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day adult Yaya returns along the salt road and hurries toward the abandoned salt works.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Yaya reunites with sandburned Ye Zhou by the crystallization pond; they embrace.",
+        {
+          "action": "Beside the sickbed in the salt-shed darkroom, Yaya holds Ye Zhou's rough hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Ye Zhou's breath fades; he finally closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · memorial brass plaque",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Ye Zhou's khaki vest still hangs behind the darkroom door; Yaya reaches to stroke it lightly.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "By the salt-shed doorframe adult Yaya stands before the memorial brass plaque.",
+          "present": [
+            "E2",
+            "E8",
+            "E11"
+          ]
+        },
+        {
+          "action": "Yaya's fingertip traces Ye Zhou's name engraved on the plaque.",
+          "present": [
+            "E2",
+            "E8",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (adult shared frame)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Adult Aci arrives from town and faces Yaya outside the abandoned salt works.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "adult_rival"
+            }
+          ]
+        },
+        "Yaya and Aci stand side by side by the crystallization pond—one calm-eyed, one deep-mannered.",
+        "They look at each other in silence, facing faces alike yet different."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth untying reflector boards at the salt-marsh edge appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_assistant",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth untying reflector boards at the salt-marsh edge",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—on the salt marsh, a box camera draws out its bellows for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the box camera that first drew out its bellows at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash to the town years ago—that figure in a blue-gray headscarf with a shell bracelet on the wrist slips past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in a blue-gray headscarf in town years ago",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old kerosene lamps on the darkroom wall.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old lamps on the darkroom wall",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the silver-disc salt marsh of first meeting, sky mirrored on it as before.",
+          "present": [
+            {
+              "eid": "E7",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the silver-disc salt marsh of first meeting",
+                "resolves_to": "E7"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (log long range · gray-card long range)",
+      "present": [
+        "E2",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Yaya reopens that salt-blotted exposure log and walks into the darkroom.",
+          "present": [
+            "E2",
+            "E8",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "By the salt-shed wooden stake, those three metering gray cards are still clipped in place.",
+          "present": [
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Yaya takes the dry-plate camera; the lens aims again at the salt-marsh sky.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    }
+  ]
+}

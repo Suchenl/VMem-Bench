@@ -1,0 +1,1282 @@
+{
+  "story_id": "0045_tide_pool_naturalist",
+  "title": "Tide-Pool Specimen Chronicle",
+  "premise": "An intertidal inheritance at a seaside specimen room. Achao and Axi are easily confused; the intertidal specimen case goes intact→seawater-corroded→resealed; the glass-bottom observation boat must be avoided after it sinks; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_state_note": "Stateful entities use states; stateless entities use appearance. On transition, inject only the current state's appearance. Flashbacks may set state on a present item to point at a past state.",
+  "entities": {
+    "E1": {
+      "name": "Shen Yu",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Naturalist Shen Yu in his forties, skin honey-tanned by sea wind, khaki vest and rubber boots, magnifying glass and sampling spoon at his belt.",
+        "weary_injured": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud.",
+        "retired_away": "Shen Yu has retired and departed; only his old khaki vest and name tag remain in the specimen room—he himself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Achao",
+      "kind": "character",
+      "states": {
+        "youth_apprentice": "Young Achao: a lean tide-pool apprentice of fourteen or fifteen, sea-green kelp cord in his hair, wet trouser cuffs, bright stubborn eyes.",
+        "adult_successor": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+      }
+    },
+    "E3": {
+      "name": "intertidal specimen case",
+      "kind": "prop",
+      "states": {
+        "intact": "An oak intertidal specimen case with intact glass lid, compartments holding starfish, limpets, and dried seaweed, labels neat.",
+        "seawater_corroded": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine.",
+        "resealed": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+      }
+    },
+    "E4": {
+      "name": "tide observation log",
+      "kind": "prop",
+      "states": {
+        "intact": "A waterproof-cloth tide observation log, pages filled with tide-height curves and species sketches, corners clean.",
+        "salt_frost_damaged": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+      }
+    },
+    "E5": {
+      "name": "glass-bottom observation boat",
+      "kind": "prop",
+      "states": {
+        "intact": "A pale-green glass-bottom observation boat, white wave lines painted on the gunwales, transparent hull for looking down into tide pools.",
+        "reef_wrecked": "The glass-bottom observation boat reef-struck with hull shattered, half-sunk in foam among the rocks, only a listing wreck left."
+      }
+    },
+    "E6": {
+      "name": "Axi",
+      "kind": "character",
+      "states": {
+        "youth_rival": "Axi, face and build extremely similar to Achao, but wearing an amber conch brooch, bold and eager to dive first.",
+        "remade_return": "Remade Axi still wears the amber conch brooch, now with dive goggles pushed up on the forehead, expression deeper and quieter."
+      }
+    },
+    "E7": {
+      "name": "seaside specimen room",
+      "kind": "location",
+      "appearance": "A seaside wooden-house specimen room: sea charts and tide tables on the wall, specimen cases on a long table, breaking surf outside the window."
+    },
+    "E8": {
+      "name": "rocky-shore tide pool",
+      "kind": "location",
+      "appearance": "Rocky-shore tide pools exposed at ebb tide, clear pooled water, anemones and small crabs in crevices, footing slick underfoot."
+    },
+    "E9": {
+      "name": "breakwater passage",
+      "kind": "location",
+      "appearance": "A narrow passage inside the breakwater, barnacles on both walls, ankle-deep at high tide, emergency lights dim yellow."
+    },
+    "E10": {
+      "name": "abandoned lighthouse base",
+      "kind": "location",
+      "appearance": "The basalt base of an abandoned lighthouse, steps crumbling, copper-green railing broken, new tide pools visible in the distance."
+    },
+    "E11": {
+      "name": "basalt memorial plaque",
+      "kind": "prop",
+      "appearance": "A basalt memorial plaque nailed to the lighthouse base, engraved with Shen Yu's name and years, surface crusted with salt crystals."
+    },
+    "E12": {
+      "name": "glass marker buoys",
+      "kind": "prop",
+      "appearance": "Three palm-sized green glass marker buoys tied in a string with hemp rope to mark fixed observation points."
+    },
+    "E13": {
+      "name": "plastic tourist pedal boat",
+      "kind": "prop",
+      "appearance": "A plastic tourist pedal boat, boat-shaped but with no glass bottom, hull stenciled 'Tourist'."
+    },
+    "E14": {
+      "name": "Inspector Han",
+      "kind": "character",
+      "appearance": "Coastal patrol inspector Han, build somewhat resembling Shen Yu, deep-blue uniform and silver shoulder bars, cap badge an anchor—not a magnifying glass."
+    },
+    "E15": {
+      "name": "specimen-cabinet spotlights",
+      "kind": "prop",
+      "appearance": "A row of five small spotlights clipped to specimen cabinets, frosted white shades, numbers stamped on the metal clips."
+    },
+    "E16": {
+      "name": "fog-bell hand cranks",
+      "kind": "prop",
+      "appearance": "Two brass fog-bell hand cranks hung on the specimen-room lintel, low short notes when cranked."
+    },
+    "E17": {
+      "name": "volunteer Xiaozhu",
+      "kind": "character",
+      "appearance": "Volunteer Xiaozhu, at a glance somewhat like young Achao, light-brown hair band instead of sea-green kelp cord, shy gaze."
+    },
+    "E18": {
+      "name": "miniature display case",
+      "kind": "prop",
+      "appearance": "A miniature display case, compartment layout much like the specimen case but smaller, no real labels, acrylic lid."
+    },
+    "E19": {
+      "name": "orange-red rescue jet ski",
+      "kind": "prop",
+      "appearance": "An unfamiliar orange-red rescue jet ski, short squat hull, no glass bottom, 'Coastal Rescue' on the side."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_injured",
+      "retired_away"
+    ],
+    "E2": [
+      "youth_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "seawater_corroded",
+      "resealed"
+    ],
+    "E4": [
+      "intact",
+      "salt_frost_damaged"
+    ],
+    "E5": [
+      "intact",
+      "reef_wrecked"
+    ],
+    "E6": [
+      "youth_rival",
+      "remade_return"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+        "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+      },
+      "note": "Hard confuse sample: Achao and Axi look alike; distinguish only by kelp cord vs amber conch brooch."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Seaside specimen room routine (introduce five specimen-cabinet spotlights · two fog-bell hand cranks)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "At dusk, Shen Yu pushes open the seaside specimen room's wooden door and sets his sampling spoon on the long table.",
+        {
+          "action": "A row of five specimen-cabinet spotlights clips to the cabinets; Shen Yu turns each on and wipes the shades clean.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two brass fog-bell hand cranks hang on the lintel; Shen Yu cranks one lightly, and short notes echo through the wooden room.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Shen Yu opens the intertidal specimen case and checks every starfish and limpet label.",
+        "Shen Yu gazes through the window at the darkening sea line beyond the rocky-shore tide pool.",
+        {
+          "action": "The intact intertidal specimen case rests at the center of the long table, glass lid reflecting the spotlight glow.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Shen Yu notes today's low-tide times beside the wall chart.",
+        "Shen Yu unhooks the magnifying glass from his belt and hangs it back, checking the lens for salt haze.",
+        "Shen Yu sorts scattered sample bottles and reorders them by tide level.",
+        "Shen Yu sits in the specimen room's wicker chair and rubs shoulders stiff from sea wind."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the tide observation log",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Shen Yu opens the tide observation log and records today's tide height and water temperature.",
+        "Shen Yu sketches a newly seen anemone in the tide observation log.",
+        "Shen Yu closes the tide observation log and tucks it into a drawer.",
+        {
+          "action": "Glare from the intertidal specimen case glass sweeps across Shen Yu's profile.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Shen Yu circles worn label compartments on the specimen case in red ink.",
+        "Shen Yu tightens the ink bottle cap and moves it away from the damp windowsill."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Rocky-shore tide pool greets the apprentice (introduce three glass marker buoys)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "On the morning rocky-shore tide pool, Shen Yu greets young Achao as he poles the glass-bottom observation boat to shore.",
+        {
+          "action": "Achao jumps down from the glass-bottom observation boat and ties the hawser to a basalt spike.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Shen Yu points to the three green glass marker buoys, teaching Achao to read the fixed observation points.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Achao crouches by a tide-pool puddle, studying an anemone's tentacles with curiosity.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Shen Yu explains to Achao how current and tidal range change the species in the pool.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Achao looks back at the intact glass-bottom observation boat, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Shen Yu has Achao lean over the gunwale and peer through the glass bottom at gobies in the rock crevices.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Achao tightens his sea-green kelp cord and carefully notes the tide level Shen Yu recites.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Breakwater passage (Axi alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the breakwater passage, Axi wearing an amber conch brooch glances back from behind the barnacle wall.",
+        "Axi strides through ankle-deep water in the passage, boldly swinging a net bag.",
+        "Axi brushes past a bucket-carrying fisherman; the amber conch brooch sways under the emergency light.",
+        "Axi stops at the passage mouth, critiquing the handwriting on a temporary observation sign.",
+        "Axi kicks a loose barnacle shell into the water.",
+        "Axi crosses the passage and vanishes into the surf beyond the breakwater."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Rocky-shore tide pool: Achao and Axi co-present",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "At the rocky-shore tide pool, Achao and Axi stand side by side—one with sea-green kelp cord, one with amber conch brooch.",
+        "Achao hands Axi a small limpet he found; the two look at each other with different expressions.",
+        "Axi straightens Achao's kelp cord and deliberately rattles her brooch.",
+        "Achao and Axi walk slowly along the pool edge, footprints overlapping then parting on wet sand.",
+        "Achao checks a sketch while Axi jumps into a deeper puddle.",
+        "Achao and Axi part at the pool mouth, each walking opposite ways."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Seaside specimen room (tide observation log salt-frost damaged)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Shen Yu keeps watch alone in the specimen room; the intertidal specimen case sits quietly on the table.",
+        {
+          "action": "Shen Yu opens the tide observation log and finds the cover salt-frosted white, writing blurred.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "salt_frost_damaged"
+            }
+          ]
+        },
+        "Shen Yu wipes water fog from the intertidal specimen case glass lid.",
+        "Shen Yu gazes through the window at the black tide pool and distant lights.",
+        {
+          "action": "Spotlight pools drift slowly across the intertidal specimen case glass.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Shen Yu slips blotting paper into the damaged tide observation log, sighs, and turns off the light."
+      ]
+    },
+    {
+      "id": "F1",
+      "setting": "Spring-tide week observation (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "On a spring-tide week morning, Shen Yu marks the highest tide on the wall chart.",
+        "Shen Yu moves fragile specimens into an inner cabinet.",
+        "Shen Yu rinses salt crystals from the sampling spoon with fresh water.",
+        "Shen Yu checks the intertidal specimen case, verifying each starfish arm is intact.",
+        "In the afternoon, Shen Yu takes a coastal patrol call in the specimen room, brow furrowed.",
+        "Shen Yu writes 'Hold off diving' on a note and tapes it to the door.",
+        "Shen Yu reorders sample bottles and pulls deep-water samples aside."
+      ]
+    },
+    {
+      "id": "F2",
+      "setting": "Species-registration fortnight (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "During species-registration fortnight, Shen Yu spreads tracing paper beside the intertidal specimen case.",
+        "Shen Yu marks new limpet sites with orange dots.",
+        "Shen Yu weights the tracing-paper edges with stones.",
+        "Shen Yu tries to read old numbers in the salt-frost-damaged tide observation log.",
+        "Shen Yu moves his teacup farther away, afraid of splashing the pages again.",
+        "Shen Yu lists three observation routes to adjust on the wall.",
+        "Waves grow louder outside; Shen Yu pauses and listens."
+      ]
+    },
+    {
+      "id": "F3",
+      "setting": "Rocky-shore patrol day (filler · no marker buoys)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "On rocky-shore patrol day, Shen Yu puts on a straw hat and walks into the tide-pool zone.",
+        "Shen Yu probes slick rock with a bamboo staff.",
+        "Shen Yu notes where tourists kicked apart a stone pile.",
+        "Shen Yu shines a flashlight into a deep puddle.",
+        "Shen Yu talks briefly with fishermen at the breakwater mouth.",
+        "Shen Yu avoids sharp oyster shells and circles to the far side of the pool.",
+        "Shen Yu measures the width of a newly collapsed rock crevice with a tape measure."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Rocky-shore tide pool patrol (recall glass marker buoys · plastic tourist pedal boat false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn, Shen Yu patrols the rocky-shore tide pool; the glass-bottom observation boat moors in the shallow bay.",
+        {
+          "action": "Shen Yu crouches to inspect scratches on the glass-bottom observation boat hull.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Shen Yu walks to the rock spike; those three green glass marker buoys are still tied in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A plastic tourist pedal boat stenciled 'Tourist' crosses the shallow bay—no glass bottom, nothing like the observation boat.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Shen Yu stands at the tide-pool edge, recording rock crevices exposed after the ebb.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Shen Yu retightens the glass-bottom observation boat hawser.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Shen Yu confirms again that none of the three glass marker buoys is missing.",
+          "present": [
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Shen Yu writes the patrol date on the wooden sign at the pool mouth.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "setting": "Pre-storm standby (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On the eve of the storm, Shen Yu stows all window-side charts in cabinets.",
+        "Shen Yu covers the intertidal specimen case with waterproof cloth against damp and spray.",
+        "Shen Yu checks that the tide observation log is in a dry drawer.",
+        "Shen Yu tightens the ink bottle cap and moves it higher.",
+        "Distant thunder rolls; specimen-room lights flicker once.",
+        "Shen Yu untangles the five specimen-cabinet spotlight cords.",
+        "Shen Yu drafts a 'Testing suspended tomorrow' notice on the door."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Storm night (specimen case corroded · observation boat sunk)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "The storm rises suddenly; the specimen-room roof leaks and brine splashes the desktop.",
+        "A draft lifts tracing paper; the intertidal specimen case clasp pops open.",
+        {
+          "action": "Seawater floods the case; the intertidal specimen case glass fogs and label ink bleeds.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "seawater_corroded"
+            }
+          ]
+        },
+        {
+          "action": "In the shallow bay, the glass-bottom observation boat pitches hard in giant waves.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "Hidden reef tears the hull; the glass-bottom observation boat half-sinks in foam among the rocks.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "reef_wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "In the specimen room, Shen Yu lunges for the long table and presses down on the flooding intertidal specimen case.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Shattered glass cuts Shen Yu's calf; blood seeps through the waterproof bandage as he still shields the case.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The corroding intertidal specimen case slowly beads with moisture in the damp air.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (observation boat indirect reference · spotlight recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after the storm, Shen Yu stands in the seaside specimen room, staring at the seawater-corroded intertidal specimen case.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Shen Yu runs a finger over salt stains on the intertidal specimen case, face dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Beside the anomaly column, Shen Yu clips a wreck note marking the date the glass-bottom observation boat reef-wrecked.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo taken through the glass bottom still hangs on the wall—gobies in the rock crevices; Shen Yu gazes a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Shen Yu turns on one of the five specimen-cabinet spotlights and sits alone in its pool of light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The damaged intertidal specimen case still sits on the table, glass fog in plain sight.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Shen Yu changes the blood-soaked bandage and keeps clearing shattered glass.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Shen Yu covers everything again with waterproof cloth, afraid damp will reach the intertidal specimen case once more.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "setting": "Cleanup and funding request (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "During cleanup week, Shen Yu packs shattered glass into cardboard boxes.",
+        "Shen Yu submits a funding request to the coastal patrol station for sealing materials.",
+        "Shen Yu still comes to the specimen room daily, staring at the corroded intertidal specimen case.",
+        "Shen Yu traces still-legible labels onto transparent paper in pencil.",
+        "Shen Yu turns the damaged tide observation log to a blank page and logs funding progress instead.",
+        "Achao is on leave and has not returned; only Shen Yu's footsteps echo in the specimen room.",
+        "Shen Yu habitually touches the empty mooring spike where the boat once tied.",
+        "Shen Yu lists supplies needed for resealing on the wall."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Resealing (third state · miniature display case false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Shen Yu brings silicone and new labels and begins resealing the intertidal specimen case.",
+        {
+          "action": "Shen Yu takes a miniature display case from a cardboard box—it closely resembles the specimen case but is smaller, with no real labels.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Shen Yu carefully drains pooled water, relabels compartments, and seals the glass lid.",
+        {
+          "action": "The last silicone bead dries; the intertidal specimen case is resealed, a pale white salt stain on one corner.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "resealed"
+            }
+          ]
+        },
+        "The resealed intertidal specimen case is readable again under the light; Shen Yu watches it with relief.",
+        {
+          "action": "Shen Yu pushes the miniature display case aside and centers the true intertidal specimen case on the salt-stain alignment line.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The specimen room falls quiet; the resealed intertidal specimen case alone occupies the center of the long table.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: rescue jet ski and Inspector Han",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "An orange-red rescue jet ski enters the shallow bay, nothing like the long-sunk glass-bottom observation boat.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Coastal patrol Inspector Han with silver shoulder bars walks the rocky shore and talks beside Shen Yu; the two are similar in build.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "Inspector Han points at the orange-red rescue jet ski, explaining the new patrol sector to Shen Yu.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The jet ski sounds its horn and leaves; Shen Yu alone on the rocky-shore tide pool watches it go.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "The orange-red rescue jet ski pauses briefly at the far breakwater head, then moves on.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Before leaving, Inspector Han claps Shen Yu's shoulder; the anchor cap badge flashes under the light.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: volunteer Xiaozhu resembles Achao",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "At the rocky-shore tide pool comes volunteer Xiaozhu with a light-brown hair band—at a glance somewhat like young Achao.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaozhu tries to tie a hawser; Shen Yu shakes his head—she is not Achao after all.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaozhu shyly asks whether anemones are poisonous; Shen Yu answers briefly and sends her to help in the specimen room.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Shen Yu alone on the rocky shore stares at the empty mooring spike.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "setting": "Calm fortnight after resealing (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "The first fortnight after resealing, Shen Yu checks the intertidal specimen case clasp every morning.",
+        "Shen Yu logs new labels on blank pages of the damaged tide observation log.",
+        "Shen Yu refuses to leave ink on the windowsill again.",
+        "Shen Yu checks no-harvest zone notices with fishermen.",
+        "Shen Yu practices steadier sampling technique in the specimen room.",
+        "Afternoon sun through the wooden window falls on the resealed intertidal specimen case.",
+        "Shen Yu polishes the fog-bell hand cranks but does not crank them yet.",
+        "Shen Yu receives a postcard from Achao and leaves it unopened under a spotlight base."
+      ]
+    },
+    {
+      "id": "F7",
+      "setting": "Year-end accounts (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At year-end closing, Shen Yu binds tracing paper by month.",
+        "Shen Yu puts the salt-frost-damaged tide observation log alone into an archive sleeve.",
+        "Shen Yu prints before-and-after resealing photos and clips them into the archive.",
+        "Shen Yu clears the long table, leaving only magnifying glass and one spotlight.",
+        "Shen Yu oils the sampling spoon thinly against rust.",
+        "Shen Yu signs a date beside the intertidal specimen case salt stain.",
+        "Fine snow falls outside; the specimen-room stove hums softly.",
+        "Shen Yu finishes the annual summary; the cover bears only the word 'Tide Pool'."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Twilight years (Shen Yu weary-injured state · long-range fog-bell recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Shen Yu with a scarred calf and heavy steps leans on a bamboo staff at the abandoned lighthouse base.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_injured"
+            }
+          ]
+        },
+        "Shen Yu looks up at the broken copper-green railing, gaze distant.",
+        {
+          "action": "Beside the base, the two brass fog-bell hand cranks he brought back hang on a stone pillar, chiming softly in the wind.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Shen Yu presses a palm to the basalt base as if saying goodbye.",
+        {
+          "action": "Shen Yu slowly sits on the crumbling steps and catches his breath.",
+          "present": [
+            "E1",
+            "E10"
+          ]
+        },
+        {
+          "action": "The two fog-bell hand cranks chime again; Shen Yu closes his eyes and listens, as if hearing the old fog alert. (fog-bell hand cranks visible)",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F8",
+      "setting": "Old-site wandering fortnight (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Shen Yu still returns to the specimen room daily but spends more time sitting and watching the intertidal specimen case.",
+        "Shen Yu leans his bamboo staff by the door; he moves slower than before.",
+        "Shen Yu has a young assistant write the tide chart while he only checks.",
+        "Shen Yu sends Achao photos of the resealed intertidal specimen case.",
+        "Shen Yu writes 'Handover' on the last page of the damaged tide observation log but leaves no signature.",
+        "Shen Yu refuses hospitalization and insists on sitting at the lighthouse base each week.",
+        "Shen Yu polishes a draft of the basalt memorial plaque.",
+        "At night the specimen room keeps only one light; Shen Yu dozes inside its circle."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Achao returns · Shen Yu's farewell",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "In daylight, adult Achao returns along the abandoned lighthouse base and walks quickly toward the steps.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Achao reunites with slow-stepping Shen Yu at the base; the two embrace.",
+        {
+          "action": "Beside the cot in the specimen room, Achao holds Shen Yu's thin hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Shen Yu's breath fades; he finally closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "retired_away",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Achao stands long at the lighthouse base, tears falling on salt crystals.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Achao hangs Shen Yu's magnifying glass at his own belt.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · memorial plaque (indirect reference to the deceased)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the specimen-room door still hangs Shen Yu's old khaki sampling vest, magnifying-glass cord peeking from the pocket; Achao touches it gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "Beside the lighthouse base, adult Achao stands before the newly nailed basalt memorial plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Achao's fingertips trace the name Shen Yu carved on the basalt memorial plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Achao places a white chrysanthemum at the lower edge of the basalt memorial plaque.",
+          "present": [
+            "E2",
+            "E11"
+          ]
+        },
+        {
+          "action": "Wind crosses the base; Achao quietly reads the year on the plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Achao and Axi reunited (adult confuse + co-present)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Adult Axi with dive goggles pushed up on her forehead hurries from beyond the breakwater and embraces Achao tightly at the lighthouse base.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_return"
+            }
+          ]
+        },
+        "Achao and Axi stand side by side beside the memorial plaque—one calm-eyed, one deep-eyed.",
+        "Axi touches her amber conch brooch and glances at the magnifying glass on Achao's belt.",
+        "The two look at each other in silence, studying faces alike yet different.",
+        "Achao and Axi walk together toward the far tide pool, shadows merging into one."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Temporal flashback (timeline anchor · no personal names throughout)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The camera returns years ago—the boy with sea-green cord in his hair who jumped from the small boat appears again at the tide pool.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "youth_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "Boy with sea-green cord at the tide pool",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the specimen room, a compartmented oak glass case is placed on the long table for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "Compartmented oak glass case first placed on the long table at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the breakwater passage that year—the figure with amber conch brooch swinging a net bag flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "youth_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "Figure with amber conch brooch in the passage that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Before the eyes rises that row of five old lamps with frosted shades on the specimen cabinets.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "That row of five old lamps on the specimen cabinets",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Return to the rocky-shore puddle at first meeting—anemone tentacles unchanged as ever.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "Rocky-shore puddle at first meeting after the ebb",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Pages turn—the waterproof-cloth log with tide curves and no salt frost yet appears again.",
+          "present": [
+            {
+              "eid": "E4",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "Waterproof-cloth log not yet salt-frosted",
+                "resolves_to": "E4"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal flashback uses no entity personal names throughout; anchor.resolves_to is for scoring."
+    },
+    {
+      "id": "S18",
+      "setting": "Closure (long-range damaged log · long-range marker buoys)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Achao reopens the salt-frost-damaged tide observation log and walks into the seaside specimen room.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "On the specimen-room counter, those three green glass marker buoys are still tied in a string.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Achao takes up watch over the intertidal specimen case; the corner salt stain is clear under the light.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Achao turns on all five specimen-cabinet spotlights; light fills the long table again.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Achao stands straight before the resealed intertidal specimen case and checks labels and salt stain compartment by compartment, as Shen Yu once did.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    }
+  ]
+}

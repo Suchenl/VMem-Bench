@@ -1,0 +1,186 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "caminandes_1_llama_drama",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "24bbd498bc94f6cf",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "羊驼",
+      "description": "一只橙棕色与白色相间的卡通风格羊驼，夸张的大眼睛，细长的脖子。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          2,
+          76
+        ],
+        [
+          82,
+          86
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 2.5,
+      "last_frame": null,
+      "last_seconds": 86.5,
+      "screen_time_seconds": 78.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 5.5,
+      "representations": [
+        {
+          "representation_id": "char_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c005_char_001",
+          "chunk_id": 5,
+          "description": "appearance_changed: 被一辆快速驶过的红色车辆撞击后，身体翻转并摔倒在地，姿态发生显著改变。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 47.5
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "红色车辆",
+      "description": "一辆红色的汽车（或卡车）。",
+      "first_chunk": 4,
+      "presence_spans": [
+        [
+          38,
+          48
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 38.5,
+      "last_frame": null,
+      "last_seconds": 47.5,
+      "screen_time_seconds": 9.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c004",
+          "chunk_id": 4,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "彩色包装物",
+      "description": "一个黄绿相间的小型长方体物体（类似糖果包装）。",
+      "first_chunk": 5,
+      "presence_spans": [
+        [
+          48,
+          64
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 47.5,
+      "last_frame": null,
+      "last_seconds": 64.0,
+      "screen_time_seconds": 16.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c005",
+          "chunk_id": 5,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "安第斯山脉公路",
+      "description": "一条带有黄色中心线的双车道柏油公路，蜿蜒穿过干燥的棕褐色荒原。背景是云雾缭绕的高耸雪山（形似菲茨罗伊峰）。光线为清晨/黄昏的柔和色调。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          2,
+          89
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 2.5,
+      "last_frame": null,
+      "last_seconds": 89.3,
+      "screen_time_seconds": 86.8,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c006_loc_001",
+          "chunk_id": 6,
+          "description": "appearance_changed: 环境光线发生剧烈变化，从之前的漫射光变为强烈的暖色逆光，山体轮廓被金光勾勒，雾气更加浓重。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 65.5
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

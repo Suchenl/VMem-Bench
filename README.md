@@ -1,0 +1,1 @@
+# VMem-Bench: Memory-aware causal long video generation

@@ -1,0 +1,891 @@
+{
+  "story_id": "0007_bamboo_paper_mill",
+  "title": "Bamboo Paper Stamp Mill",
+  "premise": "A master-apprentice relay at a bamboo paper workshop in southern Anhui. Master Bailu and apprentice Mili guard the bamboo papermaking screen; Mili and Aye look nearly alike but wear different sleeve covers; the green-bamboo pulp cart must be avoided after it wrecks; the pulp formula book, count memory, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Bailu",
+      "kind": "character",
+      "states": {
+        "prime_papermaker": "A forty-year-old papermaking master, blue-cloth headwrap, hemp apron soaked in pulp, hands blanched from soaking, wrists steady and precise.",
+        "scalded_with_cane": "The same Bailu: forearm scalded by boiling pulp and wrapped in herbal cloth, leaning on a broken bamboo cane, one corner of the hemp apron charred.",
+        "died_in_mill": "Bailu lies still with eyes closed on a wooden cot in the water-powered stamp mill, the hemp apron covering his chest."
+      }
+    },
+    "E2": {
+      "name": "Mili",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "A fifteen-year-old apprentice girl in a plant-dyed apron, bamboo-strip bracelet on her wrist, fingertips often marked with white pulp.",
+        "adult_master": "A woman master in her early twenties, still in the plant-dyed apron and bamboo-strip bracelet, upright posture, able to lift a full wet sheet in one motion."
+      }
+    },
+    "E3": {
+      "name": "bamboo papermaking screen",
+      "kind": "prop",
+      "states": {
+        "intact": "A fine bamboo papermaking screen, wires even and straight, old bamboo frame polished bright, surface coated with even white pulp.",
+        "screen_torn": "The same bamboo papermaking screen with several wires snapped, frame cracked by floodwater, dried pulp crust jammed in the seams.",
+        "restrung_repaired": "The bamboo papermaking screen restrung tight, missing wires replaced, old bamboo frame pinned with new bamboo nails, pulp surface smooth again."
+      }
+    },
+    "E4": {
+      "name": "pulp formula book",
+      "kind": "prop",
+      "states": {
+        "intact": "An oil-paper-covered pulp formula book recording bamboo soak days, steaming hours, and lime ratios.",
+        "pulp_smeared": "The same pulp formula book soaked through by wet pulp, oil-paper cover wrinkled, ink characters blurred into gray-white blobs."
+      }
+    },
+    "E5": {
+      "name": "green-bamboo pulp cart",
+      "kind": "prop",
+      "states": {
+        "intact": "A long narrow green-bamboo pulp cart, wooden trough holding softened bamboo fiber, sides lined with green bamboo-leaf sheaths, four small wooden wheels below.",
+        "wrecked_scrapped": "The green-bamboo pulp cart smashed by floodwater, trough split, bamboo-leaf sheaths scattered, only one small wooden wheel jammed beside the stone steps."
+      }
+    },
+    "E6": {
+      "name": "Aye",
+      "kind": "character",
+      "states": {
+        "young_rival": "A youth whose face closely resembles Mili's, but wearing charcoal-black sleeve covers and a deep-brown apron, expression bold.",
+        "remade_look": "Aye after remaking his look still wears charcoal-black sleeve covers, a steam-scald scar on his brow, deep-brown apron swapped for a leather-buckle cut."
+      }
+    },
+    "E7": {
+      "name": "papermaking workshop",
+      "kind": "location",
+      "appearance": "A bright papermaking workshop, rows of bamboo-pulp vats, mold frames and screen beds along the walls, air thick with bamboo and lime smell."
+    },
+    "E8": {
+      "name": "bamboo-soaking pond",
+      "kind": "location",
+      "appearance": "A bamboo-soaking pond outside the village, green bamboo tubes floating on the water, lime, bamboo strips, and freshly peeled bamboo sheaths stacked at the bank."
+    },
+    "E9": {
+      "name": "paper-drying gallery",
+      "kind": "location",
+      "appearance": "The mill's paper-drying gallery, wooden racks on both sides hung with half-dry white sheets, heat, paper scent, and vapor mingled together."
+    },
+    "E10": {
+      "name": "abandoned water-powered stamp mill",
+      "kind": "location",
+      "appearance": "A half-collapsed stamp mill, waterwheel stopped, wooden hammers hanging above the stone trough, moss thick in the corners."
+    },
+    "E11": {
+      "name": "Bai-ji wooden plaque",
+      "kind": "prop",
+      "appearance": "A wooden plaque hung over the workshop lintel, carved with 'Bai-ji Paper Mill', corners swollen by damp."
+    },
+    "E12": {
+      "name": "watermark sieve",
+      "kind": "prop",
+      "appearance": "Three fine bamboo watermark sieves with shallow patterns set into the mesh, leaning by the vat in the papermaking workshop."
+    },
+    "E13": {
+      "name": "cedar drying cart",
+      "kind": "prop",
+      "appearance": "A cedar drying cart clamping half-dry paper sheets, with no green bamboo-leaf sheaths and holding no bamboo fiber."
+    },
+    "E14": {
+      "name": "paper-shop bookkeeper",
+      "kind": "character",
+      "appearance": "A lean bookkeeper also in a blue-cloth headwrap, but with abacus beads pinned at the cuff, build close to Bailu's."
+    },
+    "E15": {
+      "name": "paper-drying clamp rods",
+      "kind": "prop",
+      "appearance": "Five rows of wooden paper-drying clamp rods hung neatly under the workshop beams, used to clamp freshly lifted wet sheets."
+    },
+    "E16": {
+      "name": "waterwheel wooden hammers",
+      "kind": "prop",
+      "appearance": "Two wooden hammers linked to the waterwheel that fall in turn as the wheel turns, pounding cooked bamboo in the stone trough."
+    },
+    "E17": {
+      "name": "Suner",
+      "kind": "character",
+      "appearance": "A bamboo-sheath peeler girl from the next village in a light-brown apron, at a glance like young Mili, but wearing a bamboo hairpin and shy-eyed."
+    },
+    "E18": {
+      "name": "coarse screen mold frame",
+      "kind": "prop",
+      "appearance": "A coarse bamboo mold frame shaped like a papermaking screen, but with sparse wires and no worn polish on the old bamboo frame."
+    },
+    "E19": {
+      "name": "clay-jar handcart",
+      "kind": "prop",
+      "appearance": "A low cart pushing a clay jar of clear water and lime, holding no bamboo fiber—definitely not the green-bamboo pulp cart."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_papermaker",
+      "scalded_with_cane",
+      "died_in_mill"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_master"
+    ],
+    "E3": [
+      "intact",
+      "screen_torn",
+      "restrung_repaired"
+    ],
+    "E4": [
+      "intact",
+      "pulp_smeared"
+    ],
+    "E5": [
+      "intact",
+      "wrecked_scrapped"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_look"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Mili: plant-dyed apron, bamboo-strip bracelet on the wrist.",
+        "E6": "Aye: face nearly identical to Mili's, but charcoal-black sleeve covers and deep-brown apron."
+      },
+      "note": "Paper-mill apprentices misidentify them."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Papermaking workshop at dusk (clamp rods and waterwheel)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, Bailu rolls up the bamboo curtain door, enters the damp papermaking workshop, and lays the bamboo papermaking screen flat on the screen bed.",
+        {
+          "action": "Five rows of wooden paper-drying clamp rods hang under the workshop beams; Bailu checks each row to see if the clamps will hold wet paper.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "By the waterwheel two waterwheel wooden hammers fall in turn; Bailu listens to their rhythm pounding cooked bamboo.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Bailu dips the papermaking screen into the bamboo-pulp vat and gives a gentle shake, spreading a thin white pulp across the screen.",
+        "He lifts the first wet sheet onto the wall board, leaving tiny water beads on his fingertips."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the pulp formula book",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Bailu unties the bamboo-sheath cord and opens the oil-paper-covered pulp formula book.",
+        "With pine-soot ink he records today's bamboo soak days, lime ratio, and paper batch number.",
+        "Bailu closes the formula book and leans the damp bamboo papermaking screen by the vat to drain."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Pond welcomes the apprentice (introducing watermark sieves)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2"
+        ]
+      },
+      "actions": [
+        "At the bamboo-soaking pond in the morning, Bailu greets young apprentice Mili pushing the green-bamboo pulp cart.",
+        {
+          "action": "Mili steadies the pulp cart; softened bamboo fiber in the wooden trough rocks gently with the water.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Bailu leans three watermark sieves against the stone steps by the pond and teaches Mili to check whether the sieve patterns have broken lines.",
+          "present": [
+            "E1",
+            "E7",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Mili lifts the green bamboo-leaf sheaths along the pulp cart and checks whether wet bamboo fiber has tangled the wheels.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Paper-drying gallery (Aye alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the paper-drying gallery, Aye in charcoal-black sleeve covers looks back from behind half-dry white sheets.",
+        "Aye flicks his deep-brown apron with a fingertip, deliberately showing the black ash on his sleeve covers.",
+        "He pulls out a bamboo clamp; the white paper trembles lightly in the heat.",
+        "Vapor at the gallery's end hides Aye's face; only the deep-brown apron moves among the paper shadows."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Pond misidentification shared screen",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "By the bamboo-soaking pond, Mili and Aye move bamboo tubes together—one in a plant-dyed apron, one in charcoal-black sleeve covers.",
+        "Mili guards the bamboo-strip bracelet on her wrist; Aye ties his deep-brown apron tighter.",
+        "They face each other across the pond a moment, then carry bamboo tubes to different vats."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Formula book pulp smear",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On a mountain-rain night months later, Bailu alone watches the vat in the papermaking workshop, the bamboo papermaking screen against his knee.",
+        {
+          "action": "He opens the pulp formula book and finds wet pulp has crept from the desk corner; the oil-paper cover wrinkles, ink characters blur into gray-white blobs.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "pulp_smeared"
+            }
+          ]
+        },
+        "Bailu scrapes pulp stains from the page edges with a bamboo slip and rewrites the still-readable ratios from memory."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Papermaking season turns (stretching the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Through the long papermaking season, Bailu day after day dips screens, lifts sheets, and presses out water in the workshop.",
+        "When plum rains arrive, he moves the paper-drying clamp rods farther apart so wet sheets will not re-dampen and wrinkle.",
+        "As new bamboo comes to market, Bailu stands in the doorway watching bundles of green bamboo carried to the pond.",
+        "At high summer noon he fans heat from freshly lifted sheets with a cattail fan.",
+        "In endless autumn rain, lime smell and green-bamboo scent hang by the pulp vat.",
+        "On another New Year's Eve, Bailu alone keeps watch in the workshop until the waterwheel falls silent."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Pond inspection (drying-cart false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn Bailu patrols along the bamboo-soaking pond; the green-bamboo pulp cart rests by the stone steps.",
+        {
+          "action": "He crouches to check the pulp cart's four small wooden wheels, confirming none are jammed by bamboo fiber.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Bailu restacks scattered bamboo-strip bundles by the pond, leaving a path for the cart.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "A cedar drying cart rolls in from the gallery direction, clamping half-dry paper sheets, but with no green bamboo-leaf sheaths and holding no bamboo fiber.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Mountain flood disaster (screen torn · pulp cart wrecked)",
+      "present": [
+        "E3",
+        "E8"
+      ],
+      "actions": [
+        "A mountain flood suddenly overruns the pond's stone steps; bamboo tubes and sheaths are swept up in muddy water.",
+        {
+          "action": "Bailu snatches the bamboo papermaking screen from the workshop doorway, only to see the frame cracked by the current and the screen wires snapped.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "screen_torn"
+            }
+          ]
+        },
+        {
+          "action": "The green-bamboo pulp cart is shoved off the stone steps by the flood; bamboo fiber in the trough surges and spills.",
+          "present": [
+            "E5",
+            "E8"
+          ]
+        },
+        {
+          "action": "The green-bamboo pulp cart smashes into the waterwheel base and breaks into slats; bamboo-leaf sheaths and one small wooden wheel drift into the muddy water.",
+          "present": [
+            "E5",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "wrecked_scrapped",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Bailu clutches the torn papermaking screen and retreats into the workshop, wet pulp dripping down his apron.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (pulp-cart indirect reference · clamp rods long-range)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after the flood, Bailu stands in the workshop staring at the screen-torn bamboo papermaking screen.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a blank page of the pulp formula book he records the moment the green-bamboo pulp cart wrecked and was scrapped, ink pressed over pulp stains.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "A bundle of green bamboo-leaf sheaths fallen from the green-bamboo pulp cart hangs by the wall; Bailu does not discard them for a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Bailu takes one row from the five rows of paper-drying clamp rods under the beams and clamps a half-wet paper sample salvaged from the flood.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "He places the remaining small wooden wheel from the green-bamboo pulp cart into a wooden box and covers it with old cloth.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Restring repair (coarse mold-frame false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Bailu brings in an old bamboo craftsman to remeasure screen wires beside the workshop vat.",
+        {
+          "action": "The craftsman first offers a coarse screen mold frame for comparison—similar in shape, but sparse wires and no worn polish on the old bamboo frame.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        {
+          "action": "Fine bamboo wires are worked into the tears one by one; the bamboo papermaking screen is restrung tight and the surface smooths again.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "restrung_repaired"
+            }
+          ]
+        },
+        "Bailu dips the repaired papermaking screen into the vat with a light shake and lifts a wet sheet with even edges."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: clay-jar cart and bookkeeper",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A clay-jar handcart rolls up to the pond; the jar holds only clear water and lime—it is not the already wrecked and scrapped green-bamboo pulp cart.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "The paper-shop bookkeeper steps beside Bailu to check paper batches; both wear blue-cloth headwraps, backs alike for a moment.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The bookkeeper points at the clay-jar handcart to arrange lime storage; Bailu keeps checking bamboo stock in the pond.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Suner who resembles Mili",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Suner from the next village carries bamboo sheaths to the pond; her light-brown apron from afar looks like young Mili's plant-dyed apron.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Suner tries to push a bamboo tube into the water, but Bailu shakes his head, noting her bamboo hairpin—she is not Mili after all.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Scalded with cane (waterwheel hammers long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "At dusk years later, Bailu leans on a broken bamboo cane and slowly enters the half-collapsed abandoned water-powered stamp mill.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "scalded_with_cane"
+            }
+          ]
+        },
+        {
+          "action": "By the stopped waterwheel those two wooden hammers still hang above the stone trough, swaying lightly when the wind blows.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Bailu rests his herbal-cloth-wrapped forearm on the stone trough edge and hears distant water like the old pulp-pounding rhythm."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Mili returns · Bailu dies of illness",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Mili returns to the village gate with a new screen bed on her back and hurries toward the abandoned water-powered stamp mill.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_master"
+            }
+          ]
+        },
+        "Under the stamp-mill door Mili reunites with cane-leaning Bailu; they embrace across the vapor.",
+        {
+          "action": "By the wooden cot Mili holds Bailu's herbal-cloth-wrapped forearm and listens to rain beyond the waterwheel.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Bailu's breath grows weak; at last he closes his eyes and quietly dies of illness in the stamp mill.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "died_in_mill",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · Bai-ji wooden plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the papermaking workshop door Bailu's old hemp apron still hangs; Mili strokes the charred corner.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "Mili stands before the Bai-ji wooden plaque; the year Bailu carved by hand has swollen open with damp.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "She wipes clean the wooden plaque Bailu left and pins the swollen corners back to the lintel with bamboo nails.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (long-range return + shared screen)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Aye with his remade look walks up from outside the stamp mill; the steam-scald scar on his brow gleams in shadow.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_look"
+            }
+          ]
+        },
+        "Mili and Aye stand side by side before the old waterwheel—one bamboo-strip bracelet on a wrist, one charcoal-black sleeve cover on an arm."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate · name-free)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that apprentice girl checking the green-bamboo-leaf cart wheels appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the apprentice girl checking the green-bamboo-leaf cart wheels",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the workshop a bamboo screen dips into the white-pulp vat for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the bamboo screen that first dipped into the white-pulp vat at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flashback to the paper-drying gallery—that similar figure in charcoal-black sleeve covers slips past behind the white sheets.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the charcoal-black-sleeved figure in the paper-drying gallery that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again those five rows of wooden rods clamping wet paper under the workshop beams appear.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "those five rows of paper-clamping wooden rods under the workshop beams",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to that shallow bamboo-soaking pond of first meeting, green bamboo tubes floating on the water as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that shallow bamboo-soaking pond of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (formula book long-range · watermark sieves long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Mili opens that pulp-smeared pulp formula book and writes a new paper batch number on a clean fresh page.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "Five rows of paper-drying clamp rods still hang neat under the beams; freshly lifted wet sheets gleam between the clamps.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "By the vat those three watermark sieves still lean in place, sieve patterns unbroken.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Mili grips the restrung-repaired bamboo papermaking screen and bends to lift a thin, even wet sheet.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    }
+  ]
+}

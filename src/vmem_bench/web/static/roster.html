@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MemStrata Canonical Roster</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b0e14;--panel:#111620;--muted:#8993a4;--text:#e7ebf2;
+      --line:#263042;--accent:#6ea8fe;--ok:#5ccf91;--warn:#efb366;--danger:#ef6b73}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);
+      font:14px/1.45 ui-sans-serif,system-ui,-apple-system,sans-serif}
+    header{position:sticky;top:0;z-index:5;background:rgba(11,14,20,.96);border-bottom:1px solid var(--line);
+      padding:14px 22px;display:flex;align-items:center;gap:16px}
+    h1{font-size:18px;margin:0}.grow{flex:1}.muted{color:var(--muted)}
+    button,a.button{border:1px solid var(--line);background:#171e2b;color:var(--text);padding:8px 12px;
+      border-radius:6px;text-decoration:none;cursor:pointer}
+    button.primary{background:var(--accent);border-color:var(--accent);color:#08101c;font-weight:700}
+    button.confirm{background:var(--ok);border-color:var(--ok);color:#07130d;font-weight:700}
+    button.danger{color:var(--danger)}button:disabled{opacity:.5;cursor:not-allowed}
+    main{max-width:1500px;margin:auto;padding:20px}.toolbar{display:grid;grid-template-columns:2fr 1fr 1fr;
+      gap:12px;margin-bottom:18px;background:var(--panel);border:1px solid var(--line);padding:14px;border-radius:8px}
+    label{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}
+    input,textarea,select{width:100%;background:#0d121b;color:var(--text);border:1px solid var(--line);
+      border-radius:5px;padding:8px}textarea{min-height:70px;resize:vertical}
+    #entities{display:grid;gap:14px}.card{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:14px}
+    .card.off{opacity:.48}.cardHead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .cardHead strong{font-size:16px}.grid{display:grid;grid-template-columns:1.2fr 1fr .55fr .65fr;gap:10px}
+    .wide{grid-column:1/-1}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .crops{display:flex;gap:8px;overflow-x:auto;padding:8px 0 2px}.crop{flex:0 0 150px;border:2px solid var(--line);
+      border-radius:6px;overflow:hidden;background:#080b10;cursor:pointer;position:relative}.crop.selected{border-color:var(--ok)}
+    .crop img{width:100%;height:110px;object-fit:contain;display:block}.crop span{display:block;padding:4px 6px;
+      color:var(--muted);font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .badge{font-size:11px;border:1px solid var(--line);padding:2px 6px;border-radius:99px;color:var(--muted)}
+    .events{display:flex;gap:10px;flex-wrap:wrap}.events label{display:flex;gap:4px;align-items:center;margin:0}
+    .events input{width:auto}.status{padding:8px 12px;border-radius:5px;background:#171e2b}
+    .status.ok{color:var(--ok)}.status.err{color:var(--danger)}
+    @media(max-width:900px){.toolbar,.grid,.two{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Canonical Roster 人工确认</h1>
+  <span id="source" class="badge">加载中</span>
+  <span id="counts" class="muted"></span>
+  <span class="grow"></span>
+  <a class="button" href="/">运行 / Gold 审核</a>
+  <button id="add">新增实体</button>
+  <button id="save" class="primary">保存草稿</button>
+  <button id="confirm" class="confirm">确认并生成生产 Seed</button>
+</header>
+<main>
+  <div class="toolbar">
+    <div><label>movie_id（生产运行必须一致）</label><input id="movieId"></div>
+    <div><label>版本</label><input id="version" value="1" disabled></div>
+    <div><label>状态</label><div id="status" class="status">尚未保存</div></div>
+    <div class="wide"><label>人工确认忽略的 false-positive track fingerprints（逗号分隔）</label>
+      <input id="ignoredTracks" placeholder="purple bird@7503-7542"></div>
+  </div>
+  <p class="muted">只保留 benchmark 真正消费的持续角色和叙事关键道具。角色/有生命周期的道具选
+    <code>individual</code> 并至少勾选一个 exemplar；普通同类道具选 <code>category</code>；
+    location 不进入 identity roster。绿色边框表示已选 exemplar。</p>
+  <div id="entities"></div>
+</main>
+<script>
+const EVENT_TYPES=['destroyed','consumed','broken','acquired','attached','detached','appearance_changed'];
+let seed={version:1,movie_id:'',human_confirmed:false,entities:[]};
+let candidates={};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const list=s=>String(s||'').split(',').map(x=>x.trim()).filter(Boolean);
+function setStatus(text,kind=''){const n=$('#status');n.textContent=text;n.className='status '+kind}
+function counts(){const active=seed.entities.filter(e=>e.selected!==false);$('#counts').textContent=
+  `${active.length}/${seed.entities.length} selected · ${active.filter(e=>e.kind==='character').length} characters · ${active.filter(e=>e.kind==='prop').length} props`;}
+function newEntity(){return {selected:true,entity_id:'char_new_entity',name:'New Entity',kind:'character',
+  identity_scope:'individual',description:'',grounding_phrases:['new entity'],aliases:[],exemplar_crops:[],
+  static_attributes:{},allowed_state_events:[]}}
+function render(){
+  $('#movieId').value=seed.movie_id||'';$('#ignoredTracks').value=(seed.ignored_tracks||[]).join(', ');
+  const root=$('#entities');root.innerHTML='';
+  seed.entities.forEach((e,i)=>{
+    e.selected=e.selected!==false;e.grounding_phrases=e.grounding_phrases||[];
+    e.aliases=e.aliases||[];e.exemplar_crops=e.exemplar_crops||[];e.allowed_state_events=e.allowed_state_events||[];
+    const card=document.createElement('section');card.className='card'+(e.selected?'':' off');
+    const cropList=[...new Set([...(candidates[e.entity_id]||[]),...e.exemplar_crops])];
+    card.innerHTML=`<div class="cardHead"><input data-f="selected" type="checkbox" ${e.selected?'checked':''}
+      style="width:auto"><strong>${esc(e.name||e.entity_id)}</strong><span class="badge">${esc(e.entity_id)}</span>
+      <span class="grow"></span><button class="danger" data-action="remove">删除</button></div>
+      <div class="grid">
+       <div><label>canonical entity_id</label><input data-f="entity_id" value="${esc(e.entity_id)}"></div>
+       <div><label>canonical name</label><input data-f="name" value="${esc(e.name)}"></div>
+       <div><label>kind</label><select data-f="kind"><option ${e.kind==='character'?'selected':''}>character</option>
+         <option ${e.kind==='prop'?'selected':''}>prop</option></select></div>
+       <div><label>identity scope</label><select data-f="identity_scope">
+         <option ${e.identity_scope==='individual'?'selected':''}>individual</option>
+         <option ${e.identity_scope==='category'?'selected':''}>category</option></select></div>
+       <div class="wide"><label>description</label><textarea data-f="description">${esc(e.description)}</textarea></div>
+       <div><label>grounding phrases（逗号分隔；第一项为主 phrase）</label>
+         <input data-f="grounding_phrases" value="${esc(e.grounding_phrases.join(', '))}"></div>
+       <div><label>aliases（逗号分隔）</label><input data-f="aliases" value="${esc(e.aliases.join(', '))}"></div>
+       <div class="wide"><label>允许的不可逆状态事件（仅 individual）</label><div class="events">
+         ${EVENT_TYPES.map(t=>`<label><input type="checkbox" data-event="${t}" ${e.allowed_state_events.includes(t)?'checked':''}>${t}</label>`).join('')}
+       </div></div>
+       <div class="wide"><label>Exemplar 候选（点击选择；建议 3–5 个跨视角）</label><div class="crops">
+         ${cropList.map(p=>`<div class="crop ${e.exemplar_crops.includes(p)?'selected':''}" data-crop="${esc(p)}">
+           <img loading="lazy" src="/img?p=${encodeURIComponent(p)}"><span title="${esc(p)}">${esc(p.split('/').pop())}</span></div>`).join('')||'<span class="muted">没有候选 crop；请先让 proposal/旧 run 产出资产。</span>'}
+       </div></div>
+      </div>`;
+    card.addEventListener('input',ev=>{const f=ev.target.dataset.f;if(!f)return;
+      if(f==='selected')e[f]=ev.target.checked;else if(['grounding_phrases','aliases'].includes(f))e[f]=list(ev.target.value);
+      else e[f]=ev.target.value;if(f==='kind'&&e.kind==='prop'&&e.identity_scope==='individual'){}card.classList.toggle('off',!e.selected);counts();});
+    card.querySelectorAll('[data-event]').forEach(n=>n.addEventListener('change',()=>{
+      e.allowed_state_events=[...card.querySelectorAll('[data-event]:checked')].map(x=>x.dataset.event)}));
+    card.querySelectorAll('[data-crop]').forEach(n=>n.addEventListener('click',()=>{
+      const p=n.dataset.crop,at=e.exemplar_crops.indexOf(p);if(at>=0)e.exemplar_crops.splice(at,1);else e.exemplar_crops.push(p);
+      n.classList.toggle('selected',at<0)}));
+    card.querySelector('[data-action=remove]').onclick=()=>{seed.entities.splice(i,1);render()};
+    root.appendChild(card);
+  });counts();
+}
+async function load(){try{const r=await fetch('/roster-seed');const d=await r.json();seed=d.seed;candidates=d.candidate_crops||{};
+  $('#source').textContent=d.source+(d.confirmed?' · confirmed':'');render();setStatus('已加载 '+d.source,d.confirmed?'ok':'')}
+  catch(e){setStatus('加载失败: '+e,'err')}}
+async function save(confirming=false){seed.movie_id=$('#movieId').value.trim();seed.ignored_tracks=list($('#ignoredTracks').value);
+  const body=structuredClone(seed);body._confirm=confirming;
+  if(confirming&&!confirm('确认后将写入 human_confirmed=true 的生产 roster_seed.json。继续？'))return;
+  setStatus(confirming?'正在校验并确认…':'正在保存草稿…');
+  const r=await fetch('/roster-seed',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const d=await r.json();if(!r.ok){setStatus(d.error||'保存失败','err');return}
+  seed.human_confirmed=!!d.confirmed;setStatus(d.confirmed?`已确认 ${d.n_entities} 个实体`:'草稿已保存','ok');
+  if(d.confirmed)$('#source').textContent='confirmed';}
+$('#add').onclick=()=>{seed.entities.push(newEntity());render()};$('#save').onclick=()=>save(false);
+$('#confirm').onclick=()=>save(true);load();
+</script>
+</body>
+</html>

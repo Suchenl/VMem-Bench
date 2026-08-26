@@ -1,0 +1,431 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "wing_it",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "d3e4498eded5f8e3",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "灰猫飞行员",
+      "description": "灰色毛发、蓝色眼睛的猫形角色，穿着蓝色飞行服，头戴红色护目镜",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          7,
+          18
+        ],
+        [
+          29,
+          46
+        ],
+        [
+          58,
+          183
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 7.0,
+      "last_frame": null,
+      "last_seconds": 183.0,
+      "screen_time_seconds": 153.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 12.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "棕狗宇航员",
+      "description": "棕色毛发的狗形角色，穿着橙色宇航服，戴着蓝色头盔",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          18,
+          29
+        ],
+        [
+          35,
+          183
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 18.0,
+      "last_frame": null,
+      "last_seconds": 183.0,
+      "screen_time_seconds": 159.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 6.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "白鸡",
+      "description": "白色羽毛、红色鸡冠的鸡形角色",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          18,
+          29
+        ],
+        [
+          104,
+          112
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 18.0,
+      "last_frame": null,
+      "last_seconds": 112.0,
+      "screen_time_seconds": 19.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 75.0,
+      "representations": [
+        {
+          "representation_id": "char_003@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "拼凑飞行器",
+      "description": "由各种零件拼凑而成的飞行器，主体为米白色，带有蓝色和橙色部件",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          18,
+          29
+        ],
+        [
+          46,
+          58
+        ],
+        [
+          73,
+          104
+        ],
+        [
+          112,
+          183
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 18.0,
+      "last_frame": null,
+      "last_seconds": 183.0,
+      "screen_time_seconds": 125.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 17.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c007_prop_001",
+          "chunk_id": 7,
+          "description": "destroyed: 飞行器从谷仓发射升空",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 87.0
+        },
+        {
+          "event_id": "evt_c014_prop_001.1",
+          "chunk_id": 14,
+          "description": "destroyed: 飞行器坠毁在谷仓内",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 167.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "红色剪贴板",
+      "description": "红色封面的剪贴板，上面有手绘的检查清单",
+      "first_chunk": 3,
+      "presence_spans": [
+        [
+          29,
+          35
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 29.0,
+      "last_frame": null,
+      "last_seconds": 35.0,
+      "screen_time_seconds": 6.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c003",
+          "chunk_id": 3,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "控制台",
+      "description": "飞行器驾驶舱内的复杂控制面板，布满按钮、拉杆和仪表",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          7,
+          18
+        ],
+        [
+          35,
+          73
+        ],
+        [
+          104,
+          127
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 7.0,
+      "last_frame": null,
+      "last_seconds": 127.0,
+      "screen_time_seconds": 72.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 31.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "谷仓内部",
+      "description": "木质结构的谷仓，堆放着干草堆和各种杂物",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          18,
+          35
+        ],
+        [
+          73,
+          89
+        ],
+        [
+          163,
+          183
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 18.0,
+      "last_frame": null,
+      "last_seconds": 183.0,
+      "screen_time_seconds": 53.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 74.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c007_loc_001",
+          "chunk_id": 7,
+          "description": "broken: 屋顶被飞行器撞破",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 87.0
+        },
+        {
+          "event_id": "evt_c014_loc_001.1",
+          "chunk_id": 14,
+          "description": "broken: 飞行器坠毁造成更多破坏",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 167.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "飞行器驾驶舱",
+      "description": "飞行器内部的驾驶舱，充满各种控制装置和设备",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          18
+        ],
+        [
+          35,
+          89
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 89.0,
+      "screen_time_seconds": 72.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 17.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "天空",
+      "description": "蓝天白云的高空环境",
+      "first_chunk": 8,
+      "presence_spans": [
+        [
+          89,
+          163
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 89.0,
+      "last_frame": null,
+      "last_seconds": 163.0,
+      "screen_time_seconds": 74.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c008",
+          "chunk_id": 8,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

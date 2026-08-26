@@ -1,0 +1,8376 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "0021_Rear_Window",
+  "human_reviewed": true,
+  "chunks": [
+    {
+      "chunk_id": 0,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        0.0,
+        5.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，坐在轮椅上喝水，随后拿起一部黑色旋转拨号电话交谈。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "prop_004",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_001",
+        "loc_001",
+        "prop_001",
+        "prop_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 1,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        5.0,
+        15.0
+      ],
+      "prompt": "红袍女子在庭院及周围公寓的露台上，将衣物挂上晾衣绳。",
+      "present": [
+        "char_013",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_013",
+        "loc_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_013",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        15.0,
+        22.0
+      ],
+      "prompt": "轮椅男子在主角公寓中继续打电话，表情轻松。",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        22.0,
+        30.0
+      ],
+      "prompt": "楼上金发女子在庭院及周围公寓内做伸展运动，金发披肩，身着粉色运动装。",
+      "present": [
+        "char_007",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        30.0,
+        38.0
+      ],
+      "prompt": "楼上金发女子在庭院及周围公寓窗边吃点心，随后放下点心。",
+      "present": [
+        "char_007",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        38.0,
+        48.0
+      ],
+      "prompt": "在庭院及周围公寓中，钢琴作曲家深色头发，身着浅色衬衫与深色裤子，坐在钢琴前专注作曲，另一对邻居在阳台。",
+      "present": [
+        "char_008",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_008"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_008",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        48.0,
+        60.0
+      ],
+      "prompt": "在庭院及周围公寓中，对面公寓男子在窗边整理衣物，对面公寓女子金发披肩，身着浅色睡衣，倚窗凝望。",
+      "present": [
+        "char_005",
+        "char_006",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_005",
+        "char_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        60.0,
+        75.0
+      ],
+      "prompt": "在庭院及周围公寓中，对面公寓男子走向窗边，为床上的对面公寓女子整理被褥。",
+      "present": [
+        "char_005",
+        "char_006",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        75.0,
+        88.0
+      ],
+      "prompt": "轮椅男子在主角公寓内挂断电话，表情满足，手抚腿上石膏。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        88.0,
+        100.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，用一把长柄木制抓背器，费力地挠着自己敞开衬衫下的背部，动作因身体不便而显得笨拙。",
+      "present": [
+        "char_001",
+        "prop_005",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        100.0,
+        108.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，用抓背器轻拍胸口，表情痛苦又满足。",
+      "present": [
+        "char_001",
+        "prop_005",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        108.0,
+        118.0
+      ],
+      "prompt": "对面公寓男子在庭院及周围公寓花坛前弯腰整理花朵，红袍女子从楼梯走下庭院。",
+      "present": [
+        "char_005",
+        "char_013",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_013",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return",
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        118.0,
+        128.0
+      ],
+      "prompt": "红袍女子在庭院及周围公寓中整理躺椅后走向楼梯，对面公寓男子在庭院花坛旁除草。",
+      "present": [
+        "char_013",
+        "char_005",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_013",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        128.0,
+        135.0
+      ],
+      "prompt": "对面公寓男子蹲在庭院及周围公寓花坛边整理植物，红袍女子在楼梯旁探身张望。",
+      "present": [
+        "char_013",
+        "char_005",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_013",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        135.0,
+        148.0
+      ],
+      "prompt": "年长女护工身着蓝底红点印花连衣裙，头戴深色帽子，手提红蓝双色包，步入主角公寓，将包置于桌旁，与轮椅男子交谈。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        148.0,
+        160.0
+      ],
+      "prompt": "年长女护工在主角公寓中，为轮椅男子整理衣物并递上红色手提包。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        160.0,
+        169.0
+      ],
+      "prompt": "年长女护工在主角公寓中整理床铺，轮椅男子坐在轮椅上注视。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        169.0,
+        180.0
+      ],
+      "prompt": "在主角公寓中，年长女护工为轮椅男子整理衣物。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        180.0,
+        189.0
+      ],
+      "prompt": "年长女护工在主角公寓中，为轮椅男子取下嘴里的烟，准备按摩。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        189.0,
+        200.0
+      ],
+      "prompt": "轮椅男子在主角公寓脱下睡衣，年长女护工为他整理衣物，随后他俯身趴在床上。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        200.0,
+        207.0
+      ],
+      "prompt": "年长女护工在主角公寓中为轮椅男子涂抹药膏。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        207.0,
+        215.0
+      ],
+      "prompt": "在主角公寓中，年长女护工为轮椅男子倒酒，轮椅男子双手交叠于胸前，注视前方。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        215.0,
+        226.0
+      ],
+      "prompt": "年长女护工在主角公寓帮轮椅男子穿回衬衫，男子坐在轮椅上。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        226.0,
+        234.0
+      ],
+      "prompt": "年轻男子在庭院中走动，年轻女子在庭院中躺卧，两人位于庭院及周围公寓内。",
+      "present": [
+        "char_011",
+        "char_012",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_011",
+        "char_012"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_011",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        234.0,
+        242.0
+      ],
+      "prompt": "年轻男子与年轻女子在庭院及周围公寓窗边交谈，随后年轻男子转身离开。",
+      "present": [
+        "char_011",
+        "char_012",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_011",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        242.0,
+        253.0
+      ],
+      "prompt": "年轻男子与年轻女子在庭院及周围公寓门口亲吻后，男子引导女子进入室内。",
+      "present": [
+        "char_011",
+        "char_012",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_011",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        253.0,
+        265.0
+      ],
+      "prompt": "年轻男子抱起年轻女子，在庭院及周围公寓的窗边亲吻，随后放下她并挥手告别。",
+      "present": [
+        "char_011",
+        "char_012",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_011",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        265.0,
+        269.0
+      ],
+      "prompt": "年长女护工在主角公寓内与轮椅男子交谈。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        269.0,
+        280.0
+      ],
+      "prompt": "庭院及周围公寓全景，各公寓灯光亮起，窗内可见人物活动。",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        280.0,
+        291.0
+      ],
+      "prompt": "邻居们在各自庭院及周围公寓内活动",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        291.0,
+        299.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，于轮椅上打瞌睡。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        299.0,
+        307.0
+      ],
+      "prompt": "金发女子在主角公寓靠近轮椅男子，她身着白裙，佩戴珍珠项链与耳环，唇色鲜红，俯身亲吻男子。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        307.0,
+        313.0
+      ],
+      "prompt": "金发女子俯身靠近轮椅男子，两人在主角公寓中对视微笑。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        313.0,
+        323.0
+      ],
+      "prompt": "金发女子穿着黑色晚礼服和白色蓬蓬裙，在主角公寓内走动。",
+      "present": [
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        323.0,
+        335.0
+      ],
+      "prompt": "金发女子在主角公寓内转身展示礼服，轮椅男子注视她。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        335.0,
+        351.0
+      ],
+      "prompt": "金发女子在主角公寓内转身走向门口，开门迎接穿红袍的轮椅男子。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        351.0,
+        360.0
+      ],
+      "prompt": "金发女子在主角公寓门口迎接服务员，服务员手持香槟酒瓶置于冰桶中，冰桶外覆白布，酒瓶瓶颈裹黄纸，进入室内。",
+      "present": [
+        "char_002",
+        "prop_006",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        360.0,
+        366.0
+      ],
+      "prompt": "金发女子与红袍服务员在主角公寓内并肩行走，女子手持香槟冰桶，服务员提着另一冰桶走向吧台。",
+      "present": [
+        "char_002",
+        "prop_006",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        366.0,
+        375.0
+      ],
+      "prompt": "轮椅男子在主角公寓中开香槟，金发女子递上酒杯协助。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_006",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        375.0,
+        382.0
+      ],
+      "prompt": "轮椅男子在主角公寓内静坐，金发女子与红袍服务员互动，服务员携银色箱具离开，香槟在旁。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_006",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        382.0,
+        390.0
+      ],
+      "prompt": "轮椅男子与金发女子在主角公寓窗边举杯交谈，共享香槟。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_006",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        390.0,
+        398.0
+      ],
+      "prompt": "轮椅男子与金发女子在主角公寓内继续交谈，两人手持香槟杯。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_006",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        398.0,
+        410.0
+      ],
+      "prompt": "绿裙女子在庭院及周围公寓内准备晚餐。",
+      "present": [
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_009"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        410.0,
+        425.0
+      ],
+      "prompt": "绿裙女子在庭院及周围公寓内为餐桌摆设红酒与餐具。",
+      "present": [
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        425.0,
+        438.0
+      ],
+      "prompt": "绿裙女子整理完餐桌后走向门口，轮椅男子则在庭院及周围公寓中静坐，手持酒杯。",
+      "present": [
+        "char_009",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        438.0,
+        453.0
+      ],
+      "prompt": "绿裙女子在庭院及周围公寓中，独自站在窗边手扶窗框面带微笑，随后转身走向餐桌动作轻快，轮椅男子在旁。",
+      "present": [
+        "char_009",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        453.0,
+        468.0
+      ],
+      "prompt": "绿裙女子在窗边桌旁举杯倒酒，轮椅男子在庭院及周围公寓内凝视窗外。",
+      "present": [
+        "char_009",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        468.0,
+        483.0
+      ],
+      "prompt": "绿裙女子在公寓窗边独坐举杯凝望，轮椅男子在庭院及周围公寓内举杯观望。",
+      "present": [
+        "char_009",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        483.0,
+        493.0
+      ],
+      "prompt": "绿裙女子趴在桌上，轮椅男子在庭院及周围公寓中。",
+      "present": [
+        "char_009",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        493.0,
+        505.0
+      ],
+      "prompt": "庭院及周围公寓内举行派对，多人在跳舞和交谈",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        505.0,
+        519.0
+      ],
+      "prompt": "在庭院及周围公寓中，金发女子与年长男伴舞，对面公寓男子与另一男子举杯交谈。",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        519.0,
+        528.0
+      ],
+      "prompt": "轮椅男子坐在主角公寓内，金发女子站在他身旁，两人目光投向窗外。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        528.0,
+        540.0
+      ],
+      "prompt": "在庭院及周围公寓中，对面公寓男子char_005在厨房忙碌，对面公寓女子char_006在卧室床上。",
+      "present": [
+        "char_005",
+        "char_006",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        540.0,
+        552.0
+      ],
+      "prompt": "在庭院及周围公寓中，对面公寓男子为对面公寓女子端上食物。",
+      "present": [
+        "char_005",
+        "char_006",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        552.0,
+        565.0
+      ],
+      "prompt": "在庭院及周围公寓中，对面公寓女子char_006从床上起身，对面公寓男子char_005在桌前整理物品。",
+      "present": [
+        "char_005",
+        "char_006",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        565.0,
+        573.0
+      ],
+      "prompt": "对面公寓男子在窗边打电话，对面公寓女子在窗边起身，轮椅男子在庭院及周围公寓中。",
+      "present": [
+        "char_005",
+        "char_006",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        573.0,
+        585.0
+      ],
+      "prompt": "对面公寓男子在室内打电话后放下电话起身，对面公寓女子与轮椅男子在庭院及周围公寓旁注视。",
+      "present": [
+        "char_005",
+        "char_006",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        585.0,
+        596.0
+      ],
+      "prompt": "对面公寓男子与穿浅色睡衣对面公寓女子在窗边互动后离开，轮椅男子在庭院及周围公寓内。",
+      "present": [
+        "char_005",
+        "char_006",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        596.0,
+        608.0
+      ],
+      "prompt": "金发女子在主角公寓为轮椅男子端上盛有食物的餐盘，她身着黑色上衣与白色裙装，佩戴珍珠项链，正用刀叉将盘中菜肴分至男子面前的餐盘。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_007",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        608.0,
+        619.0
+      ],
+      "prompt": "金发女子在主角公寓为轮椅男子盛餐，餐盘在两人之间。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_007",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        619.0,
+        632.0
+      ],
+      "prompt": "在主角公寓中，金发女子坐在床上，与轮椅男子深入交谈。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        632.0,
+        645.0
+      ],
+      "prompt": "轮椅男子与金发女子在主角公寓中继续深入交谈。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        645.0,
+        656.0
+      ],
+      "prompt": "轮椅男子与金发女子在主角公寓内继续交谈。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        656.0,
+        668.0
+      ],
+      "prompt": "金发女子在主角公寓中起身，整理裙摆。",
+      "present": [
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 64,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        668.0,
+        678.0
+      ],
+      "prompt": "金发女子在主角公寓中整理白色薄纱衣物，转身走向门口。",
+      "present": [
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 65,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        678.0,
+        687.0
+      ],
+      "prompt": "金发女子在主角公寓中准备离开。",
+      "present": [
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 66,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        687.0,
+        700.0
+      ],
+      "prompt": "年长女护工在主角公寓为趴在床上的轮椅男子按摩背部。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 67,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        700.0,
+        712.0
+      ],
+      "prompt": "年长女护工在主角公寓中为轮椅男子按摩背部。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 68,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        712.0,
+        720.0
+      ],
+      "prompt": "在主角公寓中，年长女护工帮助轮椅男子穿衬衫。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 69,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        720.0,
+        725.0
+      ],
+      "prompt": "年长女护工在主角公寓帮轮椅男子穿好衬衫，男子坐轮椅望向窗外。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 70,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        725.0,
+        738.0
+      ],
+      "prompt": "轮椅男子坐在轮椅上，年长女护工在旁照料，两人在主角公寓内。",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 71,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        738.0,
+        750.0
+      ],
+      "prompt": "轮椅男子在主角公寓窗边凝视庭院，年长女护工在旁，一只狗在花坛旁徘徊。",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 72,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        750.0,
+        763.0
+      ],
+      "prompt": "年长女护工在主角公寓内走动，轮椅男子坐在轮椅上。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 73,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        763.0,
+        778.0
+      ],
+      "prompt": "年长女护工走向门口准备离开主角公寓，轮椅男子在旁。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 74,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        778.0,
+        788.0
+      ],
+      "prompt": "年长女护工走向轮椅男子，将物品放下后转身离开主角公寓。",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 75,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        788.0,
+        798.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，从轮椅上拿起双筒望远镜。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 76,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        798.0,
+        810.0
+      ],
+      "prompt": "轮椅男子拿起黑色双筒望远镜，透过它观察对面主角公寓。",
+      "present": [
+        "char_001",
+        "prop_003",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 77,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        810.0,
+        820.0
+      ],
+      "prompt": "轮椅男子用双筒望远镜在庭院及周围公寓观察对面公寓男子。",
+      "present": [
+        "char_001",
+        "char_005",
+        "prop_003",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 78,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        820.0,
+        835.0
+      ],
+      "prompt": "在庭院及周围公寓中，轮椅男子在公寓内从抽屉取出双筒望远镜查看对面公寓男子。",
+      "present": [
+        "char_001",
+        "char_005",
+        "prop_003",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 79,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        835.0,
+        848.0
+      ],
+      "prompt": "轮椅男子在庭院及周围公寓内，手持相机调整镜头盖，对面公寓男子在旁，双筒望远镜放置于附近。",
+      "present": [
+        "char_001",
+        "char_005",
+        "prop_003",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 80,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        848.0,
+        856.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，将长焦相机放回腿上，双筒望远镜仍在身旁。",
+      "present": [
+        "char_001",
+        "prop_002",
+        "prop_003",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 81,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        856.0,
+        870.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，拿起长焦相机，双筒望远镜在旁。",
+      "present": [
+        "char_001",
+        "prop_002",
+        "prop_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 82,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        870.0,
+        885.0
+      ],
+      "prompt": "轮椅男子持长焦相机在庭院及周围公寓拍摄对面公寓男子，对面公寓男子在厨房读报。",
+      "present": [
+        "char_001",
+        "char_005",
+        "prop_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 83,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        885.0,
+        898.0
+      ],
+      "prompt": "轮椅男子在庭院及周围公寓中注视着对面公寓男子于厨房水槽边整理报纸，随后该男子转身离开，长焦相机始终对准其动作。",
+      "present": [
+        "char_001",
+        "char_005",
+        "prop_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 84,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        898.0,
+        910.0
+      ],
+      "prompt": "对面公寓男子在室内整理衣物，轮椅男子未出现，长焦相机在庭院及周围公寓中拍摄。",
+      "present": [
+        "char_001",
+        "char_005",
+        "prop_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 85,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        910.0,
+        919.0
+      ],
+      "prompt": "轮椅男子在庭院及周围公寓中看着对面公寓男子继续整理物品，长焦相机放在附近。",
+      "present": [
+        "char_001",
+        "char_005",
+        "prop_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 86,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        919.0,
+        934.0
+      ],
+      "prompt": "夜晚庭院及周围公寓，char_008在钢琴作曲家，其他邻居在各自公寓活动",
+      "present": [
+        "char_008",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 87,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        934.0,
+        948.0
+      ],
+      "prompt": "庭院及周围公寓灯光亮起，邻居们在夜晚活动",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 88,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        948.0,
+        963.0
+      ],
+      "prompt": "在庭院及周围公寓中，邻居们继续活动",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 89,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        963.0,
+        978.0
+      ],
+      "prompt": "在庭院及周围公寓中，邻居们继续活动",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 90,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        978.0,
+        988.0
+      ],
+      "prompt": "金发女子在主角公寓内亲吻轮椅男子。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 91,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        988.0,
+        995.0
+      ],
+      "prompt": "金发女子亲吻轮椅男子后离开，轮椅男子独自留在主角公寓中。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 92,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        995.0,
+        1008.0
+      ],
+      "prompt": "金发女子在主角公寓的床上阅读，窗外有人影窥视。",
+      "present": [
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 93,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1008.0,
+        1023.0
+      ],
+      "prompt": "轮椅男子与金发女子在主角公寓内交谈。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 94,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1023.0,
+        1038.0
+      ],
+      "prompt": "轮椅男子在主角公寓内用双筒望远镜观察，金发女子上前夺下望远镜并质问。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 95,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1038.0,
+        1053.0
+      ],
+      "prompt": "轮椅男子与金发女子在主角公寓内继续交谈。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 96,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1053.0,
+        1068.0
+      ],
+      "prompt": "轮椅男子在主角公寓窗边用电话打电话，表情严肃。",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 97,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1068.0,
+        1074.0
+      ],
+      "prompt": "轮椅男子在主角公寓内继续打电话。",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 98,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1074.0,
+        1088.0
+      ],
+      "prompt": "年长女护工端着餐盘进入主角公寓，轮椅男子继续打电话。",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_004",
+        "prop_007",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 99,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1088.0,
+        1100.0
+      ],
+      "prompt": "轮椅男子挂断电话后，年长女护工将餐盘放在他面前，他开始在主角公寓吃早餐。",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_007",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 100,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1100.0,
+        1112.0
+      ],
+      "prompt": "轮椅男子在主角公寓用餐，年长女护工在旁监督，餐盘在面前。",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_007",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 101,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1112.0,
+        1122.0
+      ],
+      "prompt": "轮椅男子在主角公寓中用叉子吃肉，随后喝茶，年长女护工站在他身后吃着面包，餐盘在旁。",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_007",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 102,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1122.0,
+        1137.0
+      ],
+      "prompt": "推销员戴帽眼镜，手提箱在侧，步入庭院及周围公寓，对面公寓男子端坐桌前饮茶。",
+      "present": [
+        "char_005",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_010"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 103,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1137.0,
+        1152.0
+      ],
+      "prompt": "推销员在庭院及周围公寓中与对面公寓男子交谈，后者在室内用餐。",
+      "present": [
+        "char_005",
+        "char_010",
+        "loc_002",
+        "char_014"
+      ],
+      "first_appearances": [
+        "char_014"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_014",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 104,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1152.0,
+        1164.0
+      ],
+      "prompt": "在庭院及周围公寓中，推销员与对面公寓男子搬运箱子。",
+      "present": [
+        "char_005",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 105,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1164.0,
+        1178.0
+      ],
+      "prompt": "对面公寓男子与推销员在庭院及周围公寓中搬运手提箱。",
+      "present": [
+        "char_005",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 106,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1178.0,
+        1186.0
+      ],
+      "prompt": "在庭院及周围公寓中，推销员与对面公寓男子合力搬运一个用绳索捆绑的大型木箱。",
+      "present": [
+        "char_005",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 107,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1186.0,
+        1195.0
+      ],
+      "prompt": "轮椅男子在主角公寓内用双筒望远镜观察，年长女护工在旁。",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_003",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 108,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1195.0,
+        1203.0
+      ],
+      "prompt": "轮椅男子在主角公寓内用双筒望远镜观察庭院，年长女护工在庭院中指向远处。",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_003",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 109,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1203.0,
+        1215.0
+      ],
+      "prompt": "深色头发的西装男子走进主角公寓，身着灰色西装、系黑色领带，与轮椅男子交谈。",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 110,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1215.0,
+        1223.0
+      ],
+      "prompt": "西装男子手持帽子走向轮椅男子，两人在主角公寓内交谈。",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 111,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1223.0,
+        1235.0
+      ],
+      "prompt": "西装男子手持玻璃杯，与轮椅男子在主角公寓内交谈。",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 112,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1235.0,
+        1247.0
+      ],
+      "prompt": "西装男子在主角公寓中打开酒瓶，倒酒入杯，轮椅男子在旁。",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 113,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1247.0,
+        1259.0
+      ],
+      "prompt": "西装男子在主角公寓内整理衣物，准备离开，轮椅男子在旁。",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 114,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1259.0,
+        1274.0
+      ],
+      "prompt": "轮椅男子在主角公寓内吃三明治喝牛奶，随后拿起长焦相机。",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 115,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1274.0,
+        1281.0
+      ],
+      "prompt": "轮椅男子在主角公寓内，用长焦相机继续准备观察。",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 116,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1281.0,
+        1294.0
+      ],
+      "prompt": "轮椅男子用长焦相机观察绿裙女子，绿裙女子在庭院及周围公寓内化妆。",
+      "present": [
+        "char_001",
+        "char_009",
+        "prop_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 117,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1294.0,
+        1307.0
+      ],
+      "prompt": "绿裙女子在庭院及周围公寓中，用长焦相机拍摄，轮椅男子在附近。",
+      "present": [
+        "char_001",
+        "char_009",
+        "prop_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 118,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1307.0,
+        1314.0
+      ],
+      "prompt": "绿裙女子在庭院及周围公寓中化妆完毕，轮椅男子与长焦相机在场。",
+      "present": [
+        "char_001",
+        "char_009",
+        "prop_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 119,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1314.0,
+        1327.0
+      ],
+      "prompt": "绿裙女子在庭院及周围公寓内，用长焦相机拍摄自己倒酒的动作，轮椅男子在旁。",
+      "present": [
+        "char_001",
+        "char_009",
+        "prop_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 120,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1327.0,
+        1340.0
+      ],
+      "prompt": "绿裙女子持玻璃杯离开房间，经门框进入庭院及周围公寓，轮椅男子与长焦相机在旁。",
+      "present": [
+        "char_001",
+        "char_009",
+        "prop_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 121,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1340.0,
+        1355.0
+      ],
+      "prompt": "轮椅男子持长焦相机在庭院及周围公寓观察，推销员在公寓内弹琴。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 122,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1355.0,
+        1370.0
+      ],
+      "prompt": "轮椅男子注视着绿裙女子走向庭院及周围公寓，长焦相机对准她，推销员在旁。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 123,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1370.0,
+        1378.0
+      ],
+      "prompt": "轮椅男子、推销员在庭院及周围公寓中，绿裙女子手持长焦相机观察。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 124,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1378.0,
+        1393.0
+      ],
+      "prompt": "轮椅男子与推销员在庭院及周围公寓内，戴帽眼镜男子携手提箱走过餐厅门口，灰发男子持长焦相机在室内拍摄。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 125,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1393.0,
+        1408.0
+      ],
+      "prompt": "轮椅男子举着长焦相机从窗户观察庭院及周围公寓，推销员提着洗衣箱从公寓楼梯走出。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 126,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1408.0,
+        1415.0
+      ],
+      "prompt": "轮椅男子在庭院及周围公寓内，看着推销员携长焦相机走向公寓内部。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 127,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1415.0,
+        1423.0
+      ],
+      "prompt": "轮椅男子在庭院及周围公寓内整理纸箱中的衣物，推销员手持长焦相机在一旁观察。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 128,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1423.0,
+        1430.0
+      ],
+      "prompt": "轮椅男子在庭院及周围公寓中整理衣物，随后换上浅蓝色睡衣，推销员手持长焦相机在一旁观察。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 129,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1430.0,
+        1445.0
+      ],
+      "prompt": "轮椅男子在主角公寓内打电话，金发女子和年长女护工在旁注视，对面公寓男子坐在扶手椅上打开鳄鱼皮手提箱取出项链。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 130,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1445.0,
+        1460.0
+      ],
+      "prompt": "轮椅男子、金发女子和年长女护工在主角公寓中继续讨论。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 131,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1460.0,
+        1469.0
+      ],
+      "prompt": "白发戴眼镜轮椅男子在主角公寓中，手持电话，将一枚戒指放入红色鳄鱼皮手袋后，伸手取桌上的物品，金发女子与年长女护工在旁。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 132,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1469.0,
+        1484.0
+      ],
+      "prompt": "对面公寓男子拿起相机，观察主角公寓内轮椅男子、金发女子和年长女护工的活动。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 133,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1484.0,
+        1500.0
+      ],
+      "prompt": "轮椅男子、金发女子与年长女护工在主角公寓内，白发戴眼镜男子在窗边整理衣物，绿裙女子走进房间。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 134,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1500.0,
+        1515.0
+      ],
+      "prompt": "在主角公寓内，金发女子穿着绿色套装进入，与轮椅男子交谈。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 135,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1515.0,
+        1529.0
+      ],
+      "prompt": "金发女子在主角公寓内走动，伸手调整吊灯开关，随后走向房间另一侧，轮椅男子在旁。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 136,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1529.0,
+        1544.0
+      ],
+      "prompt": "在主角公寓中，金发女子整理手提包，轮椅男子坐在桌旁注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 137,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1544.0,
+        1559.0
+      ],
+      "prompt": "在主角公寓中，金发女子与轮椅男子亲吻。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 138,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1559.0,
+        1566.0
+      ],
+      "prompt": "在主角公寓中，轮椅男子与金发女子亲吻后分开。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 139,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1566.0,
+        1581.0
+      ],
+      "prompt": "在主角公寓中，金发女子从手提包取出粉色衣物，与轮椅男子讨论。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 140,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1581.0,
+        1595.0
+      ],
+      "prompt": "金发女子将粉色衣物放入手提包，转身面向轮椅男子，两人在主角公寓内对话。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 141,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1595.0,
+        1605.0
+      ],
+      "prompt": "金发女子躺卧在主角公寓的床上，轮椅男子坐在轮椅上注视着她。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 142,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1605.0,
+        1613.0
+      ],
+      "prompt": "轮椅男子与金发女子在主角公寓内交谈，金发女子面带微笑。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 143,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1613.0,
+        1628.0
+      ],
+      "prompt": "西装男子进入主角公寓，与金发女子交谈，女子递酒杯，轮椅男子在场。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 144,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1628.0,
+        1643.0
+      ],
+      "prompt": "西装男子与金发女子在主角公寓中交谈，轮椅男子手持酒杯旁听。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 145,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1643.0,
+        1650.0
+      ],
+      "prompt": "西装男子与金发女子在主角公寓内交谈，轮椅男子在旁倾听。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 146,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1650.0,
+        1665.0
+      ],
+      "prompt": "西装男子在主角公寓中查看桌上物品，金发女子与轮椅男子在旁注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 147,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1665.0,
+        1680.0
+      ],
+      "prompt": "轮椅男子与西装男子在主角公寓内交谈，金发女子手持酒杯旁听。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 148,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1680.0,
+        1686.0
+      ],
+      "prompt": "西装男子与轮椅男子在主角公寓内交谈，金发女子手持酒杯站在一旁。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 149,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1686.0,
+        1701.0
+      ],
+      "prompt": "轮椅男子在主角公寓中坐下，与西装男子继续讨论，金发女子站在一旁。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 150,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1701.0,
+        1715.0
+      ],
+      "prompt": "西装男子走向门口戴上草帽，随后离开主角公寓。轮椅男子与金发女子在室内交谈。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 151,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1715.0,
+        1730.0
+      ],
+      "prompt": "绿裙女子与西装男子在庭院及周围公寓门口交谈后进入室内。",
+      "present": [
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 152,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1730.0,
+        1743.0
+      ],
+      "prompt": "绿裙女子在庭院及周围公寓的窗内活动。",
+      "present": [
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 153,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1743.0,
+        1755.0
+      ],
+      "prompt": "绿裙女子在庭院及周围公寓内活动，拉上百叶窗。",
+      "present": [
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 154,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1755.0,
+        1762.0
+      ],
+      "prompt": "绿裙女子在庭院及周围公寓的窗户前，持续拉扯百叶窗。",
+      "present": [
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 155,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1762.0,
+        1777.0
+      ],
+      "prompt": "轮椅男子在主角公寓内喝酒，金发女子穿着白色长裙进入。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 156,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1777.0,
+        1792.0
+      ],
+      "prompt": "金发女子与轮椅男子在主角公寓阳台，男子用吊篮取下毛绒物品，女子伸手接过。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 157,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1792.0,
+        1796.0
+      ],
+      "prompt": "金发女子从主角公寓窗内探身，轮椅男子在阳台外注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 158,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1796.0,
+        1808.0
+      ],
+      "prompt": "金发女子与轮椅男子并肩坐在主角公寓内，神情紧张地望向窗外。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 159,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1808.0,
+        1818.0
+      ],
+      "prompt": "金发女子与灰发轮椅男子在主角公寓内共同观察窗外。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 160,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1818.0,
+        1833.0
+      ],
+      "prompt": "轮椅男子持长焦相机在主角公寓观察，金发女子与年长女护工在旁注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 161,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1833.0,
+        1848.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，金发女子拿着长焦相机，年长女护工在场。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 162,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1848.0,
+        1856.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，用长焦相机对准目标，金发女子与年长女护工在一旁注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 163,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1856.0,
+        1868.0
+      ],
+      "prompt": "金发女子与年长女护工注视轮椅男子通过长焦相机观察庭院及周围主角公寓。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 164,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1868.0,
+        1874.0
+      ],
+      "prompt": "轮椅男子坐于椅中，金发女子手扶腰间，年长女护工手持杯子，三人于主角公寓内交谈。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 165,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1874.0,
+        1889.0
+      ],
+      "prompt": "轮椅男子在庭院及周围公寓的窗边阅读纸张，推销员手持长焦相机在楼下庭院站立仰望。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 166,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1889.0,
+        1902.0
+      ],
+      "prompt": "轮椅男子在阳台整理物品，推销员在庭院及周围公寓中整理手提箱，长焦相机被年长女护工拿走。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 167,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1902.0,
+        1915.0
+      ],
+      "prompt": "轮椅男子举长焦相机对准金发女子，推销员在庭院及周围公寓旁注视。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 168,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1915.0,
+        1924.0
+      ],
+      "prompt": "轮椅男子将红色手提包放入行李箱，随后转身离开，推销员在庭院及周围公寓手持长焦相机注视。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 169,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1924.0,
+        1939.0
+      ],
+      "prompt": "轮椅男子持长焦相机，金发女子与年长女护工在主角公寓内紧张对视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 170,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1939.0,
+        1954.0
+      ],
+      "prompt": "轮椅男子在主角公寓中查看一本打开的书，金发女子与年长女护工站在他身旁注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 171,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1954.0,
+        1959.0
+      ],
+      "prompt": "轮椅男子在主角公寓中阅读报纸，金发女子与年长女护工站在他身旁注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 172,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1959.0,
+        1968.0
+      ],
+      "prompt": "轮椅男子在主角公寓中打电话，金发女子与年长女护工站在一旁，神情担忧。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 173,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1968.0,
+        1983.0
+      ],
+      "prompt": "对面公寓男子在窗边活动，轮椅男子通过双筒望远镜观察庭院及周围公寓。",
+      "present": [
+        "char_001",
+        "char_005",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 174,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1983.0,
+        1994.0
+      ],
+      "prompt": "轮椅男子在庭院及周围公寓中观察，对面公寓男子戴帽后从窗台翻出，经阳台离开公寓，期间轮椅男子用双筒望远镜注视。",
+      "present": [
+        "char_001",
+        "char_005",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 175,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1994.0,
+        2005.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，放下电话听筒，表情紧张。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 176,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2005.0,
+        2011.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，坐于轮椅上，身体前倾，双手扶住轮椅扶手，神情紧张地望向一侧。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 177,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2011.0,
+        2026.0
+      ],
+      "prompt": "轮椅男子在主角公寓中，从包里取出金属碗和手电筒，准备行动。",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 178,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2026.0,
+        2034.0
+      ],
+      "prompt": "轮椅男子在主角公寓内调整轮椅扶手，准备移动。",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 179,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2034.0,
+        2049.0
+      ],
+      "prompt": "金发女子跟随年长女护工攀爬庭院及周围公寓墙边梯子至公寓阳台。",
+      "present": [
+        "char_002",
+        "char_003",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 180,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2049.0,
+        2057.0
+      ],
+      "prompt": "金发女子在庭院及周围公寓中攀爬梯子，年长女护工在旁清扫栏杆。",
+      "present": [
+        "char_002",
+        "char_003",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 181,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2057.0,
+        2072.0
+      ],
+      "prompt": "轮椅男子在主角公寓内拿起电话，紧张地拨号并接听。",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 182,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2072.0,
+        2080.0
+      ],
+      "prompt": "轮椅男子在主角公寓里继续打电话。",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 183,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2080.0,
+        2095.0
+      ],
+      "prompt": "金发女子在庭院及周围公寓的消防梯上攀爬，进入公寓。",
+      "present": [
+        "char_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 184,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2095.0,
+        2107.0
+      ],
+      "prompt": "金发女子进入庭院及周围公寓。",
+      "present": [
+        "char_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 185,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2107.0,
+        2119.0
+      ],
+      "prompt": "金发女子进入庭院及周围公寓，查看手提包",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 186,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2119.0,
+        2121.0
+      ],
+      "prompt": "金发女子在公寓窗边整理衣物，庭院及周围公寓静谧。",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 187,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2121.0,
+        2130.0
+      ],
+      "prompt": "轮椅男子在主角公寓内，手持长焦相机，与年长女护工交谈后接听电话。",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 188,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2130.0,
+        2145.0
+      ],
+      "prompt": "警察进入庭院及周围公寓，推销员在旁",
+      "present": [
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 189,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2145.0,
+        2156.0
+      ],
+      "prompt": "金发女子在庭院及周围公寓的窗边与警察交谈，推销员在旁。",
+      "present": [
+        "char_002",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 190,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2156.0,
+        2163.0
+      ],
+      "prompt": "金发女子在庭院及周围公寓内被警察询问，推销员在旁递物。",
+      "present": [
+        "char_002",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 191,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2163.0,
+        2170.0
+      ],
+      "prompt": "推销员在庭院及周围公寓中与金发女子交谈。",
+      "present": [
+        "char_002",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 192,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2170.0,
+        2185.0
+      ],
+      "prompt": "轮椅男子与年长女护工在主角公寓内紧张等待。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 193,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2185.0,
+        2195.0
+      ],
+      "prompt": "轮椅男子在主角公寓内，年长女护工在旁整理物品。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 194,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2195.0,
+        2200.0
+      ],
+      "prompt": "轮椅男子在主角公寓中接电话，年长女护工在旁走动。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 195,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2200.0,
+        2207.0
+      ],
+      "prompt": "轮椅男子在主角公寓内表情紧张，年长女护工在旁。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 196,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2207.0,
+        2220.0
+      ],
+      "prompt": "推销员在主角公寓门口向轮椅男子出现，表情严肃。",
+      "present": [
+        "char_001",
+        "char_010",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 197,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2220.0,
+        2227.0
+      ],
+      "prompt": "推销员char_010进入主角公寓loc_001，逼近轮椅男子char_001。",
+      "present": [
+        "char_001",
+        "char_010",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 198,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2227.0,
+        2234.0
+      ],
+      "prompt": "推销员char_010在主角公寓loc_001内攻击轮椅男子char_001，char_001倒下。",
+      "present": [
+        "char_001",
+        "char_010",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 199,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2234.0,
+        2249.0
+      ],
+      "prompt": "邻居们纷纷望向庭院及周围公寓。",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 200,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2249.0,
+        2260.0
+      ],
+      "prompt": "在庭院及周围公寓中，邻居们继续反应",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 201,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2260.0,
+        2275.0
+      ],
+      "prompt": "楼上金发女子与伴侣在庭院及周围公寓内拥抱。",
+      "present": [
+        "char_007",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 202,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2275.0,
+        2284.0
+      ],
+      "prompt": "楼上金发女子与穿制服男子在阳台拥抱后迅速离开，庭院及周围公寓中其他邻居在观察。",
+      "present": [
+        "char_007",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 203,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2284.0,
+        2299.0
+      ],
+      "prompt": "轮椅男子坐在轮椅上，双腿打石膏，表情平静，位于主角公寓。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 204,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2299.0,
+        2302.0
+      ],
+      "prompt": "轮椅男子坐在主角公寓的轮椅上",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 205,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2302.0,
+        2308.0
+      ],
+      "prompt": "金发女子坐在主角公寓窗边，手指轻抚着喜马拉雅书籍封面，书名Beyond the High Himalayas清晰可见，她专注地翻动书页，目光在文字间流连。",
+      "present": [
+        "char_002",
+        "prop_008",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_008"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_008",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 206,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2308.0,
+        2312.0
+      ],
+      "prompt": "金发女子在主角公寓中翻阅喜马拉雅书籍。",
+      "present": [
+        "char_002",
+        "prop_008",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 207,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2312.0,
+        2317.0
+      ],
+      "prompt": "金发女子在主角公寓中翻阅时尚杂志，封面印有‘Harper's Bazaar Beauty Issue’字样，配图是一位身着红色礼服的女性，背景为深棕色调。",
+      "present": [
+        "char_002",
+        "prop_009",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_009"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_009",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    }
+  ]
+}

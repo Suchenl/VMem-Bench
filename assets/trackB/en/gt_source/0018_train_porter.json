@@ -1,0 +1,938 @@
+{
+  "story_id": "0018_train_porter",
+  "title": "Platform Tag Plates",
+  "premise": "A decades-spanning railway baggage drama. Xiaolu and Alu are easily confused by looks; the red-lacquer luggage chest goes intact→shattered→repaired; after the platform flatcart is scrapped it must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Old Zhou",
+      "kind": "character",
+      "states": {
+        "prime_porter": "Railway porter Old Zhou around fifty, short crew cut, deep-blue railway uniform, canvas shoulder straps, capable eyes.",
+        "waist_hurt_cane": "The same porter after injury: wide cloth wrap around the waist, walking slowly with a wooden cane, knees of the uniform worn through.",
+        "deceased": "Old Zhou lies still on the break-room bench with eyes closed, face peaceful, no breath left."
+      }
+    },
+    "E2": {
+      "name": "Xiaolu",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Xiaolu: a lean tall baggage apprentice of fifteen or sixteen, vermilion armband, gray-blue work clothes, bright stubborn eyes.",
+        "adult_successor": "Adult Xiaolu: a broad-shouldered steady young porter in his twenties, still wearing the vermilion armband, work clothes swapped for a formal deep-blue uniform."
+      }
+    },
+    "E3": {
+      "name": "red-lacquer luggage chest",
+      "kind": "prop",
+      "states": {
+        "intact": "A half-man-tall red-lacquer wooden luggage chest, copper corners intact, door tagged with a complete route label.",
+        "shattered_warped": "The same luggage chest fallen from the platform; door split, copper corners askew, route label torn.",
+        "reinforced_repaired": "The luggage-chest door re-nailed, copper corners reset, route label replaced; ready to shelf again."
+      }
+    },
+    "E4": {
+      "name": "shift handover book",
+      "kind": "prop",
+      "states": {
+        "intact": "A hard-cover shift handover book with carbon paper clipped in, handwriting neat.",
+        "rain_stained_blurred": "The same book soaked by platform rain, cover wrinkled, writing blurred into purple blotches."
+      }
+    },
+    "E5": {
+      "name": "platform flatcart",
+      "kind": "prop",
+      "states": {
+        "intact": "A dark-green platform flatcart with a white Zhou character sprayed on the body, rubber corner guards at all four corners.",
+        "derailed_scrapped": "The dark-green flatcart derailed and tipped; axle snapped, guards burst—wreckage that can no longer be pushed."
+      }
+    },
+    "E6": {
+      "name": "Alu",
+      "kind": "character",
+      "states": {
+        "young_rival": "Alu, whose face closely matches young Xiaolu's, wearing a dark-green armband, swaggering look, a brass railway badge on the hat brim.",
+        "adult_rival": "Adult Alu still wears the dark-green armband and brass railway badge on the hat brim; expression deeper."
+      }
+    },
+    "E7": {
+      "name": "central platform",
+      "kind": "location",
+      "appearance": "An arched central platform, floor tiles polished bright, station board and clock tower side by side, wind of an arriving train sweeping past."
+    },
+    "E8": {
+      "name": "baggage room",
+      "kind": "location",
+      "appearance": "The baggage room beside the platform, wooden counter and shelves, claim tags and canvas straps hung on the wall."
+    },
+    "E9": {
+      "name": "station square",
+      "kind": "location",
+      "appearance": "A stone-paved square before the station, taxis and newsstands, neon mixed with steam."
+    },
+    "E10": {
+      "name": "abandoned siding shed",
+      "kind": "location",
+      "appearance": "A rusted abandoned siding shed, grass on the rails, light leaking through holes in the roof."
+    },
+    "E11": {
+      "name": "porter brass plaque",
+      "kind": "prop",
+      "appearance": "A brass plaque nailed to the baggage room doorframe, carved with Old Zhou's name and year, edges polished bright."
+    },
+    "E12": {
+      "name": "tag brass tokens",
+      "kind": "prop",
+      "appearance": "Three tag brass tokens hung on wooden pegs in the baggage room, faces carved with different bay numbers."
+    },
+    "E13": {
+      "name": "rented handcart",
+      "kind": "prop",
+      "appearance": "A rented silver-gray handcart with no Zhou character and no rubber corner guards, loaded only with cardboard boxes."
+    },
+    "E14": {
+      "name": "station supervisor",
+      "kind": "character",
+      "appearance": "A lean station supervisor in a deep-blue uniform and peaked cap, build close to Old Zhou's, gold bars embroidered on the cuffs."
+    },
+    "E15": {
+      "name": "signal lanterns",
+      "kind": "prop",
+      "appearance": "A row of five signal lanterns hung under the baggage room beams, glass shades wiped clear, cast-iron pans."
+    },
+    "E16": {
+      "name": "departure bronze bells",
+      "kind": "prop",
+      "appearance": "Two departure bronze bells hung under the platform eaves, tongues tied with red cord, struck at departure."
+    },
+    "E17": {
+      "name": "newspaper boy",
+      "kind": "character",
+      "appearance": "A newspaper boy on the station square, light-brown armband, holding a newspaper bundle; at a glance like young Xiaolu, shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "cardboard fake chest",
+      "kind": "prop",
+      "appearance": "A cardboard fake luggage chest shaped like the red-lacquer chest but without copper corners; the label is a handwritten fake strip."
+    },
+    "E19": {
+      "name": "strange yellow flatcart",
+      "kind": "prop",
+      "appearance": "A strange yellow-skinned flatcart with a deeper bed and no Zhou character—not the dark-green platform flatcart."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_porter",
+      "waist_hurt_cane",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "shattered_warped",
+      "reinforced_repaired"
+    ],
+    "E4": [
+      "intact",
+      "rain_stained_blurred"
+    ],
+    "E5": [
+      "intact",
+      "derailed_scrapped"
+    ],
+    "E6": [
+      "young_rival",
+      "adult_rival"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Xiaolu: vermilion armband, gray-blue work clothes, quiet stubborn eyes.",
+        "E6": "Alu: face nearly identical to Xiaolu, but dark-green armband, brass railway badge on hat brim, swaggering look."
+      },
+      "note": "Confuse: tell Xiaolu from Alu by armband and railway badge."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Central platform at dusk (five lanterns · two bronze bells)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "At dusk Old Zhou patrols the central platform, checking the station board and floor tiles.",
+        {
+          "action": "A row of five signal lanterns hangs under the baggage room beams; Old Zhou wipes each glass shade clear.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two departure bronze bells hang under the platform eaves; Old Zhou reaches out and lets them chime lightly.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Old Zhou pushes the red-lacquer luggage chest to its bay and checks the copper corners.",
+        "Old Zhou looks through the arched glass toward the dusk of an arriving train.",
+        {
+          "action": "The route label on the red-lacquer luggage chest is sharp and readable under the lanterns.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        },
+        "Old Zhou sits against the counter and listens to a distant whistle."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Writing the shift handover book",
+      "present": [
+        "E1",
+        "E8",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Old Zhou opens the shift handover book and notes this shift's bay numbers.",
+        "On a blank page Old Zhou sketches how the luggage chests are stacked.",
+        "Old Zhou closes the book and tucks it into his uniform pocket.",
+        {
+          "action": "Light from the luggage-chest copper corners sweeps Old Zhou's profile.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Baggage room greets the apprentice (three tag brass tokens)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "In the baggage room at dawn, Old Zhou greets young Xiaolu pushing the platform flatcart.",
+        {
+          "action": "Xiaolu parks the dark-green flatcart by the counter and tidies the rubber corner guards.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Old Zhou points to the three tag brass tokens on the wooden pegs and teaches Xiaolu to read the bays.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaolu crouches on the tiles and curiously touches the canvas straps.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Old Zhou explains the arrival and departure signals to Xiaolu.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Xiaolu looks back at the intact platform flatcart, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Station square (Alu alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "Behind a newsstand on the station square, Alu in a dark-green armband glances back.",
+        "Alu strides across the stone square with a swaggering look.",
+        "Alu haggles with a news vendor; the brass railway badge on his hat brim flashes.",
+        "Alu carries a paper bag through the square crowd."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Baggage-room misrecognition co-present",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "Before the baggage room counter, Xiaolu and Alu stand side by side—one vermilion armband, one dark-green armband.",
+        "Xiaolu hands a tag to Alu; they meet eyes briefly.",
+        "Alu smooths Xiaolu's vermilion armband, then turns his face away.",
+        "They part at the far end of the shelves, walking opposite ways."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Handover book rain-stained",
+      "present": [
+        "E1",
+        "E8",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Old Zhou keeps watch alone in the baggage room; the red-lacquer luggage chest stands in its bay.",
+        {
+          "action": "Old Zhou opens the shift handover book; the cover is soaked by platform rain, writing blurred into purple blotches.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "rain_stained_blurred"
+            }
+          ]
+        },
+        "Old Zhou wipes water beads from the luggage chest with a cloth.",
+        "Old Zhou pushes open the wooden window and looks toward the black platform.",
+        {
+          "action": "The red-lacquer luggage chest shines quietly under the signal lanterns.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years turn",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Through Spring Festival rush, Old Zhou moves luggage chests day after day.",
+        "Another storm night, Old Zhou checks water pooled on the platform tiles.",
+        "At high summer noon, Old Zhou wipes copper corners hot from the sun.",
+        "When autumn wind enters the station, Old Zhou keeps watch alone until the last train."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Platform patrol (recall tags · strange yellow cart)",
+      "present": [
+        "E1",
+        "E7",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak Old Zhou patrols the central platform; the platform flatcart sits by the bay.",
+        {
+          "action": "Old Zhou crouches to check the flatcart rubber corner guards.",
+          "present": [
+            "E7",
+            "E5"
+          ]
+        },
+        {
+          "action": "Old Zhou walks to the baggage room wooden pegs; those three tag brass tokens still hang in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A strange yellow flatcart rolls across the platform, bed deeper—not the dark-green platform cart.",
+          "present": [
+            "E7",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Old Zhou stands under the station board and logs last night's delayed trains.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Old Zhou hangs the canvas straps to dry on the baggage room hooks.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Rush disaster (luggage chest shatters · flatcart derails)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "Last-train rush floods the central platform; the red-lacquer luggage chest is shoved to the edge.",
+        "The whistle screams; the tiles vibrate.",
+        {
+          "action": "The red-lacquer luggage chest falls from the platform edge; door splits, copper corners askew.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "shattered_warped"
+            }
+          ]
+        },
+        {
+          "action": "By the bay, the platform flatcart derails and tips over.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "Axle snapped, guards burst—the platform flatcart becomes wreckage.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "derailed_scrapped",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Old Zhou lunges to the platform edge and fiercely guards the shattered red-lacquer luggage chest.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (flatcart indirect reference · lantern recall)",
+      "present": [
+        "E1",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day Old Zhou stands in the baggage room staring at the shattered warped red-lacquer luggage chest.",
+          "present": [
+            "E1",
+            "E8",
+            "E3"
+          ]
+        },
+        {
+          "action": "Old Zhou traces the door crack with a fingertip, face dark.",
+          "present": [
+            "E1",
+            "E8",
+            "E3"
+          ]
+        },
+        {
+          "action": "Old Zhou notes the date the platform flatcart derailed on the wallboard.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "An old photo of the platform flatcart is still nailed to the baggage room wall peg; Old Zhou gazes long.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Old Zhou takes down one of the five signal lanterns from the beam and sits alone in the faint light.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The damaged red-lacquer luggage chest still stands in its bay, label torn.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Reinforced repair (cardboard fake chest false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Old Zhou brings copper nails and new labels and begins repairing the red-lacquer luggage chest.",
+        {
+          "action": "Old Zhou takes a cardboard fake chest from the shelf—shaped like the red-lacquer chest but without copper corners.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Old Zhou carefully nails the door shut, resets the copper corners, and swaps in a new route label.",
+        {
+          "action": "The red-lacquer luggage chest is sound again and ready to shelf.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "reinforced_repaired"
+            }
+          ]
+        },
+        "The repaired red-lacquer luggage chest shines again under the lanterns; Old Zhou exhales."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: handcart and supervisor",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        {
+          "action": "A silver-gray rented handcart rolls onto the platform—nothing like the long-scrapped platform flatcart.",
+          "present": [
+            "E7",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "The station supervisor walks up and talks shoulder to shoulder with Old Zhou; their builds are alike.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The supervisor points at the handcart and explains the temporary transfer plan.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The handcart is pushed away; Old Zhou alone watches it leave the platform.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: newspaper boy",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "A newspaper boy in a light-brown armband arrives on the station square; at a glance he looks somewhat like young Xiaolu.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "The boy tries handing out papers, but Old Zhou shakes his head—he is not Xiaolu after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Siding-shed waist injury (bronze-bell long-range)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Old Zhou with a wide cloth wrap around his waist leans on a wooden cane before the abandoned siding shed.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "waist_hurt_cane"
+            }
+          ]
+        },
+        "Old Zhou looks up at the hole-torn roof, gaze far away.",
+        {
+          "action": "Those two departure bronze bells on the siding-shed iron frame chime lightly in the wind; Old Zhou stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Old Zhou presses his palm to the rusted rail, as if saying goodbye."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Xiaolu returns · Old Zhou dies",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Xiaolu returns along the siding and hurries toward the abandoned siding shed.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Xiaolu reunites with cane-leaning Old Zhou by the grassy rails; they embrace.",
+        {
+          "action": "By the break-room bench, Xiaolu holds Old Zhou's withered hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Old Zhou's breath fades; at last he closes his eyes and dies.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · porter brass plaque",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Old Zhou's deep-blue uniform still hangs behind the baggage room door; Xiaolu reaches out and gently strokes it.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "By the baggage room doorframe, adult Xiaolu stands before the porter brass plaque.",
+          "present": [
+            "E2",
+            "E8",
+            "E11"
+          ]
+        },
+        {
+          "action": "Xiaolu's fingertip traces Old Zhou's name carved on the plaque.",
+          "present": [
+            "E2",
+            "E8",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Adult Alu arrives from the square and locks eyes with Xiaolu at the siding shed.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "adult_rival"
+            }
+          ]
+        },
+        "Xiaolu and Alu stand side by side by the rusted rails—one quiet-eyed, one deep-faced.",
+        "They look at each other in silence, faces similar yet different."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns years—that youth tidying rubber corner guards in the baggage room appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth tidying rubber corner guards in the baggage room",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—on the bay, a red-lacquer wooden chest is pushed steady for the first time.",
+          "present": [
+            "E8",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the red-lacquer wooden chest first pushed steady on the bay at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the square that year—a figure in a dark-green armband with a brass railway badge on the hat brim flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in a dark-green armband on the square that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old signal lanterns under the baggage room beams.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old lanterns under the baggage room beams",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to that arched platform of first meeting; dusk leaks through the glass as before.",
+          "present": [
+            {
+              "eid": "E7",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that arched platform of first meeting",
+                "resolves_to": "E7"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Close",
+      "present": [
+        "E2",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Xiaolu reopens the rain-stained blurred shift handover book and walks into the baggage room.",
+          "present": [
+            "E2",
+            "E8",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "By the baggage room wooden pegs, those three tag brass tokens still hang in place.",
+          "present": [
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaolu takes the red-lacquer luggage chest and pushes it onto the bay again.",
+          "present": [
+            "E2",
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    }
+  ]
+}

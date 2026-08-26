@@ -1,0 +1,941 @@
+{
+  "story_id": "0017_reef_diver",
+  "title": "Shallow-Reef Sampling Log",
+  "premise": "A long reef-diving drama spanning years. Langlang and Achao are easily confused; the coral sample case goes intact→seal ruptured→resealed repair; the fiberglass skiff is wrecked and sunk and must be avoided; count memory (ship lanterns / dive buoy flags / fog-navigation brass bells), false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). Present entries may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Haisheng",
+      "kind": "character",
+      "states": {
+        "prime_diver": "A reef diver in his forties named Haisheng, buzz-cut hair, navy wetsuit, silver tank on his shoulder, sharp eyes.",
+        "ear_injury": "The same diver after injury: right ear wrapped in gauze, limping, wetsuit shoulder strap broken and tied with rope.",
+        "deceased": "Haisheng has passed peacefully, eyes closed on the dock planks, face serene, breath gone."
+      }
+    },
+    "E2": {
+      "name": "Langlang",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Langlang: a lean diving apprentice of fifteen or sixteen, orange-yellow headscarf, light-blue short-sleeve wetsuit, bright clear eyes.",
+        "adult_successor": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+      }
+    },
+    "E3": {
+      "name": "coral sample case",
+      "kind": "prop",
+      "states": {
+        "intact": "A transparent acrylic sample case with intact internal compartments, fresh gasket seal on the lid, brass handle.",
+        "seal_ruptured": "The same sample case with a torn gasket letting in seawater, compartments askew, brass handle bent.",
+        "resealed_repair": "The sample case fitted with a new gasket, handle straightened, compartments reset—ready for diving again."
+      }
+    },
+    "E4": {
+      "name": "dive log",
+      "kind": "prop",
+      "states": {
+        "intact": "A waterproof-cover dive log with a tide table clipped inside, neat handwriting.",
+        "seawater_blurred": "The same log soaked by seawater: cover bleached and wrinkled, ink blurred into blue patches."
+      }
+    },
+    "E5": {
+      "name": "fiberglass skiff",
+      "kind": "prop",
+      "states": {
+        "intact": "An off-white fiberglass skiff with blue 'Hai' lettering on the bow and an orange life ring on the gunwale.",
+        "wrecked_sunk": "The off-white skiff holed on the reef, bow taking water and sinking—half-submerged wreckage."
+      }
+    },
+    "E6": {
+      "name": "Achao",
+      "kind": "character",
+      "states": {
+        "young_rival": "Achao, face very like young Langlang's, green headscarf, bold expression, dive computer on his wrist.",
+        "adult_rival": "Adult Achao still in green headscarf and dive computer, expression deeper and heavier."
+      }
+    },
+    "E7": {
+      "name": "shallow reef coral zone",
+      "kind": "location",
+      "appearance": "A clear shallow reef coral zone, staghorn coral and sea anemones dense, sunlight refracting into columns underwater."
+    },
+    "E8": {
+      "name": "dock supply hut",
+      "kind": "location",
+      "appearance": "A supply hut beside the wooden dock, wetsuits and tanks hanging on the wall, air smelling of salt and diesel."
+    },
+    "E9": {
+      "name": "fishing village dock market",
+      "kind": "location",
+      "appearance": "A fishing village dock market, fish baskets and dried-goods stalls along the wooden walkway, gulls circling."
+    },
+    "E10": {
+      "name": "abandoned lighthouse reef",
+      "kind": "location",
+      "appearance": "A half-collapsed abandoned lighthouse reef, rusted iron frame, reef flat exposed at low tide, waves breaking on black rock edges."
+    },
+    "E11": {
+      "name": "diver bronze plaque",
+      "kind": "prop",
+      "appearance": "A brass plaque nailed to the supply hut doorframe, carved with Haisheng's name and year, salt-crusted edges."
+    },
+    "E12": {
+      "name": "dive buoy flags",
+      "kind": "prop",
+      "appearance": "Three dive buoy flags stuck in shallow reef floats, red-and-white flag faces."
+    },
+    "E13": {
+      "name": "rented rubber dinghy",
+      "kind": "prop",
+      "appearance": "A brand-new orange-black rented rubber dinghy, no 'Hai' lettering and no orange life ring, carrying only empty crates."
+    },
+    "E14": {
+      "name": "coast guard patrol officer",
+      "kind": "character",
+      "appearance": "A lean coast guard patrol officer in dark-blue uniform and peaked cap, build close to Haisheng's but with gold shoulder boards."
+    },
+    "E15": {
+      "name": "ship lanterns",
+      "kind": "prop",
+      "appearance": "A row of five ship lanterns hanging on the supply hut wall, glass shades polished, brass lamp trays."
+    },
+    "E16": {
+      "name": "fog-navigation brass bells",
+      "kind": "prop",
+      "appearance": "Two fog-navigation brass bells hanging under the dock eaves, murmuring low when the wind rises."
+    },
+    "E17": {
+      "name": "traveling diver girl",
+      "kind": "character",
+      "appearance": "A traveling diver girl at the market, light-brown headscarf and small tank on her back; at a glance somewhat like young Langlang, but with shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "toy dive case",
+      "kind": "prop",
+      "appearance": "A semi-transparent toy dive case shaped like the sample case but without a gasket seal, plastic handle."
+    },
+    "E19": {
+      "name": "unfamiliar gray motorboat",
+      "kind": "prop",
+      "appearance": "An unfamiliar gray motorboat, wider hull, no 'Hai' lettering—not the fiberglass skiff."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_diver",
+      "ear_injury",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "seal_ruptured",
+      "resealed_repair"
+    ],
+    "E4": [
+      "intact",
+      "seawater_blurred"
+    ],
+    "E5": [
+      "intact",
+      "wrecked_sunk"
+    ],
+    "E6": [
+      "young_rival",
+      "adult_rival"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+        "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+      },
+      "note": "Confusion: Langlang and Achao are told apart by headscarf and dive computer."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Shallow reef at dusk (five ship lanterns · two fog-navigation brass bells)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "At dusk, Haisheng dives from the dock into the shallow reef coral zone and checks tank pressure.",
+        {
+          "action": "A row of five ship lanterns hangs on the dock supply hut wall; Haisheng comes ashore and polishes them one by one.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two fog-navigation brass bells hang under the dock eaves; Haisheng reaches up and lets them ring softly.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Haisheng sets the coral sample case on a surface float and checks the gasket seal.",
+        "Haisheng surfaces and gazes at the darkening reef line.",
+        {
+          "action": "The coral sample case gleams transparent in clear seawater, compartments sharp.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Haisheng sits on the dock planks, listening to waves on the reef."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Writing the dive log",
+      "present": [
+        "E1",
+        "E8",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "In the dock supply hut, Haisheng opens the dive log and records depth and visibility.",
+        "Haisheng sketches today's sampling points on a blank page.",
+        "Haisheng closes the dive log and slips it into a waterproof bag.",
+        {
+          "action": "Brass handle light from the coral sample case sweeps across Haisheng's cheek.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Dock welcomes apprentice (three dive buoy flags)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "At dawn on the dock, Haisheng greets young Langlang arriving in the fiberglass skiff.",
+        {
+          "action": "Langlang jumps off the fiberglass skiff and hangs the orange life ring back on the gunwale.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Haisheng points to three dive buoy flags stuck in the floats and teaches Langlang flag signals.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Langlang crouches by the wooden walkway, curious, touching wet mooring rope.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Haisheng explains shallow reef currents and no-dive zones to Langlang.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Langlang looks back at the intact fiberglass skiff, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Fishing village market (Achao only)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "Behind a fish stall at the fishing village dock market, green-headscarfed Achao glances back.",
+        "Achao strides along the wooden walkway, bold expression.",
+        "Achao haggles with a vendor; the dive computer on his wrist flashes.",
+        "Achao carries a fish basket through the market crowd."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Dock mistaken-identity co-present",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "On the dock walkway, Langlang and Achao stand side by side—one orange-yellow headscarf, one green.",
+        "Langlang hands a dive buoy flag to Achao; the two share a brief look.",
+        "Achao straightens Langlang's orange-yellow headscarf, then turns away.",
+        "At the walkway end they part, walking opposite ways."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Dive log seawater-blurred",
+      "present": [
+        "E1",
+        "E8",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Haisheng keeps watch alone in the dock supply hut, coral sample case on the table.",
+        {
+          "action": "Haisheng opens the dive log; the cover is soaked, ink blurred into blue patches.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "seawater_blurred"
+            }
+          ]
+        },
+        "Haisheng wipes salt crust from the coral sample case.",
+        "Haisheng pushes open the wooden window and gazes at the black reef line.",
+        {
+          "action": "The coral sample case stands transparent under the ship lanterns.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years passing",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Dry season clarity—day after day Haisheng dives the shallow reef coral zone.",
+        "Another pre-typhoon night, Haisheng checks tank valves.",
+        "Rainy season murk—Haisheng sorts buoys at the dock.",
+        "Midsummer noon, Haisheng wipes sun-hot brass handles.",
+        "Autumn swell—Haisheng keeps lone watch until dawn.",
+        "Another new-year dive—Haisheng recalibrates his dive computer.",
+        "Clear sunny day—Haisheng photographs new staghorn coral shoots."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Dock patrol (flashback dive buoy flags · unfamiliar gray motorboat)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn, Haisheng patrols the dock; the fiberglass skiff moored at the pier.",
+        {
+          "action": "Haisheng crouches to inspect the fiberglass skiff's keel guard strip.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Haisheng walks to the floats—those three dive buoy flags still in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "An unfamiliar gray motorboat passes the harbor, wider hull—not the fiberglass skiff.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Haisheng stands on the walkway, recording exposed reef after low tide.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Haisheng hangs wetsuits on the dock supply hut wooden rack.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Storm catastrophe (sample case ruptured · skiff sunk)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "Storm rises; shallow reef walls of water surge; the coral sample case jolts violently.",
+        "Lightning lights the reef line; seawater turns gray-white.",
+        {
+          "action": "A huge wave hits; the coral sample case gasket tears and seawater floods in, brass handle bent.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "seal_ruptured"
+            }
+          ]
+        },
+        {
+          "action": "In the harbor, the fiberglass skiff is pushed onto hidden reef by the swell.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "The hull splits and takes water; the fiberglass skiff sinks half-submerged as wreckage.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "wrecked_sunk",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Haisheng lunges for the float, gripping the ruptured coral sample case.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (skiff indirect reference · lantern memory)",
+      "present": [
+        "E1",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day in the dock supply hut, Haisheng stares at the seal-ruptured coral sample case.",
+          "present": [
+            "E1",
+            "E8",
+            "E3"
+          ]
+        },
+        {
+          "action": "Haisheng runs a fingertip over the bent brass handle, face dark.",
+          "present": [
+            "E1",
+            "E8",
+            "E3"
+          ]
+        },
+        {
+          "action": "Haisheng marks the date of the fiberglass skiff reef strike on the wall board.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "An old photo of the fiberglass skiff still pinned on the dock supply hut wall; Haisheng gazes a long while.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Haisheng takes one of five ship lanterns from the wall and sits alone in the dim light.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The ruptured coral sample case still on the table, compartments pooled with seawater.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Resealed repair (toy dive case false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Haisheng brings a new gasket and begins repairing the coral sample case.",
+        {
+          "action": "From a wooden crate he takes a toy dive case—shaped like the sample case but without a gasket.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Haisheng carefully replaces the gasket and straightens the brass handle.",
+        {
+          "action": "The coral sample case is resealed, compartments reset—ready to dive again.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "resealed_repair"
+            }
+          ]
+        },
+        "The repaired coral sample case gleams intact and transparent; Haisheng exhales in relief."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: rubber dinghy and coast guard",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "An orange-black rented rubber dinghy enters the harbor—nothing like the long-wrecked fiberglass skiff.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "A coast guard patrol officer jumps onto the dock and talks beside Haisheng, builds alike.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The coast guard patrol officer points at the rented rubber dinghy, explaining temporary closure orders.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The rented rubber dinghy departs; Haisheng alone on the dock watching it go.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: traveling diver girl",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "At the fishing village dock market, a light-brown-headscarfed traveling diver girl arrives—at a glance somewhat like young Langlang.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "The traveling diver girl tries shouldering a small tank; Haisheng shakes his head—she is not Langlang after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Lighthouse reef ear injury (bells long-range)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Haisheng stands limping on the abandoned lighthouse reef, right ear wrapped in gauze.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "ear_injury"
+            }
+          ]
+        },
+        "Haisheng looks up at the rusted lamp frame, gaze far away.",
+        {
+          "action": "Two fog-navigation brass bells on the abandoned lighthouse reef iron frame murmur in the wind; Haisheng pauses to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Haisheng presses his palm to the cold black rock edge, as if saying goodbye."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Langlang returns · Haisheng passes",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Langlang returns along the reef line, hurrying toward the abandoned lighthouse reef.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Langlang reunites with injured Haisheng on the reef flat; they embrace.",
+        {
+          "action": "Beside the dock planks, Langlang holds Haisheng's rough hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Haisheng's breath fades; he closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Remains · diver bronze plaque",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Haisheng's navy wetsuit still hangs behind the dock supply hut door; Langlang reaches out and touches it lightly.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "Beside the dock supply hut doorframe, adult Langlang stands before the diver bronze plaque.",
+          "present": [
+            "E2",
+            "E8",
+            "E11"
+          ]
+        },
+        {
+          "action": "Langlang's fingertip traces Haisheng's name carved on the diver bronze plaque.",
+          "present": [
+            "E2",
+            "E8",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Adult Achao comes from the market and meets Langlang's gaze on the abandoned lighthouse reef.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "adult_rival"
+            }
+          ]
+        },
+        "Langlang and Achao stand side by side on the reef flat—one calm-eyed, one heavy-browed.",
+        "The two look at each other in silence, studying faces alike yet different."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback",
+      "present": [],
+      "actions": [
+        {
+          "action": "The lens returns to years ago—the boy who hung the life ring at the dock appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the boy who hung the life ring at the dock",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "That opening moment returns—shallow reef water, a transparent coral sample case set on a float for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the transparent coral sample case first placed on a float at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flashback to the market that year—a green-headscarfed Achao with a dive computer on his wrist flickers past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the green-headscarfed figure at the market that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old ship lanterns on the dock supply hut wall.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old ship lanterns on the dock supply hut wall",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the clear shallow reef coral zone of first meeting; sunlight refracts into columns underwater, unchanged.",
+          "present": [
+            {
+              "eid": "E7",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the clear shallow reef of first meeting",
+                "resolves_to": "E7"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Closing",
+      "present": [
+        "E2",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Langlang opens the seawater-blurred dive log again and walks into the dock supply hut.",
+          "present": [
+            "E2",
+            "E8",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "By the floats, those three dive buoy flags still stuck in place.",
+          "present": [
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Langlang takes the coral sample case and dives the shallow reef coral zone once more.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    }
+  ]
+}

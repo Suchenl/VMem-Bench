@@ -1,0 +1,7118 @@
+{
+  "story_id": "0045_tide_pool_naturalist",
+  "gt_version": "trackB-gt-2.0",
+  "title": "潮池标本记",
+  "premise": "临海标本室的潮间带传承。阿潮与阿汐外形极易错认；标本箱完好→海水浸蚀→重新密封；玻璃底观察船沉没后须规避；数量记忆与假朋友、时序闪回贯穿。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0045_tide_pool_naturalist.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "沈屿",
+      "kind": "character",
+      "states": {
+        "壮年在岗": "四十余岁的潮池博物学者沈屿，皮肤被海风晒成蜜色，穿卡其背心、胶靴，腰间挂着放大镜与取样勺。",
+        "疲惫负伤": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。",
+        "离岗谢幕": "沈屿已离岗谢幕，标本室只留他的卡其旧背心与名牌，人影不再出现。"
+      },
+      "initial_state": "壮年在岗"
+    },
+    "E2": {
+      "name": "阿潮",
+      "kind": "character",
+      "states": {
+        "少年学徒": "少年时的阿潮：十四五岁、清瘦的潮池学徒，发间系青绿海藻发绳，裤脚常湿，眉眼清亮倔强。",
+        "成年接班": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+      },
+      "initial_state": "少年学徒"
+    },
+    "E3": {
+      "name": "潮间带标本箱",
+      "kind": "prop",
+      "states": {
+        "完好": "一只橡木潮间带标本箱，玻璃盖完好，内部分格装着海星、笠贝与干制海藻，标签工整。",
+        "海水浸蚀": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。",
+        "重新密封": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "潮汐观测簿",
+      "kind": "prop",
+      "states": {
+        "完好": "一本防水布封面的潮汐观测簿，内页画满潮高曲线与物种勾描，边角干净。",
+        "盐霜污损": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+      },
+      "initial_state": "完好"
+    },
+    "E5": {
+      "name": "玻璃底观察船",
+      "kind": "prop",
+      "states": {
+        "完好": "一艘浅绿玻璃底观察船，船舷漆着白色浪线，舱底透明可俯看潮池。",
+        "触礁沉没": "玻璃底观察船触礁后船底崩裂，正半沉在岩缝浪沫里，只剩歪斜残骸。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "阿汐",
+      "kind": "character",
+      "states": {
+        "青年对手": "与阿潮面容体态极相似的阿汐，却别琥珀海螺胸针，神情张扬爱抢先下海。",
+        "改头换面": "改头换面后的阿汐仍别琥珀海螺胸针，又戴上潜水眼镜架在额上，神情更深沉。"
+      },
+      "initial_state": "青年对手"
+    },
+    "E7": {
+      "name": "临海标本室",
+      "kind": "location",
+      "appearance": "临海木屋改建的标本室，墙上海图与潮汐表并挂，长桌摆着标本箱，窗外是拍岸碎浪。"
+    },
+    "E8": {
+      "name": "岩岸潮池",
+      "kind": "location",
+      "appearance": "退潮后露出的岩岸潮池，积水清澈，石缝里藏着海葵与小蟹，脚踩处湿滑。"
+    },
+    "E9": {
+      "name": "防波堤暗道",
+      "kind": "location",
+      "appearance": "防波堤内侧的狭窄暗道，两侧长满藤壶，潮水涨时没过脚踝，应急灯昏黄。"
+    },
+    "E10": {
+      "name": "废弃灯塔基座",
+      "kind": "location",
+      "appearance": "废弃灯塔的玄武岩基座，台阶剥落，铜锈扶手断裂，远处可见新潮池。"
+    },
+    "E11": {
+      "name": "玄武岩纪念牌",
+      "kind": "prop",
+      "appearance": "一块钉在灯塔基座上的玄武岩纪念牌，刻着『沈屿』与年份，表面结着盐晶。"
+    },
+    "E12": {
+      "name": "玻璃浮标瓶",
+      "kind": "prop",
+      "appearance": "三只手掌大的绿色玻璃浮标瓶，用麻绳系成一串，用来标记固定观测点。"
+    },
+    "E13": {
+      "name": "塑料观光脚踏船",
+      "kind": "prop",
+      "appearance": "一艘塑料观光脚踏船，外形略像小船却无玻璃底，船身印着『游客』字样。"
+    },
+    "E14": {
+      "name": "海监站巡查员老韩",
+      "kind": "character",
+      "appearance": "一名身形与沈屿有几分相似的海监站巡查员老韩，深蓝制服、肩章银条，帽徽是锚而非放大镜。"
+    },
+    "E15": {
+      "name": "标本柜射灯",
+      "kind": "prop",
+      "appearance": "一排五盏夹在标本柜上的小型射灯，灯罩乳白，编号刻在金属夹上。"
+    },
+    "E16": {
+      "name": "雾号手摇铃",
+      "kind": "prop",
+      "appearance": "两只黄铜雾号手摇铃，挂在标本室门楣，摇动时发出低沉短鸣。"
+    },
+    "E17": {
+      "name": "志愿者小渚",
+      "kind": "character",
+      "appearance": "乍看与少年阿潮神似的志愿者小渚，系浅褐发带而非青绿海藻发绳，目光怯生。"
+    },
+    "E18": {
+      "name": "袖珍展示盒",
+      "kind": "prop",
+      "appearance": "一只袖珍展示盒，分格布局酷似标本箱，但更小、无真实标签，盖子是亚克力。"
+    },
+    "E19": {
+      "name": "橙红救生摩托艇",
+      "kind": "prop",
+      "appearance": "一艘陌生的橙红色救生摩托艇，船体短胖、无玻璃底，侧写『海监救援』。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "壮年在岗",
+      "疲惫负伤",
+      "离岗谢幕"
+    ],
+    "E2": [
+      "少年学徒",
+      "成年接班"
+    ],
+    "E3": [
+      "完好",
+      "海水浸蚀",
+      "重新密封"
+    ],
+    "E4": [
+      "完好",
+      "盐霜污损"
+    ],
+    "E5": [
+      "完好",
+      "触礁沉没"
+    ],
+    "E6": [
+      "青年对手",
+      "改头换面"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+        "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+      },
+      "note": "错认硬样本：阿潮与阿汐外形相近，仅靠海藻发绳/琥珀海螺胸针区分。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，沈屿推开临海标本室木门，把取样勺搁上长桌。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "标本柜上夹着一排五盏标本柜射灯，沈屿逐一拧亮并擦净灯罩。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "门楣挂着两只黄铜雾号手摇铃，沈屿轻摇，短鸣在木屋里回荡。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿打开潮间带标本箱，核对每一格海星与笠贝的标签。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿凭窗眺望岩岸潮池外渐暗的海平线。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "完好的潮间带标本箱置于长桌中央，玻璃盖映着射灯光。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在墙上潮汐表旁补写今日低潮时刻。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把腰间放大镜取下又挂回，确认镜片无盐雾。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿整理散落的取样瓶，按潮位编号重新排好。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在标本室藤椅上坐下，揉了揉被海风吹僵的肩。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "沈屿翻开潮汐观测簿，记下今日潮高与水温。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在潮汐观测簿上勾描一只新见的海葵。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿合上潮汐观测簿，塞进抽屉。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "标本箱玻璃盖的反光扫过沈屿的侧脸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿对照标本箱，用红笔圈出标签磨损的格子。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿拧紧墨水瓶盖，挪离潮湿的窗边。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的岩岸潮池，沈屿迎向撑着玻璃底观察船靠岸的少年阿潮。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮跳下玻璃底观察船，把缆绳系在玄武岩钉上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿指着三只绿色玻璃浮标瓶，教阿潮辨认固定观测点。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮蹲在潮池水洼旁，好奇地打量海葵触手。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿向阿潮讲解洋流与潮差如何改变池中物种。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮回望完好的玻璃底观察船，眼里满是向往。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿让阿潮趴在船舷，透过玻璃底辨认岩缝里的虾虎。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮把青绿海藻发绳勒紧，认真记下沈屿口述的潮位。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "防波堤暗道里，别着琥珀海螺胸针的阿汐从藤壶墙后回头张望。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿汐在暗道中大步蹚水，神情张扬地甩着网兜。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿汐与提桶渔人擦肩，琥珀海螺胸针在应急灯下晃动。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿汐停在堤口，挑剔地评点临时观测牌的字迹。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿汐把一枚脱落的藤壶壳踢进水里。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿汐穿过暗道，消失在堤外浪声中。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "岩岸潮池边，阿潮与阿汐并肩而立，一个系青绿海藻发绳、一个别琥珀海螺胸针。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮把捡来的小笠贝递给阿汐，两人相视却神情不同。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿汐替阿潮理了理海藻发绳，又故意碰响自己的胸针。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮与阿汐沿潮池边缘慢走，脚印在湿沙上重叠又分开。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮低头核对草图，阿汐却跳进更深的水洼。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮与阿汐在潮池口分别，各自走向相反方向。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的夜里，沈屿独自在标本室值守，标本箱静静置于桌上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿翻开潮汐观测簿，才发现封面已被盐霜覆白、字迹晕开。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿擦拭标本箱玻璃盖上的水雾。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿凭窗望向漆黑的潮池与远灯。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "射灯光斑在标本箱玻璃上缓缓移动。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把吸水纸夹进污损的潮汐观测簿，叹气关灯。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 1,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "大潮周的早晨，沈屿在潮汐表上标出最高潮位。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把易碎标本暂时挪进内柜。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿用淡水冲洗取样勺上的盐晶。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿对着标本箱核对海星腕足是否完整。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "午后，沈屿在标本室接到海监电话，眉头微皱。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在便签上写下『暂缓下海』，贴在门板。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿重新排列取样瓶，把深水样单独抽出。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "物种登记旬，沈屿在标本箱旁铺开描图纸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿用橙点标出新出现的笠贝位点。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把描图纸边缘用石镇压住。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿对照盐霜污损的观测簿，努力辨认旧数字。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把茶杯放远，生怕再溅到簿页上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在墙上列出三条拟调整的观测路线。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "窗外浪更大了，沈屿抬头听了片刻。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "岩岸巡视日，沈屿戴上草帽走进潮池区。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿用竹杖试探湿滑的岩面。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿记下被游客踢散的石堆位置。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿用手电照进深水洼。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在堤口与渔民短暂交谈。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿避开锋利的牡蛎壳，绕到另一侧池。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿用卷尺量出新崩塌的岩缝宽度。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，沈屿沿岩岸潮池巡查，玻璃底观察船泊在浅湾。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 27,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E5",
+          "op": "recall_after_gap",
+          "gap": 40,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿蹲下检查玻璃底观察船的船底划痕。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿走到岩钉边，先前那三只绿色玻璃浮标瓶仍系在原处。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 46,
+          "last_seen": "seg_019",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一艘印着『游客』的塑料观光脚踏船驶过浅湾，并无玻璃底，绝非观察船。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿站在潮池边，记录退潮后裸露的岩缝。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把玻璃底观察船缆绳重新勒紧。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_065"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿再次确认三只玻璃浮标瓶没有少一只。",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_066",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在潮池口的木牌上写下巡查日期。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "风暴前夕，沈屿把靠窗的图纸全部收进柜中。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 29,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿用防水布罩住标本箱，防潮气与浪沫。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿检查潮汐观测簿是否放进干燥抽屉。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿拧紧墨水瓶盖，挪到高处。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_074"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处雷声滚过，标本室灯光闪了一下。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把五盏射灯的线缆理顺。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在门板写下『明日停测』通知草稿。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "风暴骤起，标本室屋顶漏水，咸水溅上桌面。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一阵穿堂风掀起描图纸，标本箱搭扣松脱。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "海水灌入箱内，潮间带标本箱玻璃起雾，标签字迹洇开。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "岩岸浅湾里，玻璃底观察船在巨浪中剧烈颠簸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 12,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一记暗礁剐裂船底，玻璃底观察船半沉进岩缝浪沫。",
+      "memory_probes": [
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "触礁沉没",
+            "appearance": "玻璃底观察船触礁后船底崩裂，正半沉在岩缝浪沫里，只剩歪斜残骸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "标本室里，沈屿扑向长桌，徒手按住正在进水的标本箱。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 2,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿小腿被碎玻璃划破，血渗进防水绷带，仍死死护着箱子。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_084"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "浸蚀中的标本箱在潮湿空气里缓缓渗出水珠。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_085"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "风暴次日，沈屿站在标本室里，凝视着海水浸蚀的标本箱。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_086"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿用手指抚过标本箱上的盐渍，神情黯然。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_087"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_089",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在潮汐异常栏旁夹上一张沉船小条，标明那艘玻璃底观察船触礁沉没的日期。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_090",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "墙上仍钉着透过玻璃船底拍下虾虎鱼的旧照片，沈屿久久凝望。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_091",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿拧亮五盏标本柜射灯中的一盏，就着光斑独坐。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 88,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_092",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "破损的标本箱仍置于桌上，玻璃雾气触目。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 3,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_093",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把渗血的绷带换新，继续清理碎玻璃。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_094",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把防水布重新罩好，生怕潮气再侵标本箱。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 1,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_095",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清理周，沈屿把碎玻璃装进纸箱。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_094"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_096",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿向海监站提交请款单，申请密封材料。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_095"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_097",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿每天仍来标本室，盯着浸蚀的标本箱出神。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_098",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿用铅笔在透明纸上临摹尚可辨认的标签。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_097"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_099",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把污损观测簿翻到空白页，改记请款进度。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_098"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_100",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮请假未归，标本室只剩沈屿一人的脚步声。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_099"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_101",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿习惯性摸了摸空空的泊船岩钉。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_102",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在墙上列出重新密封所需清单。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_101"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_103",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，沈屿搬来硅胶与新标签，开始重新密封标本箱。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_102"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_104",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿从纸箱取出一只袖珍展示盒，它酷似标本箱却更小、无真实标签。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_105",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿小心地排出积水，补写标签并密封玻璃盖。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "海水浸蚀",
+            "appearance": "同一只标本箱被海水灌入，玻璃盖起雾，标签字迹洇开，分格里积着咸水。"
+          },
+          "gap": 1,
+          "last_seen": "seg_103"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_106",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "最后一道硅胶干透，潮间带标本箱重新密封，箱角留着浅白盐渍痕。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_105"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_107",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重新密封的标本箱在灯光下重新可读，沈屿欣慰地望着它。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_106"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_108",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把袖珍展示盒推到一边，只将真正的标本箱推回带盐渍定位线的长桌中央。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_107"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_109",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "标本室恢复安静，密封后的标本箱独占长桌中央。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_108"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_110",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "一艘橙红救生摩托艇驶入浅湾，与早已沉没的玻璃底观察船毫不相同。",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "long_gap_reappearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 38,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_111",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "肩章银条的海监站巡查员老韩走上岩岸，与沈屿并肩交谈，两人身形相仿。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_112",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "老韩指着橙红救生摩托艇，向沈屿说明新的巡段安排。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_110",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_113",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "摩托艇鸣笛驶离，沈屿独自留在潮池边目送。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_112"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_114",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "橙红救生摩托艇在远端堤头短暂停留，又继续前行。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_112",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_115",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "老韩临走前拍了拍沈屿的肩，帽徽船锚在灯下闪了一下。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_112",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_116",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "潮池边来了个系浅褐发带的志愿者小渚，乍看竟有几分像少年阿潮。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_117",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小渚学着系缆绳，沈屿却摇摇头——她终究不是阿潮。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_118",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小渚怯生生地问海葵是否有毒，沈屿简短回答后让她去标本室帮忙。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_119",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿独自站在岩岸，望着空空的泊船岩钉出神。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_118"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_120",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "密封后的第一旬，沈屿每日清晨先检查标本箱搭扣。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 10,
+          "last_seen": "seg_109"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_121",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把新标签登记进污损后的观测簿空白页。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_120"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_120"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_120"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_122",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿拒绝再把墨水放在窗沿。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_121"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_123",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿与渔民核对禁采区公告文案。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_122"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_122"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_122"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_124",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在标本室练习更稳的取样手法。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_123"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_123"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_123"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_125",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "午后阳光穿过木窗，落在密封后的标本箱上。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_124"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_126",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把雾号铃擦亮，却暂不摇响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_125"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_127",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿收到阿潮的明信片，压在射灯底座下未拆。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_126"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_128",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "年底封账，沈屿把全年描图纸按月装订。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 49,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_129",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把盐霜污损的潮汐观测簿单独装进档案袋。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_130",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿打印密封前后的对比照片，夹进档案。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_131",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿清理长桌，只留放大镜与一盏射灯。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_132",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿给取样勺上了薄油，防止生锈。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_131"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_133",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在标本箱盐渍痕旁签了日期。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_132"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_134",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "窗外飘起细雪，标本室暖炉发出轻响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_133"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_135",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿写完年度总结，封皮上只写『潮池』二字。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_134"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_136",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，小腿留疤、步履发沉的沈屿拄着竹杖，立在废弃灯塔基座。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_135"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_137",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿仰望断裂的铜锈扶手，目光悠远。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_136"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_136"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_138",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "基座旁，那两只黄铜雾号手摇铃被他带回挂在石柱上，风里轻响。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_137"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_137"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 134,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_139",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把手掌贴在玄武岩基座上，似在告别。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_138"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_138"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_140",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿缓缓坐上剥落的石阶，喘息片刻。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_139"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_139"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_141",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两只雾号铃再次轻响，沈屿闭眼倾听，像听当年的起雾警报。（可见雾号手摇铃）",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_140"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_140"
+        },
+        {
+          "eid": "E16",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_138",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_142",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "沈屿每日仍回标本室，却更多时间坐着看标本箱。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_141"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_135"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 6,
+          "last_seen": "seg_135"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_143",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把竹杖靠在门边，行动比往日慢。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_142"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_144",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿让年轻助理代写潮汐表，自己只做核对。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_143"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_145",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿把密封后的标本箱拍给远方的阿潮。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_144"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_146",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿在污损观测簿末页写下『交班』却未落款。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_145"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_147",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿拒绝住院，坚持每周去灯塔基座坐一坐。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_146"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_148",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿擦拭玄武岩纪念牌的样稿。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_147"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_147"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_147"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_149",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "夜里标本室只留一盏灯，沈屿在光圈里打盹。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_148"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_148"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_148"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_150",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年的阿潮沿废弃灯塔基座归来，快步走向石阶。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 113,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_141"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_151",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮在基座与步履发沉的沈屿重逢，两人相拥。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 1,
+          "last_seen": "seg_149"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_150"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_150"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_152",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "标本室的行军床旁，阿潮握着沈屿枯瘦的手。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈屿的疲惫负伤之貌：背心撕破、小腿缠防水绷带，仍挂着放大镜，步履拖泥带水。"
+          },
+          "gap": 0,
+          "last_seen": "seg_151"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_151"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_153",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈屿气息渐弱，最终阖上双眼，溘然长逝。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "离岗谢幕",
+            "appearance": "沈屿已离岗谢幕，标本室只留他的卡其旧背心与名牌，人影不再出现。"
+          },
+          "gap": 0,
+          "last_seen": "seg_152"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_152"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_154",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮在灯塔基座久久伫立，泪滴在盐晶上。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_153"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_151"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_155",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮把沈屿的放大镜挂上自己的腰间。",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_154"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_156",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "标本室门后仍挂着沈屿采样时穿的卡其旧背心，口袋里还露出放大镜绳，阿潮伸手轻轻抚过。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_155"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_149"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_157",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯塔基座旁，成年阿潮伫立在新钉上的玄武岩纪念牌前。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_156"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_154"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_158",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮的指尖抚过纪念牌上刻着的沈屿之名。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_157"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_157"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_157"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_159",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮把一朵白菊放在玄武岩纪念牌下缘。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_158"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_158"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_160",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "风过基座，阿潮低声念出牌上的年份。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_159"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_158"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_159"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_161",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "额上架着潜水眼镜的成年阿汐从堤外赶来，与阿潮在灯塔基座紧紧相拥。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_160"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿汐仍别琥珀海螺胸针，又戴上潜水眼镜架在额上，神情更深沉。"
+          },
+          "gap": 124,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_160"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_162",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮与阿汐并肩立于纪念牌旁，一个眉眼沉静、一个神情深沉。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_161"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿汐仍别琥珀海螺胸针，又戴上潜水眼镜架在额上，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_161"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_161"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_163",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿汐触了触自己的琥珀海螺胸针，又看阿潮腰间的放大镜。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_162"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿汐仍别琥珀海螺胸针，又戴上潜水眼镜架在额上，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_162"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_162"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_164",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人相视无言，望着彼此相似而又不同的脸。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_163"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿汐仍别琥珀海螺胸针，又戴上潜水眼镜架在额上，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_163"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_163"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_165",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮与阿汐一同走向潮池尽头，影子并成一道。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_164"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿汐仍别琥珀海螺胸针，又戴上潜水眼镜架在额上，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_164"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_164"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿潮：系青绿海藻发绳，眉眼沉静/倔强。",
+            "E6": "阿汐：面容极似阿潮，但别琥珀海螺胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_166",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前——那个在潮池边系着青绿发绳、跳下小船的少年，身影再度浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年学徒",
+            "appearance": "少年时的阿潮：十四五岁、清瘦的潮池学徒，发间系青绿海藻发绳，裤脚常湿，眉眼清亮倔强。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_165",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "潮池边系青绿发绳的少年",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_167",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场的那一刻——标本室里，一只分格清晰的橡木玻璃箱第一次被放上长桌。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_156"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "完好",
+            "appearance": "一只橡木潮间带标本箱，玻璃盖完好，内部分格装着海星、笠贝与干制海藻，标签工整。",
+            "flashback": true
+          },
+          "gap": 17,
+          "last_seen": "seg_149",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次放上长桌的橡木玻璃箱",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_168",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到当年的防波堤暗道——那个别着琥珀海螺胸针、甩着网兜的身影一闪而过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "青年对手",
+            "appearance": "与阿潮面容体态极相似的阿汐，却别琥珀海螺胸针，神情张扬爱抢先下海。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_165",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "当年暗道里别琥珀海螺胸针的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_169",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现标本柜上那一排五盏乳白罩的旧照明灯。",
+      "memory_probes": [
+        "count_memory",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 77,
+          "last_seen": "seg_091",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "标本柜上那一排五盏旧照明灯",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_170",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那片退潮后的岩岸水洼，海葵触手一如往昔。",
+      "memory_probes": [
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 50,
+          "last_seen": "seg_119",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时退潮后的岩岸水洼",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_171",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "纸页翻开——那本尚无盐霜、画满潮高曲线的防水布封面簿再次出现。",
+      "memory_probes": [
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "recall_after_gap",
+          "state": {
+            "label": "完好",
+            "appearance": "一本防水布封面的潮汐观测簿，内页画满潮高曲线与物种勾描，边角干净。",
+            "flashback": true
+          },
+          "gap": 35,
+          "last_seen": "seg_135",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "尚无盐霜的防水布封面簿",
+            "resolves_to": "E4"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_172",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "阿潮重新翻开那本盐霜污损的潮汐观测簿，走进标本室。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 5,
+          "last_seen": "seg_166"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_167"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "盐霜污损",
+            "appearance": "同一本潮汐观测簿被盐霜覆盖，封面发白卷边，字迹晕开，夹着一张皱巴巴的吸水纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_171"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_173",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "标本室台面上，先前那三只绿色玻璃浮标瓶依旧系成一串。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_172"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 102,
+          "last_seen": "seg_070",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_174",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮接过标本箱的守望，箱角盐渍痕在灯光下清晰可辨。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 1,
+          "last_seen": "seg_172"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_173"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 6,
+          "last_seen": "seg_167"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_175",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮拧亮五盏标本柜射灯，光重新铺满长桌。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_174"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_174"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_169",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_176",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿潮在密封后的标本箱前站直，像沈屿当年一样逐格核对标签与盐渍痕。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿潮：二十余岁、肩背结实的接班观测员，仍系青绿海藻发绳，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_175"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_175"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重新密封",
+            "appearance": "标本箱经重新密封后标签补写清晰，但箱角留着一道浅白盐渍痕，区别于最初完好态。"
+          },
+          "gap": 1,
+          "last_seen": "seg_174"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153",
+          "reference_indirect": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 176,
+    "n_scenes": 26,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 353,
+      "transform": 8,
+      "persist": 103,
+      "recall_after_gap": 9
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 165,
+      "lookalike_disambiguation": 17,
+      "state_change": 8,
+      "persist_state": 78,
+      "long_gap_reappearance": 12,
+      "count_memory": 8,
+      "false_friend": 5,
+      "deprecation_avoidance": 12,
+      "reference_indirect": 6,
+      "temporal_reference": 6
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 12,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 17,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 6,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 12,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 6,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 438,
+      "5-29": 23,
+      ">=30": 12
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 134,
+      "at": "seg_138"
+    }
+  },
+  "warnings": []
+}

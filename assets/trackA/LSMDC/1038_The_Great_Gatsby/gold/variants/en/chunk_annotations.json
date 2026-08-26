@@ -1,0 +1,5274 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "1038_The_Great_Gatsby",
+  "human_reviewed": true,
+  "chunks": [
+    {
+      "chunk_id": 0,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        0.0,
+        11.0
+      ],
+      "prompt": "A green light glows in the mist over dark water, its beam cutting through the haze as snow begins to fall, illuminating the rippling surface below. (Atmospheric music.)",
+      "present": [
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "loc_001",
+        "prop_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "prop_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 1,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        11.0,
+        21.0
+      ],
+      "prompt": "Snow falls heavily as a figure walks through the gate of The Perkins Sanitarium, a red-brick building with peeling paint and a weathered sign above the entrance. Inside, a dimly lit room reveals a man in a dark suit, his (Wind sound.)",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        21.0,
+        33.0
+      ],
+      "prompt": "Nick Carraway, dark-haired and in a pinstripe suit over a white shirt and vest, sits in a dim room, hand on forehead, looking distressed. He looks out the window. (Silence.)",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        33.0,
+        46.0
+      ],
+      "prompt": "Flashback montage: crowds in rain, stock market graph rising, dancers in yellow dresses, bottles being filled. (Fast paced music.)",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        46.0,
+        59.0
+      ],
+      "prompt": "Nick Carraway sits at a desk in Gatsby's Mansion, talking on a vintage telephone. Jay Gatsby stands nearby, smiling and holding a newspaper. Outside, a red biplane flies over the city skyline, while the mansion’s grand,柱 (Plane engine sound.)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_002",
+        "loc_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        59.0,
+        73.0
+      ],
+      "prompt": "In Gatsby's Mansion, Man rides horse through manicured gardens towards mansion. Tom Buchanan appears indoors. (Horse hooves.)",
+      "present": [
+        "char_004",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        73.0,
+        88.0
+      ],
+      "prompt": "Jay Gatsby and Tom Buchanan are in a room as white sheets blow in the wind, revealing a chandelier. (Wind blowing.)",
+      "present": [
+        "char_002",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        88.0,
+        103.0
+      ],
+      "prompt": "Daisy Buchanan, her blonde bob framing her face, rests her head on her hand, the ring glinting on her finger, her expression pensive and distressed as Nick Carraway watches. (Soft music.)",
+      "present": [
+        "char_003",
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        103.0,
+        118.0
+      ],
+      "prompt": "Daisy Buchanan sits at dinner table with Tom Buchanan, Jordan Baker, and Nick Carraway. Jordan Baker, with a dark bob haircut and tall frame, wears a dark elegant dress, her posture poised as she listens to Tom Buchanan, (Clinking glasses.)",
+      "present": [
+        "char_003",
+        "char_004",
+        "char_005",
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        118.0,
+        133.0
+      ],
+      "prompt": "Tom Buchanan yells. Daisy Buchanan looks sad and walks out to the balcony with Jay Gatsby. (Argument.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        133.0,
+        148.0
+      ],
+      "prompt": "Jay Gatsby and Daisy Buchanan stand together, gazing at the green light across the water. The camera pans to the distant green light. (Silence.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        148.0,
+        163.0
+      ],
+      "prompt": "Nick Carraway stands on the dock at Gatsby's Mansion, gazing at the Green Light across the water. (Water lapping.)",
+      "present": [
+        "char_001",
+        "loc_002",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        163.0,
+        178.0
+      ],
+      "prompt": "Nick Carraway stands at his cottage porch, looking out. Jay Gatsby is seen on his dock, reaching out. (Silence.)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        178.0,
+        193.0
+      ],
+      "prompt": "Nick Carraway站在码头上凝望远处的灯火，随后转身走向他的小屋，Doctor身着棕色三件套西装、系着红白条纹领结、头戴草帽，站在树影下抬头望天。 (Doctor speaking.)",
+      "present": [
+        "char_001",
+        "char_008",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_008"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_008",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        193.0,
+        208.0
+      ],
+      "prompt": "Nick writes in notebook. Doctor adjusts tie. Nick looks out window. (Typing sound.)",
+      "present": [
+        "char_001",
+        "char_008",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        208.0,
+        223.0
+      ],
+      "prompt": "Nick Carraway observes the Valley of Ashes, where industrial smoke rises and cranes loom over ash heaps, their metal frames stark against the grey dust, while billboard eyes stare from smog-choked buildings. (Industrial noise.)",
+      "present": [
+        "char_001",
+        "loc_004",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "loc_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        223.0,
+        238.0
+      ],
+      "prompt": "Nick Carraway and Jay Gatsby disembark from a train in the Valley of Ashes, running toward a desolate station with ash heaps and industrial smoke in the background. (Train sound.)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        238.0,
+        253.0
+      ],
+      "prompt": "Myrtle Wilson leans on a staircase railing. George Wilson works on a car. Nick Carraway and Jay Gatsby enter Myrtle's apartment. (Mechanic sounds.)",
+      "present": [
+        "char_006",
+        "char_007",
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_006",
+        "char_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        253.0,
+        268.0
+      ],
+      "prompt": "在Myrtle's Apartment中，Nick Carraway 坐在 Myrtle Wilson 的公寓里的一张红色沙发上，附近一只狗在扶手椅上的盘子里吃东西。 (Party noise.)",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_005",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "loc_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        268.0,
+        283.0
+      ],
+      "prompt": "Myrtle Wilson kisses Tom Buchanan. Nick Carraway watches nearby. (Loud music, laughter.)",
+      "present": [
+        "char_006",
+        "char_004",
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        283.0,
+        298.0
+      ],
+      "prompt": "Myrtle Wilson and Tom Buchanan clash violently in Myrtle's Apartment, their fight escalating into chaos. (Screaming, crash.)",
+      "present": [
+        "char_006",
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        298.0,
+        313.0
+      ],
+      "prompt": "Myrtle Wilson collapses on the floor in Myrtle's Apartment as Nick Carraway watches in shock. (Sobbing.)",
+      "present": [
+        "char_006",
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        313.0,
+        328.0
+      ],
+      "prompt": "Nick Carraway looks out his window at the city lights. Jay Gatsby stands on the street below. (City ambience.)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        328.0,
+        343.0
+      ],
+      "prompt": "Nick Carraway looks out his apartment window as Jay Gatsby stands on the fire escape below. (Silence.)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        343.0,
+        358.0
+      ],
+      "prompt": "Jay Gatsby sleeps in Gatsby's Mansion. An invitation card is shown. Cars drive to the party. (Music swells.)",
+      "present": [
+        "char_002",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        360.0,
+        375.0
+      ],
+      "prompt": "Nick Carraway watches cars arrive at Gatsby's Mansion as guests enter and the fountain sprays. (Jazz music.)",
+      "present": [
+        "loc_002",
+        "char_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        375.0,
+        390.0
+      ],
+      "prompt": "Nick Carraway looks around confused as the crowd dances. Owl Eyes, wearing large round glasses, appears. (Loud party noise.)",
+      "present": [
+        "char_001",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_010"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        390.0,
+        405.0
+      ],
+      "prompt": "Jay Gatsby stands at Gatsby's Mansion pool, toasting guests as confetti falls. (Cheers.)",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        405.0,
+        420.0
+      ],
+      "prompt": "Jay Gatsby smiles and raises his glass. Nick Carraway watches from above. (Fireworks boom.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        420.0,
+        435.0
+      ],
+      "prompt": "Jay Gatsby 和 Nick Carraway 在盖茨比庄园举杯共饮马提尼，Owl Eyes 在旁观看。 (Conversation.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        435.0,
+        450.0
+      ],
+      "prompt": "Jay Gatsby stands center stage as fireworks explode above Gatsby's Mansion, while Nick Carraway watches from the crowd. (Music crescendo.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        450.0,
+        465.0
+      ],
+      "prompt": "Jay Gatsby converses with Jordan Baker while Nick Carraway observes nearby. (Dialogue.)",
+      "present": [
+        "char_002",
+        "char_005",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        465.0,
+        480.0
+      ],
+      "prompt": "Jay Gatsby stands alone at a window, watching the party wind down as balloons fall. (Fading music.)",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        480.0,
+        495.0
+      ],
+      "prompt": "Nick Carraway lies on a couch as champagne sprays around him. (Cleaning sounds.)",
+      "present": [
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        495.0,
+        510.0
+      ],
+      "prompt": "Nick Carraway leaves Gatsby's Mansion. Jay Gatsby watches him go. (Car engine.)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        510.0,
+        525.0
+      ],
+      "prompt": "Jay Gatsby drives the yellow car with Nick Carraway as passenger; they converse while moving through the party crowd. (Wind noise.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "prop_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        525.0,
+        540.0
+      ],
+      "prompt": "Jay Gatsby waves to guests outside Gatsby's Mansion. Nick Carraway watches from the garden path. (Police whistle.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        540.0,
+        555.0
+      ],
+      "prompt": "Jay Gatsby stands by phone in Gatsby's Mansion, speaking. Nick Carraway waves from the garden path. (Dialogue.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        555.0,
+        570.0
+      ],
+      "prompt": "Meyer Wolfsheim，戴着帽子、身着西装、灰白胡须，向Jay Gatsby和Nick Carraway介绍自己，同时展示袖扣。 (Barber sounds.)",
+      "present": [
+        "char_009",
+        "char_002",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_009"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        570.0,
+        585.0
+      ],
+      "prompt": "Jay Gatsby 与 Nick Carraway 驾驶黄色汽车穿过城市街道，向警察展示身份证件后继续前行，随后驶过桥梁，面带微笑经过其他复古汽车和行人，Meyer Wolfsheim 也在车中。 (Jazz band.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        585.0,
+        600.0
+      ],
+      "prompt": "Meyer Wolfsheim speaks while Nick Carraway listens, both seated at the table with Jay Gatsby. (Dialogue.)",
+      "present": [
+        "char_009",
+        "char_002",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        600.0,
+        615.0
+      ],
+      "prompt": "Meyer Wolfsheim smiles, his molar cufflinks glinting. (Silence.)",
+      "present": [
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        615.0,
+        630.0
+      ],
+      "prompt": "Nick Carraway 和 Jordan Baker 在街上经过 'Arrow Collars' 的广告牌。 (Street noise.)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        630.0,
+        645.0
+      ],
+      "prompt": "Nick Carraway and Jordan Baker sit in a car, talking as city lights blur past. (Dialogue.)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        645.0,
+        660.0
+      ],
+      "prompt": "Jay Gatsby and Nick Carraway are in the garden of Nick's Cottage at night, a modest, single-story house with warm yellow walls and a small porch, surrounded by blooming flowers and a neatly trimmed hedge, its windows lit (Crickets.)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_003",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "loc_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        660.0,
+        675.0
+      ],
+      "prompt": "Nick Carraway and Jay Gatsby walk through a bustling street, conversing as they pass vintage cars and crowds. (Rain sound.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        675.0,
+        690.0
+      ],
+      "prompt": "Daisy Buchanan sits in the car, conversing with Nick Carraway as the vehicle moves through the city streets. (Car door close.)",
+      "present": [
+        "char_003",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        690.0,
+        705.0
+      ],
+      "prompt": "Jay Gatsby exits a yellow cab in a wooded area, then walks away. Nick Carraway watches him leave. Daisy Buchanan appears in the background, looking toward Gatsby. (Awkward silence.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        705.0,
+        720.0
+      ],
+      "prompt": "Jay Gatsby stands facing Nick Carraway in the dim forest, gesturing as they converse, with Daisy Buchanan present. (Clock ticking.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        720.0,
+        735.0
+      ],
+      "prompt": "Jay Gatsby, in a light beige suit with a patterned tie, throws a pile of colorful, expensive shirts toward Daisy Buchanan, who cries and embraces him. (Sobbing.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "prop_004",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "prop_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        735.0,
+        750.0
+      ],
+      "prompt": "Jay Gatsby and Daisy Buchanan walk through Gatsby's mansion gardens under rain, escorted by men holding umbrellas. (Footsteps.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        750.0,
+        765.0
+      ],
+      "prompt": "Jay Gatsby and Daisy Buchanan embrace near the doorway. Nick Carraway watches from the stairs as rain falls outside. (Rain.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "char_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        765.0,
+        780.0
+      ],
+      "prompt": "Jay Gatsby walks toward Nick Carraway in the Plaza Hotel room, holding a cane; the space is opulent with large windows framing a rainy view, a grand fireplace adorned with orchids, and a tiered stand of pastries, while a (Ice cracking.)",
+      "present": [
+        "loc_006",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "loc_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        780.0,
+        795.0
+      ],
+      "prompt": "Tom Buchanan走向Nick Carraway，坐下后，Jay Gatsby、Daisy Buchanan与Jordan Baker在旁观察这场紧张的互动。 (Dialogue.)",
+      "present": [
+        "char_004",
+        "char_003",
+        "char_002",
+        "char_001",
+        "char_005",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        795.0,
+        810.0
+      ],
+      "prompt": "Tom Buchanan confronts Jay Gatsby, who stands up in response. Daisy Buchanan looks scared and touches her face in the mirror. (Shouting.)",
+      "present": [
+        "char_004",
+        "char_002",
+        "char_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        810.0,
+        825.0
+      ],
+      "prompt": "Daisy Buchanan stands among flowers, looking distressed. Jay Gatsby approaches her, attempting to comfort. Tom Buchanan watches from the doorway, smirking. (Crying.)",
+      "present": [
+        "char_003",
+        "char_002",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        825.0,
+        840.0
+      ],
+      "prompt": "Jay Gatsby and Daisy Buchanan exit the mansion in the yellow car, while Tom Buchanan and Nick Carraway follow in the blue car. (Car engines.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "char_004",
+        "char_001",
+        "prop_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        840.0,
+        855.0
+      ],
+      "prompt": "Yellow Car drives through Valley of Ashes, dust swirling, billboard eyes watching. (Wind.)",
+      "present": [
+        "loc_004",
+        "prop_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        855.0,
+        870.0
+      ],
+      "prompt": "Myrtle Wilson 站在窗边，身旁的 Yellow Car 静静停着，Daisy Buchanan 被 orchids 框住，神情 distressed。 (Screaming.)",
+      "present": [
+        "char_006",
+        "prop_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        870.0,
+        885.0
+      ],
+      "prompt": "Yellow Car hits Myrtle Wilson, sending her flying through the air as the windshield shatters. (Crash.)",
+      "present": [
+        "char_006",
+        "prop_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        885.0,
+        900.0
+      ],
+      "prompt": "Nick Carraway sits beside Jay Gatsby, who gestures toward a painting, while Myrtle Wilson sips tea nearby. (Silence then murmurs.)",
+      "present": [
+        "char_006",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        900.0,
+        915.0
+      ],
+      "prompt": "Tom Buchanan confronts George Wilson at the doorway, with Myrtle Wilson present. (Sobbing.)",
+      "present": [
+        "char_007",
+        "char_006",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        915.0,
+        930.0
+      ],
+      "prompt": "Tom Buchanan 和 Daisy Buchanan 在车里，两人虽显惊魂未定却仍紧握在一起。 (Silence.)",
+      "present": [
+        "char_004",
+        "char_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        930.0,
+        945.0
+      ],
+      "prompt": "Jay Gatsby, dressed in a cream suit with an orange tie, stands by the large circular Swimming Pool at Gatsby's mansion, autumn leaves falling around him, as the Telephone rings and he looks at it. (Phone ringing.)",
+      "present": [
+        "char_002",
+        "prop_006",
+        "loc_007",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "loc_007",
+        "prop_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 64,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        945.0,
+        960.0
+      ],
+      "prompt": "George Wilson stands in the kitchen, looking toward the living room where Jay Gatsby and Daisy Buchanan are seated. He holds a gun, his expression determined. (Footsteps.)",
+      "present": [
+        "char_007",
+        "prop_005",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "prop_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 65,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        960.0,
+        975.0
+      ],
+      "prompt": "Jay Gatsby walks out of Gatsby's Mansion toward the Swimming Pool. George Wilson follows him. (Gunshot.)",
+      "present": [
+        "char_002",
+        "char_007",
+        "loc_007",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 66,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        975.0,
+        990.0
+      ],
+      "prompt": "Jay Gatsby walks toward the garden gate, passing servants and a flower bed. (Underwater muffled sound.)",
+      "present": [
+        "char_002",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 67,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        990.0,
+        1005.0
+      ],
+      "prompt": "Jay Gatsby 在棺材中，Nick Carraway 和 Owl Eyes 出席葬礼准备。 (Somber music.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "char_010",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 68,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1005.0,
+        1020.0
+      ],
+      "prompt": "Nick Carraway看着Jay Gatsby的尸体，神情悲伤，Owl Eyes也在场。 (Silence.)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_010",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 69,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1020.0,
+        1035.0
+      ],
+      "prompt": "Nick Carraway walks down the stairs in Gatsby's Mansion, holding a drink, then approaches Daisy Buchanan who is surrounded by scattered clothes on the bed. (Packing sounds.)",
+      "present": [
+        "char_001",
+        "loc_002",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 70,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1035.0,
+        1050.0
+      ],
+      "prompt": "Nick Carraway stands on the dock, looks at the green light, text on screen. (Voiceover.)",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 71,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1050.0,
+        1065.0
+      ],
+      "prompt": "Green light fades to black. Art Deco border appears. (Music fades.)",
+      "present": [
+        "prop_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 72,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1065.0,
+        1080.0
+      ],
+      "prompt": "Gold Art Deco patterns animate on black background. (Music.)",
+      "present": [
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 73,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1080.0,
+        1095.0
+      ],
+      "prompt": "In Gatsby's Mansion, a woman cleans the staircase rail with a cloth. (Sweeping sounds.)",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 74,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1095.0,
+        1110.0
+      ],
+      "prompt": "In Gatsby's Mansion, Nick Carraway sits on cushions, holding a drink, watching dancers. (Music fades.)",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 75,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1110.0,
+        1125.0
+      ],
+      "prompt": "Jay Gatsby stands alone on the balcony, gazing out at the foggy water. (Silence.)",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 76,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1125.0,
+        1140.0
+      ],
+      "prompt": "Nick Carraway 在 Typewriter 上疯狂打字，纸张堆叠起来。 (Typing sound.)",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 77,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1140.0,
+        1155.0
+      ],
+      "prompt": "Jay Gatsby and Daisy Buchanan kiss under falling rain. (Rain sound.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 78,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1155.0,
+        1170.0
+      ],
+      "prompt": "Nick Carraway and Jay Gatsby sit at a bar, observing the party around them. (Jazz music.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 79,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1170.0,
+        1185.0
+      ],
+      "prompt": "Tom Buchanan and Daisy Buchanan sit side by side at the bar, both appearing cold and distant. (Silence.)",
+      "present": [
+        "char_004",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 80,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1185.0,
+        1200.0
+      ],
+      "prompt": "Jay Gatsby stands in the glittering party, watching Daisy Buchanan with a longing expression. (Silence.)",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 81,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1200.0,
+        1215.0
+      ],
+      "prompt": "Nick Carraway stands in Gatsby's Mansion, observing the party guests. (Footsteps.)",
+      "present": [
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 82,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1215.0,
+        1230.0
+      ],
+      "prompt": "Jay Gatsby walks through a crowded party, holding a drink, while Nick Carraway observes him. Owl Eyes stands nearby, watching the scene. (Rain.)",
+      "present": [
+        "char_002",
+        "char_001",
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 83,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1230.0,
+        1245.0
+      ],
+      "prompt": "Owl Eyes speaks at funeral. 'The poor son of a bitch.' (Dialogue.)",
+      "present": [
+        "char_010",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 84,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1245.0,
+        1260.0
+      ],
+      "prompt": "Nick Carraway stands in a garden, facing Daisy Buchanan who leans against a tree. He gently cups her face, their eyes locked in a tender, emotional moment. (Train sound.)",
+      "present": [
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 85,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1260.0,
+        1275.0
+      ],
+      "prompt": "Snow falls on the Sanitarium as Nick Carraway walks in the garden. (Wind.)",
+      "present": [
+        "loc_001",
+        "char_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 86,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1275.0,
+        1290.0
+      ],
+      "prompt": "Nick Carraway sits on bench, writing in notebook with Typewriter. (Scratching pen.)",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 87,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1290.0,
+        1305.0
+      ],
+      "prompt": "Nick Carraway gently touches Daisy Buchanan's neck as they stand close in the garden, with Doctor nearby. (Dialogue.)",
+      "present": [
+        "char_001",
+        "char_008",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 88,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1305.0,
+        1320.0
+      ],
+      "prompt": "Jay Gatsby smiles warmly at Daisy Buchanan as she walks toward him in the garden. (Music.)",
+      "present": [
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 89,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1320.0,
+        1335.0
+      ],
+      "prompt": "Nick Carraway reaches out toward the glowing Green Light. (Atmospheric sound.)",
+      "present": [
+        "prop_001",
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 90,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1335.0,
+        1350.0
+      ],
+      "prompt": "夜色中，Gatsby's Mansion 灯火倒映在湖面，静谧而孤寂。 (Cheers.)",
+      "present": [
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 91,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1350.0,
+        1365.0
+      ],
+      "prompt": "Daisy Buchanan looks sad, her face close to Nick Carraway's. (Silence.)",
+      "present": [
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 92,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1365.0,
+        1380.0
+      ],
+      "prompt": "Tom Buchanan kisses Daisy Buchanan passionately on a floral-patterned couch, surrounded by lush greenery. (Shouting.)",
+      "present": [
+        "char_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 93,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1380.0,
+        1395.0
+      ],
+      "prompt": "Myrtle Wilson跑出，Yellow Car高速驶过。 (Engine roar.)",
+      "present": [
+        "prop_003",
+        "char_006",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 94,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1395.0,
+        1410.0
+      ],
+      "prompt": "Myrtle Wilson躺在地上，George Wilson哭着。 (Sobbing.)",
+      "present": [
+        "char_006",
+        "char_007",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 95,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1410.0,
+        1425.0
+      ],
+      "prompt": "Jay Gatsby stands by the swimming pool, then walks down steps toward the waterfront. George Wilson stands nearby, looking downcast. (Gunshot, splash.)",
+      "present": [
+        "char_002",
+        "char_007",
+        "loc_007",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 96,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1425.0,
+        1440.0
+      ],
+      "prompt": "Nick Carraway看着Typewriter上的手稿《了不起的盖茨比》。 (Voiceover.)",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 97,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1440.0,
+        1455.0
+      ],
+      "prompt": "Jay Gatsby stands at Gatsby's Mansion balcony, holding Daisy Buchanan as fireworks explode overhead. (Music.)",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 98,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1455.0,
+        1470.0
+      ],
+      "prompt": "Jay Gatsby and Daisy Buchanan sit at a dining table, surrounded by servants. (Jazz.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 99,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1470.0,
+        1485.0
+      ],
+      "prompt": "Tom Buchanan stands, glaring at Daisy Buchanan as she sits at the table. (Silence.)",
+      "present": [
+        "char_004",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 100,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1485.0,
+        1500.0
+      ],
+      "prompt": "Tom Buchanan站在窗边，注视着Jay Gatsby在餐厅里。 (Argument.)",
+      "present": [
+        "char_004",
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 101,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1500.0,
+        1515.0
+      ],
+      "prompt": "Daisy Buchanan walks away from the mansion, looking distressed. (Music fades.)",
+      "present": [
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 102,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1515.0,
+        1530.0
+      ],
+      "prompt": "Jay Gatsby and Daisy Buchanan drive away in the Yellow Car. (Engine.)",
+      "present": [
+        "char_002",
+        "char_003",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 103,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1530.0,
+        1545.0
+      ],
+      "prompt": "Yellow Car drives through Valley of Ashes, past ash heaps and smoke. (Wind.)",
+      "present": [
+        "loc_004",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 104,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1545.0,
+        1560.0
+      ],
+      "prompt": "Myrtle Wilson看见了Yellow Car。 (Silence.)",
+      "present": [
+        "char_006",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 105,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1560.0,
+        1575.0
+      ],
+      "prompt": "Myrtle Wilson runs out as the Yellow Car hits her. (Crash.)",
+      "present": [
+        "char_006",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 106,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1575.0,
+        1590.0
+      ],
+      "prompt": "Jay Gatsby and Daisy Buchanan drive away shocked, leaving Myrtle Wilson behind. (Silence.)",
+      "present": [
+        "char_006",
+        "char_002",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 107,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1590.0,
+        1605.0
+      ],
+      "prompt": "George Wilson enters the room and finds Myrtle Wilson seated, visibly distressed. He stands beside her, looking devastated. (Crying.)",
+      "present": [
+        "char_007",
+        "char_006",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 108,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1605.0,
+        1620.0
+      ],
+      "prompt": "Tom Buchanan confronts George Wilson, shouting accusations in a tense room. (Dialogue.)",
+      "present": [
+        "char_004",
+        "char_007",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 109,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1620.0,
+        1635.0
+      ],
+      "prompt": "Jay Gatsby leans close to Daisy Buchanan, who clutches her hands to her mouth, in the Swimming Pool. (Water sound.)",
+      "present": [
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 110,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1635.0,
+        1650.0
+      ],
+      "prompt": "Jay Gatsby looks at the telephone but does not answer. (Ring.)",
+      "present": [
+        "char_002",
+        "prop_006",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 111,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1650.0,
+        1665.0
+      ],
+      "prompt": "George Wilson holds a gun, standing in front of a window, looking distressed. (Footsteps.)",
+      "present": [
+        "char_007",
+        "prop_005",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 112,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1665.0,
+        1680.0
+      ],
+      "prompt": "在Swimming Pool中，George Wilson进入游泳池区域，Jay Gatsby在水中漂浮。 (Silence.)",
+      "present": [
+        "char_002",
+        "char_007",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 113,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1680.0,
+        1695.0
+      ],
+      "prompt": "Jay Gatsby 站在 Myrtle Wilson 身旁，看着她躺在血泊中昏迷不醒，George Wilson 站在一旁。 (Gunshot.)",
+      "present": [
+        "char_002",
+        "char_007",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 114,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1695.0,
+        1710.0
+      ],
+      "prompt": "Jay Gatsby lies covered, then revealed dead with bloodied face. (Underwater sound.)",
+      "present": [
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 115,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1710.0,
+        1725.0
+      ],
+      "prompt": "George Wilson, disheveled and grieving, embraces another man in a crowded, dimly lit space before being restrained by a police officer. (Gunshot.)",
+      "present": [
+        "char_007",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 116,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1725.0,
+        1740.0
+      ],
+      "prompt": "George Wilson drinks from a glass held by Tom Buchanan, who watches him closely. Nick Carraway and Jay Gatsby are present. (Silence.)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_007",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 117,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1740.0,
+        1755.0
+      ],
+      "prompt": "Tom Buchanan drives the yellow car with Nick Carraway and Daisy Buchanan, while police officers arrive and investigate the scene. (Radio.)",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 118,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1755.0,
+        1770.0
+      ],
+      "prompt": "Tom Buchanan drives the car with Daisy Buchanan as passenger, arriving at Gatsby's Mansion. (Packing.)",
+      "present": [
+        "char_004",
+        "char_003",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 119,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1770.0,
+        1785.0
+      ],
+      "prompt": "Nick Carraway stands outside Gatsby's Mansion, looking toward the entrance as a man in a suit enters. (Phone ringing.)",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 120,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1785.0,
+        1800.0
+      ],
+      "prompt": "Owl Eyes arrives at Gatsby's Mansion for the funeral. Nick Carraway observes him. (Dialogue.)",
+      "present": [
+        "char_010",
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 121,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1800.0,
+        1815.0
+      ],
+      "prompt": "Nick Carraway 和一位女性在黄色汽车内，挡在破碎的挡风玻璃前，Sanitarium 的 Typewriter 未出现在画面中。 (Typing.)",
+      "present": [
+        "char_001",
+        "loc_001",
+        "prop_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 122,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1815.0,
+        1830.0
+      ],
+      "prompt": "Nick Carraway walks toward Gatsby's Mansion, then pauses to speak with Jay Gatsby in the garden. (Wind.)",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 123,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1830.0,
+        1845.0
+      ],
+      "prompt": "Jay Gatsby stands in a dimly lit garden, watching a yellow car approach from the distance, with the Green Light glowing faintly ahead. (Music.)",
+      "present": [
+        "char_002",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 124,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1845.0,
+        1860.0
+      ],
+      "prompt": "Jay Gatsby kneels to polish the yellow car's wheel, then lifts a green cover over it. (Water.)",
+      "present": [
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 125,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1860.0,
+        1875.0
+      ],
+      "prompt": "Nick finishes manuscript. 'The Great Gatsby'. (Typing.)",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 126,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1875.0,
+        1890.0
+      ],
+      "prompt": "Nick Carraway 和 Doctor 走过一条昏暗的走廊，然后走到水边的码头。 (Dialogue.)",
+      "present": [
+        "char_008",
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 127,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1890.0,
+        1905.0
+      ],
+      "prompt": "Nick Carraway leaves the Sanitarium and walks into the snow. (Footsteps.)",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 128,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1905.0,
+        1920.0
+      ],
+      "prompt": "Nick Carraway on train. Looking out. (Train sound.)",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 129,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1920.0,
+        1935.0
+      ],
+      "prompt": "Green light in distance. Fades. (Music.)",
+      "present": [
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 130,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1935.0,
+        1950.0
+      ],
+      "prompt": "Screen fades to black. (Silence.)",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 131,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1950.0,
+        1965.0
+      ],
+      "prompt": "Art Deco border appears. (Music.)",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 132,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1965.0,
+        1980.0
+      ],
+      "prompt": "Gold patterns animate. (Music.)",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 133,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1980.0,
+        1995.0
+      ],
+      "prompt": "Names scroll over Art Deco background. (Music.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 134,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1995.0,
+        2010.0
+      ],
+      "prompt": "More names scroll. (Music.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 135,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2010.0,
+        2025.0
+      ],
+      "prompt": "Cast names. (Music.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 136,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2025.0,
+        2040.0
+      ],
+      "prompt": "Crew names. (Music.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 137,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2040.0,
+        2055.0
+      ],
+      "prompt": "Production companies. (Music.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 138,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2055.0,
+        2070.0
+      ],
+      "prompt": "Legal text. (Music.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 139,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2070.0,
+        2085.0
+      ],
+      "prompt": "Special thanks. (Music.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 140,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2085.0,
+        2100.0
+      ],
+      "prompt": "Music credits. (Music.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 141,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2100.0,
+        2115.0
+      ],
+      "prompt": "Final logos. (Music fades.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 142,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2115.0,
+        2130.0
+      ],
+      "prompt": "Green light glows faintly through mist on water. (Silence.)",
+      "present": [
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 143,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2130.0,
+        2145.0
+      ],
+      "prompt": "Screen black. (Silence.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 144,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2145.0,
+        2160.0
+      ],
+      "prompt": "Black screen. (Silence.)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    }
+  ]
+}

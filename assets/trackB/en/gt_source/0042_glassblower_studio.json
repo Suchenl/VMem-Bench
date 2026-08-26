@@ -1,0 +1,1053 @@
+{
+  "story_id": "0042_glassblower_studio",
+  "title": "Hot-Kiln Glassblowing Shed",
+  "premise": "A long glassblowing drama of furnace fire and annealing kiln gallery. Ali and Ayan are easily mistaken for each other; the blowpipe goes intact→wall-cracked→replaced-repaired; the material plank cart must be avoided after it wrecks; color rods / goggles / bronze bells count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Bai Zhuo",
+      "kind": "character",
+      "states": {
+        "on_duty_prime": "Bai Zhuo, a glassblower around fifty, sunglasses-style goggles, fireproof apron, old burn scars on the arms.",
+        "exhausted_injured": "The same Bai Zhuo: apron burned through, thick gauze on the forearm, walking slowly on an iron cane, goggles still hung on the chest.",
+        "retired_exit": "Bai Zhuo has left the post; only his fireproof apron and goggles remain in the shed—he himself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Ali",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Apprentice Ali of fourteen or fifteen, indigo headscarf, gray fireproof vest, eyes clear and stubborn.",
+        "adult_successor": "Ali in her twenties, still in the indigo headscarf, upright and steady."
+      }
+    },
+    "E3": {
+      "name": "blowpipe",
+      "kind": "prop",
+      "states": {
+        "intact_clear": "A stainless-steel blowpipe, mouth faintly blue-hot, handle wrapped in hemp rope for grip, body carved with the character 'Zhuo'.",
+        "wall_cracked": "The same blowpipe with a cracked wall, air leaking on blow, hemp rope scorched.",
+        "replaced_repaired": "The blowpipe clear again after a new tube section is fitted; scorched hemp still wraps the handle, carved 'Zhuo' kept."
+      }
+    },
+    "E4": {
+      "name": "kiln-temperature notebook",
+      "kind": "prop",
+      "states": {
+        "intact": "A heat-resistant-covered kiln-temperature notebook recording furnace curves and color batches.",
+        "soot_stained": "The same kiln-temperature notebook soaked through with soot, cover blackened, writing bled."
+      }
+    },
+    "E5": {
+      "name": "material plank cart",
+      "kind": "prop",
+      "states": {
+        "intact": "An iron-frame material plank cart, bed loaded with quartz-sand bags, sides sprayed white with 'Zhuo Kiln'.",
+        "overturned_wrecked": "The material plank cart tips on the ramp; frame twisted, sand bags split—wreckage."
+      }
+    },
+    "E6": {
+      "name": "Ayan",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young Ayan whose face closely resembles Ali's, but wearing a milky-white neckerchief and the same gray fireproof vest, manner bold.",
+        "remade_look": "Ayan after remaking his look still wears the milky-white neckerchief, manner deeper."
+      }
+    },
+    "E7": {
+      "name": "glassblowing shed",
+      "kind": "location",
+      "appearance": "Glassblowing shed: brick furnace mouth spraying orange fire, anvil and blowpipe rack side by side, air scorching."
+    },
+    "E8": {
+      "name": "annealing kiln gallery",
+      "kind": "location",
+      "appearance": "Annealing kiln gallery: annealing kiln doors in a long row, peepholes glowing dull red."
+    },
+    "E9": {
+      "name": "glass market",
+      "kind": "location",
+      "appearance": "Glass market: vases and bead ornaments under the awnings, sunlight fracturing into rainbow glints."
+    },
+    "E10": {
+      "name": "old kiln porch",
+      "kind": "location",
+      "appearance": "Old kiln porch: gray-brick porch, lintel carved 'Zhuo Kiln', scorched marks on the stone steps."
+    },
+    "E11": {
+      "name": "memorial iron plaque",
+      "kind": "prop",
+      "appearance": "A cast-iron memorial plaque nailed to the porch pillar, carved with Bai Zhuo's name and the kiln-opening year."
+    },
+    "E12": {
+      "name": "color rods",
+      "kind": "prop",
+      "appearance": "Three cobalt-blue color rods bound with iron wire on the rack, tips droplet-shaped."
+    },
+    "E13": {
+      "name": "blue electric forklift",
+      "kind": "prop",
+      "appearance": "A blue electric forklift, square body with no 'Zhuo Kiln' lettering—unlike the iron-frame plank cart."
+    },
+    "E14": {
+      "name": "crafts supervisor",
+      "kind": "character",
+      "appearance": "A lean crafts supervisor, white shirt with chest badge, build similar to Bai Zhuo's but more stiff."
+    },
+    "E15": {
+      "name": "goggles",
+      "kind": "prop",
+      "appearance": "A row of five heatproof goggles hung on shed iron hooks, lenses polished."
+    },
+    "E16": {
+      "name": "timekeeping bronze bells",
+      "kind": "prop",
+      "appearance": "Two timekeeping bronze bells hung in the kiln gallery, struck at shift change."
+    },
+    "E17": {
+      "name": "Xiaoni",
+      "kind": "character",
+      "appearance": "Market girl Xiaoni in a light-brown headscarf, at a glance like young Ali, shy-eyed."
+    },
+    "E18": {
+      "name": "practice hollow tube",
+      "kind": "prop",
+      "appearance": "A practice hollow tube, shorter and lighter, no 'Zhuo' carving—much like a blowpipe but cannot enter the furnace."
+    },
+    "E19": {
+      "name": "sand merchant Old Shi",
+      "kind": "character",
+      "appearance": "Sand merchant Old Shi, full beard, sand bag on the back, build like Bai Zhuo's but sturdier."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "on_duty_prime",
+      "exhausted_injured",
+      "retired_exit"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact_clear",
+      "wall_cracked",
+      "replaced_repaired"
+    ],
+    "E4": [
+      "intact",
+      "soot_stained"
+    ],
+    "E5": [
+      "intact",
+      "overturned_wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_look"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Ali: indigo headscarf, gray fireproof vest.",
+        "E6": "Ayan: face nearly identical to Ali's, but milky-white neckerchief, manner bold."
+      },
+      "note": "Apprentice misidentification: indigo headscarf vs milky-white neckerchief."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Glassblowing shed at dusk (introducing five goggles · two bronze bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk Bai Zhuo enters the glassblowing shed and first checks the blowpipe on the rack.",
+        {
+          "action": "A row of five heatproof goggles hangs on the iron hooks; Bai Zhuo polishes each lens.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two timekeeping bronze bells hang in the kiln gallery; Bai Zhuo taps them lightly to test the ring.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Bai Zhuo circles the furnace mouth checking whether refractory bricks have peeled.",
+        "Through a kiln-gallery peephole Bai Zhuo watches the dull-red kiln fire.",
+        {
+          "action": "The blowpipe mouth faintly blues; Bai Zhuo weighs it in his hand.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Bai Zhuo sits on an iron stool in the shed corner for a short rest."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Calibrating the furnace-temperature curve",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Bai Zhuo opens the kiln-temperature notebook—this heat-resistant cover record book—and copies the temperature gap between furnace mouth and annealing kiln.",
+        "With red and blue pens Bai Zhuo draws heat-up, hold, and anneal curve segments.",
+        "Bai Zhuo closes the record book and tucks it back into the locked iron box by the furnace.",
+        {
+          "action": "The blowpipe sways lightly on the rack; Bai Zhuo nods.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Bai Zhuo wipes soot from the cover with a dry cloth and clips a temperature-test slip at the corner."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Annealing kiln gallery greets the apprentice (introducing three color rods)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "In the morning annealing kiln gallery Bai Zhuo greets young Ali pushing the material plank cart.",
+        {
+          "action": "Ali steadies the plank cart and restacks the quartz-sand bags.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Bai Zhuo points to the three cobalt-blue color rods on the rack and teaches Ali to recognize the droplet tips.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ali squats by a kiln door and curiously watches the peephole's red glow.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Bai Zhuo explains blow rhythm; Ali nods carefully.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Ali looks back at the iron-frame material plank cart, eyes full of tension.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Bai Zhuo has Ali first practice empty-tube blowing posture."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Glass market (Ayan alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the noisy glass market Ayan in a milky-white neckerchief looks up from behind a vase stall.",
+        "Ayan picks color beads at a bead stall; the neckerchief sways lightly.",
+        "Ayan haggles with the stall keeper, manner bold.",
+        "Ayan carries a paper box through the market crowd.",
+        "Ayan stops under the colored awning and looks back at the shed chimney."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Apprentices shared screen",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "In the annealing kiln gallery Ali and Ayan stand side by side—one indigo headscarf, one milky-white neckerchief.",
+        "Ali hands a color rod to Ayan; they check the tip together.",
+        "Ayan straightens Ali's indigo headscarf; they walk slowly along the kiln gallery.",
+        "Ali and Ayan part at the gallery end, heading to shed and market.",
+        "Heat washes past; their similar gray vests cross between kiln doors and separate again."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Furnace-temperature record soot-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On a night months later Bai Zhuo alone tends the furnace in the glassblowing shed.",
+        {
+          "action": "Bai Zhuo opens the kiln-temperature notebook and finds furnace-mouth ash has already blackened and wrinkled the heat-resistant cover.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "soot_stained"
+            }
+          ]
+        },
+        "Bai Zhuo wipes scorched marks from the blowpipe handle.",
+        "Bai Zhuo looks toward the pitch-black annealing kiln gallery.",
+        {
+          "action": "The blowpipe gleams cold blue under the lamp; Bai Zhuo slowly turns the tube.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Bai Zhuo clips blotter paper onto the stained page and presses it under the measuring-tube iron rule."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Four-season glassblowing days (filler · stretching the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In rainy season Bai Zhuo moves damp color rods onto the drying rack in the glassblowing shed.",
+        "Bai Zhuo brushes ash from inside the blowpipe with a soft brush.",
+        "At dawn Bai Zhuo checks kiln-door numbers in the annealing kiln gallery.",
+        "Bai Zhuo hangs a raincoat on a gallery pillar and listens to the furnace roar.",
+        "In high summer Bai Zhuo opens the shed skylight to drive out heat.",
+        "Bai Zhuo checks whether the furnace-temperature gauge needle is stuck.",
+        "When autumn wind rises Bai Zhuo gathers half-finished cover cloths outside the gallery.",
+        "Bai Zhuo trials a new cobalt color code on a blank notebook page.",
+        "On a frost night Bai Zhuo lights the emergency lamp and checks flashlight charge.",
+        "Bai Zhuo wraps sand bags in blankets against night damp.",
+        "On a heavy-snow day Bai Zhuo sweeps thin snow from the old kiln porch stone steps.",
+        "Bai Zhuo breathes on his hands and tightens the color-rod iron wire.",
+        "In early spring Bai Zhuo clears chimney ash.",
+        "Bai Zhuo disinfects the five pairs of goggles one by one.",
+        "Bai Zhuo posts a new shift roster on the shed wall.",
+        "Around Dragon Boat Festival Bai Zhuo smokes the materials store with mugwort against insects.",
+        "Bai Zhuo regrinds the droplet tips of the color rods round.",
+        "Bai Zhuo alone paces the kiln gallery, silently reciting blow beats.",
+        "After rain Bai Zhuo pushes open the shed door and listens to eaves water drip into an iron bucket.",
+        "Bai Zhuo swaps worn hemp rope for new.",
+        "On another dusk Bai Zhuo sits by the blowpipe listening to the furnace.",
+        "At night Bai Zhuo rises and feeds coal to the hearth.",
+        "Bai Zhuo sieves newly arrived quartz sand.",
+        "Bai Zhuo wipes the 'Zhuo Kiln' lintel on the porch.",
+        "Bai Zhuo checks the plank-cart hubs for cracks.",
+        "Bai Zhuo marks cup dimensions on a drawing.",
+        "Bai Zhuo wrings out ash-stained rags and hangs them.",
+        "On a full-moon night Bai Zhuo watches kiln fire from the gallery; peepholes like stars.",
+        "Bai Zhuo tidies the iron hooks so goggle straps hang down.",
+        "Bai Zhuo writes the new season's furnace notes inside the cover.",
+        "Bai Zhuo polishes the two timekeeping bronze bells bright.",
+        "Bai Zhuo hears market hawking and keeps stirring melt.",
+        "Bai Zhuo glues a cracked crucible support.",
+        "Bai Zhuo stacks cup blanks awaiting anneal in the shed corner.",
+        "Bai Zhuo closes the furnace door tight against a night temperature drop.",
+        "On another Qingming Bai Zhuo sets a bunch of wildflowers in the porch.",
+        "Bai Zhuo rolls drawings into a tube and binds them with a rubber band.",
+        "Bai Zhuo trials a low bronze-bell note; the sound is clear.",
+        "Bai Zhuo sits silent in the shed listening to melt bubble a long while.",
+        "Bai Zhuo cuts worn indigo cloth into rag stock.",
+        "Bai Zhuo shovels scorched slag from the flame mouth into an iron bucket."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Kiln-gallery patrol (recall color rods · forklift false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn Bai Zhuo patrols the annealing kiln gallery; the material plank cart rests at the gallery mouth.",
+        {
+          "action": "Bai Zhuo crouches to check the plank-cart axle.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Bai Zhuo walks to the rack; those three cobalt-blue color rods are still bound with iron wire.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A blue electric forklift rolls past outside the gallery—square body, not the Zhuo Kiln plank cart.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Bai Zhuo stands in the kiln gallery and checks each kiln-door temperature with an infrared gun.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Bai Zhuo hangs wet canvas on the gallery rack.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Bai Zhuo brushes sand from his sleeves and looks back at the shed firelight."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Glassblowing days continued (filler · further stretching the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "After Grain Rain Bai Zhuo teaches a new apprentice in the kiln gallery to read peephole color temperature.",
+        "Bai Zhuo re-covers cup blanks with sun-dried cloths.",
+        "In summer heat Bai Zhuo lays a damp cloth on the blowpipe handle to cool it.",
+        "Bai Zhuo checks the plank cart and moves damp sand bags to the upper layer.",
+        "On an autumn night under the emergency lamp Bai Zhuo rethreads soot-stained record loose pages.",
+        "Bai Zhuo rotates the five pairs of goggles out for inspection.",
+        "At first snow Bai Zhuo sweeps a narrow path at the porch threshold.",
+        "Bai Zhuo rehangs the practice hollow tube on the rack.",
+        "Bai Zhuo hears the bronze bells ring lightly and continues editing the shift roster.",
+        "Bai Zhuo pushes open the gallery door so through-draft carries smoke away.",
+        "Bai Zhuo hangs rain canvas on the porch.",
+        "Bai Zhuo stores the cracked old tube section in an iron box.",
+        "At night Bai Zhuo dreams of furnace runaway; waking, he writes the reading beside the gauge.",
+        "Bai Zhuo rinses the color rack with clear water.",
+        "Bai Zhuo wipes the shift roster clean and reposts it.",
+        "Bai Zhuo pulls weeds from porch-pillar stone seams.",
+        "Bai Zhuo rehangs the goggles on iron hooks; number slips are somewhat faded.",
+        "Before lights-out Bai Zhuo takes a last look at the blowpipe wall.",
+        "Bai Zhuo folds the indigo headscarf an apprentice left in the shed.",
+        "Bai Zhuo hears the market closing horn and rises to lock up.",
+        "Bai Zhuo dries gloves by the warm box.",
+        "Bai Zhuo moves the bronze bells aside to show the newly repaired gallery beam.",
+        "Bai Zhuo air-dries temperature test chips.",
+        "Bai Zhuo draws a furnace-temperature comparison on the notebook's last page.",
+        "Bai Zhuo silently names tomorrow's cup shapes and steps out of the porch.",
+        "Bai Zhuo pushes the plank cart to the wall foot, clearing dip-ground.",
+        "Bai Zhuo hears a distant rooster and blows out the emergency lamp.",
+        "On another rain night Bai Zhuo alone tends the furnace fire until dawn.",
+        "Bai Zhuo weighs newly arrived cobalt color stock."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Temper night (blowpipe cracks · plank cart overturns)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "On a storm night furnace temperature spikes uncontrolled; shed alarms blare.",
+        "In the heat wave the anvil glows red-hot.",
+        {
+          "action": "A sharp crack—the blowpipe's thin wall near the mouth splits; blown air leaks at once.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "wall_cracked"
+            }
+          ]
+        },
+        {
+          "action": "On the ramp outside the gallery the material plank cart loses control on the wet surface.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "The material plank cart overturns; frame twists, sand bags split—utterly wrecked.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "overturned_wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Bai Zhuo lunges at the rack and clamps hard on the cracked blowpipe.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "A neighboring kiln master rushes with water; the shed fills with steam."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (plank-cart indirect reference · goggles recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day Bai Zhuo stands in the glassblowing shed staring at the cracked blowpipe.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Bai Zhuo traces the wall crack with a finger, expression dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "In a blank spot of the record book Bai Zhuo sketches the twisted frame and marks the date the material plank cart overturned.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo of the material plank cart loaded with quartz sand still hangs on the wall; Bai Zhuo wipes the frame clean.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Bai Zhuo takes one of the five pairs of goggles from the iron hooks and puts them back on to check.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The cracked blowpipe still rests on the rack, scorched hemp marks clear.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Bai Zhuo sets wet boots at the door to drain."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Replace and repair (third state · hollow-tube false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Bai Zhuo brings in a tube worker and cuts the cracked section off before the hemp-rope handle.",
+        {
+          "action": "From a wooden crate Bai Zhuo takes a practice hollow tube for comparison—shorter and lighter, no 'Zhuo' carving, and unable to take furnace heat.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "The tube worker sleeves a liner into the new section; after the weld cools he rewraps the scorched hemp tight.",
+        {
+          "action": "Replacement done, Bai Zhuo plugs the mouth and pressure-tests; the blowpipe is clear again, carved 'Zhuo' still there.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "replaced_repaired"
+            }
+          ]
+        },
+        "The repaired blowpipe gathers the first gather of glass; a clear bubble swells round.",
+        "Bai Zhuo redips into the furnace and turns the tube to blow a thin-walled small cup."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: forklift and supervisor",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Outside the gallery comes sand merchant Old Shi with a quartz-sand bag on his back, build like Bai Zhuo's but without goggles.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The crafts supervisor also arrives; white-shirt chest badge gleaming in the firelight, talking beside Bai Zhuo.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The supervisor points at the scrap-glass bin on the blue electric forklift and asks whether it belongs to the Zhuo Kiln plank cart.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The supervisor leaves; Bai Zhuo alone remains in the annealing kiln gallery.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Old Shi unloads a quartz-sand bag, bows farewell."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Xiaoni who resembles Ali",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "To the market comes a girl Xiaoni in a light-brown headscarf—at a glance somewhat like young Ali.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaoni tries sorting vases by mouth size; Bai Zhuo shakes his head—her light-brown headscarf is not Ali's indigo headscarf.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaoni shyly lowers her head and ties the scarf tighter."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Exhausted and injured (bronze bells long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "At dusk years later Bai Zhuo with gauze on the forearm leans on a cane in the old kiln porch.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "exhausted_injured"
+            }
+          ]
+        },
+        "Bai Zhuo looks up at the 'Zhuo Kiln' lintel, gaze distant.",
+        {
+          "action": "Those two timekeeping bronze bells from the kiln gallery are brought to the porch for a test ring; Bai Zhuo stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Bai Zhuo presses a palm to the porch's cold scorched brick as if saying goodbye.",
+        "Evening wind lifts a corner of his torn apron."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Ali takes over · Bai Zhuo retires",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day adult Ali returns along the ramp and hurries toward the old kiln porch.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Under the porch Ali reunites with cane-leaning Bai Zhuo; they embrace.",
+        {
+          "action": "By the rest-room cot Ali holds Bai Zhuo's hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Bai Zhuo's breath grows weak; at last he closes his eyes and exits the post.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "retired_exit",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Ali folds Bai Zhuo's fireproof apron and sets it by the pillow.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · memorial iron plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the shed door Bai Zhuo's goggles still hang; Ali reaches to stroke them gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "On the porch pillar Ali stands before the newly nailed memorial iron plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Ali's fingertip traces Bai Zhuo's name carved on the iron plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        "Ali sets a bunch of wildflowers beneath the iron plaque."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (long-range + shared screen)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Ayan with his remade look arrives from the market and tightly embraces Ali under the porch.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_look"
+            }
+          ]
+        },
+        "Ali and Ayan stand side by side in the porch—one quiet-eyed, one deep-mannered.",
+        "They look at each other in silence, watching similar faces.",
+        "Ayan tightens the milky-white neckerchief; Ali still wears the indigo headscarf."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth practicing empty-tube blowing in the kiln gallery appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth practicing empty-tube blowing in the kiln gallery",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Opening furnace fire in the shed brightens again; a long blowing tube carved 'Zhuo' first blues at the mouth.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact_clear",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the long blowing tube carved Zhuo that first blued at the mouth at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flashback to that year's market—the milky-white-neckerchiefed gray-vest figure slips past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the milky-white-neckerchiefed gray-vest figure at that year's market",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "That row of five heatproof eye shields on the iron hooks again reflects orange furnace light.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five heatproof eye shields on the iron hooks",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to that kiln-fire gallery of first meeting, peepholes dull red as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that kiln-fire gallery of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again the image of those two old shift bells in the kiln gallery ringing lightly.",
+          "present": [
+            {
+              "eid": "E16",
+              "count": 2,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "those two old shift bells ringing lightly in the kiln gallery",
+                "resolves_to": "E16"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrases for reference; no names."
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (furnace notebook long-range · color rods long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Ali carries that soot-stained furnace-temperature record book into the glassblowing shed.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "On the rack those three cobalt-blue color rods are still bound with iron wire.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ali takes the replaced-repaired blowpipe and turns her wrist into the furnace to redip.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "New green rises again from porch stone seams.",
+        "Ali ties the indigo headscarf tight; dull-red light at the annealing kiln doors burns strong again."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "singularity",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "2ec9e0634234f5de",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "紫色发光小生物",
+      "description": "紫黄色相间、边缘发光的半透明小型类人形生物，头部有鳍状突起，大眼睛，四肢末端呈花瓣状；身体轮廓有金色光边",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          12,
+          55
+        ],
+        [
+          65,
+          70
+        ],
+        [
+          76,
+          267
+        ],
+        [
+          329,
+          338
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 12.0,
+      "last_frame": null,
+      "last_seconds": 338.0,
+      "screen_time_seconds": 248.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 62.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c025_char_001",
+          "chunk_id": 25,
+          "description": "appearance_changed: 与众多同类生物融合成巨大能量体后，最终转化为行星形态",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 248.0
+        },
+        {
+          "event_id": "evt_c032_char_001.1",
+          "chunk_id": 32,
+          "description": "appearance_changed: 以灰白色带紫色鳍的全新形态出现在水下环境中",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 329.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "黑色菱形空间裂隙",
+      "description": "悬浮于太空中的黑色菱形几何体，边缘发出紫色光芒并向外辐射光线",
+      "first_chunk": 8,
+      "presence_spans": [
+        [
+          65,
+          129
+        ],
+        [
+          138,
+          149
+        ],
+        [
+          245,
+          277
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 65.0,
+      "last_frame": null,
+      "last_seconds": 277.0,
+      "screen_time_seconds": 107.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 96.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c008",
+          "chunk_id": 8,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c027_prop_001",
+          "chunk_id": 27,
+          "description": "broken: 被金色能量撞击后碎裂成白色网格状碎片消散",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 272.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "巨型宇宙水母",
+      "description": "半透明球形伞盖、带有金色发光触须的巨大水母状天体，内部可见复杂器官结构",
+      "first_chunk": 6,
+      "presence_spans": [
+        [
+          48,
+          65
+        ],
+        [
+          129,
+          138
+        ],
+        [
+          160,
+          186
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 48.0,
+      "last_frame": null,
+      "last_seconds": 186.0,
+      "screen_time_seconds": 52.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 64.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c006",
+          "chunk_id": 6,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c028_prop_002",
+          "chunk_id": 28,
+          "description": "destroyed: 失去光芒后外壳剥落解体",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 287.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "绿色多眼有机体",
+      "description": "附着在岩石上的小型绿色多足生物，具有多个圆形眼睛",
+      "first_chunk": 3,
+      "presence_spans": [
+        [
+          17,
+          33
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 17.0,
+      "last_frame": null,
+      "last_seconds": 33.0,
+      "screen_time_seconds": 16.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c003",
+          "chunk_id": 3,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "深空星云区域",
+      "description": "布满繁星与暗色星云的深邃太空背景",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          5,
+          17
+        ],
+        [
+          48,
+          76
+        ],
+        [
+          120,
+          320
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 5.0,
+      "last_frame": null,
+      "last_seconds": 320.0,
+      "screen_time_seconds": 240.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 44.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "漂浮岩石群",
+      "description": "太空中大量不规则灰色岩石聚集形成的漂浮群落，表面有漩涡纹理",
+      "first_chunk": 3,
+      "presence_spans": [
+        [
+          17,
+          48
+        ],
+        [
+          76,
+          120
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 17.0,
+      "last_frame": null,
+      "last_seconds": 120.0,
+      "screen_time_seconds": 75.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 28.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c003",
+          "chunk_id": 3,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c013_loc_002",
+          "chunk_id": 13,
+          "description": "destroyed: 被菱形裂隙吸入并粉碎消散",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 117.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "水下植物森林",
+      "description": "清澈浅水中的茂密水生植物环境，有弯曲的植物茎干和气泡",
+      "first_chunk": 31,
+      "presence_spans": [
+        [
+          320,
+          338
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 320.0,
+      "last_frame": null,
+      "last_seconds": 338.0,
+      "screen_time_seconds": 18.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c031",
+          "chunk_id": 31,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

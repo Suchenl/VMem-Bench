@@ -1,0 +1,1303 @@
+{
+  "story_id": "0050_planetarium_guide",
+  "title": "Planetarium Commentary",
+  "premise": "A commentary succession at the municipal planetarium. Axing and Achen look nearly alike and are easily mistaken; the celestial globe goes intact→gear-jammed→recalibrated; the commentary lift platform crashes and must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_state_note": "Entities with state machines use states; entities without use appearance. On transfer, only the current-state appearance is injected. Flashbacks may set state on a present item to a past state.",
+  "entities": {
+    "E1": {
+      "name": "Gu Heng",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Chief planetarium commentator Gu Heng in his forties, neat short hair, deep-blue uniform jacket, a small Big Dipper badge at the collar, even speech, mild eyes.",
+        "weary_wounded": "The same Gu Heng weary and wounded: uniform shoulder line worn through, gauze on the temple, Big Dipper badge still pinned, heavy steps.",
+        "stepped_away": "Gu Heng has stepped away from the post; only his old deep-blue uniform and work badge remain in the planetarium—he himself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Axing",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Axing: a lean commentary apprentice of fourteen or fifteen, turmeric armband on the left sleeve, script under the arm, bright stubborn eyes.",
+        "adult_successor": "Adult Axing: a tall upright successor commentator in the twenties, still the turmeric armband, steady eyes."
+      }
+    },
+    "E3": {
+      "name": "celestial globe",
+      "kind": "prop",
+      "states": {
+        "intact": "A hemispheric celestial globe with intact brass meridian rings, complete star lamp beads, able to rotate evenly to demonstrate precession.",
+        "gear_jammed": "The same celestial globe with gears jammed; star lamp beads half-lit; meridian ring skewed stuck.",
+        "recalibrated": "After recalibration the celestial globe rotates smooth again, but a shallow repair weld remains on the base, distinct from the first intact state."
+      }
+    },
+    "E4": {
+      "name": "star-script book",
+      "kind": "prop",
+      "states": {
+        "intact": "A deep-blue leather star-script book filled with show cues and pointing coordinates, cover clean.",
+        "coffee_stained": "The same star-script book coffee-stained; cover swollen, writing bled, a crumpled blotting sheet tucked in."
+      }
+    },
+    "E5": {
+      "name": "commentary lift platform",
+      "kind": "prop",
+      "states": {
+        "intact": "A raisable commentary lift platform with intact rails and nonslip tread, able to rise to mid-dome for commentary.",
+        "crashed": "The commentary lift platform cables snapped and crashed; rails twisted—only skewed wreckage left."
+      }
+    },
+    "E6": {
+      "name": "Achen",
+      "kind": "character",
+      "states": {
+        "young_rival": "Achen whose face and build closely resemble Axing's, but an amber star brooch, flamboyant and fond of grabbing the mic.",
+        "remade_face": "After remaking the look, Achen still wears the amber star brooch, plus thin-frame glasses, expression deeper."
+      }
+    },
+    "E7": {
+      "name": "dome planetarium",
+      "kind": "location",
+      "appearance": "Hemispheric dome planetarium; seats sink in a ring; celestial globe stands at center; track spotlights around can switch star modes."
+    },
+    "E8": {
+      "name": "front-hall star-map gallery",
+      "kind": "location",
+      "appearance": "Front-hall star-map gallery; huge constellation reliefs set in the walls; reflective floor tiles mirror visitors."
+    },
+    "E9": {
+      "name": "equipment mezzanine",
+      "kind": "location",
+      "appearance": "Equipment mezzanine to the lamp room; cables dense; service lights cut shadows into thin strips."
+    },
+    "E10": {
+      "name": "abandoned observatory plinth",
+      "kind": "location",
+      "appearance": "Abandoned observatory plinth; cracked concrete ring; empty copper-column base; weeds push from seams."
+    },
+    "E11": {
+      "name": "copper memorial plaque",
+      "kind": "prop",
+      "appearance": "A copper memorial plaque nailed to the observatory plinth, carved with Gu Heng and a year, edges already verdigris."
+    },
+    "E12": {
+      "name": "seat-number glow tags",
+      "kind": "prop",
+      "appearance": "Three seat-number glow tags set in the front commentary zone to mark interactive audience seats."
+    },
+    "E13": {
+      "name": "kids swivel chair",
+      "kind": "prop",
+      "appearance": "A kids swivel chair somewhat like movable seating but without lift cables; Fun printed on the back."
+    },
+    "E14": {
+      "name": "Venue shift leader Lao Liang",
+      "kind": "character",
+      "appearance": "Venue shift leader Lao Liang, build somewhat like Gu Heng's, gray uniform with silver shoulder bars, cap badge a key not the Big Dipper."
+    },
+    "E15": {
+      "name": "track spotlights",
+      "kind": "prop",
+      "appearance": "A row of five spotlights sliding on a track, milky shades, mirrors polished bright."
+    },
+    "E16": {
+      "name": "opening cue bells",
+      "kind": "prop",
+      "appearance": "Two opening cue bells set in the entrance lintel, chiming twice softly before showtime."
+    },
+    "E17": {
+      "name": "intern Xiaoyao",
+      "kind": "character",
+      "appearance": "Intern Xiaoyao who at a glance resembles young Axing, light-gray sleeve mark not turmeric armband, shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "pocket desktop star-map instrument",
+      "kind": "prop",
+      "appearance": "A pocket desktop star-map instrument with star layout much like the celestial globe but smaller, no brass meridian ring."
+    },
+    "E19": {
+      "name": "silver cleaning lift",
+      "kind": "prop",
+      "appearance": "A silver cleaning lift with a wide flat platform and no commentary rail, Property lettered on the side."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_wounded",
+      "stepped_away"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "gear_jammed",
+      "recalibrated"
+    ],
+    "E4": [
+      "intact",
+      "coffee_stained"
+    ],
+    "E5": [
+      "intact",
+      "crashed"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_face"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Axing: turmeric armband, quiet/stubborn eyes.",
+        "E6": "Achen: face nearly identical to Axing's, but amber star brooch, flamboyant or deep look."
+      },
+      "note": "Hard misidentification sample: Axing and Achen look alike; tell them apart only by turmeric armband / amber star brooch."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Dome planetarium daily (introduce five track spotlights · two opening cue bells)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "At dusk, Gu Heng pushes open the dome planetarium side door and pins the Big Dipper badge firm.",
+        {
+          "action": "Inside the dome planetarium hang a row of five track spotlights; Gu Heng polishes each one.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two opening cue bells hang by the door; Gu Heng reaches to make them chime softly.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Gu Heng circles the celestial globe checking every brass meridian ring and star lamp bead.",
+        "Gu Heng looks up as the dome's false starfield gradually brightens.",
+        {
+          "action": "The intact celestial globe rotates evenly at hall center; track spotlights sweep the star points.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "On the show sheet Gu Heng adds tonight's winter sky show and interactive Q&A slot.",
+        "Gu Heng takes the badge off and pins it back, confirming the clasp is tight.",
+        "Gu Heng sorts scattered laser-pointer batteries and restacks them by show.",
+        "Gu Heng sits in a front-row seat and rubs his sore neck and shoulders."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the star-script book",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Gu Heng opens the star-script book and writes tonight's constellation projections and cues by show.",
+        "Beside the Big Dipper pointing section he draws a blue star mark, reminding himself to dim half the dome lights.",
+        "Gu Heng closes the star-script book and clips it back into the lectern side pocket.",
+        {
+          "action": "Reflection from the celestial globe sweeps Gu Heng's profile.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Checking the celestial globe, Gu Heng circles with red pen a meridian mark that turns a little slow.",
+        "Gu Heng returns the laser pointer and spare mic to the charging cradle so they will not roll into seat gaps."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Front-hall star-map gallery greets apprentice (introduce three seat-number glow tags)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "In the morning front-hall star-map gallery, Gu Heng greets young Axing arriving with the commentary lift platform.",
+        {
+          "action": "Axing pushes the commentary lift platform to the gallery edge and locks the casters.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Gu Heng points to three seat-number glow tags and teaches Axing to mark interactive seats and question order with them.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Axing crouches in the front-hall star-map gallery, looking up at constellation reliefs mirrored in the floor tiles.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Gu Heng explains the rules: after the opening bell dim lights, point Big Dipper before turning the Milky Way, stop the platform before guests stand.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Axing glances back at the intact commentary lift platform, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Gu Heng has Axing grip the rail and practice an emergency stop before rising to mid-dome.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Axing tightens the turmeric armband and silently recites Gu Heng's three opening lines beside the script.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Equipment mezzanine (only Achen)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the equipment mezzanine, Achen with an amber star brooch turns to look from the dark.",
+        "Achen walks slowly through the equipment mezzanine, flamboyant.",
+        "Achen brushes past a passerby; the amber star brooch sways lightly.",
+        "Achen stops at the passage mouth, pickily noting crooked cable labels in the mezzanine.",
+        "Achen kicks a spent zip tie beside the cable tray.",
+        "Achen leaves through the mezzanine between cable shadows."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Front-hall star-map gallery: Axing and Achen co-presence",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "In the front-hall star-map gallery, Axing and Achen stand side by side—one turmeric armband, one amber star brooch.",
+        "Axing hands Achen a found laser-pointer battery cover; they meet eyes with different looks.",
+        "Achen smooths Axing's turmeric armband, then deliberately clicks his own amber star brooch.",
+        "Axing and Achen walk slowly along the gallery edge; shadows overlap then part.",
+        "Axing lowers his head to check opening cues; Achen looks around.",
+        "Axing and Achen part at the gallery mouth, each going the opposite way."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Dome planetarium (star-script book coffee-stained)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Gu Heng keeps watch alone in the dome planetarium; the celestial globe's star lamp beads glow faintly.",
+        {
+          "action": "Gu Heng opens the star-script book and finds it already coffee-stained; show cues bled by coffee.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "coffee_stained"
+            }
+          ]
+        },
+        "Gu Heng wipes fingerprints from the celestial globe's brass meridian rings.",
+        "From a window Gu Heng looks at night beyond the front-hall star-map gallery.",
+        {
+          "action": "Light slowly moves across the celestial globe.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Gu Heng slips blotting paper into the stained star-script book, sighs, and turns out the light."
+      ]
+    },
+    {
+      "id": "F1",
+      "setting": "Planetarium commentary steady decade A (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Gu Heng wipes the celestial globe rim in the dome planetarium.",
+        "Gu Heng updates the day's notes on the wall.",
+        "Gu Heng restacks tools by number.",
+        "Gu Heng checks yesterday's records against the star-script book.",
+        "In the afternoon Gu Heng takes an outside call, brow faintly furrowed.",
+        "Gu Heng writes deferred items on a sticky note and posts it in plain view.",
+        "Gu Heng pulls spare materials out and sorts them alone.",
+        "At dusk Gu Heng turns off extra lights, leaving only the center lamp on the celestial globe."
+      ]
+    },
+    {
+      "id": "F2",
+      "setting": "Planetarium commentary steady decade B (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Gu Heng spreads tracing paper or a comparison chart in the dome planetarium.",
+        "Gu Heng marks spots that need reinforcement with color dots.",
+        "Gu Heng fixes the paper edges against curling.",
+        "Against the already stained star-script book, Gu Heng struggles to read old figures.",
+        "Gu Heng sets drinks far away, fearing another splash on the star-script book.",
+        "On the wall Gu Heng lists three items to adjust.",
+        "A sound outside; Gu Heng looks up and listens a moment.",
+        "Gu Heng restrings labels with fine cord."
+      ]
+    },
+    {
+      "id": "F3",
+      "setting": "Front-hall star-map gallery patrol day (filler · no count props)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "On patrol day, Gu Heng walks into the front-hall star-map gallery.",
+        "Gu Heng carefully tests whether floor or rails are steady.",
+        "Gu Heng notes spots that need repair.",
+        "Gu Heng shines a flashlight into dim corners.",
+        "Gu Heng briefly talks with a passing staffer.",
+        "Gu Heng avoids stacked clutter and rounds to the other side.",
+        "Gu Heng records size changes with a tape or by eye.",
+        "Gu Heng writes results on a cuff sticky note."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Front-hall star-map gallery patrol (recall seat-number glow tags · kids swivel-chair false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn, Gu Heng patrols the front-hall star-map gallery; the commentary lift platform waits in place.",
+        {
+          "action": "Gu Heng crouches to check the commentary lift platform's cables, emergency-stop button, and nonslip tread.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Gu Heng walks to the front commentary zone; those earlier three seat-number glow tags still glow as one-two-three.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A kids swivel chair is pushed through the star-map gallery—no lift cables or commentary rail, definitely not the commentary lift platform.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Standing in the front-hall star-map gallery, Gu Heng notes floor-tile glare and guest flow on the venue checklist.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Gu Heng locks the commentary lift platform casters and clips the safety chain.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Gu Heng confirms again that none of the three seat-number glow tags is missing; numbers still clear.",
+          "present": [
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "By the ticket desk Gu Heng writes the patrol date.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "setting": "Eve-of-disaster readiness (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On the eve of disaster, Gu Heng stores all materials by the window into cabinets.",
+        "Gu Heng covers the celestial globe with protective cloth.",
+        "Gu Heng checks that the star-script book is in a dry drawer.",
+        "Gu Heng tightens bottle caps and valves and moves them high.",
+        "A strange sound far off; dome planetarium lights flicker once.",
+        "Gu Heng neatens the cables of the five track spotlights.",
+        "Gu Heng drafts a notice reading Stop work tomorrow.",
+        "Gu Heng listens whether the two opening cue bells are chimed by wind."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Fault night (celestial globe jammed · lift platform crash)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "A circuit fault hits; dome lights flash wildly; the celestial globe spins out of control.",
+        "A jolt flips script pages; a piercing metal cry comes from the gear housing.",
+        {
+          "action": "The celestial globe gears jam; star lamp beads half-lit; the meridian ring skews stuck.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "gear_jammed"
+            }
+          ]
+        },
+        {
+          "action": "At hall side, the commentary lift platform still hangs at mid-height.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "Cables snap; the commentary lift platform crashes; rails twist into wreckage.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "crashed",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "In the planetarium Gu Heng lunges at the console, jams the emergency stop, and shields the jammed celestial globe.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "A flung mic gashes Gu Heng's temple; blood soaks gauze; he still stares at the gear housing.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The jammed celestial globe trembles faintly in the dim; star points flicker.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (lift-platform indirect reference · track-spotlight recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after the disaster, Gu Heng stands in the dome planetarium staring at the already gear-jammed celestial globe.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Gu Heng brushes damage on the celestial globe with a finger, face dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On the equipment-fault whiteboard Gu Heng notes the date the commentary lift platform was destroyed.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo of the commentary lift platform risen to mid-dome still nails the wall; Gu Heng gazes a long while.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Gu Heng twists on one of the five track spotlights and sits alone in the light spot.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The jammed celestial globe still sits at hall center; the skewed meridian ring is shocking.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Gu Heng changes the blood-soaked dressing and keeps picking up snapped cables and broken mic heads.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Gu Heng resets the dust cover, fearing more dust into the gear housing.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "setting": "Cleanup and funding request (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In cleanup week, Gu Heng packs snapped cables and smashed control buttons into a carton.",
+        "Gu Heng submits a funding request for gears, lamp beads, and calibration software.",
+        "Every day Gu Heng still comes to the dome planetarium and stares at the damaged celestial globe.",
+        "Gu Heng copies still-readable star-point coordinates in pencil.",
+        "Gu Heng turns the stained star-script book to a blank page and switches to logging funding progress.",
+        "Axing is on leave; only Gu Heng's footsteps fill the dome planetarium.",
+        "Out of habit Gu Heng looks toward the empty lift well at hall side.",
+        "On the wall Gu Heng lists a recalibration checklist."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Recalibrated (third state · pocket desktop star-map false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Gu Heng hooks up the calibration computer, lays out gear lubricant and spare lamp beads, and begins recalibrating the celestial globe.",
+        {
+          "action": "Gu Heng takes out a pocket desktop star-map instrument—star points like the celestial globe but no brass meridian ring, and it cannot project the dome.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Gu Heng clears jammed gears, replaces half-dead lamp beads, then enters precession calibration parameters.",
+        {
+          "action": "The last star-point set aligns; the celestial globe finishes recalibration; a shallow repair weld remains on the base.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "recalibrated"
+            }
+          ]
+        },
+        "After recalibration the celestial globe rotates smooth; Big Dipper bearing matches the dome scale; Gu Heng looks on with relief.",
+        {
+          "action": "Gu Heng pushes the pocket desktop star-map instrument aside, leaving only the true celestial globe at the dome-center demo post.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The dome planetarium falls quiet again; the recalibrated celestial globe alone holds center.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: silver cleaning lift and venue shift leader Lao Liang",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Facilities pushes in a silver cleaning lift—wide flat platform, no commentary rail, nothing like the long-wrecked commentary lift platform.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Venue shift leader Lao Liang walks into the front-hall star-map gallery and talks beside Gu Heng; the two builds are alike.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "Venue shift leader Lao Liang points at the silver cleaning lift, telling Gu Heng the cleaner only services shades and stays off the commentary path.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The silver cleaning lift leaves; Gu Heng alone watches it go from the front-hall star-map gallery.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "The silver cleaning lift pauses briefly far off, then rolls on.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Before leaving, venue shift leader Lao Liang pats Gu Heng's shoulder; the key cap badge flashes once under the lamp.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: intern Xiaoyao who resembles Axing",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Into the front-hall star-map gallery comes intern Xiaoyao; at a glance he somewhat resembles young Axing.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Intern Xiaoyao practices gripping a mic for the opening; Gu Heng shakes his head—he is not Axing after all.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Intern Xiaoyao shyly asks from which side the Milky Way rises; Gu Heng answers briefly and sends him to dim the front-hall lightboxes.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Gu Heng alone stands in the front-hall star-map gallery, staring at the empty commentary lift platform berth.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "setting": "Steady decade after recalibration (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In the first decade after recalibration, Gu Heng checks the celestial globe every morning first.",
+        "Gu Heng writes new records on blank pages of the stained star-script book.",
+        "Gu Heng refuses to set dangerous items on edges again.",
+        "Gu Heng checks announcement copy with outside staff.",
+        "In the dome planetarium Gu Heng practices steadier operation.",
+        "Afternoon light falls on the recalibrated celestial globe.",
+        "Gu Heng polishes the opening cue bells but does not strike them yet.",
+        "Gu Heng receives Axing's postcard and presses it under a lamp base unopened.",
+        "In the dome planetarium Gu Heng test-runs a short commentary.",
+        "Gu Heng soft-cloth-wipes the celestial globe's brass meridian rings.",
+        "Gu Heng turns the star-script book to the interactive Q&A page.",
+        "Gu Heng checks whether the track spotlights slide smoothly.",
+        "In the front-hall star-map gallery Gu Heng adjusts seat-number glow tag positions.",
+        "Gu Heng test-taps an opening cue bell to confirm volume.",
+        "Gu Heng replaces laser-pointer batteries.",
+        "On the console Gu Heng saves tonight's show presets.",
+        "Gu Heng wipes front-row seat armrests clean.",
+        "Gu Heng checks that the Big Dipper badge is pinned straight.",
+        "In the equipment mezzanine Gu Heng patrols cable temperatures.",
+        "Gu Heng returns the spare mic to the charging cradle.",
+        "At the dome edge Gu Heng checks projection focus.",
+        "Gu Heng writes updated audience-notice sentences.",
+        "Gu Heng dims half the lights to simulate opening atmosphere.",
+        "In the break room Gu Heng drinks a sip of warm water to wet his throat.",
+        "Gu Heng confirms exit indicator lights stay on."
+      ]
+    },
+    {
+      "id": "F7",
+      "setting": "Year-end close (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At year-end close, Gu Heng binds the year's materials month by month.",
+        "Gu Heng alone bags the stained star-script book into an archive sleeve.",
+        "Gu Heng prints before-and-after repair photos and clips them into the archive.",
+        "Gu Heng clears the bench, leaving only needed tools and one lamp.",
+        "Gu Heng oils key tools against rust.",
+        "Beside the celestial globe's repair mark Gu Heng signs a date.",
+        "Weather turns cold outside; dome planetarium heat or stove ticks softly.",
+        "Gu Heng finishes the annual summary; the cover bears only a short theme."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Late years (Gu Heng wounded · opening-cue-bell long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, still-scarred slow-stepping Gu Heng leans on a folding cane at the abandoned observatory plinth.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_wounded"
+            }
+          ]
+        },
+        "Gu Heng looks up at the abandoned observatory plinth ruins, gaze far away.",
+        {
+          "action": "Beside the abandoned observatory plinth, those two opening cue bells are brought back and hung; they chime lightly in the wind.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Gu Heng sets a palm on the cold copper-column base, as if saying goodbye.",
+        {
+          "action": "Gu Heng slowly sits to catch breath a moment.",
+          "present": [
+            "E1",
+            "E10"
+          ]
+        },
+        {
+          "action": "The two opening cue bells chime again; Gu Heng closes his eyes to listen, as to the old curtain-up cue.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F8",
+      "setting": "Old-site lingering decade (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Every day Gu Heng still returns to the dome planetarium, but spends more time sitting watching the celestial globe.",
+        "Gu Heng leans the folding cane by the door; he moves slower than before.",
+        "Gu Heng lets a young assistant draft notes and only checks them himself.",
+        "Gu Heng photos the recalibrated celestial globe for distant Axing.",
+        "On the last page of the stained star-script book Gu Heng writes Handover without signing.",
+        "Gu Heng refuses hospital stay and insists on sitting at the abandoned observatory plinth each week.",
+        "Gu Heng wipes a draft of the copper memorial plaque.",
+        "At night the dome planetarium keeps only one lamp; Gu Heng dozes in the light circle."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Axing returns · Gu Heng bows out",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Axing returns along the abandoned observatory plinth and hurries toward the ruins.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "At the abandoned observatory plinth Axing reunites with slow-stepping Gu Heng; they embrace.",
+        {
+          "action": "Beside a cot in the dome planetarium, Axing holds Gu Heng's thin hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Gu Heng's breath fades; he finally closes his eyes and quietly passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "stepped_away",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Axing stands long at the abandoned observatory plinth; tears fall to the ground.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Axing pins Gu Heng's Big Dipper badge to his own collar.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · copper memorial plaque (indirect reference to the deceased)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the dome planetarium door Gu Heng's old coat still hangs; Axing reaches to stroke it gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "Beside the abandoned observatory plinth, adult Axing stands before a newly nailed copper memorial plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Axing's fingertip traces Gu Heng's name carved on the copper memorial plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Axing sets a white chrysanthemum under the lower edge of the copper memorial plaque.",
+          "present": [
+            "E2",
+            "E11"
+          ]
+        },
+        {
+          "action": "Wind crosses the abandoned observatory plinth; Axing softly reads the year on the plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Axing and Achen reunite (adult misidentification + co-presence)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Remade-face adult Achen arrives and tightly embraces Axing at the abandoned observatory plinth.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_face"
+            }
+          ]
+        },
+        "Axing and Achen stand side by side by the copper memorial plaque—one quiet-eyed, one deep-faced.",
+        "Achen touches his amber star brooch, then looks at the Big Dipper badge on Axing's collar.",
+        "They look at each other in silence, at faces alike and yet unlike.",
+        "Axing and Achen walk together toward the end; shadows merge into one."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate · no names throughout)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth in a turmeric armband first holding a script in the star-map gallery appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth in a turmeric armband first holding a script in the star-map gallery",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the planetarium, a hemispheric star instrument with intact brass rings is first lit and set rotating.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the hemispheric star instrument with intact brass rings first lit and rotating at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flashback to the equipment mezzanine that year—the figure with an amber star brooch practicing with a mic flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure with an amber star brooch practicing with a mic in the equipment mezzanine that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old milky-shade fixtures on the dome track.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old milky-shade fixtures on the dome track",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to that front-hall corridor with constellation reliefs of first meeting; reflective floor tiles are as they were.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that front-hall corridor with constellation reliefs of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "A page turns—that deep-blue leather script book still without coffee stains, filled with show cues, appears again.",
+          "present": [
+            {
+              "eid": "E4",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that deep-blue leather script book still without coffee stains, filled with show cues",
+                "resolves_to": "E4"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal flashback never uses entity proper names; anchor.resolves_to is for scoring."
+    },
+    {
+      "id": "S18",
+      "setting": "Close (stained star-script long-range · seat-number glow-tag long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Axing reopens that already coffee-stained star-script book and walks into the dome planetarium.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "In the front commentary zone, those earlier three seat-number glow tags still glow neat.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Axing takes over watch of the celestial globe; the repair mark is clear under the lights.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Axing twists on the five track spotlights; light fills the space again.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Axing stands straight before the recalibrated celestial globe, checking opening cues and star-point coordinates as Gu Heng once did.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    }
+  ]
+}

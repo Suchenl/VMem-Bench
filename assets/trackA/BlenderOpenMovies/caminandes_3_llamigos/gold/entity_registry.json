@@ -1,0 +1,545 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "caminandes_3_llamigos",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "5360798a0aad8bce",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "棕色羊驼",
+      "description": "一只毛色为棕黄色的卡通羊驼，拥有不成比例的白色大眼睛和黑色瞳孔。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          6,
+          136
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 6.0,
+      "last_frame": null,
+      "last_seconds": 136.0,
+      "screen_time_seconds": 130.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c002_char_001",
+          "chunk_id": 2,
+          "description": "appearance_changed: 眼部周围出现深褐色类似护目镜或黑眼圈的环状结构，并持续存在。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 27.0
+        },
+        {
+          "event_id": "evt_c007_char_001.1",
+          "chunk_id": 7,
+          "description": "appearance_changed: 头顶右侧出现紫红色肿块/淤青，随后在雪地滚动后消失。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 80.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "企鹅幼崽",
+      "description": "一只体型圆润、毛茸茸的黑白相间企鹅幼崽，眼睛大而明亮呈蓝色。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          16,
+          136
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 16.0,
+      "last_frame": null,
+      "last_seconds": 136.0,
+      "screen_time_seconds": 120.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "成年企鹅群",
+      "description": "一群黑白相间的成年企鹅。",
+      "first_chunk": 9,
+      "presence_spans": [
+        [
+          111,
+          136
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 111.0,
+      "last_frame": null,
+      "last_seconds": 136.0,
+      "screen_time_seconds": 25.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_003@c009",
+          "chunk_id": 9,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "红果植物",
+      "description": "一株生长在冰面上的小植物，茎部绿色，顶端结有数颗鲜红色的圆形浆果。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          6,
+          30
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 6.0,
+      "last_frame": null,
+      "last_seconds": 30.0,
+      "screen_time_seconds": 24.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c002_prop_001",
+          "chunk_id": 2,
+          "description": "destroyed: 被奔跑的羊驼撞倒，果实散落。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 16.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "蒸汽火车",
+      "description": "一辆黑色的老式蒸汽火车头，带有红色装饰线条。",
+      "first_chunk": 3,
+      "presence_spans": [
+        [
+          30,
+          44
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 30.0,
+      "last_frame": null,
+      "last_seconds": 44.0,
+      "screen_time_seconds": 14.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c003",
+          "chunk_id": 3,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "矿车",
+      "description": "一个木制结构的四轮矿车，内部铺有木板。",
+      "first_chunk": 5,
+      "presence_spans": [
+        [
+          56,
+          80
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 56.0,
+      "last_frame": null,
+      "last_seconds": 80.0,
+      "screen_time_seconds": 24.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c005",
+          "chunk_id": 5,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c007_prop_003",
+          "chunk_id": 7,
+          "description": "broken: 冲出隧道口后撞击木质支架解体散架。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 80.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "红葡萄串",
+      "description": "成串的红色球形果实，外观类似葡萄。",
+      "first_chunk": 4,
+      "presence_spans": [
+        [
+          44,
+          96
+        ],
+        [
+          111,
+          136
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 44.0,
+      "last_frame": null,
+      "last_seconds": 136.0,
+      "screen_time_seconds": 77.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 15.0,
+      "representations": [
+        {
+          "representation_id": "prop_004@c004",
+          "chunk_id": 4,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c010_prop_004",
+          "chunk_id": 10,
+          "description": "consumed: 被羊驼和企鹅幼崽分食。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 127.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_005",
+      "kind": "prop",
+      "name": "灯塔",
+      "description": "一座位于海边悬崖上的砖石结构灯塔，顶部有发光装置。",
+      "first_chunk": 9,
+      "presence_spans": [
+        [
+          111,
+          136
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 111.0,
+      "last_frame": null,
+      "last_seconds": 136.0,
+      "screen_time_seconds": 25.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_005@c009",
+          "chunk_id": 9,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "冰雪围栏区",
+      "description": "覆盖着积雪的开阔地带，背景有雪山，前景有木桩和铁丝围成的简易围栏及结冰的水面。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          30
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 30.0,
+      "screen_time_seconds": 30.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "雪地铁路",
+      "description": "铺设在雪原上的双轨铁路，周围是起伏的雪丘和远处的抽油机。",
+      "first_chunk": 3,
+      "presence_spans": [
+        [
+          30,
+          56
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 30.0,
+      "last_frame": null,
+      "last_seconds": 56.0,
+      "screen_time_seconds": 26.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c003",
+          "chunk_id": 3,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "地下矿洞",
+      "description": "黑暗潮湿的岩石洞穴，内部有废弃的木质支撑结构和铁轨，顶部垂下钟乳石。",
+      "first_chunk": 5,
+      "presence_spans": [
+        [
+          56,
+          80
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 56.0,
+      "last_frame": null,
+      "last_seconds": 80.0,
+      "screen_time_seconds": 24.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c005",
+          "chunk_id": 5,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "高山雪坡",
+      "description": "陡峭的雪山斜坡，布满尖锐的岩石峰林，视野开阔。",
+      "first_chunk": 7,
+      "presence_spans": [
+        [
+          80,
+          111
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 80.0,
+      "last_frame": null,
+      "last_seconds": 111.0,
+      "screen_time_seconds": 31.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_004@c007",
+          "chunk_id": 7,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_005",
+      "kind": "location",
+      "name": "海边悬崖",
+      "description": "临近海洋的积雪悬崖边缘，远处可见海平面和天空，立有一座灯塔。",
+      "first_chunk": 9,
+      "presence_spans": [
+        [
+          111,
+          136
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 111.0,
+      "last_frame": null,
+      "last_seconds": 136.0,
+      "screen_time_seconds": 25.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_005@c009",
+          "chunk_id": 9,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

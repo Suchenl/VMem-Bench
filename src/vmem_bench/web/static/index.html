@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>MemStrata-Bench 智能标注控制台</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/app.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bg: '#05070c',
+        panel: '#0c0f1d',
+        panelLight: '#141a30',
+        border: '#1a233d',
+        borderLight: '#2a395c',
+        accent: '#2563eb',
+        accentLight: '#3b82f6',
+        dimText: '#475569',
+        normalText: '#94a3b8',
+        lightText: '#f8fafc',
+        success: '#10b981',
+        warning: '#f59e0b',
+        danger: '#ef4444',
+        violet: '#8b5cf6',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', '"SF Mono"', 'Menlo', 'monospace'],
+      }
+    }
+  }
+}
+</script>
+</head>
+<body class="bg-bg text-normalText antialiased overflow-hidden h-full">
+
+<div id="app" class="h-full max-h-full flex flex-col relative overflow-hidden" v-cloak>
+  
+  <!-- 顶栏 (Header) - 顶级毛玻璃磨砂效果 -->
+  <header class="bg-panel/75 backdrop-blur-xl border-b border-border/60 px-6 py-4 flex items-center justify-between flex-wrap gap-4 sticky top-0 z-40 shadow-[0_4px_30px_rgba(0,0,0,0.4)] flex-shrink-0">
+    <div class="flex items-center gap-3.5">
+      <div class="h-3 w-3 rounded-full bg-accentLight animate-pulse shadow-[0_0_12px_#3b82f6]"></div>
+      <h1 class="text-lightText font-extrabold text-base tracking-wider flex items-center gap-2">
+        MemStrata-Bench
+        <span class="text-[9px] tracking-widest font-black text-accentLight px-2 py-0.5 bg-accentLight/10 border border-accentLight/20 rounded-md shadow-sm">CONSOLE</span>
+      </h1>
+      <span class="text-border/80 text-sm font-light">|</span>
+      <div class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-bg/60 border border-border/50 text-xs font-mono">
+        <span class="text-dimText font-semibold">MOVIE:</span>
+        <span class="text-accentLight font-bold uppercase tracking-wider">{{ runStatus.movie_id || '—' }}</span>
+      </div>
+      <select v-if="movies.length" v-model="selectedMovie" @change="selectMovie" class="bg-bg border border-border rounded-lg px-2 py-1 text-xs text-lightText max-w-[240px]">
+        <option v-for="movie in movies" :key="movie.movie_id" :value="movie.movie_id">{{ movie.movie_id }}{{ movie.done ? ' · 可审核' : ' · 运行中' }}</option>
+      </select>
+    </div>
+
+    <!-- 顶栏核心进度指示器 -->
+    <div class="flex-1 max-w-xl mx-8 flex items-center gap-4">
+      <div class="text-xs text-dimText whitespace-nowrap hidden lg:flex items-center gap-1.5">
+        <span class="text-lightText font-bold text-[11px]">{{ progressText.title }}</span>
+        <span class="h-1 w-1 rounded-full bg-slate-600"></span>
+        <span class="text-accentLight font-semibold text-[11px] font-mono tracking-wide max-w-[200px] truncate" :title="progressText.detail">{{ progressText.detail }}</span>
+      </div>
+      <div class="flex-1 h-1.5 bg-bg/90 rounded-full border border-border/80 overflow-hidden relative shadow-inner">
+        <div class="h-full bg-gradient-to-r from-accentLight via-blue-500 to-violet transition-all duration-500 ease-out shadow-[0_0_8px_rgba(59,130,246,0.5)]" :style="{ width: progressPercent + '%' }"></div>
+      </div>
+      <div class="text-xs text-lightText font-extrabold whitespace-nowrap min-w-[40px] text-right font-mono">
+        {{ progressPercent }}%
+      </div>
+    </div>
+
+    <!-- 控制端/连接徽章 & Mode Tabs -->
+    <div class="flex items-center gap-3">
+      <!-- SSE Connection Badge -->
+      <div class="flex items-center gap-2 bg-bg/60 border border-border/50 px-3.5 py-1.5 rounded-xl text-xs shadow-inner">
+        <div class="h-1.5 w-1.5 rounded-full transition-colors duration-300" :class="{
+          'bg-success shadow-[0_0_8px_#10b981] animate-ping': connStatus === 'connected',
+          'bg-warning pulse-active': connStatus === 'reconnecting',
+          'bg-danger shadow-[0_0_8px_#ef4444]': connStatus === 'disconnected'
+        }"></div>
+        <span class="text-[10px] tracking-widest uppercase font-bold text-lightText/90 font-mono">{{ connText }}</span>
+      </div>
+
+      <!-- Mode Tabs -->
+      <div class="flex bg-bg border border-border/80 rounded-xl p-0.5 shadow-lg">
+        <a href="/roster"
+          class="px-4 py-2 rounded-lg text-xs transition-all flex items-center gap-1.5 font-extrabold text-warning hover:text-lightText">
+          Roster 确认
+        </a>
+        <button 
+          @click="activeMode = 'live'"
+          class="px-4 py-2 rounded-lg text-xs transition-all flex items-center gap-1.5 font-extrabold smooth-all"
+          :class="activeMode === 'live' ? 'bg-panelLight text-accentLight border border-border/80 shadow-md' : 'text-dimText hover:text-normalText'"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          Live 监控
+        </button>
+        <button 
+          @click="switchToReview()"
+          :disabled="!runStatus.done"
+          class="px-4 py-2 rounded-lg text-xs transition-all flex items-center gap-1.5 relative font-extrabold smooth-all"
+          :class="[
+            activeMode === 'review' ? 'bg-panelLight text-success border border-border/80 shadow-md' : 'text-dimText',
+            runStatus.done ? 'hover:text-normalText cursor-pointer' : 'cursor-not-allowed opacity-35'
+          ]"
+          :title="runStatus.done ? '进入人工审核模式' : '任务进行中，暂不可审核'"
+        >
+          <svg v-if="!runStatus.done" class="w-3.5 h-3.5 text-dimText" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          <svg v-else class="w-3.5 h-3.5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          人工审核
+          <span v-if="gold && !gold.human_reviewed" class="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-warning opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-warning"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 步骤指示器轨道 - 极其细腻的太空格调 -->
+  <div class="bg-panel/10 border-b border-border/40 px-6 py-2.5 overflow-x-auto no-scrollbar flex-shrink-0">
+    <div class="flex items-center gap-3 min-w-[700px] text-xs justify-between">
+      <div v-for="(name, step) in steps" :key="step" 
+           class="flex items-center gap-2.5 transition-all duration-300"
+           :class="runStatus.stage === step ? 'text-accentLight font-extrabold scale-102' : (isStepDone(step) ? 'text-success/80' : 'text-dimText')">
+        <div class="h-6 w-6 rounded-full flex items-center justify-center border font-bold text-[10px] transition-all" :class="{
+          'bg-accentLight/10 text-accentLight border-accentLight shadow-[0_0_10px_rgba(59,130,246,0.2)]': runStatus.stage === step,
+          'bg-success/5 text-success border-success/30': isStepDone(step),
+          'border-border/50 bg-bg/20': !isStepDone(step) && runStatus.stage !== step
+        }">
+          <span v-if="isStepDone(step)">✓</span>
+          <span v-else>{{ getStepNum(step) }}</span>
+        </div>
+        <span class="tracking-wide font-sans text-[11px] font-semibold">{{ name }}</span>
+        <div v-if="step !== 'done'" class="text-border/40 font-light ml-1.5">➔</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主体工作区：必须吃满剩余视口高度，否则日志会把页面撑开导致无法滚到底 -->
+  <main class="flex-1 min-h-0 flex flex-col md:flex-row overflow-hidden">
+    
+    <!-- ==================== MODE 1: LIVE 监控 ==================== -->
+    <template v-if="activeMode === 'live'">
+      <!-- 左侧边栏: Chunk网格、角色、资产流 -->
+      <div class="w-full md:w-[360px] border-r border-border/50 bg-panel/10 p-5 flex flex-col gap-4 overflow-y-auto no-scrollbar">
+        <!-- 流水线实时工位 -->
+        <div class="bg-panel/60 border border-border/80 rounded-2xl p-4.5 shadow-lg backdrop-blur-md">
+          <h2 class="text-[10px] font-bold text-dimText uppercase tracking-wider mb-3">当前活跃工位</h2>
+          <div class="flex flex-col gap-2.5">
+            <!-- Annotator -->
+            <div class="flex items-center justify-between p-3 rounded-xl border smooth-all" 
+                 :class="liveState.annotatorActive ? 'bg-accentLight/5 border-accentLight/40 shadow-[0_0_10px_rgba(59,130,246,0.06)]' : 'bg-bg/30 border-border/60'">
+              <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full" :class="liveState.annotatorActive ? 'bg-accentLight pulse-active shadow-[0_0_8px_#3b82f6]' : 'bg-dimText'"></div>
+                <span class="text-xs font-bold" :class="liveState.annotatorActive ? 'text-accentLight' : 'text-dimText'">标注员 Annotator</span>
+              </div>
+              <span class="text-[11px] text-right max-w-[150px] truncate font-semibold font-mono" :class="liveState.annotatorActive ? 'text-lightText' : 'text-dimText'">
+                {{ liveState.annotatorStage || '空闲' }}
+              </span>
+            </div>
+            <!-- Verifier -->
+            <div class="flex items-center justify-between p-3 rounded-xl border smooth-all" 
+                 :class="liveState.verifierActive ? 'bg-violet/5 border-violet/40 shadow-[0_0_10px_rgba(139,92,246,0.06)]' : 'bg-bg/30 border-border/60'">
+              <div class="flex items-center gap-2">
+                <div class="h-2 w-2 rounded-full" :class="liveState.verifierActive ? 'bg-violet pulse-active shadow-[0_0_8px_#8b5cf6]' : 'bg-dimText'"></div>
+                <span class="text-xs font-bold" :class="liveState.verifierActive ? 'text-violet' : 'text-dimText'">校验员 Verifier</span>
+              </div>
+              <span class="text-[11px] text-right max-w-[150px] truncate font-semibold font-mono" :class="liveState.verifierActive ? 'text-lightText' : 'text-dimText'">
+                {{ liveState.verifierStage || '空闲' }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chunk 地图 -->
+        <div class="bg-panel/60 border border-border/80 rounded-2xl p-4.5 shadow-lg backdrop-blur-md">
+          <div class="flex justify-between items-center mb-3">
+            <h2 class="text-[10px] font-bold text-dimText uppercase tracking-wider">Chunk 网格地图</h2>
+            <span class="text-[10px] text-accentLight px-2 py-0.5 rounded-md bg-accentLight/5 border border-accentLight/15 font-bold font-mono">MAP: {{ runStatus.n_chunks || 0 }}</span>
+          </div>
+          <div class="grid grid-cols-10 gap-1.5 p-2.5 bg-bg/50 rounded-xl border border-border/60 shadow-inner">
+            <div 
+              v-for="cid in Array.from({length: runStatus.n_chunks || 0}, (_, i) => i)" 
+              :key="cid"
+              @click="selectLiveChunk(cid)"
+              class="aspect-square rounded border cursor-pointer flex items-center justify-center text-[10px] font-bold transition-all duration-200 hover:scale-110 shadow-sm"
+              :class="getChunkGridClass(cid)"
+              :title="'Chunk ' + String(cid).padStart(3, '0') + (liveState.chunks[cid] ? ': ' + getChunkGridTitle(cid) : '')"
+            >
+              {{ cid }}
+            </div>
+          </div>
+          <!-- 图例 -->
+          <div class="flex flex-wrap gap-x-3.5 gap-y-2 mt-4 text-[10px] text-dimText border-t border-border/40 pt-3">
+            <div class="flex items-center gap-1.5"><div class="h-2 w-2 bg-bg/40 border border-border rounded-sm"></div>待处理</div>
+            <div class="flex items-center gap-1.5"><div class="h-2 w-2 bg-accentLight/20 border border-accentLight rounded-sm pulse-active"></div>进行中</div>
+            <div class="flex items-center gap-1.5"><div class="h-2 w-2 bg-success/20 border border-success rounded-sm"></div>一次通过</div>
+            <div class="flex items-center gap-1.5"><div class="h-2 w-2 bg-warning/20 border border-warning rounded-sm"></div>Flagged</div>
+          </div>
+        </div>
+
+        <!-- 实时资产库 (支持图片浏览与高亮) -->
+        <div class="bg-panel/60 border border-border/80 rounded-2xl p-4.5 flex-1 flex flex-col min-h-[220px] overflow-hidden shadow-lg backdrop-blur-md">
+          <div class="flex items-center justify-between mb-3 border-b border-border/30 pb-2.5 flex-shrink-0">
+            <h2 class="text-[10px] font-bold text-dimText uppercase tracking-wider">实时资产库</h2>
+            <span class="text-[10px] px-2.5 py-0.5 rounded bg-bg border border-border/60 text-lightText font-bold font-mono">{{ liveAssets.length }}</span>
+          </div>
+          <div class="flex-1 overflow-y-auto pr-1 flex flex-col gap-2 no-scrollbar" v-if="liveAssets.length > 0">
+            <div v-for="e in liveAssets" :key="e.entity_id || e.name" 
+                 class="p-2 rounded-xl bg-bg/30 border border-border/50 flex items-center gap-3 hover:border-borderLight hover:bg-bg/60 transition-all duration-200 group">
+              <!-- Cover image -->
+              <div class="w-10 h-10 rounded-lg bg-panelLight border border-border/80 overflow-hidden flex-shrink-0 flex items-center justify-center relative">
+                <img 
+                  v-if="e.cover" 
+                  :src="'/img?p=' + encodeURIComponent(e.cover)" 
+                  class="w-full h-full object-cover cursor-zoom-in group-hover:scale-105 transition-transform duration-300" 
+                  @click="showLightbox('/img?p=' + encodeURIComponent(e.cover))"
+                  loading="lazy"
+                />
+                <span v-else class="text-[10px] font-bold text-accentLight">{{ e.name.substring(0,1).toUpperCase() }}</span>
+              </div>
+              <div class="flex-1 min-w-0 flex flex-col gap-0.5">
+                <div class="flex items-center justify-between gap-1.5">
+                  <span class="font-extrabold text-lightText text-xs truncate group-hover:text-accentLight transition-colors leading-tight">{{ e.name }}</span>
+                  <span class="text-[7.5px] px-1 py-0.2 rounded font-bold uppercase tracking-wider" :class="getKindClass(e.kind)">
+                    {{ e.kind }}
+                  </span>
+                </div>
+                <div class="text-[9px] text-dimText font-mono">
+                  {{ e.n_reps ? e.n_reps + ' reps · ' : '' }}首现 c{{ String(e.first_chunk || 0).padStart(3, '0') }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-1 flex flex-col items-center justify-center text-center p-4 text-dimText text-xs" v-else>
+            <svg class="w-10 h-10 mb-3 opacity-20 text-accentLight" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            <span class="text-dimText font-medium text-[11px] leading-relaxed">（实体心跳陆续上传后，<br/>在此处渲染其发现的证据截图）</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live 监控详情弹窗 (整合完整图片浏览浏览器) -->
+      <div v-if="selectedChunkId !== null" class="fixed inset-0 bg-bg/85 z-50 flex items-center justify-center p-4 backdrop-blur-md" @click="selectedChunkId = null">
+        <div class="bg-panel border border-border w-full max-w-lg rounded-2xl overflow-hidden shadow-[0_24px_50px_rgba(0,0,0,0.6)]" @click.stop>
+          <div class="bg-panelLight px-4 py-3.5 border-b border-border/80 flex items-center justify-between shadow-inner">
+            <span class="font-extrabold text-lightText tracking-wide text-xs">Chunk {{ String(selectedChunkId).padStart(3, '0') }} 实时详情</span>
+            <button @click="selectedChunkId = null" class="text-dimText hover:text-lightText font-bold text-sm smooth-all">✕</button>
+          </div>
+          <div class="p-5 max-h-[75vh] overflow-y-auto flex flex-col gap-4 no-scrollbar">
+            <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+              <div class="p-2.5 rounded-lg bg-bg/40 border border-border/80">
+                <div class="text-dimText text-[10px] uppercase font-bold tracking-wider">帧段范围</div>
+                <div class="font-bold mt-1 text-lightText">{{ liveState.chunks[selectedChunkId]?.frame_span ? liveState.chunks[selectedChunkId].frame_span.join(' – ') : '等待分配' }}</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-bg/40 border border-border/80">
+                <div class="text-dimText text-[10px] uppercase font-bold tracking-wider">完成用时</div>
+                <div class="font-bold mt-1 text-lightText">{{ liveState.chunks[selectedChunkId]?.seconds ? liveState.chunks[selectedChunkId].seconds + ' 秒' : '暂无' }}</div>
+              </div>
+            </div>
+            
+            <!-- crops 实时浏览核心逻辑 -->
+            <div v-if="liveState.chunks[selectedChunkId]?.crops && liveState.chunks[selectedChunkId].crops.length > 0">
+              <div class="text-dimText text-[10px] uppercase mb-1.5 font-bold tracking-wider">该段裁剪追踪截图 (Crops)</div>
+              <div class="flex gap-2 overflow-x-auto pb-1.5 max-w-full">
+                <div v-for="rep in liveState.chunks[selectedChunkId].crops" :key="rep.representation_id"
+                     class="w-12 h-12 rounded-lg border border-border/80 flex-shrink-0 relative overflow-hidden group/rep shadow-md hover:border-accentLight/50 transition-colors">
+                  <img :src="'/img?p=' + encodeURIComponent(rep.crop_path)" 
+                       class="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-200"
+                       @click="showLightbox('/img?p=' + encodeURIComponent(rep.crop_path))"
+                       loading="lazy" />
+                </div>
+              </div>
+            </div>
+
+            <div class="p-3 bg-bg/20 rounded-xl border border-border/80 shadow-inner" v-if="liveState.chunks[selectedChunkId]?.prompt">
+              <div class="text-dimText text-[10px] uppercase mb-1.5 font-bold tracking-wider">起草 Prompts</div>
+              <p class="text-xs leading-relaxed text-normalText whitespace-pre-wrap font-sans bg-bg/30 p-2.5 rounded-lg border border-border/40">{{ liveState.chunks[selectedChunkId].prompt }}</p>
+            </div>
+
+            <div v-if="liveState.chunks[selectedChunkId]?.entities && liveState.chunks[selectedChunkId].entities.length > 0">
+              <div class="text-dimText text-[10px] uppercase mb-1.5 font-bold tracking-wider">本段关联实体 ({{ liveState.chunks[selectedChunkId].entities.length }})</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span v-for="e in liveState.chunks[selectedChunkId].entities" :key="e.name" 
+                      class="px-2 py-0.5 rounded text-[11px] font-semibold flex items-center gap-1 border border-border"
+                      :class="getKindBadgeClass(e.kind)">
+                  {{ e.name }}
+                </span>
+              </div>
+            </div>
+
+            <div v-if="liveState.chunks[selectedChunkId]?.checks && liveState.chunks[selectedChunkId].checks.length > 0">
+              <div class="text-dimText text-[10px] uppercase mb-1.5 font-bold tracking-wider">校验详情</div>
+              <div class="flex flex-col gap-1.5 bg-bg/40 border border-border/80 p-2.5 rounded-lg">
+                <div v-for="ck in liveState.chunks[selectedChunkId].checks" :key="ck.check" 
+                     class="flex items-start gap-2 text-xs" :class="ck.passed ? 'text-success' : 'text-danger'">
+                  <span class="font-bold font-mono">{{ ck.passed ? '✓' : '✗' }}</span>
+                  <div class="flex-1">
+                    <span class="font-semibold">{{ ck.check }}</span>
+                    <span v-if="ck.detail" class="text-[10px] block text-dimText mt-0.5 font-sans leading-relaxed">原因: {{ ck.detail }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右侧宽栏: 实时事件流日志 (现代高档 Terminal 拟态) -->
+      <div class="flex-1 min-h-0 p-5 flex flex-col h-full bg-[#03050a]/40 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-border/50 pb-3 mb-4 flex-wrap gap-2 flex-shrink-0">
+          <div class="flex items-center gap-2">
+            <h2 class="text-xs font-bold uppercase tracking-wider text-lightText">事件流日志 (Live-Events)</h2>
+            <span class="text-[9px] font-bold px-2 py-0.5 bg-accentLight/10 border border-accentLight/20 text-accentLight rounded-md font-mono">
+              CAP = 1500
+            </span>
+          </div>
+
+          <!-- 过滤器 -->
+          <div class="flex bg-bg border border-border/80 rounded-lg p-0.5 text-xs shadow-lg">
+            <button @click="currentFilter = 'all'" :class="currentFilter === 'all' ? 'bg-[#141a30] text-accentLight border border-border/80 font-bold px-3.5 py-1 rounded-md shadow-inner' : 'text-dimText px-3.5 py-1 hover:text-normalText smooth-all'">全部</button>
+            <button @click="currentFilter = 'chunk'" :class="currentFilter === 'chunk' ? 'bg-[#141a30] text-accentLight border border-border/80 font-bold px-3.5 py-1 rounded-md shadow-inner' : 'text-dimText px-3.5 py-1 hover:text-normalText smooth-all'">Chunk</button>
+            <button @click="currentFilter = 'role'" :class="currentFilter === 'role' ? 'bg-[#141a30] text-accentLight border border-border/80 font-bold px-3.5 py-1 rounded-md shadow-inner' : 'text-dimText px-3.5 py-1 hover:text-normalText smooth-all'">工位</button>
+            <button @click="currentFilter = 'asset'" :class="currentFilter === 'asset' ? 'bg-[#141a30] text-accentLight border border-border/80 font-bold px-3.5 py-1 rounded-md shadow-inner' : 'text-dimText px-3.5 py-1 hover:text-normalText smooth-all'">资产</button>
+            <button @click="currentFilter = 'warn'" :class="currentFilter === 'warn' ? 'bg-warning/10 border border-warning/15 text-warning font-bold px-3.5 py-1 rounded-md shadow-inner' : 'text-dimText px-3.5 py-1 hover:text-normalText smooth-all'">异常</button>
+          </div>
+        </div>
+
+        <!-- 日志主体盒子与右侧可拖动位置进度条 -->
+        <div class="relative flex-1 min-h-0 flex gap-2">
+          <div id="log" @scroll="onLogScroll" class="flex-1 min-w-0 h-full overflow-y-auto bg-[#04060b] border border-border/80 rounded-xl p-4.5 font-mono text-[11px] leading-relaxed flex flex-col gap-2 shadow-inner shadow-black/80" ref="logContainer">
+            <div class="flex-grow min-h-0" aria-hidden="true"></div>
+            <div 
+              v-for="(ev, idx) in filteredLogs" 
+              :key="idx" 
+              class="py-1 border-b border-border/30 flex items-start gap-3.5 select-text smooth-all hover:bg-white/[0.01] flex-shrink-0"
+              :class="getLogItemClass(ev)"
+            >
+              <span class="text-dimText text-[10px] whitespace-nowrap pt-0.5">{{ formatLogTs(ev.ts) }}</span>
+              <span class="font-extrabold text-accentLight/90 min-w-[75px] whitespace-nowrap">[{{ getLogKindLabel(ev) }}]</span>
+              <div class="flex-1 flex flex-col">
+                <span class="text-lightText/90 text-[11.5px] font-medium leading-relaxed">{{ getLogBody(ev) }}</span>
+                <span v-if="getLogDetail(ev)" class="text-dimText text-[10px] mt-2 whitespace-pre-wrap bg-bg/50 p-2.5 rounded-lg border border-border/40 font-mono leading-relaxed shadow-inner">{{ getLogDetail(ev) }}</span>
+              </div>
+            </div>
+            <div class="flex-1 flex items-center justify-center p-8 text-dimText italic font-sans" v-if="filteredLogs.length === 0">
+              暂无事件，正在加载流水线日志流...
+            </div>
+          </div>
+          <div class="flex flex-col items-center gap-1.5 flex-shrink-0 w-4 self-stretch py-1">
+            <span class="text-[9px] font-mono text-accentLight leading-none">{{ logScrollProgress }}%</span>
+            <div
+              role="slider"
+              tabindex="0"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              :aria-valuenow="logScrollProgress"
+              aria-label="事件流日志位置（拖动翻页）"
+              :title="`日志位置：${logScrollProgress}%（拖动或点击跳转）`"
+              class="log-scrubber relative flex-1 w-2 rounded-md bg-border/70 border border-borderLight/40 shadow-inner"
+              :class="{ 'is-scrubbing': isScrubbingLog }"
+              @mousedown.prevent="onLogScrubberPointerDown"
+              @touchstart.prevent="onLogScrubberPointerDown"
+            >
+              <span
+                class="absolute top-0 left-0 w-full rounded-md bg-gradient-to-b from-accentLight via-blue-500 to-violet shadow-[0_0_8px_rgba(59,130,246,0.45)]"
+                :style="{ height: Math.max(4, logScrollProgress) + '%' }"
+              ></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 自动滚动回到最底浮动按钮 -->
+        <div v-if="!autoScrollLog && eventsLog.length > 5" 
+             @click="toggleAutoScroll(true)"
+             class="absolute bottom-10 right-16 bg-accent hover:bg-accentLight text-white font-extrabold text-[11px] tracking-wide px-4 py-2 rounded-full cursor-pointer shadow-xl flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 z-10">
+          <span>⬇</span> 自动滚动已暂停 (点击恢复)
+        </div>
+      </div>
+    </template>
+
+
+    <!-- ==================== MODE 2: REVIEW 审核 ==================== -->
+    <template v-else-if="activeMode === 'review'">
+      
+      <!-- 审核左侧控制栏：筛选及Sub Tabs -->
+      <div class="w-full md:w-[330px] min-h-0 max-h-[38vh] md:max-h-none border-r border-border/50 bg-panel/10 p-5 flex flex-col gap-4 overflow-y-auto no-scrollbar flex-shrink-0">
+        <div class="bg-panel border border-border/80 rounded-2xl p-4 shadow-lg backdrop-blur-md">
+          <h2 class="text-[10px] font-bold text-dimText uppercase tracking-wider mb-3">审核子模块</h2>
+          <div class="flex flex-col gap-2">
+            <button
+              @click="reviewSubTab = 'inbox'"
+              class="w-full px-3.5 py-2.5 rounded-xl text-xs text-left transition-all flex items-center justify-between font-bold smooth-all"
+              :class="reviewSubTab === 'inbox' ? 'bg-danger/10 text-danger border border-danger/25 shadow-inner' : 'text-dimText hover:text-normalText border border-transparent'"
+            >
+              <span class="flex items-center gap-2">✓ 审核收件箱</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-bg border border-border text-dimText font-mono">
+                {{ (reviewQueue.summary || {}).n_items || 0 }}
+              </span>
+            </button>
+            <button 
+              @click="reviewSubTab = 'entities'"
+              class="w-full px-3.5 py-2.5 rounded-xl text-xs text-left transition-all flex items-center justify-between font-bold smooth-all"
+              :class="reviewSubTab === 'entities' ? 'bg-accent/10 text-accentLight border border-accent/25 shadow-inner' : 'text-dimText hover:text-normalText border border-transparent'"
+            >
+              <span class="flex items-center gap-2">📦 Entities 资产库</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-bg border border-border text-dimText font-mono" v-if="gold">
+                {{ registryCount }}
+              </span>
+            </button>
+            <button 
+              @click="reviewSubTab = 'chunks'"
+              class="w-full px-3.5 py-2.5 rounded-xl text-xs text-left transition-all flex items-center justify-between font-bold smooth-all"
+              :class="reviewSubTab === 'chunks' ? 'bg-accent/10 text-accentLight border border-accent/25 shadow-inner' : 'text-dimText hover:text-normalText border border-transparent'"
+            >
+              <span class="flex items-center gap-2">📝 Chunks 标注列表</span>
+              <span class="text-[10px] px-2 py-0.5 rounded bg-bg border border-border text-dimText font-mono" v-if="gold">
+                {{ chunkCount }}
+              </span>
+            </button>
+            <button 
+              @click="reviewSubTab = 'timeline'"
+              class="w-full px-3.5 py-2.5 rounded-xl text-xs text-left transition-all flex items-center justify-between font-bold smooth-all"
+              :class="reviewSubTab === 'timeline' ? 'bg-accent/10 text-accentLight border border-accent/25 shadow-inner' : 'text-dimText hover:text-normalText border border-transparent'"
+            >
+              <span class="flex items-center gap-2">⏳ Presence Spans 时间轴</span>
+              <span class="text-[9px] px-1.5 py-0.5 bg-success/15 border border-success/30 text-success rounded-md font-bold uppercase tracking-wider">Q3 加分</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 按 Sub-tab 显示相应的筛选工具 -->
+        <!-- Entities Sub-tab 筛选 -->
+        <div class="bg-panel border border-border/80 rounded-2xl p-4 flex-1 flex flex-col shadow-lg backdrop-blur-md" v-if="reviewSubTab === 'entities'">
+          <h2 class="text-[10px] font-bold text-dimText uppercase tracking-wider mb-2.5">资产筛选 & 检索</h2>
+          
+          <div class="mb-4 relative">
+            <input 
+              v-model="entitySearch"
+              type="text"
+              placeholder="输入 ID / 名字 / 描述检索..."
+              class="w-full bg-bg border border-border rounded-xl px-3.5 py-2 text-xs text-lightText focus:outline-none focus:border-accent"
+            />
+          </div>
+
+          <div class="flex-1 overflow-y-auto flex flex-col gap-1.5 pr-0.5 text-xs no-scrollbar">
+            <button @click="entityFilter = 'all'" class="px-3.5 py-2 rounded-xl border flex justify-between transition-all" :class="entityFilter === 'all' ? 'border-accent bg-accent/5 font-bold text-accent' : 'border-border/60 bg-bg/20 text-dimText hover:text-normalText'">
+              <span>全部资产</span>
+              <span class="text-[10px] font-mono" v-if="workingGold">{{ Object.keys(workingGold.registry).length }}</span>
+            </button>
+            <button @click="entityFilter = 'character'" class="px-3.5 py-2 rounded-xl border flex justify-between transition-all" :class="entityFilter === 'character' ? 'border-accent bg-accent/5 font-bold text-accent' : 'border-border/60 bg-bg/20 text-dimText hover:text-normalText'">
+              <span>👤 角色 (Character)</span>
+              <span class="text-[10px] font-mono" v-if="workingGold">{{ getKindCount('character') }}</span>
+            </button>
+            <button @click="entityFilter = 'prop'" class="px-3.5 py-2 rounded-xl border flex justify-between transition-all" :class="entityFilter === 'prop' ? 'border-accent bg-accent/5 font-bold text-accent' : 'border-border/60 bg-bg/20 text-dimText hover:text-normalText'">
+              <span>👜 道具 (Prop)</span>
+              <span class="text-[10px] font-mono" v-if="workingGold">{{ getKindCount('prop') }}</span>
+            </button>
+            <button @click="entityFilter = 'location'" class="px-3.5 py-2 rounded-xl border flex justify-between transition-all" :class="entityFilter === 'location' ? 'border-accent bg-accent/5 font-bold text-accent' : 'border-border/60 bg-bg/20 text-dimText hover:text-normalText'">
+              <span>🗺️ 场景 (Location)</span>
+              <span class="text-[10px] font-mono" v-if="workingGold">{{ getKindCount('location') }}</span>
+            </button>
+            <button @click="entityFilter = 'flagged'" class="px-3.5 py-2 rounded-xl border border-warning/30 bg-warning/5 text-warning flex justify-between transition-all" :class="entityFilter === 'flagged' ? 'border-warning bg-warning/10 font-bold text-warning shadow-md' : 'text-dimText hover:text-warning/80'">
+              <span>⚠️ 重点检查 (Flagged/低分)</span>
+              <span class="text-[10px] font-extrabold font-mono" v-if="workingGold">{{ getFlaggedEntitiesCount() }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Chunks Sub-tab 筛选 -->
+        <div class="bg-panel border border-border/80 rounded-2xl p-4 flex-1 flex flex-col shadow-lg backdrop-blur-md" v-if="reviewSubTab === 'chunks'">
+          <h2 class="text-[10px] font-bold text-dimText uppercase tracking-wider mb-2.5">Chunks 筛选 & 排序</h2>
+          
+          <div class="flex flex-col gap-4 text-xs">
+            <div class="flex flex-col gap-1.5">
+              <span class="text-dimText font-semibold">筛选状态:</span>
+              <button @click="chunkFilter = 'all'" class="px-3.5 py-2 rounded-xl border text-left smooth-all" :class="chunkFilter === 'all' ? 'border-accent bg-accent/5 font-bold text-accent' : 'border-border bg-bg/20 text-dimText hover:text-normalText'">
+                显示全部 Chunk
+              </button>
+              <button @click="chunkFilter = 'flagged'" class="px-3.5 py-2 rounded-xl border flex justify-between smooth-all" :class="chunkFilter === 'flagged' ? 'border-warning bg-warning/5 font-bold text-warning' : 'border-border bg-bg/20 text-dimText hover:text-normalText'">
+                <span>⚠️ Flagged (缺陷) Chunks</span>
+                <span class="text-[10px] font-mono" v-if="workingGold">{{ workingGold.qa.filter(q => q.flagged).length }}</span>
+              </button>
+              <button @click="chunkFilter = 'high_risk'" class="px-3.5 py-2 rounded-xl border flex justify-between smooth-all" :class="chunkFilter === 'high_risk' ? 'border-warning bg-warning/5 font-bold text-warning' : 'border-border bg-bg/20 text-dimText hover:text-normalText'">
+                <span>🔥 高风险 Chunks (Risk &ge; 3.0)</span>
+                <span class="text-[10px] font-mono" v-if="workingGold">{{ getHighRiskChunksCount() }}</span>
+              </button>
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <span class="text-dimText font-semibold">排列顺序:</span>
+              <div class="flex gap-2">
+                <button @click="chunkSort = 'id'" class="flex-1 px-3 py-2 rounded-xl border font-bold text-center smooth-all" :class="chunkSort === 'id' ? 'border-accent bg-accent/5 text-accent' : 'border-border bg-bg/20 text-dimText hover:text-normalText'">
+                  按 ID 顺序
+                </button>
+                <button @click="chunkSort = 'risk'" class="flex-1 px-3 py-2 rounded-xl border font-bold text-center smooth-all" :class="chunkSort === 'risk' ? 'border-accent bg-accent/5 text-accent' : 'border-border bg-bg/20 text-dimText hover:text-normalText'" title="按照启发式错误发生率进行排序（高优先级校验）">
+                  按风险排序 🔥
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Sub-tab 提示 -->
+        <div class="bg-panel border border-border/80 rounded-2xl p-4 flex-1 flex flex-col text-xs text-dimText leading-relaxed gap-2.5 shadow-lg backdrop-blur-md" v-if="reviewSubTab === 'timeline'">
+          <h2 class="text-[10px] font-bold text-dimText uppercase tracking-wider">时间轴使用说明</h2>
+          <p>
+            时序大图可直观展示每个 Entity 出现的时间轨道。多段代表该实体的多次回归出没（presence_spans）。这对应了 MemRecall 想评测的长程记忆能力。
+          </p>
+          <div class="p-2.5 bg-bg/40 border border-border rounded-xl flex flex-col gap-1.5 text-[11px]">
+            <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-md bg-gradient-to-r from-blue-600 to-cyan-500"></span> 👤 角色 (Character)</div>
+            <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-md bg-gradient-to-r from-emerald-600 to-teal-500"></span> 🗺️ 场景 (Location)</div>
+            <div class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-md bg-gradient-to-r from-violet-600 to-fuchsia-500"></span> 👜 道具 (Prop)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 审核右侧: 详情工作区 (超大圆角现代卡片、流光光泽 border、更佳层级) -->
+      <div class="flex-1 min-h-0 p-5 flex flex-col overflow-y-auto pb-44 select-text" ref="reviewPanel">
+        
+        <div v-if="goldLoadError" class="mb-4 bg-danger/10 border border-danger/30 rounded-xl p-3 text-xs text-danger flex items-center justify-between gap-3">
+          <span>加载 Gold 失败：{{ goldLoadError }}</span>
+          <button @click="fetchGold()" class="px-3 py-1.5 rounded-lg bg-danger/20 border border-danger/40 font-bold hover:bg-danger/30">重试</button>
+        </div>
+        <div v-if="!gold && !goldLoadError" class="mb-4 text-xs text-dimText italic">正在加载 Gold 审核数据...</div>
+
+        <!-- Inbox: one decision per card; patch/disposition remains the single mutation path. -->
+        <div v-if="reviewSubTab === 'inbox'" class="flex flex-col gap-4 max-w-6xl">
+          <div class="bg-panel/60 border border-border rounded-2xl p-5 flex flex-col gap-3">
+            <div class="flex items-start justify-between gap-3 flex-wrap">
+              <div>
+                <h2 class="text-lg font-extrabold text-lightText">审核收件箱</h2>
+                <p class="text-xs text-dimText mt-1">怎么审：<b class="text-normalText">① 只看带「必审」的卡，每张卡内直接点决定按钮（理由自动填写，可改）② 身份卡在图片网格上点选同一个体的实体 → 合并所选 ③ 全部必审完成后，右上角 Apply patch → 冻结</b>。抽检卡不阻塞冻结。</p>
+              </div>
+              <div class="flex gap-2 text-[11px] font-mono items-center">
+                <span class="px-2 py-1 rounded border border-danger/30 bg-danger/10 text-danger font-bold">必审 {{ mustReviewProgress().done }}/{{ mustReviewProgress().total }}</span>
+                <span class="px-2 py-1 rounded border border-border bg-bg text-dimText">抽检 {{ (reviewQueue.summary || {}).n_spot_check || 0 }}</span>
+              </div>
+            </div>
+            <div class="h-1.5 bg-bg rounded-full overflow-hidden" v-if="mustReviewProgress().total">
+              <div class="h-full bg-success rounded-full transition-all" :style="{width: (mustReviewProgress().done / mustReviewProgress().total * 100) + '%'}"></div>
+            </div>
+            <div v-if="reviewActionError" class="text-xs text-danger bg-danger/10 border border-danger/30 rounded-lg px-3 py-2">{{ reviewActionError }}</div>
+            <div v-if="!queueItems().length" class="text-sm text-success bg-success/10 border border-success/25 rounded-xl p-4">当前没有待审队列项。仍可在实体、Chunk 和时间轴中抽检后再冻结。</div>
+          </div>
+
+          <article v-for="item in queueItems()" :key="item.id" class="bg-panel/50 border border-border rounded-2xl p-4 sm:p-5 shadow-lg" :class="isQueueItemDecided(item) ? 'border-success/50' : ''">
+            <div class="flex items-start justify-between gap-3 flex-wrap">
+              <div class="min-w-0">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="text-[10px] uppercase tracking-wider font-black px-2 py-0.5 rounded bg-accent/15 text-accentLight border border-accent/25">{{ item.kind }}</span>
+                  <span v-if="item.review_tier === 'must'" class="text-[10px] px-2 py-0.5 rounded bg-danger/15 text-danger border border-danger/30 font-bold">必审</span>
+                  <span v-else-if="item.review_tier === 'spot_check'" class="text-[10px] px-2 py-0.5 rounded bg-bg text-dimText border border-border/60">抽检</span>
+                  <span v-if="isQueueItemDecided(item)" class="text-[10px] px-2 py-0.5 rounded bg-success/15 text-success border border-success/30">已暂存决定</span>
+                  <span class="text-[10px] text-dimText font-mono">priority {{ item.priority }} · 影响 {{ item.affected_chunk_ids.length }} chunks</span>
+                </div>
+                <h3 class="text-sm font-bold text-lightText mt-2">{{ item.question }}</h3>
+                <p class="text-xs text-dimText font-mono mt-1">{{ item.entity_ids.join(' · ') || 'chunk ' + item.affected_chunk_ids.join(', ') }}</p>
+              </div>
+              <button @click="focusQueueItem(item)" class="text-xs px-3 py-1.5 rounded-lg border border-border text-normalText hover:border-accent hover:text-accentLight">查看完整上下文</button>
+            </div>
+
+            <template v-if="item.kind === 'identity'">
+              <!-- Self-contained entity grid: every entity's face + evidence count in ONE view;
+                   click to group, merge the selection. No page-hopping. -->
+              <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2" v-if="(item.entity_ids || []).length >= 2">
+                <div v-for="eid in item.entity_ids" :key="eid" @click="togglePick(item, eid)"
+                     class="cursor-pointer rounded-xl border-2 p-1.5 transition-all select-none"
+                     :class="isPicked(item, eid) ? 'border-violet bg-violet/15 ring-2 ring-violet/40' : 'border-border bg-bg/40 hover:border-accent/60'">
+                  <img v-if="entityCover(eid)" :src="'/img?p=' + encodeURIComponent(entityCover(eid))" class="w-full h-28 object-contain rounded-lg bg-bg" loading="lazy" />
+                  <div v-else class="w-full h-28 flex items-center justify-center text-[10px] text-dimText bg-bg rounded-lg">无 crop</div>
+                  <div class="text-[10px] mt-1.5 leading-tight" :class="isPicked(item, eid) ? 'text-violet font-bold' : 'text-normalText'">{{ entityBrief(eid) }}</div>
+                  <div class="text-[9px] font-mono text-dimText truncate">{{ eid }}</div>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center gap-2 flex-wrap" v-if="suggestionGroups(item).length">
+                <span class="text-[11px] text-dimText">机器同体建议（点击即选中该组）：</span>
+                <button v-for="(g, gi) in suggestionGroups(item)" :key="gi" @click="applySuggestionGroup(item, g)"
+                        class="text-[11px] px-2.5 py-1 rounded-lg bg-violet/10 border border-violet/30 text-violet hover:bg-violet/25">
+                  组{{ gi + 1 }}（{{ g.length }} 个实体）
+                </button>
+              </div>
+              <details class="mt-3" v-if="identityCandidates(item).length">
+                <summary class="text-[11px] text-dimText cursor-pointer hover:text-normalText">展开逐对相似度证据（{{ identityCandidates(item).length }} 对）</summary>
+                <div class="mt-2 flex flex-col gap-1">
+                  <div v-for="(cand, ci) in identityCandidates(item)" :key="ci" class="text-[10px] text-dimText font-mono bg-bg/40 rounded px-2 py-1">
+                    {{ cand.left }} × {{ cand.right }} · body={{ cand.body_cos }} · text={{ cand.text_cos }}
+                  </div>
+                </div>
+              </details>
+              <div class="mt-3 text-[11px] text-dimText" v-if="(item.entity_ids || []).length === 1">
+                单实体身份抽检：看上方名字与证据数是否相符即可。
+              </div>
+              <div class="mt-4 flex flex-col sm:flex-row gap-2 items-stretch">
+                <input v-model="reviewNotes[item.id]" type="text" placeholder="可选：补充理由（默认自动填写）" class="flex-1 bg-bg border border-border rounded-xl px-3 py-2 text-xs text-lightText focus:outline-none focus:border-accent" />
+                <button v-if="(item.entity_ids || []).length >= 2" @click="mergeSelected(item)"
+                        class="px-4 py-2 rounded-xl text-xs font-bold bg-violet/20 border border-violet/40 text-violet hover:bg-violet/30"
+                        :class="pickedIds(item).length >= 2 ? '' : 'opacity-50'">
+                  合并所选 {{ pickedIds(item).length }} 个（可分多组多次合并）
+                </button>
+                <button @click="decideIdentity(item, 'distinct')" class="px-4 py-2 rounded-xl text-xs font-bold bg-bg border border-border text-normalText hover:border-success hover:text-success">{{ (item.entity_ids || []).length >= 2 ? '其余全部保持独立' : '确认身份' }}</button>
+              </div>
+            </template>
+            <template v-else-if="item.kind === 'state'">
+              <!-- Grouped per entity: the full event timeline inline, whole-card decision plus
+                   per-event exception toggles. -->
+              <div class="mt-4 flex flex-col gap-1.5">
+                <div v-for="ev in stateEvents(item)" :key="ev.event_id"
+                     class="flex items-start gap-2 bg-bg/45 border border-border rounded-xl px-3 py-2">
+                  <span class="text-[10px] font-mono text-dimText shrink-0 mt-0.5">c{{ ev.chunk_id }}</span>
+                  <span class="text-xs text-normalText flex-1">{{ ev.description || ev.event_id }}</span>
+                  <span v-if="(stateEventReviews[ev.event_id] || {}).action" class="text-[10px] px-1.5 py-0.5 rounded shrink-0"
+                        :class="stateEventReviews[ev.event_id].action === 'confirmed' ? 'bg-success/15 text-success' : 'bg-danger/15 text-danger'">
+                    {{ stateEventReviews[ev.event_id].action === 'confirmed' ? '已确认' : '已驳回' }}
+                  </span>
+                  <span class="flex gap-1 shrink-0">
+                    <button @click="decideOneStateEvent(item, ev.event_id, 'confirmed')" class="text-[10px] px-1.5 py-0.5 rounded border border-success/40 text-success hover:bg-success/15" title="仅确认这一条">✓</button>
+                    <button @click="decideOneStateEvent(item, ev.event_id, 'rejected')" class="text-[10px] px-1.5 py-0.5 rounded border border-danger/40 text-danger hover:bg-danger/15" title="仅驳回这一条">✕</button>
+                  </span>
+                </div>
+              </div>
+              <div class="mt-3 flex flex-col sm:flex-row gap-2">
+                <input v-model="reviewNotes[item.id]" type="text" placeholder="可选：补充理由（默认自动填写）" class="flex-1 bg-bg border border-border rounded-xl px-3 py-2 text-xs text-lightText" />
+                <button @click="decideStateEvent(item, 'confirmed')" class="px-4 py-2 rounded-xl text-xs font-bold bg-success/15 border border-success/30 text-success">全部确认不可逆</button>
+                <button @click="decideStateEvent(item, 'rejected')" class="px-4 py-2 rounded-xl text-xs font-bold bg-danger/15 border border-danger/30 text-danger">全部驳回</button>
+              </div>
+            </template>
+            <template v-else-if="item.kind === 'prompt'">
+              <div class="mt-4 bg-bg/45 border border-border rounded-xl p-3">
+                <div class="text-xs font-bold text-normalText mb-1.5">机器发现的问题</div>
+                <div v-for="(line, li) in promptFindings(item)" :key="li" class="text-xs text-warning flex items-center gap-1.5 py-0.5">
+                  <span>⚠</span><span>{{ line }}</span>
+                </div>
+                <div v-if="!promptFindings(item).length" class="text-xs text-dimText">（无结构化 finding，请点右上「查看完整上下文」核对 prompt 原文）</div>
+              </div>
+              <div class="mt-3 flex flex-col sm:flex-row gap-2 flex-wrap">
+                <input v-model="reviewNotes[item.id]" type="text" placeholder="可选：补充理由（默认自动填写）" class="flex-1 min-w-[180px] bg-bg border border-border rounded-xl px-3 py-2 text-xs text-lightText" />
+                <button @click="decidePrompt(item, 'adequate')" class="px-3 py-2 rounded-xl text-xs font-bold bg-success/15 border border-success/30 text-success">覆盖充分</button>
+                <button @click="decidePrompt(item, 'missing_entity')" class="px-3 py-2 rounded-xl text-xs font-bold bg-warning/15 border border-warning/30 text-warning">漏实体</button>
+                <button @click="decidePrompt(item, 'narrative_conflict')" class="px-3 py-2 rounded-xl text-xs font-bold bg-danger/15 border border-danger/30 text-danger">叙述冲突</button>
+              </div>
+            </template>
+            <template v-else>
+              <div class="mt-4 bg-bg/45 border border-border rounded-xl p-3 text-xs text-dimText">
+                <div class="font-bold text-normalText mb-1">机器证据</div>
+                <pre class="whitespace-pre-wrap font-mono text-[11px] max-h-32 overflow-auto">{{ JSON.stringify(item.evidence, null, 2) }}</pre>
+              </div>
+              <div class="mt-3 text-[11px] text-warning" v-if="item.kind === 'lint'">Lint 阻塞项需在实体/Chunk 编辑区修复后 Apply，不能仅靠收件箱勾选关闭。</div>
+            </template>
+          </article>
+        </div>
+
+        <!-- Tab 1: Entities 资产库 -->
+        <div v-if="reviewSubTab === 'entities'" class="flex flex-col gap-4">
+          <div class="flex justify-between items-center flex-wrap gap-2 pb-1">
+            <h2 class="text-base font-extrabold text-lightText flex items-center gap-2.5">
+              <span>📦 资产库编辑 (Entity Registry)</span>
+              <span class="text-xs px-2.5 py-0.5 rounded bg-panel border border-border/60 font-medium font-mono text-dimText">
+                FILTER: {{ filteredEntities.length }} / {{ registryCount }}
+              </span>
+            </h2>
+          </div>
+
+          <!-- 灰区合并提案（来自 tmp/auto_review.json） -->
+          <div v-if="grayMerges && grayMerges.length" class="bg-violet/10 border border-violet/30 rounded-xl p-3 flex flex-col gap-2">
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <div class="text-xs text-violet font-bold">机器灰区合并提案 ({{ grayMerges.length }})</div>
+              <button type="button" @click="acceptAllGrayMerges()"
+                class="text-[11px] px-2.5 py-1 rounded-lg bg-violet/20 border border-violet/40 text-violet font-bold hover:bg-violet/30">
+                全部接受
+              </button>
+            </div>
+            <div v-for="(m, i) in grayMerges" :key="m.merge + '->' + m.keep"
+              class="flex items-center justify-between gap-2 text-[11px] bg-bg/40 rounded-lg px-2.5 py-1.5 border border-violet/15">
+              <div class="min-w-0 font-mono text-normalText truncate">
+                <span class="text-violet font-bold">{{ m.merge }}</span>
+                <span class="text-dimText mx-1">→</span>
+                <span class="text-accentLight font-bold">{{ m.keep }}</span>
+                <span class="text-dimText ml-2">text={{ m.text_cos }} body={{ m.body_cos }}</span>
+              </div>
+              <button type="button" @click="acceptGrayMerge(m)"
+                class="flex-shrink-0 px-2 py-1 rounded-md bg-violet/25 border border-violet/40 text-violet font-bold hover:bg-violet/40">
+                接受此提案
+              </button>
+            </div>
+          </div>
+
+          <!-- Entity 卡片平铺网格 -->
+          <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
+            <div 
+              v-for="e in filteredEntities" 
+              :key="e.entity_id"
+              class="bg-panel/40 border rounded-2xl overflow-hidden shadow-lg flex flex-col sm:flex-row transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:bg-panel/60"
+              :class="[
+                e.isDropped ? 'border-danger/25 bg-danger/[0.01]' : (e.mergedInto ? 'border-violet/25 bg-violet/[0.01]' : 'border-border/80 hover:border-borderLight'),
+                getEntityBorderHighlight(e)
+              ]"
+            >
+              <!-- 左侧 Cover 正方形缩略图 -->
+              <div class="w-full sm:w-[140px] h-[110px] sm:h-auto bg-bg/85 flex items-center justify-center relative overflow-hidden flex-shrink-0 group border-r border-border/40">
+                <img 
+                  v-if="e.representations && e.representations.length > 0"
+                  :src="'/img?p=' + encodeURIComponent(e.representations[0].crop_path)" 
+                  class="w-full h-full object-cover cursor-zoom-in group-hover:scale-105 transition-transform duration-300"
+                  @click="showLightbox('/img?p=' + encodeURIComponent(e.representations[0].crop_path))"
+                  loading="lazy"
+                />
+                <div v-else class="text-dimText text-[10px]">无图像证据</div>
+
+                <!-- Entity Drop 斜角标签 -->
+                <div v-if="e.isDropped" class="absolute inset-0 bg-danger/10 backdrop-blur-[1px] flex items-center justify-center">
+                  <span class="bg-danger text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-lg">DROPPED</span>
+                </div>
+                <!-- Entity Merge 斜角标签 -->
+                <div v-else-if="e.mergedInto" class="absolute inset-0 bg-violet/10 backdrop-blur-[1px] flex items-center justify-center">
+                  <span class="bg-violet text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-lg">MERGED</span>
+                </div>
+              </div>
+
+              <!-- 右侧表单编辑区 -->
+              <div class="flex-1 p-4 flex flex-col justify-between gap-3 min-w-0">
+                <!-- 顶行：ID & Drop/Merge 动作 -->
+                <div class="flex items-start justify-between gap-2 border-b border-border/30 pb-2">
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                      <span class="text-xs font-bold text-accentLight bg-accentLight/10 border border-accentLight/25 px-2 py-0.5 rounded-md truncate max-w-[140px]" :title="e.entity_id">
+                        {{ e.entity_id }}
+                      </span>
+                      <span class="text-[9px] uppercase font-extrabold tracking-wide" :class="getKindBadgeTextClass(e.kind)">
+                        {{ e.kind }}
+                      </span>
+                    </div>
+                    <div class="text-[10px] text-dimText mt-1.5 font-mono">
+                      首现: <span class="text-normalText font-semibold">c{{ String(e.first_chunk).padStart(3, '0') }}</span> · 截图: <span class="text-normalText font-semibold font-sans">{{ e.representations.length }}</span> 张
+                    </div>
+                  </div>
+
+                  <!-- Drop & Merge 交互 -->
+                  <div class="flex items-center gap-2.5 flex-shrink-0">
+                    <!-- Drop Checkbox -->
+                    <label class="flex items-center gap-1.5 cursor-pointer text-[11px] select-none text-dimText hover:text-danger font-semibold">
+                      <input 
+                        type="checkbox" 
+                        v-model="e.isDropped"
+                        class="accent-danger h-3.5 w-3.5 cursor-pointer rounded-sm"
+                      />
+                      <span>Drop</span>
+                    </label>
+
+                    <!-- Merge Selector (非本人且非已被 merge 或 drop 的实体) -->
+                    <div class="flex items-center gap-1.5" v-if="!e.isDropped">
+                      <span class="text-[11px] text-dimText font-semibold">Merge➔</span>
+                      <select 
+                        v-model="e.mergedInto"
+                        class="bg-bg border border-border rounded px-1.5 py-0.5 text-[11px] text-lightText focus:outline-none focus:border-violet"
+                      >
+                        <option value="">(无)</option>
+                        <option 
+                          v-for="other in getMergeCandidates(e.entity_id)" 
+                          :key="other.entity_id" 
+                          :value="other.entity_id"
+                        >
+                          {{ other.name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 编辑框: Name & Description -->
+                <div class="flex flex-col gap-2">
+                  <!-- Name Input -->
+                  <div class="flex items-center gap-2">
+                    <span class="text-[9px] text-dimText min-w-[36px] text-right font-bold uppercase tracking-wider">Name</span>
+                    <input 
+                      v-model="e.name"
+                      type="text"
+                      placeholder="输入实体名称"
+                      :disabled="e.isDropped || e.mergedInto"
+                      class="flex-1 bg-bg/60 border text-xs px-2.5 py-1.5 rounded-lg text-lightText focus:outline-none focus:border-accent disabled:opacity-40"
+                      :class="getEntityNameBorderClass(e)"
+                    />
+                  </div>
+
+                  <!-- Description Input -->
+                  <div class="flex items-start gap-2">
+                    <span class="text-[9px] text-dimText min-w-[36px] text-right mt-1.5 font-bold uppercase tracking-wider">Desc</span>
+                    <textarea 
+                      v-model="e.description"
+                      placeholder="描述该实体的身份属性与外貌细节"
+                      :disabled="e.isDropped || e.mergedInto"
+                      rows="2"
+                      class="flex-1 bg-bg/60 border text-xs px-2.5 py-1.5 rounded-lg text-lightText focus:outline-none focus:border-accent disabled:opacity-40 resize-none font-sans leading-relaxed"
+                      :class="getEntityDescBorderClass(e)"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <!-- 底部: Representations 缩略图序列 -->
+                <div class="border-t border-border/40 pt-2.5">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="text-[9px] text-dimText uppercase font-bold tracking-wider">全片裁剪追踪截图证据 (Crops)</span>
+                    <span class="text-[9px] text-warning" v-if="hasWarningReps(e)">⚠️ 包含低分定位</span>
+                  </div>
+                  <div class="flex gap-2 overflow-x-auto pb-1 max-w-full">
+                    <div 
+                      v-for="rep in e.representations" 
+                      :key="rep.representation_id"
+                      class="w-10 h-10 rounded-lg border border-border/80 flex-shrink-0 relative overflow-hidden group/rep shadow-md"
+                      :class="getRepBorderClass(rep)"
+                    >
+                      <img 
+                        :src="'/img?p=' + encodeURIComponent(rep.crop_path)" 
+                        class="w-full h-full object-cover cursor-pointer hover:scale-110 transition-transform duration-200"
+                        @click="showLightbox('/img?p=' + encodeURIComponent(rep.crop_path))"
+                        loading="lazy"
+                      />
+                      <!-- Hover Overlay -->
+                      <div class="absolute inset-0 bg-black/60 opacity-0 group-hover/rep:opacity-100 transition-opacity flex items-center justify-center text-[7px] text-white pointer-events-none select-none">
+                        c{{ rep.chunk_id }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center p-12 text-dimText italic bg-panel/10 rounded-xl border border-dashed border-border" v-if="filteredEntities.length === 0">
+            暂无匹配筛选条件的资产
+          </div>
+        </div>
+
+
+        <!-- Tab 2: Chunks 列表 -->
+        <div v-if="reviewSubTab === 'chunks'" class="flex flex-col gap-4">
+          <h2 class="text-base font-extrabold text-lightText flex items-center gap-2.5">
+            <span>📝 Chunks 标注起草详情 (Chunks Prompts)</span>
+            <span class="text-xs px-2.5 py-0.5 rounded bg-panel border border-border font-semibold font-mono text-dimText">
+              COUNT: {{ filteredChunks.length }}
+            </span>
+          </h2>
+
+          <div class="flex flex-col gap-4">
+            <div 
+              v-for="c in filteredChunks" 
+              :key="c.chunk_id"
+              :id="'chunk-card-' + c.chunk_id"
+              class="bg-panel/40 border rounded-2xl overflow-hidden shadow-lg flex flex-col transition-all duration-300 hover:bg-panel/50"
+              :class="[
+                getChunkCardHighlight(c),
+                focusedChunkId === c.chunk_id ? 'border-accentLight ring-1 ring-accentLight/40' : 'border-border/80'
+              ]"
+            >
+              <!-- 顶部 Chunk 信息 -->
+              <div class="bg-panelLight/45 px-4 py-3 border-b border-border flex items-center justify-between flex-wrap gap-2 shadow-inner">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-xs font-bold text-accentLight bg-accentLight/10 border border-accentLight/25 px-2.5 py-0.5 rounded-md font-mono">
+                    Chunk {{ String(c.chunk_id).padStart(3, '0') }}
+                  </span>
+                  <span class="text-[10px] text-dimText font-mono font-semibold">
+                    FRAMES: {{ c.frame_span[0] }}–{{ c.frame_span[1] }} · TIME: {{ c.seconds_span[0] }}s–{{ c.seconds_span[1] }}s
+                  </span>
+                </div>
+
+                <div class="flex items-center gap-2.5">
+                  <div class="flex gap-1">
+                    <span v-for="tag in c.scenario_tags" :key="tag" 
+                          class="px-2 py-0.5 rounded bg-bg border border-border/85 text-[9px] font-bold text-dimText uppercase tracking-wide">
+                      {{ tag }}
+                    </span>
+                  </div>
+                  <!-- Risk badge -->
+                  <span class="px-2 py-0.5 rounded text-[9px] font-bold flex items-center gap-1 font-mono" :class="getChunkRiskBadgeClass(c)">
+                    🔥 RISK: {{ getChunkRiskScore(c).toFixed(1) }}
+                  </span>
+                  <!-- Flagged Badge -->
+                  <span v-if="isQAChunkFlagged(c.chunk_id)" class="px-2 py-0.5 rounded text-[9px] bg-warning/15 border border-warning text-warning font-bold uppercase animate-pulse tracking-wider">
+                    Flagged
+                  </span>
+                </div>
+              </div>
+
+              <!-- 主体: Prompt 编辑与 present entities -->
+              <div class="p-4 flex flex-col gap-3">
+                <!-- QA Error messages -->
+                <div v-if="isQAChunkFlagged(c.chunk_id)" class="bg-warning/5 border border-warning/15 p-3 rounded-xl text-xs text-warning/90 flex flex-col gap-1 select-text shadow-sm">
+                  <div class="font-bold flex items-center gap-1.5 text-[10.5px] uppercase tracking-wider mb-0.5">
+                    <span>⚠️</span> QA 校验未通过瑕疵 (Quality Assurance Violations):
+                  </div>
+                  <div v-for="(err, idx) in getQAChunkErrors(c.chunk_id)" :key="idx" class="flex gap-2 leading-relaxed">
+                    <span class="font-bold text-dimText/60 font-mono">{{ idx+1 }}.</span>
+                    <span class="font-sans font-medium text-normalText/90">{{ err }}</span>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+                  <!-- Prompt textarea -->
+                  <div class="lg:col-span-2 flex flex-col gap-1.5">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[10px] text-dimText font-bold uppercase tracking-wider">大模型 Prompt (可编辑)</span>
+                      <span v-if="isPromptModified(c)" class="text-[10px] text-warning font-semibold">● 有未保存的修改</span>
+                    </div>
+                    <textarea 
+                      v-model="c.prompt"
+                      rows="4"
+                      class="w-full bg-bg/50 border text-xs p-3.5 rounded-xl text-lightText focus:outline-none focus:border-accent font-sans leading-relaxed shadow-inner"
+                      :class="isPromptModified(c) ? 'border-warning focus:border-warning' : 'border-border focus:border-accent'"
+                    ></textarea>
+                  </div>
+
+                  <!-- 关联实体 -->
+                  <div class="flex flex-col gap-2">
+                    <span class="text-[10px] text-dimText font-bold uppercase tracking-wider">本段关联实体 (Present)</span>
+                    <div class="p-3 bg-bg/35 rounded-xl border border-border/80 flex flex-wrap gap-1.5 flex-1 align-content-start overflow-y-auto max-h-[120px] shadow-inner">
+                      <span v-for="eid in c.present" :key="eid" 
+                            class="px-2.5 py-1 rounded-md text-[11px] font-bold flex items-center gap-1 border border-border/80 transition-all hover:border-borderLight"
+                            :class="getEntityKindBadgeClass(eid)">
+                        {{ getEntityName(eid) }}
+                      </span>
+                      <div class="text-dimText text-[10px] italic font-medium" v-if="!c.present || c.present.length === 0">
+                        本段无可识别资产
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 底部元数据: Gold Instructions & completeness -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 border-t border-border/30 pt-3 mt-1 text-[11px] leading-relaxed">
+                  <div v-if="c.gold_instructions && c.gold_instructions.length > 0">
+                    <span class="text-dimText font-bold uppercase text-[9px] block mb-1 tracking-wider">连续性与切分登场指令 (Gold instructions)</span>
+                    <div class="flex flex-col gap-1.5 text-dimText">
+                      <div v-for="inst in c.gold_instructions" :key="inst.entity_id" class="flex gap-2">
+                        <span class="text-lightText font-semibold">{{ getEntityName(inst.entity_id) }}</span>:
+                        <span class="px-1.5 py-0.2 rounded text-[9px] uppercase font-bold tracking-wide" :class="inst.requirement === 'introduce' ? 'bg-violet/10 text-violet border border-violet/20' : 'bg-success/10 text-success border border-success/20'">{{ inst.requirement }}</span>
+                        <span v-if="inst.note" class="italic font-sans text-dimText/80">({{ inst.note }})</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div v-if="c.prompt_completeness">
+                    <span class="text-dimText font-bold uppercase text-[9px] block mb-1 tracking-wider">Prompt 完整性评价 (Completeness)</span>
+                    <div class="flex items-center gap-4 bg-bg/30 border border-border/40 px-2.5 py-2 rounded-xl shadow-inner">
+                      <div class="flex items-center gap-1.5 font-sans">
+                        <span class="text-dimText text-[10px]">Recall:</span>
+                        <span class="text-success font-extrabold">{{ (c.prompt_completeness.recall * 100).toFixed(0) }}%</span>
+                      </div>
+                      <div class="flex items-center gap-1.5 font-sans">
+                        <span class="text-dimText text-[10px]">Precision:</span>
+                        <span class="text-success font-extrabold">{{ (c.prompt_completeness.precision * 100).toFixed(0) }}%</span>
+                      </div>
+                      <div class="flex items-center gap-1" v-if="c.prompt_completeness.missing && c.prompt_completeness.missing.length > 0">
+                        <span class="text-warning text-[10px]">漏提:</span>
+                        <span class="text-warning font-semibold truncate max-w-[110px]" :title="c.prompt_completeness.missing.join(', ')">
+                          {{ c.prompt_completeness.missing.join(', ') }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Tab 3: Q3 时间轴 -->
+        <div v-if="reviewSubTab === 'timeline'" class="flex flex-col gap-4">
+          <div class="flex items-center justify-between pb-1 flex-wrap gap-2">
+            <h2 class="text-base font-extrabold text-lightText">⏳ Q3 记忆出没时序大图 (Temporal Presence Timeline)</h2>
+            <span class="text-xs text-dimText">总计帧长: <span class="text-accentLight font-bold font-mono">{{ maxFrame }}</span> (FPS={{ getFps() }})</span>
+          </div>
+
+          <div class="bg-panel/40 border border-border/80 rounded-2xl p-5 overflow-x-auto shadow-lg relative backdrop-blur-md">
+            <!-- 整体时间轴纵横网格 -->
+            <div class="min-w-[850px] flex flex-col gap-4 relative select-none">
+              
+              <!-- 顶部 X 轴帧刻度 -->
+              <div class="flex text-[10px] text-dimText border-b border-border/50 pb-2 relative h-5 font-mono">
+                <div class="absolute left-0">0f</div>
+                <div v-for="pct in [10, 20, 30, 40, 50, 60, 70, 80, 90]" :key="pct" 
+                     class="absolute -translate-x-1/2" :style="{ left: pct + '%' }">
+                  {{ Math.round(maxFrame * (pct/100)) }}f
+                </div>
+                <div class="absolute right-0">{{ maxFrame }}f</div>
+              </div>
+
+              <!-- 时间网格纵向细线 -->
+              <div class="absolute top-6 bottom-0 inset-x-0 pointer-events-none flex justify-between z-0">
+                <div class="w-px h-full bg-border/15"></div>
+                <div v-for="pct in [10, 20, 30, 40, 50, 60, 70, 80, 90]" :key="pct" 
+                     class="w-px h-full bg-border/15" :style="{ left: pct + '%' }"></div>
+                <div class="w-px h-full bg-border/15"></div>
+              </div>
+
+              <!-- Entity 时间轨列表 -->
+              <div class="flex flex-col gap-3.5 z-10 relative">
+                <div 
+                  v-for="e in getTimelineEntities()" 
+                  :key="e.entity_id"
+                  class="flex items-center gap-4 hover:bg-bg/40 p-2 rounded-xl transition-all duration-200 group/row"
+                >
+                  <!-- 左侧 Entity 头像 + 标签 -->
+                  <div class="w-[200px] flex-shrink-0 flex items-center gap-2.5 min-w-0">
+                    <!-- 头像 preview -->
+                    <div class="w-8 h-8 rounded-lg bg-bg/80 border border-border/80 overflow-hidden flex-shrink-0 flex items-center justify-center relative">
+                      <img 
+                        v-if="e.representations && e.representations.length > 0"
+                        :src="'/img?p=' + encodeURIComponent(e.representations[0].crop_path)" 
+                        class="w-full h-full object-cover" 
+                        loading="lazy"
+                      />
+                      <span v-else class="text-[9px] font-bold text-accentLight">{{ e.name.substring(0,1) }}</span>
+                    </div>
+                    <!-- 文字描述 -->
+                    <div class="flex-1 min-w-0 flex flex-col">
+                      <span class="text-xs font-bold text-lightText truncate group-hover/row:text-accentLight transition-colors" :title="e.name">
+                        {{ e.name }}
+                      </span>
+                      <span class="text-[8px] text-dimText uppercase tracking-wider font-semibold mt-0.5">
+                        {{ e.kind }} · {{ e.representations.length }} reps
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- 右侧水平轨道 -->
+                  <div class="flex-1 h-5.5 bg-bg/50 rounded-lg border border-border/60 relative overflow-hidden shadow-inner">
+                    <div 
+                      v-for="(span, sIdx) in e.presence_spans" 
+                      :key="sIdx"
+                      class="absolute h-full rounded transition-all hover:brightness-110 cursor-pointer shadow-sm hover:scale-[1.02]"
+                      :class="getTimelineSpanClass(e.kind)"
+                      :style="{ 
+                        left: (span[0] / maxFrame * 100) + '%', 
+                        width: Math.max(0.8, ((span[1] - span[0]) / maxFrame * 100)) + '%' 
+                      }"
+                      :title="'Entity: ' + e.name + '\n帧跨度: ' + span[0] + 'f - ' + span[1] + 'f\n首现时刻: ' + (e.first_seconds?.toFixed(1) || 0) + 's'"
+                    ></div>
+                  </div>
+
+                  <!-- 屏幕时长 -->
+                  <div class="w-[75px] text-right text-[10px] text-dimText font-mono flex-shrink-0 font-semibold font-sans">
+                    {{ e.screen_time_seconds ? e.screen_time_seconds.toFixed(1) + 's' : '0.0s' }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ==================== FLOATING ACTION BAR (现代磨砂悬浮底部控制台) ==================== -->
+      <footer class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#0c1020]/95 backdrop-blur-md border border-slate-700/40 px-6 py-4 rounded-2xl shadow-[0_16px_50px_rgba(0,0,0,0.7)] flex items-center justify-between flex-wrap gap-4 z-40 w-[94%] max-w-7xl">
+        
+        <!-- 左侧：修改项汇总 -->
+        <div class="flex items-center gap-3">
+          <div class="text-xs">
+            <span class="text-dimText font-bold tracking-wide uppercase text-[10px]">applied review_patch v2.0.0 变更集:</span>
+            <div class="flex gap-2.5 mt-2">
+              <span class="px-2.5 py-0.5 rounded-md text-[11px] font-extrabold" :class="patchCount.total > 0 ? 'bg-warning/15 text-warning border border-warning/20 shadow-sm' : 'bg-bg text-dimText border border-border/80'">
+                共计 {{ patchCount.total }} 处修改
+              </span>
+              <span class="text-[11px] text-dimText flex items-center font-medium" v-if="patchCount.total > 0">
+                (
+                <span v-if="patchCount.renames > 0" class="mr-1.5">重命名: {{ patchCount.renames }}</span>
+                <span v-if="patchCount.drops > 0" class="mr-1.5">Drop: {{ patchCount.drops }}</span>
+                <span v-if="patchCount.merges > 0" class="mr-1.5">合并: {{ patchCount.merges }}</span>
+                <span v-if="patchCount.prompts > 0" class="mr-1.5">Prompt: {{ patchCount.prompts }}</span>
+                <span v-if="patchCount.descriptions > 0">描述: {{ patchCount.descriptions }}</span>
+                <span v-if="patchCount.dispositions > 0">处置: {{ patchCount.dispositions }}</span>
+                )
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 冻结失败报错展示框 -->
+        <div v-if="freezeError" ref="freezeErrorBox" class="w-full lg:w-auto flex-1 max-w-md bg-danger/10 border border-danger/30 p-2.5 rounded-lg text-xs text-danger flex flex-col gap-1 relative select-text shadow-md">
+          <button @click="freezeError = null" class="absolute top-2.5 right-2.5 text-danger hover:text-white font-bold">✕</button>
+          <div class="font-bold text-[10px] uppercase tracking-wider mb-0.5 flex items-center gap-1"><span>⚠️</span> Freeze 校验失败 (Gold Lint Error):</div>
+          <pre class="font-mono leading-relaxed whitespace-pre-wrap max-h-[70px] overflow-y-auto bg-bg/40 p-1.5 rounded">{{ freezeError }}</pre>
+        </div>
+        <div v-if="previewResult" class="w-full lg:w-auto flex-1 max-w-md rounded-lg p-2.5 text-xs border" :class="previewResult.ok ? 'bg-success/10 border-success/30 text-success' : 'bg-warning/10 border-warning/30 text-warning'">
+          <div class="font-bold">预览（临时副本）{{ previewResult.ok ? '：无 strict-lint blocker' : '：发现 blocker' }}</div>
+          <pre v-if="!previewResult.ok" class="mt-1 whitespace-pre-wrap max-h-[70px] overflow-auto font-mono">{{ (previewResult.errors || []).map(e => e.code + ': ' + e.message).join('\n') }}</pre>
+        </div>
+
+        <!-- 冻结成功提示 -->
+        <div v-if="freezeSuccess" class="bg-success/15 border border-success/30 px-3 py-2 rounded-lg text-xs text-success font-bold flex items-center gap-1.5 shadow-md">
+          <span>✓</span> Gold 标注文件通过约束校验，定稿冻结成功！
+        </div>
+
+        <!-- 右侧：按钮操作区 -->
+        <div class="flex items-center gap-2.5">
+          <!-- Reset -->
+          <button 
+            @click="resetReviewEdits()"
+            :disabled="patchCount.total === 0"
+            class="px-4 py-2 rounded-xl border text-xs font-bold transition-all smooth-all"
+            :class="patchCount.total > 0 ? 'border-border text-normalText bg-bg/45 hover:bg-bg hover:text-white hover:border-borderLight cursor-pointer active:scale-95' : 'border-border/30 text-dimText cursor-not-allowed'"
+          >
+            重置修改
+          </button>
+
+          <!-- Save Draft -->
+          <button 
+            @click="saveDraft()"
+            :disabled="savingDraft || patchCount.total === 0"
+            class="px-4 py-2 rounded-xl text-xs border transition-all flex items-center gap-1.5 font-bold shadow-md smooth-all"
+            :class="[
+              patchCount.total > 0 ? 'bg-bg text-accentLight border-accentLight/40 hover:border-accentLight hover:text-white cursor-pointer active:scale-95' : 'border-border/30 text-dimText cursor-not-allowed',
+              savingDraft ? 'opacity-60' : ''
+            ]"
+          >
+            <span v-if="savingDraft">保存中…</span>
+            <span v-else>存草稿 (Patch)</span>
+          </button>
+
+          <!-- Apply Patch -->
+          <button @click="previewPatch()" :disabled="previewing || patchCount.total === 0"
+            class="px-4 py-2 rounded-xl text-xs border border-accent/40 text-accentLight hover:text-white hover:border-accent disabled:opacity-40">
+            {{ previewing ? '预览中…' : '预览 Lint' }}
+          </button>
+
+          <!-- Apply Patch -->
+          <button 
+            @click="applyPatch()"
+            :disabled="applyingPatch || patchCount.total === 0"
+            class="px-4 py-2 rounded-xl text-xs bg-accent hover:bg-accentLight text-white font-extrabold transition-all shadow-lg flex items-center gap-1.5 active:scale-95 smooth-all"
+            :class="[
+              patchCount.total > 0 ? 'cursor-pointer' : 'opacity-40 cursor-not-allowed'
+            ]"
+          >
+            <span v-if="applyingPatch">应用重算中…</span>
+            <span v-else>应用修改 (Apply)</span>
+          </button>
+
+          <!-- Freeze Gold -->
+          <button 
+            @click="freezeGold()"
+            :disabled="freezing"
+            class="px-5 py-2 rounded-xl text-xs bg-success hover:bg-success/90 text-white font-black transition-all shadow-lg flex items-center gap-1.5 active:scale-95 smooth-all"
+            :class="freezing ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'"
+          >
+            <span v-if="freezing">正在 Lint 校验…</span>
+            <span v-else>冻结定稿 (Freeze)</span>
+          </button>
+        </div>
+      </footer>
+    </template>
+
+  </main>
+
+  <!-- Image Lightbox 放大层 - 高端玻璃透光淡入淡出 -->
+  <div v-if="lightboxSrc" class="fixed inset-0 bg-black/96 z-50 flex items-center justify-center p-4 cursor-zoom-out backdrop-blur-md transition-all duration-300" @click="lightboxSrc = null">
+    <img :src="lightboxSrc" class="max-w-[92%] max-h-[92%] rounded-2xl border border-slate-700/60 shadow-2xl transition-transform duration-300 scale-100 hover:scale-[1.01]" />
+  </div>
+
+</div>
+
+<script src="/static/js/api.js"></script>
+<script src="/static/js/live.js"></script>
+<script src="/static/js/review.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

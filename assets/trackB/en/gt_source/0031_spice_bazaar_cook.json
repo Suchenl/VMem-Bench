@@ -1,0 +1,1080 @@
+{
+  "story_id": "0031_spice_bazaar_cook",
+  "title": "Spice Bazaar Cook",
+  "premise": "A long master-apprentice drama in the turmeric kitchen and open spice stall. Xiaoqiao and A Dengbing are easily confused; the brass mortar goes intact→bowl cracked→welded restored; the spice camel cart burns and must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Feng Deng",
+      "kind": "character",
+      "states": {
+        "prime_cook": "Spice-bazaar cook Feng Deng in his forties, short beard, turmeric apron and white short sleeves, copper-bell bracelet on his right wrist, sharp eyes.",
+        "scalded_weary": "The same Feng Deng: apron edges scorched, right forearm wrapped in burn gauze, leaning on the stove as he moves slowly, eyes heavy.",
+        "deceased": "Feng Deng has closed his eyes in death, lying still on the back-kitchen plank bed, face peaceful, breath gone."
+      }
+    },
+    "E2": {
+      "name": "Xiaoqiao",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Xiaoqiao: a lean kitchen helper of fourteen or fifteen, jade-green cardamom pod tucked behind one ear, oversized turmeric apron, bright stubborn eyes.",
+        "adult_successor": "Adult Xiaoqiao: a cook in his twenties, shoulders broader, still with the jade-green cardamom pod behind his ear, apron now a good fit, eyes steady."
+      }
+    },
+    "E3": {
+      "name": "brass mortar",
+      "kind": "prop",
+      "states": {
+        "intact": "A heavy brass mortar, meander pattern carved around the rim, pestle head polished bright, inner walls stained turmeric and clove.",
+        "bowl_cracked": "The same brass mortar burst with glaring cracks, pestle head chipped, spice crust inside dried and flaking.",
+        "welded_restored": "The brass mortar cracks welded and ground smooth, pestle head recast, inner walls repolished and usable again."
+      }
+    },
+    "E4": {
+      "name": "recipe booklet",
+      "kind": "prop",
+      "states": {
+        "intact": "A cowhide-covered recipe booklet, dried-chili and cinnamon diagrams clipped inside, handwriting neat.",
+        "oil_stained": "The same recipe booklet soaked through with sesame oil, cover sticky, ink blurred into clumps."
+      }
+    },
+    "E5": {
+      "name": "spice camel cart",
+      "kind": "prop",
+      "states": {
+        "intact": "A two-wheeled spice cart painted with camel-bell motifs, tiered tin jars and hemp sacks in the bed, colorful cloth strips wound on the shafts.",
+        "overturned_burned": "The spice camel cart ignited by stove fire: shafts charred black, tin jars burst, only twisted iron hoops remain."
+      }
+    },
+    "E6": {
+      "name": "A Dengbing",
+      "kind": "character",
+      "states": {
+        "young_rival": "Kitchen helper A Dengbing, face nearly identical to Xiaoqiao's, but purple-red chili string wound on his wrist and smoke-gray short jacket, bold expression.",
+        "remade_appearance": "Remade A Dengbing still wears the purple-red chili string, short jacket now deep brown, expression darker."
+      }
+    },
+    "E7": {
+      "name": "turmeric kitchen",
+      "kind": "location",
+      "appearance": "The turmeric kitchen deep in the bazaar: brick stoves breathing flame, copper ladles and dried-chili strings on the wall, spice heat thick in the air."
+    },
+    "E8": {
+      "name": "open spice stall",
+      "kind": "location",
+      "appearance": "The open spice stall at the lane mouth, canvas awning over tin jars and bamboo trays, turmeric-powder lines on the ground."
+    },
+    "E9": {
+      "name": "pottery-store lane",
+      "kind": "location",
+      "appearance": "A narrow lane between pottery-store shelves, clay jars stacked high on both sides, damp-proof lime scattered on the ground, heavy shadow."
+    },
+    "E10": {
+      "name": "old market ruin stove",
+      "kind": "location",
+      "appearance": "Ruins of an old market stove, brick hearth half collapsed, plaster peeling, empty tin jars piled in a corner."
+    },
+    "E11": {
+      "name": "kitchen memorial plaque",
+      "kind": "prop",
+      "appearance": "A brass memorial plaque nailed to a kitchen brick pillar, engraved with Feng Deng and the year the kitchen opened, edges verdigris."
+    },
+    "E12": {
+      "name": "tin spice jars",
+      "kind": "prop",
+      "appearance": "Three tin spice jars in a row, labeled cumin, cinnamon, and fennel."
+    },
+    "E13": {
+      "name": "red delivery cart",
+      "kind": "prop",
+      "appearance": "A brand-new red three-wheeled delivery cart with a cooler box in the bed, no camel-bell motif, nothing like the spice camel cart."
+    },
+    "E14": {
+      "name": "market sanitarian",
+      "kind": "character",
+      "appearance": "A lean market sanitarian in a white cap and pale-blue smock, build somewhat like Feng Deng's, but a health-department badge on his chest."
+    },
+    "E15": {
+      "name": "oil lamps",
+      "kind": "prop",
+      "appearance": "A row of five brass oil lamps hanging from iron hooks on the kitchen beam, bowls polished bright."
+    },
+    "E16": {
+      "name": "opening bells",
+      "kind": "prop",
+      "appearance": "Two opening bells under the awning eaves, clappers dented from use, two clear rings at market open."
+    },
+    "E17": {
+      "name": "Xiaojiao",
+      "kind": "character",
+      "appearance": "New dishwashing apprentice Xiaojiao, light-orange headscarf and fresh apron; at a glance somewhat like young Xiaoqiao, but sharper chin and shy eyes."
+    },
+    "E18": {
+      "name": "stone mortar",
+      "kind": "prop",
+      "appearance": "A bluestone mortar, shape somewhat like the brass mortar but bulkier, no meander carving, no brass sheen."
+    },
+    "E19": {
+      "name": "gray flat cart",
+      "kind": "prop",
+      "appearance": "A gray-blue grocery flat cart, wide and low, no camel-bell motif, not the spice camel cart."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_cook",
+      "scalded_weary",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "bowl_cracked",
+      "welded_restored"
+    ],
+    "E4": [
+      "intact",
+      "oil_stained"
+    ],
+    "E5": [
+      "intact",
+      "overturned_burned"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_appearance"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Xiaoqiao: jade-green cardamom pod behind the ear, turmeric apron.",
+        "E6": "A Dengbing: face nearly identical to Xiaoqiao's, but purple-red chili string on the wrist and smoke-gray short jacket."
+      },
+      "note": "Hard confuse sample: jade-green cardamom pod vs purple-red chili string."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Kitchen at dusk (introduce five oil lamps · two opening bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, Feng Deng ties his turmeric apron and walks into the turmeric kitchen, lifting the brass mortar to test-grind.",
+        {
+          "action": "A row of five brass oil lamps hangs from the kitchen beam; Feng Deng wipes each bowl clean.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two opening bells hang under the awning eaves; Feng Deng taps them lightly, rings crisp.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Feng Deng checks the brass mortar pestle and meander rim, confirming no cracks.",
+        "Through the kitchen door gap, Feng Deng looks toward the bustling night-market lights at the lane mouth.",
+        {
+          "action": "The intact brass mortar rests on the stove, rim catching warm lamplight.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Feng Deng sits by the woodpile and takes a sip of yogurt.",
+        "Hawking rises in the distance; he relights the stove fire.",
+        "He scatters a pinch of cumin into the pot; spice heat bursts at once."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Filling out the recipe booklet",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Feng Deng opens the cowhide recipe booklet and notes today's curry-base ratio.",
+        "He sketches chili and cinnamon proportions on the booklet.",
+        "Feng Deng closes the recipe booklet and tucks it into a stove drawer.",
+        {
+          "action": "The brass mortar grinding clings to his cheek.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "He tears a corner of hemp paper and wipes dust from the scale pan."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Spice stall greets apprentice (introduce three tin jars)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        {
+          "action": "At dawn on the open spice stall, Feng Deng meets the spice camel cart being pushed in.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Young Xiaoqiao steadies the spice camel cart, jade-green cardamom pod behind his ear swaying slightly.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Feng Deng points at three tin spice jars on the stall and teaches Xiaoqiao cumin from fennel.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaoqiao crouches by the turmeric-powder line, curious, sniffing dried lemon in a bamboo tray.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Feng Deng tells Xiaoqiao that two rings of the opening bells mean fire on the stove.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Xiaoqiao looks back at the intact spice camel cart, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Canvas awning snapping, the two walk toward the turmeric kitchen."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Pottery-store lane (A Dengbing only)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the pottery-store lane, A Dengbing with purple-red chili string on his wrist turns from jar shadows.",
+        "A Dengbing steps slowly along the lime line, smoke-gray short jacket standing out.",
+        "He passes a jar-delivery worker; chili string flashes in jar reflections.",
+        "A Dengbing taps a shelf stack, checking layers are stable.",
+        "He crosses the lane end and heads toward the dishwashing room."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Spice stall lookalike shared frame",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "On the open spice stall, Xiaoqiao and A Dengbing stand side by side: one with jade-green cardamom pod behind the ear, one with purple-red chili string on the wrist.",
+        "Xiaoqiao hands a tasting spoon to A Dengbing; they glance at each other briefly.",
+        "A Dengbing straightens Xiaoqiao's oversized apron tie, then looks away.",
+        "They walk opposite ways down the lane, figures crossing under the canvas awning.",
+        "Spatula clatter rises; only tin jars lightly touching remain at the stall."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Recipe booklet oil-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Feng Deng keeps watch alone in the turmeric kitchen.",
+        {
+          "action": "He opens the recipe booklet; the cover is soaked with sesame oil, sticky, ink blurred.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "oil_stained"
+            }
+          ]
+        },
+        "Feng Deng wipes oil crust from the brass mortar's outer wall with a rag.",
+        "Leaning in the door gap, he looks toward a lone wild lamp at the dark lane mouth.",
+        {
+          "action": "The brass mortar rests on the stove, pestle head slightly dulled.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "An opening bell half-chimes in the night wind, then falls silent."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years pass (filler · long gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "When spring spice shipments arrive, Feng Deng grinds ratios day after day in the kitchen.",
+        "Another rainy night, he wraps his apron tight and guards the brass mortar.",
+        "Midsummer noon, stove heat bakes the brick wall; he rotates to cool down.",
+        "Autumn fog thick, oil-lamp light struggles through spice smoke.",
+        "On New Year's Eve, Feng Deng alone fills the recipe record to the last page.",
+        "Early spring, he recalibrates the scale and keeps tasting.",
+        "Before the rainy season, Feng Deng reinforces damp-proof lime in the pottery store.",
+        "After frost, he adds a small jar of lard in a kitchen corner.",
+        "Another year before Eid, he checks tin-jar seals jar by jar.",
+        "On a snowy night the stove rests; Feng Deng keeps one oil lamp burning till dawn.",
+        "After Awakening of Insects, he rehangs dried chili strings.",
+        "Around Qingming, he sweeps ash piled at the old market ruin stove entrance.",
+        "At Grain Rain, he teaches a young apprentice to identify new dried-lemon slices.",
+        "On a Start-of-Summer night, he watches a slow-simmer broth reduce."
+      ]
+    },
+    {
+      "id": "S6c",
+      "setting": "Daily cooking (continued long gap)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "Feng Deng swaps stove firewood and straightens the flame.",
+        "He checks the exhaust filter and shakes off spice dust.",
+        {
+          "action": "He lifts the intact brass mortar again and gives three short grinds.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Camel bells drift from the lane mouth; he lifts his head to listen.",
+        "Feng Deng pours waste oil into a clay jar and covers it.",
+        "At midday rest he drinks tea under the awning, steam curling past dried-chili strings.",
+        "In the afternoon he returns to the stove and stir-fries another curry base.",
+        "At sunset he seals the stove and locks the spice cabinet.",
+        "Before nightfall he patrols the pottery store once more, checking for rats."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Spice stall patrol (recall tin jars · gray flat cart false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At first light, Feng Deng patrols the open spice stall; the spice camel cart still stands under the awning.",
+        {
+          "action": "He crouches to check whether cloth strips on the spice camel cart shafts are loose.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "On the stall, the same three tin spice jars still sit in a row.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A gray flat cart rolls past the lane mouth, wide and low, with no camel-bell motif.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Feng Deng stands before the stall, noting cinnamon sticks dampened overnight.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "He repacks the hemp sacks on the spice camel cart.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        "A distant mosque call to prayer drifts faintly."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Kitchen night watch again",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At night Feng Deng returns to the turmeric kitchen and opens the oil-stained recipe booklet.",
+        "He copies today's tasting notes at the usual ratio.",
+        {
+          "action": "He gives the brass mortar a brief grind; aroma catches on the booklet's sticky cover.",
+          "present": [
+            "E1",
+            "E7",
+            "E3",
+            "E4"
+          ]
+        },
+        "He wipes soot from the inside of an oil-lamp bowl.",
+        "Lane wind rises; canvas awning rustles lightly.",
+        "Feng Deng dims half the row of oil lamps, leaving only the one at the stove."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Stove accident (mortar cracked · cart burned)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "In a downpour the stove flame suddenly flares; the turmeric kitchen turns frantic.",
+        "Hot oil spatters; oil lamps sway violently.",
+        {
+          "action": "As Feng Deng fights the fire, the brass mortar bursts with cracks, pestle head chipped.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "bowl_cracked"
+            }
+          ]
+        },
+        {
+          "action": "Under the awning, the spice camel cart catches stray sparks and smokes heavily.",
+          "present": [
+            "E5",
+            "E8"
+          ]
+        },
+        {
+          "action": "Flame licks the shafts; the spice camel cart overturns and burns, tin jars bursting.",
+          "present": [
+            "E5",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "overturned_burned",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Feng Deng grips the cracked brass mortar and will not let go.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Someone throws water; the lane fills with charred spice and steam."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (cart indirect reference · oil-lamp recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day after rain, Feng Deng stands in the kitchen staring at the bowl-cracked brass mortar.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "He runs a finger along the cracks, expression dim.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a blank page of the recipe booklet he writes the date the spice camel cart burned.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "A loading diagram for the spice camel cart still hangs on the wall; Feng Deng stares a long while.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "He takes one of five oil lamps from the beam and sits alone in its faint light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The cracked brass mortar rests on the stove like a silent wound.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Sweeping sounds rise in the distance; charred scraps are gathered into a pile."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Welding the mortar (third state · stone mortar false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Feng Deng brings a coppersmith to repair the brass mortar.",
+        {
+          "action": "From a corner he moves a stone mortar, somewhat like the brass mortar but bulkier, no meander carving.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "The coppersmith welds the cracks and grinds the pestle head anew.",
+        {
+          "action": "Inner walls polished, the brass mortar is usable again.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "welded_restored"
+            }
+          ]
+        },
+        "He test-grinds briefly; aroma releases evenly once more.",
+        "Feng Deng puts the stone mortar back in the corner, no longer confused."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: delivery cart and sanitarian",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A red delivery cart rolls into the open spice stall, nothing like the burned spice camel cart.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "A market sanitarian in white cap and pale-blue smock enters the stall and talks beside Feng Deng; their builds are similar.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The sanitarian points at the red delivery cart, explaining a temporary delivery arrangement.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The delivery cart leaves; Feng Deng alone watches from the stall.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "He straightens the tin spice jars and walks back to the kitchen."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: dishwashing apprentice Xiaojiao",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "In the pottery-store lane comes dishwashing apprentice Xiaojiao in a light-orange headscarf, at a glance somewhat like young Xiaoqiao.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaojiao tries scrubbing jars; Feng Deng shakes his head—she is not Xiaoqiao after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaojiao bows her head and steps back; only jar shadows remain in the narrow lane."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Scalded and weary (opening-bell long recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Feng Deng with scorched apron edges and gauze on his arm leans on the stove-like hearth at the old market ruin stove.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "scalded_weary"
+            }
+          ]
+        },
+        "He looks up at the collapsed brick hearth, gaze far away.",
+        {
+          "action": "In the distance under an awning, two opening bells chime lightly in the wind; Feng Deng stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "He presses his palm to an empty tin jar, as if saying goodbye.",
+        "Lane wind lifts turmeric powder; the ruin stove grows quieter."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Xiaoqiao returns · Feng Deng dies",
+      "present": [
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Xiaoqiao returns along the lane, hurrying toward the old market ruin stove.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        {
+          "action": "Xiaoqiao meets scalded-weary Feng Deng under the ruin stove; they support each other.",
+          "present": [
+            "E1",
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Beside the back-kitchen plank bed, Xiaoqiao holds Feng Deng's thin hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Feng Deng's breath weakens; he finally closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Outside, spatula clatter stills; lane wind suddenly hushes a moment.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · memorial plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the kitchen door Feng Deng's turmeric apron still hangs; Xiaoqiao reaches out and touches it lightly.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By a brick pillar, adult Xiaoqiao stands before the newly nailed kitchen memorial plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Xiaoqiao's fingertip traces Feng Deng's name carved on the kitchen memorial plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "He quietly reads aloud the page number where the spice camel cart burn was recorded, as if answering.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15b",
+      "setting": "Mentioning the deceased and destroyed again (indirect avoidance)",
+      "present": [
+        "E2",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "After the open spice stall is swept clean, Xiaoqiao writes then erases the words for spice camel cart in an empty cart space.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "Passing the back-kitchen corridor, he sees Feng Deng's old copper-bell bracelet in a glass case.",
+          "present": [
+            "E2"
+          ]
+        },
+        {
+          "action": "In the night, Xiaoqiao softly repeats the stove-fire command Feng Deng taught.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        "Lane wind passes; Xiaoqiao closes the jade-green cardamom pod tight in his palm."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Lookalikes reunite (long gap + shared frame)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Remade A Dengbing hurries from the pottery store and meets Xiaoqiao under the old market ruin stove for a brief look.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_appearance"
+            }
+          ]
+        },
+        "Xiaoqiao and A Dengbing stand side by side by the collapsed stove: one eyes steady, one expression deep.",
+        "A Dengbing still wears purple-red chili string on his wrist; Xiaoqiao still has the jade-green cardamom pod behind his ear.",
+        "Silent a moment, each turns away from the ruin stove."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal grounding)",
+      "present": [],
+      "_comment": "Temporal phrase anchors; no formal entity names; avoid deceased/destroyed.",
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth steadying the camel-bell cart, jade-green cardamom pod behind his ear, appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "youth steadying camel-bell cart jade-green cardamom pod behind ear",
+                "resolves_to": "E2"
+              },
+              "state": "young_apprentice"
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the kitchen, a meander-carved brass bowl grinds spice heat for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "opening first grind meander-carved brass bowl",
+                "resolves_to": "E3"
+              },
+              "state": "intact"
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the pottery-store lane—that figure with purple-red chili string on the wrist and smoke-gray short jacket flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "lane figure purple-red chili string smoke-gray short jacket",
+                "resolves_to": "E6"
+              },
+              "state": "young_rival"
+            }
+          ]
+        },
+        {
+          "action": "Before the eyes again, that row of five small brass oil lamps on the kitchen beam.",
+          "present": [
+            {
+              "eid": "E15",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "kitchen beam row of five small brass oil lamps",
+                "resolves_to": "E15"
+              },
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Back to the first meeting at the spice lane mouth under canvas awning, turmeric-powder lines unchanged.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "first-meeting spice lane mouth under canvas awning",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Closure (booklet long recall · tin jars long recall)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Xiaoqiao reopens the oil-stained recipe booklet and walks into the turmeric kitchen.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "At the stall, the same three tin spice jars still sit in a row.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaoqiao lifts the welded-restored brass mortar; spice heat rises again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "He tightens his apron tie and nods confirmation as Feng Deng once did.",
+        "At dusk in the lane mouth, a new shift of opening bells chime twice lightly.",
+        "Xiaoqiao drops today's first spatula stroke at the stove."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2138 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "big_buck_bunny",
+  "human_reviewed": true,
+  "chunks": [
+    {
+      "chunk_id": 0,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        0.0,
+        11.0
+      ],
+      "prompt": "镜头从黑暗淡入，展现开阔草地，粉紫色云层下翠绿树林与远山相映，阳光柔和洒落，草甸上野花星星点点，几块圆石静卧其间。",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [
+        "loc_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 1,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        11.0,
+        16.0
+      ],
+      "prompt": "开阔草地上，俯拍视角展示一条蜿蜒的小溪，水面倒映着天空，岸边有花草和芦苇。",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        16.0,
+        23.0
+      ],
+      "prompt": "开阔草地上，紫色小鸟站在树枝上，圆润的身躯、黄色的喙和橙色的脚爪清晰可见，它张嘴鸣叫并拍打翅膀，随后振翅飞离。画面中央浮现白色文字“THE PEACH OPEN MOVIE PROJECT PRESENTS”。 (鸟鸣声)",
+      "present": [
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        23.0,
+        33.0
+      ],
+      "prompt": "镜头展示兔子洞穴入口，标题文字浮现后消失，镜头缓慢推近洞口，洞口深邃幽暗，周围覆盖青草与几块圆石，大树根须盘绕洞口边缘。",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [
+        "loc_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        33.0,
+        48.0
+      ],
+      "prompt": "大兔子在兔子洞穴内蜷缩着睡觉，慢慢睁开眼睛，打哈欠，困倦地抬起头，露出它那毛茸茸的白色身躯、长耳朵和强壮的肢体。 (打哈欠声)",
+      "present": [
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        48.0,
+        56.0
+      ],
+      "prompt": "大兔子从兔子洞穴爬出，伸懒腰后转身走向开阔草地。",
+      "present": [
+        "char_001",
+        "loc_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        56.0,
+        64.0
+      ],
+      "prompt": "开阔草地上，大兔子深吸一口气，陶醉地仰望天空，随后微笑转向身旁的花朵。",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        64.0,
+        76.0
+      ],
+      "prompt": "开阔草地上，大兔子凑近白色花朵闻香，表情愉悦。粉色蝴蝶展开半透明粉紫色的大型翅膀，轻盈飞过。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        76.0,
+        84.0
+      ],
+      "prompt": "开阔草地上，粉色蝴蝶落在大兔子鼻子上，兔子小心翼翼盯着它，不敢动弹。蝴蝶飞走后，兔子开心地笑起来。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        84.0,
+        98.0
+      ],
+      "prompt": "大兔子在开阔草地上捡起红色苹果，抬头看树，咬了一口苹果后满足地走开。 (咀嚼声)",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        98.0,
+        104.0
+      ],
+      "prompt": "大兔子在开阔草地上吃苹果。红松鼠，毛色红褐、尾巴蓬松、鼻尖长、门牙突出，从树上俯视下方；灰飞鼠与灰老鼠亦在枝头窥探。",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_005",
+        "char_006",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_004",
+        "char_005",
+        "char_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        104.0,
+        113.0
+      ],
+      "prompt": "大兔子扔掉苹果核，粉色蝴蝶飞来停在它头上又飞走。大兔子试图抓蝴蝶却扑空，摔倒在开阔草地上。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        113.0,
+        121.0
+      ],
+      "prompt": "开阔草地上，大兔子跑到大树前，粉色蝴蝶停在树干上。它伸手去抓，红松鼠、灰飞鼠和灰老鼠从树后探出头来嘲笑。 (嘲笑声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_004",
+        "char_005",
+        "char_006",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        121.0,
+        132.0
+      ],
+      "prompt": "开阔草地上，大兔子伸手试图抓住粉色蝴蝶，蝴蝶飞走。灰飞鼠从树后探出头，红松鼠倒挂在树干上吐舌头。大兔子一脸困惑。",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_004",
+        "char_005",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        132.0,
+        146.0
+      ],
+      "prompt": "开阔草地上，红松鼠和灰飞鼠在树干上做怪动作。大兔子皱眉转身离开，灰飞鼠从树上跳下并落地摆出夸张姿势。",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_005",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        146.0,
+        156.0
+      ],
+      "prompt": "大兔子在开阔草地上行走，突然一颗棕色硬壳坚果从树根后飞出，砸在它身上。它惊讶回头，发现红松鼠、灰飞鼠和灰老鼠躲在树根后偷笑。 (撞击声，笑声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_005",
+        "char_006",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        156.0,
+        170.0
+      ],
+      "prompt": "开阔草地上，大兔子被红松鼠、灰飞鼠和灰老鼠投掷的坚果与红色苹果击中，表情从愤怒转为无奈。 (投掷声，撞击声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_005",
+        "char_006",
+        "prop_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        170.0,
+        186.0
+      ],
+      "prompt": "开阔草地上，红松鼠、灰飞鼠和灰老鼠躲在树后，向大兔子投掷坚果与红色苹果。大兔子被砸得东倒西歪，最终满脸怒容地站立原地，周围散落食物残渣。 (密集的撞击声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_005",
+        "char_006",
+        "prop_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        186.0,
+        195.0
+      ],
+      "prompt": "灰飞鼠举着石块，得意地向大兔子展示停在石头上的粉色蝴蝶。大兔子在开阔草地上惊恐地伸手。 (惊呼声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_005",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        195.0,
+        212.0
+      ],
+      "prompt": "开阔草地上，灰飞鼠将粉色蝴蝶递给红松鼠。红松鼠接过蝴蝶，残忍地将其撕成两半，扔掉翅膀。大兔子目睹全过程，表情从震惊变为极度的悲伤和愤怒。 (撕裂声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_004",
+        "char_005",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        212.0,
+        224.0
+      ],
+      "prompt": "开阔草地上，红松鼠把粉色蝴蝶残骸扔在地上。灰飞鼠和灰老鼠还在嬉笑。大兔子站在原地，身体微微颤抖，眼神变得冰冷而凶狠。",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_004",
+        "char_005",
+        "char_006",
+        "loc_001",
+        "prop_003"
+      ],
+      "first_appearances": [
+        "prop_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        224.0,
+        233.0
+      ],
+      "prompt": "大兔子灰白毛发蓬松，圆眼微眯，挺着硕大身躯，从开阔草地迈步踏入森林小径，落叶与石块在它脚下轻响。红松鼠、灰飞鼠和灰老鼠见状，笑容骤停，惊惶后退，目光紧锁兔子那因肥胖而微微晃动的后背。 (沉重的脚步声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_005",
+        "char_006",
+        "loc_001",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "loc_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        233.0,
+        243.0
+      ],
+      "prompt": "大兔子停下脚步，回头冷冷地看了一眼红松鼠、灰飞鼠和灰老鼠。小动物们吓得尖叫着四散逃窜。兔子继续走进森林小径。 (尖叫声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_005",
+        "char_006",
+        "loc_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        243.0,
+        257.0
+      ],
+      "prompt": "大兔子在森林小径里扯下藤蔓绳索，又折断粗树枝测试韧性。 (折断声)",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "prop_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        257.0,
+        267.0
+      ],
+      "prompt": "大兔子在森林小径上，用石头打磨木棍尖端，制成石制箭头。它将箭头用藤蔓绳索绑在木棍上，制成前端尖锐、箭头呈灰石色、箭杆为原木色的木制箭矢。 (摩擦声)",
+      "present": [
+        "char_001",
+        "prop_004",
+        "prop_005",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "prop_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        267.0,
+        276.0
+      ],
+      "prompt": "大兔子在森林小径上用力拉扯藤蔓绳索，确认其结实程度。满意后将绳索卷好。",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        276.0,
+        285.0
+      ],
+      "prompt": "大兔子在森林小径上，用藤蔓绳索系住木桩，制作陷阱。 (挖掘声)",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        285.0,
+        293.0
+      ],
+      "prompt": "大兔子在森林小径上，用手指蘸取黑色泥土涂抹眼周，画出战纹般的黑眼圈，眼神变得极其锐利。",
+      "present": [
+        "char_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        293.0,
+        299.0
+      ],
+      "prompt": "大兔子在森林小径上，用自制的弓搭上木制箭矢，瞄准树干射出。",
+      "present": [
+        "char_001",
+        "prop_005",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        299.0,
+        309.0
+      ],
+      "prompt": "红松鼠、灰飞鼠和灰老鼠抱着坚果，在森林小径上欢快奔跑。 (轻快的音乐/哼唱)",
+      "present": [
+        "char_004",
+        "char_005",
+        "char_006",
+        "prop_002",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        309.0,
+        318.0
+      ],
+      "prompt": "大兔子躲在树后，拉满木制箭矢，瞄准森林小径上的小动物们。 (弓弦紧绷声)",
+      "present": [
+        "char_001",
+        "prop_005",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        318.0,
+        328.0
+      ],
+      "prompt": "森林小径上，红松鼠和灰老鼠走到了陷阱触发点附近。灰飞鼠还在嬉皮笑脸地做着怪动作。",
+      "present": [
+        "char_004",
+        "char_005",
+        "char_006",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        328.0,
+        340.0
+      ],
+      "prompt": "森林小径上，大兔子松开弓弦，一根中间被掏空、外部缠绕藤蔓的圆柱形木头从高处坠落，精准罩住灰老鼠，将其困在空心原木内，灰老鼠惊慌失措。 (轰鸣声，惊叫声)",
+      "present": [
+        "char_001",
+        "char_006",
+        "prop_006",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "prop_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        340.0,
+        359.0
+      ],
+      "prompt": "森林小径上，灰老鼠抱着坚果从空心原木里滚出来，还没站稳就看到了站在面前的大兔子。兔子双手叉腰，冷冷地看着它。老鼠吓得腿软，坚果掉在地上。 (滚动声)",
+      "present": [
+        "char_001",
+        "char_006",
+        "prop_002",
+        "prop_006",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        359.0,
+        373.0
+      ],
+      "prompt": "大兔子站在森林小径上，用手指向灰老鼠，灰老鼠抱着坚果，惊恐地滚到一旁。 (尖叫声)",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        373.0,
+        379.0
+      ],
+      "prompt": "大兔子站在森林小径上，双手叉腰，面露得意，随后竖起双拇指。红松鼠在树根旁惊慌张望。",
+      "present": [
+        "char_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        379.0,
+        393.0
+      ],
+      "prompt": "灰飞鼠在森林小径上躲树后，见大兔子走来，便攀上树枝准备滑翔逃跑。",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        393.0,
+        405.0
+      ],
+      "prompt": "灰飞鼠从树枝上一跃而下，在高空展开皮膜滑翔，得意洋洋地俯视下方。 (风声)",
+      "present": [
+        "char_005",
+        "loc_004",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "loc_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        405.0,
+        418.0
+      ],
+      "prompt": "灰飞鼠滑翔至森林小径上空，俯冲时发现下方尖木桩陷阱，惊恐表情瞬间凝固。 (惊叫声)",
+      "present": [
+        "char_005",
+        "prop_007",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "prop_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        418.0,
+        425.0
+      ],
+      "prompt": "灰飞鼠滑翔时被尖木桩陷阱卡住，悬在森林小径上摇晃。 (撞击声)",
+      "present": [
+        "char_005",
+        "prop_007",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        425.0,
+        436.0
+      ],
+      "prompt": "灰飞鼠在高空滑翔，大兔子站在森林小径上抬头注视。 (挣扎声)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        436.0,
+        452.0
+      ],
+      "prompt": "森林小径上，大兔子把灰飞鼠提溜到自己面前。飞鼠吓得眼睛瞪得滚圆，浑身发抖。兔子冷冷地盯着它，飞鼠试图求饶，但兔子不为所动。",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        452.0,
+        461.0
+      ],
+      "prompt": "森林小径上，大兔子张开嘴，将灰飞鼠整个吞了下去（或者画面变黑暗示结局）。飞鼠的眼睛最后闪过一丝绝望。 (吞咽声/音效)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        461.0,
+        472.0
+      ],
+      "prompt": "大兔子在开阔草地上，背对镜头走向远方。 (轻柔的音乐)",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        472.0,
+        489.0
+      ],
+      "prompt": "大兔子在开阔草地上，手持线轴放飞灰飞鼠风筝，灰飞鼠在高空滑翔。",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_001",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        489.0,
+        504.0
+      ],
+      "prompt": "红松鼠在深色背景上跳跃穿梭，文字滚动显示制作团队名单。 (片尾曲)",
+      "present": [
+        "char_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        504.0,
+        519.0
+      ],
+      "prompt": "红松鼠在绿色背景前跳跃，灰老鼠抱着坚果从右侧跑过。 (片尾曲)",
+      "present": [
+        "char_004",
+        "char_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        519.0,
+        534.0
+      ],
+      "prompt": "灰老鼠在屏幕下方抛接坚果。粉色蝴蝶飞过屏幕。 (片尾曲)",
+      "present": [
+        "char_003",
+        "char_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        534.0,
+        549.0
+      ],
+      "prompt": "灰老鼠在左下角抛接水果，红松鼠在右上角倒挂。 (片尾曲)",
+      "present": [
+        "char_004",
+        "char_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        549.0,
+        564.0
+      ],
+      "prompt": "红松鼠在屏幕上奔跑跳跃。灰老鼠在角落吃坚果。 (片尾曲)",
+      "present": [
+        "char_004",
+        "char_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        564.0,
+        579.0
+      ],
+      "prompt": "粉色蝴蝶飞过屏幕，制作信息与Logo依次浮现。 (片尾曲渐弱)",
+      "present": [
+        "char_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        579.0,
+        596.0
+      ],
+      "prompt": "紫色小鸟飞向灰飞鼠风筝，啄了啄后飞走，灰飞鼠在高空无奈晃动。 (鸟鸣声，风声)",
+      "present": [
+        "char_002",
+        "char_005",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    }
+  ]
+}

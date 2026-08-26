@@ -1,0 +1,996 @@
+{
+  "story_id": "0021_pottery_kiln_master",
+  "title": "Dragon-Kiln Fire Keeper",
+  "premise": "A long pottery-kiln drama under an earth-red dragon kiln and curling blue smoke. Dandelion and Aheng are easily mistaken for each other; the dragon-kiln saggers go intact-stacked→burst→rebuilt-repaired; the plank cart 'Mud Snail' must be avoided after it wrecks; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_state_note": "Entities with state machines use states; entities without use appearance. Flashbacks may write state on present items.",
+  "entities": {
+    "E1": {
+      "name": "Uncle Chaiyao",
+      "kind": "character",
+      "states": {
+        "prime_firekeeper": "Uncle Chaiyao past fifty, graying short braid, earth-red coarse jacket and black apron, cuffs stained with porcelain clay, hands mapped with burn scars, gaze steady as fire.",
+        "burned_with_cane": "The same Uncle Chaiyao after burns: right-arm bandage, limping on a bamboo crutch, still in that ash-stained earth-red coarse jacket.",
+        "deceased": "Uncle Chaiyao lies still with eyes closed on a narrow cot in the kiln shed, face peaceful, breath gone."
+      }
+    },
+    "E2": {
+      "name": "Dandelion",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Dandelion: a lean wheel-throwing apprentice of fourteen or fifteen, yellow cloth scarf at the nape, gray-brown work clothes, blue cord on the left wrist, eyes clear and stubborn.",
+        "adult_successor": "Adult Dandelion: a broad-shouldered thrower in her twenties, still with yellow cloth scarf and blue cord on the left wrist, manner steady."
+      }
+    },
+    "E3": {
+      "name": "dragon-kiln saggers",
+      "kind": "prop",
+      "states": {
+        "intact_stacked": "A stack of refractory dragon-kiln saggers, earth-yellow bodies intact, rims stacked tight, thin glaze on the inner walls.",
+        "burst": "The same stack of dragon-kiln saggers bursts apart, shards scattered, rim gaps jagged.",
+        "rebuilt_repaired": "The dragon-kiln saggers restored after rebuilding and seam-patching, dark repair scars on the bodies, distinct from the first intact state."
+      }
+    },
+    "E4": {
+      "name": "kiln-temperature ledger",
+      "kind": "prop",
+      "states": {
+        "intact": "A thread-bound kiln-temperature ledger, cover marked 'Dragon Kiln No. 3', pages filled in vermilion with fuel-feed times and fire color.",
+        "smoke_stained": "The same ledger blackened by kiln smoke, cover curling, writing blurred into ash blotches."
+      }
+    },
+    "E5": {
+      "name": "Mud Snail",
+      "kind": "prop",
+      "states": {
+        "intact": "A green-lacquered two-wheel plank cart, sides painted white with 'Mud Snail', bed lined with straw mats for hauling blanks.",
+        "bed_wrecked_overturned": "The green plank cart's side boards split and overturn, wheels come off—wreckage that can no longer carry blanks."
+      }
+    },
+    "E6": {
+      "name": "Aheng",
+      "kind": "character",
+      "states": {
+        "young_visitor": "Young Aheng: face closely resembling Dandelion's, but indigo cloth scarf, a pottery-bead bracelet on the right wrist, manner more playful.",
+        "adult_painter": "Adult Aheng: face closely resembling adult Dandelion's, still indigo cloth scarf and pottery-bead bracelet, glaze box over the shoulder."
+      }
+    },
+    "E7": {
+      "name": "dragon-kiln chamber",
+      "kind": "location",
+      "appearance": "An earth-red dragon-kiln chamber built against the mountain, fire mouth breathing orange flame, kiln walls thick with kiln sweat."
+    },
+    "E8": {
+      "name": "blank-drying yard",
+      "kind": "location",
+      "appearance": "A cobble blank-drying yard outside the kiln mouth, half-dry pottery blanks on bamboo racks, sun shadows moving."
+    },
+    "E9": {
+      "name": "glaze dark room",
+      "kind": "location",
+      "appearance": "A narrow glaze dark room beside the kiln, clay jars in rows, air smelling of sulfur and plant ash."
+    },
+    "E10": {
+      "name": "old workshop ruins",
+      "kind": "location",
+      "appearance": "Old workshop ruins at the mountain foot, collapsed mud walls and a half potter's wheel, weeds rising from brick seams."
+    },
+    "E11": {
+      "name": "kiln-god bronze plaque",
+      "kind": "prop",
+      "appearance": "A kiln-god bronze plaque nailed to the kiln-head stone pillar, carved with Uncle Chaiyao's name and the kiln-opening year, edges mottled with verdigris."
+    },
+    "E12": {
+      "name": "pyrometric cones",
+      "kind": "prop",
+      "appearance": "Three triangular pyrometric cones set by hardness in a refractory-clay seat beside the saggers."
+    },
+    "E13": {
+      "name": "green-shell plank cart",
+      "kind": "prop",
+      "appearance": "A brand-new green-shell motor plank cart, sides sprayed with 'Green Shell', no Mud Snail mark—utterly different from Mud Snail."
+    },
+    "E14": {
+      "name": "glaze-works supervisor Old Min",
+      "kind": "character",
+      "appearance": "Old Min, glaze-works supervisor past fifty, graying short braid and earth-red jacket similar in build to Uncle Chaiyao, but with an enamel work badge on his chest."
+    },
+    "E15": {
+      "name": "fire-watch cups",
+      "kind": "prop",
+      "appearance": "A row of five fire-watch cups hung on iron nails by the kiln-chamber peephole, rims streaked with glaze tears."
+    },
+    "E16": {
+      "name": "kiln-opening gongs",
+      "kind": "prop",
+      "appearance": "Two kiln-opening gongs hung under the kiln-shed beams, faces chiselled with the character 'Dragon', trembling lightly when the wind rises."
+    },
+    "E17": {
+      "name": "neighbor-village youth Maimiao",
+      "kind": "character",
+      "appearance": "Neighbor-village youth Maimiao, fourteen or fifteen, yellow cloth scarf, at a glance like young Dandelion, but no blue cord on the left wrist, shy-eyed."
+    },
+    "E18": {
+      "name": "small test saggers",
+      "kind": "prop",
+      "appearance": "A waist-high stack of small test saggers, shaped much like the dragon-kiln saggers but thinner and smaller—not that stack in the chamber."
+    },
+    "E19": {
+      "name": "earth-yellow donkey cart",
+      "kind": "prop",
+      "appearance": "A strange earth-yellow donkey cart loaded with firewood bundles, no Mud Snail lettering anywhere—not the same as Mud Snail."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_firekeeper",
+      "burned_with_cane",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact_stacked",
+      "burst",
+      "rebuilt_repaired"
+    ],
+    "E4": [
+      "intact",
+      "smoke_stained"
+    ],
+    "E5": [
+      "intact",
+      "bed_wrecked_overturned"
+    ],
+    "E6": [
+      "young_visitor",
+      "adult_painter"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Dandelion: yellow cloth scarf, blue cord on the left wrist.",
+        "E6": "Aheng: face nearly identical to Dandelion's, but indigo cloth scarf and pottery-bead bracelet on the right wrist."
+      },
+      "note": "Hard misidentification sample: Dandelion and Aheng look alike; told apart only by yellow/indigo scarf and cord/pottery beads."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Dragon-kiln chamber fire watch (introducing five fire-watch cups · two kiln-opening gongs)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk Uncle Chaiyao bends into the dragon-kiln chamber; the dragon-kiln saggers stand neatly stacked in the firelight.",
+        {
+          "action": "A row of five fire-watch cups hangs by the kiln-chamber peephole; Uncle Chaiyao wipes ash from each rim.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two kiln-opening gongs hang under the kiln-shed beams; Uncle Chaiyao reaches to make the faces tremble lightly.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Uncle Chaiyao circles the dragon-kiln saggers, checking whether the rims stack tight.",
+        "Through the peephole Uncle Chaiyao watches the darkening sky outside the kiln.",
+        {
+          "action": "Intact dragon-kiln saggers quietly hold glazed blanks deep in the chamber.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Uncle Chaiyao sits by the fuel mouth and dozes in the firelight.",
+        "Night wind pours into the kiln mouth; Uncle Chaiyao tightens the collar of his coarse jacket."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the kiln-temperature ledger",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Uncle Chaiyao opens the kiln-temperature ledger and notes this shift's fuel-feed time in vermilion.",
+        "Uncle Chaiyao draws a fire-color curve in the kiln-temperature ledger.",
+        "Uncle Chaiyao closes the kiln-temperature ledger and sets it back in the clay jar by the peephole.",
+        {
+          "action": "Heat from the dragon-kiln saggers reddens Uncle Chaiyao's cheek.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Uncle Chaiyao gently wipes sweat and ash from his brow with a damp cloth."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Blank-drying yard greets the apprentice (introducing three pyrometric cones)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "In the morning blank-drying yard Uncle Chaiyao greets young Dandelion pushing the green Mud Snail in.",
+        {
+          "action": "Dandelion steadies Mud Snail and lifts half-dry blanks from the cart bed onto the bamboo racks.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Uncle Chaiyao points to the three pyrometric cones beside the saggers and teaches Dandelion to read hardness and bending order.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Dandelion squats on the cobbles and curiously touches knife marks on the half-dry blanks.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Uncle Chaiyao points to the ridge and explains to Dandelion how the dragon kiln draws draft.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Dandelion looks back at the parked Mud Snail, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "They lean side by side against the bamboo racks, listening to the deep roar from the kiln mouth."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Glaze dark room (Aheng alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the glaze dark room Aheng in an indigo cloth scarf looks back from behind the clay jars.",
+        "Aheng stirs ash glaze with a wooden stick; the pottery-bead bracelet on her right wrist lightly taps the jar rim.",
+        "Aheng taps a formula on the dark-room wall with a finger and smiles playfully.",
+        "Aheng carries a glaze box through the shadows of the glaze dark room.",
+        "Sulfur smell thickens; Aheng stops to listen to cracking sounds in the kiln chamber."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Lookalike pair shared screen in the same segment",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the blank-drying yard Dandelion and Aheng stand side by side—one yellow cloth scarf, one indigo.",
+        "Dandelion hands a pyrometric cone to Aheng; they smile at each other.",
+        "Aheng straightens Dandelion's yellow cloth scarf; they walk slowly along the bamboo racks.",
+        "Dandelion and Aheng part at the west end of the blank-drying yard and walk opposite ways.",
+        "Dust rises; the sisters' backs—one yellow, one blue—gradually draw apart."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Kiln-temperature ledger smoke-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On a night months later Uncle Chaiyao alone watches fire in the dragon-kiln chamber; the dragon-kiln saggers quietly hold heat.",
+        {
+          "action": "Uncle Chaiyao opens the kiln-temperature ledger and finds the cover already blackened by kiln smoke, writing blurred into ash blotches.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "smoke_stained"
+            }
+          ]
+        },
+        "Uncle Chaiyao wipes kiln sweat condensed on the dragon-kiln sagger rims.",
+        "Through the peephole Uncle Chaiyao watches the pitch-black ridge outside the kiln.",
+        {
+          "action": "Outlines of the dragon-kiln saggers slowly appear in the firelight.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Uncle Chaiyao tucks the stained kiln-temperature ledger into the clay jar and sighs."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Kiln season turns (filler · stretching the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Through the turning seasons Uncle Chaiyao day after day feeds fuel into the dragon-kiln chamber.",
+        "On another snow night Uncle Chaiyao wraps his apron tight and keeps watch by the dragon-kiln saggers.",
+        "At spring kiln repair Uncle Chaiyao patches refractory clay inside the chamber.",
+        "At high summer noon Uncle Chaiyao wipes the kiln-shed iron sheet baked hot by the sun.",
+        "In endless autumn rain heat from the dragon-kiln saggers steams in the damp air.",
+        "On another New Year's Eve Uncle Chaiyao alone keeps watch in the dragon-kiln chamber until dawn.",
+        "On a small-kiln test-fire night Uncle Chaiyao clears ash two hours early.",
+        "On a full-kiln night Uncle Chaiyao packs refractory wool tight into sagger seams.",
+        "When a cold snap hits Uncle Chaiyao hangs wind-break grass curtains on the kiln door.",
+        "Around Qingming Uncle Chaiyao sweeps pine needles and broken blanks from the blank-drying yard.",
+        "In plum-rain season Uncle Chaiyao repeatedly checks the kiln-door sealing clay for leaks.",
+        "At the first frost of early winter Uncle Chaiyao's white breath drifts under the fire-watch cups."
+      ]
+    },
+    {
+      "id": "S6c",
+      "setting": "Long-night fire-watch supplement",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "For three rainless nights in a row Uncle Chaiyao keeps the fuel-feed rhythm razor-tight.",
+        "One night kiln pressure spikes suddenly; Uncle Chaiyao has to half-open the kiln door to vent.",
+        "When the fire turns blue-green Uncle Chaiyao quickly adds pine fuel.",
+        "At three in the morning Uncle Chaiyao drinks ice-cold tea from a coarse porcelain bowl.",
+        "By the peephole he sorts the pyrometric-cone numbers.",
+        "The kiln-opening gongs tremble lightly in the wind; Uncle Chaiyao looks up to listen.",
+        "As the sky pales Uncle Chaiyao records last night's final fuel feed.",
+        "Before sealing the kiln he takes one last look at the intact rims of the dragon-kiln saggers."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Blank-drying yard patrol (recall pyrometric cones · earth-yellow donkey cart)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn Uncle Chaiyao patrols the blank-drying yard; green Mud Snail rests by the bamboo racks.",
+        {
+          "action": "Uncle Chaiyao crouches to check whether Mud Snail's wheels and straw mats are damp.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Uncle Chaiyao walks to the saggers; those three pyrometric cones still stand neatly inserted.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A strange earth-yellow donkey cart rolls past the kiln-mouth road, bed loaded with firewood bundles—not Mud Snail.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Uncle Chaiyao stands on the cobbles and records last night's kiln-pressure peak.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Uncle Chaiyao re-covers the half-dry blanks with rainproof oilcloth.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Distant mountain mist withdraws, revealing deeper terrace shadows."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Kiln-burst night (saggers burst · Mud Snail overturns)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "Kiln pressure surges; the dragon-kiln chamber shudders in the roar; the dragon-kiln saggers shake hard.",
+        "Flame tongues lick the kiln wall; Uncle Chaiyao rushes to the pressure-vent gate.",
+        {
+          "action": "A sharp crack—the dragon-kiln saggers burst apart, shards flying.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "burst"
+            }
+          ]
+        },
+        {
+          "action": "Outside the kiln mouth green Mud Snail jolts hard in the panicked push and pull.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "A sideways tip splits Mud Snail's side boards and overturns it; the wheels come off.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "bed_wrecked_overturned",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "In the chamber Uncle Chaiyao lunges at the remaining dragon-kiln saggers, clamping down hard on the few unburst ones.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (Mud Snail old-photo indirect reference · fire-watch cups recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after the kiln burst Uncle Chaiyao stands in the dragon-kiln chamber staring at the burst dragon-kiln saggers.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Uncle Chaiyao traces a sagger gap with his finger, expression dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a note beside the kiln-temperature ledger Uncle Chaiyao records the date Mud Snail overturned.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo of Mud Snail hangs on the kiln-shed wall; Uncle Chaiyao gazes at it a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Uncle Chaiyao takes one of the five fire-watch cups from the wall and sits alone in the glaze-tear reflection.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Damaged dragon-kiln saggers still litter the chamber center, gaps glaring.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Rebuild saggers (third state · small test-sagger false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Uncle Chaiyao brings refractory clay and a seam knife and begins rebuilding the dragon-kiln saggers.",
+        {
+          "action": "From a wooden crate Uncle Chaiyao takes a stack of small test saggers—much like the dragon-kiln saggers but smaller.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Carefully Uncle Chaiyao patches seams, rebuilds, and restacks the kiln.",
+        {
+          "action": "The last repair scar is smoothed; the dragon-kiln saggers enter the rebuilt-repaired state.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "rebuilt_repaired"
+            }
+          ]
+        },
+        "The repaired dragon-kiln saggers hold blanks again; Uncle Chaiyao looks on with relief."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: green-shell plank cart and glaze-works supervisor Old Min",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A green-shell plank cart rolls into the blank-drying yard—nothing like the already overturned Mud Snail.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "The glaze-works supervisor Old Min steps onto the blank-drying yard and talks beside Uncle Chaiyao; the two look similar in build.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "Old Min points at the green-shell plank cart and explains the new blank-haul schedule to Uncle Chaiyao.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The green-shell plank cart drives off; Uncle Chaiyao alone watches from the blank-drying yard.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Wind flaps the schedule sheet Old Min left behind."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: neighbor-village youth Maimiao who resembles Dandelion",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Outside the kiln mouth comes neighbor-village youth Maimiao in a yellow cloth scarf—at a glance somewhat like young Dandelion.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Maimiao tries carrying blanks; Uncle Chaiyao shakes his head—he is not Dandelion after all.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Maimiao leaves the blank-drying yard with an empty basket; his back fades along the kiln-mouth road.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Burned with cane (kiln-opening gongs long-range recall)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        {
+          "action": "At dusk years later Uncle Chaiyao with a right-arm bandage leans on a bamboo crutch outside the earth-red dragon-kiln chamber.",
+          "present": [
+            "E1",
+            "E7"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "burned_with_cane"
+            }
+          ]
+        },
+        "Uncle Chaiyao leans on the crutch and looks up at the towering kiln ridge, gaze distant.",
+        {
+          "action": "Under the kiln-shed beams those two kiln-opening gongs tremble lightly in the wind; Uncle Chaiyao stops on his crutch to listen.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Uncle Chaiyao presses a palm to the cold kiln-head stone pillar as if saying goodbye.",
+        "He slowly sits on the blank-drying yard's stone steps, limping leg stretched straight."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Dandelion returns · Uncle Chaiyao passes",
+      "present": [
+        "E1",
+        "E2",
+        "E7"
+      ],
+      "actions": [
+        {
+          "action": "By day adult Dandelion returns along the kiln-mouth road and hurries toward the dragon-kiln chamber.",
+          "present": [
+            "E2",
+            "E7"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "At the kiln head Dandelion reunites with cane-leaning Uncle Chaiyao; they embrace.",
+        {
+          "action": "By the kiln-shed narrow cot Dandelion holds Uncle Chaiyao's burn-scarred but ice-cold hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Uncle Chaiyao's breath grows weak; at last he closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Dandelion gently sets Uncle Chaiyao's fuel hook back beside the cot.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · kiln-god bronze plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the kiln-shed door Uncle Chaiyao's earth-red coarse jacket still hangs; Dandelion reaches to stroke it gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By the kiln-head stone pillar adult Dandelion stands before a newly nailed kiln-god bronze plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Dandelion's fingertip traces Uncle Chaiyao's name carved on the kiln-god bronze plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        "Wind rises; kiln-opening gongs tremble faintly in the distance; Dandelion lifts her head."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Sisters reunite (adult misidentification both sides)",
+      "present": [
+        "E2",
+        "E6",
+        "E7"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Adult Aheng arrives from the neighboring village and tightly embraces Dandelion at the kiln head.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "adult_painter"
+            }
+          ]
+        },
+        "Dandelion and Aheng stand side by side by the kiln-head stone pillar—one quiet, one playful.",
+        "They look at each other in silence, watching faces alike yet different.",
+        "Aheng opens the glaze box, then quietly closes it, only standing with her sister."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate)",
+      "present": [],
+      "_comment": "Temporal flashback name-free",
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth touching knife marks on half-dry blanks on the cobbles appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth touching knife marks on half-dry blanks on the cobbles",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the chamber a stack of earth-yellow saggers first takes glazed blanks.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact_stacked",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the earth-yellow saggers first stacked with glazed blanks at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flashback to that year's glaze dark room—the indigo-scarfed figure with a pottery-bead bracelet slips past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_visitor",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the indigo-scarfed figure in that year's dark room",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old porcelain cups streaked with glaze tears by the peephole appears.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old fire-watch cups by the peephole",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to that cobble blank-drying yard of first meeting, bamboo racks aslant as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that cobble blank-drying yard of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (stained ledger · pyrometric cones long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Dandelion opens again that smoke-stained kiln-temperature ledger and walks into the dragon-kiln chamber.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "Beside the saggers those three pyrometric cones still stand neatly inserted.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Dandelion takes over fire watch of the dragon-kiln saggers; heat surges again toward the kiln mouth.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "Outside the peephole the ridge outline grows clear in morning light."
+      ]
+    }
+  ]
+}

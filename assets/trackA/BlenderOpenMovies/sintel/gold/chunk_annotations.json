@@ -1,0 +1,2298 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "sintel",
+  "human_reviewed": true,
+  "chunks": [
+    {
+      "chunk_id": 0,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        0.0,
+        15.0
+      ],
+      "prompt": "镜头推进雪山全景，字幕显示制作方信息。 (风声，音乐起)",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [
+        "loc_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 1,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        15.0,
+        30.0
+      ],
+      "prompt": "红发女子在雪山中持长矛艰难前行，短发随风扬起，灰背心与棕裤在雪地映衬下清晰可见，手臂纹身若隐若现，每一步都踏出深痕。 (风雪声，脚步声)",
+      "present": [
+        "char_001",
+        "loc_001",
+        "prop_001"
+      ],
+      "first_appearances": [
+        "char_001",
+        "prop_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        30.0,
+        45.0
+      ],
+      "prompt": "红发女子在雪山中停下，警惕地观察四周，光头男子从高处跳下，长矛在附近地面闪烁寒光。 (紧张的音乐)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001",
+        "prop_001"
+      ],
+      "first_appearances": [
+        "char_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        45.0,
+        60.0
+      ],
+      "prompt": "在雪山中，红发女子与光头男子激烈搏斗，长矛与短刀交锋。 (武器碰撞声，喊叫声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        60.0,
+        75.0
+      ],
+      "prompt": "在雪山中，红发女子被光头男子用长矛刺倒，她挣扎反抗，最终被压制在雪地。 (沉重的呼吸声，武器刺入声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        75.0,
+        90.0
+      ],
+      "prompt": "红发女子在雪山中从死者手中拿起长矛。 (音乐变缓)",
+      "present": [
+        "char_001",
+        "loc_001",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        90.0,
+        102.0
+      ],
+      "prompt": "红发女子在雪山中倒下，画面渐黑。 (风声减弱)",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        102.0,
+        117.0
+      ],
+      "prompt": "帐篷内，萨满身披红色长袍，大胡子，面部有金属装饰，正俯身在火堆旁熬药，红发女子躺在一旁。 (火堆啪声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_003",
+        "loc_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        117.0,
+        132.0
+      ],
+      "prompt": "在帐篷中，萨满将一碗盛有白色液体的红色陶碗递给红发女子，她接过。 (萨满低语)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_002",
+        "prop_002"
+      ],
+      "first_appearances": [
+        "prop_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        132.0,
+        147.0
+      ],
+      "prompt": "红发女子凝视碗中幻象，萨满在帐篷内注视她。 (神秘的音乐)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_002",
+        "prop_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        147.0,
+        150.0
+      ],
+      "prompt": "画面渐黑，场景过渡至下一幕。",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        150.0,
+        165.0
+      ],
+      "prompt": "红发女子在城市废墟的街道中行走，手持长矛，身着破旧无袖上衣与深色裤子，赤足踩过散落瓦砾，两侧残垣断壁间悬挂着褪色布幔。 (城市环境音)",
+      "present": [
+        "char_001",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "loc_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        165.0,
+        180.0
+      ],
+      "prompt": "红发女子在城市废墟中拾起苹果，指尖轻触其光滑红润表皮，又拿起榴莲，凝视其尖刺外壳，察觉异响后警觉转身。 (细微的叫声)",
+      "present": [
+        "char_001",
+        "loc_003",
+        "prop_003",
+        "prop_004"
+      ],
+      "first_appearances": [
+        "prop_003",
+        "prop_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        180.0,
+        195.0
+      ],
+      "prompt": "红发女子在城市废墟的屋顶发现受伤流血的小龙，它浅棕色鳞片的翅膀半张，正挣扎着抬头，露出惊恐表情。 (小龙的哀鸣)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "char_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        195.0,
+        205.0
+      ],
+      "prompt": "在城市废墟中，红发女子伸手安抚警惕的小龙，小龙逐渐放松。 (轻柔的音乐)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        205.0,
+        220.0
+      ],
+      "prompt": "红发女子在城市废墟中为小龙包扎伤口，小龙舔她的手。 (温馨的音乐)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        220.0,
+        235.0
+      ],
+      "prompt": "红发女子在城市废墟的床上安睡，小龙蜷缩在她身旁。 (安静的环境音)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        235.0,
+        248.0
+      ],
+      "prompt": "红发女子在城市废墟中照料小龙，小龙依偎在她身旁。 (欢快的音乐)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        248.0,
+        263.0
+      ],
+      "prompt": "在城市废墟的集市中，小龙在木架间穿梭，红发女子紧追不舍。 (集市嘈杂声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        263.0,
+        278.0
+      ],
+      "prompt": "在城市废墟中，小龙飞上高处，红发女子在下方寻找 (呼喊声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        278.0,
+        293.0
+      ],
+      "prompt": "红发女子在城市废墟中奔跑，小龙飞向天空中的鸟群。 (鸟叫声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        293.0,
+        308.0
+      ],
+      "prompt": "在城市废墟中，红发女子向天空呼喊，小龙飞回她身边。 (呼喊声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        308.0,
+        323.0
+      ],
+      "prompt": "在城市废墟中，大龙俯冲抓走小龙，红发女子震惊。大龙深色鳞片覆盖身躯，头生双角，喷出烈焰灼烧空气。 (龙吼声，紧张音乐)",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_005",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "char_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        323.0,
+        338.0
+      ],
+      "prompt": "在城市废墟中，红发女子伸手试图抓住小龙，但小龙被大龙带离。 (呼喊声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_005",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        338.0,
+        349.0
+      ],
+      "prompt": "红发女子站在城市废墟中，目送小龙飞走，表情愤怒，握紧拳头。 (坚定的音乐)",
+      "present": [
+        "char_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        349.0,
+        364.0
+      ],
+      "prompt": "红发女子在沙漠中行走，棕褐色斗篷随风扬起，她赤足踏过滚烫沙丘，目光凝视远方，回忆闪现。 (旅途音乐)",
+      "present": [
+        "char_001",
+        "loc_004"
+      ],
+      "first_appearances": [
+        "loc_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        364.0,
+        379.0
+      ],
+      "prompt": "红发女子在沙漠中艰难行走，手持长矛。 (风声)",
+      "present": [
+        "char_001",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        379.0,
+        386.0
+      ],
+      "prompt": "红发女子在竹林中奔跑，敏捷穿梭于竹竿之间，身着棕褐色短装，赤足踏过青翠竹叶，发丝随风扬起，动作矫健如林间精灵。 (奔跑声，野兽吼叫)",
+      "present": [
+        "char_001",
+        "loc_005",
+        "loc_004"
+      ],
+      "first_appearances": [
+        "loc_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        386.0,
+        393.0
+      ],
+      "prompt": "红发女子在红色岩石峡谷中敏捷攀爬，躲避巨龙扑击，最终倚靠岩壁喘息，背景是橙黄暮色下的荒漠岩拱。 (攀爬声)",
+      "present": [
+        "char_001",
+        "loc_006",
+        "loc_004"
+      ],
+      "first_appearances": [
+        "loc_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        393.0,
+        408.0
+      ],
+      "prompt": "红发女子在雪山中攀爬，天气恶劣 (风雪声)",
+      "present": [
+        "char_001",
+        "loc_001",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        408.0,
+        423.0
+      ],
+      "prompt": "红发女子在雪山中艰难攀爬，几乎被雪掩埋。 (沉重的呼吸)",
+      "present": [
+        "char_001",
+        "loc_001",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        423.0,
+        435.0
+      ],
+      "prompt": "红发女子手持长矛，回到雪山顶部，画面与开头战斗场景重合。 (音乐高潮)",
+      "present": [
+        "char_001",
+        "loc_001",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        435.0,
+        450.0
+      ],
+      "prompt": "红发女子在帐篷内表情悲伤，萨满手持烟斗注视着她。 (悲伤的音乐)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        450.0,
+        465.0
+      ],
+      "prompt": "在帐篷内，萨满将长矛递向红发女子，她伸手接过。 (萨满低语)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_002",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        465.0,
+        480.0
+      ],
+      "prompt": "红发女子在帐篷中抚摸长矛上的树纹，长矛发光。 (神秘的音乐)",
+      "present": [
+        "char_001",
+        "loc_002",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        480.0,
+        495.0
+      ],
+      "prompt": "红发女子手持长矛踏入洞穴，长矛尖端泛着幽蓝光芒，映照出洞壁上闪烁的晶体与嶙峋岩层，她肩头纹身隐约可见，脚步踏在湿滑石地上，回声在幽深空间里缓缓回荡。 (洞穴回声)",
+      "present": [
+        "char_001",
+        "loc_007",
+        "prop_001",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "loc_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        495.0,
+        502.0
+      ],
+      "prompt": "红发女子手持长矛，在洞穴中谨慎前行，前方有发光晶体。 (滴水声)",
+      "present": [
+        "char_001",
+        "loc_007",
+        "prop_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        502.0,
+        517.0
+      ],
+      "prompt": "红发女子在洞穴中悄悄靠近，大龙正吞食猎物，长矛插在旁侧。 (咀嚼声，紧张音乐)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_007",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        517.0,
+        532.0
+      ],
+      "prompt": "红发女子持长矛进入洞穴，发现小龙骸骨，震惊悲伤。 (悲伤的音乐)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_007",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        532.0,
+        547.0
+      ],
+      "prompt": "洞穴中，红发女子发现大龙，大龙喷火攻击，她持长矛躲避。 (龙吼，火焰声)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_007",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        547.0,
+        562.0
+      ],
+      "prompt": "洞穴中，红发女子挥舞长矛反击大龙，被喷出的火焰击飞。 (武器碰撞，撞击声)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_007",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        562.0,
+        577.0
+      ],
+      "prompt": "洞穴中，红发女子持长矛与大龙激烈搏斗，她翻滚躲避攻击后起身继续战斗。 (喘息声，战斗音乐)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_007",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        577.0,
+        592.0
+      ],
+      "prompt": "洞穴中，大龙俯身将红发女子按在地上，她挣扎着试图起身，长矛在旁。 (挣扎声)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_007",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        592.0,
+        607.0
+      ],
+      "prompt": "洞穴中，红发女子用长矛刺中大龙，大龙倒下 (刺入声，龙吼)",
+      "present": [
+        "char_001",
+        "char_005",
+        "loc_007",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        607.0,
+        617.0
+      ],
+      "prompt": "洞穴中，红发女子持长矛，面对大龙尸体，走向小龙骸骨。 (安静的音乐)",
+      "present": [
+        "char_001",
+        "char_005",
+        "char_004",
+        "loc_007",
+        "prop_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        617.0,
+        632.0
+      ],
+      "prompt": "洞穴中，红发女子抚摸小龙骸骨，流泪 (悲伤的音乐)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        632.0,
+        647.0
+      ],
+      "prompt": "红发女子在洞穴中惊恐躲避坍塌的岩壁。 (坍塌声)",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        647.0,
+        662.0
+      ],
+      "prompt": "红发女子站在悬崖边，俯瞰远方山脉，衣角随风轻扬，发丝在夜色中泛着红灰光泽。 (风声)",
+      "present": [
+        "char_001",
+        "loc_008",
+        "loc_007"
+      ],
+      "first_appearances": [
+        "loc_008"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_008",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        662.0,
+        677.0
+      ],
+      "prompt": "红发女子在悬崖边低头哭泣，头发随风飘动。 (哭泣声)",
+      "present": [
+        "char_001",
+        "loc_008",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        677.0,
+        692.0
+      ],
+      "prompt": "红发女子坐在悬崖边，凝视远方山脉。 (坚定的音乐)",
+      "present": [
+        "char_001",
+        "loc_008",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        692.0,
+        707.0
+      ],
+      "prompt": "在悬崖边中，小龙的幻影出现，陪伴红发女子 (温馨的音乐)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_008",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        707.0,
+        717.0
+      ],
+      "prompt": "红发女子在悬崖边继续走向远方。 (音乐渐弱)",
+      "present": [
+        "char_001",
+        "loc_008",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        717.0,
+        732.0
+      ],
+      "prompt": "黑屏，出现导演和制片人名字 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        732.0,
+        747.0
+      ],
+      "prompt": "滚动显示编剧和艺术指导名字 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        747.0,
+        762.0
+      ],
+      "prompt": "显示音乐和配音演员名字 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        762.0,
+        777.0
+      ],
+      "prompt": "显示角色建模和动画团队名字 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        777.0,
+        792.0
+      ],
+      "prompt": "显示环境设计和软件开发团队名字 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        792.0,
+        807.0
+      ],
+      "prompt": "显示额外 artwork 和团队成员名字 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        807.0,
+        822.0
+      ],
+      "prompt": "画面展示制作团队名单与特别致谢，背景为木质纹理，伴随苹果、角色插画及城市废墟等图像。 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        822.0,
+        837.0
+      ],
+      "prompt": "显示 DVD 预售赞助商名单 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        837.0,
+        852.0
+      ],
+      "prompt": "继续显示赞助商名单 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        852.0,
+        867.0
+      ],
+      "prompt": "继续显示赞助商名单 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        867.0,
+        882.0
+      ],
+      "prompt": "显示歌曲信息和最终支持机构 (片尾音乐)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        882.0,
+        887.0
+      ],
+      "prompt": "显示网站 www.sintel.org 及 Creative Commons Attribution 3.0 授权信息。 (音乐结束)",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    }
+  ]
+}

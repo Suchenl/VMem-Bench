@@ -1,0 +1,3531 @@
+{
+  "story_id": "0001_lighthouse_keeper",
+  "gt_version": "trackB-gt-2.0",
+  "title": "灯塔守望录",
+  "premise": "跨越数十年的海岸传承。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0001_lighthouse_keeper.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "伊莱亚斯",
+      "kind": "character",
+      "states": {
+        "中年硬朗": "一位五十余岁的守塔人，灰白胡须，穿厚重的深绿防水外套与高筒胶靴，双手粗糙布满老茧，身形硬朗、步履稳健，眼神辽远而疲惫。",
+        "拄杖迟暮": "同一位守塔人的暮年之貌：须发全白、面容枯槁凹陷、佝偻着拄一根木杖缓行，仍穿那件褪色的深绿旧外套。",
+        "离世": "守塔人阖眼长逝，静静躺着、面容安详、气息全无。"
+      },
+      "initial_state": "中年硬朗"
+    },
+    "E2": {
+      "name": "玛拉",
+      "kind": "character",
+      "states": {
+        "少年": "少年时的玛拉：十四五岁、身形清瘦的渔家少女，系深蓝头巾，穿粗棉渔装，眉眼清亮而倔强。",
+        "成年": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+      },
+      "initial_state": "少年"
+    },
+    "E3": {
+      "name": "航海日志",
+      "kind": "prop",
+      "states": {
+        "完好": "一本厚重的旧账本，四角包着磨亮的黄铜，深棕皮封面完好，书页泛黄写满墨迹。",
+        "盐渍风化": "同一本航海日志被海风盐渍得封皮发白卷边、书页受潮起皱，字迹晕开。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "菲涅尔透镜",
+      "kind": "prop",
+      "states": {
+        "完好旋转": "一具真人高的旋转菲涅尔透镜，由完整的同心玻璃棱环组成，匀速旋转、折射出锋利的白色光束。",
+        "开裂": "同一具菲涅尔透镜迸出刺目裂纹、部分玻璃棱环残损，旋转的光束因缺口而不完整。",
+        "修复": "菲涅尔透镜的裂纹被重新嵌上的玻璃棱环填平、恢复完好，光束再度锐利平稳。"
+      },
+      "initial_state": "完好旋转"
+    },
+    "E5": {
+      "name": "海燕号",
+      "kind": "prop",
+      "states": {
+        "完好": "一艘靛蓝色小木渔船，船首漆着一只展翅的白色海燕，舷侧挂着旧轮胎护舷。",
+        "沉没": "靛蓝渔船被巨浪掀翻、桅杆折断，正沉入浪涛的残骸。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "莉娜",
+      "kind": "character",
+      "states": {
+        "少年": "少年时的莉娜：与少女玛拉面容极相似的双胞胎姐姐，系赭红色羊毛披肩，神情张扬，鬓角别一枚贝壳发夹。",
+        "成年": "成年后的莉娜：与成年玛拉面容极相似，仍系赭红披肩、鬓角别贝壳发夹，神情张扬。"
+      },
+      "initial_state": "少年"
+    },
+    "E7": {
+      "name": "灯塔",
+      "kind": "location",
+      "appearance": "一座矗立在黑色礁岬上的白色花岗岩灯塔，塔身细高，顶部是玻璃灯室，海雾常年缭绕。"
+    },
+    "E8": {
+      "name": "灯室",
+      "kind": "location",
+      "appearance": "灯塔顶层的环形玻璃灯室，黄铜栏杆环绕，中央矗立菲涅尔透镜，窗外是无尽的海。"
+    },
+    "E9": {
+      "name": "礁石海岸",
+      "kind": "location",
+      "appearance": "灯塔脚下的黑色礁石海岸，碎浪拍打，散落着旧渔网、玻璃浮标与漂木。"
+    },
+    "E10": {
+      "name": "渔村集市",
+      "kind": "location",
+      "appearance": "海湾对岸的小渔村露天集市，木棚下摆满鱼篓与咸鱼，晾绳上挂着渔网，人来人往。"
+    },
+    "E11": {
+      "name": "纪念铜牌",
+      "kind": "prop",
+      "appearance": "一块钉在花岗岩基座上的黄铜纪念牌，表面刻着守塔人之名与年份，边缘已生铜绿。"
+    },
+    "E12": {
+      "name": "玻璃浮标",
+      "kind": "prop",
+      "appearance": "三只手掌大的旧玻璃浮标，蒙着盐霜，用麻绳系在礁石海岸的木桩上。"
+    },
+    "E13": {
+      "name": "海鸥号",
+      "kind": "prop",
+      "appearance": "一艘崭新的朱红色机动救援艇，船身喷着白色『海鸥』字样，围栏上挂着橙色救生圈。"
+    },
+    "E14": {
+      "name": "港务官",
+      "kind": "character",
+      "appearance": "一名精瘦的港务官，络腮胡、深蓝制服大衣、大盖帽，气度干练，与守塔人有几分相似。"
+    },
+    "E15": {
+      "name": "备用马灯",
+      "kind": "prop",
+      "appearance": "一排五盏黄铜备用马灯，挂在灯室墙上的铁钩上，玻璃罩擦得锃亮。"
+    },
+    "E16": {
+      "name": "黄铜雾钟",
+      "kind": "prop",
+      "appearance": "两只悬在灯塔檐下的黄铜雾钟，钟体泛着幽光，风起时低鸣报雾。"
+    },
+    "E17": {
+      "name": "萨拉",
+      "kind": "character",
+      "appearance": "海湾对岸的渔家少女，系浅褐头巾、穿灰扑扑的粗布衣，乍看与少女时的玛拉有几分神似，却下巴更尖、目光怯生。"
+    },
+    "E18": {
+      "name": "备用棱镜",
+      "kind": "prop",
+      "appearance": "一具半人高的备用棱镜，同心玻璃环与主透镜极像，但个头更小、底座是黑铁的。"
+    },
+    "E19": {
+      "name": "新渔船",
+      "kind": "prop",
+      "appearance": "一艘陌生的青灰色机动渔船，船身宽扁、无任何海燕徽记，与海燕号并不相同。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "中年硬朗",
+      "拄杖迟暮",
+      "离世"
+    ],
+    "E2": [
+      "少年",
+      "成年"
+    ],
+    "E3": [
+      "完好",
+      "盐渍风化"
+    ],
+    "E4": [
+      "完好旋转",
+      "开裂",
+      "修复"
+    ],
+    "E5": [
+      "完好",
+      "沉没"
+    ],
+    "E6": [
+      "少年",
+      "成年"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+        "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+      },
+      "note": "双胞胎错认：既考『只有一人在场时不得画出另一人』(S4)，也考『两人同段共屏时特征绑定正确』(S5/S16)。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，守塔人伊莱亚斯沿螺旋铁梯走进灯室，点亮中央的菲涅尔透镜。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯室墙上挂着一排五盏黄铜备用马灯，伊莱亚斯逐一擦亮它们的玻璃罩。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯塔檐下悬着两只黄铜雾钟，伊莱亚斯伸手让它们轻轻鸣响。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯绕着菲涅尔透镜检查每一圈玻璃棱环。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯凭窗眺望渐暗的海面。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "菲涅尔透镜匀速旋转，将白色光柱投向夜海。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯在灯室角落坐下，就着灯光小憩。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "伊莱亚斯翻开航海日志，蘸墨记录当日的潮汐。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯在航海日志上画下一道浪高曲线。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯合上航海日志，放回黄铜栏杆边的木匣。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "菲涅尔透镜的光束扫过灯室，映亮伊莱亚斯的侧脸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的礁石海岸，伊莱亚斯迎向撑着靛蓝海燕号靠岸的少女玛拉。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "玛拉跳下海燕号，把缆绳系在礁石上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯指着木桩上系着的三只玻璃浮标，教玛拉辨认渔汛。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "玛拉蹲在礁石海岸的水洼旁，好奇地打量海葵。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯指着海面，向玛拉讲解洋流的走向。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "玛拉回望停泊的海燕号，眼里满是向往。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "喧闹的渔村集市里，系着赭红披肩的莉娜从鱼棚后回头张望。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "莉娜在渔村集市的摊位前挑拣咸鱼。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "莉娜与集市商贩讨价还价，鬓角的贝壳发夹微微晃动。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "莉娜提着竹篮穿过渔村集市的人群。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "礁石海岸上，玛拉与姐姐莉娜并肩而立，一个系深蓝头巾、一个系赭红披肩。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "玛拉把捡来的玻璃浮标递给莉娜，两人相视而笑。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "莉娜替玛拉理了理深蓝头巾，姐妹俩沿海岸慢走。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "玛拉与莉娜在礁石海岸边分别，各自走向相反方向。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的夜里，伊莱亚斯独自在灯室值守，菲涅尔透镜静静旋转。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 15,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯翻开航海日志，封皮已被经年海风盐渍得发白、卷起了边。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "盐渍风化",
+            "appearance": "同一本航海日志被海风盐渍得封皮发白卷边、书页受潮起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯擦拭菲涅尔透镜蒙上的盐雾。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "盐渍风化",
+            "appearance": "同一本航海日志被海风盐渍得封皮发白卷边、书页受潮起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯凭着灯室的窗，望向漆黑的海平线。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "盐渍风化",
+            "appearance": "同一本航海日志被海风盐渍得封皮发白卷边、书页受潮起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "菲涅尔透镜的光柱在雾气中缓缓扫过。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "四季流转，伊莱亚斯日复一日登上灯室点灯。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一个雪夜，伊莱亚斯裹紧外套守在菲涅尔透镜旁。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "春汛时节，伊莱亚斯在灯室窗前望着归航的渔火。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "盛夏正午，伊莱亚斯擦拭被烈日晒烫的黄铜栏杆。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "秋雾弥漫，菲涅尔透镜的光束在灯室里艰难穿雾。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一个除夕，伊莱亚斯独自在灯室里守到天明。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，伊莱亚斯沿礁石海岸巡查，靛蓝的海燕号泊在浅湾。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 11,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 19,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯蹲下检查海燕号的船身缝隙。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯走到木桩边，先前那三只玻璃浮标仍系在礁石海岸上。",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 24,
+          "last_seen": "seg_014",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一艘陌生的青灰色新渔船驶过浅湾，船身宽扁、并非伊莱亚斯的海燕号。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯站在礁石海岸，记录退潮后裸露的暗礁。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯把渔网晾在礁石海岸的木架上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "暴风雨骤起，灯室在狂风中震颤，菲涅尔透镜剧烈摇晃。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "狂浪拍打，灯室的玻璃映出惨白的闪电。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "惊雷炸响，菲涅尔透镜迸出一道刺目的裂纹。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "开裂",
+            "appearance": "同一具菲涅尔透镜迸出刺目裂纹、部分玻璃棱环残损，旋转的光束因缺口而不完整。"
+          },
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处海面上，靛蓝的海燕号在巨浪中剧烈颠簸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一记巨浪将海燕号整个掀翻，桅杆应声折断，沉入浪涛。",
+      "memory_probes": [
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "沉没",
+            "appearance": "靛蓝渔船被巨浪掀翻、桅杆折断，正沉入浪涛的残骸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯室里，伊莱亚斯扑向操作台，死死稳住开裂的菲涅尔透镜。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "开裂",
+            "appearance": "同一具菲涅尔透镜迸出刺目裂纹、部分玻璃棱环残损，旋转的光束因缺口而不完整。"
+          },
+          "gap": 2,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "暴风次日，伊莱亚斯站在灯室里，凝视着开裂的菲涅尔透镜。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "开裂",
+            "appearance": "同一具菲涅尔透镜迸出刺目裂纹、部分玻璃棱环残损，旋转的光束因缺口而不完整。"
+          },
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯用手指抚过菲涅尔透镜上的裂纹，神情黯然。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "开裂",
+            "appearance": "同一具菲涅尔透镜迸出刺目裂纹、部分玻璃棱环残损，旋转的光束因缺口而不完整。"
+          },
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯在灯室的航线图旁，记下海燕号失事的日期。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯室墙上挂着海燕号的旧照片，伊莱亚斯久久凝望。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯取下墙上五盏备用马灯中的一盏，就着微光独坐。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 50,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "破损的菲涅尔透镜仍带着裂纹缓缓旋转，光束有了缺口。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "开裂",
+            "appearance": "同一具菲涅尔透镜迸出刺目裂纹、部分玻璃棱环残损，旋转的光束因缺口而不完整。"
+          },
+          "gap": 3,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，伊莱亚斯搬来工具，开始修复菲涅尔透镜。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "开裂",
+            "appearance": "同一具菲涅尔透镜迸出刺目裂纹、部分玻璃棱环残损，旋转的光束因缺口而不完整。"
+          },
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯从木箱取出一具备用棱镜，它酷似那具菲涅尔透镜、却更小巧。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E4"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯小心地为菲涅尔透镜嵌上新的玻璃棱环。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "开裂",
+            "appearance": "同一具菲涅尔透镜迸出刺目裂纹、部分玻璃棱环残损，旋转的光束因缺口而不完整。"
+          },
+          "gap": 1,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "最后一道裂纹被填平，菲涅尔透镜重新变得完好，光束再度锐利。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "修复",
+            "appearance": "菲涅尔透镜的裂纹被重新嵌上的玻璃棱环填平、恢复完好，光束再度锐利平稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "修复后的菲涅尔透镜平稳旋转，伊莱亚斯欣慰地望着它。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "修复",
+            "appearance": "菲涅尔透镜的裂纹被重新嵌上的玻璃棱环填平、恢复完好，光束再度锐利平稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "一艘朱红色的海鸥号驶入浅湾，与早已沉没的海燕号毫不相同。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一名络腮胡的港务官跳上礁石海岸，与伊莱亚斯并肩交谈，两人身形相仿。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "港务官指着朱红色的海鸥号，向伊莱亚斯说明新的巡逻安排。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E13",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_060",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "海鸥号鸣笛驶离，伊莱亚斯独自留在礁石海岸目送。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "海湾对岸来了个系浅褐头巾的渔家少女萨拉，乍看竟有几分像当年的玛拉。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "萨拉学着在礁石上系缆绳，伊莱亚斯却摇摇头——她终究不是玛拉。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，须发全白的伊莱亚斯拄着木杖，佝偻着立在白色花岗岩灯塔下。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "拄杖迟暮",
+            "appearance": "同一位守塔人的暮年之貌：须发全白、面容枯槁凹陷、佝偻着拄一根木杖缓行，仍穿那件褪色的深绿旧外套。"
+          },
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯拄杖仰望高耸的灯塔，目光悠远。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "拄杖迟暮",
+            "appearance": "同一位守塔人的暮年之貌：须发全白、面容枯槁凹陷、佝偻着拄一根木杖缓行，仍穿那件褪色的深绿旧外套。"
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯塔檐下那两只黄铜雾钟在风里轻响，伊莱亚斯拄杖驻足倾听。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "拄杖迟暮",
+            "appearance": "同一位守塔人的暮年之貌：须发全白、面容枯槁凹陷、佝偻着拄一根木杖缓行，仍穿那件褪色的深绿旧外套。"
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 64,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯拄杖把手掌贴在灯塔冰凉的花岗岩墙上，似在告别。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "拄杖迟暮",
+            "appearance": "同一位守塔人的暮年之貌：须发全白、面容枯槁凹陷、佝偻着拄一根木杖缓行，仍穿那件褪色的深绿旧外套。"
+          },
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年的玛拉沿海岸归来，快步走向灯塔。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 44,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "玛拉在灯塔下与拄杖的伊莱亚斯重逢，两人相拥。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "拄杖迟暮",
+            "appearance": "同一位守塔人的暮年之貌：须发全白、面容枯槁凹陷、佝偻着拄一根木杖缓行，仍穿那件褪色的深绿旧外套。"
+          },
+          "gap": 1,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯塔内的病榻旁，玛拉握着伊莱亚斯枯瘦的手。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "拄杖迟暮",
+            "appearance": "同一位守塔人的暮年之貌：须发全白、面容枯槁凹陷、佝偻着拄一根木杖缓行，仍穿那件褪色的深绿旧外套。"
+          },
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 0,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "伊莱亚斯气息渐弱，最终阖上双眼，溘然长逝。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "离世",
+            "appearance": "守塔人阖眼长逝，静静躺着、面容安详、气息全无。"
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "灯室门后仍挂着伊莱亚斯的深绿旧外套，玛拉伸手轻轻抚过。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯塔基座旁，成年玛拉伫立在一块新钉上的纪念铜牌前。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "玛拉的指尖抚过纪念铜牌上刻着的伊莱亚斯之名。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "成年的莉娜从渔村赶来，与玛拉在灯塔下紧紧相拥。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的莉娜：与成年玛拉面容极相似，仍系赭红披肩、鬓角别贝壳发夹，神情张扬。"
+          },
+          "gap": 51,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "玛拉与莉娜并肩立于灯塔基座旁，一个眉眼沉静、一个神情张扬。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的莉娜：与成年玛拉面容极相似，仍系赭红披肩、鬓角别贝壳发夹，神情张扬。"
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "姐妹俩相视无言，望着彼此相似而又不同的脸。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的莉娜：与成年玛拉面容极相似，仍系赭红披肩、鬓角别贝壳发夹，神情张扬。"
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "玛拉：系深蓝头巾、粗棉渔装。",
+            "E6": "莉娜：面容极似玛拉，但系赭红披肩、鬓角别贝壳发夹、神情张扬。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前——那个在礁石上系缆绳的少女，身影再度浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年",
+            "appearance": "少年时的玛拉：十四五岁、身形清瘦的渔家少女，系深蓝头巾，穿粗棉渔装，眉眼清亮而倔强。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_079",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "在礁石上系缆绳的少女",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场的那一刻——灯室里，一具旋转的巨大透镜第一次被点亮。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "state": {
+            "label": "完好旋转",
+            "appearance": "一具真人高的旋转菲涅尔透镜，由完整的同心玻璃棱环组成，匀速旋转、折射出锋利的白色光束。",
+            "flashback": true
+          },
+          "gap": 21,
+          "last_seen": "seg_059",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次被点亮的那具旋转透镜",
+            "resolves_to": "E4"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到当年的集市——那个系赭红披肩、鬓角别贝壳发夹的身影一闪而过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "少年",
+            "appearance": "少年时的莉娜：与少女玛拉面容极相似的双胞胎姐姐，系赭红色羊毛披肩，神情张扬，鬓角别一枚贝壳发夹。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_079",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "当年集市上系赭红披肩的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现灯室墙上那一排五盏黄铜的旧提灯。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 29,
+          "last_seen": "seg_053",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "灯室墙上那一排五盏旧提灯",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那片黑色的礁岸，海浪拍打，一如往昔。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 18,
+          "last_seen": "seg_065",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时那片黑色的礁岸",
+            "resolves_to": "E9"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "玛拉重新翻开那本盐渍风化的航海日志，走进灯室。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 4,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "盐渍风化",
+            "appearance": "同一本航海日志被海风盐渍得封皮发白卷边、书页受潮起皱，字迹晕开。"
+          },
+          "gap": 55,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯室木桩边，先前那三只蒙着盐霜的玻璃浮标依旧系在原处。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 46,
+          "last_seen": "seg_039",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "玛拉接过菲涅尔透镜的守望，光束再度射向大海。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年",
+            "appearance": "成年后的玛拉：二十余岁、身形挺拔沉稳的渔家女子，仍系那条深蓝头巾、穿粗棉渔装，眉眼清亮而坚定。"
+          },
+          "gap": 1,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "修复",
+            "appearance": "菲涅尔透镜的裂纹被重新嵌上的玻璃棱环填平、恢复完好，光束再度锐利平稳。"
+          },
+          "gap": 5,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 87,
+    "n_scenes": 19,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 170,
+      "transform": 8,
+      "persist": 29,
+      "recall_after_gap": 3
+    },
+    "probe_counts": {
+      "first_appearance": 14,
+      "continuity": 81,
+      "lookalike_disambiguation": 11,
+      "state_change": 8,
+      "persist_state": 23,
+      "count_memory": 5,
+      "false_friend": 5,
+      "deprecation_avoidance": 10,
+      "reference_indirect": 5,
+      "long_gap_reappearance": 6,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 6,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 11,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 186,
+      "5-29": 18,
+      ">=30": 6
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 64,
+      "at": "seg_068"
+    }
+  },
+  "warnings": []
+}

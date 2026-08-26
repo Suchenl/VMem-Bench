@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S3 实时审核</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link rel="stylesheet" href="/static/css/review.css">
+</head>
+<body>
+  <div class="reviewShell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">S3 Live Auto-Review</div>
+        <h1 id="title">Segment 自动审核（实时）</h1>
+      </div>
+      <div class="toolbarButtons">
+        <a class="buttonLink" href="/">返回控制台</a>
+        <button id="rerunBtn" class="warnBtn" type="button" title="清空 tmp/pipeline 并从 S2 重跑本样本">重跑本样本</button>
+        <button id="refreshBtn" class="secondary">立即刷新</button>
+        <label class="check" style="margin:0">
+          <input id="autoRefresh" type="checkbox" checked>
+          <span>每 3s 刷新</span>
+        </label>
+      </div>
+    </header>
+    <section class="reviewMeta panel">
+      <div id="meta" class="hint">加载中...</div>
+      <div class="progressBarWrap">
+        <div id="progressBar" class="progressBar"></div>
+      </div>
+      <div id="progressText" class="hint"></div>
+      <div class="entityLegend pageLegend" title="实体芯片颜色含义">
+        <div class="legendRow">
+          <span><span class="swatch kept"></span>绿：存在且通过</span>
+          <span><span class="swatch removed"></span>红：存在未通过</span>
+          <span><span class="swatch added"></span>黄：S3补充</span>
+          <span class="legendSep">|</span>
+          <span class="muted">仅当 S3 改写了 action 时显示蓝色「修订」框</span>
+        </div>
+      </div>
+    </section>
+    <main id="cards" class="reviewCards"></main>
+    <div id="toast" class="toast" hidden></div>
+  </div>
+  <script src="/static/js/api.js?v=20260722sso3"></script>
+  <script src="/static/js/review_s3.js?v=20260721resume2"></script>
+</body>
+</html>

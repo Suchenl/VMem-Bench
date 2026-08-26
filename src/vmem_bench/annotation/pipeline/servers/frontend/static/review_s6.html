@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S6 Crop 审核</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link rel="stylesheet" href="/static/css/review.css?v=20260721s6reassign">
+</head>
+<body>
+  <div class="reviewShell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">S6 Human Review</div>
+        <h1 id="title">Crop 审核</h1>
+      </div>
+      <div class="toolbarButtons">
+        <a class="buttonLink" href="/">返回控制台</a>
+        <button id="rerunS5Btn" class="warnBtn" type="button" title="只清 S5/S6 并从 after_s4 重跑 crop 采集">重跑 S5</button>
+        <button id="keepAllBtn" class="secondary" type="button">全部选中</button>
+        <button id="clearAllBtn" class="secondary" type="button">全部取消</button>
+        <button id="saveBtn" class="primary">保存并应用</button>
+        <button id="continueBtn" class="warnBtn">继续冻结 S7</button>
+      </div>
+    </header>
+    <section class="reviewMeta panel">
+      <div id="meta" class="hint">加载中...</div>
+    </section>
+    <main id="cards" class="s6EntityBoard"></main>
+    <div id="toast" class="toast" hidden></div>
+  </div>
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="图片放大">
+    <button type="button" class="lightboxClose" id="lightboxClose" aria-label="关闭">×</button>
+    <img id="lightboxImg" alt="放大预览">
+  </div>
+  <script src="/static/js/api.js?v=20260722sso3"></script>
+  <script src="/static/js/review_s6.js?v=20260721s6reassign"></script>
+</body>
+</html>

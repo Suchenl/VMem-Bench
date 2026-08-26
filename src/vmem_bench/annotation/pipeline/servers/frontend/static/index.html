@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MemStrata Annotation Console</title>
+  <link rel="stylesheet" href="/static/css/app.css?v=20260721hoverpause">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">MemStrata Annotation</div>
+        <h1>Pipeline Console</h1>
+      </div>
+      <div class="health" id="health">checking…</div>
+    </header>
+
+    <section class="toolbar panel">
+      <div class="toolbarFilters">
+        <label>Dataset
+          <select id="datasetFilter">
+            <option value="">全部</option>
+            <option value="BlenderOpenMovies">BlenderOpenMovies</option>
+            <option value="LSMDC">LSMDC</option>
+          </select>
+        </label>
+        <label>Status
+          <select id="statusFilter">
+            <option value="">全部</option>
+            <option value="source_ready">source_ready</option>
+            <option value="in_progress">in_progress</option>
+            <option value="gold_ready">gold_ready</option>
+            <option value="s1_missing">s1_missing</option>
+            <option value="s1_incomplete">s1_incomplete</option>
+            <option value="automation_smoke_gold">automation_smoke_gold</option>
+          </select>
+        </label>
+        <label class="grow">Search
+          <input id="searchQ" placeholder="movie_id / 关键词">
+        </label>
+      </div>
+      <div class="toolbarButtons">
+        <button id="refreshBtn" class="secondary">刷新</button>
+        <button id="selectAllBtn" class="secondary">全选</button>
+        <button id="selectReadyBtn" class="secondary">勾选可跑</button>
+        <button id="clearSelectionBtn" class="secondary">清空勾选</button>
+      </div>
+    </section>
+
+    <details class="panel jobs" open style="margin:0 18px;padding-bottom:16px">
+      <summary class="panelTitle jobsSummary" style="cursor:pointer;list-style:none">
+        <div>
+          <strong>任务日志</strong>
+          <p id="jobsSummaryHint">查看在跑 / 在排队的任务，可单个停止或全部停止</p>
+        </div>
+        <span class="jobsToggleHint" aria-hidden="true"></span>
+      </summary>
+      <div class="jobsToolbar">
+        <div class="jobsFilters" role="tablist" aria-label="任务过滤">
+          <button type="button" class="secondary jobsFilter active" data-jobs-filter="active" id="jobsFilterActive">活跃</button>
+          <button type="button" class="secondary jobsFilter" data-jobs-filter="running" id="jobsFilterRunning">在跑</button>
+          <button type="button" class="secondary jobsFilter" data-jobs-filter="queued" id="jobsFilterQueued">在排队</button>
+          <button type="button" class="secondary jobsFilter" data-jobs-filter="all" id="jobsFilterAll">全部</button>
+        </div>
+        <div class="jobsToolbarActions">
+          <span id="jobsCountHint" class="hint">暂无活跃任务</span>
+          <button id="stopAllJobsBtn" class="dangerBtn" title="停止所有在跑和在排队的任务" disabled>停止全部</button>
+        </div>
+      </div>
+      <div class="jobsLayout">
+        <div id="jobsList" class="jobsList empty">暂无任务</div>
+        <pre id="jobLog" class="log">选择任务查看日志</pre>
+      </div>
+    </details>
+
+    <details class="batchPanel panel" open style="margin:0 18px;padding:14px 16px">
+      <summary>批量启动</summary>
+      <div class="batchGrid">
+        <label>Reviewer
+          <select id="reviewer">
+            <option value="qwen">qwen</option>
+            <option value="passthrough">passthrough</option>
+          </select>
+        </label>
+        <label>Reviewer Model
+          <input id="reviewerModel" value="qwen3-vl-32b">
+        </label>
+        <label>Execution target
+          <select id="executionTarget">
+            <option value="kml" selected>KML 远程训练机（自动选负载最低节点）</option>
+            <option value="local">本机兜底（仅调试用）</option>
+          </select>
+        </label>
+        <label>Grounder
+          <select id="grounder">
+            <option value="qwen" selected>qwen（生产 closed-set picker）</option>
+            <option value="full-frame">full-frame（仅调试）</option>
+          </select>
+        </label>
+        <label>S4 → S5
+          <select id="s4Mode" title="auto：生产阻塞；skip-human 调试非阻塞">
+            <option value="auto" selected>auto（生产阻塞 / 调试非阻塞）</option>
+            <option value="blocking">blocking（S4 审完才跑 S5）</option>
+            <option value="nonblocking">nonblocking（S4/S5 并行）</option>
+          </select>
+        </label>
+        <label>S5 Proposer
+          <select id="proposer">
+            <option value="fusion" selected>fusion（SAM3 + GDINO）</option>
+            <option value="gdino">gdino</option>
+            <option value="sam3">sam3（类级召回）</option>
+          </select>
+        </label>
+        <label>Max Review Rounds
+          <input id="maxReviewRounds" type="number" min="1" max="5" value="2" title="单个 segment 最多改写再审轮数">
+        </label>
+        <label>并行片数
+          <input id="maxParallelMovies" type="number" min="1" max="24" placeholder="自动" title="多片共享 VLM 池并行跑。留空=按端点数自动（最多 12）。设为 1 则整片串行。">
+        </label>
+        <label>Max Tasks
+          <input id="maxTasks" type="number" min="1" placeholder="留空=片内全量">
+        </label>
+        <label class="check">
+          <input id="skipHuman" type="checkbox">
+          <span>skip human (S4/S6)</span>
+        </label>
+      </div>
+      <div id="fleetPanel" class="fleetPanel">
+        <div class="fleetHead">
+          <strong>VLM Fleet</strong>
+          <span id="fleetHint" class="hint">从 runtime/services/vlm_fleet 自动发现，无需手填 URL</span>
+        </div>
+        <div id="fleetList" class="fleetList hint">加载中…</div>
+        <details class="fleetOverride">
+          <summary>高级：手动覆盖 Base URL（可选）</summary>
+          <label class="grow" style="display:block;margin-top:8px">Reviewer Base URL
+            <input id="reviewerBaseUrl" placeholder="留空=自动派发；多个逗号分隔">
+          </label>
+        </details>
+      </div>
+      <div class="batchActions">
+        <label class="check" title="本轮遇到任何待审或新生成的 S4 都会按当前 S3 修订结果接受；不会跳过 S6 Crop 审核">
+          <input id="autoAcceptS4" type="checkbox" checked>
+          <span>自动接受 S4</span>
+        </label>
+        <button id="resumeJobBtn" class="primary" title="每个样本从各自当前阶段继续；S3 保留 audit 进度；待人工 S4 默认跳过">续跑选中样本</button>
+        <button id="rerunJobBtn" class="warnBtn" title="清空 tmp/pipeline，每个样本从 S2 从头重跑">重跑选中样本</button>
+        <span id="selectionHint" class="hint" style="margin:0">未勾选</span>
+      </div>
+    </details>
+
+    <section class="panel mainStack" style="margin:0 18px;padding:0">
+      <div class="panelTitle">
+        <div>
+          <strong>样本目录</strong>
+          <p id="sampleCountHint">滚动选择样本，Stage 列显示每片进展</p>
+        </div>
+      </div>
+      <div id="sampleList" class="datasetSections loading">加载中…</div>
+    </section>
+  </div>
+
+  <div id="drawer" class="drawer" hidden>
+    <div class="drawerBackdrop" id="drawerBackdrop"></div>
+    <aside class="drawerPanel">
+      <div class="drawerHead">
+        <div>
+          <div class="eyebrow">Sample Detail</div>
+          <h2 id="drawerTitle">—</h2>
+        </div>
+        <button id="closeDrawerBtn" class="secondary">关闭</button>
+      </div>
+      <div id="drawerBody" class="detailsBox"></div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+  <p class="accessTip">访问入口：快手开发机 HTTPS 网关（AccessProxy → 本机 <code>:8890</code>）。SSO 登录页在 <code>example.com</code>：会话失效时页面会自动跳转；也可直接重新打开网关地址完成登录。控制台里的「刷新」只重拉数据，不会登录。保活：<code>ensure_console.sh --watch</code></p>
+  <script src="/static/js/config.js?v=20260720a"></script>
+  <script src="/static/js/api.js?v=20260722sso3"></script>
+  <script src="/static/js/app.js?v=20260723s3progress"></script>
+</body>
+</html>

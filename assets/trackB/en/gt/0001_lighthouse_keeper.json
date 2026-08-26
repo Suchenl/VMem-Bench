@@ -1,0 +1,3533 @@
+{
+  "story_id": "0001_lighthouse_keeper",
+  "gt_version": "trackB-gt-2.0",
+  "title": "Lighthouse Watch Chronicle",
+  "premise": "A coastal inheritance spanning decades. Human-readable context only; never fed to the SUT.",
+  "built_from": "gt_source/0001_lighthouse_keeper.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "Elias",
+      "kind": "character",
+      "states": {
+        "middle_aged_sturdy": "A lighthouse keeper in his fifties, gray-white beard, thick deep-green waterproof coat and tall rubber boots, rough calloused hands, sturdy frame and steady stride, eyes distant and weary.",
+        "cane_twilight": "The same keeper in old age: hair and beard fully white, face gaunt and sunken, stooped and walking slowly with a wooden cane, still in that faded deep-green old coat.",
+        "deceased": "The lighthouse keeper has closed his eyes in death, lying still, face peaceful, no breath left."
+      },
+      "initial_state": "middle_aged_sturdy"
+    },
+    "E2": {
+      "name": "Mara",
+      "kind": "character",
+      "states": {
+        "youth": "Young Mara: a lean fisher girl of fourteen or fifteen, deep-blue headscarf, coarse cotton fishing clothes, bright stubborn eyes.",
+        "adult": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+      },
+      "initial_state": "youth"
+    },
+    "E3": {
+      "name": "ship's log",
+      "kind": "prop",
+      "states": {
+        "intact": "A thick old ledger, corners capped in polished brass, deep-brown leather cover intact, yellowed pages packed with ink.",
+        "salt_weathered": "The same ship's log salt-bleached by sea wind: cover whitened and curling, pages damp and wrinkled, writing bled."
+      },
+      "initial_state": "intact"
+    },
+    "E4": {
+      "name": "Fresnel lens",
+      "kind": "prop",
+      "states": {
+        "intact_rotating": "A man-tall rotating Fresnel lens of intact concentric glass prism rings, turning at even speed, refracting a sharp white beam.",
+        "cracked": "The same Fresnel lens burst with glaring cracks, some glass prism rings damaged, the rotating beam broken by gaps.",
+        "repaired": "The Fresnel lens cracks filled with newly set glass prism rings, restored intact, the beam sharp and steady again."
+      },
+      "initial_state": "intact_rotating"
+    },
+    "E5": {
+      "name": "Petrel",
+      "kind": "prop",
+      "states": {
+        "intact": "A small indigo wooden fishing boat, a white petrel with spread wings painted on the bow, old tire fenders hanging along the gunwales.",
+        "sunk": "The indigo fishing boat overturned by a giant wave, mast snapped, wreckage sinking into the surf."
+      },
+      "initial_state": "intact"
+    },
+    "E6": {
+      "name": "Lena",
+      "kind": "character",
+      "states": {
+        "youth": "Young Lena: twin sister nearly identical in face to young Mara, ochre-red wool shawl, bold expression, a shell hairpin at her temple.",
+        "adult": "Adult Lena: nearly identical in face to adult Mara, still in ochre-red shawl with shell hairpin at the temple, bold expression."
+      },
+      "initial_state": "youth"
+    },
+    "E7": {
+      "name": "lighthouse",
+      "kind": "location",
+      "appearance": "A white granite lighthouse standing on a black rocky headland, tall and slender, glass lantern room at the top, sea fog year-round."
+    },
+    "E8": {
+      "name": "lantern room",
+      "kind": "location",
+      "appearance": "The circular glass lantern room atop the lighthouse, brass railings around, Fresnel lens in the center, endless sea beyond the windows."
+    },
+    "E9": {
+      "name": "rocky shore",
+      "kind": "location",
+      "appearance": "The black rocky shore at the lighthouse foot, breaking waves, scattered old fishing nets, glass floats, and driftwood."
+    },
+    "E10": {
+      "name": "fishing village market",
+      "kind": "location",
+      "appearance": "An open-air market in the small fishing village across the bay, fish baskets and salted fish under wooden sheds, nets on drying lines, people coming and going."
+    },
+    "E11": {
+      "name": "memorial plaque",
+      "kind": "prop",
+      "appearance": "A brass memorial plaque nailed to a granite base, engraved with the keeper's name and years, edges already verdigrised."
+    },
+    "E12": {
+      "name": "glass floats",
+      "kind": "prop",
+      "appearance": "Three palm-sized old glass floats, frosted with salt, tied with hemp rope to a wooden stake on the rocky shore."
+    },
+    "E13": {
+      "name": "Seagull",
+      "kind": "prop",
+      "appearance": "A brand-new vermilion motor rescue boat, white 'Seagull' lettering sprayed on the hull, orange life rings hung on the rail."
+    },
+    "E14": {
+      "name": "harbor master",
+      "kind": "character",
+      "appearance": "A lean harbor master, full beard, deep-blue uniform coat and peaked cap, crisp bearing, somewhat resembling the lighthouse keeper."
+    },
+    "E15": {
+      "name": "spare oil lamps",
+      "kind": "prop",
+      "appearance": "A row of five brass spare oil lamps hung on iron hooks on the lantern-room wall, glass covers polished bright."
+    },
+    "E16": {
+      "name": "brass fog bells",
+      "kind": "prop",
+      "appearance": "Two brass fog bells hung under the lighthouse eaves, bodies faintly gleaming, low-toned fog warnings when the wind rises."
+    },
+    "E17": {
+      "name": "Sara",
+      "kind": "character",
+      "appearance": "A fisher girl from across the bay, light-brown headscarf, dusty coarse cloth clothes; at a glance somewhat like young Mara, but sharper chin and shy gaze."
+    },
+    "E18": {
+      "name": "spare prism",
+      "kind": "prop",
+      "appearance": "A half-man-tall spare prism, concentric glass rings much like the main lens, but smaller, with a black-iron base."
+    },
+    "E19": {
+      "name": "new fishing boat",
+      "kind": "prop",
+      "appearance": "A strange blue-gray motor fishing boat, broad flat hull, no petrel emblem, not the same as the Petrel."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "middle_aged_sturdy",
+      "cane_twilight",
+      "deceased"
+    ],
+    "E2": [
+      "youth",
+      "adult"
+    ],
+    "E3": [
+      "intact",
+      "salt_weathered"
+    ],
+    "E4": [
+      "intact_rotating",
+      "cracked",
+      "repaired"
+    ],
+    "E5": [
+      "intact",
+      "sunk"
+    ],
+    "E6": [
+      "youth",
+      "adult"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+        "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+      },
+      "note": "Twin confuse: tests both 'when only one is present, do not draw the other' (S4) and 'when both share a segment, bind features correctly' (S5/S16)."
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dusk, lighthouse keeper Elias climbs the spiral iron stair into the lantern room and lights the central Fresnel lens.",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A row of five brass spare oil lamps hangs on the lantern-room wall; Elias polishes each glass cover one by one.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two brass fog bells hang under the lighthouse eaves; Elias reaches out and lets them ring gently.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias circles the Fresnel lens, checking every glass prism ring.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias looks out the window at the darkening sea.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The Fresnel lens rotates at even speed, casting a white beam toward the night sea.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias sits in a lantern-room corner and dozes by the light.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Elias opens the ship's log and dips ink to record the day's tides.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias draws a wave-height curve in the ship's log.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias closes the ship's log and returns it to the wooden box by the brass railing.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The Fresnel lens beam sweeps the lantern room, lighting Elias's profile.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On the morning rocky shore, Elias greets young Mara as she poles the indigo Petrel to shore.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Mara jumps down from the Petrel and ties the hawser to the rocks.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias points to the three glass floats tied to the wooden stake, teaching Mara to read the fishing season.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Mara crouches by a tidal pool on the rocky shore, studying the anemones with curiosity.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias points at the sea, explaining the current's path to Mara.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Mara looks back at the moored Petrel, eyes full of longing.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the noisy fishing village market, Lena in an ochre-red shawl turns to look from behind a fish shed.",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lena picks through salted fish at a stall in the fishing village market.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lena haggles with a market vendor; the shell hairpin at her temple sways slightly.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lena carries a bamboo basket through the crowd of the fishing village market.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On the rocky shore, Mara and her sister Lena stand side by side—one in a deep-blue headscarf, one in an ochre-red shawl.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Mara hands Lena a found glass float; the two smile at each other.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lena straightens Mara's deep-blue headscarf; the sisters walk slowly along the shore.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Mara and Lena part at the rocky shore, each walking opposite ways.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Months later at night, Elias keeps watch alone in the lantern room; the Fresnel lens turns quietly.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 15,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias opens the ship's log; years of sea wind have salt-bleached the cover white and curled its edges.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "salt_weathered",
+            "appearance": "The same ship's log salt-bleached by sea wind: cover whitened and curling, pages damp and wrinkled, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias wipes salt fog from the Fresnel lens.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "salt_weathered",
+            "appearance": "The same ship's log salt-bleached by sea wind: cover whitened and curling, pages damp and wrinkled, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias stands by the lantern-room window, gazing at the black horizon.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "salt_weathered",
+            "appearance": "The same ship's log salt-bleached by sea wind: cover whitened and curling, pages damp and wrinkled, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The Fresnel lens beam sweeps slowly through the mist.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Seasons turn; day after day Elias climbs to the lantern room to light the lamp.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another snowy night, Elias wraps his coat tight and keeps watch beside the Fresnel lens.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In spring fishing season, Elias watches returning boat lights from the lantern-room window.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At midsummer noon, Elias wipes the brass railings heated by the fierce sun.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Autumn fog thickens; the Fresnel lens beam struggles through the mist in the lantern room.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another New Year's Eve, Elias keeps watch alone in the lantern room until dawn.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dawn, Elias patrols the rocky shore; the indigo Petrel lies in the shallow bay.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 11,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 19,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias crouches to check the seams of the Petrel's hull.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias walks to the wooden stake; those three glass floats are still tied on the rocky shore.",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 24,
+          "last_seen": "seg_014",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A strange blue-gray new fishing boat passes the shallow bay—broad flat hull, not Elias's Petrel.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias stands on the rocky shore, logging the reefs exposed after the ebb.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias hangs fishing nets on wooden racks on the rocky shore.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A storm rises suddenly; the lantern room shudders in the gale; the Fresnel lens shakes hard.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Wild waves pound; lantern-room glass reflects pale lightning.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Thunder cracks; a glaring crack bursts across the Fresnel lens.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "cracked",
+            "appearance": "The same Fresnel lens burst with glaring cracks, some glass prism rings damaged, the rotating beam broken by gaps."
+          },
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On the distant sea, the indigo Petrel pitches hard in giant waves.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "One huge wave overturns the Petrel entirely; the mast snaps and she sinks into the surf.",
+      "memory_probes": [
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "sunk",
+            "appearance": "The indigo fishing boat overturned by a giant wave, mast snapped, wreckage sinking into the surf."
+          },
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In the lantern room, Elias lunges to the console and steadies the cracked Fresnel lens.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "cracked",
+            "appearance": "The same Fresnel lens burst with glaring cracks, some glass prism rings damaged, the rotating beam broken by gaps."
+          },
+          "gap": 2,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The day after the storm, Elias stands in the lantern room, staring at the cracked Fresnel lens.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "cracked",
+            "appearance": "The same Fresnel lens burst with glaring cracks, some glass prism rings damaged, the rotating beam broken by gaps."
+          },
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias runs a finger along the crack in the Fresnel lens, face dark.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "cracked",
+            "appearance": "The same Fresnel lens burst with glaring cracks, some glass prism rings damaged, the rotating beam broken by gaps."
+          },
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the chart in the lantern room, Elias writes down the date the Petrel was lost.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "An old photo of the Petrel hangs on the lantern-room wall; Elias gazes at it a long time.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias takes one of the five spare oil lamps from the wall and sits alone by its faint light.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 50,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The damaged Fresnel lens still turns slowly with its crack; the beam has a gap.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "cracked",
+            "appearance": "The same Fresnel lens burst with glaring cracks, some glass prism rings damaged, the rotating beam broken by gaps."
+          },
+          "gap": 3,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Weeks later, Elias brings tools and begins repairing the Fresnel lens.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "cracked",
+            "appearance": "The same Fresnel lens burst with glaring cracks, some glass prism rings damaged, the rotating beam broken by gaps."
+          },
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias takes a spare prism from a wooden crate; it closely resembles that Fresnel lens, yet is smaller.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E4"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias carefully sets new glass prism rings into the Fresnel lens.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "cracked",
+            "appearance": "The same Fresnel lens burst with glaring cracks, some glass prism rings damaged, the rotating beam broken by gaps."
+          },
+          "gap": 1,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The last crack is filled; the Fresnel lens is intact again, and the beam turns sharp once more.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "repaired",
+            "appearance": "The Fresnel lens cracks filled with newly set glass prism rings, restored intact, the beam sharp and steady again."
+          },
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The repaired Fresnel lens rotates steadily; Elias watches it with relief.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "repaired",
+            "appearance": "The Fresnel lens cracks filled with newly set glass prism rings, restored intact, the beam sharp and steady again."
+          },
+          "gap": 0,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A vermilion Seagull enters the shallow bay, nothing like the long-sunk Petrel.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A full-bearded harbor master jumps onto the rocky shore and talks beside Elias; the two are similar in build.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The harbor master points at the vermilion Seagull, explaining the new patrol plan to Elias.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E13",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_060",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The Seagull sounds its horn and leaves; Elias alone on the rocky shore watches it go.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "From across the bay comes fisher girl Sara in a light-brown headscarf; at a glance she somewhat resembles Mara of those years.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Sara practices tying a hawser on the rocks; Elias shakes his head—she is not Mara after all.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Years later at dusk, fully white-haired Elias leans on a wooden cane, stooped beneath the white granite lighthouse.",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "cane_twilight",
+            "appearance": "The same keeper in old age: hair and beard fully white, face gaunt and sunken, stooped and walking slowly with a wooden cane, still in that faded deep-green old coat."
+          },
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias leans on his cane and looks up at the towering lighthouse, gaze far away.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "cane_twilight",
+            "appearance": "The same keeper in old age: hair and beard fully white, face gaunt and sunken, stooped and walking slowly with a wooden cane, still in that faded deep-green old coat."
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Those two brass fog bells under the lighthouse eaves ring softly in the wind; Elias pauses with his cane to listen.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "cane_twilight",
+            "appearance": "The same keeper in old age: hair and beard fully white, face gaunt and sunken, stooped and walking slowly with a wooden cane, still in that faded deep-green old coat."
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 64,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias lays a cane-steady palm on the lighthouse's cold granite wall, as if saying goodbye.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "cane_twilight",
+            "appearance": "The same keeper in old age: hair and beard fully white, face gaunt and sunken, stooped and walking slowly with a wooden cane, still in that faded deep-green old coat."
+          },
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "By day, adult Mara returns along the shore and hurries toward the lighthouse.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 44,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At the lighthouse foot Mara reunites with cane-leaning Elias; the two embrace.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "cane_twilight",
+            "appearance": "The same keeper in old age: hair and beard fully white, face gaunt and sunken, stooped and walking slowly with a wooden cane, still in that faded deep-green old coat."
+          },
+          "gap": 1,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside a sickbed inside the lighthouse, Mara holds Elias's gaunt hand.",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "cane_twilight",
+            "appearance": "The same keeper in old age: hair and beard fully white, face gaunt and sunken, stooped and walking slowly with a wooden cane, still in that faded deep-green old coat."
+          },
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Elias's breath fades; at last he closes his eyes and passes away.",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "deceased",
+            "appearance": "The lighthouse keeper has closed his eyes in death, lying still, face peaceful, no breath left."
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Elias's deep-green old coat still hangs behind the lantern-room door; Mara reaches out and gently strokes it.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the lighthouse base, adult Mara stands before a newly nailed memorial plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Mara's fingertips brush Elias's name engraved on the memorial plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Adult Lena comes from the fishing village and embraces Mara tightly beneath the lighthouse.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Lena: nearly identical in face to adult Mara, still in ochre-red shawl with shell hairpin at the temple, bold expression."
+          },
+          "gap": 51,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Mara and Lena stand side by side by the lighthouse base—one calm-eyed, one bold in expression.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Lena: nearly identical in face to adult Mara, still in ochre-red shawl with shell hairpin at the temple, bold expression."
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The sisters look at each other without words, at faces alike yet different.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Lena: nearly identical in face to adult Mara, still in ochre-red shawl with shell hairpin at the temple, bold expression."
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Mara: deep-blue headscarf, coarse cotton fishing clothes.",
+            "E6": "Lena: face nearly identical to Mara, but ochre-red shawl, shell hairpin at the temple, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The shot returns to years ago—the girl tying a hawser on the rocks appears again.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "youth",
+            "appearance": "Young Mara: a lean fisher girl of fourteen or fifteen, deep-blue headscarf, coarse cotton fishing clothes, bright stubborn eyes.",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_079",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the girl tying a hawser on the rocks",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The opening moment returns—in the lantern room, a huge rotating lens is lit for the first time.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "state": {
+            "label": "intact_rotating",
+            "appearance": "A man-tall rotating Fresnel lens of intact concentric glass prism rings, turning at even speed, refracting a sharp white beam.",
+            "flashback": true
+          },
+          "gap": 21,
+          "last_seen": "seg_059",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the rotating lens lit for the first time at the opening",
+            "resolves_to": "E4"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Flash back to that year's market—a figure in an ochre-red shawl with a shell hairpin at the temple flashes by.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "youth",
+            "appearance": "Young Lena: twin sister nearly identical in face to young Mara, ochre-red wool shawl, bold expression, a shell hairpin at her temple.",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_079",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the figure in an ochre-red shawl at that year's market",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Before the eyes again: that row of five old brass hand-lamps on the lantern-room wall.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 29,
+          "last_seen": "seg_053",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "that row of five old hand-lamps on the lantern-room wall",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Back to the black rocky shore of first meeting; waves pound, as they always did.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 18,
+          "last_seen": "seg_065",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the black rocky shore of first meeting",
+            "resolves_to": "E9"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Mara opens that salt-weathered ship's log again and walks into the lantern room.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 4,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "salt_weathered",
+            "appearance": "The same ship's log salt-bleached by sea wind: cover whitened and curling, pages damp and wrinkled, writing bled."
+          },
+          "gap": 55,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "By the lantern-room stake, those three salt-frosted glass floats are still tied in place.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 46,
+          "last_seen": "seg_039",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Mara takes up the watch of the Fresnel lens; the beam shoots toward the sea again.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult",
+            "appearance": "Adult Mara: a tall steady fisherwoman in her twenties, still in that deep-blue headscarf and coarse cotton fishing clothes, eyes bright and firm."
+          },
+          "gap": 1,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "repaired",
+            "appearance": "The Fresnel lens cracks filled with newly set glass prism rings, restored intact, the beam sharp and steady again."
+          },
+          "gap": 5,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_047"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_073"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 87,
+    "n_scenes": 19,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 170,
+      "transform": 8,
+      "persist": 29,
+      "recall_after_gap": 3
+    },
+    "probe_counts": {
+      "first_appearance": 14,
+      "continuity": 81,
+      "lookalike_disambiguation": 11,
+      "state_change": 8,
+      "persist_state": 23,
+      "count_memory": 5,
+      "false_friend": 5,
+      "deprecation_avoidance": 10,
+      "reference_indirect": 5,
+      "long_gap_reappearance": 6,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 6,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 11,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 186,
+      "5-29": 18,
+      ">=30": 6
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 64,
+      "at": "seg_068"
+    }
+  },
+  "warnings": [
+    "seg_084: temporal-anchored E9 name『rocky shore』appears in action; a temporal reference should be name-free"
+  ]
+}

@@ -1,0 +1,1294 @@
+{
+  "story_id": "0047_cargo_crane_operator",
+  "title": "Crane Crew of the Cargo Wharf",
+  "premise": "A cargo-wharf crane-crew inheritance. Gang and Bo are easily confused; the main console nameplate goes intact→water-shorted→panel-replaced; the yellow hook assembly falls and must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_state_note": "Stateful entities use states; stateless entities use appearance. On transition, inject only the current state's appearance. Flashbacks may set state on a present item to point at a past state.",
+  "entities": {
+    "E1": {
+      "name": "Zhou Tie",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Zhou Tie, crane crew chief in his forties, buzz cut, orange reflective coveralls, ear defenders hanging at his neck, rough hands, decisive eyes.",
+        "weary_wounded": "The same Zhou Tie, weary and wounded: coveralls shoulder scorched, gauze on the left brow, ear defenders still at his neck, steps heavy.",
+        "departed_farewell": "Zhou Tie has left his post for good; only his faded orange coveralls and ID badge remain in the cab—he no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Gang",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Gang: a lean crane apprentice of sixteen or so, saffron armband on the left arm, oversize hard hat, bright stubborn eyes.",
+        "adult_successor": "Adult Gang: a broad-shouldered successor operator in his twenties, still wearing the saffron armband, eyes steady."
+      }
+    },
+    "E3": {
+      "name": "main console nameplate",
+      "kind": "prop",
+      "states": {
+        "intact": "A main console nameplate riveted before the cab, steel face intact, rated tonnage and factory serial engraved, indicator lights complete.",
+        "water_shorted": "The same main console nameplate water-shorted: steel face blackened, indicator lights out, serial obscured by rust.",
+        "panel_replaced": "The main console nameplate after panel replacement: serial recut clear, but a faint weld line at one corner distinguishes it from the original intact state."
+      }
+    },
+    "E4": {
+      "name": "crew logbook",
+      "kind": "prop",
+      "states": {
+        "intact": "A waterproof-clipped crew logbook, pages recording lift counts and wind speed, cover clean.",
+        "oil_stained": "The same crew logbook oil-stained: cover glossy and sticky, writing blurred, a crumpled blotting sheet tucked inside."
+      }
+    },
+    "E5": {
+      "name": "yellow hook assembly",
+      "kind": "prop",
+      "states": {
+        "intact": "A bright yellow hook assembly, hook tip intact, swivel ring flexible, hanging from the boom end ready to lift.",
+        "fall_destroyed": "The yellow hook assembly fell from the boom and shattered: hook tip snapped off, only twisted wreckage remains."
+      }
+    },
+    "E6": {
+      "name": "Bo",
+      "kind": "character",
+      "states": {
+        "young_rival": "Bo, face and build extremely similar to Gang, but wearing an amber earplug charm, bold and eager to grab the controls.",
+        "disguised": "Disguised Bo still wears the amber earplug charm, now with dark goggles too, expression deeper and more guarded."
+      }
+    },
+    "E7": {
+      "name": "crane cab",
+      "kind": "location",
+      "appearance": "A high crane cab with glass on four sides, main console nameplate and control levers ahead, container yard below."
+    },
+    "E8": {
+      "name": "fore berth",
+      "kind": "location",
+      "appearance": "Fore berth, tide smell mixed with diesel, yellow-black zebra stripes painted on the ground, a cargo ship waiting to load."
+    },
+    "E9": {
+      "name": "container alley",
+      "kind": "location",
+      "appearance": "A narrow alley between stacked containers, doors shut on both sides, emergency lights cutting shadows into hard blocks."
+    },
+    "E10": {
+      "name": "abandoned rail-crane base",
+      "kind": "location",
+      "appearance": "An abandoned rail-crane base, concrete piles with exposed rebar, rusted rails running into weeds."
+    },
+    "E11": {
+      "name": "cast-iron crew plaque",
+      "kind": "prop",
+      "appearance": "A cast-iron crew plaque nailed to the rail-crane base, engraved with Zhou Tie's name and a year, edges rusting."
+    },
+    "E12": {
+      "name": "safety cones",
+      "kind": "prop",
+      "appearance": "Three orange-and-white safety cones set inside the berth warning line to mark the lifting exclusion zone."
+    },
+    "E13": {
+      "name": "toy crane-arm model",
+      "kind": "prop",
+      "appearance": "A plastic toy crane-arm model, shaped vaguely like lifting gear but without a real hook tip, base marked 'Display'."
+    },
+    "E14": {
+      "name": "port safety officer Cheng",
+      "kind": "character",
+      "appearance": "Port safety officer Cheng, build somewhat like Zhou Tie's, yellow uniform and reflective shoulder stripes, cross badge on the cap instead of ear defenders."
+    },
+    "E15": {
+      "name": "cabin work lights",
+      "kind": "prop",
+      "appearance": "A row of five cabin work lights screwed to the cab ceiling, frosted white shades, glass polished bright."
+    },
+    "E16": {
+      "name": "wind-speed alarm bells",
+      "kind": "prop",
+      "appearance": "Two wind-speed alarm bells mounted on the cab side, ringing sharply when wind exceeds limits."
+    },
+    "E17": {
+      "name": "intern Zhan",
+      "kind": "character",
+      "appearance": "Intern Zhan, at a glance somewhat like young Gang, but with a pale-gray sleeve badge instead of the saffron armband, shy gaze."
+    },
+    "E18": {
+      "name": "miniature control panel model",
+      "kind": "prop",
+      "appearance": "A miniature control panel model, layout like the main console but smaller, with no real serial numbers."
+    },
+    "E19": {
+      "name": "orange-gray forklift",
+      "kind": "prop",
+      "appearance": "An unfamiliar orange-gray forklift, wide flat forks, no hook, 'Yard' sprayed on the side door."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_wounded",
+      "departed_farewell"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "water_shorted",
+      "panel_replaced"
+    ],
+    "E4": [
+      "intact",
+      "oil_stained"
+    ],
+    "E5": [
+      "intact",
+      "fall_destroyed"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Gang: saffron armband, calm or stubborn eyes.",
+        "E6": "Bo: face extremely similar to Gang, but wears amber earplug charm, expression bold or brooding."
+      },
+      "note": "Hard confuse: Gang and Bo look alike; distinguish only by saffron armband / amber earplug charm."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Crane cab routine (introduce five cabin work lights · two wind-speed alarm bells)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "At dusk Zhou Tie climbs into the crane cab and hangs his ear defenders at his neck.",
+        {
+          "action": "A row of five cabin work lights hangs in the crane cab; Zhou Tie polishes each one.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two wind-speed alarm bells hang by the door; Zhou Tie reaches out and lets them ring softly.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Zhou Tie checks each rated-tonnage indicator light on the main console nameplate.",
+        "Zhou Tie looks through the window at the darkening sea and ship lights beyond fore berth.",
+        {
+          "action": "The intact main console nameplate is riveted ahead, indicator lights steady under the work lights.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Zhou Tie adds the night-berthing ship name and wind-speed ceiling to the dispatch whiteboard.",
+        "Zhou Tie takes off his ear defenders and hangs them back, checking the clip is secure.",
+        "Zhou Tie sorts scattered radio batteries and lines them up by shift.",
+        "Zhou Tie sits on the cab folding chair and rubs his aching neck and shoulders."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the crew logbook",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Zhou Tie opens the crew logbook and writes the night-shift handover by lift count, container number, and wind speed.",
+        "Zhou Tie draws a red triangle beside the over-wind column, marking the stop-lift threshold.",
+        "Zhou Tie closes the crew logbook, tucks it back in the waterproof clip, and tightens the lanyard.",
+        {
+          "action": "Light from the main console nameplate sweeps across Zhou Tie's cheek.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Zhou Tie compares the main console nameplate and circles a flickering indicator beside the tonnage serial in red pen.",
+        "Zhou Tie stows radio batteries and wrenches in a magnetic box so nothing slips into the footwell gap."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Fore berth greets apprentice (introduce three safety cones)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "At fore berth in the morning Zhou Tie greets young Gang arriving with the yellow hook assembly.",
+        {
+          "action": "Gang sets the yellow hook assembly inside the warning line, swivel ring facing up.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Zhou Tie points to the three safety cones and teaches Gang to separate swing radius from the pedestrian line.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Gang crouches at fore berth, checking worn zebra stripes and tire tracks.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Zhou Tie explains to Gang the rules for stop-lift in high wind, hand signals, and horn before hoist.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Gang looks back at the intact yellow hook assembly, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Zhou Tie has Gang hook a practice sling and rehearse pre-hoist hand signals.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Gang tightens his saffron armband and memorizes the stop-lift wind speed Zhou Tie recites on his glove.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Container alley (Bo only)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the container alley Bo, wearing an amber earplug charm, glances back from the shadows.",
+        "Bo walks slowly through the container alley, expression bold.",
+        "Bo brushes past a passerby, amber earplug charm swaying slightly.",
+        "Bo stops by a container door, critically noting a misaligned seal-number sticker.",
+        "Bo kicks a scrap zip tie into the drain.",
+        "Bo turns and slips away through the narrow gap between red and blue containers."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Fore berth: Gang and Bo share a segment",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "At fore berth Gang and Bo stand side by side, one with saffron armband, one with amber earplug charm.",
+        "Gang hands Bo a salvaged sling guard; they look at each other with different expressions.",
+        "Bo straightens Gang's saffron armband and deliberately rattles his amber earplug charm.",
+        "Gang and Bo walk slowly along the fore berth edge, shadows overlapping then splitting.",
+        "Gang checks the lift list with head down while Bo looks around.",
+        "Gang and Bo part at the fore berth mouth, each heading the opposite way."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Crane cab (crew logbook oil-stained)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night Zhou Tie alone keeps watch in the crane cab, main console nameplate indicators dim.",
+        {
+          "action": "Zhou Tie opens the crew logbook and finds it oil-stained, lift columns smeared.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "oil_stained"
+            }
+          ]
+        },
+        "Zhou Tie wipes salt spray and oil spots from the main console nameplate surface.",
+        "Zhou Tie looks through the window at the night beyond fore berth.",
+        {
+          "action": "Light moves slowly across the main console nameplate.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Zhou Tie slips blotting paper into the stained crew logbook, sighs, and turns off the lamp."
+      ]
+    },
+    {
+      "id": "F1",
+      "setting": "Wharf crane crew steady week A (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Zhou Tie wipes the edge of the main console nameplate in the crane cab.",
+        "Zhou Tie updates the day's notes on the wall.",
+        "Zhou Tie re-sorts tools by number.",
+        "Zhou Tie checks yesterday's entries against the crew logbook.",
+        "In the afternoon Zhou Tie takes an outside call, brow slightly furrowed.",
+        "Zhou Tie writes deferred items on a sticky note and posts it where it shows.",
+        "Zhou Tie pulls spare materials aside and groups them.",
+        "At dusk Zhou Tie switches off extra lights, leaving only the center lamp on the main console nameplate."
+      ]
+    },
+    {
+      "id": "F2",
+      "setting": "Wharf crane crew steady week B (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Zhou Tie spreads tracing paper or a reference chart in the crane cab.",
+        "Zhou Tie marks positions needing reinforcement with color dots.",
+        "Zhou Tie pins paper edges so they will not curl.",
+        "Zhou Tie tries to read old numbers on the already oil-stained crew logbook.",
+        "Zhou Tie moves his drink farther away, afraid of splashing the crew logbook again.",
+        "Zhou Tie lists three planned adjustments on the wall.",
+        "Something moves outside; Zhou Tie lifts his head and listens.",
+        "Zhou Tie restrings labels with thin cord."
+      ]
+    },
+    {
+      "id": "F3",
+      "setting": "Fore berth patrol day (filler · no count objects)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "On patrol day Zhou Tie walks into fore berth.",
+        "Zhou Tie carefully tests whether ground or railing is sound.",
+        "Zhou Tie notes spots needing repair.",
+        "Zhou Tie shines a flashlight into a dark corner.",
+        "Zhou Tie talks briefly with a passing worker.",
+        "Zhou Tie skirts stacked clutter and circles to the other side.",
+        "Zhou Tie records dimension changes with tape measure or eye.",
+        "Zhou Tie writes results on a cuff sticky note."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Fore berth patrol (recall safety cones · toy crane-arm model false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn Zhou Tie patrols fore berth; the yellow hook assembly still sits where it was.",
+        {
+          "action": "Zhou Tie crouches to inspect the yellow hook assembly's swivel ring, safety latch, and hook-tip wear.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Zhou Tie walks to the warning line; the same three safety cones still stand in a triangle.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "By the repair shed sits a plastic toy crane-arm model—no real hook tip or swivel ring, nothing like the yellow hook assembly.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Zhou Tie stands at fore berth and notes zebra-stripe wear and wind-gauge reading on the patrol sheet.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Zhou Tie re-secures the yellow hook assembly safety latch with a sling guard.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Zhou Tie confirms again the three safety cones still sit inside the warning line, untouched by forklifts.",
+          "present": [
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Zhou Tie writes patrol date and shift on the dispatch whiteboard.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "setting": "Eve of disaster prep (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On the eve of disaster Zhou Tie stows all window-side materials into cabinets.",
+        "Zhou Tie covers the main console nameplate with a protective cloth.",
+        "Zhou Tie checks the crew logbook is in a dry drawer.",
+        "Zhou Tie tightens bottle caps and valves and moves them higher.",
+        "A distant clatter; crane cab lights flicker once.",
+        "Zhou Tie straightens cables on the five cabin work lights.",
+        "Zhou Tie drafts a 'stop work tomorrow' notice.",
+        "Zhou Tie listens whether the two wind-speed alarm bells ring in the wind."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Storm night (nameplate short · hook fall)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "Rain bursts; the cab roof leaks, droplets hammering the main console.",
+        "A gust flings cab papers; water seeps into nameplate seams.",
+        {
+          "action": "The main console nameplate water-shorts; steel face blackens, all indicator lights go out.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "water_shorted"
+            }
+          ]
+        },
+        {
+          "action": "At the boom end the yellow hook assembly swings violently in the gale.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "The swivel ring fails; the yellow hook assembly falls and shatters, hook tip snapping into wreckage.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "fall_destroyed",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "In the cab Zhou Tie lunges for the controls, pressing the water-shorted main console nameplate area with bare hands.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Zhou Tie's left brow is cut by a swinging radio; blood soaks the gauze as he still shields the panel.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The shorted black main console nameplate gives off faint white smoke in the damp air.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After disaster (yellow hook assembly indirect reference · cabin work lights recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after disaster Zhou Tie stands in the crane cab staring at the water-shorted main console nameplate.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Zhou Tie runs a finger over damage on the main console nameplate, expression dim.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Zhou Tie notes on the incident board the date the yellow hook assembly was destroyed.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo still pinned on the wall shows the yellow hook assembly lifting a blue container with intact hook tip; Zhou Tie stares long.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Zhou Tie turns on one of the five cabin work lights and sits alone in its pool of light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The shorted black main console nameplate still riveted before the levers, damage stark.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Zhou Tie changes blood-soaked bandages and keeps clearing charred insulation and broken fuse pins.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Zhou Tie re-covers the rain hood, afraid moisture will seep into the panel again.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "setting": "Cleanup and reimbursement (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "During cleanup week Zhou Tie packs broken fuse pins and plastic shards into a carton.",
+        "Zhou Tie submits a reimbursement form for panel, indicator lights, and waterproof gaskets.",
+        "Zhou Tie still comes daily to the crane cab, staring at the damaged main console nameplate.",
+        "Zhou Tie copies whatever rated tonnage and factory serial remain legible in pencil.",
+        "Zhou Tie turns the oil-stained crew logbook to a blank page and tracks reimbursement progress.",
+        "Gang is away on leave; only Zhou Tie's footsteps echo in the crane cab.",
+        "Zhou Tie habitually looks toward the empty old hook mount on the boom.",
+        "Zhou Tie lists parts needed for panel replacement on the wall."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Panel replacement (third state · miniature control panel model false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Zhou Tie strips shorted wiring and brings a new nameplate panel and waterproof gaskets.",
+        {
+          "action": "Zhou Tie takes out the miniature control panel model—like a shrunk main console nameplate but without rated tonnage serial and no power.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Zhou Tie strips charred harness, rewires indicator lights, and rivets the recut-serial panel on.",
+        {
+          "action": "With the last waterproof gasket pressed, the main console nameplate completes panel replacement, a faint weld line at one corner.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "panel_replaced"
+            }
+          ]
+        },
+        "Indicator lights on the panel-replaced main console nameplate come on one by one; Zhou Tie watches with relief.",
+        {
+          "action": "Zhou Tie pushes the miniature control panel model aside, leaving only the real main console nameplate riveted before the levers.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The crane cab grows quiet again; the panel-replaced main console nameplate holds the center.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: orange-gray forklift and port safety officer Cheng",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Yard dispatch sends an orange-gray forklift, wide flat forks hugging the ground—nothing like the long-destroyed yellow hook assembly.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "port safety officer Cheng walks into fore berth and talks beside Zhou Tie; their builds are similar.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "port safety officer Cheng points at the orange-gray forklift, telling Zhou Tie forklifts move pallets only and must not replace boom-end hook work.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The orange-gray forklift leaves; Zhou Tie alone remains at fore berth watching.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "The orange-gray forklift pauses briefly in the distance, then moves on.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "port safety officer Cheng pats Zhou Tie's shoulder before leaving; the cross cap badge flashes under the lamp.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: intern Zhan resembling Gang",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "intern Zhan arrives at fore berth, at first glance somewhat like young Gang.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "intern Zhan mimics a hoist hand signal; Zhou Tie shakes his head—this is not Gang after all.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "intern Zhan timidly asks what wind speed stops lifts; Zhou Tie answers briefly and sends him to the safety booth for barrier tape.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Zhou Tie alone stands at fore berth, staring at the empty spot where the yellow hook assembly once rested.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "setting": "Steady week after panel replacement (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "First week after panel replacement Zhou Tie checks the main console nameplate each morning.",
+        "Zhou Tie writes new records on blank pages of the oil-stained crew logbook.",
+        "Zhou Tie refuses to set dangerous items on edges again.",
+        "Zhou Tie cross-checks bulletin wording with outsiders.",
+        "Zhou Tie practices steadier handling in the crane cab.",
+        "Afternoon light falls on the panel-replaced main console nameplate.",
+        "Zhou Tie polishes the wind-speed alarm bells but does not ring them yet.",
+        "Zhou Tie receives a postcard from Gang and leaves it unopened under a lamp base.",
+        "Zhou Tie checks anemometer readings in the crane cab.",
+        "Zhou Tie wipes salt spray from beside the main console nameplate.",
+        "Zhou Tie turns the crew logbook to this week's lift summary page.",
+        "Zhou Tie checks all cabin work lights still work.",
+        "Zhou Tie repaints one worn stripe on the fore berth zebra crossing.",
+        "Zhou Tie switches the radio back to the crew common channel.",
+        "Zhou Tie records the cargo ship's expected berthing time.",
+        "Zhou Tie confirms safety cones remain inside the warning line."
+      ]
+    },
+    {
+      "id": "F7",
+      "setting": "Year-end archive (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At year-end archive Zhou Tie binds the year's files by month.",
+        "Zhou Tie slips the oil-stained crew logbook into its own archive sleeve.",
+        "Zhou Tie prints before-and-after repair photos and clips them into the file.",
+        "Zhou Tie clears the desk, leaving only essential tools and one lamp.",
+        "Zhou Tie oils key tools against rust.",
+        "Zhou Tie signs the date beside the main console nameplate repair mark.",
+        "Weather turns cold outside; crane cab heat or a stove hums softly.",
+        "Zhou Tie finishes the annual summary; the cover bears only a short theme line."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Twilight years (Zhou Tie weary-wounded · wind-speed alarm bells long recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk weary wounded Zhou Tie, still scarred and heavy-footed, leans on an old pry bar at the abandoned rail-crane base.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_wounded"
+            }
+          ]
+        },
+        "Zhou Tie looks up at the ruins of the abandoned rail-crane base, gaze far away.",
+        {
+          "action": "Beside the abandoned rail-crane base the two wind-speed alarm bells hang again, chiming softly in the wind.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Zhou Tie presses his palm to the cold rusted rail as if saying goodbye.",
+        {
+          "action": "Zhou Tie sits down slowly to catch his breath.",
+          "present": [
+            "E1",
+            "E10"
+          ]
+        },
+        {
+          "action": "The two wind-speed alarm bells chime again; Zhou Tie closes his eyes, as if hearing the old over-wind alarm.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F8",
+      "setting": "Old-site lingering week (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Zhou Tie still returns daily to the crane cab but spends more time sitting before the main console nameplate.",
+        "Zhou Tie leans the old pry bar by the door, moving slower than before.",
+        "Zhou Tie has a young assistant draft notes while he only verifies.",
+        "Zhou Tie photographs the panel-replaced main console nameplate for Gang far away.",
+        "On the last page of the stained crew logbook Zhou Tie writes 'handover' but leaves no signature.",
+        "Zhou Tie refuses hospital admission, insisting on sitting at the abandoned rail-crane base each week.",
+        "Zhou Tie wipes a draft of the cast-iron crew plaque.",
+        "At night only one lamp stays on in the crane cab; Zhou Tie dozes inside its circle."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Gang returns · Zhou Tie farewell",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day adult Gang returns along the abandoned rail-crane base, striding toward the ruins.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Gang reunites with heavy-footed Zhou Tie at the abandoned rail-crane base; they embrace.",
+        {
+          "action": "By the bunk in the crane cab Gang holds Zhou Tie's thin hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Zhou Tie's breath fades; he finally closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "departed_farewell",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Gang stands long at the abandoned rail-crane base, tears falling to the ground.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Gang hangs Zhou Tie's ear defenders at his own neck.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · cast-iron crew plaque (indirect reference to deceased)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the crane cab door Zhou Tie's old jacket still hangs; Gang reaches out and touches it gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "Beside the abandoned rail-crane base adult Gang stands before the newly nailed cast-iron crew plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Gang's fingertip traces Zhou Tie's name carved on the cast-iron crew plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Gang places a white chrysanthemum at the lower edge of the cast-iron crew plaque.",
+          "present": [
+            "E2",
+            "E11"
+          ]
+        },
+        {
+          "action": "Wind crosses the abandoned rail-crane base; Gang quietly reads the year on the plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Gang and Bo reunite (adult confuse + shared segment)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Disguised adult Bo hurries up and embraces Gang tightly at the abandoned rail-crane base.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "disguised"
+            }
+          ]
+        },
+        "Gang and Bo stand side by side by the cast-iron crew plaque, one eyes steady, one expression deep.",
+        "Bo touches his amber earplug charm, then looks at the old ear defenders at Gang's neck.",
+        "They look at each other in silence, at faces alike yet different.",
+        "Gang and Bo walk together toward the far end, shadows merging into one."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Temporal flashback (timeline anchor · no names throughout)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns years earlier—the boy at the berth with saffron armband gazing up at the boom, figure rising again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "boy at berth with saffron armband",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the cab a steel main console nameplate whose indicator lights glow for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "steel nameplate whose indicators lit at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the container alley years ago—a figure with amber earplug charm darting past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "figure in the alley years ago with amber earplug charm",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Before the eyes rises that row of five frosted old ceiling lights under the cab roof.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "row of five old ceiling lights under the cab roof",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the zebra-striped fore berth at first meeting, diesel smell unchanged.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "fore berth with zebra stripes at first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Pages turn—the waterproof crew logbook not yet oil-stained, full of lift counts and wind speed, appears again.",
+          "present": [
+            {
+              "eid": "E4",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "waterproof crew logbook not yet oil-stained",
+                "resolves_to": "E4"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal flashback uses no entity names throughout; anchor.resolves_to is for scoring."
+    },
+    {
+      "id": "S18",
+      "setting": "Closure (oil-stained crew logbook long-range · safety cones long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Gang reopens the oil-stained crew logbook and walks into the crane cab.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "Through the cab window the same three safety cones still stand in a triangle at fore berth.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Gang takes up watch over the main console nameplate, repair marks clear under the light.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Gang turns on the five cabin work lights; light fills the space again.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Gang stands straight before the panel-replaced main console nameplate, checking rated tonnage and wind reading as Zhou Tie once did.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    }
+  ]
+}
