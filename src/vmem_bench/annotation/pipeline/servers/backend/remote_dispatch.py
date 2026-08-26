@@ -7,7 +7,7 @@ console frontend + Cursor.  The design keeps the console responsive:
 - **Launch / stop go over SSH** (via the ``tgpu`` proxy).  A batch is started
   *detached* with ``setsid --fork`` so the SSH call returns in ~0.1s; the remote
   process keeps running after the connection closes.
-- **Status never goes over SSH.**  ``/data`` is shared between the dev
+- **Status never goes over SSH.**  ``${ALLOWED_LOCAL_MEDIA_PATH:-.}`` is shared between the dev
   machine and every KML node, so the remote batch writes ``progress.json`` /
   ``return_code.txt`` straight into the shared ``job_dir``.  The backend reads
   those files locally on each refresh — instant, no SSH round-trip, no 504.
@@ -27,9 +27,9 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 
-TGPU = os.environ.get("MEMSTRATA_TGPU", "/data/USER/ssh_tunnel/tgpu")
+TGPU = os.environ.get("MEMSTRATA_TGPU", "${UNSET_INTERNAL_PATH}")
 NODES_FILE = Path(
-    os.environ.get("TGPU_NODES_FILE", "/data/USER/ssh_tunnel/nodes.tsv")
+    os.environ.get("TGPU_NODES_FILE", "${UNSET_INTERNAL_PATH}")
 )
 
 # Per-cluster CPU-quality penalty. a800 CPUs are weaker than h800, so the same

@@ -100,7 +100,7 @@ def test_legacy_lock_without_host_is_never_stolen(tmp_path):
 def test_remote_owner_uses_heartbeat_age(tmp_path, monkeypatch):
     lock = tmp_path / ".stage1.lock"
     lock.write_text("pid=123 host=some-other-node start=1.0\n", encoding="utf-8")
-    monkeypatch.setenv("MAVE_STAGE1_LOCK_STALE_MINUTES", "45")
+    monkeypatch.setenv("VMEM_STAGE1_LOCK_STALE_MINUTES", "45")
 
     fresh = time.time() - 60
     os.utime(lock, (fresh, fresh))
@@ -132,7 +132,7 @@ def test_run_name_matches_output_layout():
 
 
 def test_env_float_falls_back_on_garbage(monkeypatch):
-    monkeypatch.setenv("MAVE_TEST_FLOAT", "not-a-number")
-    assert runner._env_float("MAVE_TEST_FLOAT", 7.5) == pytest.approx(7.5)
-    monkeypatch.setenv("MAVE_TEST_FLOAT", "2.5")
-    assert runner._env_float("MAVE_TEST_FLOAT", 7.5) == pytest.approx(2.5)
+    monkeypatch.setenv("VMEM_TEST_FLOAT", "not-a-number")
+    assert runner._env_float("VMEM_TEST_FLOAT", 7.5) == pytest.approx(7.5)
+    monkeypatch.setenv("VMEM_TEST_FLOAT", "2.5")
+    assert runner._env_float("VMEM_TEST_FLOAT", 7.5) == pytest.approx(2.5)

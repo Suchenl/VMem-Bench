@@ -269,7 +269,7 @@ def _cgroup_mem_limit_bytes() -> int:
 
 def _host_memory_budget_bytes() -> int:
     """Bytes of RssAnon this process may reach before we abort on purpose."""
-    override = _env_float("MAVE_IAMFLOW_MAX_RSS_GB", 0.0)
+    override = _env_float("VMEM_IAMFLOW_MAX_RSS_GB", 0.0)
     if override > 0:
         return int(override * _GIB)
     limit = _cgroup_mem_limit_bytes()
@@ -279,7 +279,7 @@ def _host_memory_budget_bytes() -> int:
     # Qwen3-4B + Qwen3-VL-2B pair) and page cache. Do not over-reserve: at 0.85 a
     # 800 GiB pod would refuse 0001_American_Beauty, which peaks near 700 GiB and
     # does complete in production.
-    return int(limit * _env_float("MAVE_IAMFLOW_RSS_BUDGET_FRACTION", 0.92))
+    return int(limit * _env_float("VMEM_IAMFLOW_RSS_BUDGET_FRACTION", 0.92))
 
 
 def _kv_bytes_per_archived_frame(pipe) -> int:
@@ -326,12 +326,12 @@ class _HostMemoryGuard:
         self.kv_bytes_per_frame = int(kv_bytes_per_frame)
         self.budget_bytes = _host_memory_budget_bytes()
         self.cgroup_limit_bytes = _cgroup_mem_limit_bytes()
-        self.log_enabled = _env_flag("MAVE_IAMFLOW_RSS_LOG", True)
-        self.enforce = _env_flag("MAVE_IAMFLOW_RSS_WATCHDOG", True)
+        self.log_enabled = _env_flag("VMEM_IAMFLOW_RSS_LOG", True)
+        self.enforce = _env_flag("VMEM_IAMFLOW_RSS_WATCHDOG", True)
         # Ignore the first segments: model load and CUDA host buffers dominate
         # there and would badly skew the slope.
-        self.warmup_segments = _env_int("MAVE_IAMFLOW_RSS_WARMUP_SEGMENTS", 3)
-        self.max_slope = _env_float("MAVE_IAMFLOW_MAX_RSS_SLOPE_GB_PER_CHUNK", 0.0)
+        self.warmup_segments = _env_int("VMEM_IAMFLOW_RSS_WARMUP_SEGMENTS", 3)
+        self.max_slope = _env_float("VMEM_IAMFLOW_MAX_RSS_SLOPE_GB_PER_CHUNK", 0.0)
         self.baseline_bytes = _rss_anon_bytes()
         self.peak_bytes = self.baseline_bytes
         self._warm_index: int | None = None
@@ -380,7 +380,7 @@ class _HostMemoryGuard:
                 index,
                 rss,
                 f"observed host-memory slope {self.last_slope_gb:.2f} GB/segment exceeds "
-                f"MAVE_IAMFLOW_MAX_RSS_SLOPE_GB_PER_CHUNK={self.max_slope:.2f}",
+                f"VMEM_IAMFLOW_MAX_RSS_SLOPE_GB_PER_CHUNK={self.max_slope:.2f}",
             )
         if self.budget_bytes <= 0:
             return
@@ -401,10 +401,10 @@ class _HostMemoryGuard:
         #     and real growth decelerates (segments with no extracted entities
         #     skip archival entirely).
         projection_floor = self.budget_bytes * _env_float(
-            "MAVE_IAMFLOW_PROJECTION_FLOOR_FRACTION", 0.5
+            "VMEM_IAMFLOW_PROJECTION_FLOOR_FRACTION", 0.5
         )
         projection_limit = self.budget_bytes * _env_float(
-            "MAVE_IAMFLOW_PROJECTION_MARGIN", 1.15
+            "VMEM_IAMFLOW_PROJECTION_MARGIN", 1.15
         )
         if self._warm_index is not None and rss >= projection_floor and projected > projection_limit:
             self._abort(
@@ -473,7 +473,7 @@ def _install_host_memory_guards(pipe) -> None:
             # _sync_pixel_store is only read back through _get_chunk_pixels for
             # the eviction lag (3 chunks) and the current chunk; the vendored
             # code appends to _sync_pixel_order but never pops it.
-            keep = max(4, _env_int("MAVE_IAMFLOW_PIXEL_STORE_KEEP", 8))
+            keep = max(4, _env_int("VMEM_IAMFLOW_PIXEL_STORE_KEEP", 8))
             order = getattr(pipe, "_sync_pixel_order", None)
             store = getattr(pipe, "_sync_pixel_store", None)
             if isinstance(order, list) and isinstance(store, dict):
@@ -494,7 +494,7 @@ def _trim_kv_archive(bank) -> int:
     only to obtain results for movies that cannot otherwise run, and report them
     as ``IAMFlow-boundedKV(K)``, never as ``IAMFlow``.
     """
-    cap = _env_int("MAVE_IAMFLOW_MAX_ARCHIVE_KV_FRAMES", 0)
+    cap = _env_int("VMEM_IAMFLOW_MAX_ARCHIVE_KV_FRAMES", 0)
     if cap <= 0:
         return 0
     store = getattr(bank, "_frame_kv_store", None)
@@ -754,7 +754,7 @@ class IAMFlowAdapter:
         """Warn (or refuse) before spending hours on a movie that cannot fit.
 
         Returns a skip reason when refusal is enabled, else ``None``. Refusal is
-        opt-in (``MAVE_IAMFLOW_PREFLIGHT_ENFORCE=1``) because the static estimate
+        opt-in (``VMEM_IAMFLOW_PREFLIGHT_ENFORCE=1``) because the static estimate
         is an upper bound and would wrongly reject movies that do complete; the
         measured watchdog in ``observe_segment`` is the reliable gate.
         """
@@ -763,7 +763,7 @@ class IAMFlowAdapter:
             return None
         kv_bytes = _kv_bytes_per_archived_frame(self._pipe)
         frames = _archived_frames_for_movie(movie, self._nfb)
-        calibration = _env_float("MAVE_IAMFLOW_PREFLIGHT_CALIBRATION", 0.75)
+        calibration = _env_float("VMEM_IAMFLOW_PREFLIGHT_CALIBRATION", 0.75)
         projected_gb = (frames * kv_bytes * calibration + _rss_anon_bytes()) / _GIB
         budget_gb = _host_memory_budget_bytes() / _GIB
         fits = budget_gb <= 0 or projected_gb <= budget_gb
@@ -775,7 +775,7 @@ class IAMFlowAdapter:
             file=sys.stderr,
             flush=True,
         )
-        if fits or not _env_flag("MAVE_IAMFLOW_PREFLIGHT_ENFORCE", False):
+        if fits or not _env_flag("VMEM_IAMFLOW_PREFLIGHT_ENFORCE", False):
             return None
         return (
             f"iamflow_host_memory_budget_exceeded: {movie.movie_id} needs about "
@@ -1108,7 +1108,7 @@ class IAMFlowAdapter:
         host_memory: dict[str, Any] = {
             "n_archived_frames": len(getattr(bank, "frame_archive", {}) or {}) if bank else 0,
             "n_kv_slices_resident": len(getattr(bank, "_frame_kv_store", {}) or {}) if bank else 0,
-            "max_archive_kv_frames_cap": _env_int("MAVE_IAMFLOW_MAX_ARCHIVE_KV_FRAMES", 0),
+            "max_archive_kv_frames_cap": _env_int("VMEM_IAMFLOW_MAX_ARCHIVE_KV_FRAMES", 0),
         }
         if self._mem_guard is not None:
             host_memory.update(self._mem_guard.telemetry())

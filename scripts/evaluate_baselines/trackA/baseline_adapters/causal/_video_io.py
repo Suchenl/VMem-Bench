@@ -28,11 +28,11 @@ _CACHE_VERSION = "wan_pixels_v1"
 
 
 def _ffmpeg_threads() -> str:
-    return os.environ.get("MAVE_FFMPEG_THREADS", "1")
+    return os.environ.get("VMEM_FFMPEG_THREADS", "1")
 
 
 def _decode_cache_root() -> Path:
-    override = os.environ.get("MAVE_SHARED_DECODE_CACHE_DIR")
+    override = os.environ.get("VMEM_SHARED_DECODE_CACHE_DIR")
     if override:
         return Path(override)
     return _BENCH_ROOT / "outputs/evaluation/trackA/_shared_decoded_frames"
@@ -118,7 +118,7 @@ def _cached_frame_paths(
     width: int,
     fps: float,
 ) -> list[Path] | None:
-    if os.environ.get("MAVE_DISABLE_SHARED_DECODE_CACHE", "0") in {"1", "true", "yes"}:
+    if os.environ.get("VMEM_DISABLE_SHARED_DECODE_CACHE", "0") in {"1", "true", "yes"}:
         return None
 
     key, meta = _cache_key(segment_video, height=height, width=width, fps=fps)
@@ -131,8 +131,8 @@ def _cached_frame_paths(
     if frames is not None:
         return frames
 
-    wait_sec = float(os.environ.get("MAVE_DECODE_CACHE_WAIT_SEC", "600"))
-    stale_sec = float(os.environ.get("MAVE_DECODE_CACHE_STALE_SEC", "1800"))
+    wait_sec = float(os.environ.get("VMEM_DECODE_CACHE_WAIT_SEC", "600"))
+    stale_sec = float(os.environ.get("VMEM_DECODE_CACHE_STALE_SEC", "1800"))
     deadline = time.time() + wait_sec
     got_lock = False
 

@@ -33,7 +33,7 @@ _BENCH_ROOT = Path(__file__).resolve().parents[5]
 
 
 def _ffmpeg_threads() -> str:
-    return os.environ.get("MAVE_FFMPEG_THREADS", "1")
+    return os.environ.get("VMEM_FFMPEG_THREADS", "1")
 
 
 def _link_or_copy(src: Path, dst: Path) -> bool:

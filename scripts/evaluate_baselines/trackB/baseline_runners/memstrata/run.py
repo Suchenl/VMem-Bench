@@ -46,12 +46,6 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--no-discovery", dest="discovery", action="store_false")
     parser.add_argument("--embedder", default="hash")
     parser.add_argument("--angle-classifier", default="")
-    # "mllm" lets MemStrata's own VLM bind each shot's prompt names to entities it confirms in the
-    # generated frames. Without it a first appearance is banked under a synthetic label the
-    # name-authoritative read path can never resolve, so the identity hard cases measure noise.
-    parser.add_argument("--write-naming", choices=["perception", "mllm"], default="perception")
-    parser.add_argument("--segments", type=int, default=0,
-                        help="limit shots (0 = whole story); for probes, not for reported results")
     args = parser.parse_args(argv)
 
     method_root = REPO_ROOT / "methods" / "MemStrata"
@@ -97,19 +91,12 @@ def main(argv: list[str] | None = None) -> int:
             cmd.append("--stop-services")
         if args.no_flux:
             cmd.append("--no-flux")
-        # Resuming is the cheap path for an interrupted story: MemStrata's memory is external, so the
-        # producer reopens the persisted bank and only generates the shots that are still missing.
-        if args.resume:
-            cmd.append("--resume")
         if args.force_recompose:
             cmd.append("--force-recompose")
         if args.discovery:
             cmd.append("--discovery")
         if args.angle_classifier:
             cmd += ["--angle-classifier", args.angle_classifier]
-        cmd += ["--write-naming", args.write_naming]
-        if args.segments:
-            cmd += ["--segments", str(args.segments)]
 
         env = command_env({"PYTHONPATH": f"{method_root / 'src'}:{method_root}:{os.environ.get('PYTHONPATH', '')}"})
         rc = run_command(

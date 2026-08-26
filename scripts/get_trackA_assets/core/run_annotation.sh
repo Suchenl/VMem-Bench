@@ -8,7 +8,7 @@
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../.." && pwd)"
-PY="${PY:-vllm/bin/python}"
+PY="${PY:-${CONDA_ENVS_ROOT}/vllm/bin/python}"
 
 VIDEO="${VIDEO:-${VMEM_DATASETS_ROOT}/BlenderOpenMovies/big_buck_bunny_720p/big_buck_bunny_720p_h264.mp4}"
 MOVIE_ID="${MOVIE_ID:-big_buck_bunny}"
@@ -71,7 +71,7 @@ export PUBLIC_MODELS_ROOT="${PUBLIC_MODELS_ROOT:-${PUBLIC_MODELS_ROOT}}"
 export MONTAGE_WEIGHTS_ROOT="${MONTAGE_WEIGHTS_ROOT:-${REPO}/models/model_weights}"
 export HF_HUB_OFFLINE=1
 export FFMPEG_BIN="${FFMPEG_BIN:-ffmpeg}"
-export FFPROBE_BIN="${FFPROBE_BIN:-vace/bin/ffprobe}"
+export FFPROBE_BIN="${FFPROBE_BIN:-${CONDA_ENVS_ROOT}/vace/bin/ffprobe}"
 export NO_PROXY="${NO_PROXY:+${NO_PROXY},}localhost,127.0.0.1"
 export no_proxy="${no_proxy:+${no_proxy},}localhost,127.0.0.1"
 

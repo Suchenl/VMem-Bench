@@ -100,18 +100,18 @@ Track A 上的成败与片长强相关，与运气无关：
 
 | env var | 默认 | 作用 |
 |---|---|---|
-| `MAVE_IAMFLOW_RSS_LOG` | `1` | 每段输出 `[iamflow][rss]`：`anon_gb`、实测 `slope_gb_per_seg`、`proj_final_gb`、`budget_gb` |
-| `MAVE_IAMFLOW_RSS_WATCHDOG` | `1` | 主动抛 `HostMemoryBudgetExceeded`，而不是等着被 SIGKILL |
-| `MAVE_IAMFLOW_MAX_RSS_GB` | *(由 cgroup 推导)* | `RssAnon` 硬上限（GB） |
-| `MAVE_IAMFLOW_RSS_BUDGET_FRACTION` | `0.92` | 取 cgroup 上限的多少作为预算 |
-| `MAVE_IAMFLOW_MAX_RSS_SLOPE_GB_PER_CHUNK` | `0`（关） | 实测斜率超过该值就中止 |
-| `MAVE_IAMFLOW_RSS_WARMUP_SEGMENTS` | `3` | 拟合斜率前跳过的段数（前几段被模型加载主导） |
-| `MAVE_IAMFLOW_PROJECTION_FLOOR_FRACTION` | `0.5` | 只有 `RssAnon` 达到预算的该比例后才允许按预测中止，保证 `--limit` 冒烟不会自杀 |
-| `MAVE_IAMFLOW_PROJECTION_MARGIN` | `1.15` | 预测峰值超过 `预算 x 该系数` 才中止，吸收预测误差 |
-| `MAVE_IAMFLOW_PIXEL_STORE_KEEP` | `8` | 保留的解码像素块数（必须大于 eviction lag 3） |
-| `MAVE_IAMFLOW_PREFLIGHT_ENFORCE` | `0` | 开启后在开跑前直接拒绝超预算的电影，默认只告警 |
-| `MAVE_IAMFLOW_PREFLIGHT_CALIBRATION` | `0.75` | 缩放 preflight 日志里的静态上界 |
-| `MAVE_IAMFLOW_MAX_ARCHIVE_KV_FRAMES` | `0`（关） | **可选变体**，见下节 |
+| `VMEM_IAMFLOW_RSS_LOG` | `1` | 每段输出 `[iamflow][rss]`：`anon_gb`、实测 `slope_gb_per_seg`、`proj_final_gb`、`budget_gb` |
+| `VMEM_IAMFLOW_RSS_WATCHDOG` | `1` | 主动抛 `HostMemoryBudgetExceeded`，而不是等着被 SIGKILL |
+| `VMEM_IAMFLOW_MAX_RSS_GB` | *(由 cgroup 推导)* | `RssAnon` 硬上限（GB） |
+| `VMEM_IAMFLOW_RSS_BUDGET_FRACTION` | `0.92` | 取 cgroup 上限的多少作为预算 |
+| `VMEM_IAMFLOW_MAX_RSS_SLOPE_GB_PER_CHUNK` | `0`（关） | 实测斜率超过该值就中止 |
+| `VMEM_IAMFLOW_RSS_WARMUP_SEGMENTS` | `3` | 拟合斜率前跳过的段数（前几段被模型加载主导） |
+| `VMEM_IAMFLOW_PROJECTION_FLOOR_FRACTION` | `0.5` | 只有 `RssAnon` 达到预算的该比例后才允许按预测中止，保证 `--limit` 冒烟不会自杀 |
+| `VMEM_IAMFLOW_PROJECTION_MARGIN` | `1.15` | 预测峰值超过 `预算 x 该系数` 才中止，吸收预测误差 |
+| `VMEM_IAMFLOW_PIXEL_STORE_KEEP` | `8` | 保留的解码像素块数（必须大于 eviction lag 3） |
+| `VMEM_IAMFLOW_PREFLIGHT_ENFORCE` | `0` | 开启后在开跑前直接拒绝超预算的电影，默认只告警 |
+| `VMEM_IAMFLOW_PREFLIGHT_CALIBRATION` | `0.75` | 缩放 preflight 日志里的静态上界 |
+| `VMEM_IAMFLOW_MAX_ARCHIVE_KV_FRAMES` | `0`（关） | **可选变体**，见下节 |
 
 watchdog 依据的是**实测**增长，这是它可信的原因。preflight 只是上界（没有抽取到实体
 的段会跳过归档），`0001_American_Beauty` 预测 919 GiB 却真的跑完了——所以拒绝必须是
@@ -137,11 +137,11 @@ opt-in，默认只告警。
 | `1048_Gran_Torino` | 732 | 1.07 | 795 GiB | **第 677 段** | 擦线，不可存活 |
 
 第一版用 `0.85` 的预算系数会误杀 `0013_Halloween` 和 `0001_American_Beauty`——后者线上
-实际跑完了。所以预算系数提到 `0.92`，并加了 `MAVE_IAMFLOW_PROJECTION_MARGIN`。这组
+实际跑完了。所以预算系数提到 `0.92`，并加了 `VMEM_IAMFLOW_PROJECTION_MARGIN`。这组
 用例已固化成回归测试（`test_watchdog_calibration_against_measured_runs`），改阈值必须
 先让它继续通过。
 
-## `MAVE_IAMFLOW_MAX_ARCHIVE_KV_FRAMES` 是变体，不是修复
+## `VMEM_IAMFLOW_MAX_ARCHIVE_KV_FRAMES` 是变体，不是修复
 
 设为 > 0 会限制多少归档帧保留 KV 切片：优先丢最旧的，且永不丢当前 active 的帧。
 元数据保留，所以实体覆盖召回仍会把老帧排进来，但 `get_memory_kv` 会静默跳过切片已

@@ -1,0 +1,1297 @@
+{
+    "video_duration_seconds": 205,
+    "minimum_required_segments": 14,
+    "characters": [
+        {
+            "char_id": "char_001",
+            "name": "Pepper",
+            "identity_scope": "individual",
+            "description": "Young witch with dark hair, wearing a large floppy brown hat with belt buckle, white ruffled shirt, red vest, and brown skirt; carries broomstick on back; often seen with orange cat.",
+            "first_presence_seconds": 14,
+            "last_presence_seconds": 147,
+            "state_changes": [
+                {
+                    "seconds": 20,
+                    "state_change_kind": "acquired",
+                    "description": "Acquires a red cloth bag from vendor"
+                },
+                {
+                    "seconds": 27,
+                    "state_change_kind": "acquired",
+                    "description": "Acquires a small round pouch containing coins"
+                },
+                {
+                    "seconds": 56,
+                    "state_change_kind": "attached",
+                    "description": "Orange cat (char_002) sits on her back while flying"
+                },
+                {
+                    "seconds": 82,
+                    "state_change_kind": "attached",
+                    "description": "Cat (char_002) remains attached on back during night flight"
+                },
+                {
+                    "seconds": 90,
+                    "state_change_kind": "detached",
+                    "description": "Cat (char_002) detaches and hangs from spiderweb while Pepper sits on broom"
+                },
+                {
+                    "seconds": 98,
+                    "state_change_kind": "appearance_changed",
+                    "description": "Hat changes color from brown to reddish-orange in volcanic scene"
+                },
+                {
+                    "seconds": 123,
+                    "state_change_kind": "appearance_changed",
+                    "description": "Hat returns to brown; wears purple oven mitts while stirring cauldron"
+                },
+                {
+                    "seconds": 131,
+                    "state_change_kind": "appearance_changed",
+                    "description": "Hair appears slightly redder; hat is now distinctly orange-red"
+                },
+                {
+                    "seconds": 138,
+                    "state_change_kind": "appearance_changed",
+                    "description": "Eyes glow yellow with star-shaped pupils"
+                }
+            ]
+        },
+        {
+            "char_id": "char_002",
+            "name": "Carrot",
+            "identity_scope": "individual",
+            "description": "Small orange tabby cat with striped tail, green eyes; often perched on Pepper’s shoulder or back; expressive face.",
+            "first_presence_seconds": 7,
+            "last_presence_seconds": 147,
+            "state_changes": [
+                {
+                    "seconds": 56,
+                    "state_change_kind": "attached",
+                    "description": "Attaches to Pepper's back during flight"
+                },
+                {
+                    "seconds": 82,
+                    "state_change_kind": "attached",
+                    "description": "Remains attached during night flight with net"
+                },
+                {
+                    "seconds": 90,
+                    "state_change_kind": "detached",
+                    "description": "Detaches and hangs from spiderweb, snarling at spider"
+                },
+                {
+                    "seconds": 98,
+                    "state_change_kind": "attached",
+                    "description": "Reattaches to Pepper’s side in volcanic scene"
+                },
+                {
+                    "seconds": 123,
+                    "state_change_kind": "detached",
+                    "description": "Sits on floor beside Pepper in lab"
+                },
+                {
+                    "seconds": 142,
+                    "state_change_kind": "attached",
+                    "description": "Jumps onto Pepper’s shoulder"
+                },
+                {
+                    "seconds": 144,
+                    "state_change_kind": "detached",
+                    "description": "Falls off shoulder, crying"
+                }
+            ]
+        },
+        {
+            "char_id": "char_003",
+            "name": "Vendor",
+            "identity_scope": "individual",
+            "description": "Large humanoid creature with pig-like snout, grey skin, striped arms, wearing red sleeveless top; stands behind vegetable stall.",
+            "first_presence_seconds": 20,
+            "last_presence_seconds": 32,
+            "state_changes": []
+        },
+        {
+            "char_id": "char_004",
+            "name": "Rival Witch",
+            "identity_scope": "individual",
+            "description": "Witch with bright orange curly hair, freckles, blue eyes, wearing purple coat and pointed purple hat; carries broom over shoulder.",
+            "first_presence_seconds": 33,
+            "last_presence_seconds": 51,
+            "state_changes": [
+                {
+                    "seconds": 36,
+                    "state_change_kind": "acquired",
+                    "description": "Holds stack of gold coins in hand"
+                }
+            ]
+        },
+        {
+            "char_id": "char_005",
+            "name": "Phoenix",
+            "identity_scope": "individual",
+            "description": "Giant fiery bird with orange plumage, long crest, sharp beak; appears in volcanic landscape.",
+            "first_presence_seconds": 100,
+            "last_presence_seconds": 103,
+            "state_changes": []
+        },
+        {
+            "char_id": "char_006",
+            "name": "Dragon",
+            "identity_scope": "individual",
+            "description": "Large spotted dragon with brown-and-cream scales, horns, bulging eyes; exhales pink smoke.",
+            "first_presence_seconds": 106,
+            "last_presence_seconds": 108,
+            "state_changes": []
+        }
+    ],
+    "props": [
+        {
+            "prop_id": "prop_001",
+            "name": "Broomstick",
+            "identity_scope": "individual",
+            "description": "Wooden broom with straw head, carried by Pepper; used for flying.",
+            "first_presence_seconds": 14,
+            "last_presence_seconds": 114,
+            "state_changes": [
+                {
+                    "seconds": 56,
+                    "state_change_kind": "attached",
+                    "description": "Used for flight with Pepper seated"
+                },
+                {
+                    "seconds": 82,
+                    "state_change_kind": "attached",
+                    "description": "Used for flight at night with net attached"
+                },
+                {
+                    "seconds": 90,
+                    "state_change_kind": "attached",
+                    "description": "Used as perch in forest"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_002",
+            "name": "Red Cloth Bag",
+            "identity_scope": "individual",
+            "description": "Plaid-patterned red fabric bag, initially empty, later filled with star-shaped fruits.",
+            "first_presence_seconds": 22,
+            "last_presence_seconds": 45,
+            "state_changes": [
+                {
+                    "seconds": 24,
+                    "state_change_kind": "filled",
+                    "description": "Filled with orange star-shaped fruits by vendor"
+                },
+                {
+                    "seconds": 29,
+                    "state_change_kind": "acquired",
+                    "description": "Taken by Pepper"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_003",
+            "name": "Coin Pouch",
+            "identity_scope": "individual",
+            "description": "Small round leather pouch with metal clasp, contains gold coins.",
+            "first_presence_seconds": 27,
+            "last_presence_seconds": 28,
+            "state_changes": [
+                {
+                    "seconds": 27,
+                    "state_change_kind": "acquired",
+                    "description": "Opened by Pepper, revealing coins"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_004",
+            "name": "Potion Challenge Poster",
+            "identity_scope": "individual",
+            "description": "Scroll-style parchment with ornate borders, text: 'Komona Potion Challenge', '50 000 Ko grand prize', 'FOR THE BEST POTION', 'On Azarday, 3 Pinkmoon', 'Grand Plaza of Komona'.",
+            "first_presence_seconds": 58,
+            "last_presence_seconds": 60,
+            "state_changes": []
+        },
+        {
+            "prop_id": "prop_005",
+            "name": "Cauldron",
+            "identity_scope": "individual",
+            "description": "Black iron cauldron with handle, placed over fire; used for potion brewing.",
+            "first_presence_seconds": 123,
+            "last_presence_seconds": 126,
+            "state_changes": [
+                {
+                    "seconds": 123,
+                    "state_change_kind": "attached",
+                    "description": "Placed over fire"
+                },
+                {
+                    "seconds": 126,
+                    "state_change_kind": "consumed",
+                    "description": "Contents poured into cup"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_006",
+            "name": "Teacup and Saucer",
+            "identity_scope": "individual",
+            "description": "White ceramic teacup with fluted rim, on matching saucer.",
+            "first_presence_seconds": 127,
+            "last_presence_seconds": 147,
+            "state_changes": [
+                {
+                    "seconds": 127,
+                    "state_change_kind": "filled",
+                    "description": "Filled with dark liquid from pot"
+                },
+                {
+                    "seconds": 131,
+                    "state_change_kind": "acquired",
+                    "description": "Held by Pepper"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_007",
+            "name": "Net",
+            "identity_scope": "individual",
+            "description": "Blue-handled insect net with circular frame and mesh bag.",
+            "first_presence_seconds": 82,
+            "last_presence_seconds": 86,
+            "state_changes": [
+                {
+                    "seconds": 82,
+                    "state_change_kind": "attached",
+                    "description": "Attached to broomstick during night flight"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_008",
+            "name": "Star-shaped Fruits",
+            "identity_scope": "category",
+            "description": "Orange, five-pointed star-shaped fruits; appear in vendor’s stall and in red bag.",
+            "first_presence_seconds": 24,
+            "last_presence_seconds": 45,
+            "state_changes": [
+                {
+                    "seconds": 24,
+                    "state_change_kind": "acquired",
+                    "description": "Placed into red bag by vendor"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_009",
+            "name": "Wooden Bucket",
+            "identity_scope": "individual",
+            "description": "Barrel-style wooden bucket with metal bands and rope handle.",
+            "first_presence_seconds": 104,
+            "last_presence_seconds": 114,
+            "state_changes": [
+                {
+                    "seconds": 104,
+                    "state_change_kind": "acquired",
+                    "description": "Held by Pepper during flight"
+                },
+                {
+                    "seconds": 110,
+                    "state_change_kind": "filled",
+                    "description": "Filled with white liquid (milk?) from dragon’s udder"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_010",
+            "name": "Purple Teapot",
+            "identity_scope": "individual",
+            "description": "Glowing translucent purple teapot with moon-surface texture, floats in sky.",
+            "first_presence_seconds": 115,
+            "last_presence_seconds": 151,
+            "state_changes": []
+        }
+    ],
+    "locations": [
+        {
+            "loc_id": "loc_001",
+            "name": "Komona Market",
+            "identity_scope": "scene",
+            "description": "Busy medieval fantasy marketplace with stone buildings, stalls with awnings, crowd of humans and anthropomorphic creatures; dragons and birds visible in background sky.",
+            "first_presence_seconds": 12,
+            "last_presence_seconds": 32,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_002",
+            "name": "Witch’s Study",
+            "identity_scope": "scene",
+            "description": "Indoor room with green walls; stack of old books on left, glass flask with red liquid on right, wooden table.",
+            "first_presence_seconds": 70,
+            "last_presence_seconds": 77,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_003",
+            "name": "Sky Day",
+            "identity_scope": "scene",
+            "description": "Bright blue sky with white clouds; Pepper flies on broomstick holding scroll.",
+            "first_presence_seconds": 56,
+            "last_presence_seconds": 65,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_004",
+            "name": "Sky Night",
+            "identity_scope": "scene",
+            "description": "Dark blue cloudy night sky with stars; Pepper flies with net and cat on back.",
+            "first_presence_seconds": 82,
+            "last_presence_seconds": 87,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_005",
+            "name": "Forest Canopy",
+            "identity_scope": "scene",
+            "description": "Green leafy forest with thick vines, spiderwebs, hanging fruits; broomstick rests on branch.",
+            "first_presence_seconds": 90,
+            "last_presence_seconds": 96,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_006",
+            "name": "Volcanic Landscape",
+            "identity_scope": "scene",
+            "description": "Fiery orange-red environment with lava flows, smoking volcanoes, rocky ground; giant phoenix present.",
+            "first_presence_seconds": 98,
+            "last_presence_seconds": 103,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_007",
+            "name": "Cloud Sky Pink",
+            "identity_scope": "scene",
+            "description": "Pastel pink and beige sky with soft clouds; Pepper flies with bucket dangling.",
+            "first_presence_seconds": 104,
+            "last_presence_seconds": 114,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_008",
+            "name": "Witch’s House Exterior",
+            "identity_scope": "scene",
+            "description": "Twisted, multi-story house built into tree trunk; windows lit from inside; twilight sky with stars.",
+            "first_presence_seconds": 116,
+            "last_presence_seconds": 122,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_009",
+            "name": "Witch’s Lab Interior",
+            "identity_scope": "scene",
+            "description": "Warm-lit interior with stone archway, cauldron over fire, ingredients on counter, cat sitting nearby.",
+            "first_presence_seconds": 123,
+            "last_presence_seconds": 147,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_010",
+            "name": "Starry Purple Sky",
+            "identity_scope": "scene",
+            "description": "Deep purple night sky with scattered stars; glowing teapot floats centrally.",
+            "first_presence_seconds": 115,
+            "last_presence_seconds": 151,
+            "state_changes": []
+        }
+    ],
+    "screenplay": {
+        "scenes": [
+            {
+                "scene_id": "scene_0001",
+                "start_seconds": 0,
+                "end_seconds": 11,
+                "loc_id": "",
+                "scene_title": "Opening Logos and Title Card",
+                "scene_purpose": "Establish production entities and episode title",
+                "prev_boundary": {
+                    "kind": "initial",
+                    "evidence": "Video starts with black screen, then logo fade-in at 1.0s; no prior visual context"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0001",
+                        "start_seconds": 0,
+                        "end_seconds": 2,
+                        "duration_seconds": 2,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "Black screen → Morevna Project logo fade-in at 1.0s",
+                            "confidence": "high"
+                        },
+                        "action": "Black screen; at 1.0s, 'MOREVNA PROJECT' logo appears with red katana slicing through 'EV'; fades out by 2.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Centered logo on dark textured background"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0002",
+                        "start_seconds": 3,
+                        "end_seconds": 5,
+                        "duration_seconds": 2,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Cut from logo to black screen with white text 'in association with singpolyma'",
+                            "confidence": "high"
+                        },
+                        "action": "Black screen with centered white text: 'in association with' above 'singpolyma'; holds until 5.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Text centered, no motion"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0003",
+                        "start_seconds": 6,
+                        "end_seconds": 11,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Fade from black to watercolor sky; title 'Pepper & Carrot' appears with cat animation",
+                            "confidence": "high"
+                        },
+                        "action": "Watercolor yellow-green sky with clouds; 'Pepper & Carrot' title appears in brown font; small orange cat jumps onto '&' at 8.0s; subtitle 'Episode 3: The Secret Ingredients' appears at 9.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Title centered, animated cat entry"
+                        },
+                        "present_entity_ids": [
+                            "char_002"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0002",
+                "start_seconds": 12,
+                "end_seconds": 32,
+                "loc_id": "loc_001",
+                "scene_title": "Market Day in Komona",
+                "scene_purpose": "Introduce setting and protagonist’s initial goal (shopping)",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Hard cut from title card to wide market illustration at 12.0s"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0004",
+                        "start_seconds": 12,
+                        "end_seconds": 19,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "First appearance of Komona Market scene",
+                            "confidence": "high"
+                        },
+                        "action": "Wide shot of bustling fantasy market; buildings, stalls, people, dragons, birds; at 14.0s, Pepper (char_001) enters from left wearing large hat and carrying broom; text overlay 'Komona city; Market day' appears at 16.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "slightly elevated frontal",
+                            "movement": "static",
+                            "composition_note": "Panoramic view, Pepper walks into frame"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0005",
+                        "start_seconds": 20,
+                        "end_seconds": 26,
+                        "duration_seconds": 6,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Cut to medium close-up of Pepper and Vendor at stall",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper approaches vendor (char_003); she lifts hat at 21.0s, offers red bag; vendor fills it with star-shaped fruits (prop_008) at 24.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Two-shot, focus on transaction"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_003",
+                            "prop_002",
+                            "prop_008"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0006",
+                        "start_seconds": 27,
+                        "end_seconds": 32,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Cut to close-up of Pepper checking coin pouch, then back to stall view",
+                            "confidence": "high"
+                        },
+                        "action": "Close-up: Pepper opens coin pouch (prop_003), looks surprised; cut back to stall: she holds bag while vendor continues packing; rival witch (char_004) enters frame right at 32.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "close_up → medium",
+                            "angle_or_view": "frontal",
+                            "movement": "cut",
+                            "composition_note": "Quick cut between expressions and wider action"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_003",
+                            "char_004",
+                            "prop_002",
+                            "prop_003"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0003",
+                "start_seconds": 33,
+                "end_seconds": 55,
+                "loc_id": "loc_001",
+                "scene_title": "Rival Encounter and Decision",
+                "scene_purpose": "Introduce conflict via rival witch; trigger protagonist’s resolve",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Rival witch fully enters frame at 33.0s, changing focus from vendor to new character"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0007",
+                        "start_seconds": 33,
+                        "end_seconds": 40,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "Rival witch (char_004) now central; she displays coins (prop_003) while Pepper looks angry",
+                            "confidence": "high"
+                        },
+                        "action": "Rival witch smiles, holds up stack of gold coins; Pepper glares, arms crossed; close-up on Pepper’s determined face at 39.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium → close_up",
+                            "angle_or_view": "frontal",
+                            "movement": "cut",
+                            "composition_note": "Alternating shots emphasize contrast"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "prop_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0008",
+                        "start_seconds": 41,
+                        "end_seconds": 55,
+                        "duration_seconds": 14,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Cut to wider shot showing both witches; then close-ups of rival’s smug face and Pepper’s shock",
+                            "confidence": "high"
+                        },
+                        "action": "Rival witch gestures dismissively; Pepper turns away, clutching bag; extreme close-up on Pepper’s wide-eyed realization at 52.0s–55.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium → extreme_close_up",
+                            "angle_or_view": "frontal",
+                            "movement": "cut",
+                            "composition_note": "Escalating intensity via tighter framing"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "prop_002"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0004",
+                "start_seconds": 56,
+                "end_seconds": 69,
+                "loc_id": "loc_003",
+                "scene_title": "Flight to Read the Challenge",
+                "scene_purpose": "Protagonist acts on decision; reveals contest details",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Hard cut to sky scene at 56.0s; Pepper flying on broomstick"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0009",
+                        "start_seconds": 56,
+                        "end_seconds": 60,
+                        "duration_seconds": 4,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "First appearance of sky flight; Pepper holds scroll",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper flies on broom (prop_001) through clouds; cat (char_002) sits on basket; she reads scroll; close-up of scroll text at 58.0s: 'Komona Potion Challenge', '50 000 Ko grand prize', etc.",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide → insert",
+                            "angle_or_view": "low angle",
+                            "movement": "tracking",
+                            "composition_note": "Follows flight path, then cuts to scroll detail"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "prop_001",
+                            "prop_004"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0010",
+                        "start_seconds": 61,
+                        "end_seconds": 69,
+                        "duration_seconds": 8,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "Continuous flight sequence; no cut, but Pepper’s expression shifts from surprise to determination; at 66.0s, she flies toward treehouse where cat waits",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper continues flying, smiling; wind blows hat; at 66.0s, she approaches treehouse; cat (char_002) watches from balcony; she lands at 69.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium → wide",
+                            "angle_or_view": "side tracking",
+                            "movement": "tracking",
+                            "composition_note": "Smooth lateral movement following broom"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "prop_001"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0005",
+                "start_seconds": 70,
+                "end_seconds": 79,
+                "loc_id": "loc_002",
+                "scene_title": "Study and Inspiration",
+                "scene_purpose": "Show preparation phase; protagonist finds idea in books",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Cut to indoor study at 70.0s; Pepper reading"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0011",
+                        "start_seconds": 70,
+                        "end_seconds": 77,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "First appearance of study interior; Pepper at desk with books",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper sits at table, resting chin on hand, reading large open book; stacks of books left, flask right; at 74.0s, she has idea, raises finger, smiles",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Stable composition, focus on facial expression change"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0012",
+                        "start_seconds": 78,
+                        "end_seconds": 79,
+                        "duration_seconds": 1,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Cut to right-side shelf: cat (char_002) lying next to flasks",
+                            "confidence": "high"
+                        },
+                        "action": "Cat lies on cabinet beside two glass flasks (one with red liquid, one with gray powder); cat blinks, looks annoyed",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Static shot of lab equipment and cat"
+                        },
+                        "present_entity_ids": [
+                            "char_002"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0006",
+                "start_seconds": 80,
+                "end_seconds": 87,
+                "loc_id": "loc_004",
+                "scene_title": "Night Flight with Net",
+                "scene_purpose": "Show active ingredient gathering under cover of night",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Cut to dark blue cloudy sky at 80.0s; Pepper flying with net"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0013",
+                        "start_seconds": 80,
+                        "end_seconds": 87,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "First appearance of night flight; net (prop_007) attached to broom",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper flies through dark clouds at night; cat (char_002) on her back; net held aloft; she looks focused; exits frame right at 87.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "low angle",
+                            "movement": "tracking",
+                            "composition_note": "Consistent flight trajectory, no cuts"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "prop_001",
+                            "prop_007"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0007",
+                "start_seconds": 90,
+                "end_seconds": 96,
+                "loc_id": "loc_005",
+                "scene_title": "Forest Gathering and Cat Trouble",
+                "scene_purpose": "Show comedic obstacle during ingredient collection",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Cut to green forest canopy at 90.0s; broom resting on branch"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0014",
+                        "start_seconds": 90,
+                        "end_seconds": 96,
+                        "duration_seconds": 6,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "Pepper sits on broom in forest; cat hangs from spiderweb, snarling at spider",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper sits cross-legged on broom, holding bag of red berries; cat dangles from web, mouth open, glaring at spider; close-up on cat’s angry face at 94.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium → close_up",
+                            "angle_or_view": "frontal",
+                            "movement": "cut",
+                            "composition_note": "Focus shifts from Pepper to cat’s reaction"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "prop_002"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0008",
+                "start_seconds": 98,
+                "end_seconds": 103,
+                "loc_id": "loc_006",
+                "scene_title": "Volcanic Ingredient Extraction",
+                "scene_purpose": "Show acquisition of rare ingredient from mythical creature",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Cut to fiery landscape at 98.0s; Pepper sweating near cauldron"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0015",
+                        "start_seconds": 98,
+                        "end_seconds": 103,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "First appearance of volcanic scene; phoenix (char_005) emerges behind Pepper",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper stirs cauldron with tongs; cat looks worried; small chick in eggshell watches; at 100.0s, giant phoenix appears behind her, tilting head; Pepper smiles at 102.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Phoenix reveal is a slow zoom-in effect"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "char_005",
+                            "prop_005"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0009",
+                "start_seconds": 104,
+                "end_seconds": 114,
+                "loc_id": "loc_007",
+                "scene_title": "Milk Collection from Dragon",
+                "scene_purpose": "Show final ingredient acquisition via interaction with another creature",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Cut to pink-cloud sky at 104.0s; Pepper flying with bucket"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0016",
+                        "start_seconds": 104,
+                        "end_seconds": 108,
+                        "duration_seconds": 4,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "Pepper flies with bucket; giant spotted dragon (char_006) appears overhead",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper flies holding wooden bucket (prop_009); dragon looms above, eyes wide; at 106.0s, dragon lowers head, udder visible",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "low angle",
+                            "movement": "tracking",
+                            "composition_note": "Dragon dominates upper frame"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_006",
+                            "prop_009"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0017",
+                        "start_seconds": 109,
+                        "end_seconds": 114,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "Continuous action: milk drips into bucket; then Pepper flies away with full bucket",
+                            "confidence": "high"
+                        },
+                        "action": "Close-up: white liquid drips into bucket; cut to Pepper flying away with full bucket, cat on back; pink smoke trails behind",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "insert → wide",
+                            "angle_or_view": "frontal → side",
+                            "movement": "cut → tracking",
+                            "composition_note": "Insert shot of filling, then return to flight"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "prop_009"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0010",
+                "start_seconds": 115,
+                "end_seconds": 122,
+                "loc_id": "loc_010",
+                "scene_title": "Return Home Under Starry Sky",
+                "scene_purpose": "Transition to conclusion; magical atmosphere",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Cut to purple starry sky with floating teapot at 115.0s"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0018",
+                        "start_seconds": 115,
+                        "end_seconds": 122,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "Floating purple teapot (prop_010) in starry sky; then cut to witch’s house exterior at 116.0s",
+                            "confidence": "high"
+                        },
+                        "action": "Glowing purple teapot floats in starry sky; at 116.0s, cut to witch’s twisted house at dusk; Pepper flies in from left, lands on roof at 120.0s; lights turn on in windows",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static → pan right",
+                            "composition_note": "Teapot shot followed by establishing shot of house"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_008",
+                            "prop_010"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0011",
+                "start_seconds": 123,
+                "end_seconds": 147,
+                "loc_id": "loc_009",
+                "scene_title": "Brewing and Tasting",
+                "scene_purpose": "Climax: potion completed and tested; emotional resolution",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Cut to interior lab at 123.0s; Pepper stirring cauldron"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0019",
+                        "start_seconds": 123,
+                        "end_seconds": 126,
+                        "duration_seconds": 3,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "First interior lab shot after return; Pepper wears oven mitts",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper stirs cauldron with tongs; cat sits nearby; bag of red berries on counter; she looks concentrated",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Warm lighting, focused on brewing"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "prop_005",
+                            "prop_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0020",
+                        "start_seconds": 127,
+                        "end_seconds": 130,
+                        "duration_seconds": 3,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Cut to close-up of pouring potion into teacup",
+                            "confidence": "high"
+                        },
+                        "action": "Hand pours dark liquid from pot into white teacup; steam rises; liquid fills cup",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "insert",
+                            "angle_or_view": "top-down",
+                            "movement": "static",
+                            "composition_note": "Tight focus on cup and stream"
+                        },
+                        "present_entity_ids": [
+                            "prop_006"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0021",
+                        "start_seconds": 131,
+                        "end_seconds": 137,
+                        "duration_seconds": 6,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Cut to Pepper seated, sipping from cup; cat watches",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper sits in armchair, sips from teacup, smiles contentedly; cat looks skeptical; she waves hand at 137.0s",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Cozy interior, window light from right"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "prop_006"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0022",
+                        "start_seconds": 138,
+                        "end_seconds": 147,
+                        "duration_seconds": 9,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "Pepper’s eyes glow yellow; cat jumps on shoulder, cries, falls off; all within same continuous shot",
+                            "confidence": "high"
+                        },
+                        "action": "Pepper’s eyes glow yellow with star pupils; she grins; cat jumps onto her shoulder at 142.0s, looks annoyed, then cries with tear at 144.0s, falls off; Pepper remains smiling",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "No cut; cat’s arc happens in one take"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "prop_006"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0012",
+                "start_seconds": 148,
+                "end_seconds": 205,
+                "loc_id": "loc_010",
+                "scene_title": "Credits and Donation Screen",
+                "scene_purpose": "Production attribution and call to action",
+                "prev_boundary": {
+                    "kind": "visual_change",
+                    "evidence": "Cut to purple sky with teapot at 148.0s, then fade to credit backgrounds"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0023",
+                        "start_seconds": 148,
+                        "end_seconds": 151,
+                        "duration_seconds": 3,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "Return to floating teapot in starry sky",
+                            "confidence": "high"
+                        },
+                        "action": "Purple teapot floats in starry sky; camera slowly zooms out",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "zoom out",
+                            "composition_note": "Identical to seg_0018 opening but without house"
+                        },
+                        "present_entity_ids": [
+                            "prop_010"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0024",
+                        "start_seconds": 152,
+                        "end_seconds": 154,
+                        "duration_seconds": 2,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Cut to software credits screen with logos",
+                            "confidence": "high"
+                        },
+                        "action": "Text: 'This animation is made with free and open-source software'; logos for Krita, Blender, OpenToonz, RenderChan, CoaTools",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Static credit layout"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0025",
+                        "start_seconds": 155,
+                        "end_seconds": 158,
+                        "duration_seconds": 3,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "Same background, new text: 'Sponsored by' and names/logos",
+                            "confidence": "high"
+                        },
+                        "action": "Text: 'Sponsored by Côme Chillet, Sam Muirhead, Carl Schwan'; logos for base alt and АДАМАНТ",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Continuation of credit sequence"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0026",
+                        "start_seconds": 159,
+                        "end_seconds": 164,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "Credit text updates: artwork, direction, processing, contributors",
+                            "confidence": "high"
+                        },
+                        "action": "Credits roll: 'Original artwork and story by David Revoy', 'Directed by Stas Kholodilin', 'Artwork Processing' names, 'Community Contributors' names",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Text fades in/out sequentially"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0027",
+                        "start_seconds": 165,
+                        "end_seconds": 170,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "Cast, translation, mixing credits appear",
+                            "confidence": "high"
+                        },
+                        "action": "Credits: 'Cast' with voice actors, 'Translation' names, 'Mixed by Igor Dmitriev'",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Same background, text updates"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0028",
+                        "start_seconds": 171,
+                        "end_seconds": 176,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "Music and sound design credits",
+                            "confidence": "high"
+                        },
+                        "action": "Credits: 'Music' with three tracks and artists, 'Sound Design Stas Kholodilin', 'This video uses sound effects from FreeSound.org'",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Continues credit flow"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0029",
+                        "start_seconds": 177,
+                        "end_seconds": 182,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "Source and production credits",
+                            "confidence": "high"
+                        },
+                        "action": "Credits: 'Based on \"Pepper & Carrot\" webcomic by David Revoy', URL, 'Universe of Hereva', 'Produced by Konstantin Dmitriev'",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Final narrative credit block"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0030",
+                        "start_seconds": 183,
+                        "end_seconds": 185,
+                        "duration_seconds": 2,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "License info and CC icon appear",
+                            "confidence": "high"
+                        },
+                        "action": "Text: 'This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 license.' with URL and CC BY-SA icon",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Standard license display"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0031",
+                        "start_seconds": 186,
+                        "end_seconds": 205,
+                        "duration_seconds": 19,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "Final screen: 'Donate for production of new episodes' with QR code and URL",
+                            "confidence": "high"
+                        },
+                        "action": "Static screen: 'Donate' title, QR code, URL 'https://morevnaproject.org/pepper-and-carrot/sponsor/'",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "frontal",
+                            "movement": "static",
+                            "composition_note": "Holds until end of video at 205.0s"
+                        },
+                        "present_entity_ids": []
+                    }
+                ]
+            }
+        ]
+    },
+    "self_check": {
+        "duration_check": "passed",
+        "segment_count_check": "passed",
+        "boundary_reason_check": "passed",
+        "low_confidence_segment_ids": [],
+        "notes": "All visual segments ≤15.0s; total 31 segments ≥ minimum 14; boundaries respect cuts, scene changes, and action phases; no external knowledge used."
+    },
+    "counts": {
+        "characters": 6,
+        "props": 10,
+        "locations": 10,
+        "scenes": 12,
+        "visual_segments": 31
+    }
+}

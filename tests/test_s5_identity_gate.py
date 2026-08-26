@@ -2,8 +2,6 @@
 
 from copy import deepcopy
 
-import pytest
-
 from vmem_bench.common.crop_identity_gates import (
     apply_cross_entity_conflict_gate,
 )
@@ -45,7 +43,6 @@ def test_unique_high_confidence_assignment_survives() -> None:
     assert gated[0]["identity_gate"]["reason"] == "unique_confident_assignment"
 
 
-@pytest.mark.xfail(reason="upstream: S6 hides cross_entity_bbox_conflict; fails in internal tree too", strict=False)
 def test_s6_identity_conflict_is_must_review() -> None:
     proposal = _proposal("char_a")
     proposal["accepted"] = False

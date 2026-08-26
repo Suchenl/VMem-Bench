@@ -6,9 +6,9 @@ Three failure modes look similar in the browser:
 
 1. **Process died** — an agent/`pkill` stopped `:8890`/`:7864`, or a crash left a stale pidfile. After a KML instance restart/snapshot, run `ensure_console.sh` again (or keep `--watch`).
 2. **KML AccessProxy SSO expired** — the supported entry is the platform HTTPS host
-   (`https://…example.com/`), which terminates TLS and proxies to
+   (`https://kml-dtmachine-…corp.example.org/`), which terminates TLS and proxies to
    instance `:8890`. When `accessproxy_session` expires, `/api/*` returns `302` →
-   `example.com` (HTML). Refresh the page to re-login; this is not a backend crash.
+   `sso.corp.example.org` (HTML). Refresh the page to re-login; this is not a backend crash.
 3. **Slow catalog under load** — `/api/samples` used to take 15–25s on KFS and could trip
    gateway timeouts while jobs run. The backend now caches the catalog for a few seconds.
 
@@ -36,7 +36,7 @@ bash .../start_all.sh                 # start once (no watch)
 
 | URL | When to use |
 |-----|-------------|
-| `https://…example.com/` | **Primary** user entry (KML AccessProxy → instance `:8890`) |
+| `https://kml-dtmachine-…corp.example.org/` | **Primary** user entry (KML AccessProxy → instance `:8890`) |
 | `http://127.0.0.1:8890` | Local health/debug on the development machine itself |
 | `http://<instance-ip>:8890` | Optional LAN debug; browser must bypass corporate squid |
 
@@ -73,6 +73,6 @@ Logs: `benchmarks/MemStrata/data/_services/annotation_console/logs/`
 
 ## VLM `--allowed-local-media-path`
 
-vLLM accepts **one directory**. Do **not** pass comma lists like `/data,/tmp`
+vLLM accepts **one directory**. Do **not** pass comma lists like `${ALLOWED_LOCAL_MEDIA_PATH:-.},/tmp`
 (treated as a single nonexistent path → every `file://` S3 review returns HTTP 400).
-Launchers default to `/data` (shared KFS root for clip caches).
+Launchers default to `${ALLOWED_LOCAL_MEDIA_PATH:-.}` (shared KFS root for clip caches).

@@ -14,7 +14,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # servers/start_annotation_vllm.sh -> servers -> vmem_bench -> scripts -> MemStrata
 MEMSTRATA_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
 SRC_ROOT="${MEMSTRATA_ROOT}/src"
-VLLM_ENV="${VLLM_ENV:-vllm}"
+VLLM_ENV="${VLLM_ENV:-${CONDA_ENVS_ROOT}/vllm}"
 MODEL_SIZE="${MODEL_SIZE:-8B}"
 case "${MODEL_SIZE}" in
   8B|8b)
@@ -53,9 +53,9 @@ export PYTHONUNBUFFERED=1
 export PYTHONPATH="${SRC_ROOT}${PYTHONPATH:+:${PYTHONPATH}}"
 export SERVED_MODEL_NAME
 
-ALLOWED_LOCAL_MEDIA_PATH="${ALLOWED_LOCAL_MEDIA_PATH:-/data}"
+ALLOWED_LOCAL_MEDIA_PATH="${ALLOWED_LOCAL_MEDIA_PATH:-${ALLOWED_LOCAL_MEDIA_PATH:-.}}"
 # vLLM accepts a SINGLE directory. Comma-separated values are treated as one
-# nonexistent path (e.g. "/data,/tmp") and break all file:// video reviews.
+# nonexistent path (e.g. "${ALLOWED_LOCAL_MEDIA_PATH:-.},/tmp") and break all file:// video reviews.
 if [[ "${ALLOWED_LOCAL_MEDIA_PATH}" == *","* ]]; then
   echo "WARNING: ALLOWED_LOCAL_MEDIA_PATH must be one directory; got '${ALLOWED_LOCAL_MEDIA_PATH}'. Using first entry." >&2
   ALLOWED_LOCAL_MEDIA_PATH="${ALLOWED_LOCAL_MEDIA_PATH%%,*}"

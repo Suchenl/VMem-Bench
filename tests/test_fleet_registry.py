@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-import pytest
 
 from vmem_bench.annotation.pipeline.servers.fleet.registry import (
     STATUS_RUNNING,
@@ -58,7 +57,6 @@ def test_nodes_tsv_backfills_display_name_and_idle_status(tmp_path: Path) -> Non
     )
 
 
-@pytest.mark.xfail(reason="upstream: busy marker outranks break in list_fleet; fails in internal tree too", strict=False)
 def test_busy_and_break_statuses_preserve_dispatch_contract(tmp_path: Path) -> None:
     fleet_root, nodes_tsv, base_url = _running_endpoint(tmp_path)
     mark_endpoint_busy(base_url, fleet_root=fleet_root, job_id="job-1")

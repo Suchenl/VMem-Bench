@@ -1129,7 +1129,7 @@
     } catch (_) {
       target = location.href;
     }
-    toast('正在跳转快手 SSO 登录…', 'fail');
+    toast('正在跳转internal SSO 登录…', 'fail');
     window.location.assign(target);
   }
 

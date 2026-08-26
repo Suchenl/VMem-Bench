@@ -7,7 +7,7 @@
 # does not deadlock in-process.
 #
 # Design: every job is a self-contained script on shared KFS (all nodes mount
-# /data), launched under a remote tmux session, writing a per-job log with
+# ${ALLOWED_LOCAL_MEDIA_PATH:-.}), launched under a remote tmux session, writing a per-job log with
 # an "EXIT:<rc>" sentinel. This orchestrator (safe to nohup) then waits on those
 # sentinels -- no nested shell-quoting, no ssh babysitting.
 #
@@ -18,9 +18,9 @@ set -u
 BENCH=.
 ADIR=$BENCH/scripts/evaluate_baselines/trackA/baseline_adapters/causal
 VACE=python3
-WAN=wan2_1/bin/python
-HELIOS=helios/bin/python
-MSM=MultiShotMaster/bin/python
+WAN=${CONDA_ENVS_ROOT}/wan2_1/bin/python
+HELIOS=python3
+MSM=python3
 
 STAMP=$(date +%Y%m%d_%H%M%S)
 LOGDIR=$BENCH/_tgpu_run/$STAMP
@@ -98,7 +98,7 @@ launch(){
     echo "#!/bin/bash"
     echo "cd $ADIR || exit 97"
     echo "export CUDA_VISIBLE_DEVICES=$gpu NO_PROXY=localhost,127.0.0.1 PYTORCH_ALLOC_CONF=expandable_segments:True"
-    echo "export MAVE_REQUIRE_A800_KEEPALIVE=1 MAVE_TASK_NICE=10 MAVE_FFMPEG_THREADS=1"
+    echo "export VMEM_REQUIRE_A800_KEEPALIVE=1 VMEM_TASK_NICE=10 VMEM_FFMPEG_THREADS=1"
     echo "export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1"
     echo "export MAX_JOBS=1 TORCHINDUCTOR_COMPILE_THREADS=1 TOKENIZERS_PARALLELISM=false"
     if [ "$sys" = "iamflow" ]; then

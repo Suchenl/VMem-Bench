@@ -107,8 +107,8 @@ A sample can be frozen only if all checks pass:
 ## Rebuild Commands
 
 ```bash
-python3 assets/trackB/scripts/complete_gt.py --story 0001_lighthouse_keeper
-python3 assets/trackB/scripts/get_sut_prompts.py --story 0001_lighthouse_keeper
+python3 benchmarks/VMem-Bench/assets/trackB/scripts/complete_gt.py --story 0001_lighthouse_keeper
+python3 benchmarks/VMem-Bench/assets/trackB/scripts/get_sut_prompts.py --story 0001_lighthouse_keeper
 ```
 
 Use temporary output directories for audits, then compare with `cmp -s` before

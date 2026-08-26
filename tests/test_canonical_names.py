@@ -682,7 +682,7 @@ def test_review_error_tag_distinguishes_http_from_json() -> None:
     assert (
         _review_error_tag(
             'S3 reviewer HTTP 400: {"error":{"message":"Invalid `--allowed-local-media-path`: '
-            'The path /data,/tmp does not exist."}}'
+            'The path ${ALLOWED_LOCAL_MEDIA_PATH:-.},/tmp does not exist."}}'
         )
         == "vlm_request_failed"
     )

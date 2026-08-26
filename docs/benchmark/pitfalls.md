@@ -400,7 +400,7 @@ BDY-A800 的 32 个 Qwen3-VL-8B rank 可以在节点本地完成真实图像 + J
 
 - 以 `10.252.*` 控制 IP 注册时，BBB S3 出现大量 `URLError: [Errno 110] Connection timed out`；
   这些错误是 `RETRYABLE_ERROR`，不能当作 gold 证据。
-- 改用 nodes.tsv 的 `a800bcctest*.bce.kwaidc.com` 主机名后，开发机可对四个 BDY 节点的
+- 改用 nodes.tsv 的 `a800bcctest*.bce.example.org` 主机名后，开发机可对四个 BDY 节点的
   `/v1/chat/completions` 成功得到 HTTP 200 / `OK`。
 - 32 rank 的本地多模态健康检查均通过，但这只证明服务在节点本地可用，不证明 BBB 的
   `video_url` 生产请求可端到端完成。

@@ -78,15 +78,15 @@ def test_kv_bytes_per_frame_fallback_is_274_mib():
 
 
 def test_budget_respects_explicit_override(monkeypatch):
-    monkeypatch.setenv("MAVE_IAMFLOW_MAX_RSS_GB", "100")
+    monkeypatch.setenv("VMEM_IAMFLOW_MAX_RSS_GB", "100")
     assert iamflow._host_memory_budget_bytes() == 100 * 1024 ** 3
 
 
 def _guard(monkeypatch, *, total_segments, budget_gb, warmup=1, floor="0.0"):
-    monkeypatch.setenv("MAVE_IAMFLOW_MAX_RSS_GB", str(budget_gb))
-    monkeypatch.setenv("MAVE_IAMFLOW_RSS_WARMUP_SEGMENTS", str(warmup))
-    monkeypatch.setenv("MAVE_IAMFLOW_PROJECTION_FLOOR_FRACTION", floor)
-    monkeypatch.setenv("MAVE_IAMFLOW_RSS_LOG", "0")
+    monkeypatch.setenv("VMEM_IAMFLOW_MAX_RSS_GB", str(budget_gb))
+    monkeypatch.setenv("VMEM_IAMFLOW_RSS_WARMUP_SEGMENTS", str(warmup))
+    monkeypatch.setenv("VMEM_IAMFLOW_PROJECTION_FLOOR_FRACTION", floor)
+    monkeypatch.setenv("VMEM_IAMFLOW_RSS_LOG", "0")
     return iamflow._HostMemoryGuard(
         movie_id="unit_movie",
         total_segments=total_segments,
@@ -164,9 +164,9 @@ def test_watchdog_calibration_against_measured_runs(
     would have completed destroys hours of good GPU work, and one that stays quiet
     on a doomed movie leaves the exit-137 problem unsolved.
     """
-    monkeypatch.delenv("MAVE_IAMFLOW_MAX_RSS_GB", raising=False)
-    monkeypatch.setenv("MAVE_IAMFLOW_RSS_LOG", "0")
-    monkeypatch.setenv("MAVE_IAMFLOW_RSS_WARMUP_SEGMENTS", "3")
+    monkeypatch.delenv("VMEM_IAMFLOW_MAX_RSS_GB", raising=False)
+    monkeypatch.setenv("VMEM_IAMFLOW_RSS_LOG", "0")
+    monkeypatch.setenv("VMEM_IAMFLOW_RSS_WARMUP_SEGMENTS", "3")
     monkeypatch.setattr(
         iamflow, "_cgroup_mem_limit_bytes", lambda: int(cgroup_gib * 1024 ** 3)
     )
@@ -199,7 +199,7 @@ def test_watchdog_calibration_against_measured_runs(
 
 
 def test_watchdog_can_be_disabled(monkeypatch):
-    monkeypatch.setenv("MAVE_IAMFLOW_RSS_WATCHDOG", "0")
+    monkeypatch.setenv("VMEM_IAMFLOW_RSS_WATCHDOG", "0")
     guard = _guard(monkeypatch, total_segments=200, budget_gb=1)
     monkeypatch.setattr(iamflow, "_rss_anon_bytes", lambda: 500 * 1024 ** 3)
     guard.observe(1)
@@ -275,7 +275,7 @@ def test_write_only_pixel_frame_view_is_dropped():
 
 
 def test_sync_pixel_store_is_bounded(monkeypatch):
-    monkeypatch.setenv("MAVE_IAMFLOW_PIXEL_STORE_KEEP", "4")
+    monkeypatch.setenv("VMEM_IAMFLOW_PIXEL_STORE_KEEP", "4")
     pipe = _fake_pipe()
     iamflow._install_host_memory_guards(pipe)
     for i in range(12):
@@ -305,7 +305,7 @@ def test_kv_archive_cap_is_off_by_default():
 
 def test_kv_archive_cap_drops_oldest_and_spares_active(monkeypatch):
     """Opt-in variant: bounded recall pool, active frames never dropped."""
-    monkeypatch.setenv("MAVE_IAMFLOW_MAX_ARCHIVE_KV_FRAMES", "5")
+    monkeypatch.setenv("VMEM_IAMFLOW_MAX_ARCHIVE_KV_FRAMES", "5")
     bank = _Bank()
     for i in range(20):
         bank._frame_kv_store[f"p1_c{i}_f0"] = ["kv"]

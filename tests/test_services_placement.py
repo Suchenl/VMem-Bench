@@ -6,7 +6,6 @@ from types import SimpleNamespace
 
 import pytest
 
-pytest.importorskip("vmem_bench.services.placement")
 from vmem_bench.services.placement import CapacityError, GpuInfo, plan_placement
 from vmem_bench.services.registry import enabled_services
 

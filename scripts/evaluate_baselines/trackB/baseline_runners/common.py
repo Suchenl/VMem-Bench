@@ -9,8 +9,6 @@ Scoring is intentionally out of scope for these runners.
 from __future__ import annotations
 
 import argparse
-import errno
-import fcntl
 import json
 import os
 import shutil
@@ -191,79 +189,6 @@ def command_env(extra: dict[str, str] | None = None) -> dict[str, str]:
     if extra:
         env.update({k: str(v) for k, v in extra.items()})
     return env
-
-
-def merge_rc(current: int, rc: int) -> int:
-    """Combine per-stream return codes preserving ANY failure.
-
-    ``max(current, rc)`` is WRONG here: a subprocess killed by a signal reports a
-    NEGATIVE returncode (e.g. -9 for SIGKILL / OOM-killer), and ``max(0, -9) == 0``
-    silently turns a kill into a "success", making the launcher's EXIT sentinel and
-    the monitor report a false DONE. Keep the first non-zero (incl. negative) code.
-    """
-    if rc == 0:
-        return current
-    return current if current != 0 else rc
-
-
-def shell_rc(rc: int | None) -> int:
-    """Normalize a (possibly negative) subprocess returncode to a valid 0..255 shell
-    exit code so the launching shell's ``EXIT:$?`` sentinel is truthful. A signal
-    kill (-N) maps to the conventional 128+N (e.g. -9 -> 137)."""
-    if rc is None:
-        return 1
-    if rc < 0:
-        return 128 + (-rc)
-    return rc & 0xFF
-
-
-def acquire_node_slot(name: str, *, slots: int = 1, wait_sec: float = 0.0,
-                      poll_sec: float = 1.0):
-    """Acquire one of ``slots`` NODE-LOCAL concurrency slots named ``name``.
-
-    Backed by ``flock`` on files under ``/dev/shm`` (a per-node tmpfs), so this
-    serializes processes on the SAME physical node without any cross-node
-    coordination. Used to cap how many RAM-heavy jobs (e.g. LongLive-RAG, whose
-    DynamicSwap text encoder pins ~69GB and spikes another ~69GB when it moves to
-    GPU) run concurrently on one node, which otherwise trips the kernel OOM-killer
-    and SIGKILLs several jobs at once.
-
-    Returns the held file handle (keep it alive for the whole critical section;
-    process exit or ``.close()`` releases it) or ``None`` if no slot became free
-    within ``wait_sec``.
-    """
-    base = Path("/dev/shm")
-    if not (base.is_dir() and os.access(base, os.W_OK)):
-        base = Path("/tmp")
-    slots = max(1, int(slots))
-    deadline = time.time() + max(0.0, wait_sec)
-    handles = []
-    try:
-        for i in range(slots):
-            handles.append(open(base / f"{name}.slot{i}", "w"))
-    except OSError:
-        for h in handles:
-            h.close()
-        return None
-    while True:
-        for h in handles:
-            try:
-                fcntl.flock(h.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
-                # Keep the winning handle; release the rest.
-                for other in handles:
-                    if other is not h:
-                        other.close()
-                return h
-            except OSError as exc:
-                if exc.errno not in (errno.EWOULDBLOCK, errno.EAGAIN):
-                    for other in handles:
-                        other.close()
-                    raise
-        if time.time() >= deadline:
-            for h in handles:
-                h.close()
-            return None
-        time.sleep(poll_sec)
 
 
 def run_command(

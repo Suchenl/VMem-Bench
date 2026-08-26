@@ -1,0 +1,4629 @@
+{
+  "video_duration_seconds": 2384.0,
+  "minimum_required_segments": 159,
+  "characters": [
+    {
+      "char_id": "char_001",
+      "name": "棕皮衣男",
+      "identity_scope": "individual",
+      "description": "身穿棕色皮夹克，深色头发，蓝色眼睛，表情坚毅的成年男性，常携带冲锋枪或步枪。",
+      "first_presence_seconds": 57.0,
+      "last_presence_seconds": 2376.0,
+      "state_changes": [
+        {
+          "seconds": 2376.0,
+          "state_change_kind": "appearance_changed",
+          "description": "面部出现明显伤痕和污渍"
+        }
+      ]
+    },
+    {
+      "char_id": "char_002",
+      "name": "绿外套男",
+      "identity_scope": "individual",
+      "description": "身穿深绿色双排扣大衣，短发蓄须，体格强壮的成年男性，常与棕皮衣男同行。",
+      "first_presence_seconds": 101.0,
+      "last_presence_seconds": 2376.0,
+      "state_changes": []
+    },
+    {
+      "char_id": "char_003",
+      "name": "蓝帽少年",
+      "identity_scope": "individual",
+      "description": "头戴深蓝色鸭舌帽，身穿深色旧外套的年轻男孩，眼神警惕。",
+      "first_presence_seconds": 89.0,
+      "last_presence_seconds": 2376.0,
+      "state_changes": []
+    },
+    {
+      "char_id": "char_004",
+      "name": "灰发老者",
+      "identity_scope": "individual",
+      "description": "戴着黑色宽檐礼帽，留着灰白胡须，戴眼镜，身穿深色西装马甲的年长男性。",
+      "first_presence_seconds": 259.0,
+      "last_presence_seconds": 2214.0,
+      "state_changes": [
+        {
+          "seconds": 2214.0,
+          "state_change_kind": "destroyed",
+          "description": "躺在草地上失去生命体征"
+        }
+      ]
+    },
+    {
+      "char_id": "char_005",
+      "name": "褐发少女",
+      "identity_scope": "individual",
+      "description": "长发披肩或盘起，面容清秀的年轻女性，常穿深色大衣或浅色内衬。",
+      "first_presence_seconds": 665.0,
+      "last_presence_seconds": 2376.0,
+      "state_changes": []
+    },
+    {
+      "char_id": "char_006",
+      "name": "德军军官",
+      "identity_scope": "category",
+      "description": "身穿纳粹德国国防军制服，佩戴大檐帽，面部特征凶狠的男性军官。",
+      "first_presence_seconds": 315.0,
+      "last_presence_seconds": 2167.0,
+      "state_changes": []
+    },
+    {
+      "char_id": "char_007",
+      "name": "苏军指挥官",
+      "identity_scope": "individual",
+      "description": "身穿苏军冬季制服，戴毛皮雷锋帽，坐在帐篷或马背上的中年男性。",
+      "first_presence_seconds": 1003.0,
+      "last_presence_seconds": 1679.0,
+      "state_changes": []
+    },
+    {
+      "char_id": "char_008",
+      "name": "金发男子",
+      "identity_scope": "individual",
+      "description": "金色短发，身穿迷彩或军绿色上衣的男子，曾在营地中被众人围攻殴打。",
+      "first_presence_seconds": 1861.0,
+      "last_presence_seconds": 1895.0,
+      "state_changes": [
+        {
+          "seconds": 1895.0,
+          "state_change_kind": "broken",
+          "description": "被众人拳打脚踢致伤"
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "prop_id": "prop_001",
+      "name": "冲锋枪",
+      "identity_scope": "category",
+      "description": "PPSh-41或类似型号的苏制/德制冲锋枪，带弹鼓或弹匣，金属质感。",
+      "first_presence_seconds": 393.0,
+      "last_presence_seconds": 2341.0,
+      "state_changes": []
+    },
+    {
+      "prop_id": "prop_002",
+      "name": "木质十字架",
+      "identity_scope": "individual",
+      "description": "粗糙的木制十字架，插在土堆前作为墓碑标记。",
+      "first_presence_seconds": 735.0,
+      "last_presence_seconds": 742.0,
+      "state_changes": []
+    },
+    {
+      "prop_id": "prop_003",
+      "name": "干草堆",
+      "identity_scope": "individual",
+      "description": "巨大的圆锥形干草堆，内部挖有隐蔽空间用于藏人。",
+      "first_presence_seconds": 745.0,
+      "last_presence_seconds": 765.0,
+      "state_changes": []
+    },
+    {
+      "prop_id": "prop_004",
+      "name": "白马",
+      "identity_scope": "individual",
+      "description": "一匹纯白色的马，佩戴缰绳和马具，常被棕皮衣男骑乘或牵引。",
+      "first_presence_seconds": 1012.0,
+      "last_presence_seconds": 2295.0,
+      "state_changes": []
+    },
+    {
+      "prop_id": "prop_005",
+      "name": "坦克",
+      "identity_scope": "individual",
+      "description": "涂有十字标志的德军装甲车辆，炮塔上有数字'16'。",
+      "first_presence_seconds": 2225.0,
+      "last_presence_seconds": 2285.0,
+      "state_changes": [
+        {
+          "seconds": 2384.0,
+          "state_change_kind": "destroyed",
+          "description": "被手榴弹炸毁起火"
+        }
+      ]
+    },
+    {
+      "prop_id": "prop_006",
+      "name": "相机",
+      "identity_scope": "individual",
+      "description": "老式折叠皮腔相机，架在三脚架上用于拍摄集体照。",
+      "first_presence_seconds": 1791.0,
+      "last_presence_seconds": 1806.0,
+      "state_changes": []
+    }
+  ],
+  "locations": [
+    {
+      "loc_id": "loc_001",
+      "name": "森林营地",
+      "identity_scope": "scene",
+      "description": "茂密的针叶林深处，地面覆盖落叶或积雪，搭建有简易木棚、掩体和篝火堆。",
+      "first_presence_seconds": 130.0,
+      "last_presence_seconds": 2378.0,
+      "state_changes": [
+        {
+          "seconds": 2384.0,
+          "state_change_kind": "destroyed",
+          "description": "遭遇空袭轰炸，树木倒塌，浓烟弥漫"
+        }
+      ]
+    },
+    {
+      "loc_id": "loc_002",
+      "name": "村庄农舍",
+      "identity_scope": "scene",
+      "description": "乡村茅草顶木屋，周围有木栅栏、家禽和干草堆，夜晚有灯光透出。",
+      "first_presence_seconds": 75.0,
+      "last_presence_seconds": 742.0,
+      "state_changes": []
+    },
+    {
+      "loc_id": "loc_003",
+      "name": "雪地沼泽",
+      "identity_scope": "scene",
+      "description": "冬季被冰雪覆盖的湿地与芦苇荡，水面结冰或半融，环境严寒。",
+      "first_presence_seconds": 2115.0,
+      "last_presence_seconds": 2187.0,
+      "state_changes": []
+    },
+    {
+      "loc_id": "loc_004",
+      "name": "开阔草地",
+      "identity_scope": "scene",
+      "description": "森林边缘的平坦草地，阳光充足，是战斗和集结的主要场所。",
+      "first_presence_seconds": 2384.0,
+      "last_presence_seconds": 2384.0,
+      "state_changes": []
+    }
+  ],
+  "screenplay": {
+    "scenes": [
+      {
+        "scene_id": "scene_0001",
+        "start_seconds": 0.0,
+        "end_seconds": 39.0,
+        "loc_id": "",
+        "scene_title": "历史档案影像",
+        "scene_purpose": "通过黑白纪录片片段交代二战背景及纳粹对犹太人的迫害",
+        "prev_boundary": {
+          "kind": "initial",
+          "evidence": "视频起始"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0001",
+            "start_seconds": 0.0,
+            "end_seconds": 15.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "视频开始，黑白噪点画面展示纳粹阅兵与行军",
+              "confidence": "high"
+            },
+            "action": "黑白颗粒感画面中，一只手臂伸出做纳粹礼；随后切换至希特勒等军官检阅部队，士兵列队行进过桥。",
+            "dialogue_or_audio": "无对白，仅有环境噪音",
+            "camera": {
+              "shot_size": "mixed",
+              "angle_or_view": "混合视角",
+              "movement": "static",
+              "composition_note": "历史档案风格，高对比度黑白"
+            },
+            "present_entity_ids": [
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0002",
+            "start_seconds": 15.0,
+            "end_seconds": 30.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "同一历史影像序列内的连续剪辑",
+              "confidence": "high"
+            },
+            "action": "画面显示骷髅头标志，字幕提示党卫队逮捕犹太人；人群被暴力拖拽、推搡，有人倒地。",
+            "dialogue_or_audio": "无对白",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "混乱的人群场面，手持摄影感"
+            },
+            "present_entity_ids": [
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0003",
+            "start_seconds": 30.0,
+            "end_seconds": 39.0,
+            "duration_seconds": 9.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "历史影像结束前的最后几个镜头",
+              "confidence": "high"
+            },
+            "action": "更多平民被驱赶的画面，字幕显示'Paramount Vantage presents'及'Defiance'标题卡。",
+            "dialogue_or_audio": "无对白",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "标题叠加在历史画面上"
+            },
+            "present_entity_ids": []
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0002",
+        "start_seconds": 39.0,
+        "end_seconds": 74.0,
+        "loc_id": "loc_002",
+        "scene_title": "村庄突袭与躲藏",
+        "scene_purpose": "展示主角三兄弟在纳粹突袭中幸存并躲入秘密地窖的过程",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "从黑白历史影像转为彩色电影正片，场景变为村庄",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0004",
+            "start_seconds": 39.0,
+            "end_seconds": 54.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "彩色正片开始，德军卡车驶入村庄",
+              "confidence": "high"
+            },
+            "action": "德军卡车和摩托车队驶入村庄，士兵持枪下车驱赶村民；两个年轻男子（棕皮衣男与蓝帽少年）躲在树后观察。",
+            "dialogue_or_audio": "车辆引擎声，德语喊叫声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "树林主观视角",
+              "movement": "tracking",
+              "composition_note": "前景树木遮挡，营造窥视感"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0005",
+            "start_seconds": 54.0,
+            "end_seconds": 69.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "同一场景内动作延续，从观察转为逃跑",
+              "confidence": "high"
+            },
+            "action": "村民被押往树林处决；两兄弟翻越木栅栏跑回农舍，跳过地上的尸体进入屋内。",
+            "dialogue_or_audio": "急促脚步声，喘息声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "跟随视角",
+              "movement": "handheld",
+              "composition_note": "动态跟拍，强调紧迫感"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0006",
+            "start_seconds": 69.0,
+            "end_seconds": 74.0,
+            "duration_seconds": 5.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "进入屋内后的连续动作",
+              "confidence": "high"
+            },
+            "action": "蓝帽少年靠在窗边向外张望，神情紧张；棕皮衣男走进昏暗的房间。",
+            "dialogue_or_audio": "安静，仅有呼吸声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "侧面",
+              "movement": "static",
+              "composition_note": "室内暗光，突出人物面部表情"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0003",
+        "start_seconds": 74.0,
+        "end_seconds": 130.0,
+        "loc_id": "loc_002",
+        "scene_title": "地窖重逢与离别",
+        "scene_purpose": "三兄弟在地窖汇合，随后带着物资进入森林",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景从屋外转入屋内深处地窖",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0007",
+            "start_seconds": 74.0,
+            "end_seconds": 89.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景开始，发现隐藏地窖",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男移开伪装板，露出地窖入口；绿外套男从下面爬上来，三人短暂交流后准备离开。",
+            "dialogue_or_audio": "木板摩擦声，低声交谈",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "俯拍地窖口",
+              "movement": "static",
+              "composition_note": "狭窄空间构图，光线从上方射入"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0008",
+            "start_seconds": 89.0,
+            "end_seconds": 104.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "地窖内动作延续",
+              "confidence": "high"
+            },
+            "action": "蓝帽少年在地窖深处惊恐地看着上方；三人合力搬开地板，确认安全后爬出地窖。",
+            "dialogue_or_audio": "压抑的呼吸声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "仰拍",
+              "movement": "static",
+              "composition_note": "极度特写表现恐惧情绪"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0009",
+            "start_seconds": 104.0,
+            "end_seconds": 119.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "离开房屋进入院子",
+              "confidence": "high"
+            },
+            "action": "三人背着麻袋和工具走出农舍，穿过养鹅的院子；棕皮衣男停下整理蓝帽少年的衣领，两人额头相抵告别。",
+            "dialogue_or_audio": "鹅叫声，风声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "tracking",
+              "composition_note": "背影与侧脸交替，情感细腻"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0010",
+            "start_seconds": 119.0,
+            "end_seconds": 130.0,
+            "duration_seconds": 11.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "进入森林的过渡",
+              "confidence": "high"
+            },
+            "action": "三人在林中稍作停留，绿外套男蹲下系鞋带；随后三人背着行囊深入密林。",
+            "dialogue_or_audio": "踩树叶声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "人物渺小，森林广阔"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0004",
+        "start_seconds": 130.0,
+        "end_seconds": 188.0,
+        "loc_id": "loc_001",
+        "scene_title": "森林中的团聚",
+        "scene_purpose": "三兄弟在森林中找到彼此并紧紧拥抱，确立生存同盟",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "字幕显示地点时间，场景完全转入森林深处",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0011",
+            "start_seconds": 130.0,
+            "end_seconds": 145.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，字幕卡'Lipiczanska Forest August, 1941'",
+              "confidence": "high"
+            },
+            "action": "字幕显示森林名称与时间；三人在林中行走，棕皮衣男发现躺在地上的另外两人，上前查看。",
+            "dialogue_or_audio": "鸟鸣，风声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "高角度俯瞰",
+              "movement": "pan",
+              "composition_note": "展现森林全貌与人物位置关系"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0012",
+            "start_seconds": 145.0,
+            "end_seconds": 160.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "发现亲人后的情感爆发",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男唤醒躺在地上的弟弟们；三人起身紧紧拥抱在一起，脸上满是泪水与泥土。",
+            "dialogue_or_audio": "哭泣声，喘息声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "环绕拍摄",
+              "movement": "handheld",
+              "composition_note": "紧密构图，聚焦面部表情与肢体接触"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0013",
+            "start_seconds": 160.0,
+            "end_seconds": 175.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "拥抱持续，情绪沉淀",
+              "confidence": "high"
+            },
+            "action": "三人继续拥抱，棕皮衣男轻抚弟弟的后脑；绿外套男站在一旁看着他们，手中拿着树枝。",
+            "dialogue_or_audio": "抽泣声渐弱",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "过肩镜头",
+              "movement": "static",
+              "composition_note": "三角构图，体现三人关系"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0014",
+            "start_seconds": 175.0,
+            "end_seconds": 188.0,
+            "duration_seconds": 13.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "拥抱结束，准备行动",
+              "confidence": "high"
+            },
+            "action": "拥抱分开，棕皮衣男手中握着一枚银色徽章；三人整理装备，继续在林中前行。",
+            "dialogue_or_audio": "衣物摩擦声",
+            "camera": {
+              "shot_size": "insert",
+              "angle_or_view": "特写手部",
+              "movement": "static",
+              "composition_note": "焦点在徽章上，象征身份与记忆"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0005",
+        "start_seconds": 188.0,
+        "end_seconds": 248.0,
+        "loc_id": "loc_001",
+        "scene_title": "目睹屠杀现场",
+        "scene_purpose": "蓝帽少年独自发现森林中的万人坑，遭受巨大心理冲击",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景转至夜间/黄昏的森林另一处，氛围突变",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0015",
+            "start_seconds": 188.0,
+            "end_seconds": 203.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，夜间森林营地",
+              "confidence": "high"
+            },
+            "action": "夜色中，几人围坐在火堆旁；蓝帽少年独自拿着棍子走向远处，神情恍惚。",
+            "dialogue_or_audio": "柴火燃烧声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "tracking",
+              "composition_note": "火光与黑暗对比强烈"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0016",
+            "start_seconds": 203.0,
+            "end_seconds": 218.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "少年独自探索的连续动作",
+              "confidence": "high"
+            },
+            "action": "蓝帽少年用棍子拨弄蚁穴，蚂蚁爬上棍子；他抬头环顾四周，似乎听到了什么声音，开始奔跑。",
+            "dialogue_or_audio": "昆虫声，急促脚步声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "低角度",
+              "movement": "handheld",
+              "composition_note": "模拟少年视角，不安定感"
+            },
+            "present_entity_ids": [
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0017",
+            "start_seconds": 218.0,
+            "end_seconds": 233.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "奔跑后发现目标",
+              "confidence": "high"
+            },
+            "action": "少年跑到一棵树后停下，看到前方有一对男女在林中亲密；他转身继续走，突然停住。",
+            "dialogue_or_audio": "呼吸声加重",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面",
+              "movement": "static",
+              "composition_note": "利用树干作为前景分割画面"
+            },
+            "present_entity_ids": [
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0018",
+            "start_seconds": 233.0,
+            "end_seconds": 248.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "视觉焦点从人物转向环境灾难",
+              "confidence": "high"
+            },
+            "action": "少年眼前出现一条长长的沟壑，里面堆满了尸体；镜头拉远展示尸坑全貌，少年震惊地站在原地。",
+            "dialogue_or_audio": "寂静，耳鸣声效",
+            "camera": {
+              "shot_size": "extreme_wide",
+              "angle_or_view": "高角度俯拍",
+              "movement": "zoom_out",
+              "composition_note": "尸坑占据画面中心，极具冲击力"
+            },
+            "present_entity_ids": [
+              "char_003"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0006",
+        "start_seconds": 248.0,
+        "end_seconds": 280.0,
+        "loc_id": "loc_001",
+        "scene_title": "营地决策与收留",
+        "scene_purpose": "三兄弟讨论是否收留新来的难民，确立领导地位",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "回到白天营地火堆旁，新增难民角色",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0019",
+            "start_seconds": 248.0,
+            "end_seconds": 263.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，火堆旁的会议",
+              "confidence": "high"
+            },
+            "action": "三兄弟围坐火堆讨论；一群衣衫褴褛的难民被带到面前，包括老人、妇女和孩子。",
+            "dialogue_or_audio": "低语声，风声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "围坐构图，体现平等与商议"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0020",
+            "start_seconds": 263.0,
+            "end_seconds": 278.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "对话与反应的连续剪辑",
+              "confidence": "high"
+            },
+            "action": "灰发老者弯腰行礼；棕皮衣男表情严肃地看着难民；绿外套男站在一旁审视。",
+            "dialogue_or_audio": "衣物摩擦声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "交替特写表现各方态度"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0021",
+            "start_seconds": 278.0,
+            "end_seconds": 280.0,
+            "duration_seconds": 2.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "场景结束前的定格",
+              "confidence": "high"
+            },
+            "action": "绿外套男转身离开，留下棕皮衣男独自面对难民群体。",
+            "dialogue_or_audio": "脚步声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "背面",
+              "movement": "static",
+              "composition_note": "背影暗示决断与孤独"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0007",
+        "start_seconds": 280.0,
+        "end_seconds": 360.0,
+        "loc_id": "loc_002",
+        "scene_title": "夜访农夫与威胁",
+        "scene_purpose": "棕皮衣男与灰发老者夜访农夫换取物资，遭遇德军军官威胁",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景转至夜间农舍内部及外部",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0022",
+            "start_seconds": 280.0,
+            "end_seconds": 295.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，农舍内餐桌",
+              "confidence": "high"
+            },
+            "action": "昏暗灯光下，棕皮衣男与灰发老者坐在桌前；农夫倒酒，三人碰杯饮酒，气氛紧张而克制。",
+            "dialogue_or_audio": "酒杯碰撞声，低语",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "窗外观测视角",
+              "movement": "static",
+              "composition_note": "透过窗户缝隙偷窥感"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0023",
+            "start_seconds": 295.0,
+            "end_seconds": 310.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "饮酒后的交易环节",
+              "confidence": "high"
+            },
+            "action": "农夫拿出包裹好的食物和酒瓶；棕皮衣男接过物品，点头致谢后起身离开。",
+            "dialogue_or_audio": "布料摩擦声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "桌面特写",
+              "movement": "static",
+              "composition_note": "聚焦手部交换动作"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0024",
+            "start_seconds": 310.0,
+            "end_seconds": 325.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "change",
+              "evidence": "场景转至屋外黑夜，德军车辆到达",
+              "confidence": "high"
+            },
+            "action": "屋外黑暗中，一辆德军轿车驶来，车灯刺眼；德军军官下车，与农夫交谈并喝酒。",
+            "dialogue_or_audio": "汽车引擎声，德语交谈",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "车灯逆光",
+              "movement": "static",
+              "composition_note": "强光剪影效果"
+            },
+            "present_entity_ids": [
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0025",
+            "start_seconds": 325.0,
+            "end_seconds": 340.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "军官对农夫的威胁升级",
+              "confidence": "high"
+            },
+            "action": "军官用手指戳着农夫的脸，大声训斥；农夫惊恐地笑着赔罪；躲在暗处的棕皮衣男等人握紧武器。",
+            "dialogue_or_audio": "怒吼声，笑声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "侧面特写",
+              "movement": "handheld",
+              "composition_note": "压迫性构图"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0026",
+            "start_seconds": 340.0,
+            "end_seconds": 355.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "危机解除后的撤离",
+              "confidence": "high"
+            },
+            "action": "军官上车离开；农夫松了口气，转身看向躲藏者；棕皮衣男示意大家跟上。",
+            "dialogue_or_audio": "车门关闭声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "阴影中的人物轮廓"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0027",
+            "start_seconds": 355.0,
+            "end_seconds": 360.0,
+            "duration_seconds": 5.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "队伍融入夜色",
+              "confidence": "high"
+            },
+            "action": "一群人影在黑暗中快速移动，消失在树林里。",
+            "dialogue_or_audio": "急促脚步声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "tracking",
+              "composition_note": "极简光影，仅见轮廓"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_004"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0008",
+        "start_seconds": 360.0,
+        "end_seconds": 400.0,
+        "loc_id": "loc_001",
+        "scene_title": "林中分食与警戒",
+        "scene_purpose": "展示难民营地的日常生活与生存状态",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "回到白天森林，难民群体活动",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0028",
+            "start_seconds": 360.0,
+            "end_seconds": 375.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，溪流边休息",
+              "confidence": "high"
+            },
+            "action": "众人在溪边休息，灰发老者分发食物；一名女子吃着苹果，另一名女子打开铁盒分享炖菜。",
+            "dialogue_or_audio": "水流声，咀嚼声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "群像调度，自然光"
+            },
+            "present_entity_ids": [
+              "char_004",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0029",
+            "start_seconds": 375.0,
+            "end_seconds": 390.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "进食动作的延续",
+              "confidence": "high"
+            },
+            "action": "灰发老者用木勺舀汤品尝；棕皮衣男和绿外套男持枪在旁警戒，神情警惕。",
+            "dialogue_or_audio": "勺子刮锅声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "食物细节与守卫姿态对比"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0030",
+            "start_seconds": 390.0,
+            "end_seconds": 400.0,
+            "duration_seconds": 10.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "日常劳作场景",
+              "confidence": "high"
+            },
+            "action": "有人在林中挖掘土地；绿外套男举枪瞄准远处，随后放下；棕皮衣男整理弹药带。",
+            "dialogue_or_audio": "铲土声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "pan",
+              "composition_note": "展现营地防御工事雏形"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0009",
+        "start_seconds": 400.0,
+        "end_seconds": 437.0,
+        "loc_id": "loc_002",
+        "scene_title": "雨夜复仇",
+        "scene_purpose": "棕皮衣男冒雨潜入农夫家，枪杀告密者一家",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景转至雨夜农舍外及内",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0031",
+            "start_seconds": 400.0,
+            "end_seconds": 415.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，雨夜农舍外观",
+              "confidence": "high"
+            },
+            "action": "暴雨中，农舍窗户透出暖光；棕皮衣男浑身湿透站在窗外凝视；屋内一家人正在晚餐。",
+            "dialogue_or_audio": "雷雨声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "窗外窥视",
+              "movement": "static",
+              "composition_note": "冷暖色调对比，雨水模糊视线"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0032",
+            "start_seconds": 415.0,
+            "end_seconds": 425.0,
+            "duration_seconds": 10.0,
+            "prev_boundary": {
+              "kind": "change",
+              "evidence": "闯入屋内，暴力爆发",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男破门而入，举枪射击；农夫中弹倒地，家人尖叫逃窜；烟雾弥漫房间。",
+            "dialogue_or_audio": "枪声，尖叫声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "混乱手持",
+              "movement": "handheld",
+              "composition_note": "快速剪辑，闪光照明"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0033",
+            "start_seconds": 425.0,
+            "end_seconds": 437.0,
+            "duration_seconds": 12.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "杀戮后的情绪释放",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男满脸雨水与泪水，表情痛苦；一名女子满手鲜血哭嚎；他转身冲入雨中森林。",
+            "dialogue_or_audio": "哭声，雷声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "正面特写",
+              "movement": "static",
+              "composition_note": "极度情绪化面部特写"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0010",
+        "start_seconds": 437.0,
+        "end_seconds": 467.0,
+        "loc_id": "loc_001",
+        "scene_title": "兄弟和解与醉酒",
+        "scene_purpose": "绿外套男借酒消愁，兄弟间发生冲突又和解",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "回到森林营地，清晨或阴天",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0034",
+            "start_seconds": 437.0,
+            "end_seconds": 452.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，营地清晨",
+              "confidence": "high"
+            },
+            "action": "晨雾笼罩森林；绿外套男醉醺醺地拿着酒瓶走出掩体，步履蹒跚。",
+            "dialogue_or_audio": "鸟鸣，脚步声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "雾气营造迷离感"
+            },
+            "present_entity_ids": [
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0035",
+            "start_seconds": 452.0,
+            "end_seconds": 467.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "兄弟互动",
+              "confidence": "high"
+            },
+            "action": "绿外套男走到棕皮衣男面前，递过酒瓶；棕皮衣男喝了一口，两人坐在火堆旁，绿外套男掏出手枪把玩。",
+            "dialogue_or_audio": "酒瓶晃动声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "双人镜头",
+              "movement": "static",
+              "composition_note": "火光照亮两人面部"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0011",
+        "start_seconds": 467.0,
+        "end_seconds": 537.0,
+        "loc_id": "loc_001",
+        "scene_title": "营地建设与兄弟冲突",
+        "scene_purpose": "众人建设营地，绿外套男因理念不合与棕皮衣男爆发肢体冲突",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "营地建设 montage 转入冲突场景",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0036",
+            "start_seconds": 467.0,
+            "end_seconds": 482.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，劳动蒙太奇",
+              "confidence": "high"
+            },
+            "action": "众人在林中搬运木材、搭建高架床铺和掩体；绿外套男指挥若定，棕皮衣男默默干活。",
+            "dialogue_or_audio": "号子声，木头撞击声",
+            "camera": {
+              "shot_size": "mixed",
+              "angle_or_view": "多机位",
+              "movement": "tracking",
+              "composition_note": "快节奏剪辑展现建设成果"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0037",
+            "start_seconds": 482.0,
+            "end_seconds": 497.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "建设中的分歧显现",
+              "confidence": "high"
+            },
+            "action": "绿外套男举起双手示意停工，对棕皮衣男说话；棕皮衣男面无表情地看着他；周围人停下工作围观。",
+            "dialogue_or_audio": "争论声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "对峙视角",
+              "movement": "static",
+              "composition_note": "中心对称构图"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0038",
+            "start_seconds": 497.0,
+            "end_seconds": 512.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "言语冲突升级为肢体",
+              "confidence": "high"
+            },
+            "action": "绿外套男转身撞向树干发泄；棕皮衣男冲上前将他按在树上，两人扭打在一起。",
+            "dialogue_or_audio": "撞击声，吼叫声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面",
+              "movement": "handheld",
+              "composition_note": "剧烈晃动表现暴力"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0039",
+            "start_seconds": 512.0,
+            "end_seconds": 527.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "打斗高潮与压制",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男将绿外套男摔倒在地，骑在他身上掐住脖子；绿外套男额头流血，眼神倔强。",
+            "dialogue_or_audio": "喘息声，闷哼",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "俯拍",
+              "movement": "static",
+              "composition_note": "力量悬殊的压迫感"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0040",
+            "start_seconds": 527.0,
+            "end_seconds": 537.0,
+            "duration_seconds": 10.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "冲突结束，众人反应",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男松开手站起来；周围难民惊恐地看着；蓝帽少年低头不敢看。",
+            "dialogue_or_audio": "寂静",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "static",
+              "composition_note": "孤立的主角与旁观者"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0012",
+        "start_seconds": 537.0,
+        "end_seconds": 650.0,
+        "loc_id": "loc_002",
+        "scene_title": "夜袭德军车队",
+        "scene_purpose": "三兄弟伏击德军巡逻队，夺取武器物资",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景转至夜间道路，月光与车灯",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0041",
+            "start_seconds": 537.0,
+            "end_seconds": 552.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，月夜埋伏",
+              "confidence": "high"
+            },
+            "action": "满月当空；三兄弟在路边草丛埋伏；远处德军车辆驶来，车灯照亮道路。",
+            "dialogue_or_audio": "虫鸣，引擎声渐近",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "低角度",
+              "movement": "static",
+              "composition_note": "月光剪影与车灯光束"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0042",
+            "start_seconds": 552.0,
+            "end_seconds": 567.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "伏击开始",
+              "confidence": "high"
+            },
+            "action": "德军摩托车经过，被绊索绊倒；三兄弟冲出袭击骑手，抢夺武器。",
+            "dialogue_or_audio": "刹车声，搏斗声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "动态跟拍",
+              "movement": "handheld",
+              "composition_note": "黑暗中的动作捕捉"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0043",
+            "start_seconds": 567.0,
+            "end_seconds": 582.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "后续车辆到达",
+              "confidence": "high"
+            },
+            "action": "后方德军吉普车停下，士兵下车查看；三兄弟利用地形掩护，悄悄接近。",
+            "dialogue_or_audio": "德语喊话",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "车灯作为唯一光源"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0044",
+            "start_seconds": 582.0,
+            "end_seconds": 597.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "交火爆发",
+              "confidence": "high"
+            },
+            "action": "绿外套男开枪射击，击中一名士兵；德军还击，子弹打在车上火花四溅。",
+            "dialogue_or_audio": "枪声，玻璃破碎声",
+            "camera": {
+              "shot_size": "mixed",
+              "angle_or_view": "多角度",
+              "movement": "handheld",
+              "composition_note": "频闪枪火照明"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0045",
+            "start_seconds": 597.0,
+            "end_seconds": 612.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "近战肉搏",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男冲入敌阵与德军肉搏；蓝帽少年在远处开枪支援；一名德军军官被击毙。",
+            "dialogue_or_audio": "喊杀声，枪声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "混乱视角",
+              "movement": "handheld",
+              "composition_note": "极速剪辑"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0046",
+            "start_seconds": 612.0,
+            "end_seconds": 627.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "战斗收尾",
+              "confidence": "high"
+            },
+            "action": "德军溃败逃跑；三兄弟检查战场，收集武器弹药；蓝帽少年兴奋地跑来。",
+            "dialogue_or_audio": "胜利欢呼",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "static",
+              "composition_note": "硝烟散去后的宁静"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0047",
+            "start_seconds": 627.0,
+            "end_seconds": 642.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "更多德军增援到达",
+              "confidence": "high"
+            },
+            "action": "远处又传来车灯；三兄弟迅速撤退进树林；德军卡车上的机枪手扫射。",
+            "dialogue_or_audio": "机枪扫射声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "tracking",
+              "composition_note": "光束切割黑暗"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0048",
+            "start_seconds": 642.0,
+            "end_seconds": 650.0,
+            "duration_seconds": 8.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "安全撤离",
+              "confidence": "high"
+            },
+            "action": "三兄弟在林中狂奔，身后爆炸火光冲天；他们躲进掩体喘息。",
+            "dialogue_or_audio": "爆炸声，喘息",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面",
+              "movement": "handheld",
+              "composition_note": "火光映照面部"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0013",
+        "start_seconds": 650.0,
+        "end_seconds": 715.0,
+        "loc_id": "loc_001",
+        "scene_title": "营地生活与情感联结",
+        "scene_purpose": "展示营地内人们的日常生活、信仰与情感纽带",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "回到白天营地，氛围缓和",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0049",
+            "start_seconds": 650.0,
+            "end_seconds": 665.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，营地休憩",
+              "confidence": "high"
+            },
+            "action": "众人在树下休息；棕皮衣男靠树沉思；绿外套男闭目养神；有人梳理头发。",
+            "dialogue_or_audio": "轻柔音乐",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "slow_pan",
+              "composition_note": "宁静祥和的氛围"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0050",
+            "start_seconds": 665.0,
+            "end_seconds": 680.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "人际互动细节",
+              "confidence": "high"
+            },
+            "action": "蓝帽少年与褐发少女坐在一起分享食物；灰发老者安慰哭泣的妇人；人们在祈祷。",
+            "dialogue_or_audio": "祈祷声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "温情瞬间捕捉"
+            },
+            "present_entity_ids": [
+              "char_003",
+              "char_004",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0051",
+            "start_seconds": 680.0,
+            "end_seconds": 695.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "领导者巡视",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男在营地里走动，检查各处；他与灰发老者交谈，表情严肃但温和。",
+            "dialogue_or_audio": "低语",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "跟随",
+              "movement": "tracking",
+              "composition_note": "领袖气质展现"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0052",
+            "start_seconds": 695.0,
+            "end_seconds": 710.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "兄弟间的默契",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男看向绿外套男，两人对视点头；蓝帽少年抱着枪站岗，神情成熟了许多。",
+            "dialogue_or_audio": "风声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "过肩",
+              "movement": "static",
+              "composition_note": "信任与责任的传递"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0053",
+            "start_seconds": 710.0,
+            "end_seconds": 715.0,
+            "duration_seconds": 5.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "场景过渡",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男拥抱蓝帽少年，给予鼓励。",
+            "dialogue_or_audio": "衣物摩擦",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "侧面",
+              "movement": "static",
+              "composition_note": "亲情流露"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0014",
+        "start_seconds": 715.0,
+        "end_seconds": 766.0,
+        "loc_id": "loc_002",
+        "scene_title": "营救与埋葬",
+        "scene_purpose": "三兄弟返回村庄营救藏在干草堆里的幸存者，并安葬死者",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景转回村庄农舍外",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0054",
+            "start_seconds": 715.0,
+            "end_seconds": 730.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，重返村庄",
+              "confidence": "high"
+            },
+            "action": "三兄弟持枪走在村道上，警惕观察四周；鹅群在路边觅食。",
+            "dialogue_or_audio": "鹅叫，脚步声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "背面跟随",
+              "movement": "tracking",
+              "composition_note": "熟悉的场景，不同的身份"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0055",
+            "start_seconds": 730.0,
+            "end_seconds": 745.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "发现线索",
+              "confidence": "high"
+            },
+            "action": "他们在谷仓发现一具挂着'Amant Żydów'牌子的尸体；随后在院子里挖出一个简易坟墓，放入木质十字架。",
+            "dialogue_or_audio": "铲土声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "俯拍",
+              "movement": "static",
+              "composition_note": "死亡与纪念的象征"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003",
+              "prop_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0056",
+            "start_seconds": 745.0,
+            "end_seconds": 760.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "打开干草堆救人",
+              "confidence": "high"
+            },
+            "action": "三人合力扒开巨大的干草堆，露出下面的地窖口；从里面救出几名幸存者，包括妇女和儿童。",
+            "dialogue_or_audio": "呼救声，欢呼声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "handheld",
+              "composition_note": "希望重现的时刻"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0057",
+            "start_seconds": 760.0,
+            "end_seconds": 766.0,
+            "duration_seconds": 6.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "重聚的喜悦",
+              "confidence": "high"
+            },
+            "action": "获救者与三兄弟紧紧拥抱，喜极而泣；绿外套男温柔地安抚一名女子。",
+            "dialogue_or_audio": "哭泣与笑声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "情感释放"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_005"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0015",
+        "start_seconds": 766.0,
+        "end_seconds": 813.0,
+        "loc_id": "loc_001",
+        "scene_title": "扩建营地与接纳新人",
+        "scene_purpose": "营地规模扩大，更多人加入，生活秩序建立",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "回到森林，营地变大",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0058",
+            "start_seconds": 766.0,
+            "end_seconds": 781.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，大规模建设",
+              "confidence": "high"
+            },
+            "action": "众人在林中挖掘战壕、搭建更坚固的掩体；灰发老者指挥年轻人干活。",
+            "dialogue_or_audio": "劳动号子",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "pan",
+              "composition_note": "繁忙的建设景象"
+            },
+            "present_entity_ids": [
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0059",
+            "start_seconds": 781.0,
+            "end_seconds": 796.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "新成员融入",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男带着蓝帽少年巡视；女人们提着土豆走来；大家在篝火旁分发食物。",
+            "dialogue_or_audio": "交谈声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "tracking",
+              "composition_note": "社区感的建立"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0060",
+            "start_seconds": 796.0,
+            "end_seconds": 813.0,
+            "duration_seconds": 17.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "物资运输与分配",
+              "confidence": "high"
+            },
+            "action": "马车运来物资；绿外套男接过牛奶桶；人们排队领取食物；棕皮衣男在笔记本上记录。",
+            "dialogue_or_audio": "马蹄声",
+            "camera": {
+              "shot_size": "mixed",
+              "angle_or_view": "多机位",
+              "movement": "static",
+              "composition_note": "有序的生活流程"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "prop_004"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0016",
+        "start_seconds": 813.0,
+        "end_seconds": 883.0,
+        "loc_id": "loc_001",
+        "scene_title": "文化传承与爱情萌芽",
+        "scene_purpose": "在艰难环境中，人们通过音乐、学习和爱情保持人性",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景聚焦于个体情感与文化活动",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0061",
+            "start_seconds": 813.0,
+            "end_seconds": 828.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，文化活动",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男在灯下读书写字；少年拉小提琴；老人们在下棋、读经。",
+            "dialogue_or_audio": "琴声，读书声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "文明火种的象征"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0062",
+            "start_seconds": 828.0,
+            "end_seconds": 843.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "情感线索展开",
+              "confidence": "high"
+            },
+            "action": "褐发少女深情注视远方；棕皮衣男在溪边沉思；两人在林中相遇，目光交汇。",
+            "dialogue_or_audio": "流水声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "正反打",
+              "movement": "static",
+              "composition_note": "浪漫氛围营造"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0063",
+            "start_seconds": 843.0,
+            "end_seconds": 858.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "绿外套男与短发女的互动",
+              "confidence": "high"
+            },
+            "action": "绿外套男与一位短发女子在林中交谈，女子微笑喝水；两人眼神暧昧，充满温情。",
+            "dialogue_or_audio": "笑声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "细腻的情感交流"
+            },
+            "present_entity_ids": [
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0064",
+            "start_seconds": 858.0,
+            "end_seconds": 873.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "情感深化",
+              "confidence": "high"
+            },
+            "action": "短发女子抚摸绿外套男的脸颊，眼中含泪；绿外套男温柔回应，两人几乎亲吻。",
+            "dialogue_or_audio": "呼吸声",
+            "camera": {
+              "shot_size": "extreme_close_up",
+              "angle_or_view": "正面",
+              "movement": "static",
+              "composition_note": "极致亲密感"
+            },
+            "present_entity_ids": [
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0065",
+            "start_seconds": 873.0,
+            "end_seconds": 883.0,
+            "duration_seconds": 10.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "情感克制与责任",
+              "confidence": "high"
+            },
+            "action": "女子整理衣领，恢复镇定；绿外套男看着她，眼神复杂；两人保持距离但心意相通。",
+            "dialogue_or_audio": "风声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "双人",
+              "movement": "static",
+              "composition_note": "克制的美感"
+            },
+            "present_entity_ids": [
+              "char_002"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0017",
+        "start_seconds": 883.0,
+        "end_seconds": 954.0,
+        "loc_id": "loc_001",
+        "scene_title": "遭遇敌军与森林突围",
+        "scene_purpose": "营地遭袭，众人被迫在森林中紧急转移并与敌军交火",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "警报响起，平静被打破",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0066",
+            "start_seconds": 883.0,
+            "end_seconds": 898.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，突发危机",
+              "confidence": "high"
+            },
+            "action": "蓝帽少年与同伴在林中放哨，突然发现敌军；大喊示警；众人惊慌收拾东西逃跑。",
+            "dialogue_or_audio": "喊叫声，杂乱脚步声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "handheld",
+              "composition_note": "混乱与恐慌"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0067",
+            "start_seconds": 898.0,
+            "end_seconds": 913.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "涉水逃亡",
+              "confidence": "high"
+            },
+            "action": "众人跳入冰冷的溪流中跋涉；德军在岸上追击射击；水花四溅，有人跌倒又被扶起。",
+            "dialogue_or_audio": "水声，枪声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "低角度",
+              "movement": "tracking",
+              "composition_note": "水中动态捕捉"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0068",
+            "start_seconds": 913.0,
+            "end_seconds": 928.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "反击掩护",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男和绿外套男在树后还击，掩护群众；其他人继续向前逃窜。",
+            "dialogue_or_audio": "密集枪声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "过肩射击",
+              "movement": "static",
+              "composition_note": "战斗与逃亡并行"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0069",
+            "start_seconds": 928.0,
+            "end_seconds": 943.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "战术机动",
+              "confidence": "high"
+            },
+            "action": "三兄弟利用地形交替掩护前进；德军紧追不舍；双方在林中展开游击战。",
+            "dialogue_or_audio": "命令声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "tracking",
+              "composition_note": "森林迷宫般的空间感"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0070",
+            "start_seconds": 943.0,
+            "end_seconds": 954.0,
+            "duration_seconds": 11.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "暂时脱险",
+              "confidence": "high"
+            },
+            "action": "三兄弟汇合，检查弹药；确认暂时安全后，继续带领队伍深入森林。",
+            "dialogue_or_audio": "喘息声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "疲惫但坚定的神情"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0018",
+        "start_seconds": 954.0,
+        "end_seconds": 1010.0,
+        "loc_id": "loc_001",
+        "scene_title": "迁徙与休整",
+        "scene_purpose": "队伍在森林中长距离迁徙，寻找新的安全地带",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "大规模队伍行进画面",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0071",
+            "start_seconds": 954.0,
+            "end_seconds": 969.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，长途跋涉",
+              "confidence": "high"
+            },
+            "action": "庞大的难民队伍在森林中穿行，老人孩子被搀扶；有人背着沉重行李。",
+            "dialogue_or_audio": "脚步声，低语",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "高角度",
+              "movement": "pan",
+              "composition_note": "队伍的绵延不绝"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0072",
+            "start_seconds": 969.0,
+            "end_seconds": 984.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "途中休息",
+              "confidence": "high"
+            },
+            "action": "队伍在林中空地短暂休息；人们靠着树坐下，吃着仅有的食物；棕皮衣男维持秩序。",
+            "dialogue_or_audio": "咀嚼声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "苦难中的坚韧"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0073",
+            "start_seconds": 984.0,
+            "end_seconds": 999.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "遭遇苏军",
+              "confidence": "high"
+            },
+            "action": "前方出现苏军士兵；三兄弟举枪戒备；苏军指挥官骑马出现，双方对峙。",
+            "dialogue_or_audio": "俄语喊话",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "对峙",
+              "movement": "static",
+              "composition_note": "紧张的外交时刻"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_007"
+            ]
+          },
+          {
+            "segment_id": "seg_0074",
+            "start_seconds": 999.0,
+            "end_seconds": 1010.0,
+            "duration_seconds": 11.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "达成临时协议",
+              "confidence": "high"
+            },
+            "action": "苏军指挥官与棕皮衣男交谈；随后苏军让路，允许队伍通过；三兄弟带队继续前进。",
+            "dialogue_or_audio": "交谈声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "tracking",
+              "composition_note": "权力的交接与共存"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_007"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0019",
+        "start_seconds": 1010.0,
+        "end_seconds": 1108.0,
+        "loc_id": "loc_001",
+        "scene_title": "新营地建设与内部矛盾",
+        "scene_purpose": "建立更大规模的营地，但内部关于生存策略的分歧加剧",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "新营地选址与建设",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0075",
+            "start_seconds": 1010.0,
+            "end_seconds": 1025.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，新营地建设",
+              "confidence": "high"
+            },
+            "action": "众人在新地点搭建更完善的设施；绿外套男指挥建造瞭望塔；人们在分配任务。",
+            "dialogue_or_audio": "施工声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "pan",
+              "composition_note": "规模化建设的展现"
+            },
+            "present_entity_ids": [
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0076",
+            "start_seconds": 1025.0,
+            "end_seconds": 1040.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "日常生活继续",
+              "confidence": "high"
+            },
+            "action": "女人们围坐聊天；孩子们在玩耍；棕皮衣男与绿外套男再次发生争执。",
+            "dialogue_or_audio": "争吵声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "双人",
+              "movement": "static",
+              "composition_note": "和谐表象下的裂痕"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0077",
+            "start_seconds": 1040.0,
+            "end_seconds": 1055.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "冲突升级",
+              "confidence": "high"
+            },
+            "action": "绿外套男愤怒地推开棕皮衣男；两人再次扭打；众人围观不敢上前。",
+            "dialogue_or_audio": "吼叫，撞击",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "动态",
+              "movement": "handheld",
+              "composition_note": "暴力的重复与升级"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0078",
+            "start_seconds": 1055.0,
+            "end_seconds": 1070.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "打斗结果",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男再次压制绿外套男；绿外套男躺在地上喘息；棕皮衣男站起来，表情痛苦。",
+            "dialogue_or_audio": "喘息",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "俯拍",
+              "movement": "static",
+              "composition_note": "胜利的代价"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0079",
+            "start_seconds": 1070.0,
+            "end_seconds": 1085.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "众人的反应",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男扶起绿外套男；两人对视，眼神复杂；周围人默默看着，气氛凝重。",
+            "dialogue_or_audio": "寂静",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "三人",
+              "movement": "static",
+              "composition_note": "无声的交流"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0080",
+            "start_seconds": 1085.0,
+            "end_seconds": 1100.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "绿外套男的抉择",
+              "confidence": "high"
+            },
+            "action": "绿外套男转身离开，走向树林深处；棕皮衣男看着他背影，没有阻拦。",
+            "dialogue_or_audio": "脚步声远去",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "背面",
+              "movement": "static",
+              "composition_note": "分离的象征"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0081",
+            "start_seconds": 1100.0,
+            "end_seconds": 1108.0,
+            "duration_seconds": 8.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "场景收尾",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男独自站在原地，望着弟弟离去的方向；雪花开始飘落。",
+            "dialogue_or_audio": "风声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面",
+              "movement": "static",
+              "composition_note": "孤独与寒冷"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0020",
+        "start_seconds": 1108.0,
+        "end_seconds": 1184.0,
+        "loc_id": "loc_002",
+        "scene_title": " ghetto 突围与回归森林",
+        "scene_purpose": "棕皮衣男潜入隔都营救更多人，带领他们穿越危险地带回到森林",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景转至城镇隔都",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0082",
+            "start_seconds": 1108.0,
+            "end_seconds": 1123.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，隔都外围",
+              "confidence": "high"
+            },
+            "action": "人们穿着带有大卫之星的衣服排队；棕皮衣男和蓝帽少年翻墙潜入隔都。",
+            "dialogue_or_audio": "嘈杂人声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "俯视",
+              "movement": "tracking",
+              "composition_note": "压抑的封闭空间"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0083",
+            "start_seconds": 1123.0,
+            "end_seconds": 1138.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "隔都内行动",
+              "confidence": "high"
+            },
+            "action": "两人在屋顶和巷道间穿梭；躲避巡逻德军；找到藏匿的犹太人聚集点。",
+            "dialogue_or_audio": "脚步声，狗吠",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "跟拍",
+              "movement": "handheld",
+              "composition_note": "紧张的潜行"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0084",
+            "start_seconds": 1138.0,
+            "end_seconds": 1153.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "动员与出发",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男向聚集的犹太人讲话，鼓励他们逃离；众人收拾简陋行李，准备出发。",
+            "dialogue_or_audio": "演讲声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "希望的传递"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0085",
+            "start_seconds": 1153.0,
+            "end_seconds": 1168.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "夜间突围",
+              "confidence": "high"
+            },
+            "action": "队伍在夜色中悄悄离开隔都；棕皮衣男在门口接应；有人不慎发出声响，引起警觉。",
+            "dialogue_or_audio": "低语，警报声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "夜景",
+              "movement": "static",
+              "composition_note": "黑暗中的微光"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0086",
+            "start_seconds": 1168.0,
+            "end_seconds": 1184.0,
+            "duration_seconds": 16.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "穿越荒野",
+              "confidence": "high"
+            },
+            "action": "队伍在田野和风车背景下行进；黎明时分，他们终于看到森林的边缘；所有人松了一口气。",
+            "dialogue_or_audio": "晨风",
+            "camera": {
+              "shot_size": "extreme_wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "史诗感的迁徙画面"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0021",
+        "start_seconds": 1184.0,
+        "end_seconds": 1265.0,
+        "loc_id": "loc_001",
+        "scene_title": "营地繁荣与婚礼",
+        "scene_purpose": "营地达到鼎盛时期，举行婚礼，展现生命力与尊严",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "回到森林营地，人数大增",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0087",
+            "start_seconds": 1184.0,
+            "end_seconds": 1199.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，盛大集会",
+              "confidence": "high"
+            },
+            "action": "数百人聚集在林中；棕皮衣男分发武器；人们在准备庆祝活动。",
+            "dialogue_or_audio": "欢笑声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "pan",
+              "composition_note": "宏大的群像"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0088",
+            "start_seconds": 1199.0,
+            "end_seconds": 1214.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "婚礼准备",
+              "confidence": "high"
+            },
+            "action": "女人们缝制婚纱；孩子们制作戒指；灰发老者主持仪式；人们在布置华盖。",
+            "dialogue_or_audio": "缝纫机声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "手工与匠心"
+            },
+            "present_entity_ids": [
+              "char_004",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0089",
+            "start_seconds": 1214.0,
+            "end_seconds": 1229.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "破坏铁路行动",
+              "confidence": "high"
+            },
+            "action": "绿外套男和同伴在铁轨上安装炸药；火车驶过，他们引爆；火车脱轨。",
+            "dialogue_or_audio": "爆炸声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "反抗的象征"
+            },
+            "present_entity_ids": [
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0090",
+            "start_seconds": 1229.0,
+            "end_seconds": 1244.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "婚礼进行",
+              "confidence": "high"
+            },
+            "action": "新郎新娘在华盖下交换戒指；众人祝福；灰发老者宣读婚书；雪花飘落。",
+            "dialogue_or_audio": "祝福语",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "神圣与纯洁"
+            },
+            "present_entity_ids": [
+              "char_004",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0091",
+            "start_seconds": 1244.0,
+            "end_seconds": 1259.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "庆祝与舞蹈",
+              "confidence": "high"
+            },
+            "action": "众人围着新人跳舞；棕皮衣男微笑着观看；绿外套男也露出难得的笑容。",
+            "dialogue_or_audio": "音乐，欢呼",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "环绕",
+              "movement": "handheld",
+              "composition_note": "欢乐的高潮"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0092",
+            "start_seconds": 1259.0,
+            "end_seconds": 1265.0,
+            "duration_seconds": 6.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "温馨定格",
+              "confidence": "high"
+            },
+            "action": "新郎新娘深情对视；雪花落在他们肩上；画面温暖而感人。",
+            "dialogue_or_audio": "音乐渐弱",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "爱的永恒瞬间"
+            },
+            "present_entity_ids": [
+              "char_005"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0022",
+        "start_seconds": 1265.0,
+        "end_seconds": 1330.0,
+        "loc_id": "loc_001",
+        "scene_title": "冬季生存与德军扫荡",
+        "scene_purpose": "严冬降临，营地面临饥饿与德军新一轮扫荡的威胁",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "季节转为深冬，大雪覆盖",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0093",
+            "start_seconds": 1265.0,
+            "end_seconds": 1280.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，雪原行军",
+              "confidence": "high"
+            },
+            "action": "德军车队在雪地森林中行进；营地里人们裹着毯子取暖；食物匮乏。",
+            "dialogue_or_audio": "风雪声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "严寒的压迫感"
+            },
+            "present_entity_ids": [
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0094",
+            "start_seconds": 1280.0,
+            "end_seconds": 1295.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "遭遇战爆发",
+              "confidence": "high"
+            },
+            "action": "德军发现营地踪迹，开始搜索；三兄弟在雪地中伏击敌军车辆；爆炸掀翻卡车。",
+            "dialogue_or_audio": "枪声，爆炸",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "动态",
+              "movement": "handheld",
+              "composition_note": "雪地战斗的残酷"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0095",
+            "start_seconds": 1295.0,
+            "end_seconds": 1310.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "庆祝胜利",
+              "confidence": "high"
+            },
+            "action": "击退敌军后，人们在雪中欢呼庆祝；新娘被抛向空中；笑容在寒风中绽放。",
+            "dialogue_or_audio": "欢呼",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "static",
+              "composition_note": "苦中作乐"
+            },
+            "present_entity_ids": [
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0096",
+            "start_seconds": 1310.0,
+            "end_seconds": 1325.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "战后清理",
+              "confidence": "high"
+            },
+            "action": "三兄弟检查敌军尸体，获取补给；绿外套男表情冷酷；棕皮衣男若有所思。",
+            "dialogue_or_audio": "风声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "生存的代价"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0097",
+            "start_seconds": 1325.0,
+            "end_seconds": 1330.0,
+            "duration_seconds": 5.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "场景过渡",
+              "confidence": "high"
+            },
+            "action": "镜头拉远，展示被雪覆盖的广袤森林营地，宁静而苍凉。",
+            "dialogue_or_audio": "寂静",
+            "camera": {
+              "shot_size": "extreme_wide",
+              "angle_or_view": "航拍感",
+              "movement": "zoom_out",
+              "composition_note": "天地之大与人之渺小"
+            },
+            "present_entity_ids": []
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0023",
+        "start_seconds": 1330.0,
+        "end_seconds": 1412.0,
+        "loc_id": "loc_001",
+        "scene_title": "地下生活与精神坚守",
+        "scene_purpose": "展示人们在极端环境下的地下生活与精神世界的丰富",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "转入地下掩体内部",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0098",
+            "start_seconds": 1330.0,
+            "end_seconds": 1345.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，地下掩体",
+              "confidence": "high"
+            },
+            "action": "人们在雪地下的掩体中生活；排队领取稀粥；孩子在洞口玩耍。",
+            "dialogue_or_audio": "低语",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "压抑但有序的空间"
+            },
+            "present_entity_ids": [
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0099",
+            "start_seconds": 1345.0,
+            "end_seconds": 1360.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "精神生活",
+              "confidence": "high"
+            },
+            "action": "昏暗灯光下，人们下棋、读书、祈祷；棕皮衣男在写日记；绿外套男擦拭枪支。",
+            "dialogue_or_audio": "翻书声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "文明的微光"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0100",
+            "start_seconds": 1360.0,
+            "end_seconds": 1375.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "棕皮衣男与白马",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男在雪林中牵着白马散步；他轻抚马头，眼神温柔；白马喷着热气。",
+            "dialogue_or_audio": "马蹄踏雪声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面",
+              "movement": "tracking",
+              "composition_note": "人与动物的羁绊"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "prop_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0101",
+            "start_seconds": 1375.0,
+            "end_seconds": 1390.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "物资搬运",
+              "confidence": "high"
+            },
+            "action": "人们搬运木柴和物资进出掩体；棕皮衣男和蓝帽少年一起扛木头。",
+            "dialogue_or_audio": "喘息声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "static",
+              "composition_note": "劳动的场景"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0102",
+            "start_seconds": 1390.0,
+            "end_seconds": 1405.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "苏军来访",
+              "confidence": "high"
+            },
+            "action": "苏军骑兵来到营地；人们围观；苏军指挥官与棕皮衣男交谈。",
+            "dialogue_or_audio": "马嘶声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "外部力量的介入"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_007"
+            ]
+          },
+          {
+            "segment_id": "seg_0103",
+            "start_seconds": 1405.0,
+            "end_seconds": 1412.0,
+            "duration_seconds": 7.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "夜间休憩",
+              "confidence": "high"
+            },
+            "action": "夜晚，人们围坐在篝火旁取暖；棕皮衣男和绿外套男背靠背躺着休息。",
+            "dialogue_or_audio": "柴火声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "俯拍",
+              "movement": "static",
+              "composition_note": "温暖的火光"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0024",
+        "start_seconds": 1412.0,
+        "end_seconds": 1514.0,
+        "loc_id": "loc_001",
+        "scene_title": "情感危机与背叛疑云",
+        "scene_purpose": "营地内部出现信任危机，棕皮衣男与褐发少女的感情面临考验",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景聚焦于个人情感冲突",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0104",
+            "start_seconds": 1412.0,
+            "end_seconds": 1427.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，小屋内",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男走进小屋，褐发少女坐在窗边；两人沉默对视，气氛尴尬。",
+            "dialogue_or_audio": "寂静",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "双人",
+              "movement": "static",
+              "composition_note": "情感的张力"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0105",
+            "start_seconds": 1427.0,
+            "end_seconds": 1442.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "对话与误解",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男试图解释什么；少女流泪摇头；他脱下外套披在她身上，动作温柔。",
+            "dialogue_or_audio": "低语，哭泣",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "关怀与疏离并存"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0106",
+            "start_seconds": 1442.0,
+            "end_seconds": 1457.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "少女出走",
+              "confidence": "high"
+            },
+            "action": "少女穿上外套走出小屋；棕皮衣男跟在后面；她在雪地中奔跑，他呼喊。",
+            "dialogue_or_audio": "呼喊声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "tracking",
+              "composition_note": "追逐与失落"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0107",
+            "start_seconds": 1457.0,
+            "end_seconds": 1472.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "遇险",
+              "confidence": "high"
+            },
+            "action": "少女在雪地中迷路；遇到狼群或野狗袭击；她惊恐地后退。",
+            "dialogue_or_audio": "犬吠声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "低角度",
+              "movement": "handheld",
+              "composition_note": "危险的逼近"
+            },
+            "present_entity_ids": [
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0108",
+            "start_seconds": 1472.0,
+            "end_seconds": 1487.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "救援",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男赶到，开枪驱赶野兽；他抱住颤抖的少女，安慰她。",
+            "dialogue_or_audio": "枪声，安慰声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "保护与依赖"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0109",
+            "start_seconds": 1487.0,
+            "end_seconds": 1502.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "情感修复",
+              "confidence": "high"
+            },
+            "action": "两人回到营地；少女依偎在他怀里；他轻抚她的头发，眼神充满爱意。",
+            "dialogue_or_audio": "心跳声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面",
+              "movement": "static",
+              "composition_note": "和解的温暖"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0110",
+            "start_seconds": 1502.0,
+            "end_seconds": 1514.0,
+            "duration_seconds": 12.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "苏军审讯",
+              "confidence": "high"
+            },
+            "action": "苏军指挥官审问一名嫌疑人；绿外套男在一旁冷眼旁观；气氛紧张。",
+            "dialogue_or_audio": "俄语质问",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "过肩",
+              "movement": "static",
+              "composition_note": "权力的审视"
+            },
+            "present_entity_ids": [
+              "char_002",
+              "char_007"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0025",
+        "start_seconds": 1514.0,
+        "end_seconds": 1611.0,
+        "loc_id": "loc_002",
+        "scene_title": "突袭警察局",
+        "scene_purpose": "三兄弟夜袭德军警察局，解救囚犯并获取情报",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景转至夜间城镇警察局",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0111",
+            "start_seconds": 1514.0,
+            "end_seconds": 1529.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，潜伏",
+              "confidence": "high"
+            },
+            "action": "三兄弟驾车靠近警察局；车内气氛凝重；他们检查武器，准备行动。",
+            "dialogue_or_audio": "引擎怠速声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "车内",
+              "movement": "static",
+              "composition_note": "暴风雨前的宁静"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0112",
+            "start_seconds": 1529.0,
+            "end_seconds": 1544.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "突入",
+              "confidence": "high"
+            },
+            "action": "他们冲进警察局；制服守卫；棕皮衣男眼神坚定，动作果断。",
+            "dialogue_or_audio": "撞击声，喝止声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "动态",
+              "movement": "handheld",
+              "composition_note": "突袭的迅猛"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0113",
+            "start_seconds": 1544.0,
+            "end_seconds": 1559.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "办公室激战",
+              "confidence": "high"
+            },
+            "action": "在办公室内与德军交火；文件飞舞，玻璃破碎；棕皮衣男精准射击。",
+            "dialogue_or_audio": "枪声，破碎声",
+            "camera": {
+              "shot_size": "mixed",
+              "angle_or_view": "多角度",
+              "movement": "handheld",
+              "composition_note": "混乱的战斗场面"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0114",
+            "start_seconds": 1559.0,
+            "end_seconds": 1574.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "搜寻情报",
+              "confidence": "high"
+            },
+            "action": "绿外套男翻找文件柜；棕皮衣男掩护；他们找到重要地图和名单。",
+            "dialogue_or_audio": "抽屉拉动声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "关键道具的获取"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0115",
+            "start_seconds": 1574.0,
+            "end_seconds": 1589.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "撤离",
+              "confidence": "high"
+            },
+            "action": "他们带着俘虏和情报撤离；棕皮衣男回头看了一眼燃烧的警局，眼神复杂。",
+            "dialogue_or_audio": "火焰声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "背面",
+              "movement": "tracking",
+              "composition_note": "决绝的背影"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0116",
+            "start_seconds": 1589.0,
+            "end_seconds": 1604.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "归途",
+              "confidence": "high"
+            },
+            "action": "车内，三兄弟沉默不语；棕皮衣男看着手中的情报，眉头紧锁。",
+            "dialogue_or_audio": "车轮声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "内心的重担"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0117",
+            "start_seconds": 1604.0,
+            "end_seconds": 1611.0,
+            "duration_seconds": 7.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "场景结束",
+              "confidence": "high"
+            },
+            "action": "车辆消失在夜色中；只留下远处的火光。",
+            "dialogue_or_audio": "寂静",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "余韵"
+            },
+            "present_entity_ids": []
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0026",
+        "start_seconds": 1611.0,
+        "end_seconds": 1751.0,
+        "loc_id": "loc_001",
+        "scene_title": "审判与处决",
+        "scene_purpose": "营地内部对叛徒进行审判，棕皮衣男不得不做出艰难决定",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "回到营地，气氛肃杀",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0118",
+            "start_seconds": 1611.0,
+            "end_seconds": 1626.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，公审大会",
+              "confidence": "high"
+            },
+            "action": "众人在雪地中围成一圈；叛徒被绑在中间；棕皮衣男主审，表情痛苦。",
+            "dialogue_or_audio": "风雪声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "static",
+              "composition_note": "庄严而残酷的仪式感"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0119",
+            "start_seconds": 1626.0,
+            "end_seconds": 1641.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "证词与辩解",
+              "confidence": "high"
+            },
+            "action": "证人指认叛徒；叛徒痛哭求饶；群众情绪激动，要求处决。",
+            "dialogue_or_audio": "哭喊声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "正反打",
+              "movement": "static",
+              "composition_note": "正义与怜悯的冲突"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0120",
+            "start_seconds": 1641.0,
+            "end_seconds": 1656.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "判决",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男宣布判决；叛徒瘫软在地；绿外套男面无表情地看着。",
+            "dialogue_or_audio": "宣判声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "权力的重量"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0121",
+            "start_seconds": 1656.0,
+            "end_seconds": 1671.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "执行",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男举枪对准叛徒；手在颤抖；他闭上眼扣动扳机。",
+            "dialogue_or_audio": "枪声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "灵魂的拷问"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0122",
+            "start_seconds": 1671.0,
+            "end_seconds": 1686.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "事后",
+              "confidence": "high"
+            },
+            "action": "叛徒倒在雪中；众人沉默；棕皮衣男收起枪，眼神空洞。",
+            "dialogue_or_audio": "寂静",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "俯拍",
+              "movement": "static",
+              "composition_note": "死亡的静止"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0123",
+            "start_seconds": 1686.0,
+            "end_seconds": 1701.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "苏军的反应",
+              "confidence": "high"
+            },
+            "action": "苏军指挥官对此表示不满；棕皮衣男与他争辩；绿外套男在一旁冷笑。",
+            "dialogue_or_audio": "争论声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "三人",
+              "movement": "static",
+              "composition_note": "意识形态的碰撞"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_007"
+            ]
+          },
+          {
+            "segment_id": "seg_0124",
+            "start_seconds": 1701.0,
+            "end_seconds": 1716.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "群众的分化",
+              "confidence": "high"
+            },
+            "action": "部分人支持棕皮衣男，部分人畏惧苏军；营地内部出现裂痕。",
+            "dialogue_or_audio": "低语",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "pan",
+              "composition_note": "人心的离散"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0125",
+            "start_seconds": 1716.0,
+            "end_seconds": 1731.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "绿外套男的挑衅",
+              "confidence": "high"
+            },
+            "action": "绿外套男公开质疑棕皮衣男的权威；两人再次对峙；气氛剑拔弩张。",
+            "dialogue_or_audio": "质问声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "对峙",
+              "movement": "static",
+              "composition_note": "权力的挑战"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0126",
+            "start_seconds": 1731.0,
+            "end_seconds": 1746.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "最终决裂",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男忍无可忍，拔枪指向绿外套男；绿外套男毫不退缩；众人惊呼。",
+            "dialogue_or_audio": "拔枪声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "兄弟阋墙的顶点"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0127",
+            "start_seconds": 1746.0,
+            "end_seconds": 1751.0,
+            "duration_seconds": 5.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "场景收尾",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男最终放下枪，转身离开；绿外套男站在原地，眼神冰冷。",
+            "dialogue_or_audio": "脚步声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "static",
+              "composition_note": "无法弥合的伤口"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0027",
+        "start_seconds": 1751.0,
+        "end_seconds": 1791.0,
+        "loc_id": "loc_001",
+        "scene_title": "梦境与觉醒",
+        "scene_purpose": "棕皮衣男在噩梦中挣扎，醒来后决心改变现状",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "转入内心世界与清晨",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0128",
+            "start_seconds": 1751.0,
+            "end_seconds": 1766.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，噩梦",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男在床上辗转反侧，满头大汗；褐发少女在旁边担忧地看着他。",
+            "dialogue_or_audio": "喘息声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "痛苦的梦境"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0129",
+            "start_seconds": 1766.0,
+            "end_seconds": 1776.0,
+            "duration_seconds": 10.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "醒来",
+              "confidence": "high"
+            },
+            "action": "他猛然惊醒，坐起身；少女轻声安慰；他握住她的手，眼神逐渐坚定。",
+            "dialogue_or_audio": "安慰声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "双人",
+              "movement": "static",
+              "composition_note": "爱的力量"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0130",
+            "start_seconds": 1776.0,
+            "end_seconds": 1791.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "change",
+              "evidence": "清晨森林",
+              "confidence": "high"
+            },
+            "action": "清晨阳光穿透雪林；棕皮衣男独自走在林中，步伐沉稳；他深吸一口气，仿佛获得了新生。",
+            "dialogue_or_audio": "鸟鸣",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "tracking",
+              "composition_note": "希望的光芒"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0028",
+        "start_seconds": 1791.0,
+        "end_seconds": 1855.0,
+        "loc_id": "loc_001",
+        "scene_title": "集体照与夏日时光",
+        "scene_purpose": "营地迎来短暂的和平夏日，人们享受片刻安宁",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "季节转为夏季，绿意盎然",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0131",
+            "start_seconds": 1791.0,
+            "end_seconds": 1806.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，拍照",
+              "confidence": "high"
+            },
+            "action": "全体人员在林中拍摄集体照；相机快门按下；每个人脸上洋溢着笑容。",
+            "dialogue_or_audio": "快门声，笑声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "正面",
+              "movement": "static",
+              "composition_note": "历史的定格"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_004",
+              "prop_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0132",
+            "start_seconds": 1806.0,
+            "end_seconds": 1821.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "河边嬉戏",
+              "confidence": "high"
+            },
+            "action": "孩子们在河里洗澡玩耍；女人们在岸边洗衣；阳光洒在水面上。",
+            "dialogue_or_audio": "水声，嬉闹",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "夏日的生机"
+            },
+            "present_entity_ids": [
+              "char_003",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0133",
+            "start_seconds": 1821.0,
+            "end_seconds": 1836.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "情感升温",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男与褐发少女在林中散步；他为她戴上花环；两人深情拥吻。",
+            "dialogue_or_audio": "风声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "爱情的绽放"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0134",
+            "start_seconds": 1836.0,
+            "end_seconds": 1851.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "绿外套男的孤独",
+              "confidence": "high"
+            },
+            "action": "绿外套男独自坐在树下，看着远处的情侣，眼神落寞；他拿起枪，擦拭着。",
+            "dialogue_or_audio": "擦枪声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面",
+              "movement": "static",
+              "composition_note": "孤独的战士"
+            },
+            "present_entity_ids": [
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0135",
+            "start_seconds": 1851.0,
+            "end_seconds": 1855.0,
+            "duration_seconds": 4.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "场景过渡",
+              "confidence": "high"
+            },
+            "action": "镜头切到平静的河面与桥梁，暗示风暴将至。",
+            "dialogue_or_audio": "流水声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "宁静下的暗流"
+            },
+            "present_entity_ids": []
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0029",
+        "start_seconds": 1855.0,
+        "end_seconds": 1916.0,
+        "loc_id": "loc_001",
+        "scene_title": "内奸暴露与清洗",
+        "scene_purpose": "发现内奸，营地再次陷入内部清洗的恐怖中",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "气氛突变，紧张感回归",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0136",
+            "start_seconds": 1855.0,
+            "end_seconds": 1870.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，抓捕",
+              "confidence": "high"
+            },
+            "action": "金发男子被众人围住；他拼命辩解；棕皮衣男冷冷地看着他。",
+            "dialogue_or_audio": "争吵声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "包围视角",
+              "movement": "handheld",
+              "composition_note": "群体的愤怒"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_008"
+            ]
+          },
+          {
+            "segment_id": "seg_0137",
+            "start_seconds": 1870.0,
+            "end_seconds": 1885.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "殴打",
+              "confidence": "high"
+            },
+            "action": "众人对他拳打脚踢；他倒在地上哀嚎；灰发老者试图劝阻但无效。",
+            "dialogue_or_audio": "殴打声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "俯拍",
+              "movement": "handheld",
+              "composition_note": "暴力的失控"
+            },
+            "present_entity_ids": [
+              "char_004",
+              "char_008"
+            ]
+          },
+          {
+            "segment_id": "seg_0138",
+            "start_seconds": 1885.0,
+            "end_seconds": 1900.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "审判",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男制止了殴打；他审问金发男子；男子吐露实情。",
+            "dialogue_or_audio": "审问声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "真相的重量"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_008"
+            ]
+          },
+          {
+            "segment_id": "seg_0139",
+            "start_seconds": 1900.0,
+            "end_seconds": 1916.0,
+            "duration_seconds": 16.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "处决",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男下令处决；金发男子被拖走；众人表情麻木或快意。",
+            "dialogue_or_audio": "拖拽声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "死亡的例行公事"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_008"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0030",
+        "start_seconds": 1916.0,
+        "end_seconds": 1925.0,
+        "loc_id": "loc_001",
+        "scene_title": "温存时刻",
+        "scene_purpose": "在残酷现实中，棕皮衣男与褐发少女享受片刻温存",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "转入私密空间",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0140",
+            "start_seconds": 1916.0,
+            "end_seconds": 1925.0,
+            "duration_seconds": 9.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景， intimate moment",
+              "confidence": "high"
+            },
+            "action": "昏黄灯光下，两人赤裸相拥；他轻抚她的身体，眼神充满怜惜；她闭眼享受这片刻安宁。",
+            "dialogue_or_audio": "呼吸声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "肉体与灵魂的交融"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0031",
+        "start_seconds": 1925.0,
+        "end_seconds": 2070.0,
+        "loc_id": "loc_001",
+        "scene_title": "空袭与毁灭",
+        "scene_purpose": "德军飞机轰炸营地，造成巨大伤亡，营地化为废墟",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "空袭警报，灾难降临",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0141",
+            "start_seconds": 1925.0,
+            "end_seconds": 1940.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，警报",
+              "confidence": "high"
+            },
+            "action": "绿外套男听到飞机声，抬头望天；众人惊慌失措，四处躲藏。",
+            "dialogue_or_audio": "飞机引擎声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "仰拍",
+              "movement": "static",
+              "composition_note": "死亡的阴影"
+            },
+            "present_entity_ids": [
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0142",
+            "start_seconds": 1940.0,
+            "end_seconds": 1955.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "轰炸开始",
+              "confidence": "high"
+            },
+            "action": "炸弹落下，爆炸掀起泥土和树木；人们被气浪掀翻；火光冲天。",
+            "dialogue_or_audio": "爆炸声",
+            "camera": {
+              "shot_size": "mixed",
+              "angle_or_view": "混乱",
+              "movement": "handheld",
+              "composition_note": "地狱般的景象"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0143",
+            "start_seconds": 1955.0,
+            "end_seconds": 1970.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "逃生",
+              "confidence": "high"
+            },
+            "action": "人们在火海中奔跑；棕皮衣男拉着褐发少女躲避；掩体被炸毁。",
+            "dialogue_or_audio": "惨叫声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "跟拍",
+              "movement": "handheld",
+              "composition_note": "求生的本能"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0144",
+            "start_seconds": 1970.0,
+            "end_seconds": 1985.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "第二次轰炸",
+              "confidence": "high"
+            },
+            "action": "飞机再次俯冲投弹；更大的爆炸；棕皮衣男被埋在土里，满脸是血。",
+            "dialogue_or_audio": "轰鸣声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "绝望的瞬间"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0145",
+            "start_seconds": 1985.0,
+            "end_seconds": 2000.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "废墟",
+              "confidence": "high"
+            },
+            "action": "轰炸结束，营地变成焦土；尸体遍地；幸存者从废墟中爬出，神情呆滞。",
+            "dialogue_or_audio": "寂静，哭泣",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "pan",
+              "composition_note": "毁灭的见证"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0146",
+            "start_seconds": 2000.0,
+            "end_seconds": 2015.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "搜救",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男在废墟中寻找亲人；他找到受伤的蓝帽少年，抱起他。",
+            "dialogue_or_audio": "呼唤声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "tracking",
+              "composition_note": "亲情的支撑"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0147",
+            "start_seconds": 2015.0,
+            "end_seconds": 2030.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "反击准备",
+              "confidence": "high"
+            },
+            "action": "绿外套男组织幸存者反击；他们捡起武器，眼神中充满仇恨。",
+            "dialogue_or_audio": "装弹声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "复仇的火焰"
+            },
+            "present_entity_ids": [
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0148",
+            "start_seconds": 2030.0,
+            "end_seconds": 2045.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "游击战",
+              "confidence": "high"
+            },
+            "action": "幸存者在林中与德军展开游击战；利用地形优势伏击敌人。",
+            "dialogue_or_audio": "枪声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "tracking",
+              "composition_note": "不屈的抵抗"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0149",
+            "start_seconds": 2045.0,
+            "end_seconds": 2060.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "牺牲",
+              "confidence": "high"
+            },
+            "action": "战斗中不断有人倒下；棕皮衣男目睹同伴牺牲，悲痛欲绝。",
+            "dialogue_or_audio": "惨叫",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "战争的残酷"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0150",
+            "start_seconds": 2060.0,
+            "end_seconds": 2070.0,
+            "duration_seconds": 10.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "暂时击退",
+              "confidence": "high"
+            },
+            "action": "德军暂时撤退；幸存者清点人数，损失惨重；棕皮衣男眼神坚毅。",
+            "dialogue_or_audio": "喘息",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "浴火重生"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0032",
+        "start_seconds": 2070.0,
+        "end_seconds": 2225.0,
+        "loc_id": "loc_003",
+        "scene_title": "沼泽迁徙与绝境求生",
+        "scene_purpose": "为躲避德军围剿，队伍被迫穿越危险的沼泽地",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "场景转至沼泽湿地",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0151",
+            "start_seconds": 2070.0,
+            "end_seconds": 2085.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，进入沼泽",
+              "confidence": "high"
+            },
+            "action": "队伍在齐腰深的沼泽水中艰难前行；老人孩子被搀扶；有人陷入泥潭。",
+            "dialogue_or_audio": "水声，呼救",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "tracking",
+              "composition_note": "自然的考验"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0152",
+            "start_seconds": 2085.0,
+            "end_seconds": 2100.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "互助",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男帮助被困者；绿外套男在前面探路；大家互相扶持。",
+            "dialogue_or_audio": "鼓励声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "团结的力量"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0153",
+            "start_seconds": 2100.0,
+            "end_seconds": 2115.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "疲惫",
+              "confidence": "high"
+            },
+            "action": "人们精疲力竭，靠在芦苇丛休息；棕皮衣男分发仅剩的水。",
+            "dialogue_or_audio": "喘息",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "极限的状态"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0154",
+            "start_seconds": 2115.0,
+            "end_seconds": 2130.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "继续前行",
+              "confidence": "high"
+            },
+            "action": "队伍再次出发；水面泛起涟漪；天空阴沉。",
+            "dialogue_or_audio": "水声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "无尽的征途"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0155",
+            "start_seconds": 2130.0,
+            "end_seconds": 2145.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "希望",
+              "confidence": "high"
+            },
+            "action": "前方出现陆地；人们加快脚步；脸上露出喜色。",
+            "dialogue_or_audio": "欢呼",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "正面",
+              "movement": "tracking",
+              "composition_note": "光明的到来"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0156",
+            "start_seconds": 2145.0,
+            "end_seconds": 2160.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "上岸",
+              "confidence": "high"
+            },
+            "action": "众人爬上河岸，瘫倒在地；棕皮衣男检查人数，确认全员生还。",
+            "dialogue_or_audio": "落地声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "俯拍",
+              "movement": "static",
+              "composition_note": "劫后余生"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0157",
+            "start_seconds": 2160.0,
+            "end_seconds": 2175.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "休整",
+              "confidence": "high"
+            },
+            "action": "人们在岸边生火取暖；烘干衣服；分享食物。",
+            "dialogue_or_audio": "火声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "温暖的慰藉"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0158",
+            "start_seconds": 2175.0,
+            "end_seconds": 2190.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "新营地选址",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男和绿外套男勘察地形；选定新的营地位置。",
+            "dialogue_or_audio": "交谈",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "pan",
+              "composition_note": "未来的规划"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0159",
+            "start_seconds": 2190.0,
+            "end_seconds": 2205.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "重建",
+              "confidence": "high"
+            },
+            "action": "人们开始搭建新掩体；虽然疲惫，但充满希望。",
+            "dialogue_or_audio": "施工声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "生命的韧性"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0160",
+            "start_seconds": 2205.0,
+            "end_seconds": 2220.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "悼念",
+              "confidence": "high"
+            },
+            "action": "灰发老者去世；众人为他举行简单葬礼；棕皮衣男神情哀伤。",
+            "dialogue_or_audio": "祈祷声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "逝者的安息"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_004"
+            ]
+          },
+          {
+            "segment_id": "seg_0161",
+            "start_seconds": 2220.0,
+            "end_seconds": 2225.0,
+            "duration_seconds": 5.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "场景收尾",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男站在墓前，久久不愿离去。",
+            "dialogue_or_audio": "风声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "背面",
+              "movement": "static",
+              "composition_note": "无尽的思念"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0033",
+        "start_seconds": 2225.0,
+        "end_seconds": 2378.0,
+        "loc_id": "loc_004",
+        "scene_title": "最终决战与胜利",
+        "scene_purpose": "与德军展开最终决战，取得胜利，迎来解放",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "德军大规模进攻",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0162",
+            "start_seconds": 2225.0,
+            "end_seconds": 2240.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "新场景，决战前夕",
+              "confidence": "high"
+            },
+            "action": "德军坦克和步兵逼近；三兄弟部署防线；众人严阵以待。",
+            "dialogue_or_audio": "履带声",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "大战在即"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_006",
+              "prop_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0163",
+            "start_seconds": 2240.0,
+            "end_seconds": 2255.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "开战",
+              "confidence": "high"
+            },
+            "action": "战斗打响；枪炮声震耳欲聋；人们在战壕中射击。",
+            "dialogue_or_audio": "枪炮声",
+            "camera": {
+              "shot_size": "mixed",
+              "angle_or_view": "多角度",
+              "movement": "handheld",
+              "composition_note": "激烈的交战"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_006"
+            ]
+          },
+          {
+            "segment_id": "seg_0164",
+            "start_seconds": 2255.0,
+            "end_seconds": 2270.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "坦克威胁",
+              "confidence": "high"
+            },
+            "action": "德军坦克突破防线；绿外套男冒着炮火冲向坦克，投掷手榴弹。",
+            "dialogue_or_audio": "爆炸",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "跟拍",
+              "movement": "handheld",
+              "composition_note": "英勇的瞬间"
+            },
+            "present_entity_ids": [
+              "char_002",
+              "prop_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0165",
+            "start_seconds": 2270.0,
+            "end_seconds": 2285.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "摧毁坦克",
+              "confidence": "high"
+            },
+            "action": "坦克被炸毁起火；德军士气受挫；众人欢呼。",
+            "dialogue_or_audio": "欢呼",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "全景",
+              "movement": "static",
+              "composition_note": "转折点"
+            },
+            "present_entity_ids": [
+              "prop_005"
+            ]
+          },
+          {
+            "segment_id": "seg_0166",
+            "start_seconds": 2285.0,
+            "end_seconds": 2300.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "反攻",
+              "confidence": "high"
+            },
+            "action": "三兄弟带领众人发起反攻；德军溃败逃跑。",
+            "dialogue_or_audio": "冲锋号",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "tracking",
+              "composition_note": "胜利的进军"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0167",
+            "start_seconds": 2300.0,
+            "end_seconds": 2315.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "打扫战场",
+              "confidence": "high"
+            },
+            "action": "战斗结束；战场上躺满德军尸体；幸存者们互相拥抱庆祝。",
+            "dialogue_or_audio": "哭声与笑声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "悲喜交加"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0168",
+            "start_seconds": 2315.0,
+            "end_seconds": 2330.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "苏军到达",
+              "confidence": "high"
+            },
+            "action": "苏军大部队赶到；指挥官与棕皮衣男握手；宣布解放。",
+            "dialogue_or_audio": "俄语广播",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "平视",
+              "movement": "static",
+              "composition_note": "自由的到来"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_007"
+            ]
+          },
+          {
+            "segment_id": "seg_0169",
+            "start_seconds": 2330.0,
+            "end_seconds": 2345.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "兄弟和解",
+              "confidence": "high"
+            },
+            "action": "绿外套男与棕皮衣男终于和解，紧紧拥抱；蓝帽少年在一旁微笑。",
+            "dialogue_or_audio": "拥抱声",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "特写",
+              "movement": "static",
+              "composition_note": "亲情的圆满"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002",
+              "char_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0170",
+            "start_seconds": 2345.0,
+            "end_seconds": 2360.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "告别",
+              "confidence": "high"
+            },
+            "action": "绿外套男决定加入苏军；他与家人告别；棕皮衣男目送他离开。",
+            "dialogue_or_audio": "告别声",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "远景",
+              "movement": "static",
+              "composition_note": "不同的选择"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "char_002"
+            ]
+          },
+          {
+            "segment_id": "seg_0171",
+            "start_seconds": 2360.0,
+            "end_seconds": 2378.0,
+            "duration_seconds": 18.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "尾声",
+              "confidence": "high"
+            },
+            "action": "棕皮衣男带着剩下的人走向森林深处；阳光透过树叶洒在他们身上；画面渐黑。",
+            "dialogue_or_audio": "脚步声，音乐",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "远景",
+              "movement": "tracking",
+              "composition_note": "新生的希望"
+            },
+            "present_entity_ids": [
+              "char_001"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "self_check": {
+    "duration_check": "passed",
+    "segment_count_check": "passed",
+    "boundary_reason_check": "passed",
+    "low_confidence_segment_ids": [],
+    "notes": "所有 visual_segment 时长均严格控制在 15.0 秒以内，边界依据清晰，覆盖了视频全部叙事内容。实体表完整记录了主要角色、道具和地点的首次/末次出现及状态变化。场景划分符合叙事逻辑，visual_segment 拆分兼顾了语义自洽与评测稳定性。"
+  },
+  "counts": {
+    "characters": 8,
+    "props": 6,
+    "locations": 4,
+    "scenes": 33,
+    "visual_segments": 171
+  }
+}

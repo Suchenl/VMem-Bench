@@ -272,7 +272,7 @@ class JobStore:
     def _remote_env_exports(self) -> dict[str, str]:
         """Env vars the KML batch needs that a login shell won't already have.
 
-        Paths are all under the shared ``/data`` tree, so they resolve
+        Paths are all under the shared ``${ALLOWED_LOCAL_MEDIA_PATH:-.}`` tree, so they resolve
         identically on the training nodes.  PYTHONPATH is rebuilt from scratch
         (vendor SAM3 deps + repo src) rather than inheriting the dev-box value.
         """

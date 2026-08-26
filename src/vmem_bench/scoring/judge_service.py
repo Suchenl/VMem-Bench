@@ -26,8 +26,8 @@ DEFAULT_MM_PROCESSOR_KWARGS = {"fps": 2.0}
 # retry-with-rotation: on a transient endpoint failure the same request is
 # re-issued against a DIFFERENT healthy endpoint. This changes only which
 # replica serves the call, never the payload/sampling, so scores are unchanged.
-JUDGE_MAX_ATTEMPTS = int(os.environ.get("MAVE_JUDGE_MAX_ATTEMPTS", "6"))
-JUDGE_RETRY_BACKOFF_SEC = float(os.environ.get("MAVE_JUDGE_RETRY_BACKOFF_SEC", "5.0"))
+JUDGE_MAX_ATTEMPTS = int(os.environ.get("VMEM_JUDGE_MAX_ATTEMPTS", "6"))
+JUDGE_RETRY_BACKOFF_SEC = float(os.environ.get("VMEM_JUDGE_RETRY_BACKOFF_SEC", "5.0"))
 
 
 def _is_transient_judge_error(exc: Exception) -> bool:

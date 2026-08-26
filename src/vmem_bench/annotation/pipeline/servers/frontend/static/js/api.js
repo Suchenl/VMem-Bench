@@ -10,7 +10,7 @@
     const head = text.slice(0, 2000).toLowerCase();
     return (
       head.includes('sso-p') ||
-      head.includes('example.com') ||
+      head.includes('sso.corp.example.org') ||
       head.includes('accessproxy') ||
       head.includes('cas/login')
     );
@@ -24,7 +24,7 @@
 
   function ssoError(status, loginUrl) {
     const err = new Error(
-      'KML 网关登录已失效（AccessProxy → SSO）。即将跳转快手 SSO 登录页；登录后会回到本控制台。'
+      'KML 网关登录已失效（AccessProxy → SSO）。即将跳转internal SSO 登录页；登录后会回到本控制台。'
     );
     err.code = 'SSO_REQUIRED';
     err.status = status || 401;
@@ -50,7 +50,7 @@
       method: method,
       // Keep AccessProxy session cookie on the KML HTTPS host.
       credentials: 'same-origin',
-      // Do not follow 302 → example.com into an HTML login page.
+      // Do not follow 302 → sso.corp.example.org into an HTML login page.
       redirect: 'manual',
       headers: { Accept: 'application/json' }
     };

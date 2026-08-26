@@ -16,11 +16,8 @@ DEFAULT_MODEL_PATH = "facebook/dinov3-vits16-pretrain-lvd1689m"  # resolved unde
 class DinoV3Embedder:
     def __init__(self, model_path: str | None = None, *, device: str | None = None) -> None:
         if model_path is None:
-            try:
-                local = public_models_root() / DEFAULT_MODEL_PATH
-                model_path = str(local) if local.is_dir() else DEFAULT_MODEL_PATH
-            except RuntimeError:
-                model_path = DEFAULT_MODEL_PATH
+            local = public_models_root() / DEFAULT_MODEL_PATH
+            model_path = str(local) if local.is_dir() else DEFAULT_MODEL_PATH
         self.model_path = model_path
         self._device = device
         self._model = None

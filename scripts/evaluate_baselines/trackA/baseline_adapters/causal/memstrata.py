@@ -57,8 +57,8 @@ from contract import ComposeRequest, MovieContext, RetrievedItem, RetrievedMemor
 
 # baseline_adapters live at scripts/evaluate_baselines/trackA/baseline_adapters/causal/;
 # import the MemStrata method (post-split) from <repo>/methods/MemStrata/src (parents[7]).
-_SRC = Path(__file__).resolve().parents[7] / "methods" / "MemStrata" / "src"
-_DEFAULT_PUBLIC_MODELS_ROOT = "${PUBLIC_MODELS_ROOT}"
+_SRC = Path(os.environ["MEMSTRATA_SRC"]).expanduser().resolve() if os.environ.get("MEMSTRATA_SRC") else Path(__file__).resolve().parents[7] / "MemStrata" / "src"
+_DEFAULT_PUBLIC_MODELS_ROOT = ""
 # WeDetect-Ref is the DEFAULT crop backend (describe->bbox); the isolated service normally
 # listens here. Override with MEMSTRATA_WEDETECT_URL; set it to "" only to force it off.
 _DEFAULT_WEDETECT_URL = "http://127.0.0.1:8710"
@@ -97,7 +97,7 @@ class MemStrataAdapter:
         self,
         *,
         public_models_root: str | None = None,
-        ffmpeg: str = "ffmpeg",
+        ffmpeg: str = os.environ.get("FFMPEG", "ffmpeg"),
         device: str = "",
         enable_perception: bool = True,
         identity_threshold: float = 0.25,
@@ -107,9 +107,13 @@ class MemStrataAdapter:
         decompose_frames: int = 3,
         decompose_fps: float = 2.0,
     ) -> None:
-        self.public_models_root = str(public_models_root or os.environ.get(
-            "PUBLIC_MODELS_ROOT", _DEFAULT_PUBLIC_MODELS_ROOT))
-        os.environ.setdefault("PUBLIC_MODELS_ROOT", self.public_models_root)
+        self.public_models_root = str(
+            public_models_root
+            or os.environ.get("PUBLIC_MODELS_ROOT")
+            or _DEFAULT_PUBLIC_MODELS_ROOT
+        )
+        if self.public_models_root:
+            os.environ.setdefault("PUBLIC_MODELS_ROOT", self.public_models_root)
         self.ffmpeg = ffmpeg
         self.device = str(device)
         self.enable_perception = bool(enable_perception)
@@ -334,7 +338,7 @@ class MemStrataAdapter:
         ss = max(0.0, min(max(pos, 0.0), 1.0) * dur) if dur > 0 else 0.0
         proc = subprocess.run(
             [self.ffmpeg, "-y", "-ss", f"{ss:.3f}", "-i", str(segment_video),
-             "-threads", os.environ.get("MAVE_FFMPEG_THREADS", "1"),
+             "-threads", os.environ.get("VMEM_FFMPEG_THREADS", "1"),
              "-frames:v", "1", "-q:v", "2", str(out_path)],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
         )
@@ -352,7 +356,7 @@ class MemStrataAdapter:
         pattern = str(out_dir / "cand_%03d.png")
         proc = subprocess.run(
             [self.ffmpeg, "-y", "-i", str(segment_video),
-             "-threads", os.environ.get("MAVE_FFMPEG_THREADS", "1"),
+             "-threads", os.environ.get("VMEM_FFMPEG_THREADS", "1"),
              "-vf", f"fps={max(0.1, float(fps))}", "-q:v", "2", pattern],
             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
         )

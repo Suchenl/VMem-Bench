@@ -53,7 +53,7 @@ runner.py  ──每 segment 时间序──▶  adapter.compose(prompt)      �
 
 ```bash
 # 每个 baseline 用它自己的 env 起（env 名见各 adapter 模块头注释）
-PY=<baseline_env>/bin/python
+PY=${CONDA_ENVS_ROOT}/<baseline_env>/bin/python
 cd benchmarks/VMem-Bench/scripts/evaluate_baselines/trackA/baseline_adapters/causal
 $PY runner.py --adapter longlive_rag \
   --movie-dir ../../../../../assets/trackA/BlenderOpenMovies/big_buck_bunny --limit 5
@@ -71,7 +71,7 @@ $PY runner.py --adapter longlive_rag \
   后面的整条 list 全部丢掉。
 - **锁能自愈，也不会误抢**：`.stage1.lock` 现在写 `pid=... host=... start=...`，并在**每段
   之后 heartbeat**（`_touch_job_lock`）。抢锁前判活：同机就探 pid，跨机就看 heartbeat 是否
-  超过 `MAVE_STAGE1_LOCK_STALE_MINUTES`（默认 45 min，远大于最慢单段）。
+  超过 `VMEM_STAGE1_LOCK_STALE_MINUTES`（默认 45 min，远大于最慢单段）。
   没有 `host=` 字段的**旧格式锁一律视为存活**，绝不抢——线上确实存在合法持锁 8 h+ 的
   memflow_sma 进程，抢它就会出现两个 runner 干同一部片。这也让手工「清理 stale lock」
   的批次不再必要，那正是之前造成重复 runner 的原因。

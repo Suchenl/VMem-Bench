@@ -99,7 +99,7 @@ _BENCH_ROOT = Path(__file__).resolve().parents[3]
 # The judge only decides entity presence/identity, for which 384px is ample.
 # Keep this constant fixed across the release.
 JUDGE_IMG_MAX_SIDE = 384
-JUDGE_MAX_IMAGES_PER_PROMPT = int(os.environ.get("MAVE_JUDGE_MAX_IMAGES_PER_PROMPT", "24"))
+JUDGE_MAX_IMAGES_PER_PROMPT = int(os.environ.get("VMEM_JUDGE_MAX_IMAGES_PER_PROMPT", "24"))
 
 # Judge video clips are downscaled to the SUT's native observation resolution
 # (Wan2.1-T2V-1.3B: 832x480, 16:9). The SUT only ever perceived the film at 480p,
@@ -193,7 +193,7 @@ def _cut_clip(ffmpeg: str, src: Path, out: Path, s0: float, s1: float, *, movie:
     # Downscale to the SUT's native 832x480 (see JUDGE_CLIP_*): fair (matches what
     # the SUT observed) and much faster than judging full-res source clips.
     subprocess.run([ffmpeg, "-y", "-ss", f"{float(s0):.3f}", "-i", str(src), "-t", f"{dur:.3f}",
-                    "-an", "-threads", os.environ.get("MAVE_FFMPEG_THREADS", "1"),
+                    "-an", "-threads", os.environ.get("VMEM_FFMPEG_THREADS", "1"),
                     "-vf", f"scale={JUDGE_CLIP_W}:{JUDGE_CLIP_H}",
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-preset", "veryfast", str(out)],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -268,7 +268,7 @@ def _distinct_views(imgs, api, model):
 # overlaps that queue wait. This is EXACTLY semantics-preserving: every call gets
 # the identical image list, and the caller still accumulates results in the
 # original group order, so even float summation order is unchanged.
-# Set MAVE_GROUP_PARALLEL=0 to fall back to the strictly serial path.
+# Set VMEM_GROUP_PARALLEL=0 to fall back to the strictly serial path.
 _MAX_GROUP_PARALLEL = 4
 
 
@@ -280,7 +280,7 @@ def _distinct_views_many(jobs, api, model):
     """
     if not jobs:
         return {}
-    if len(jobs) == 1 or os.environ.get("MAVE_GROUP_PARALLEL", "1") == "0":
+    if len(jobs) == 1 or os.environ.get("VMEM_GROUP_PARALLEL", "1") == "0":
         return {key: _distinct_views(imgs, api, model) for key, imgs in jobs}
     # Workload tags are thread-local, so a helper thread would report an
     # unlabelled busy endpoint; re-enter the snapshot inside each thread to keep

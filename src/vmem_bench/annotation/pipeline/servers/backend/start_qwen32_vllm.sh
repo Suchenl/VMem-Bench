@@ -16,12 +16,12 @@ source "${SCRIPT_DIR}/../env_no_proxy.sh"
 
 GPU="${1:?usage: start_qwen32_vllm.sh <gpu_id> <port>}"
 PORT="${2:?usage: start_qwen32_vllm.sh <gpu_id> <port>}"
-VLLM_ENV="${VLLM_ENV:-vllm}"
+VLLM_ENV="${VLLM_ENV:-${CONDA_ENVS_ROOT}/vllm}"
 MODEL_PATH="${MODEL_PATH:-${PUBLIC_MODELS_ROOT}/Qwen/Qwen3-VL-32B-Instruct}"
 SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen3-vl-32b}"
 TENSOR_PARALLEL_SIZE="${TENSOR_PARALLEL_SIZE:-1}"
 VIDEO_NUM_FRAMES="${VIDEO_NUM_FRAMES:--1}"
-ALLOWED_LOCAL_MEDIA_PATH="${ALLOWED_LOCAL_MEDIA_PATH:-/data}"
+ALLOWED_LOCAL_MEDIA_PATH="${ALLOWED_LOCAL_MEDIA_PATH:-${ALLOWED_LOCAL_MEDIA_PATH:-.}}"
 # vLLM accepts a SINGLE directory (comma lists break file:// video loads).
 if [[ "${ALLOWED_LOCAL_MEDIA_PATH}" == *","* ]]; then
   echo "WARNING: ALLOWED_LOCAL_MEDIA_PATH must be one directory; got '${ALLOWED_LOCAL_MEDIA_PATH}'. Using first entry." >&2

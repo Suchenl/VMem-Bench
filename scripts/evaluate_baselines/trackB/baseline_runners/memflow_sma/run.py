@@ -27,7 +27,7 @@ from common import (  # noqa: E402
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     add_common_args(parser, default_system="memflow_sma")
-    parser.set_defaults(python="wan2_1/bin/python")
+    parser.set_defaults(python="${CONDA_ENVS_ROOT}/wan2_1/bin/python")
     parser.add_argument("--frames-per-segment", type=int, default=39)
     parser.add_argument("--config-template", type=Path, default=None)
     parser.add_argument("--nproc-per-node", type=int, default=1)

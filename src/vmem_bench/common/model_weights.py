@@ -1,8 +1,8 @@
-"""Weight-path resolution for vmem_bench (self-contained; principle #7).
+"""Weight-path resolution for vmem_bench (self-contained copy, principle #7).
 
-Local caches live under this checkout's ``models/model_weights`` (override with
-``MONTAGE_WEIGHTS_ROOT``). Shared public checkpoints resolve through
-``PUBLIC_MODELS_ROOT``; that env var is required, weights are not in git.
+Weights live under the repo's ``models/model_weights`` (override with
+``MONTAGE_WEIGHTS_ROOT``); shared public checkpoints resolve through
+``PUBLIC_MODELS_ROOT``. Adjust on standalone release.
 """
 
 from __future__ import annotations
@@ -45,4 +45,6 @@ def public_models_root() -> Path:
     override = os.environ.get("PUBLIC_MODELS_ROOT")
     if override:
         return Path(override).expanduser().resolve()
-    raise RuntimeError("PUBLIC_MODELS_ROOT is not set")
+    raise RuntimeError(
+        "PUBLIC_MODELS_ROOT is not set; required only when loading encoder/VLM weights"
+    )

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import pytest
 
-pytest.importorskip("vmem_bench.annotation.pipeline_vlm_dominant.postprocess")
 from vmem_bench.annotation.pipeline_vlm_dominant.postprocess import build_gold
 from vmem_bench.annotation.pipeline_vlm_dominant.run import merge_p1_response, merge_p2_response
 

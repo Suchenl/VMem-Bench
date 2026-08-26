@@ -1,0 +1,1195 @@
+{
+  "video_duration_seconds": 390,
+  "minimum_required_segments": 26,
+  "characters": [
+    {
+      "char_id": "char_001",
+      "name": "紫色发光小生物",
+      "identity_scope": "individual",
+      "description": "紫黄色相间、边缘发光的半透明小型类人形生物，头部有鳍状突起，大眼睛，四肢末端呈花瓣状；身体轮廓有金色光边",
+      "first_presence_seconds": 12.0,
+      "last_presence_seconds": 338.0,
+      "state_changes": [
+        {
+          "seconds": 248,
+          "state_change_kind": "appearance_changed",
+          "description": "与众多同类生物融合成巨大能量体后，最终转化为行星形态"
+        },
+        {
+          "seconds": 329,
+          "state_change_kind": "appearance_changed",
+          "description": "以灰白色带紫色鳍的全新形态出现在水下环境中"
+        }
+      ]
+    }
+  ],
+  "props": [
+    {
+      "prop_id": "prop_001",
+      "name": "黑色菱形空间裂隙",
+      "identity_scope": "individual",
+      "description": "悬浮于太空中的黑色菱形几何体，边缘发出紫色光芒并向外辐射光线",
+      "first_presence_seconds": 65.0,
+      "last_presence_seconds": 277.0,
+      "state_changes": [
+        {
+          "seconds": 272,
+          "state_change_kind": "broken",
+          "description": "被金色能量撞击后碎裂成白色网格状碎片消散"
+        }
+      ]
+    },
+    {
+      "prop_id": "prop_002",
+      "name": "巨型宇宙水母",
+      "identity_scope": "individual",
+      "description": "半透明球形伞盖、带有金色发光触须的巨大水母状天体，内部可见复杂器官结构",
+      "first_presence_seconds": 48.0,
+      "last_presence_seconds": 287.0,
+      "state_changes": [
+        {
+          "seconds": 287,
+          "state_change_kind": "destroyed",
+          "description": "失去光芒后外壳剥落解体"
+        }
+      ]
+    },
+    {
+      "prop_id": "prop_003",
+      "name": "绿色多眼有机体",
+      "identity_scope": "individual",
+      "description": "附着在岩石上的小型绿色多足生物，具有多个圆形眼睛",
+      "first_presence_seconds": 17.0,
+      "last_presence_seconds": 33.0,
+      "state_changes": []
+    }
+  ],
+  "locations": [
+    {
+      "loc_id": "loc_001",
+      "name": "深空星云区域",
+      "identity_scope": "scene",
+      "description": "布满繁星与暗色星云的深邃太空背景",
+      "first_presence_seconds": 5.0,
+      "last_presence_seconds": 320.0,
+      "state_changes": []
+    },
+    {
+      "loc_id": "loc_002",
+      "name": "漂浮岩石群",
+      "identity_scope": "scene",
+      "description": "太空中大量不规则灰色岩石聚集形成的漂浮群落，表面有漩涡纹理",
+      "first_presence_seconds": 17.0,
+      "last_presence_seconds": 120.0,
+      "state_changes": [
+        {
+          "seconds": 117,
+          "state_change_kind": "destroyed",
+          "description": "被菱形裂隙吸入并粉碎消散"
+        }
+      ]
+    },
+    {
+      "loc_id": "loc_003",
+      "name": "水下植物森林",
+      "identity_scope": "scene",
+      "description": "清澈浅水中的茂密水生植物环境，有弯曲的植物茎干和气泡",
+      "first_presence_seconds": 320.0,
+      "last_presence_seconds": 338.0,
+      "state_changes": []
+    }
+  ],
+  "screenplay": {
+    "scenes": [
+      {
+        "scene_id": "scene_0001",
+        "start_seconds": 0,
+        "end_seconds": 5,
+        "loc_id": "",
+        "scene_title": "Blender标志开场",
+        "scene_purpose": "展示制作方标识",
+        "prev_boundary": {
+          "kind": "initial",
+          "evidence": "视频起始"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0001",
+            "start_seconds": 0,
+            "end_seconds": 5,
+            "duration_seconds": 5,
+            "prev_boundary": {
+              "kind": "initial",
+              "evidence": "视频起始黑屏后出现Blender标志动画",
+              "confidence": "high"
+            },
+            "action": "黑色背景上出现银色Blender标志，标志从模糊到清晰再淡出至黑屏",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "正面",
+              "movement": "static",
+              "composition_note": "标志居中，黑色背景"
+            },
+            "present_entity_ids": []
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0002",
+        "start_seconds": 5,
+        "end_seconds": 17,
+        "loc_id": "loc_001",
+        "scene_title": "深空与小生物登场",
+        "scene_purpose": "建立太空环境并引入主角",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "从黑屏转场至星空背景，场景内容完全改变",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0002",
+            "start_seconds": 5,
+            "end_seconds": 12,
+            "duration_seconds": 7,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "黑屏渐变为布满星星的深空星云背景",
+              "confidence": "high"
+            },
+            "action": "深邃太空中繁星点点，暗色星云缓慢飘动，画面逐渐变亮显现更多细节",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "正面",
+              "movement": "slow_pan",
+              "composition_note": "广阔星空，星云分布于画面各处"
+            },
+            "present_entity_ids": [
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0003",
+            "start_seconds": 12,
+            "end_seconds": 17,
+            "duration_seconds": 5,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "紫色发光小生物从画面右侧飞入，成为新的视觉焦点",
+              "confidence": "high"
+            },
+            "action": "一只紫黄色发光的小生物拖着金色尾迹从右上方飞入画面，随后第二只跟随出现",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "正面",
+              "movement": "tracking",
+              "composition_note": "小生物从右上向左下飞行，拖曳光尾"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0003",
+        "start_seconds": 17,
+        "end_seconds": 48,
+        "loc_id": "loc_002",
+        "scene_title": "漂浮岩石群探索",
+        "scene_purpose": "展示主角在岩石群中的活动与环境互动",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "大量灰色漂浮岩石进入画面，场景从纯太空变为岩石群环境",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0004",
+            "start_seconds": 17,
+            "end_seconds": 25,
+            "duration_seconds": 8,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "大量不规则灰色岩石从右侧涌入画面，构成新的场景主体",
+              "confidence": "high"
+            },
+            "action": "多只紫色小生物在漂浮的灰色岩石间穿梭飞行，岩石表面有漩涡状纹理，伴有金色粒子飘散",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "高角度俯视",
+              "movement": "tracking",
+              "composition_note": "岩石群占据画面右侧，小生物在其中穿行"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_002",
+              "prop_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0005",
+            "start_seconds": 25,
+            "end_seconds": 33,
+            "duration_seconds": 8,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "同一岩石群场景内连续动作，镜头持续推进",
+              "confidence": "high"
+            },
+            "action": "镜头推进至岩石群内部，一只紫色小生物停在一块岩石上，旁边有一只绿色多眼小生物",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面",
+              "movement": "zoom_in",
+              "composition_note": "聚焦于停在岩石上的紫色小生物"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_002",
+              "prop_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0006",
+            "start_seconds": 33,
+            "end_seconds": 48,
+            "duration_seconds": 15,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "同一场景内连续动作，小生物在岩石上做出表情变化",
+              "confidence": "high"
+            },
+            "action": "紫色小生物在岩石上环顾四周，表情从好奇变为惊讶，其他小生物从其身边飞过，它抬头望向远方",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "正面偏侧",
+              "movement": "static",
+              "composition_note": "特写小生物面部表情变化，背景为模糊岩石"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_002"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0004",
+        "start_seconds": 48,
+        "end_seconds": 65,
+        "loc_id": "loc_001",
+        "scene_title": "发现巨型水母",
+        "scene_purpose": "引入关键道具巨型水母，建立视觉奇观",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "镜头切换至全新视角，巨型发光水母成为画面主体",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0007",
+            "start_seconds": 48,
+            "end_seconds": 55,
+            "duration_seconds": 7,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "画面切至紫色小生物仰望视角，巨型金色水母出现在左上方",
+              "confidence": "high"
+            },
+            "action": "紫色小生物仰头凝视，一只巨大的半透明水母悬浮在太空中，伞盖发出金色光芒，触须向外延伸",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "低角度仰视",
+              "movement": "static",
+              "composition_note": "小生物在右下角，水母占据左上大部分画面"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "prop_002",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0008",
+            "start_seconds": 55,
+            "end_seconds": 65,
+            "duration_seconds": 10,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "同一水母场景内镜头持续拉近展示细节",
+              "confidence": "high"
+            },
+            "action": "镜头缓慢推近水母，展示其半透明伞盖内部的复杂结构和金色发光触须，触须上有细小光点流动",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "正面",
+              "movement": "zoom_in",
+              "composition_note": "水母居中，触须向四周延伸"
+            },
+            "present_entity_ids": [
+              "prop_002",
+              "loc_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0005",
+        "start_seconds": 65,
+        "end_seconds": 76,
+        "loc_id": "loc_001",
+        "scene_title": "菱形裂隙出现",
+        "scene_purpose": "引入危险元素菱形裂隙，推动剧情转折",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "强光爆发后画面切至新物体，菱形裂隙取代水母成为视觉中心",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0009",
+            "start_seconds": 65,
+            "end_seconds": 70,
+            "duration_seconds": 5,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "强光闪烁后出现紫色小生物惊讶表情特写，随后切至菱形物体",
+              "confidence": "high"
+            },
+            "action": "紫色小生物露出震惊表情，手捂嘴巴；随即画面切至太空中一个发光的菱形轮廓逐渐成形",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "正面",
+              "movement": "cut",
+              "composition_note": "先特写小生物表情，再切至远景菱形"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "prop_001",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0010",
+            "start_seconds": 70,
+            "end_seconds": 76,
+            "duration_seconds": 6,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "菱形裂隙持续显现，边缘光芒增强",
+              "confidence": "high"
+            },
+            "action": "黑色菱形裂隙完全成形，边缘发出紫色光芒并向外辐射光线，悬浮在星空中",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "正面",
+              "movement": "static",
+              "composition_note": "菱形居中，紫色光芒向四周放射"
+            },
+            "present_entity_ids": [
+              "prop_001",
+              "loc_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0006",
+        "start_seconds": 76,
+        "end_seconds": 120,
+        "loc_id": "loc_002",
+        "scene_title": "岩石群被吸入裂隙",
+        "scene_purpose": "展现菱形裂隙的破坏力，制造紧张感",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "镜头拉远显示岩石群整体，小生物站在岩石上观察裂隙",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0011",
+            "start_seconds": 76,
+            "end_seconds": 85,
+            "duration_seconds": 9,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "镜头拉远至广角，展示岩石群全貌和小生物位置关系",
+              "confidence": "high"
+            },
+            "action": "紫色小生物站在漂浮岩石上，周围其他小生物开始向菱形裂隙方向飞去，岩石也开始移动",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "高角度",
+              "movement": "pull_back",
+              "composition_note": "岩石群在右侧，裂隙方向在左侧画外"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_002",
+              "prop_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0012",
+            "start_seconds": 85,
+            "end_seconds": 95,
+            "duration_seconds": 10,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "同一场景内岩石和小生物加速向裂隙移动",
+              "confidence": "high"
+            },
+            "action": "岩石和小生物被一股力量牵引着飞向菱形裂隙，速度越来越快，小生物露出惊恐表情试图抓住岩石",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面追踪",
+              "movement": "tracking",
+              "composition_note": "跟随小生物运动轨迹，背景为快速后退的岩石"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_002",
+              "prop_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0013",
+            "start_seconds": 95,
+            "end_seconds": 107,
+            "duration_seconds": 12,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "持续展现被吸入过程，镜头角度变化但场景未变",
+              "confidence": "high"
+            },
+            "action": "大量岩石和小生物被吸入菱形裂隙，裂隙边缘光芒剧烈闪烁，紫色小生物在岩石间挣扎躲避",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "混合角度",
+              "movement": "dynamic",
+              "composition_note": "多角度展现吸入过程的混乱场面"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_002",
+              "prop_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0014",
+            "start_seconds": 107,
+            "end_seconds": 120,
+            "duration_seconds": 13,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "岩石群即将完全被吸入，小生物独自留在最后几块岩石上",
+              "confidence": "high"
+            },
+            "action": "大部分岩石已被吸入裂隙，紫色小生物站在一块孤立的岩石上，周围只剩零星碎石，它显得孤立无援",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "正面",
+              "movement": "static",
+              "composition_note": "小生物居中，背景为即将消失的岩石和发光的裂隙边缘"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_002",
+              "prop_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0007",
+        "start_seconds": 120,
+        "end_seconds": 149,
+        "loc_id": "loc_001",
+        "scene_title": "小生物穿越裂隙",
+        "scene_purpose": "主角主动进入未知领域，剧情进入新阶段",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "小生物离开岩石独自飞向裂隙，场景从岩石群转为纯太空穿越",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0015",
+            "start_seconds": 120,
+            "end_seconds": 129,
+            "duration_seconds": 9,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "小生物脱离岩石独自飞行，背景变为纯星空",
+              "confidence": "high"
+            },
+            "action": "紫色小生物离开最后的岩石，独自在太空中向菱形裂隙飞去，身后拖着金色尾迹",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "侧面追踪",
+              "movement": "tracking",
+              "composition_note": "小生物从左向右飞行，背景为深色星空"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_001",
+              "prop_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0016",
+            "start_seconds": 129,
+            "end_seconds": 138,
+            "duration_seconds": 9,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "接近巨型水母，场景中出现水母作为参照物",
+              "confidence": "high"
+            },
+            "action": "小生物飞近巨型水母，在水母巨大的伞盖旁显得极其渺小，它继续向裂隙方向前进",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "extreme_wide",
+              "angle_or_view": "侧面",
+              "movement": "static",
+              "composition_note": "水母占据大部分画面，小生物只是一个小点"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "prop_002",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0017",
+            "start_seconds": 138,
+            "end_seconds": 149,
+            "duration_seconds": 11,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "小生物接触裂隙边缘，被能量包裹",
+              "confidence": "high"
+            },
+            "action": "小生物抵达菱形裂隙边缘，被紫色光芒包围，身体开始发光变形，随后被吸入裂隙内部",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "close_up",
+              "angle_or_view": "正面",
+              "movement": "zoom_in",
+              "composition_note": "聚焦小生物被能量包裹的瞬间"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "prop_001",
+              "loc_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0008",
+        "start_seconds": 149,
+        "end_seconds": 186,
+        "loc_id": "loc_001",
+        "scene_title": "裂隙内部能量世界",
+        "scene_purpose": "展示裂隙内部的奇幻景象，小生物获得新能力",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "进入裂隙后环境完全改变，充满金色能量流和奇异结构",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0018",
+            "start_seconds": 149,
+            "end_seconds": 160,
+            "duration_seconds": 11,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "进入裂隙后画面变为金色能量充斥的空间，视觉风格突变",
+              "confidence": "high"
+            },
+            "action": "小生物在金色能量流中穿梭，身体被能量包裹后变得更加明亮，它在能量中自由游动，表情从惊恐变为好奇",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "多角度",
+              "movement": "dynamic",
+              "composition_note": "金色能量流充满画面，小生物在其中穿行"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0019",
+            "start_seconds": 160,
+            "end_seconds": 172,
+            "duration_seconds": 12,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "发现水母内部结构，镜头展示复杂有机形态",
+              "confidence": "high"
+            },
+            "action": "小生物游入巨型水母内部，看到水母体内复杂的器官结构和多个眼睛状图案，它在其中探索",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "内部视角",
+              "movement": "pan",
+              "composition_note": "展示水母内部的多层结构和发光器官"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "prop_002",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0020",
+            "start_seconds": 172,
+            "end_seconds": 186,
+            "duration_seconds": 14,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "众多同类小生物出现，围绕水母内部飞行",
+              "confidence": "high"
+            },
+            "action": "大量紫色小生物从水母内部涌现，它们在金色能量中成群飞行，主角小生物加入群体一起游动",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "俯视",
+              "movement": "tracking",
+              "composition_note": "群体小生物在能量流中形成壮观场面"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "prop_002",
+              "loc_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0009",
+        "start_seconds": 186,
+        "end_seconds": 214,
+        "loc_id": "loc_001",
+        "scene_title": "群体汇聚成能量体",
+        "scene_purpose": "小生物们集体行动，准备对抗或穿越某种障碍",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "群体开始有组织地汇聚，形成明确的运动方向",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0021",
+            "start_seconds": 186,
+            "end_seconds": 197,
+            "duration_seconds": 11,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "小生物群体开始向特定方向集结，形成锥形队形",
+              "confidence": "high"
+            },
+            "action": "所有小生物聚集在一起，形成一个发光的锥形能量体，主角位于前端引领方向",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "侧面",
+              "movement": "tracking",
+              "composition_note": "锥形能量体从左向右移动，金色光芒耀眼"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0022",
+            "start_seconds": 197,
+            "end_seconds": 214,
+            "duration_seconds": 17,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "能量体持续加速前进，但超过15秒需拆分",
+              "confidence": "high"
+            },
+            "action": "能量体以极高速度穿越太空，身后留下金色轨迹，前方出现另一个巨大的黑暗障碍物",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "后方追踪",
+              "movement": "fast_tracking",
+              "composition_note": "能量体在画面中央高速前进，背景星光拉长成线"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0010",
+        "start_seconds": 214,
+        "end_seconds": 245,
+        "loc_id": "loc_001",
+        "scene_title": "撞击黑暗障碍物",
+        "scene_purpose": "能量体与障碍物发生冲突，产生剧烈视觉效果",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "能量体接近并接触黑暗障碍物，产生碰撞效果",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0023",
+            "start_seconds": 214,
+            "end_seconds": 226,
+            "duration_seconds": 12,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "能量体前端接触黑暗障碍物，产生冲击波",
+              "confidence": "high"
+            },
+            "action": "金色能量体撞上黑暗的球状障碍物，撞击点爆发出强烈光芒，能量体开始分散重组",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "正面",
+              "movement": "static",
+              "composition_note": "撞击点在画面中央，光芒向四周扩散"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0024",
+            "start_seconds": 226,
+            "end_seconds": 239,
+            "duration_seconds": 13,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "撞击后能量体变形穿透障碍物",
+              "confidence": "high"
+            },
+            "action": "能量体在撞击中变形，像液体一样包裹住障碍物，小生物们在其中挣扎重组",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "多角度",
+              "movement": "dynamic",
+              "composition_note": "展示能量体包裹障碍物的动态过程"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0025",
+            "start_seconds": 239,
+            "end_seconds": 245,
+            "duration_seconds": 6,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "能量体成功穿透障碍物，继续前进",
+              "confidence": "high"
+            },
+            "action": "能量体突破障碍物后重新凝聚，以更快的速度向前冲去，障碍物在后方碎裂",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "后方",
+              "movement": "tracking",
+              "composition_note": "能量体远离镜头，障碍物碎片四散"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0011",
+        "start_seconds": 245,
+        "end_seconds": 277,
+        "loc_id": "loc_001",
+        "scene_title": "击穿菱形裂隙",
+        "scene_purpose": "能量体返回并摧毁最初的菱形裂隙，完成循环",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "能量体调转方向朝向最初的菱形裂隙",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0026",
+            "start_seconds": 245,
+            "end_seconds": 256,
+            "duration_seconds": 11,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "能量体转向对准菱形裂隙，准备再次撞击",
+              "confidence": "high"
+            },
+            "action": "金色能量体掉头飞向之前的菱形裂隙，速度极快，裂隙边缘开始不稳定地闪烁",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "侧面",
+              "movement": "tracking",
+              "composition_note": "能量体从左向右冲向裂隙"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "prop_001",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0027",
+            "start_seconds": 256,
+            "end_seconds": 267,
+            "duration_seconds": 11,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "撞击瞬间，产生巨大爆炸效果",
+              "confidence": "high"
+            },
+            "action": "能量体猛烈撞击菱形裂隙，撞击点爆发出刺眼白光，裂隙开始破裂",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "正面",
+              "movement": "shake",
+              "composition_note": "撞击点强光充满画面，伴随震动效果"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "prop_001",
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0028",
+            "start_seconds": 267,
+            "end_seconds": 277,
+            "duration_seconds": 10,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "裂隙彻底碎裂消散，画面转为白色",
+              "confidence": "high"
+            },
+            "action": "菱形裂隙完全碎裂成白色网格状碎片，随后消散在白光中，整个画面被白色覆盖",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "正面",
+              "movement": "fade_to_white",
+              "composition_note": "白色碎片向四周飞散，最终全屏变白"
+            },
+            "present_entity_ids": [
+              "prop_001",
+              "loc_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0012",
+        "start_seconds": 277,
+        "end_seconds": 320,
+        "loc_id": "loc_001",
+        "scene_title": "化为行星",
+        "scene_purpose": "能量体转化为行星，完成形态转变",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "白光散去后出现新的天体形态",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0029",
+            "start_seconds": 277,
+            "end_seconds": 290,
+            "duration_seconds": 13,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "白光渐退，显现出一个破碎的球状天体",
+              "confidence": "high"
+            },
+            "action": "白光中逐渐显现出一个由岩石和能量组成的球体，表面不断有碎片脱落又重组",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "正面",
+              "movement": "slow_zoom_out",
+              "composition_note": "球体居中，周围有漂浮的碎片"
+            },
+            "present_entity_ids": [
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0030",
+            "start_seconds": 290,
+            "end_seconds": 307,
+            "duration_seconds": 17,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "球体逐渐稳定成型，但超过15秒需拆分",
+              "confidence": "high"
+            },
+            "action": "球体表面的碎片逐渐平息，内部发出温暖的金色光芒，外形越来越接近完整的行星",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "正面",
+              "movement": "static",
+              "composition_note": "行星逐渐成形，光芒从内部透出"
+            },
+            "present_entity_ids": [
+              "loc_001"
+            ]
+          },
+          {
+            "segment_id": "seg_0031",
+            "start_seconds": 307,
+            "end_seconds": 320,
+            "duration_seconds": 13,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "行星完全成型，展现出类似地球的外观",
+              "confidence": "high"
+            },
+            "action": "球体最终稳定为一颗蓝绿色的行星，表面有云层和陆地轮廓，在星空中静静悬浮",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "正面",
+              "movement": "slow_rotate",
+              "composition_note": "行星缓慢自转，展示完整外观"
+            },
+            "present_entity_ids": [
+              "loc_001"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0013",
+        "start_seconds": 320,
+        "end_seconds": 338,
+        "loc_id": "loc_003",
+        "scene_title": "水下新世界",
+        "scene_purpose": "展示转化后的新环境，小生物以新形态出现",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "从太空行星场景切换至水下环境，地点完全改变",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0032",
+            "start_seconds": 320,
+            "end_seconds": 329,
+            "duration_seconds": 9,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "镜头从行星表面俯冲入水，进入水下世界",
+              "confidence": "high"
+            },
+            "action": "镜头从行星大气层俯冲而下，穿过水面进入清澈的水下世界，看到茂密的水生植物和弯曲的茎干",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "wide",
+              "angle_or_view": "俯视转平视",
+              "movement": "dive",
+              "composition_note": "从空中视角过渡到水下视角"
+            },
+            "present_entity_ids": [
+              "loc_003"
+            ]
+          },
+          {
+            "segment_id": "seg_0033",
+            "start_seconds": 329,
+            "end_seconds": 338,
+            "duration_seconds": 9,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "新形态的小生物出现在画面中",
+              "confidence": "high"
+            },
+            "action": "一只灰白色带紫色鳍的小生物从植物后方游出，停在一根弯曲的茎干上，好奇地观察四周，然后游走",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "medium",
+              "angle_or_view": "正面",
+              "movement": "static_then_tracking",
+              "composition_note": "小生物停在茎干上时居中，游走时镜头跟随"
+            },
+            "present_entity_ids": [
+              "char_001",
+              "loc_003"
+            ]
+          }
+        ]
+      },
+      {
+        "scene_id": "scene_0014",
+        "start_seconds": 338,
+        "end_seconds": 390,
+        "loc_id": "",
+        "scene_title": "片尾字幕",
+        "scene_purpose": "展示制作信息和版权说明",
+        "prev_boundary": {
+          "kind": "change",
+          "evidence": "画面切至黑底金字标题，进入片尾",
+          "confidence": "high"
+        },
+        "visual_segments": [
+          {
+            "segment_id": "seg_0034",
+            "start_seconds": 338,
+            "end_seconds": 344,
+            "duration_seconds": 6,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "出现金色标题文字SINGULARITY",
+              "confidence": "high"
+            },
+            "action": "黑色背景上出现金色艺术字体标题SINGULARITY，停留数秒后淡出",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "insert",
+              "angle_or_view": "正面",
+              "movement": "static",
+              "composition_note": "标题居中，黑色背景"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0035",
+            "start_seconds": 344.0,
+            "end_seconds": 359.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "片尾字幕开始滚动，显示主创人员名单",
+              "confidence": "high"
+            },
+            "action": "黑色星空背景下，白色文字依次显示导演、艺术总监、制片人、执行制片人及音乐制作人员名单",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "insert",
+              "angle_or_view": "正面",
+              "movement": "scroll",
+              "composition_note": "文字居中排列，背景为缓慢移动的暗色星云"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0036",
+            "start_seconds": 359.0,
+            "end_seconds": 374.0,
+            "duration_seconds": 15.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "字幕继续滚动，显示技术与艺术团队名单",
+              "confidence": "high"
+            },
+            "action": "字幕继续滚动，显示音效设计、Blender Studio艺术团队以及软件与管线开发人员名单",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "insert",
+              "angle_or_view": "正面",
+              "movement": "scroll",
+              "composition_note": "多列文字并排显示，背景星云持续缓慢移动"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0037",
+            "start_seconds": 374.0,
+            "end_seconds": 382.0,
+            "duration_seconds": 8.0,
+            "prev_boundary": {
+              "kind": "continuity",
+              "evidence": "字幕滚动进入致谢与开源声明部分",
+              "confidence": "high"
+            },
+            "action": "显示Blender员工名单、特别致谢名单，随后出现影片开源声明及感谢订阅者的文字",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "insert",
+              "angle_or_view": "正面",
+              "movement": "scroll",
+              "composition_note": "文字居中，底部出现心形符号"
+            },
+            "present_entity_ids": []
+          },
+          {
+            "segment_id": "seg_0038",
+            "start_seconds": 382.0,
+            "end_seconds": 390.0,
+            "duration_seconds": 8.0,
+            "prev_boundary": {
+              "kind": "visual_change",
+              "evidence": "显示最终版权许可信息后画面淡出至全黑",
+              "confidence": "high"
+            },
+            "action": "显示Creative Commons许可协议及版权信息，随后文字逐渐变暗，画面完全淡出至黑屏",
+            "dialogue_or_audio": "",
+            "camera": {
+              "shot_size": "insert",
+              "angle_or_view": "正面",
+              "movement": "fade_out",
+              "composition_note": "文字居中，最终画面变为纯黑"
+            },
+            "present_entity_ids": []
+          }
+        ]
+      }
+    ]
+  },
+  "self_check": {
+    "duration_check": "passed",
+    "segment_count_check": "passed",
+    "boundary_reason_check": "passed",
+    "low_confidence_segment_ids": [],
+    "notes": "split_gt30 merged for former seg_0035 [344,390] into 4 parts (<=15s); no new entities; no remaining >30s; 2 legacy segments still in (15,30]s."
+  },
+  "counts": {
+    "characters": 1,
+    "props": 3,
+    "locations": 3,
+    "scenes": 14,
+    "visual_segments": 38
+  }
+}

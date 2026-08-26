@@ -25,7 +25,7 @@ PYTHON_BIN="${PYTHON_BIN:-python3}"
 # Prefer the F3GS env used by this machine's annotation console when unset/default.
 if [[ "${PYTHON_BIN}" == "python3" || "${PYTHON_BIN}" == "python" ]]; then
   for _py in \
-    "F3GS/bin/python" \
+    "${CONDA_ENVS_ROOT}/F3GS/bin/python" \
     "${HOME}/miniconda3/envs/F3GS/bin/python"
   do
     if [[ -x "${_py}" ]]; then
@@ -190,7 +190,7 @@ console_print_access() {
   echo "  Local:    ${FRONTEND_URL_LOCAL}"
   echo "  Backend:  ${BACKEND_HEALTH_URL}"
   echo "  Logs:     ${LOG_ROOT}"
-  echo "  Primary UI: KML HTTPS AccessProxy → :${FRONTEND_PORT} (e.g. https://…example.com/)."
+  echo "  Primary UI: KML HTTPS AccessProxy → :${FRONTEND_PORT} (e.g. https://kml-dtmachine-…corp.example.org/)."
   echo "  If the UI shows SSO/login HTML, refresh the page to renew accessproxy_session."
   while read -r ip; do
     [[ -n "${ip}" ]] || continue

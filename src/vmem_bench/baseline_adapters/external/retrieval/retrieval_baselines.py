@@ -194,7 +194,7 @@ def _manifest_frames(cache_dir: Path, expected: dict) -> list[Path] | None:
 def _decode_shared_segment(ffmpeg: str, segment_video: Path, cache_dir: Path, meta: dict) -> list[Path] | None:
     profile_dir = cache_dir.parent
     lock = profile_dir / f"{cache_dir.name}.lock"
-    deadline = time.time() + float(os.environ.get("MAVE_DECODE_CACHE_WAIT_SEC", "600"))
+    deadline = time.time() + float(os.environ.get("VMEM_DECODE_CACHE_WAIT_SEC", "600"))
     got_lock = False
     profile_dir.mkdir(parents=True, exist_ok=True)
     while time.time() < deadline:
@@ -222,7 +222,7 @@ def _decode_shared_segment(ffmpeg: str, segment_video: Path, cache_dir: Path, me
             subprocess.run(
                 [
                     ffmpeg, "-y", "-i", str(segment_video),
-                    "-threads", os.environ.get("MAVE_FFMPEG_THREADS", "1"),
+                    "-threads", os.environ.get("VMEM_FFMPEG_THREADS", "1"),
                     "-vf", f"fps={_WAN_FPS},scale={_WAN_W}:{_WAN_H}",
                     "-pix_fmt", "rgb24", str(out),
                 ],
@@ -397,7 +397,7 @@ class MemoryRetrievalStore:
         proc = subprocess.run(
             [
                 self.config.ffmpeg, "-y", "-ss", f"{seconds:.3f}", "-i", self.source_video,
-                "-threads", os.environ.get("MAVE_FFMPEG_THREADS", "1"),
+                "-threads", os.environ.get("VMEM_FFMPEG_THREADS", "1"),
                 "-frames:v", "1", "-vf", "scale=512:-1", "-q:v", "2", str(out),
             ],
             stdout=subprocess.DEVNULL,

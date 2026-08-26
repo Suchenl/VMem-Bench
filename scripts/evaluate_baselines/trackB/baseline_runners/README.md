@@ -77,9 +77,9 @@ story.
 
 ```bash
 # On each kml-a800 node that will run IAMFlow workers:
-cd .
+cd ${MONTAGE_ROOT}
 IAMFLOW_SERVICE_GPU=6 \
-IAMFLOW_VLLM_PY=vllm/bin/python \
+IAMFLOW_VLLM_PY=${CONDA_ENVS_ROOT}/vllm/bin/python \
 IAMFLOW_LLM_PORT=8100 \
 IAMFLOW_VLM_PORT=8101 \
 bash benchmarks/VMem-Bench/scripts/evaluate_baselines/trackB/baseline_runners/iamflow/launch_vllm_services.sh

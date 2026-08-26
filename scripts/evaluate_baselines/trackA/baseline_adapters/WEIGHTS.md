@@ -45,13 +45,13 @@
 - MemStrata: 无需 vendored symlink；感知权重按 `PUBLIC_MODELS_ROOT` 解析。跑法（本地 gpu0）：
 
 ```bash
-SAM3=./models/vendor/sam3_transformers59
+SAM3=${MONTAGE_ROOT}/models/vendor/sam3_transformers59
 SRC=./src
 cd benchmarks/VMem-Bench/scripts/evaluate_baselines/trackA/baseline_adapters/causal
 PUBLIC_MODELS_ROOT=${PUBLIC_MODELS_ROOT} \
 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 CUDA_VISIBLE_DEVICES=0 \
 PYTHONPATH="$SAM3:$SRC:$(pwd)" \
-helios/bin/python -u runner.py \
+python3 -u runner.py \
   --adapter memstrata --movie-dir ../../../data/BlenderOpenMovies/big_buck_bunny \
   --limit 4 --input-mode name_anchored
 # 产物：<movie>/benchmark_run/visual_selections/memstrata.json（+ _ref_frames/memstrata/*.png）
@@ -68,13 +68,13 @@ env：`vllm`（torch2.10+vllm0.16.1rc1）。`scoring.visual_coverage` 默认 `12
 **起服务**（共享节点，加载 64GB 权重时若被外部任务抢卡会 OOM，重试即可；用 `nvidia-smi` 选空闲卡）：
 
 ```bash
-VLLM=vllm
+VLLM=${CONDA_ENVS_ROOT}/vllm
 NVJIT=$($VLLM/bin/python -c "import pathlib,sys;p=pathlib.Path(sys.prefix)/'lib'/f'python{sys.version_info.major}.{sys.version_info.minor}'/'site-packages'/'nvidia'/'nvjitlink'/'lib';print(p if p.is_dir() else '')")
 CUDA_VISIBLE_DEVICES=<free_gpu> LD_LIBRARY_PATH=$NVJIT NO_PROXY=localhost,127.0.0.1,0.0.0.0 PYTORCH_ALLOC_CONF=expandable_segments:True \
 $VLLM/bin/vllm serve $Qwen3-VL-32B-Instruct \
   --served-model-name qwen3-vl-32b --host 0.0.0.0 --port 8110 --tensor-parallel-size 1 \
   --max-model-len 28672 --gpu-memory-utilization 0.92 \
-  --limit-mm-per-prompt '{"image":96,"video":1}' --allowed-local-media-path /data --trust-remote-code
+  --limit-mm-per-prompt '{"image":96,"video":1}' --allowed-local-media-path ${ALLOWED_LOCAL_MEDIA_PATH:-.} --trust-remote-code
 ```
 
 - `--limit-mm-per-prompt image=96`：大足迹系统（MemFlow 每 segment 可达 40+ 参考图）需要更高的单请求图上限（默认 24 不够）。

@@ -1,0 +1,1847 @@
+{
+    "video_duration_seconds": 887,
+    "minimum_required_segments": 60,
+    "characters": [
+        {
+            "char_id": "char_001",
+            "name": "红发女子",
+            "identity_scope": "individual",
+            "description": "短发，红棕色头发，身穿灰色背心和棕色裤子，手臂有纹身，手持长矛",
+            "first_presence_seconds": 26,
+            "last_presence_seconds": 744,
+            "state_changes": [
+                {
+                    "seconds": 70,
+                    "state_change_kind": "acquired",
+                    "description": "获得长矛"
+                },
+                {
+                    "seconds": 645,
+                    "state_change_kind": "appearance_changed",
+                    "description": "头发出现灰白色条纹，显示岁月流逝"
+                }
+            ]
+        },
+        {
+            "char_id": "char_002",
+            "name": "光头男子",
+            "identity_scope": "individual",
+            "description": "光头，有胡子，身穿深色衣服，手持短刀",
+            "first_presence_seconds": 41,
+            "last_presence_seconds": 73,
+            "state_changes": [
+                {
+                    "seconds": 73.0,
+                    "state_change_kind": "destroyed",
+                    "description": "被红发女子杀死"
+                }
+            ]
+        },
+        {
+            "char_id": "char_003",
+            "name": "萨满",
+            "identity_scope": "individual",
+            "description": "老男人，大胡子，面部有金属装饰，身穿红色长袍",
+            "first_presence_seconds": 109,
+            "last_presence_seconds": 462,
+            "state_changes": []
+        },
+        {
+            "char_id": "char_004",
+            "name": "小龙",
+            "identity_scope": "individual",
+            "description": "小型龙类生物，有翅膀，鳞片呈浅棕色",
+            "first_presence_seconds": 182,
+            "last_presence_seconds": 707,
+            "state_changes": [
+                {
+                    "seconds": 540.0,
+                    "state_change_kind": "destroyed",
+                    "description": "在洞穴中仅余骸骨（已死亡）"
+                }
+            ]
+        },
+        {
+            "char_id": "char_005",
+            "name": "大龙",
+            "identity_scope": "individual",
+            "description": "大型龙类生物，深色鳞片，有角，会喷火",
+            "first_presence_seconds": 313,
+            "last_presence_seconds": 666,
+            "state_changes": [
+                {
+                    "seconds": 666,
+                    "state_change_kind": "destroyed",
+                    "description": "在洞穴战斗中被红发女子杀死"
+                }
+            ]
+        }
+    ],
+    "props": [
+        {
+            "prop_id": "prop_001",
+            "name": "长矛",
+            "identity_scope": "individual",
+            "description": "长柄武器，末端有金属装饰和树纹图案",
+            "first_presence_seconds": 29,
+            "last_presence_seconds": 608,
+            "state_changes": []
+        },
+        {
+            "prop_id": "prop_002",
+            "name": "碗",
+            "identity_scope": "individual",
+            "description": "红色陶碗，盛有白色液体",
+            "first_presence_seconds": 121,
+            "last_presence_seconds": 218,
+            "state_changes": []
+        },
+        {
+            "prop_id": "prop_003",
+            "name": "苹果",
+            "identity_scope": "category",
+            "description": "红色水果",
+            "first_presence_seconds": 169,
+            "last_presence_seconds": 171,
+            "state_changes": [
+                {
+                    "seconds": 171,
+                    "state_change_kind": "consumed",
+                    "description": "红发女子吃掉苹果"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_004",
+            "name": "榴莲",
+            "identity_scope": "category",
+            "description": "带刺的水果",
+            "first_presence_seconds": 172,
+            "last_presence_seconds": 175,
+            "state_changes": []
+        }
+    ],
+    "locations": [
+        {
+            "loc_id": "loc_001",
+            "name": "雪山",
+            "identity_scope": "scene",
+            "description": "覆盖着厚厚积雪的山脉，气候寒冷",
+            "first_presence_seconds": 4,
+            "last_presence_seconds": 715,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_002",
+            "name": "帐篷",
+            "identity_scope": "scene",
+            "description": "内部有火堆，挂着各种装饰物",
+            "first_presence_seconds": 104,
+            "last_presence_seconds": 462,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_003",
+            "name": "城市废墟",
+            "identity_scope": "scene",
+            "description": "破败的建筑，街道布满瓦砾",
+            "first_presence_seconds": 151,
+            "last_presence_seconds": 349,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_004",
+            "name": "沙漠",
+            "identity_scope": "scene",
+            "description": "广阔的沙丘，阳光强烈",
+            "first_presence_seconds": 367,
+            "last_presence_seconds": 378,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_005",
+            "name": "竹林",
+            "identity_scope": "scene",
+            "description": "茂密的绿色竹子森林",
+            "first_presence_seconds": 379,
+            "last_presence_seconds": 385,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_006",
+            "name": "峡谷",
+            "identity_scope": "scene",
+            "description": "红色岩石构成的峡谷地形",
+            "first_presence_seconds": 386,
+            "last_presence_seconds": 393,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_007",
+            "name": "洞穴",
+            "identity_scope": "scene",
+            "description": "黑暗的内部空间，有发光晶体",
+            "first_presence_seconds": 484,
+            "last_presence_seconds": 676,
+            "state_changes": [
+                {
+                    "seconds": 675,
+                    "state_change_kind": "broken",
+                    "description": "洞穴坍塌"
+                }
+            ]
+        },
+        {
+            "loc_id": "loc_008",
+            "name": "悬崖边",
+            "identity_scope": "scene",
+            "description": "高处的岩石边缘，可以俯瞰远方山脉",
+            "first_presence_seconds": 684,
+            "last_presence_seconds": 744,
+            "state_changes": []
+        }
+    ],
+    "screenplay": {
+        "scenes": [
+            {
+                "scene_id": "scene_0001",
+                "start_seconds": 0,
+                "end_seconds": 102,
+                "loc_id": "loc_001",
+                "scene_title": "雪山战斗",
+                "scene_purpose": "展示红发女子在雪山中与敌人战斗并获得武器",
+                "prev_boundary": {
+                    "kind": "initial",
+                    "evidence": "视频开始"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0001",
+                        "start_seconds": 0,
+                        "end_seconds": 15,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "视频开始",
+                            "confidence": "high"
+                        },
+                        "action": "黑屏后出现雪山全景，字幕显示制作方信息",
+                        "dialogue_or_audio": "风声，音乐起",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "高角度",
+                            "movement": "tracking",
+                            "composition_note": "雪山全景，字幕居中"
+                        },
+                        "present_entity_ids": [
+                            "loc_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0002",
+                        "start_seconds": 15,
+                        "end_seconds": 30,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "连续镜头，红发女子出现",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在雪地中艰难行走，留下脚印",
+                        "dialogue_or_audio": "风雪声，脚步声",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "侧面",
+                            "movement": "tracking",
+                            "composition_note": "人物在画面左侧，向右行走"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_001",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0003",
+                        "start_seconds": 30,
+                        "end_seconds": 45,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "光头男子出现，两人对峙",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子停下，警惕地观察四周，光头男子从高处跳下",
+                        "dialogue_or_audio": "紧张的音乐",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "两人对峙构图"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "loc_001",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0004",
+                        "start_seconds": 45,
+                        "end_seconds": 60,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "战斗开始，快速剪辑",
+                            "confidence": "high"
+                        },
+                        "action": "两人激烈战斗，使用长矛和短刀交锋",
+                        "dialogue_or_audio": "武器碰撞声，喊叫声",
+                        "camera": {
+                            "shot_size": "mixed",
+                            "angle_or_view": "混合",
+                            "movement": "handheld",
+                            "composition_note": "快速切换的打斗镜头"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "loc_001",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0005",
+                        "start_seconds": 60,
+                        "end_seconds": 75,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "战斗继续，红发女子被击倒",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子被击倒在雪地，光头男子逼近，她反击杀死对方",
+                        "dialogue_or_audio": "沉重的呼吸声，武器刺入声",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "低角度",
+                            "movement": "static",
+                            "composition_note": "特写两人面部表情和动作"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "loc_001",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0006",
+                        "start_seconds": 75,
+                        "end_seconds": 90,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "战斗结束，红发女子拿起长矛",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子从死者手中拿起长矛，片名出现",
+                        "dialogue_or_audio": "音乐变缓",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "人物居中，片名叠加"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_001",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0007",
+                        "start_seconds": 90,
+                        "end_seconds": 102,
+                        "duration_seconds": 12,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "转场到帐篷内部",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在雪地中倒下，画面渐黑",
+                        "dialogue_or_audio": "风声减弱",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "高角度",
+                            "movement": "static",
+                            "composition_note": "人物躺在雪地中央"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_001"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0002",
+                "start_seconds": 102,
+                "end_seconds": 150,
+                "loc_id": "loc_002",
+                "scene_title": "帐篷回忆",
+                "scene_purpose": "展示红发女子与萨满的互动，引出回忆",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "场景从雪山切换到帐篷内部"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0008",
+                        "start_seconds": 102,
+                        "end_seconds": 117,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始",
+                            "confidence": "high"
+                        },
+                        "action": "帐篷内，萨满在火堆旁熬药，红发女子躺在一旁",
+                        "dialogue_or_audio": "火堆啪声",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "高角度",
+                            "movement": "static",
+                            "composition_note": "火堆居中，两人在两侧"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_003",
+                            "loc_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0009",
+                        "start_seconds": 117,
+                        "end_seconds": 132,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "萨满递给红发女子碗",
+                            "confidence": "high"
+                        },
+                        "action": "萨满将一碗药递给红发女子，她接过",
+                        "dialogue_or_audio": "萨满低语",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "过肩",
+                            "movement": "static",
+                            "composition_note": "特写碗和两人的手"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_003",
+                            "loc_002",
+                            "prop_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0010",
+                        "start_seconds": 132,
+                        "end_seconds": 147,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "红发女子喝药，看到幻象",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子喝下药，碗中映出城市废墟的幻象",
+                        "dialogue_or_audio": "神秘的音乐",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "正面",
+                            "movement": "zoom",
+                            "composition_note": "特写红发女子面部和碗"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_003",
+                            "loc_002",
+                            "prop_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0011",
+                        "start_seconds": 147,
+                        "end_seconds": 150,
+                        "duration_seconds": 3,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "转场到城市废墟",
+                            "confidence": "high"
+                        },
+                        "action": "画面渐黑，过渡到下一个场景",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "黑屏过渡"
+                        },
+                        "present_entity_ids": []
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0003",
+                "start_seconds": 150,
+                "end_seconds": 205,
+                "loc_id": "loc_003",
+                "scene_title": "城市废墟发现小龙",
+                "scene_purpose": "红发女子在城市废墟中发现并救助受伤的小龙",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "场景从帐篷切换到城市废墟"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0012",
+                        "start_seconds": 150,
+                        "end_seconds": 165,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始",
+                            "confidence": "high"
+                        },
+                        "action": "城市废墟全景，红发女子在街道中行走，寻找食物",
+                        "dialogue_or_audio": "城市环境音",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "高角度",
+                            "movement": "tracking",
+                            "composition_note": "展现废墟全貌"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0013",
+                        "start_seconds": 165,
+                        "end_seconds": 180,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "红发女子发现苹果和榴莲",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子找到苹果和榴莲，听到声音后警惕",
+                        "dialogue_or_audio": "细微的叫声",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "侧面",
+                            "movement": "static",
+                            "composition_note": "人物与食物"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_003",
+                            "prop_003",
+                            "prop_004"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0014",
+                        "start_seconds": 180,
+                        "end_seconds": 195,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "发现受伤的小龙",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在屋顶发现受伤流血的小龙，靠近它",
+                        "dialogue_or_audio": "小龙的哀鸣",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "tracking",
+                            "composition_note": "人物与小龙"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0015",
+                        "start_seconds": 195,
+                        "end_seconds": 205,
+                        "duration_seconds": 10,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "红发女子安抚小龙",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子伸手安抚警惕的小龙，小龙逐渐放松",
+                        "dialogue_or_audio": "轻柔的音乐",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "过肩",
+                            "movement": "static",
+                            "composition_note": "特写手和小龙面部"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_003"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0004",
+                "start_seconds": 205,
+                "end_seconds": 248,
+                "loc_id": "loc_003",
+                "scene_title": "照顾小龙",
+                "scene_purpose": "展示红发女子与小龙建立感情的过程",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "时间跳跃，开始照顾小龙"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0016",
+                        "start_seconds": 205,
+                        "end_seconds": 220,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在废墟中为小龙包扎伤口，小龙舔她的手",
+                        "dialogue_or_audio": "温馨的音乐",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "两人互动"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0017",
+                        "start_seconds": 220,
+                        "end_seconds": 235,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "夜晚，两人睡觉",
+                            "confidence": "high"
+                        },
+                        "action": "夜晚，红发女子和小龙在废墟中相拥睡觉",
+                        "dialogue_or_audio": "安静的环境音",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "高角度",
+                            "movement": "static",
+                            "composition_note": "俯视两人睡觉"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0018",
+                        "start_seconds": 235,
+                        "end_seconds": 248,
+                        "duration_seconds": 13,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "小龙长大，玩耍",
+                            "confidence": "high"
+                        },
+                        "action": "小龙长大了一些，和红发女子在废墟中玩耍",
+                        "dialogue_or_audio": "欢快的音乐",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "混合",
+                            "movement": "tracking",
+                            "composition_note": "动态玩耍镜头"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_003"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0005",
+                "start_seconds": 248,
+                "end_seconds": 349,
+                "loc_id": "loc_003",
+                "scene_title": "小龙被抢走",
+                "scene_purpose": "小龙长大飞走，被大龙抓走，红发女子追赶",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "小龙在集市捣乱"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0019",
+                        "start_seconds": 248,
+                        "end_seconds": 263,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始",
+                            "confidence": "high"
+                        },
+                        "action": "小龙在集市捣乱，红发女子追赶它",
+                        "dialogue_or_audio": "集市嘈杂声",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "跟踪",
+                            "movement": "tracking",
+                            "composition_note": "追逐镜头"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0020",
+                        "start_seconds": 263,
+                        "end_seconds": 278,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "小龙飞上高处",
+                            "confidence": "high"
+                        },
+                        "action": "小龙飞上高处，红发女子在下方寻找",
+                        "dialogue_or_audio": "呼喊声",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "低角度",
+                            "movement": "tilt",
+                            "composition_note": "仰视小龙"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0021",
+                        "start_seconds": 278,
+                        "end_seconds": 293,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "小龙看到鸟群，飞向天空",
+                            "confidence": "high"
+                        },
+                        "action": "小龙看到天空中的鸟群，飞向它们",
+                        "dialogue_or_audio": "鸟叫声",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "正面",
+                            "movement": "tracking",
+                            "composition_note": "小龙飞向天空"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0022",
+                        "start_seconds": 293,
+                        "end_seconds": 308,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "红发女子在屋顶呼喊",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在屋顶呼喊小龙，小龙飞回来",
+                        "dialogue_or_audio": "呼喊声",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "人物在屋顶"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0023",
+                        "start_seconds": 308,
+                        "end_seconds": 323,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "大龙出现，抓走小龙",
+                            "confidence": "high"
+                        },
+                        "action": "大龙突然出现，抓走小龙，红发女子震惊",
+                        "dialogue_or_audio": "龙吼声，紧张音乐",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "混合",
+                            "movement": "handheld",
+                            "composition_note": "大龙抓走小龙的动态"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "char_005",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0024",
+                        "start_seconds": 323,
+                        "end_seconds": 338,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "红发女子试图抓住小龙",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子试图抓住小龙，但失败，小龙被带走",
+                        "dialogue_or_audio": "呼喊声",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "侧面",
+                            "movement": "tracking",
+                            "composition_note": "人物伸手抓龙"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "char_005",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0025",
+                        "start_seconds": 338,
+                        "end_seconds": 349,
+                        "duration_seconds": 11,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "红发女子愤怒，决定追赶",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子看着大龙飞走，表情愤怒，握紧拳头",
+                        "dialogue_or_audio": "坚定的音乐",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "特写面部表情"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_003"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0006",
+                "start_seconds": 349,
+                "end_seconds": 435,
+                "loc_id": "loc_004",
+                "scene_title": "寻找旅途",
+                "scene_purpose": "展示红发女子穿越各种地形寻找小龙",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "开始旅途蒙太奇"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0026",
+                        "start_seconds": 349,
+                        "end_seconds": 364,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在荒野行走，回忆闪现",
+                        "dialogue_or_audio": "旅途音乐",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "侧面",
+                            "movement": "tracking",
+                            "composition_note": "人物在荒野中"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_004"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0027",
+                        "start_seconds": 364,
+                        "end_seconds": 379,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "切换到沙漠",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在沙漠中艰难行走",
+                        "dialogue_or_audio": "风声",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "正面",
+                            "movement": "tracking",
+                            "composition_note": "沙漠全景"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_004"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0028",
+                        "start_seconds": 379,
+                        "end_seconds": 386,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "切换到竹林",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在竹林中奔跑，躲避野兽",
+                        "dialogue_or_audio": "奔跑声，野兽吼叫",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "跟踪",
+                            "movement": "handheld",
+                            "composition_note": "快速穿梭"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_005"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0029",
+                        "start_seconds": 386,
+                        "end_seconds": 393,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "切换到峡谷",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在峡谷中攀爬",
+                        "dialogue_or_audio": "攀爬声",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "低角度",
+                            "movement": "static",
+                            "composition_note": "仰视攀爬"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_006"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0030",
+                        "start_seconds": 393,
+                        "end_seconds": 408,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "切换到雪山",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在雪山中攀爬，天气恶劣",
+                        "dialogue_or_audio": "风雪声",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "侧面",
+                            "movement": "tracking",
+                            "composition_note": "雪山攀爬"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0031",
+                        "start_seconds": 408,
+                        "end_seconds": 423,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续攀爬",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子在雪山上艰难前行，几乎倒下",
+                        "dialogue_or_audio": "沉重的呼吸",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "人物特写"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0032",
+                        "start_seconds": 423,
+                        "end_seconds": 435,
+                        "duration_seconds": 12,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "回到雪山顶部，与开头呼应",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子回到雪山顶部，画面与开头战斗场景重合",
+                        "dialogue_or_audio": "音乐高潮",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "高角度",
+                            "movement": "static",
+                            "composition_note": "全景呼应"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_001"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0007",
+                "start_seconds": 435,
+                "end_seconds": 502,
+                "loc_id": "loc_002",
+                "scene_title": "萨满给长矛",
+                "scene_purpose": "萨满给红发女子长矛，她准备进入洞穴",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "回到帐篷"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0033",
+                        "start_seconds": 435,
+                        "end_seconds": 450,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子回到帐篷，表情悲伤，萨满看着她",
+                        "dialogue_or_audio": "悲伤的音乐",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "两人对视"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_003",
+                            "loc_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0034",
+                        "start_seconds": 450,
+                        "end_seconds": 465,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "萨满递给长矛",
+                            "confidence": "high"
+                        },
+                        "action": "萨满将长矛递给红发女子，她接过",
+                        "dialogue_or_audio": "萨满低语",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "过肩",
+                            "movement": "static",
+                            "composition_note": "特写长矛交接"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_003",
+                            "loc_002",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0035",
+                        "start_seconds": 465,
+                        "end_seconds": 480,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "红发女子抚摸长矛",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子抚摸长矛上的树纹，长矛发光",
+                        "dialogue_or_audio": "神秘的音乐",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "正面",
+                            "movement": "zoom",
+                            "composition_note": "特写长矛细节"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_002",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0036",
+                        "start_seconds": 480,
+                        "end_seconds": 495,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "进入洞穴",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子进入黑暗的洞穴，长矛发光照明",
+                        "dialogue_or_audio": "洞穴回声",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "跟踪",
+                            "movement": "tracking",
+                            "composition_note": "跟随人物进入"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0037",
+                        "start_seconds": 495,
+                        "end_seconds": 502,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "发现发光晶体",
+                            "confidence": "high"
+                        },
+                        "action": "洞穴内有发光晶体，红发女子警惕前行",
+                        "dialogue_or_audio": "滴水声",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "展现洞穴内部"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0008",
+                "start_seconds": 502,
+                "end_seconds": 617,
+                "loc_id": "loc_007",
+                "scene_title": "洞穴战斗",
+                "scene_purpose": "红发女子与大龙战斗，发现小龙已死",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "发现大龙"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0038",
+                        "start_seconds": 502,
+                        "end_seconds": 517,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子发现大龙在吃猎物，悄悄靠近",
+                        "dialogue_or_audio": "咀嚼声，紧张音乐",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "过肩",
+                            "movement": "static",
+                            "composition_note": "人物观察大龙"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_005",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0039",
+                        "start_seconds": 517,
+                        "end_seconds": 532,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "发现小龙骸骨",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子发现小龙的骸骨，震惊悲伤",
+                        "dialogue_or_audio": "悲伤的音乐",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "特写骸骨和人物表情"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0040",
+                        "start_seconds": 532,
+                        "end_seconds": 547,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "大龙发现红发女子，攻击",
+                            "confidence": "high"
+                        },
+                        "action": "大龙发现红发女子，喷火攻击，她躲避",
+                        "dialogue_or_audio": "龙吼，火焰声",
+                        "camera": {
+                            "shot_size": "mixed",
+                            "angle_or_view": "混合",
+                            "movement": "handheld",
+                            "composition_note": "激烈战斗"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_005",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0041",
+                        "start_seconds": 547,
+                        "end_seconds": 562,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "战斗继续",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子用长矛反击，被大龙击飞",
+                        "dialogue_or_audio": "武器碰撞，撞击声",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "侧面",
+                            "movement": "tracking",
+                            "composition_note": "动态打斗"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_005",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0042",
+                        "start_seconds": 562,
+                        "end_seconds": 577,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "红发女子爬起来继续",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子爬起来，继续与大龙战斗",
+                        "dialogue_or_audio": "喘息声，战斗音乐",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "人物特写"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_005",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0043",
+                        "start_seconds": 577,
+                        "end_seconds": 592,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "大龙将红发女子按在地上",
+                            "confidence": "high"
+                        },
+                        "action": "大龙将红发女子按在地上，她挣扎",
+                        "dialogue_or_audio": "挣扎声",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "低角度",
+                            "movement": "static",
+                            "composition_note": "特写压制"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_005",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0044",
+                        "start_seconds": 592,
+                        "end_seconds": 607,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "红发女子用长矛刺中大龙",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子用长矛刺中大龙，大龙倒下",
+                        "dialogue_or_audio": "刺入声，龙吼",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "侧面",
+                            "movement": "static",
+                            "composition_note": "致命一击"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_005",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0045",
+                        "start_seconds": 607,
+                        "end_seconds": 617,
+                        "duration_seconds": 10,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "大龙死亡，红发女子喘息",
+                            "confidence": "high"
+                        },
+                        "action": "大龙倒下死亡，红发女子喘息，走向小龙骸骨",
+                        "dialogue_or_audio": "安静的音乐",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "tracking",
+                            "composition_note": "人物走向骸骨"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_005",
+                            "char_004",
+                            "loc_007",
+                            "prop_001"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0009",
+                "start_seconds": 617,
+                "end_seconds": 717,
+                "loc_id": "loc_007",
+                "scene_title": "悲伤结局",
+                "scene_purpose": "红发女子发现小龙已死，悲伤离开",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "抚摸骸骨"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0046",
+                        "start_seconds": 617,
+                        "end_seconds": 632,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子抚摸小龙骸骨，流泪",
+                        "dialogue_or_audio": "悲伤的音乐",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "特写面部和骸骨"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_007"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0047",
+                        "start_seconds": 632,
+                        "end_seconds": 647,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "洞穴坍塌",
+                            "confidence": "high"
+                        },
+                        "action": "洞穴开始坍塌，红发女子逃离",
+                        "dialogue_or_audio": "坍塌声",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "混合",
+                            "movement": "handheld",
+                            "composition_note": "逃跑镜头"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_007"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0048",
+                        "start_seconds": 647,
+                        "end_seconds": 662,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "逃出洞穴，坐在悬崖边",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子逃出洞穴，坐在悬崖边，看着远方",
+                        "dialogue_or_audio": "风声",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "侧面",
+                            "movement": "static",
+                            "composition_note": "人物在悬崖边"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_008"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0049",
+                        "start_seconds": 662,
+                        "end_seconds": 677,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "低头哭泣",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子低头哭泣，头发变长出现白发",
+                        "dialogue_or_audio": "哭泣声",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "特写面部变化"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_008"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0050",
+                        "start_seconds": 677,
+                        "end_seconds": 692,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "站起来走向远方",
+                            "confidence": "high"
+                        },
+                        "action": "红发女子站起来，走向远方",
+                        "dialogue_or_audio": "坚定的音乐",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "背面",
+                            "movement": "tracking",
+                            "composition_note": "人物背影"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_008"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0051",
+                        "start_seconds": 692,
+                        "end_seconds": 707,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "小龙幻影出现",
+                            "confidence": "high"
+                        },
+                        "action": "小龙的幻影出现，陪伴红发女子",
+                        "dialogue_or_audio": "温馨的音乐",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "侧面",
+                            "movement": "static",
+                            "composition_note": "人物与幻影"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_004",
+                            "loc_008"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0052",
+                        "start_seconds": 707,
+                        "end_seconds": 717,
+                        "duration_seconds": 10,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "幻影消失，继续走",
+                            "confidence": "high"
+                        },
+                        "action": "幻影消失，红发女子继续走向远方",
+                        "dialogue_or_audio": "音乐渐弱",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "背面",
+                            "movement": "tracking",
+                            "composition_note": "人物远去"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_008"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0010",
+                "start_seconds": 717,
+                "end_seconds": 887,
+                "loc_id": "",
+                "scene_title": "片尾字幕",
+                "scene_purpose": "展示制作人员名单",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "画面渐黑，出现字幕"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0053",
+                        "start_seconds": 717,
+                        "end_seconds": 732,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "字幕开始",
+                            "confidence": "high"
+                        },
+                        "action": "黑屏，出现导演和制片人名字",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字居中"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0054",
+                        "start_seconds": 732,
+                        "end_seconds": 747,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动字幕",
+                            "confidence": "high"
+                        },
+                        "action": "滚动显示编剧和艺术指导名字",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0055",
+                        "start_seconds": 747,
+                        "end_seconds": 762,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动",
+                            "confidence": "high"
+                        },
+                        "action": "显示音乐和配音演员名字",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0056",
+                        "start_seconds": 762,
+                        "end_seconds": 777,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动",
+                            "confidence": "high"
+                        },
+                        "action": "显示角色建模和动画团队名字",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0057",
+                        "start_seconds": 777,
+                        "end_seconds": 792,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动",
+                            "confidence": "high"
+                        },
+                        "action": "显示环境设计和软件开发团队名字",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0058",
+                        "start_seconds": 792,
+                        "end_seconds": 807,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动",
+                            "confidence": "high"
+                        },
+                        "action": "显示额外 artwork 和团队成员名字",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0059",
+                        "start_seconds": 807,
+                        "end_seconds": 822,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动",
+                            "confidence": "high"
+                        },
+                        "action": "显示在线开发团队和特别感谢名单",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0060",
+                        "start_seconds": 822,
+                        "end_seconds": 837,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动",
+                            "confidence": "high"
+                        },
+                        "action": "显示 DVD 预售赞助商名单",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0061",
+                        "start_seconds": 837,
+                        "end_seconds": 852,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动",
+                            "confidence": "high"
+                        },
+                        "action": "继续显示赞助商名单",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0062",
+                        "start_seconds": 852,
+                        "end_seconds": 867,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动",
+                            "confidence": "high"
+                        },
+                        "action": "继续显示赞助商名单",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0063",
+                        "start_seconds": 867,
+                        "end_seconds": 882,
+                        "duration_seconds": 15,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续滚动",
+                            "confidence": "high"
+                        },
+                        "action": "显示歌曲信息和最终支持机构",
+                        "dialogue_or_audio": "片尾音乐",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字滚动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0064",
+                        "start_seconds": 882,
+                        "end_seconds": 887,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "最后显示网站和版权信息",
+                            "confidence": "high"
+                        },
+                        "action": "显示网站和 Creative Commons 授权信息",
+                        "dialogue_or_audio": "音乐结束",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "unknown",
+                            "movement": "unknown",
+                            "composition_note": "文字居中"
+                        },
+                        "present_entity_ids": []
+                    }
+                ]
+            }
+        ]
+    },
+    "self_check": {
+        "duration_check": "passed",
+        "segment_count_check": "passed",
+        "boundary_reason_check": "passed",
+        "low_confidence_segment_ids": [],
+        "notes": "所有 visual_segment 时长均 <= 15.0 秒，总数 64 >= 60，边界划分基于明显视觉变化和连续性硬切，符合规范。"
+    },
+    "counts": {
+        "characters": 5,
+        "props": 4,
+        "locations": 8,
+        "scenes": 10,
+        "visual_segments": 64
+    }
+}

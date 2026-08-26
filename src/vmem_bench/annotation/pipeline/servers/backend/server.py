@@ -67,7 +67,7 @@ def _default_blender_index(root: Path) -> Path | None:
     candidates = [
         root / "data" / "_services" / "blender_index.json",
         Path("${VMEM_DATASETS_ROOT}/BlenderOpenMovies/download_status.json"),
-        Path("/data/public_datasets/BlenderOpenMovies/download_status.json"),
+        Path("${UNSET_INTERNAL_PATH}"),
         root / "data" / "BlenderOpenMovies" / "download_status.json",
         root / "data" / "BlenderOpenMovies" / "manifest.json",
     ]
@@ -97,7 +97,7 @@ def _default_lsmdc_index(root: Path, blender_index: Path | None = None) -> Path 
         root / "data" / "_services" / "lsmdc_index.json",
         root / "data" / "LSMDC" / "complete_movies.json",
         Path("${VMEM_DATASETS_ROOT}/LSMDC/complete_movies.json"),
-        Path("/data/public_datasets/LSMDC/complete_movies.json"),
+        Path("${UNSET_INTERNAL_PATH}"),
     ]
     if blender_index is not None and blender_index.is_file():
         try:

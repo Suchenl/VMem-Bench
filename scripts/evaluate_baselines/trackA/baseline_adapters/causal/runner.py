@@ -72,7 +72,7 @@ _BENCH_ROOT = Path(__file__).resolve().parents[5]  # benchmarks/VMem-Bench (benc
 _INPUT_MODES = ("name_anchored", "description_provided", "description_only")
 _BUDGET_CHOICES = (1, 2, 4, 8, 16)
 _RRF_K = 60
-_KEEPALIVE_STATUS_DIR = Path("/data/USER/gpu_occupy_alerts")
+_KEEPALIVE_STATUS_DIR = Path(os.environ["VMEM_KEEPALIVE_STATUS_DIR"]) if os.environ.get("VMEM_KEEPALIVE_STATUS_DIR") else None
 
 
 def _apply_runtime_safety_defaults() -> None:
@@ -89,7 +89,7 @@ def _apply_runtime_safety_defaults() -> None:
     for key, value in defaults.items():
         os.environ.setdefault(key, value)
 
-    nice_delta = int(os.environ.get("MAVE_TASK_NICE", "10"))
+    nice_delta = int(os.environ.get("VMEM_TASK_NICE", "10"))
     if nice_delta > 0:
         try:
             os.nice(nice_delta)
@@ -108,24 +108,27 @@ def _apply_runtime_safety_defaults() -> None:
 
 
 def _require_a800_keepalive_if_requested() -> None:
-    mode = os.environ.get("MAVE_REQUIRE_A800_KEEPALIVE", "auto").lower()
+    mode = os.environ.get("VMEM_REQUIRE_A800_KEEPALIVE", "auto").lower()
     if mode in {"0", "false", "no"}:
+        return
+    if _KEEPALIVE_STATUS_DIR is None:
+        if mode == "1":
+            raise SystemExit("VMEM_REQUIRE_A800_KEEPALIVE=1 but VMEM_KEEPALIVE_STATUS_DIR is unset")
         return
     host = subprocess.check_output(["hostname"], text=True).strip()
     status_path = _KEEPALIVE_STATUS_DIR / f"{host}.status"
     if mode != "1":
-        is_remote_kml_node = host.endswith(".kwaidc.com")
-        if not (is_remote_kml_node and status_path.is_file()):
+        if not status_path.is_file():
             return
     if not status_path.is_file():
         raise SystemExit(
-            "MAVE_REQUIRE_A800_KEEPALIVE=1 but keepalive status is missing: "
+            "VMEM_REQUIRE_A800_KEEPALIVE=1 but keepalive status is missing: "
             f"{status_path}"
         )
     status = status_path.read_text(encoding="utf-8", errors="replace")
     if "alive_gpu_processes=8/8" not in status:
         raise SystemExit(
-            "MAVE_REQUIRE_A800_KEEPALIVE=1 but keepalive is not healthy: "
+            "VMEM_REQUIRE_A800_KEEPALIVE=1 but keepalive is not healthy: "
             f"{status_path}"
         )
 
@@ -304,7 +307,7 @@ def _lock_owner_is_alive(path: Path) -> bool:
     So: trust a same-host pid probe when we can, and otherwise fall back to the
     heartbeat that ``_touch_job_lock`` refreshes after every segment.
     """
-    stale_after = _env_float("MAVE_STAGE1_LOCK_STALE_MINUTES", 45.0) * 60.0
+    stale_after = _env_float("VMEM_STAGE1_LOCK_STALE_MINUTES", 45.0) * 60.0
     try:
         meta = dict(
             token.split("=", 1)
@@ -351,7 +354,7 @@ def _acquire_job_lock(path: Path) -> int | None:
             print(
                 f"[stage1][lock] reclaiming stale lock {path} "
                 f"(owner gone or heartbeat older than "
-                f"{_env_float('MAVE_STAGE1_LOCK_STALE_MINUTES', 45.0):.0f} min)",
+                f"{_env_float('VMEM_STAGE1_LOCK_STALE_MINUTES', 45.0):.0f} min)",
                 file=sys.stderr,
                 flush=True,
             )
@@ -545,7 +548,7 @@ def _cut_segment(ffmpeg: str, src: Path, out: Path, s0: float, s1: float) -> Pat
         # is identical; cutting at 480p just makes segment decode (and disk) cheaper.
         subprocess.run(
             [ffmpeg, "-y", "-ss", f"{float(s0):.3f}", "-i", str(src), "-t", f"{dur:.3f}",
-             "-an", "-threads", os.environ.get("MAVE_FFMPEG_THREADS", "1"),
+             "-an", "-threads", os.environ.get("VMEM_FFMPEG_THREADS", "1"),
              "-vf", "scale=832:480", "-c:v", "libx264", "-pix_fmt", "yuv420p",
              "-preset", "veryfast", str(tmp)],
             check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
@@ -748,7 +751,7 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
             rec.extras["observe_ms"] = observe_ms
             rec.extras["n_retrieved"] = len(rec.items)
             records.append(rec)
-            if os.environ.get("MAVE_STAGE1_INCREMENTAL_SELECTIONS", "1").lower() not in {"0", "false", "no"}:
+            if os.environ.get("VMEM_STAGE1_INCREMENTAL_SELECTIONS", "1").lower() not in {"0", "false", "no"}:
                 materialize_record_checkpoint(
                     system=run_name,
                     movie=movie,

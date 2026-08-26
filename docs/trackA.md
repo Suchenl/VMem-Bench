@@ -101,7 +101,7 @@ Track A 的规范输入模式**只有两个**：`name_anchored` 与 `description
 
 ```bash
 # 每个 baseline 用它自己的 conda env（env 名见各 adapter 模块头注释）
-PY=<baseline_env>/bin/python
+PY=${CONDA_ENVS_ROOT}/<baseline_env>/bin/python
 cd benchmarks/VMem-Bench/scripts/evaluate_baselines/trackA/baseline_adapters/causal
 
 # Stage 1：驱动一个 baseline 跑完一部电影（name_anchored 主表）

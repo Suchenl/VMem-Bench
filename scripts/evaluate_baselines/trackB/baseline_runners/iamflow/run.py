@@ -14,12 +14,10 @@ from common import (  # noqa: E402
     command_env,
     copy_prompt_stream,
     iter_requested_streams,
-    merge_rc,
     output_dir_for,
     patch_simple_yaml,
     prepare_output_dir,
     run_command,
-    shell_rc,
     write_json,
     write_manifest,
     write_prompt_jsonl,
@@ -152,8 +150,8 @@ def main(argv: list[str] | None = None) -> int:
             },
             notes=["Uses IAMFlow native prompt-switch generation; stage-2 scoring consumes review/*.mp4."],
         )
-        rc_all = merge_rc(rc_all, rc)
-    return shell_rc(rc_all)
+        rc_all = max(rc_all, rc)
+    return rc_all
 
 
 if __name__ == "__main__":

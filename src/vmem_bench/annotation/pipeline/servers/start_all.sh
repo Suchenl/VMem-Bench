@@ -27,7 +27,7 @@ if [[ -z "${BLENDER_INDEX:-}" ]]; then
   for cand in \
     "${DATA_ROOT}/_services/blender_index.json" \
     "${VMEM_DATASETS_ROOT}/BlenderOpenMovies/download_status.json" \
-    "/data/public_datasets/BlenderOpenMovies/download_status.json"
+    "${UNSET_INTERNAL_PATH}"
   do
     if [[ -f "${cand}" ]]; then BLENDER_INDEX="${cand}"; break; fi
   done
@@ -36,7 +36,7 @@ if [[ -z "${LSMDC_INDEX:-}" ]]; then
   for cand in \
     "${DATA_ROOT}/_services/lsmdc_index.json" \
     "${VMEM_DATASETS_ROOT}/LSMDC/complete_movies.json" \
-    "/data/public_datasets/LSMDC/complete_movies.json"
+    "${UNSET_INTERNAL_PATH}"
   do
     if [[ -f "${cand}" ]]; then LSMDC_INDEX="${cand}"; break; fi
   done

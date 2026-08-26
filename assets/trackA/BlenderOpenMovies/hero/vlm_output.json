@@ -1,0 +1,1166 @@
+{
+    "video_duration_seconds": 236.5,
+    "minimum_required_segments": 16,
+    "characters": [
+        {
+            "char_id": "char_001",
+            "name": "红发男子",
+            "identity_scope": "individual",
+            "description": "红色头发向后梳起，穿着深色上衣配白色毛领，首次出现在城市广场台阶上",
+            "first_presence_seconds": 14,
+            "last_presence_seconds": 143,
+            "state_changes": []
+        },
+        {
+            "char_id": "char_002",
+            "name": "兜帽男子",
+            "identity_scope": "individual",
+            "description": "穿着深灰色连帽外套，背着背包，戴着护目镜，使用喷气靴飞行",
+            "first_presence_seconds": 47,
+            "last_presence_seconds": 132,
+            "state_changes": [
+                {
+                    "seconds": 77,
+                    "state_change_kind": "appearance_changed",
+                    "description": "戴上带有蓝色镜片的面罩"
+                }
+            ]
+        },
+        {
+            "char_id": "char_003",
+            "name": "白发老妇",
+            "identity_scope": "individual",
+            "description": "白发盘成发髻，穿着紫色高领毛衣和酒红色围巾，出现在峡谷村落中",
+            "first_presence_seconds": 115,
+            "last_presence_seconds": 132,
+            "state_changes": []
+        },
+        {
+            "char_id": "char_004",
+            "name": "白发壮汉",
+            "identity_scope": "individual",
+            "description": "体型魁梧，白发蓬松，穿着深色装甲背心，与兜帽男子一同在飞艇顶部",
+            "first_presence_seconds": 47,
+            "last_presence_seconds": 111,
+            "state_changes": []
+        },
+        {
+            "char_id": "char_005",
+            "name": "戴墨镜白发男子",
+            "identity_scope": "individual",
+            "description": "白发蓬松，戴着黑色墨镜，穿着深色服装，站在飞艇旁",
+            "first_presence_seconds": 47,
+            "last_presence_seconds": 50,
+            "state_changes": []
+        }
+    ],
+    "props": [
+        {
+            "prop_id": "prop_001",
+            "name": "发光能量球",
+            "identity_scope": "individual",
+            "description": "金色发光的球形物体，被双手捧着，能发出强光",
+            "first_presence_seconds": 18,
+            "last_presence_seconds": 131,
+            "state_changes": [
+                {
+                    "seconds": 27,
+                    "state_change_kind": "acquired",
+                    "description": "被放入机器核心装置中"
+                },
+                {
+                    "seconds": 65,
+                    "state_change_kind": "acquired",
+                    "description": "被兜帽男子从机器中取出"
+                },
+                {
+                    "seconds": 130,
+                    "state_change_kind": "consumed",
+                    "description": "被放入树根洞穴中激活"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_002",
+            "name": "大型机器装置",
+            "identity_scope": "individual",
+            "description": "橙红色圆柱形装置，底部有蓝色发光圆环，安装在台阶顶端",
+            "first_presence_seconds": 20,
+            "last_presence_seconds": 66,
+            "state_changes": []
+        },
+        {
+            "prop_id": "prop_003",
+            "name": "喷气靴",
+            "identity_scope": "category",
+            "description": "黑色长靴，鞋底能喷射白色气流用于飞行",
+            "first_presence_seconds": 42,
+            "last_presence_seconds": 99,
+            "state_changes": []
+        },
+        {
+            "prop_id": "prop_004",
+            "name": "红色飞机",
+            "identity_scope": "individual",
+            "description": "红白相间的螺旋桨飞机，红发男子驾驶",
+            "first_presence_seconds": 70,
+            "last_presence_seconds": 86,
+            "state_changes": [
+                {
+                    "seconds": 80,
+                    "state_change_kind": "destroyed",
+                    "description": "机翼被破坏，机身受损"
+                }
+            ]
+        },
+        {
+            "prop_id": "prop_005",
+            "name": "飞艇",
+            "identity_scope": "individual",
+            "description": "深色大型飞艇，在暴风雨夜空中飞行",
+            "first_presence_seconds": 88,
+            "last_presence_seconds": 102,
+            "state_changes": []
+        },
+        {
+            "prop_id": "prop_006",
+            "name": "手枪",
+            "identity_scope": "individual",
+            "description": "红发男子持有的枪械武器",
+            "first_presence_seconds": 105,
+            "last_presence_seconds": 106,
+            "state_changes": []
+        },
+        {
+            "prop_id": "prop_007",
+            "name": "烟雾弹",
+            "identity_scope": "category",
+            "description": "蓝色圆柱形物体，投掷后产生大量白色烟雾",
+            "first_presence_seconds": 53,
+            "last_presence_seconds": 55,
+            "state_changes": [
+                {
+                    "seconds": 54,
+                    "state_change_kind": "consumed",
+                    "description": "爆炸产生烟雾"
+                }
+            ]
+        }
+    ],
+    "locations": [
+        {
+            "loc_id": "loc_001",
+            "name": "未来城市广场",
+            "identity_scope": "scene",
+            "description": "粉橙色调的未来主义城市，有大量建筑和高台广场，人群聚集",
+            "first_presence_seconds": 14,
+            "last_presence_seconds": 69,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_002",
+            "name": "高空云层",
+            "identity_scope": "scene",
+            "description": "粉紫色天空中的云层区域，飞机和人物在此空战",
+            "first_presence_seconds": 70,
+            "last_presence_seconds": 86,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_003",
+            "name": "暴风雨夜空",
+            "identity_scope": "scene",
+            "description": "黑暗暴雨天气，闪电频繁，飞艇在空中飞行",
+            "first_presence_seconds": 87,
+            "last_presence_seconds": 111,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_004",
+            "name": "荒漠峡谷",
+            "identity_scope": "scene",
+            "description": "橙红色岩石地貌的干旱地区，有废弃机械残骸",
+            "first_presence_seconds": 112,
+            "last_presence_seconds": 132,
+            "state_changes": []
+        },
+        {
+            "loc_id": "loc_005",
+            "name": "巨树瀑布景观",
+            "identity_scope": "scene",
+            "description": "巨大树木生长在岩石平台上，下方有瀑布，周围是绿色植被",
+            "first_presence_seconds": 133,
+            "last_presence_seconds": 143,
+            "state_changes": [
+                {
+                    "seconds": 134,
+                    "state_change_kind": "appearance_changed",
+                    "description": "从荒芜变为绿意盎然的森林景观"
+                }
+            ]
+        }
+    ],
+    "screenplay": {
+        "scenes": [
+            {
+                "scene_id": "scene_0001",
+                "start_seconds": 0,
+                "end_seconds": 13.5,
+                "loc_id": "",
+                "scene_title": "片头标题与机器启动",
+                "scene_purpose": "展示影片标题HERO及神秘机器装置的启动过程",
+                "prev_boundary": {
+                    "kind": "initial",
+                    "evidence": "视频开始，黑屏后出现HERO标题文字"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0001",
+                        "start_seconds": 0,
+                        "end_seconds": 7,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "视频起始，黑屏过渡到HERO标题出现",
+                            "confidence": "high"
+                        },
+                        "action": "黑屏后白色手写体HERO标题渐显再渐隐",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "标题居中显示于黑底"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0002",
+                        "start_seconds": 7,
+                        "end_seconds": 13.5,
+                        "duration_seconds": 6.5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "从标题画面切换到机器装置特写，构图完全改变",
+                            "confidence": "high"
+                        },
+                        "action": "蓝色发光圆环装置特写，中心有悬浮物体，镜头拉远显示完整机器结构",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "正面",
+                            "movement": "zoom",
+                            "composition_note": "从装置中心特写逐渐拉远展现整体圆形结构"
+                        },
+                        "present_entity_ids": [
+                            "prop_002"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0002",
+                "start_seconds": 14,
+                "end_seconds": 34.5,
+                "loc_id": "loc_001",
+                "scene_title": "红发男子激活机器",
+                "scene_purpose": "红发男子在众人面前将能量球放入机器，引发城市能量反应",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "从机器特写切换到城市广场场景，出现新角色和红发男子"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0003",
+                        "start_seconds": 14,
+                        "end_seconds": 20,
+                        "duration_seconds": 6,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始，红发男子首次出现在城市广场",
+                            "confidence": "high"
+                        },
+                        "action": "红发男子站在广场上，双手捧着发光的金色能量球，背景是未来城市和人群",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "人物居中，背景展现城市天际线和密集人群"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "prop_001",
+                            "loc_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0004",
+                        "start_seconds": 20,
+                        "end_seconds": 24,
+                        "duration_seconds": 4,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "镜头切换为远景，展示红发男子上台阶走向机器",
+                            "confidence": "high"
+                        },
+                        "action": "红发男子走上台阶接近大型机器装置，两侧有士兵站立",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "背面低角度",
+                            "movement": "static",
+                            "composition_note": "对称构图，机器位于中央高处，人物从下方走近"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "prop_002",
+                            "loc_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0005",
+                        "start_seconds": 24,
+                        "end_seconds": 30,
+                        "duration_seconds": 6,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "切到机器内部特写，手部动作成为视觉焦点",
+                            "confidence": "high"
+                        },
+                        "action": "手将金色能量球放入机器核心，能量球变色发光，机器启动",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "extreme_close_up",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "聚焦于手部与能量球的交互动作"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "prop_001",
+                            "prop_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0006",
+                        "start_seconds": 30,
+                        "end_seconds": 34.5,
+                        "duration_seconds": 4.5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "从机器特写切换到城市全景俯视图",
+                            "confidence": "high"
+                        },
+                        "action": "机器发射光束射向天空，城市中建筑物亮起绿色灯光",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "高角度俯视",
+                            "movement": "static",
+                            "composition_note": "展现整个城市景观，光束从中心向上延伸"
+                        },
+                        "present_entity_ids": [
+                            "prop_002",
+                            "loc_001"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0003",
+                "start_seconds": 35,
+                "end_seconds": 69.5,
+                "loc_id": "loc_001",
+                "scene_title": "兜帽男子突袭夺取能量球",
+                "scene_purpose": "兜帽男子使用烟雾弹和喷气靴突袭，从机器中夺走能量球",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "从城市全景切回人群反应镜头，引入新角色兜帽男子"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0007",
+                        "start_seconds": 35,
+                        "end_seconds": 42,
+                        "duration_seconds": 7,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始，展示人群反应和红发男子表情变化",
+                            "confidence": "high"
+                        },
+                        "action": "人群仰望天空，红发男子表情从平静变为警惕，远处有人影降落",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "mixed",
+                            "angle_or_view": "混合视角",
+                            "movement": "static",
+                            "composition_note": "先展示人群侧面，再切到红发男子面部特写"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "loc_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0008",
+                        "start_seconds": 42,
+                        "end_seconds": 47,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "镜头聚焦于降落的人物脚部特写，喷气靴启动",
+                            "confidence": "high"
+                        },
+                        "action": "穿着喷气靴的人物从空中降落到建筑顶部，旁边停着飞行器",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "低角度",
+                            "movement": "tracking",
+                            "composition_note": "跟随脚部落地动作，展现喷气效果"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "prop_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0009",
+                        "start_seconds": 47,
+                        "end_seconds": 52,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "切到兜帽男子摘下面罩的特写，揭示身份",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子摘下帽子露出面容，身后站着两名白发护卫",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "人物居中，背景护卫形成三角形构图"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "char_004",
+                            "char_005"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0010",
+                        "start_seconds": 52,
+                        "end_seconds": 57,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "红发男子表情震惊，随后烟雾弹在人群中爆炸",
+                            "confidence": "high"
+                        },
+                        "action": "红发男子面露惊愕，烟雾弹在人群中炸开产生大量白烟",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "mixed",
+                            "angle_or_view": "混合",
+                            "movement": "static",
+                            "composition_note": "先特写红发男子面部，再切到人群中的烟雾弹爆炸"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "prop_007",
+                            "loc_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0011",
+                        "start_seconds": 57,
+                        "end_seconds": 62,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "兜帽男子在烟雾中飞跃，使用喷气靴飞向机器",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子借助喷气靴在烟雾中飞跃，朝机器装置方向移动",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "侧面追踪",
+                            "movement": "tracking",
+                            "composition_note": "展现人物飞行动作轨迹，背景是城市建筑"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "prop_003",
+                            "prop_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0012",
+                        "start_seconds": 62,
+                        "end_seconds": 66,
+                        "duration_seconds": 4,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "兜帽男子降落在机器上，伸手取出能量球",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子落在机器顶部，伸手从核心装置中取出金色能量球",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "聚焦于手部取球动作，机器蓝光作为背景"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "prop_001",
+                            "prop_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0013",
+                        "start_seconds": 66,
+                        "end_seconds": 69.5,
+                        "duration_seconds": 3.5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "机器爆炸产生浓烟，红发男子在烟雾中站立",
+                            "confidence": "high"
+                        },
+                        "action": "机器发生爆炸，浓烟弥漫，红发男子在烟雾中保持站立姿态",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "人物被烟雾环绕，展现爆炸后的混乱场面"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "prop_002"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0004",
+                "start_seconds": 70,
+                "end_seconds": 86.5,
+                "loc_id": "loc_002",
+                "scene_title": "空中追逐战",
+                "scene_purpose": "红发男子驾驶飞机追击兜帽男子，发生空战",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "场景从地面城市切换到高空云层，出现飞机"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0014",
+                        "start_seconds": 70,
+                        "end_seconds": 74,
+                        "duration_seconds": 4,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始，三架飞机在云层中飞行",
+                            "confidence": "high"
+                        },
+                        "action": "三架红色飞机在粉紫色天空中编队飞行",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "仰视",
+                            "movement": "tracking",
+                            "composition_note": "展现飞机编队在广阔天空中的位置关系"
+                        },
+                        "present_entity_ids": [
+                            "prop_004",
+                            "loc_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0015",
+                        "start_seconds": 74,
+                        "end_seconds": 79,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "兜帽男子在空中飞行，戴上防护面罩",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子使用喷气靴在空中飞行，随后戴上蓝色镜片面罩",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "侧面",
+                            "movement": "tracking",
+                            "composition_note": "跟随人物飞行动作，展现面罩佩戴过程"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "prop_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0016",
+                        "start_seconds": 79,
+                        "end_seconds": 83,
+                        "duration_seconds": 4,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "兜帽男子攻击飞机，机翼被破坏",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子靠近飞机并进行攻击，飞机机翼断裂脱落",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "侧面",
+                            "movement": "tracking",
+                            "composition_note": "展现空中格斗的动态，飞机受损瞬间"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "prop_004"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0017",
+                        "start_seconds": 83,
+                        "end_seconds": 86.5,
+                        "duration_seconds": 3.5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "红发男子在驾驶舱内操控受损飞机",
+                            "confidence": "high"
+                        },
+                        "action": "红发男子在飞机驾驶舱内紧张操控，飞机继续飞行但已受损",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "侧面",
+                            "movement": "static",
+                            "composition_note": "聚焦驾驶舱内人物表情和操控动作"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "prop_004"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0005",
+                "start_seconds": 87,
+                "end_seconds": 111.5,
+                "loc_id": "loc_003",
+                "scene_title": "暴风雨夜飞艇对决",
+                "scene_purpose": "双方在暴风雨夜的飞艇顶部展开最终对决",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "场景切换到黑暗暴风雨环境，出现飞艇和闪电"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0018",
+                        "start_seconds": 87,
+                        "end_seconds": 92,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始，飞艇在暴风雨中航行，两人在顶部对峙",
+                            "confidence": "high"
+                        },
+                        "action": "飞艇在雷电交加的夜空中飞行，红发男子和兜帽男子在顶部准备战斗",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "远景",
+                            "movement": "static",
+                            "composition_note": "展现飞艇在恶劣天气中的孤立感，闪电照亮场景"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "char_002",
+                            "prop_005",
+                            "loc_003"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0019",
+                        "start_seconds": 92,
+                        "end_seconds": 97,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "兜帽男子使用喷气靴在飞艇表面移动躲避",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子在飞艇顶部快速移动，使用喷气靴躲避攻击，金色能量球飞出",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "侧面追踪",
+                            "movement": "tracking",
+                            "composition_note": "跟随人物在飞艇表面的动态移动"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "prop_001",
+                            "prop_003",
+                            "prop_005"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0020",
+                        "start_seconds": 97,
+                        "end_seconds": 102,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "兜帽男子从飞艇坠落，在黑暗中下坠",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子失去平衡从飞艇边缘坠落，在黑暗雨夜中自由下落",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "俯视",
+                            "movement": "tracking",
+                            "composition_note": "展现人物坠落的垂直空间感，背景是无尽黑暗"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "prop_005"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0021",
+                        "start_seconds": 102,
+                        "end_seconds": 107,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "红发男子拔出手枪瞄准，表情决绝",
+                            "confidence": "high"
+                        },
+                        "action": "红发男子站在飞艇顶部，拔出手枪瞄准下方，闪电映照其面部",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "人物剪影效果，闪电提供戏剧性照明"
+                        },
+                        "present_entity_ids": [
+                            "char_001",
+                            "prop_006",
+                            "prop_005"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0022",
+                        "start_seconds": 107,
+                        "end_seconds": 111.5,
+                        "duration_seconds": 4.5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "兜帽男子抓住飞艇边缘，白发壮汉协助",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子艰难抓住飞艇边缘，白发壮汉伸手帮助，两人表情痛苦",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "close_up",
+                            "angle_or_view": "侧面",
+                            "movement": "static",
+                            "composition_note": "聚焦于两人面部表情和抓握动作的细节"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "char_004",
+                            "prop_005"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0006",
+                "start_seconds": 112,
+                "end_seconds": 132.5,
+                "loc_id": "loc_004",
+                "scene_title": "荒漠村落归还能量球",
+                "scene_purpose": "兜帽男子回到荒漠村落，将能量球交给白发老妇",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "场景从暴风雨夜空切换到干燥荒漠，时间变为白天"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0023",
+                        "start_seconds": 112,
+                        "end_seconds": 115,
+                        "duration_seconds": 3,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始，兜帽男子独自走在荒漠中",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子在橙红色荒漠中行走，背景有废弃机械残骸",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "正面",
+                            "movement": "tracking",
+                            "composition_note": "人物在广阔荒漠中显得渺小，展现孤独感"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "loc_004"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0024",
+                        "start_seconds": 115,
+                        "end_seconds": 120,
+                        "duration_seconds": 5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "出现村落人群，白发老妇走出迎接",
+                            "confidence": "high"
+                        },
+                        "action": "荒漠中出现一群村民，白发老妇从人群中走出面向兜帽男子",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "过肩",
+                            "movement": "static",
+                            "composition_note": "通过老妇肩膀看向兜帽男子，建立两人关系"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "char_003",
+                            "loc_004"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0025",
+                        "start_seconds": 120,
+                        "end_seconds": 126,
+                        "duration_seconds": 6,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "兜帽男子交出能量球，老妇接过",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子将金色能量球递给白发老妇，老妇双手接过，表情复杂",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "侧面",
+                            "movement": "static",
+                            "composition_note": "聚焦于能量球传递的手部动作和两人表情"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "char_003",
+                            "prop_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0026",
+                        "start_seconds": 126,
+                        "end_seconds": 132.5,
+                        "duration_seconds": 6.5,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "同一场景内连续动作，两人走向树根洞穴",
+                            "confidence": "high"
+                        },
+                        "action": "兜帽男子和白发老妇并肩走向巨大树根下的洞穴入口",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "medium",
+                            "angle_or_view": "背面",
+                            "movement": "tracking",
+                            "composition_note": "跟随两人背影，展现他们共同前行的姿态"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "char_003",
+                            "prop_001",
+                            "loc_004"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0007",
+                "start_seconds": 133,
+                "end_seconds": 143.5,
+                "loc_id": "loc_005",
+                "scene_title": "激活巨树恢复生机",
+                "scene_purpose": "能量球被放入树根洞穴，巨树恢复生机，荒漠变绿洲",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "场景从荒漠切换到巨树瀑布景观，环境发生根本变化"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0027",
+                        "start_seconds": 133,
+                        "end_seconds": 137,
+                        "duration_seconds": 4,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "新场景开始，展示巨树和瀑布的全景",
+                            "confidence": "high"
+                        },
+                        "action": "巨大树木生长在岩石平台上，下方瀑布流淌，周围环境开始变化",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "远景",
+                            "movement": "zoom_out",
+                            "composition_note": "从近景逐渐拉远展现整个景观的变化过程"
+                        },
+                        "present_entity_ids": [
+                            "loc_005"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0028",
+                        "start_seconds": 137,
+                        "end_seconds": 143.5,
+                        "duration_seconds": 6.5,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "同一场景内环境持续变化，从荒芜到繁茂",
+                            "confidence": "high"
+                        },
+                        "action": "荒漠迅速转变为绿意盎然的森林，树木生长，鸟类飞翔，最后出现一只手伸向远方",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "wide",
+                            "angle_or_view": "全景",
+                            "movement": "static",
+                            "composition_note": "展现环境转变的宏大场面，最后以手部特写结束"
+                        },
+                        "present_entity_ids": [
+                            "loc_005"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_id": "scene_0008",
+                "start_seconds": 144,
+                "end_seconds": 236.5,
+                "loc_id": "",
+                "scene_title": "片尾字幕与制作花絮",
+                "scene_purpose": "展示影片制作团队信息和动画制作过程",
+                "prev_boundary": {
+                    "kind": "change",
+                    "evidence": "正片结束，进入黑底白字的演职员表"
+                },
+                "visual_segments": [
+                    {
+                        "segment_id": "seg_0029",
+                        "start_seconds": 144,
+                        "end_seconds": 152,
+                        "duration_seconds": 8,
+                        "prev_boundary": {
+                            "kind": "initial",
+                            "evidence": "HERO标题再次出现后转入演职员表",
+                            "confidence": "high"
+                        },
+                        "action": "黑屏上显示导演、编剧等制作人员信息，伴随角色剪影动画",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "文字居中显示，剪影在背景中移动"
+                        },
+                        "present_entity_ids": []
+                    },
+                    {
+                        "segment_id": "seg_0030",
+                        "start_seconds": 152,
+                        "end_seconds": 165,
+                        "duration_seconds": 13,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "从纯文字字幕切换到Blender软件界面展示",
+                            "confidence": "high"
+                        },
+                        "action": "显示Blender 3D软件界面，展示机器装置和角色的3D模型制作过程",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "屏幕录制视角",
+                            "movement": "mixed",
+                            "composition_note": "软件界面占据全屏，展示不同工作视图"
+                        },
+                        "present_entity_ids": [
+                            "prop_002",
+                            "char_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0031",
+                        "start_seconds": 165,
+                        "end_seconds": 178,
+                        "duration_seconds": 13,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续展示Blender制作过程，切换到不同场景的制作",
+                            "confidence": "high"
+                        },
+                        "action": "展示暴风雨场景中飞艇和人物的2D动画绘制过程，包括线条和上色",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "屏幕录制视角",
+                            "movement": "mixed",
+                            "composition_note": "分屏显示不同制作阶段，左侧工具栏可见"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "char_004",
+                            "prop_005"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0032",
+                        "start_seconds": 178,
+                        "end_seconds": 192,
+                        "duration_seconds": 14,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "继续展示动画制作细节，聚焦角色面部表情绘制",
+                            "confidence": "high"
+                        },
+                        "action": "详细展示角色面部表情的逐帧绘制过程，包括眼睛、嘴巴的动作变化",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "extreme_close_up",
+                            "angle_or_view": "屏幕录制视角",
+                            "movement": "static",
+                            "composition_note": "极度特写角色面部，展示绘画工具和笔触"
+                        },
+                        "present_entity_ids": [
+                            "char_002",
+                            "char_004"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0033",
+                        "start_seconds": 192,
+                        "end_seconds": 206,
+                        "duration_seconds": 14,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "切换到飞机追逐场景的3D建模和2D特效制作",
+                            "confidence": "high"
+                        },
+                        "action": "展示红色飞机的3D模型和空中追逐场景的2D特效绘制过程",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "屏幕录制视角",
+                            "movement": "mixed",
+                            "composition_note": "多窗口显示不同制作环节，包括线稿和成品对比"
+                        },
+                        "present_entity_ids": [
+                            "prop_004",
+                            "char_002"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0034",
+                        "start_seconds": 206,
+                        "end_seconds": 218,
+                        "duration_seconds": 12,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "展示手枪模型的3D建模和合成过程",
+                            "confidence": "high"
+                        },
+                        "action": "展示手枪的3D模型制作和与手绘线条的合成过程",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "屏幕录制视角",
+                            "movement": "static",
+                            "composition_note": "分屏显示3D模型和2D绘制的结合过程"
+                        },
+                        "present_entity_ids": [
+                            "prop_006",
+                            "char_001"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0035",
+                        "start_seconds": 218,
+                        "end_seconds": 226,
+                        "duration_seconds": 8,
+                        "prev_boundary": {
+                            "kind": "continuity",
+                            "evidence": "展示巨树场景的背景绘制和图形设计",
+                            "confidence": "high"
+                        },
+                        "action": "展示巨树瀑布景观的背景绘制过程，包括色彩和细节添加",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "屏幕录制视角",
+                            "movement": "mixed",
+                            "composition_note": "上下分屏显示不同制作阶段和视角"
+                        },
+                        "present_entity_ids": [
+                            "loc_005"
+                        ]
+                    },
+                    {
+                        "segment_id": "seg_0036",
+                        "start_seconds": 226,
+                        "end_seconds": 236.5,
+                        "duration_seconds": 10.5,
+                        "prev_boundary": {
+                            "kind": "visual_change",
+                            "evidence": "从制作花絮切换到最终版权信息和感谢语",
+                            "confidence": "high"
+                        },
+                        "action": "黑屏上显示Blender标志、网址和Creative Commons许可信息，最后显示感谢订阅者文字",
+                        "dialogue_or_audio": "",
+                        "camera": {
+                            "shot_size": "unknown",
+                            "angle_or_view": "正面",
+                            "movement": "static",
+                            "composition_note": "文字和标志居中排列于黑底"
+                        },
+                        "present_entity_ids": []
+                    }
+                ]
+            }
+        ]
+    },
+    "self_check": {
+        "duration_check": "passed",
+        "segment_count_check": "passed",
+        "boundary_reason_check": "passed",
+        "low_confidence_segment_ids": [],
+        "notes": "所有visual_segment时长均≤15秒，总数36个远超最低要求16个。边界划分基于明显视觉变化点，如场景切换、镜头角度改变、新角色出现等。制作花絮部分按不同制作环节自然分段，避免机械切割。"
+    },
+    "counts": {
+        "characters": 5,
+        "props": 7,
+        "locations": 5,
+        "scenes": 8,
+        "visual_segments": 36
+    }
+}
