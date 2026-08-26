@@ -420,7 +420,7 @@ BDY 将 Qwen3-VL 权重 stage 到节点本地 `/tmp/memstrata_public_models` 后
 高延迟路径。
 
 但现有 BBB 错误首先是 `urlopen` 到 `10.252.*` 的连接超时，不能证明视频本地性就是根因。
-在任何“复制视频到 BDY 本地”的实验前，必须先通过 `tgpu_fs` 在节点本地做两项只读验证：
+在任何“复制视频到计算节点本地”的实验前，必须先在节点本地做两项只读验证：
 
 1. `stat` / 小范围解码确认该具体源视频路径可读；
 2. 同一服务分别接收小 data-URL 图像和同路径 `file://` 视频，记录 HTTP、耗时和服务端错误。
@@ -429,15 +429,15 @@ BDY 将 Qwen3-VL 权重 stage 到节点本地 `/tmp/memstrata_public_models` 后
 
 ### 强制规避
 
-- BDY 节点操作只通过 `scripts/tgpu_fs.py` 共享队列，不通过 SSH。
+- 计算节点操作走你自己的作业队列，不要从开发机 SSH 进训练节点改服务。
 - BDY 的 `FLEET_ADVERTISE_HOST` 只允许 nodes.tsv 的 `host` 字段；禁止 `10.252.*`。
 - 发现 BDY 视频派发 timeout 时，立即给 BDY endpoint 写 `break`，停止 console 派发；
   重新提交 job 时只使用 H800 + kml-a800，直到 BDY 真实视频复验通过。
 
 ### 2026-07-20 追加：shared-FS executor 原型仍未跑通
 
-为避免开发机到 BDY 的 HTTP 路由，console 已能写共享 job manifest 并通过
-`tgpu_fs.py` 将 runner 提交给 BDY node。runner 在节点本地检查源视频、发现本地
+为避免开发机到计算节点的 HTTP 路由，console 已能写共享 job manifest 并把 runner
+提交到节点本地。runner 在节点本地检查源视频、发现本地
 `127.0.0.1` VLM 后调用原有 batch。
 
 该原型在 node0 上长时间占用单 worker，且 node-local VLM supervisor 未形成可访问

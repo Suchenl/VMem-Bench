@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="${MONTAGE_ROOT:-${MONTAGE_ROOT}}"
+ROOT="${MONTAGE_ROOT:-.}"
 OUT_ROOT="$ROOT/benchmarks/VMem-Bench/outputs/evaluation/trackB/_services/iamflow_vllm"
-PY="${IAMFLOW_VLLM_PY:-${CONDA_ENVS_ROOT}/vllm/bin/python}"
+PY="${IAMFLOW_VLLM_PY:-vllm/bin/python}"
 SERVICE_GPU="${IAMFLOW_SERVICE_GPU:-6}"
 LLM_SERVICE_GPU="${IAMFLOW_LLM_SERVICE_GPU:-$SERVICE_GPU}"
 VLM_SERVICE_GPU="${IAMFLOW_VLM_SERVICE_GPU:-7}"
@@ -41,9 +41,9 @@ if [[ "$LLM_SERVICE_GPU" == "$VLM_SERVICE_GPU" && "${IAMFLOW_ALLOW_SHARED_SERVIC
   exit 88
 fi
 
-if [[ "${VMEM_REQUIRE_A800_KEEPALIVE:-1}" == "1" ]]; then
+if [[ -n "${GPU_KEEPALIVE_STATUS_DIR:-}" ]]; then
   host="$(hostname)"
-  status_file="${UNSET_INTERNAL_PATH}"
+  status_file="${GPU_KEEPALIVE_STATUS_DIR}/${host}.status"
   if [[ ! -f "$status_file" ]]; then
     echo "missing keepalive status: $status_file" >&2
     exit 86

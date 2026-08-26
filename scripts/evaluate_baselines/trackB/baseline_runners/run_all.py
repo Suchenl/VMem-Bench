@@ -2,7 +2,7 @@
 """Convenience launcher for Track B baseline runners.
 
 This is intentionally thin: each system keeps its own runner and environment
-knobs. For real GPU runs, launch this from a tmux/tgpu session.
+knobs. For real GPU runs, launch this from a tmux session that survives logout.
 """
 
 from __future__ import annotations

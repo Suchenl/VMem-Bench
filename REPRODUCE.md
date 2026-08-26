@@ -30,11 +30,11 @@ python scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py \
 跑 MemStrata adapter 还需要：
 
 - `MEMSTRATA_SRC` 指向 MemStrata `paper-reproduction` 仓的 `src/`（两仓零互相 import，adapter 在本仓黑盒加载方法）
-- 源视频（`VMEM_DATASETS_ROOT` 或改 `assets/trackA/dataset_dirs.txt`）
+- 源视频：逐步获取（BBB 一键、其他 CC 片、LSMDC 申请与拼接目录）见 [`docs/DATA.md`](docs/DATA.md)；`python scripts/check_source_videos.py` 列出缺哪些 id
 - `PUBLIC_MODELS_ROOT`（SAM3 / DINOv3 等）
 - GPU
 
-91 部全量当时用内部编排脚本 `scripts/evaluate_baselines/trackA/tgpu_parallel_stage1.sh`（集群路径已洗掉，读者要自己改投放方式）。预算 `__B16` 对应 runner `--budget 16`。
+91 部全量：用你自己的作业调度器反复调用 `causal/runner.py`（预算 `__B16` = `--budget 16`）。不要依赖本仓里的集群投放脚本。
 
 Stage 2 打分：
 

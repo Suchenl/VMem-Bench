@@ -88,7 +88,7 @@ $PY runner.py --adapter longlive_rag \
 
 | baseline | env | adapter | 原生记忆 / 检索 | 状态 |
 |---|---|---|---|---|
-| **MemStrata（本系统）** | `helios`（+`src`、SAM3 vendored bundle 前置 PYTHONPATH） | `memstrata.py` | 分层 AssetBank（SAM3-concept+DINOv3 感知写入）/ IntentInterpreter 名锚 + model-free compose | **TrackA minismoke PASS**：BlenderOpenMovies:`big_buck_bunny` + LSMDC:`0001_American_Beauty`，各 limit=6，均生成 `visual_selections`。 |
+| **MemStrata（本系统）** | torch + transformers（SAM3 vendored bundle 前置 PYTHONPATH） | `memstrata.py` | 分层 AssetBank（SAM3-concept+DINOv3 感知写入）/ IntentInterpreter 名锚 + model-free compose | **TrackA minismoke PASS**：BlenderOpenMovies:`big_buck_bunny` + LSMDC:`0001_American_Beauty`，各 limit=6，均生成 `visual_selections`。 |
 | SlotMem | `vace`（仅诊断） | `slotmem.py` | 角色 slot（RoleWiseSlotMemoryBank） | **不进入无 oracle 主表**：其 released interface 需要外部/scripted `role_names` 才能稳定定位 slot；这属于 oracle-role / Scripted 诊断条件，不符合 TrackA/B prompt-only 因果生产评测。runner 通过 `scripts/evaluate_baselines/trackA/.disable_slotmem_mainline` 在主线中快速跳过。 |
 | LongLive-RAG | `wan2_1` | `longlive_rag.py` | 自编码 latent 描述子 + AE 余弦 top-k | **TrackA minismoke PASS**：两数据集各 1 样本 limit=6 均通过；纯描述子运算，无需生成器前向。 |
 | MemFlow (w/o SMA) | `wan2_1`(torch2.6+flash_attn2.6.3) | `memflow.py` | sink + 局部窗 + KV bank（文本显著性 top-k） | **TrackA minismoke PASS**：两数据集各 1 样本 limit=6 均通过。 |

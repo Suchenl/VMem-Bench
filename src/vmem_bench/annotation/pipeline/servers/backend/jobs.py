@@ -325,7 +325,7 @@ class JobStore:
         manifests: list[Any],
         catalog_rows: list[dict[str, Any]],
     ) -> dict[str, Any]:
-        """Launch a batch detached on the least-loaded KML node via tgpu SSH.
+        """Launch a batch detached on the least-loaded node via MEMSTRATA_TGPU.
 
         The remote batch writes ``progress.json`` / ``return_code.txt`` into the
         shared ``job_dir``, so the backend never needs SSH to read status.
@@ -340,7 +340,7 @@ class JobStore:
         )
         if placement is None:
             raise ValueError(
-                "所有 KML 节点当前不可达（tgpu 探测失败）；请确认训练节点在线，"
+                "所有训练节点当前不可达（集群 launcher 探测失败）；请确认节点在线，"
                 "或改用 execution_target=local 在本机跑"
             )
         inner = self._command(body, catalog_path, out_path, status_path)

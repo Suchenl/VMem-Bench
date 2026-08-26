@@ -77,7 +77,7 @@ _KEEPALIVE_STATUS_DIR = Path(os.environ["VMEM_KEEPALIVE_STATUS_DIR"]) if os.envi
 
 
 def _apply_runtime_safety_defaults() -> None:
-    """Keep benchmark workers from starving tgpu keepalive processes."""
+    """Cap BLAS/tokenizers threads so a worker does not pin the whole node."""
     defaults = {
         "OMP_NUM_THREADS": "1",
         "MKL_NUM_THREADS": "1",
