@@ -17,9 +17,12 @@ python -m pytest -q
 
 ```bash
 bash scripts/prepare_blender.sh    # official BBB 720p; gold is already in assets/trackA/
+python scripts/check_source_videos.py
 # Track A Stage-1 smoke (needs PUBLIC_MODELS_ROOT + GPU perception):
 bash scripts/run_tracka_smoke.sh
 ```
+
+**How to get source videos** (BBB one-command, other Blender/CC films, LSMDC application + stitch layout): [`docs/DATA.md`](docs/DATA.md).
 
 Full gold/prompts (no videos): `huggingface-cli download Suchenl/VMem-Bench --repo-type dataset --local-dir ./VMem-Bench-data`
 
@@ -58,7 +61,7 @@ tests/                   # assert-based; no GPU required
 
 ## Data
 
-Source videos are **not** in git or on Hugging Face.
+Source videos are **not** in git or on Hugging Face. Step-by-step obtain + directory layout: [`docs/DATA.md`](docs/DATA.md).
 
 - Track A videos: [Blender Open Movies](https://studio.blender.org/) (per-film licenses) and [LSMDC](https://sites.google.com/site/describingmovies/download) (apply for access). Point `dataset_dirs.txt` / `VMEM_DATASETS_ROOT` at your copies.
 - Track A / Track B **text gold**: `huggingface.co/datasets/Suchenl/VMem-Bench` (CC BY 4.0). Cite Rohrbach et al., IJCV 2017 when using LSMDC titles.

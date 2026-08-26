@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Track B Stage-1 multi-node fan-out (English pool).
 
+Optional cluster helper — **not** the public quickstart. Requires a launcher
+binary on PATH (``MEMSTRATA_TGPU``, default name ``tgpu``) with ``-c`` / ``-node``.
+The README path is a single-node ``causal/runner.py`` / Track B baseline_runner.
+
 Generates the three baseline long-video systems for the VMem-Bench Track B
 English prompt streams across several KML a800 nodes, one story per GPU, with a
 shared job queue so every GPU stays saturated until all jobs finish.
@@ -20,7 +24,8 @@ GPU layout per node (8x a800):
 IAMFlow jobs reach the services over 127.0.0.1, so they land on the same node's
 DiT slots as the services (every node runs both services).
 
-Each job is a self-contained script on shared KFS launched under ``tgpu ... setsid``
+Each job is a self-contained script on shared storage launched under
+``$MEMSTRATA_TGPU ... setsid`` (or a binary named ``tgpu`` if that env is unset).
 that writes its own ``EXIT:<rc>`` sentinel; this orchestrator only watches those
 sentinels (no nested ssh babysitting). Safe to nohup.
 """
@@ -29,6 +34,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import subprocess
 import sys
 import time
@@ -234,11 +240,12 @@ def build_jobsh(
 
 
 # --------------------------------------------------------------------------- #
-# tgpu helpers                                                                 #
+# optional cluster launcher                                                    #
 # --------------------------------------------------------------------------- #
 def tgpu(cluster: str, node: int, script: str, *, dry_run: bool, log) -> int:
-    cmd = ["tgpu", "-c", cluster, "-node", str(node), "bash", "-lc", script]
-    log(f"  tgpu -c {cluster} -node {node} :: {script}")
+    launcher = os.environ.get("MEMSTRATA_TGPU", "tgpu")
+    cmd = [launcher, "-c", cluster, "-node", str(node), "bash", "-lc", script]
+    log(f"  {launcher} -c {cluster} -node {node} :: {script}")
     if dry_run:
         return 0
     return subprocess.run(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
@@ -264,7 +271,7 @@ def service_ready(cluster: str, node: int, *, dry_run: bool) -> bool:
     )
     try:
         res = subprocess.run(
-            ["tgpu", "-c", cluster, "-node", str(node), "bash", "-lc", probe],
+            [os.environ.get("MEMSTRATA_TGPU", "tgpu"), "-c", cluster, "-node", str(node), "bash", "-lc", probe],
             capture_output=True, text=True, timeout=60,
         )
     except Exception:

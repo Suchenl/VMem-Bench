@@ -73,11 +73,13 @@ _BENCH_ROOT = Path(__file__).resolve().parents[5]  # benchmarks/VMem-Bench (benc
 _INPUT_MODES = ("name_anchored", "description_provided", "description_only")
 _BUDGET_CHOICES = (1, 2, 4, 8, 16)
 _RRF_K = 60
-_KEEPALIVE_STATUS_DIR = Path("/data/USER/gpu_occupy_alerts")
+def _keepalive_status_dir() -> Path | None:
+    raw = os.environ.get("GPU_KEEPALIVE_STATUS_DIR", "").strip()
+    return Path(raw) if raw else None
 
 
 def _apply_runtime_safety_defaults() -> None:
-    """Keep benchmark workers from starving tgpu keepalive processes."""
+    """Cap BLAS/tokenizers threads so a worker does not pin the whole node."""
     defaults = {
         "OMP_NUM_THREADS": "1",
         "MKL_NUM_THREADS": "1",
@@ -109,24 +111,28 @@ def _apply_runtime_safety_defaults() -> None:
 
 
 def _require_a800_keepalive_if_requested() -> None:
-    mode = os.environ.get("MAVE_REQUIRE_A800_KEEPALIVE", "auto").lower()
-    if mode in {"0", "false", "no"}:
+    """Optional occupancy gate. Off unless GPU_KEEPALIVE_STATUS_DIR is set."""
+    status_dir = _keepalive_status_dir()
+    mode = os.environ.get(
+        "GPU_REQUIRE_KEEPALIVE",
+        os.environ.get("MAVE_REQUIRE_A800_KEEPALIVE", "auto"),
+    ).lower()
+    if mode in {"0", "false", "no"} or status_dir is None:
         return
     host = subprocess.check_output(["hostname"], text=True).strip()
-    status_path = _KEEPALIVE_STATUS_DIR / f"{host}.status"
+    status_path = status_dir / f"{host}.status"
     if mode != "1":
-        is_remote_kml_node = host.endswith(".kwaidc.com")
-        if not (is_remote_kml_node and status_path.is_file()):
+        if not status_path.is_file():
             return
     if not status_path.is_file():
         raise SystemExit(
-            "MAVE_REQUIRE_A800_KEEPALIVE=1 but keepalive status is missing: "
+            "GPU_REQUIRE_KEEPALIVE=1 but keepalive status is missing: "
             f"{status_path}"
         )
     status = status_path.read_text(encoding="utf-8", errors="replace")
     if "alive_gpu_processes=8/8" not in status:
         raise SystemExit(
-            "MAVE_REQUIRE_A800_KEEPALIVE=1 but keepalive is not healthy: "
+            "GPU_REQUIRE_KEEPALIVE=1 but keepalive is not healthy: "
             f"{status_path}"
         )
 

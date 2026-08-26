@@ -242,7 +242,7 @@ def main(argv: list[str] | None = None) -> int:
     os.environ.setdefault("NO_PROXY", "localhost,127.0.0.1")
 
     stamp = time.strftime("%Y%m%d_%H%M%S")
-    log_dir = (args.log_dir or (BENCH_ROOT / "_tgpu_run" / f"stage2_service_{stamp}")).resolve()
+    log_dir = (args.log_dir or (BENCH_ROOT / "_eval_run" / f"stage2_service_{stamp}")).resolve()
     progress_path = (args.progress or (log_dir / "progress.json")).resolve()
     log_dir.mkdir(parents=True, exist_ok=True)
 

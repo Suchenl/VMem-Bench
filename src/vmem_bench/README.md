@@ -66,8 +66,8 @@ vmem_bench/
 
 数据集级、SUT-aware 的因果评测编排在包外
 `scripts/evaluate_baselines/trackA/`：`baseline_adapters/causal/runner.py` 逐 chunk 驱动单个
-baseline（Stage 1），`scoring.visual_coverage` 打分（Stage 2），`overnight_two_movie_run.sh` /
-`tgpu_parallel_stage1.sh` / `tgpu_score_stage2.sh` 做多影片编排，
+baseline（Stage 1），`scoring.visual_coverage` 打分（Stage 2），`overnight_two_movie_run.sh` 做两部影片编排；全量请用你自己的作业调度器反复调用
+`baseline_adapters/causal/runner.py`，
 `scripts/get_trackA_assets/compare/build_leaderboard_v2.py` 汇总榜单。每部影片的评测 artifact 写到：
 
 ```text

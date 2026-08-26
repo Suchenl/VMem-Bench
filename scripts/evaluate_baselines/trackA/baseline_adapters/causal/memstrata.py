@@ -38,8 +38,8 @@ Protocol-faithfulness notes
 
 Env: run the runner under a Python that has torch + transformers (>=5.9 for SAM3, via
 the vendored ``models/vendor/sam3_transformers59`` bundle prepended on PYTHONPATH) and
-can import ``memstrata`` (sibling ``../MemStrata/src``, or ``MEMSTRATA_SRC``). ``helios``
-(py3.11, torch 2.10) matches. Weights resolve under ``PUBLIC_MODELS_ROOT`` (SAM3 at
+can import ``memstrata`` (sibling ``../MemStrata/src``, or ``MEMSTRATA_SRC``).
+Weights resolve under ``PUBLIC_MODELS_ROOT`` (SAM3 at
 ``facebook/sam3``, DINOv3 at ``facebook/dinov3-vitb16-pretrain-lvd1689m``).
 Run via runner.py --adapter memstrata.
 """

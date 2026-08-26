@@ -41,9 +41,9 @@ if [[ "$LLM_SERVICE_GPU" == "$VLM_SERVICE_GPU" && "${IAMFLOW_ALLOW_SHARED_SERVIC
   exit 88
 fi
 
-if [[ "${MAVE_REQUIRE_A800_KEEPALIVE:-1}" == "1" ]]; then
+if [[ -n "${GPU_KEEPALIVE_STATUS_DIR:-}" ]]; then
   host="$(hostname)"
-  status_file="/data/USER/gpu_occupy_alerts/${host}.status"
+  status_file="${GPU_KEEPALIVE_STATUS_DIR}/${host}.status"
   if [[ ! -f "$status_file" ]]; then
     echo "missing keepalive status: $status_file" >&2
     exit 86

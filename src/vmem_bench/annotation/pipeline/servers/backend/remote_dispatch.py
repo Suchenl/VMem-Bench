@@ -4,7 +4,8 @@ CPU-heavy batch work (ffmpeg clip cutting, SAM3/GroundingDINO pre/post) is
 offloaded onto the shared KML training nodes so the dev machine only serves the
 console frontend + Cursor.  The design keeps the console responsive:
 
-- **Launch / stop go over SSH** (via the ``tgpu`` proxy).  A batch is started
+- **Launch / stop go over SSH** (via ``MEMSTRATA_TGPU`` if you configure a
+  cluster launcher).  A batch is started
   *detached* with ``setsid --fork`` so the SSH call returns in ~0.1s; the remote
   process keeps running after the connection closes.
 - **Status never goes over SSH.**  ``/data`` is shared between the dev
@@ -27,10 +28,9 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 
-TGPU = os.environ.get("MEMSTRATA_TGPU", "/data/USER/ssh_tunnel/tgpu")
-NODES_FILE = Path(
-    os.environ.get("TGPU_NODES_FILE", "/data/USER/ssh_tunnel/nodes.tsv")
-)
+TGPU = os.environ.get("MEMSTRATA_TGPU", "").strip()
+_NODES_RAW = os.environ.get("TGPU_NODES_FILE", "").strip()
+NODES_FILE = Path(_NODES_RAW) if _NODES_RAW else Path()
 
 # Per-cluster CPU-quality penalty. a800 CPUs are weaker than h800, so the same
 # normalized loadavg counts as "more loaded" on a800 → h800 receives more work.
@@ -113,7 +113,7 @@ def load_kml_nodes(nodes_file: Path | None = None) -> list[KmlNode]:
         if len(fields) < 5:
             continue
         node, cluster, role, host, ip = (f.strip() for f in fields[:5])
-        # Only clusters reachable via tgpu SSH. bdy-a800 was retired (SSH-less).
+        # Skip rows that are not SSH-reachable training clusters.
         if not cluster.startswith("kml-"):
             continue
         nodes.append(KmlNode(cluster=cluster, node=node, ip=ip, host=host, role=role))
@@ -121,6 +121,11 @@ def load_kml_nodes(nodes_file: Path | None = None) -> list[KmlNode]:
 
 
 def _tgpu_run(node: KmlNode, argv: list[str], timeout: int) -> subprocess.CompletedProcess[str]:
+    if not TGPU:
+        raise RuntimeError(
+            "Remote GPU launch is not configured. Set MEMSTRATA_TGPU to your "
+            "cluster launcher (and TGPU_NODES_FILE to a nodes table) or run locally."
+        )
     return subprocess.run(  # noqa: S603
         [TGPU, "-c", node.cluster, "-node", node.node, "--", *argv],
         capture_output=True,

@@ -107,8 +107,8 @@
        --iamflow-llm-endpoint http://127.0.0.1:8100/v1 \
        --iamflow-vlm-endpoint http://127.0.0.1:8101/v1 --iamflow-vlm-cache
    ```
-3. 多卡/多节点并行（D4.1，墙钟≈最慢单片）：每个 target 先起一个 worker
-   `python scripts/tgpu_fs.py worker --cluster kml-a100 --node 1`，再 `--submit`：
+3. 多卡/多节点并行（D4.1，墙钟≈最慢单片）：每个 GPU 起一个 worker 进程跑
+   `generate_causal_traces.py`（或 `causal/runner.py`）的一个影片子集。示例：
    ```bash
    ... generate_causal_traces.py --movies all --skip-complete \
        --iamflow-llm-endpoint ... --iamflow-vlm-endpoint ... --iamflow-vlm-cache \

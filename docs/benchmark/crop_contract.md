@@ -170,7 +170,7 @@ DINOv3 当**便宜的 triage**，真正的“是否同一实体”判定交给 V
 
 ### 2.8 运维硬规则（Bench 重跑）
 
-- 重 S5 在 **kml-a800**（`tgpu`），不要跑 DT/IDE 机。
+- 重 S5 在有 GPU 的训练节点上跑，不要占用开发机。
 - **禁止**大权重进 DT `/dev/shm`；训练节点 shm 可以。
 - Picker 用专用小 VLM（如 8B `:8113`），勿抢过载共享 32B。
 - skip-S3 标注优先级：S4 人工 &gt; S3 自动 &gt; S2 normalized；目录被清则先从 `vlm_output.json` 重建 S2。

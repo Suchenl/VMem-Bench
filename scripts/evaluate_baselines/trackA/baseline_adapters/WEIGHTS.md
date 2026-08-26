@@ -51,7 +51,7 @@ cd benchmarks/VMem-Bench/scripts/evaluate_baselines/trackA/baseline_adapters/cau
 PUBLIC_MODELS_ROOT=${PUBLIC_MODELS_ROOT} \
 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 CUDA_VISIBLE_DEVICES=0 \
 PYTHONPATH="$SAM3:$SRC:$(pwd)" \
-helios/bin/python -u runner.py \
+python3 -u runner.py \
   --adapter memstrata --movie-dir ../../../data/BlenderOpenMovies/big_buck_bunny \
   --limit 4 --input-mode name_anchored
 # 产物：<movie>/benchmark_run/visual_selections/memstrata.json（+ _ref_frames/memstrata/*.png）

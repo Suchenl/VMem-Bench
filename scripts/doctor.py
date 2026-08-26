@@ -60,6 +60,7 @@ def main() -> int:
     else:
         _bad(f"BBB video under {video_dir}")
         print("         fix: bash scripts/prepare_blender.sh")
+        print("         other films / LSMDC: see docs/DATA.md")
         failed += 1
 
     root = os.environ.get("PUBLIC_MODELS_ROOT", "")

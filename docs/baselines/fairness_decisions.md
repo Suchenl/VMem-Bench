@@ -51,7 +51,7 @@ pinned scoring embedder 由 bench 拥有、对所有系统 byte-for-byte 一致�
 - 因果对手（memflow / iamflow / longlive_rag）的记忆决策由其模型内部 KV/attention/entity-score
   决定，**机制 forward 不能省**（省了就是被踢出主表的 `*_budget_proxy`，不忠实）。
 - 但"11 小时"是**串行错觉**，trace 生成逐片独立、天然可并行。提速杠杆（全部忠实）：
-  1. **跨影片 × GPU 并行**：走 `scripts/tgpu_fs.py` 共享文件系统队列；墙钟 ≈ 最慢单片。
+  1. **跨影片 × GPU 并行**：用你自己的作业队列把每部影片派到一张卡；墙钟 ≈ 最慢单片。
   2. **共享一次性 GT VAE encode**：memflow/iamflow 已共用 `memflow_latents.pt`，longlive_rag 统一到只 encode 一次/片。
   3. **iamflow 用现成 vLLM 环境**服务 Qwen3-4B(LLM)+Qwen3-VL-2B(VLM)（同权重，忠实提速）；跑不通再装。
   4. **缓存确定性中间量**（VLM per-block 视觉分、DiT per-layer KV 指纹）→ 后续扫参近乎免费。

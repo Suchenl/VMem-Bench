@@ -10,6 +10,6 @@ Each movie directory holds text gold only:
 | `gold/chunk_annotations.json` | Per-chunk prompt, `present`, first appearances |
 | `gold/chunk_index.json` | Chunk time spans (`seconds_span`) |
 
-**No videos, no gold crops.** Point the runner at your own Blender / LSMDC files.
+**No videos, no gold crops.** How to obtain the films and the expected paths: [`docs/DATA.md`](../../docs/DATA.md).
 
 Full gold (all movies) lives on Hugging Face: [Suchenl/VMem-Bench](https://huggingface.co/datasets/Suchenl/VMem-Bench) (`trackA/`). Git keeps copies for tests and local scoring smoke.
