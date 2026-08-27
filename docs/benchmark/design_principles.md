@@ -2,7 +2,7 @@
 
 This document outlines the core, system-independent design principles that must be followed when building and executing academic benchmarks for long-video memory and context management. These principles ensure that the evaluation is **rigorous, reproducible, cheat-proof, and reflective of real-world performance**.
 
-> **方法论根基（通用纲领）**：下面 12 条 MemStrata-specific 原则都可回溯到三条超越具体任务领域（长视频、NLP、多模态等）的通用学术基准法则——**关注点分离与解耦**、**确定性指标计算**、**自包含与环境解耦**。它们分别在本文的 #2/#6/#7 中被具体化，完整表述见文末《附录：通用基准方法论》。术语以 [`glossary.md`](../../../../methods/MemStrata/docs/glossary.md) 为准。
+> **方法论根基（通用纲领）**：下面 12 条 MemStrata-specific 原则都可回溯到三条超越具体任务领域（长视频、NLP、多模态等）的通用学术基准法则——**关注点分离与解耦**、**确定性指标计算**、**自包含与环境解耦**。它们分别在本文的 #2/#6/#7 中被具体化，完整表述见文末《附录：通用基准方法论》。术语以 [`glossary.md`](https://github.com/Suchenl/MemStrata/blob/main/docs/glossary.md) 为准。
 
 ---
 

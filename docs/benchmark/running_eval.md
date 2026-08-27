@@ -129,7 +129,7 @@
 ## 4. Stage 0 — 从 S4 人核标注转出 gold（文本 GT）
 
 ```bash
-cd benchmarks/MemStrata
+cd VMem-Bench
 PYTHONPATH=src $PY scripts/vmem_bench/maintenance/build_gold_from_s4_review.py \
     --movie-dir data/BlenderOpenMovies/big_buck_bunny
 ```
@@ -184,7 +184,7 @@ adapter 只能把它已经保留/召回的 source time 投影成 `source_seconds
 4. **DINOv3**（可选）：给 `redundancy_sim` 列用；torch/权重不可用时该列为 `null`，不阻塞 headline。
 
 ```bash
-cd benchmarks/MemStrata
+cd VMem-Bench
 # 冒烟：只打前 5 个 chunk 验证链路；全量去掉 --limit
 PYTHONPATH=src $PY -m vmem_bench.scoring.visual_coverage \
     --movie  data/BlenderOpenMovies/big_buck_bunny \

@@ -3,7 +3,7 @@
 > 状态：**定稿中（v2，2026-07-23）**。本版把评测重构为「两个问题 + 两张图」，并锚定一个关键事实：
 > **一致性类的定量 headline 是 generation-free 的**（复用 Track A 的确定性组合层打分，跑在超长受控
 > 场景上），真实生成器只用于**少数 hard-case 的定性/像素级佐证**。术语以
-> [`glossary.md`](../../../../methods/MemStrata/docs/glossary.md) 为准；与冻结的 Track A 主表（[`../benchmark/scoring.md`](../benchmark/scoring.md)）
+> [`glossary.md`](https://github.com/Suchenl/MemStrata/blob/main/docs/glossary.md) 为准；与冻结的 Track A 主表（[`../benchmark/scoring.md`](../benchmark/scoring.md)）
 > **互补、不替代**。
 
 ## 0. 为什么这样重构（算力硬约束）
@@ -113,6 +113,6 @@ state_events/gold_instructions + confusable 组 + 期望返场 asset）是隐藏
 
 ## 8. 与代码/其他文档的关系
 - 打分器：`vmem_bench/scoring/{metrics,runner}.py`（已含 memdist/efficiency/horizon）。
-- 生成侧接线：[`method/generator_wiring.md`](../../../../methods/MemStrata/docs/method/generator_wiring.md)（video + image_backends 已 vendored）。
+- 生成侧接线：[`method/generator_wiring.md`](https://github.com/Suchenl/MemStrata/blob/main/docs/method/generator_wiring.md)（video + image_backends 已 vendored）。
 - 公平性：[`../baselines/fairness_decisions.md`](../baselines/fairness_decisions.md)——同后端/同 seed/同 encoder，只换记忆模块。
-- 运行纪律：[`run_all_movies_handoff.md`](../../../../methods/MemStrata/docs/experiments/run_all_movies_handoff.md)（先验证再信任、静默降级门槛）。
+- 运行纪律：[`run_all_movies_handoff.md`](https://github.com/Suchenl/MemStrata/blob/main/docs/experiments/run_all_movies_handoff.md)（先验证再信任、静默降级门槛）。

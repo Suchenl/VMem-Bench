@@ -10,7 +10,7 @@
 > 复合权重、评分/回放流程、钉死项以此为准，取代 [`schemas_and_contracts.md`](schemas_and_contracts.md)
 > §4 中「ID-Fidelity 作 headline」的表述（schema 字段/契约结构仍以 `schemas_and_contracts.md` 为准）。
 > **标注阶段见 [`annotation_pipeline.md`](annotation_pipeline.md)**（本文件不复述离线标注步骤）。
-> 术语以 [`glossary.md`](../../../../methods/MemStrata/docs/glossary.md) 为准。本文件遵循 `.agents/skills/research/atomic/benchmark-design/SKILL.md`
+> 术语以 [`glossary.md`](https://github.com/Suchenl/MemStrata/blob/main/docs/glossary.md) 为准。本文件遵循 `.agents/skills/research/atomic/benchmark-design/SKILL.md`
 > 的方法学原则（下文括号标注对应原则号）。
 
 > ## 落地状态与实测记录（截至 2026-07-21）

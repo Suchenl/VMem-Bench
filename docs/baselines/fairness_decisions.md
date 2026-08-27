@@ -3,7 +3,7 @@
 > 本文是"如何跑 baseline 才算最公平对比"的**权威决定记录**。跑 / 改 / 评 baseline 前先读。
 > 实现层面的 Track A 定义见 [`track_a.md`](track_a.md)；具体实验矩阵见
 > [`../experiments/fairness_experiment_plan.md`](../experiments/fairness_experiment_plan.md)。
-> 术语以 [`glossary.md`](../../../../methods/MemStrata/docs/glossary.md) 为准。
+> 术语以 [`glossary.md`](https://github.com/Suchenl/MemStrata/blob/main/docs/glossary.md) 为准。
 
 ## 背景
 
