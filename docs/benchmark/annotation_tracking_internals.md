@@ -399,8 +399,8 @@ registry 里已有实体比较融合余弦，`>= reid_threshold` 就并入否则
 翻转"谁是主力"：VLM 从"chunk 级 discover/verify"降到"tracklet 聚类粒度的判定"（调用量仍降一个
 数量级，但比"零 VLM"的第一版多了一层，是刻意的、认为值得的权衡——见 §9.4），embedding 只做候选缩小
 /预聚类；聚类从在线贪心改为离线批量，允许纠错传递。实现在
-[`annotation/identity_clustering.py`](../annotation/identity_clustering.py)（纯算法，零 VLM/GPU）+
-[`annotation/identity_resolution.py`](../annotation/identity_resolution.py)（编排）：
+[`annotation/identity_clustering.py`](../../src/vmem_bench/annotation/pipeline_track_first/identity_clustering.py)（纯算法，零 VLM/GPU）+
+[`annotation/identity_resolution.py`](../../src/vmem_bench/annotation/pipeline_track_first/identity_resolution.py)（编排）：
 
 1. **按 (kind, identity_group) 分桶**：与旧 `allowed_entity_ids` 同样的限制（检测短语是廉价稳定的
    身份先验）。
