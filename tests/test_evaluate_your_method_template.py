@@ -8,6 +8,7 @@ output contract cannot silently drift from what the scorer ingests.
 from __future__ import annotations
 
 import importlib.util
+import json
 import shutil
 import sys
 from pathlib import Path
@@ -56,3 +57,34 @@ def test_template_emits_scorer_ingestible_selection(tmp_path: Path) -> None:
     assert recalled, "later segments should recall stored frames"
     for p in recalled:
         assert Path(p).is_file(), f"selection points at a missing file: {p}"
+
+
+def test_timestamp_reference_is_materialized_for_scoring(tmp_path: Path) -> None:
+    from vmem_bench.scoring.visual_coverage import _load_selection
+
+    movie = tmp_path / "movie"
+    selection_dir = movie / "benchmark_run" / "visual_selections"
+    selection_dir.mkdir(parents=True)
+    system = "timestamp-method"
+    (selection_dir / f"{system}.json").write_text(
+        json.dumps({
+            "system": system,
+            "chunks": [{"chunk_id": 0, "selected": [
+                {"representations": [{"source_seconds": 1.25}]}
+            ]}],
+        }),
+        encoding="utf-8",
+    )
+    source_video = tmp_path / "source.mp4"
+    source_video.write_bytes(b"placeholder")
+    fake_ffmpeg = tmp_path / "ffmpeg"
+    fake_ffmpeg.write_text(
+        "#!/bin/sh\nout=\nfor arg do out=$arg; done\nprintf 'frame' > \"$out\"\n",
+        encoding="utf-8",
+    )
+    fake_ffmpeg.chmod(0o755)
+
+    selections, _ = _load_selection(
+        movie, system, video=source_video, ffmpeg=str(fake_ffmpeg)
+    )
+    assert selections[0] and Path(selections[0][0]).is_file()

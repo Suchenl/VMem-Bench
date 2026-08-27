@@ -140,12 +140,71 @@ def _tracka_run_dir(movie: Path, system: str) -> Path:
     return _BENCH_ROOT / "outputs" / "evaluation" / "trackA" / system / dataset / movie.name
 
 
-def _load_selection(movie: Path, system: str):
-    """Return ({segment_id: [crop_abspath, ...]}, {segment_id: {compose_ms, observe_ms}}).
+def _materialize_source_frame(
+    movie: Path,
+    system: str,
+    chunk_id: int,
+    source_seconds: float,
+    video: Path | None,
+    ffmpeg: str,
+) -> str:
+    """Cut a timestamp reference into the image file consumed by the VLM scorer."""
+    if video is None or not video.is_file():
+        raise ValueError(
+            f"selection for chunk {chunk_id} uses source_seconds={source_seconds}, "
+            "but scoring has no readable --video"
+        )
+    out = (
+        _tracka_run_dir(movie, system)
+        / "_ref_frames"
+        / system
+        / f"chunk_{chunk_id:05d}_t{source_seconds:.3f}.jpg"
+    )
+    if not out.is_file():
+        out.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            subprocess.run(
+                [
+                    ffmpeg,
+                    "-y",
+                    "-ss",
+                    f"{float(source_seconds):.3f}",
+                    "-i",
+                    str(video),
+                    "-frames:v",
+                    "1",
+                    "-q:v",
+                    "2",
+                    str(out),
+                ],
+                check=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+        except FileNotFoundError as error:
+            raise RuntimeError(f"ffmpeg executable not found: {ffmpeg}") from error
+        except subprocess.CalledProcessError as error:
+            raise RuntimeError(
+                f"ffmpeg could not materialize source_seconds={source_seconds} "
+                f"for chunk {chunk_id}"
+            ) from error
+    return str(out.resolve())
+
+
+def _load_selection(
+    movie: Path,
+    system: str,
+    *,
+    video: Path | None = None,
+    ffmpeg: str = "ffmpeg",
+):
+    """Return ({segment_id: [materialized image, ...]}, {segment_id: timing}).
 
     The second dict carries the Stage-1 retrieval/write latencies the runner
     recorded per segment (``retrieval_timing`` in the manifest); empty when absent
     (older manifests) so scoring still works and just leaves those columns null.
+    ``source_seconds`` references are cut from ``video`` into scorer-readable
+    frames; omitting ``video`` for such a reference raises instead of dropping it.
     """
     # New protocol outputs live under outputs/evaluation/trackA/<system>/<dataset>/<movie>/.
     # Keep the legacy movie/benchmark_run fallback so old smoke artifacts remain readable.
@@ -161,6 +220,15 @@ def _load_selection(movie: Path, system: str):
         for sel in (c.get("selected") or []):
             for rep in (sel.get("representations") or []):
                 p = rep.get("crop_abspath") or rep.get("crop_path")
+                if p is None and rep.get("source_seconds") is not None:
+                    p = _materialize_source_frame(
+                        movie,
+                        system,
+                        cid,
+                        float(rep["source_seconds"]),
+                        video,
+                        ffmpeg,
+                    )
                 if p:
                     imgs.append(str(p))
         out[cid] = imgs
@@ -549,7 +617,7 @@ def run(movie: Path, system: str, video: Path, out_dir: Path, api: str | PooledJ
     movie = movie.resolve()
     video = video.resolve()
     segments, ents = _load_gold(movie)
-    sel, sel_timing = _load_selection(movie, system)
+    sel, sel_timing = _load_selection(movie, system, video=video, ffmpeg=ffmpeg)
     run_dir = _tracka_run_dir(movie, system)
     clip_dir = run_dir / "_clips"
     emb = _get_embedder()  # DINOv3 for redundancy_sim; None -> that column is null
