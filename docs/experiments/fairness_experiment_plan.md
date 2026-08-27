@@ -2,6 +2,10 @@
 
 > 决定的"为什么"见 [`../baselines/fairness_decisions.md`](../baselines/fairness_decisions.md)。
 > 本文只讲"要跑哪些实验 / 代码改什么 / 验收标准"。
+>
+> **归档说明：** 本文保留历史实验设计；其中标为旧 orchestrator 的
+> `scripts/vmem_bench/compare/` 路径不属于当前公开运行入口。现在的
+> Track A 命令以 [`../trackA.md`](../trackA.md) 为准。
 
 > **术语与新管线更新（2026-07-24）**
 > 1. **不再用 "Regime A/B" 这种叫法**，改为语义明确的两个输入档：

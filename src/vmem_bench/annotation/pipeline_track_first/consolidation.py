@@ -150,6 +150,18 @@ def _entity_best_grounded_score(entity: Entity, embeddings: dict[str, list[float
     return best
 
 
+def _is_readable_image(path: Path) -> bool:
+    """Return whether a crop can provide pixel evidence to the VLM arbiter."""
+    try:
+        from PIL import Image
+
+        with Image.open(path) as image:
+            image.verify()
+        return True
+    except (OSError, ValueError):
+        return False
+
+
 def consolidate_observation(
     registry: Registry,
     *,
@@ -199,11 +211,12 @@ def consolidate_observation(
                 if not judge_same_entity(Path(crop_path), ref, kind):
                     matched = None
             else:
-                # Same display name but low visual agreement (state change, new angle, stub
-                # color shift). Ask the VLM before splitting — a named rediscovery is stronger
-                # evidence than an anonymous embedding match, and judge_same_entity is the
-                # intended gray-zone escape hatch (bias remains: split if the judge says no).
-                if not judge_same_entity(Path(crop_path), ref, kind):
+                # Do not ask a judge to rescue a score this low unless the current crop carries
+                # readable pixels. Invalid/missing visual evidence must split conservatively.
+                if (_is_readable_image(Path(crop_path))
+                        and judge_same_entity(Path(crop_path), ref, kind)):
+                    pass
+                else:
                     matched = None
     # Embedding identity matching is grounded-crop-only on BOTH sides: the candidate side is
     # filtered in best_match, the current-observation side is gated here. A vlm_fallback /

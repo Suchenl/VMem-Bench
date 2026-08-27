@@ -25,9 +25,9 @@ images), but endpoint discovery and pooling are identical:
 ```bash
 PYTHONPATH=src \
 python -m vmem_bench.scoring.end2end_coverage \
-  --gt benchmarks/VMem-Bench/assets/trackB/gt/<story>.json \
+  --gt assets/trackB/gt/<story>.json \
   --run outputs/evaluation/trackB/<system>/<story>/<register>/<run_tag> \
-  --prompts benchmarks/VMem-Bench/assets/trackB/sut_prompts/<story>_<register>.json \
+  --prompts assets/trackB/sut_prompts/<story>_<register>.json \
   --fleet --workers 0
 ```
 
@@ -82,7 +82,7 @@ IAMFLOW_SERVICE_GPU=6 \
 IAMFLOW_VLLM_PY=python3 \
 IAMFLOW_LLM_PORT=8100 \
 IAMFLOW_VLM_PORT=8101 \
-bash benchmarks/VMem-Bench/scripts/evaluate_baselines/trackB/baseline_runners/iamflow/launch_vllm_services.sh
+bash scripts/evaluate_baselines/trackB/baseline_runners/iamflow/launch_vllm_services.sh
 
 source outputs/evaluation/trackB/_services/iamflow_vllm/latest/iamflow_service.env
 ```
@@ -97,15 +97,15 @@ smoke runs and will be too slow for full Track B.
 Dry-run one story:
 
 ```bash
-python benchmarks/VMem-Bench/scripts/evaluate_baselines/trackB/baseline_runners/memstrata/run.py \
-  --prompts benchmarks/VMem-Bench/assets/trackB/sut_prompts/0001_lighthouse_keeper_name_anchored.json \
+python scripts/evaluate_baselines/trackB/baseline_runners/memstrata/run.py \
+  --prompts assets/trackB/sut_prompts/0001_lighthouse_keeper_name_anchored.json \
   --limit 2 --run-tag smoke --dry-run
 ```
 
 Real MemFlow one story:
 
 ```bash
-python benchmarks/VMem-Bench/scripts/evaluate_baselines/trackB/baseline_runners/memflow/run.py \
-  --prompts benchmarks/VMem-Bench/assets/trackB/sut_prompts/0001_lighthouse_keeper_name_anchored.json \
+python scripts/evaluate_baselines/trackB/baseline_runners/memflow/run.py \
+  --prompts assets/trackB/sut_prompts/0001_lighthouse_keeper_name_anchored.json \
   --run-tag bench --cuda-visible-devices 0
 ```

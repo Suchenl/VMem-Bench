@@ -4,6 +4,19 @@
 
 > 中文文档见 [`README.zh.md`](README.zh.md).
 
+## Evaluate your own method
+
+The branch includes the same stdlib-only BYOM template as `main`:
+[`scripts/evaluate_baselines/your_method/README.md`](scripts/evaluate_baselines/your_method/README.md).
+Use it to validate your `compose`/`observe` contract on the frozen Track A inputs,
+then score the emitted selection with the paper-branch scorer.
+
+The annotation pipeline is also available in this frozen checkout. Inspect
+`PYTHONPATH=src python -m vmem_bench.annotation.pipeline_track_first.run --help`
+and use `scripts/get_trackA_assets/core/run_annotation.sh` for a service-backed
+S1–S7 annotation run; production gold still requires a human-confirmed roster
+and the review/freeze gates.
+
 ## Citation
 
 ```bibtex

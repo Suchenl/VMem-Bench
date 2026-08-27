@@ -1,10 +1,8 @@
 # paper-reproduction：VMem-Bench 冻结核
 
-本分支 **不是** 生产 `main`。它对应内部 git 快照
-
-`VMem-Track-A-MemStrata` @ `51be2914`
-
-冻结核当时包名是 `mave_bench`、目录名 `benchmarks/MaVE-Bench`。公开仓已 **机械重命名** 为 `vmem_bench` / VMem-Bench，**没有改打分公式或协议**。
+本分支是公开的 `paper-reproduction` 冻结分支，保留论文 Track A
+Stage 1 的协议、gold JSON、adapter 与打分实现。包名和目录均使用当前
+公开名称 `vmem_bench` / VMem-Bench；不需要任何内部仓库或路径。
 
 | 分支 | 职责 |
 |---|---|
@@ -75,8 +73,8 @@ python -m vmem_bench.scoring.end2end_coverage \
 
 ## 无 GPU 冒烟
 
-本分支是**冻结核**，不是 CI 门禁分支——**`pytest` 全绿是 `main` 的属性，不是本分支的**。
-可靠的无 GPU 信号是：装得上 + 三个 `--help` 入口起得来 + 打分器单测能过。
+本分支是冻结核，同时保留完整的 CPU CI 门禁。可靠的无 GPU 信号是：
+装得上 + 三个 `--help` 入口起得来 + 全部收集到的单测通过。
 
 ```bash
 export CUDA_VISIBLE_DEVICES=
@@ -85,24 +83,20 @@ python -m pip install -e ".[dev]"             # 现在会装齐 opencv/scipy/saf
 PYTHONPATH=src python -m vmem_bench.scoring.visual_coverage --help
 PYTHONPATH=src python -m vmem_bench.scoring.end2end_coverage --help
 python scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py --help
-PYTHONPATH=src python -m pytest -q            # 见下：本快照有已知失败项，非全绿
+PYTHONPATH=src python -m pytest -q
 ```
 
 `tests/` 只测 bench 自身。`scripts/evaluate_baselines/tests/` 会碰到方法包，默认不收集。
 
-**本快照 `pytest` 已知失败（7 项，刻意不修）**：`test_fleet_registry`（控制台 break/busy 状态机）、
-`test_paths_layout`（迁移工具）、`test_annotation_pipeline::test_e2e_stub`、
-`test_pipeline_s2_annotation_postprocess`、`test_s5_identity_gate`、
-`test_annotation_fixes::test_same_name_grounded_crop_must_match_visual_evidence`。
-这些是 `main` 之后才修的**基建 / 标注流水线**行为；`main` 已绿，本冻结核**保持当时状态**——
-修它们会改动 Stage 1 标注/门控，等于动论文数字，故**不回拷**。它们都不在复现入口
-（Stage 1 `causal/runner.py` → Stage 2 `visual_coverage` / `end2end_coverage`）上。
+当前冻结分支已验证：`367 passed`。其中修复项只涉及缓存失效、
+兼容的公开路径、标注审核队列和 legacy gold 的迁移兼容性，不改变
+论文 Track A 的输入、记忆协议或评分公式。
 
 `pytest.ini` 忽略了 freeze 测试里引用但 freeze `src/` 并不存在的两个模块：
 `tests/test_pipeline_vlm_dominant.py`（`postprocess` vs `postprocess_segments`）、
 `tests/test_services_placement.py`（没有 `vmem_bench.services`）。没有补写这些模块。
 
-`test_model_weights_root.py` 已改成独立仓断言（不再要求 Montage `src/montage` 或本地 SAM3 目录）。
+`test_model_weights_root.py` 使用独立仓断言，不要求任何外部源码树。
 
 ## 环境变量
 

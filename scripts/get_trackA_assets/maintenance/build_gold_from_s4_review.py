@@ -20,7 +20,7 @@ which the visual-coverage scorer reads; ``gold/entity_registry.json`` = the enti
 Usage::
 
     cd benchmarks/MemStrata
-    PYTHONPATH=src python scripts/vmem_bench/maintenance/build_gold_from_s4_review.py \
+    PYTHONPATH=src python scripts/get_trackA_assets/maintenance/build_gold_from_s4_review.py \
         --movie-dir data/BlenderOpenMovies/big_buck_bunny
 
 By default it writes into ``<movie>/gold/`` and, on the first run, moves any pre-existing ``gold/``

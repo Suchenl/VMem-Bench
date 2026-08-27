@@ -18,15 +18,15 @@
 
 ## 复现：如何拿到外部 baseline 源码
 
-这些第三方框架由 **MemStrata 自己**钉死 commit 管理（[`baselines/.sources.tsv`](.sources.tsv)），**不要**写进 Montage 的 `submodules/.sources.tsv`——本 bench 后续会拆成独立仓库，并可能作为 Montage 的「自有 submodule」挂回去。
+这些第三方框架的版本由各自 adapter 的 release metadata 管理；本冻结分支不包含内部 submodule 清单。
 
 ```bash
 # 在 Montage 树内（拆仓前）
-python benchmarks/VMem-Bench/baselines/sync_baselines.py
+python baselines/sync_baselines.py
 
 # 或只拉一类
-python benchmarks/VMem-Bench/baselines/sync_baselines.py Scripted
-python benchmarks/VMem-Bench/baselines/sync_baselines.py Causal
+python baselines/sync_baselines.py Scripted
+python baselines/sync_baselines.py Causal
 ```
 
 `Scripted/<name>` / `Causal/<name>` 是本地 checkout（已被 `baselines/.gitignore` 忽略）。清单与 sync 脚本随 MemStrata 拆仓一起带走即可。

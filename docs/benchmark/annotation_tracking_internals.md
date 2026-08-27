@@ -144,7 +144,7 @@ class PerceptionBackend(Protocol):
 消融只切 `perception_backend = gdino_track | sam3_track`，其余流程与参数不变，直接对比重复实体率 / crop 纯度 /
 presence 准确率 / 墙钟时间。SAM3 权重就绪前，A 是主路，B 的接口与 stub 先建、权重到位即插。
 
-> 自包含性（原则 7）：两后端都实现在 `benchmarks/VMem-Bench/src/vmem_bench/annotation/perception/` 内，
+> 自包含性（原则 7）：两后端都实现在 `src/vmem_bench/annotation/perception/` 内，
 > 只 import 第三方库 + 本 benchmark 内模块，不引用 MemStrata 外任何代码；模型权重从公共根按路径加载。
 
 ### 3.2 VLM 的新职责（大幅收缩）
@@ -363,7 +363,7 @@ vLLM OpenAI 服务**（H800 上另起 8B；本机 `:8000` 已有一个 `Qwen3-VL
 - **F. 人脸 = 自门控多线索 cue（新）**：仅 character，InsightFace 检测即门控，人脸作加权 re-ID cue 融合、
   缺席自动退化，不设"是不是脸"分类步、不因误判改控制流（§3.7）。
 - **G. 自包含定义（原则 7 已改写）**：自包含 = `memstrata`↔`vmem_bench` 不互相 import + 不 import
-  `benchmarks/VMem-Bench/` 外任何**代码**；第三方库与外部**模型权重**（按路径加载）不算耦合，允许使用。
+  `` 外任何**代码**；第三方库与外部**模型权重**（按路径加载）不算耦合，允许使用。
 
 ---
 
@@ -399,8 +399,8 @@ registry 里已有实体比较融合余弦，`>= reid_threshold` 就并入否则
 翻转"谁是主力"：VLM 从"chunk 级 discover/verify"降到"tracklet 聚类粒度的判定"（调用量仍降一个
 数量级，但比"零 VLM"的第一版多了一层，是刻意的、认为值得的权衡——见 §9.4），embedding 只做候选缩小
 /预聚类；聚类从在线贪心改为离线批量，允许纠错传递。实现在
-[`annotation/identity_clustering.py`](../annotation/identity_clustering.py)（纯算法，零 VLM/GPU）+
-[`annotation/identity_resolution.py`](../annotation/identity_resolution.py)（编排）：
+[`annotation/identity_clustering.py`](../../src/vmem_bench/annotation/pipeline_track_first/identity_clustering.py)（纯算法，零 VLM/GPU）+
+[`annotation/identity_resolution.py`](../../src/vmem_bench/annotation/pipeline_track_first/identity_resolution.py)（编排）：
 
 1. **按 (kind, identity_group) 分桶**：与旧 `allowed_entity_ids` 同样的限制（检测短语是廉价稳定的
    身份先验）。

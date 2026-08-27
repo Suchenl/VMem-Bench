@@ -34,7 +34,7 @@
 - **运行契约**：Track B 的生产 run 必须以 **`--bench-mode`** 跑（见 §6），启动时断言「本 run 未消费任何 GT 字段」并写入 run manifest；否则该 run 的 avoidance/recall 记为 **oracle-assisted**，不得作为 Track B 结果。
 
 ## 2. GT（来自剧本冻结文本 + 手写硬样本标注层）
-由 **`vmem_bench` 侧导出器**（`scoring/trackb_gt.py`）从 `production_screenplay` 逐 shot 派生，叠加**手写标注 sidecar**（`trackB_gt/<story>.overrides.json`）。**导出器与 SUT 包零 import**（遵 `benchmarks/VMem-Bench/AGENTS.md` 规则2）。
+由 **`vmem_bench` 侧导出器**（`scoring/trackb_gt.py`）从 `production_screenplay` 逐 shot 派生，叠加**手写标注 sidecar**（`trackB_gt/<story>.overrides.json`）。**导出器与 SUT 包零 import**（遵 `AGENTS.md` 规则2）。
 
 | GT 字段 | 定义 | 来源 |
 |---|---|---|

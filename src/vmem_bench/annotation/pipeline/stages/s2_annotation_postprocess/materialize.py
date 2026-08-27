@@ -21,6 +21,32 @@ _REPORT_NAMES = {
 }
 
 
+def _resolve_input_path(source: Path) -> Path:
+    """Resolve legacy checkout data paths to the packaged Track A assets.
+
+    Older callers used ``data/<dataset>/<movie>/vlm_output.json`` while the
+    public paper checkout packages those same reviewed outputs under
+    ``assets/trackA``. Keep the input API compatible without copying or
+    rewriting the source annotations.
+    """
+    if source.is_file():
+        return source
+    try:
+        data_index = source.parts.index("data")
+    except ValueError:
+        return source
+    relative = Path(*source.parts[data_index + 1:])
+    repo_root = Path(__file__).resolve().parents[6]
+    candidates = [repo_root / "assets" / "trackA" / relative]
+    normalized_parts = tuple(
+        part[:-5] if part.endswith("_720p") else part for part in relative.parts
+    )
+    normalized = Path(*normalized_parts)
+    if normalized != relative:
+        candidates.append(repo_root / "assets" / "trackA" / normalized)
+    return next((candidate for candidate in candidates if candidate.is_file()), source)
+
+
 def postprocess_annotation(input_path: str | Path, output_dir: str | Path) -> dict[str, Any]:
     """Materialize S2 artifacts for one v5 JSON input.
 
@@ -31,12 +57,13 @@ def postprocess_annotation(input_path: str | Path, output_dir: str | Path) -> di
     Consumers must require the returned ``status == "ok"``.
     """
     source = Path(input_path)
+    resolved_source = _resolve_input_path(source)
     destination = Path(output_dir)
     destination.mkdir(parents=True, exist_ok=True)
     base = {"stage": _STAGE, "input_path": str(source)}
 
     try:
-        payload = source.read_bytes()
+        payload = resolved_source.read_bytes()
     except OSError as error:
         return _write_failure_reports(destination, base, "input_unreadable", "INPUT_UNREADABLE", str(error))
     if not payload.strip():

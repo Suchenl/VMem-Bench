@@ -9,7 +9,7 @@
 ## 0. The three iron rules (hard constraints; violating any invalidates the evaluation — do not ask twice)
 
 1. **Gold = S4 human-reviewed annotation, and text only.**
-   Gold is always produced by [`build_gold_from_s4_review.py`](../../scripts/vmem_bench/maintenance/build_gold_from_s4_review.py)
+   Gold is always produced by [`build_gold_from_s4_review.py`](../../scripts/get_trackA_assets/maintenance/build_gold_from_s4_review.py)
    from `tmp/pipeline/s4_segment_sampling_human_review/human_revised_annotation.json`.
    Gold **contains only text** (roster + per-chunk present / first_appearances / prompt / seconds_span),
    and **contains no crop pixels** (every representation's `crop_path` is empty, deliberately).
@@ -51,7 +51,8 @@
 > memflow_sma / iamflow / slotmem …) are **completely equal in status**, all just SUTs. They are measured under **two evaluations**:
 > ① **this memory benchmark** (the current document) — replace the generator output with the real segment and measure only the "memory mechanism," producing
 > precision/recall/F1/redundancy/selection_efficiency + time-efficiency metrics;
-> ② **the real production pipeline** (`methods/MemStrata/production/`, `montage produce`) — plug the same SUT into
+> ② **the real MemStrata production pipeline** (`scripts/memstrata/run_production.sh`,
+> `python -m memstrata.production.run`) — plug the same SUT into
 > the end-to-end "script → generate → look back to build memory → generate again" loop, and measure its **output quality and stability** on real long-form video with generator noise.
 > So memstrata is **not** the "judge/bench side," and the baselines are **not** present only inside the bench; in both evaluations they are the objects under test,
 > with a consistent interface (prompt+video in, memory/context out). When writing code/docs, do not special-case memstrata as part of the bench.
@@ -129,7 +130,7 @@ not the source resolution (source films are often 720p/1080p, which is slow and 
 
 ```bash
 cd VMem-Bench
-PYTHONPATH=src $PY scripts/vmem_bench/maintenance/build_gold_from_s4_review.py \
+PYTHONPATH=src $PY scripts/get_trackA_assets/maintenance/build_gold_from_s4_review.py \
     --movie-dir data/BlenderOpenMovies/big_buck_bunny
 ```
 
@@ -164,7 +165,8 @@ the adapter may only project the source time it has already retained/recalled in
   Multiple baselines may share the same **method-side perception frontend** (ensuring fairness and burning GPU only once); their difference is only in memory/selection strategy — this is still a method-side tool,
   not "the bench handing out images."
 
-> ⚠️ **Do not use `scripts/vmem_bench/compare/run_movie_benchmark.py` + `BenchReplayAdapter` as Stage 1.**
+> ⚠️ Do not use the retired gold-replay runner as Stage 1. Use
+> `scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py`.
 > That is the **deprecated gold-crop replay**: feeding the crops from the gold observation package directly into the SUT's memory = the bench handing out images, violating iron rule 2;
 > and it leaks gold's present to the SUT via the observation package, violating iron rule 3. Under S4 gold, the observation package's `crop_path` is all empty,
 > so this path cannot produce any pixels anyway. **It is usable only for pure-ID-contract offline self-tests, and cannot produce context for scoring.**

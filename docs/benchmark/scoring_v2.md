@@ -35,7 +35,7 @@ benchmark 评的是**长程视觉实体记忆**:一个记忆系统在超长视�
 
 **不包含**(相对旧版):gold crop、状态/state_events、gold latents。**gold(文本 GT)以 S4 人核标注为准**
 (S1 VLM 标注 → S2 后处理 → S3 逐段自动复审 → **S4 采样人核**),由
-[`build_gold_from_s4_review.py`](../../scripts/vmem_bench/maintenance/build_gold_from_s4_review.py)
+[`build_gold_from_s4_review.py`](../../scripts/get_trackA_assets/maintenance/build_gold_from_s4_review.py)
 从 `tmp/pipeline/s4_segment_sampling_human_review/human_revised_annotation.json` 转出 `gold/`;
 **S5–S7(crop 采集 / crop 人核 / crop 冻结)不需要——参考图由 SUT 自产,不落 gold**。运行流程见
 [`running_eval.md`](running_eval.md)。

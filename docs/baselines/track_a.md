@@ -216,7 +216,7 @@ Track B uses each vendor's official scripts under `baselines/Causal/*/`; we do n
 ## CLI (as adapters mature)
 
 ```bash
-PYTHONPATH=benchmarks/VMem-Bench/src \
+PYTHONPATH=src \
 python -m vmem_bench.baseline_adapters.run_gold_replay --list
 ```
 

@@ -30,9 +30,16 @@ _AUTO_HIDE_REASONS = frozenset(
         "picker_rejected",
         "picker_request_failed",
         "identity_mismatch",
-        "cross_entity_bbox_conflict",
         "no_library_crop_for_slot",
         "missing_crop",
+    }
+)
+_IDENTITY_REVIEW_REASONS = frozenset(
+    {
+        "cross_entity_bbox_conflict",
+        "picker_rejected",
+        "picker_request_failed",
+        "identity_mismatch",
     }
 )
 
@@ -71,7 +78,8 @@ def _should_hide_from_human(proposal: dict[str, Any], reasons: list[str]) -> boo
     task_kind = str(proposal.get("task_kind") or "acquire")
     if task_kind == "slot_bind":
         return True
-    if proposal.get("accepted") is False:
+    identity_block = any(reason in _IDENTITY_REVIEW_REASONS for reason in reasons)
+    if proposal.get("accepted") is False and not identity_block:
         return True
     if not _crop_key(proposal):
         return True
@@ -147,16 +155,7 @@ def build_review_queue(proposals: list[dict[str, Any]]) -> list[dict[str, Any]]:
         diverse = _dedupe_near_identical(items)
         for proposal in diverse:
             reasons = reason_by_id.get(str(proposal.get("representation_id") or ""), [])
-            identity_block = any(
-                reason
-                in {
-                    "cross_entity_bbox_conflict",
-                    "picker_rejected",
-                    "picker_request_failed",
-                    "identity_mismatch",
-                }
-                for reason in reasons
-            )
+            identity_block = any(reason in _IDENTITY_REVIEW_REASONS for reason in reasons)
             queue.append(
                 {
                     "kind": "crop",
@@ -165,7 +164,7 @@ def build_review_queue(proposals: list[dict[str, Any]]) -> list[dict[str, Any]]:
                     "segment_id": proposal.get("segment_id"),
                     "entity_id": proposal.get("entity_id"),
                     "proposal": proposal,
-                    "recommended_action": "keep",
+                    "recommended_action": "review" if identity_block else "keep",
                     "review_tier": "must" if identity_block else "spot_check",
                     "reasons": reasons,
                 }

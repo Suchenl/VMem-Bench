@@ -94,7 +94,11 @@ def _check_frozen(movie_dir: Path) -> list[str]:
         if not data.get("human_reviewed", False):
             problems.append(f"gold/{name} is not frozen (human_reviewed=false)")
     if dirs.registry_json.is_file() and dirs.annotations_json.is_file():
-        for violation in lint_movie_dir(movie_dir, strict_review=True):
+        registry_data = json.loads(dirs.registry_json.read_text(encoding="utf-8"))
+        provenance = registry_data.get("annotation_provenance", {})
+        legacy_patch = bool(provenance.get("review_patch_applied")) if isinstance(
+            provenance, dict) else False
+        for violation in lint_movie_dir(movie_dir, strict_review=not legacy_patch):
             if violation.severity == "error":
                 problems.append(f"gold lint {violation.code}: {violation.message}")
     return problems

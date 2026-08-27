@@ -56,7 +56,7 @@
 发布只版本化「切分逻辑 + 标注结果 + 下载方式」；视频、切片、抽帧、crop 一律本地按需从源视频重建（gitignore）。
 
 ```
-benchmarks/VMem-Bench/data/blender_open_movies/big_buck_bunny/
+data/blender_open_movies/big_buck_bunny/
 ├── manifest.json             # ★ 源视频下载方式 + sha256 + fps/时长 + license + layout_hash + 管线出处
 ├── gold/                     # ★ 冻结标注 + 切分逻辑（human_reviewed: true 后不可变，小、可发布）
 │   ├── chunk_index.json      #   chunk ↔ shot/frame 映射 + layout_hash（legacy: layout/chunk_index.json）

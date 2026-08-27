@@ -45,6 +45,15 @@ except (TypeError, ValueError):
     _FLEET_CACHE_TTL_SEC = 4.0
 
 
+def _invalidate_fleet_cache(root: Path) -> None:
+    """Drop cached console snapshots after a mutation to this fleet root."""
+    prefix = f"{root}|"
+    with _FLEET_CACHE_LOCK:
+        for key in tuple(_FLEET_CACHE):
+            if key.startswith(prefix):
+                del _FLEET_CACHE[key]
+
+
 def memstrata_root_from_here() -> Path:
     # fleet/registry.py -> fleet -> servers -> pipeline -> annotation -> vmem_bench -> src -> MemStrata
     return Path(__file__).resolve().parents[6]
@@ -138,6 +147,7 @@ def register_intent(
     if extra:
         payload.update(extra)
     _atomic_write_json(root / "intents" / f"{instance_id}.json", payload)
+    _invalidate_fleet_cache(root)
     return payload
 
 
@@ -169,6 +179,7 @@ def write_instance_status(
     if status == STATUS_STARTING:
         current["started_at"] = now
     _atomic_write_json(path, current)
+    _invalidate_fleet_cache(root)
     return current
 
 
@@ -214,6 +225,7 @@ def mark_endpoint_busy(
     if extra:
         payload.update(extra)
     _atomic_write_json(root / "workloads" / f"{instance_id}.json", payload)
+    _invalidate_fleet_cache(root)
     return payload
 
 
@@ -227,6 +239,7 @@ def mark_endpoint_idle(base_url: str, *, fleet_root: Path | None = None) -> None
     path = root / "workloads" / f"{instance_id}.json"
     if path.is_file():
         path.unlink(missing_ok=True)
+    _invalidate_fleet_cache(root)
 
 
 def _parse_ts(value: Any, *, timezone_hint: str | None = None) -> float | None:
@@ -327,6 +340,7 @@ def mark_endpoint_break(
         "timezone": "Asia/Shanghai",
     }
     _atomic_write_json(root / "breaks" / f"{instance_id}.json", payload)
+    _invalidate_fleet_cache(root)
     return payload
 
 
@@ -338,6 +352,7 @@ def clear_endpoint_break(base_url: str, *, fleet_root: Path | None = None) -> No
     except ValueError:
         return
     (root / "breaks" / f"{instance_id}.json").unlink(missing_ok=True)
+    _invalidate_fleet_cache(root)
 
 
 def _resolved_start_at(intent: dict[str, Any], instance: dict[str, Any]) -> str:

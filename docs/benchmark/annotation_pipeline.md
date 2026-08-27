@@ -77,7 +77,7 @@ S2 的 `vlm_output.json`。权威复现文档：
    动作类型：`FULL_RERUN` / `CONTINUE_HEAD|TAIL` / `FILL_GAP(S)` / `REPLACE_RANGE` /
    `REVISE_OVERLONG` / `SPLIT_OVERLONG_GT30`；稳定模板在
    `stages/s1_vlm_annotation/prompts/`，当次作业台在 `data/_vlm_rerun_kit_*/`
-   （合并后清场，见 `benchmarks/VMem-Bench/AGENTS.md` 规则 3）。[实跑]
+   （合并后清场，见 `AGENTS.md` 规则 3）。[实跑]
    **已拍板策略**：生产基座 v5；**`>30s` 强制 VLM 拆分**；**15–30s 可暂缓**硬切（若日后强制合规，
    优先 S2 确定性硬切而非 S3 重标）；≈1s 小缝可忽略；续标默认不附整份旧 JSON。
    验收清单见 `stages/s1_vlm_annotation/audit_checklist.md`。
@@ -142,7 +142,7 @@ S2 的 `vlm_output.json`。权威复现文档：
   用 VLM** 完成;因此 S4 的人工签字由 **Cursor agent** 代替,采纳 S3 的 VLM 复审标注、accept 整条队列
   (`review_queue.json` 的全部 BLOCK + 抽样),将 stage 置 `human_reviewed=true`,并在 `review_audit.json`
   写 `agent_reviewed=true / reviewer=cursor-agent / review_method=s4_agent_review.py / reviewed_at` 溯源。
-  工具:`scripts/vmem_bench/maintenance/s4_agent_review.py`(走生产 `decisions.apply_s4_decisions`,
+  工具:`scripts/get_trackA_assets/maintenance/s4_agent_review.py`(走生产 `decisions.apply_s4_decisions`,
   同样重跑确定性复验;需要时可用 `--decisions` 传入个别 segment 的 present/action 修订)。这样 S4 视为
   "确定完",不再等待人工。[代码 `s4_agent_review.py`]
 
