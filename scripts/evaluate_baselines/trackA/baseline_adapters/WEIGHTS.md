@@ -21,7 +21,7 @@
 | MemFlow | `${PUBLIC_MODELS_ROOT}/KlingTeam/MemFlow` | `base.pt` / `lora.pt` |
 | IAMFlow | `${PUBLIC_MODELS_ROOT}/Causal_Video_Generation/IAMFlow` | `iamflow_fp8.safetensors` / `tinyvae.pth` |
 | SlotMem | LoRA/encoder：`${PUBLIC_MODELS_ROOT}/Causal_Video_Generation/SlotMem/ckpt/{stage1,stage2}`；base：`${PUBLIC_MODELS_ROOT}/Wan-AI/Wan2.2-I2V-A14B` | TrackA only uses native Wan2.2-I2V-A14B + `ckpt/{stage1,stage2}/{stage*_low.pt,stage*_high.pt}`. Do **not** use distilled/lightx2v Wan2.2 for SlotMem formal runs; the smoke can load LoRA but visual quality is unusable. |
-| MemStrata（本系统，感知权重） | `${PUBLIC_MODELS_ROOT}`（`PUBLIC_MODELS_ROOT`） | SAM3：`facebook/sam3`；DINOv3：`facebook/dinov3-vitb16-pretrain-lvd1689m`；GroundingDINO：**缺**（`IDEA-Research/*` 为空，adapter 走 SAM3-concept-only，`detector=None`） |
+| MemStrata（本系统，感知权重） | `${PUBLIC_MODELS_ROOT}` | 默认 grounder：**WeDetect-Ref**（describe→bbox 服务，`MEMSTRATA_WEDETECT_URL`，需另行部署）；DINOv3：`facebook/dinov3-vitb16-pretrain-lvd1689m`；SAM3（仅 WeDetect 不可用时回退）：`facebook/sam3`。`name_source=mllm` 另需 `Qwen/Qwen3.5-9B-Instruct`。下载与布局见 MemStrata 仓库 `MODELS.md`。 |
 | （备）DecMem | `${PUBLIC_MODELS_ROOT}/KlingTeam/DecMem` | 需 H100/WorldMem，暂不接 |
 
 ## Python / library mapping
@@ -47,7 +47,7 @@
 ```bash
 SAM3=./models/vendor/sam3_transformers59
 SRC=./src
-cd benchmarks/VMem-Bench/scripts/evaluate_baselines/trackA/baseline_adapters/causal
+cd scripts/evaluate_baselines/trackA/baseline_adapters/causal   # from the VMem-Bench repo root
 PUBLIC_MODELS_ROOT=${PUBLIC_MODELS_ROOT} \
 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 CUDA_VISIBLE_DEVICES=0 \
 PYTHONPATH="$SAM3:$SRC:$(pwd)" \
