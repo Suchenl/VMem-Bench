@@ -1,5 +1,9 @@
 # VMem-Bench
 
+A benchmark for long-range visual memory in causal long video generation — Track A (identity retrieval over a movie timeline) and Track B (memory survival into generated pixels).
+
+> 中文文档见 [`README.zh.md`](README.zh.md).
+
 # Getting started
 
 Clone **next to** [MemStrata](https://github.com/Suchenl/MemStrata) (the adapter looks in `../MemStrata/src`):
