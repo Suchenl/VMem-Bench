@@ -1,124 +1,96 @@
-# Track A 协议（新因果协议）
+# Track A protocol (new causal protocol)
 
-Track A 评测「视觉记忆的检索质量」。**旧的 gold-replay 协议已整体删除**，Track A 现在只跑
-下面这一套因果协议。旧协议（`src/vmem_bench/baseline_adapters/` 里的 `run_gold_replay.py` /
-`registry` / `convert` / `common/` / `diagnostics/` / `external/causal/` / `external/scripted/`，
-以及 `scripts/get_trackA_assets/compare/` 下的 gold-replay 编排、各 gold 轨迹/潜变量生产脚本）
-已从仓库移除，不再保留、不再导入。
+Track A evaluates "the retrieval quality of visual memory." **The old gold-replay protocol has been removed entirely**, and Track A now runs only the causal protocol below. The old protocol (`run_gold_replay.py` / `registry` / `convert` / `common/` / `diagnostics/` / `external/causal/` / `external/scripted/` under `src/vmem_bench/baseline_adapters/`, plus the gold-replay orchestration and the various gold-trace/latent production scripts under `scripts/get_trackA_assets/compare/`) has been removed from the repository; it is no longer kept and no longer imported.
 
-## 三条铁律
+## The three iron rules
 
-1. **bench 不做感知**：不抠图、不聚类、不判存在。
-2. **bench 不发图给 SUT**：SUT 只拿到 prompt 文本 + 真实 segment 视频，绝不拿 gold crop / gold 实体 id。
-3. **bench 不泄答案**：不给 `present`/roster、不给参考图贴标签。
+1. **The bench does no perception**: no cropping, no clustering, no presence judgment.
+2. **The bench hands no images to the SUT**: the SUT receives only the prompt text + the real segment video, and never gold crops / gold entity ids.
+3. **The bench leaks no answers**: no `present`/roster provided, no labels on reference images.
 
-## 每个 chunk 的数据流
+## Data flow for each chunk
 
-按时间序，对每个 chunk `t`：
+In time order, for each chunk `t`:
 
-1. **切真实 segment**：bench 从源视频按 `seconds_span` 切出该 chunk 的真实片段（纯 IO）。
-2. **`compose(prompt)`**：把 **prompt 文本**交给 SUT。SUT 从**当前记忆**（只由 `< t` 的历史 chunk 建成）
-   里检索，返回带**时序身份**的记忆项（`source_seconds` / `source_chunk_id` + `evidence_kind`）。
-3. **`observe_segment(真实 clip)`**：把该 chunk 的**真实 segment** 交给 SUT，让它走自己原生的记忆写入
-   路径更新记忆。
+1. **Cut the real segment**: from the source video, the bench cuts the chunk's real clip according to `seconds_span` (pure IO).
+2. **`compose(prompt)`**: hand the **prompt text** to the SUT. The SUT retrieves from its **current memory** (built only from history chunks `< t`) and returns memory items carrying a **temporal identity** (`source_seconds` / `source_chunk_id` + `evidence_kind`).
+3. **`observe_segment(real clip)`**: hand this chunk's **real segment** to the SUT so it can update memory through its own native memory-write path.
 
-`compose` **严格先于**同一 chunk 的 `observe_segment`，所以 SUT 在为 chunk `t` 组合上下文时，绝不可能
-偷看 chunk `t` 的视频。
+`compose` **strictly precedes** the `observe_segment` of the same chunk, so when the SUT composes context for chunk `t`, it can never peek at chunk `t`'s video.
 
-**真实 segment 替代 SUT 的生成产出**，以消除生成噪声。原则上**能跳过生成就跳过**：
+**The real segment replaces the SUT's generated output** to eliminate generation noise. In principle, **skip generation whenever possible**:
 
-- MemStrata（本系统）、检索族（见下）是感知/检索运算，**不需要**任何生成器前向。
-- LongLive-RAG 的检索是纯自编码描述子运算，同样**不需要**跑生成器前向。
-- MemFlow / IAMFlow / SlotMem 的记忆写入发生在生成器前向内部，但都只需 **teacher-force 真 latent 做单次前向**
-  抽取（`context_noise=0`），**不是**多步去噪生成：MemFlow/IAMFlow 填 KV / 记忆帧；SlotMem 的角色 slot 抽取
-  （`_extract_memory_from_current_step`）本质是**单次 DiT 前向的注意力探针**——注册 hook 跑一次前向拿注意力图即可，
-  角色靠 prompt 里的角色名 token 定位（`find_token_index_in_prompt`；`name_anchored` 已给名字，无需 roster，
-  `char_latent_boxes` 仅为可选精修）。因此**没有任何 chunk 需要真正的多步生成**。
+- MemStrata (this system) and the retrieval families (see below) are perception/retrieval computations and **do not need** any generator forward.
+- LongLive-RAG's retrieval is pure self-encoded descriptor computation and likewise **does not need** a generator forward.
+- MemFlow / IAMFlow / SlotMem write memory inside the generator forward, but all only need a **single teacher-forced real-latent forward** for extraction (`context_noise=0`), **not** multi-step denoising generation: MemFlow/IAMFlow fill KV / memory frames; SlotMem's character-slot extraction (`_extract_memory_from_current_step`) is essentially an **attention probe of a single DiT forward** — register a hook, run one forward to get the attention map, and characters are located by the character-name tokens in the prompt (`find_token_index_in_prompt`; `name_anchored` already provides names, so no roster is needed, and `char_latent_boxes` is only an optional refinement). Therefore **no chunk needs true multi-step generation**.
 
-> **SlotMem 现状：已接入 TrackA adapter。** adapter 使用 native `Wan2.2-I2V-A14B`
-> + SlotMem 自己的 stage1/stage2 LoRA/encoder，在 torch 2.5 + flash-attn 2.8
-> 里执行：VAE 编码真 segment → 选 SlotMem 单 bank timestep 加噪 → 单次 native DiT 前向带注意力探针
-> → stage2 slot encoder/writer 写 `RoleWiseSlotMemoryBank`。**TrackA 正式实验禁止使用 distilled
-> Wan2.2/lightx2v 版本**：distilled + SlotMem LoRA 虽可加载并生成视频，但烟测视觉质量不稳定（涂抹、
-> 块状背景、几何漂移），不可作为公平正式结果。
+> **SlotMem status: integrated into the TrackA adapter.** The adapter uses native `Wan2.2-I2V-A14B`
+> + SlotMem's own stage1/stage2 LoRA/encoder, running under torch 2.5 + flash-attn 2.8:
+> VAE-encode the real segment → select the SlotMem single-bank timestep to add noise → a single native DiT forward with an attention probe
+> → the stage2 slot encoder/writer writes the `RoleWiseSlotMemoryBank`. **Formal TrackA experiments forbid the distilled
+> Wan2.2/lightx2v version**: distilled + SlotMem LoRA can load and generate video, but the smoke-test visual quality is unstable (smearing,
+> blocky background, geometric drift) and cannot serve as a fair formal result.
 
-## 因果护栏
+## Causal guardrail
 
-`frame_materializer.py` 在把时序身份物化成参考帧时，会丢弃「源时间 ≥ 当前 chunk 起点」的项（因果 SUT
-只能取过去），丢弃计数记进 manifest（`future_dropped`）。
+When `frame_materializer.py` materializes a temporal identity into a reference frame, it drops items with "source time ≥ the current chunk's start" (a causal SUT can only draw on the past), and the drop count is recorded in the manifest (`future_dropped`).
 
-## 产物与持久化
+## Artifacts and persistence
 
-所有产物写在 `<movie>/benchmark_run/` 下，**compose 组合出的上下文结果不删除**（既用于评分，也用于给论文
-挑定性对比图）：
+All artifacts are written under `<movie>/benchmark_run/`, and **the context composed by compose is not deleted** (used both for scoring and for picking qualitative comparison figures for the paper):
 
-| 路径 | 内容 |
+| Path | Content |
 |---|---|
-| `benchmark_run/visual_selections/<run_name>.json` | 每 chunk 组合出的上下文（选中的记忆项 + 解析出的参考帧 + 该 chunk 的 prompt），**持久保留** |
-| `benchmark_run/_ref_frames/<run_name>/` | 从真实源视频切出的参考帧（评分 + 论文找图用） |
-| `benchmark_run/_segments/chunk_NNNNN.mp4` | 每 chunk 切出的真实 segment |
-| `benchmark_run/_adapter_work/<run_name>/finalize.json` | run 级元数据（input_mode / budget / 记忆规模 / 检索模式等） |
+| `benchmark_run/visual_selections/<run_name>.json` | the context composed for each chunk (the selected memory items + the resolved reference frames + this chunk's prompt), **kept permanently** |
+| `benchmark_run/_ref_frames/<run_name>/` | reference frames cut from the real source video (for scoring + finding figures for the paper) |
+| `benchmark_run/_segments/chunk_NNNNN.mp4` | the real segment cut for each chunk |
+| `benchmark_run/_adapter_work/<run_name>/finalize.json` | run-level metadata (input_mode / budget / memory size / retrieval mode, etc.) |
 
-`<run_name>` 命名规则：`name_anchored` 用 `adapter.name`；`description_provided` 用
-`<adapter.name>__descprov`；若指定了 `--budget B` 再追加 `__B<B>`。两种输入模式的产物因此不会互相覆盖。
+`<run_name>` naming rule: `name_anchored` uses `adapter.name`; `description_provided` uses `<adapter.name>__descprov`; if `--budget B` is specified, `__B<B>` is appended. Artifacts of the two input modes therefore never overwrite each other.
 
-## 输入模式
+## Input modes
 
-Track A 的规范输入模式**只有两个**：`name_anchored` 与 `description_provided`，两者并排上报（公平性轴）。
+Track A has **only two** canonical input modes: `name_anchored` and `description_provided`, reported side by side (the fairness axis).
 
-- **`name_anchored`（默认，主表）**：prompt 就是 S4 剧本散文原文，复现实体用它们的自然名字指代。按名字索引
-  记忆的系统（如 MemStrata 的名锚，以及文本条件的 baseline）在这里拿到强文本抓手。
-- **`description_provided`**：在 `name_anchored` 的 prompt 之上，为**名字已经出现在该 chunk prompt 里**的
-  实体，确定性地追加一段外观描述后缀（形如 `[实体外观参考] 名字：外观…；…`）。它**只增加外观文本、不删名字**，
-  让「靠外观描述去匹配自己视觉记忆」的系统也拿到公平的文本抓手。泄漏安全：只描述 prompt 已经点到名的实体
-  （每 chunk 就那几个），不暴露任何 `present`/roster；同一条确定性规则对所有系统一视同仁。所有实体种类
-  （character / prop / location）都可被描述——道具、场景也是一等的复现视觉身份。
+- **`name_anchored` (default, main table)**: the prompt is the verbatim S4 screenplay prose, where recurring entities are referred to by their natural names. Systems that index memory by name (such as MemStrata's name-anchoring, and text-conditioned baselines) get a strong textual handle here.
+- **`description_provided`**: on top of the `name_anchored` prompt, for entities whose **name already appears in that chunk's prompt**, a deterministic appearance-description suffix is appended (of the form `[Entity appearance reference] Name: appearance…; …`). It **only adds appearance text and never removes names**, so that systems that "match against their own visual memory via appearance descriptions" also get a fair textual handle. Leak-safe: only entities already named in the prompt are described (just those few per chunk), and no `present`/roster is ever exposed; the same deterministic rule applies equally to all systems. All entity kinds (character / prop / location) can be described — props and locations are also first-class recurring visual identities.
 
-> 运行器 `runner.py` 另外还接受一个诊断用的 `description_only` 模式（把 prompt 中已出现的注册名替换成中性
-> 指代 + 追加外观文本，同样不暴露 roster）。它**不属于规范主表**，只作压力/消融用途。
+> The runner `runner.py` also accepts a diagnostic `description_only` mode (which replaces registered names already present in the prompt with neutral referents + appends appearance text, likewise never exposing the roster). It is **not part of the canonical main table** and is used only for stress/ablation purposes.
 
-任一模式都由 bench 侧确定性地改写 prompt 文本，`gold/entity_registry.json` 里的实体元数据**只**用来生成
-外观描述后缀，**绝不**作为 present/roster 列表交给 SUT。
+In either mode, the bench deterministically rewrites the prompt text; the entity metadata in `gold/entity_registry.json` is used **only** to generate the appearance-description suffix and is **never** handed to the SUT as a present/roster list.
 
-## 打分
+## Scoring
 
-参考帧由 `vmem_bench.scoring.visual_coverage` 做 VLM 视觉覆盖打分（方法中立，不注入 gold、不给参考图贴标签）；
-榜单由 `scripts/get_trackA_assets/compare/build_leaderboard_v2.py` 汇总，定性对比图可用
-`scripts/get_trackA_assets/compare/export_visual_selections.py` 从 `visual_selections/` 解析。
+Reference frames are scored by `vmem_bench.scoring.visual_coverage` for VLM visual coverage (method-neutral, no gold injected, no labels on reference images); the leaderboard is aggregated by `scripts/get_trackA_assets/compare/build_leaderboard_v2.py`, and qualitative comparison figures can be parsed from `visual_selections/` by `scripts/get_trackA_assets/compare/export_visual_selections.py`.
 
 ## Baselines
 
-因果 baseline 的 bench 适配代码在
-[`scripts/evaluate_baselines/trackA/baseline_adapters/causal/`](../scripts/evaluate_baselines/trackA/baseline_adapters/causal/README.md)（每个 baseline 一个 `build_adapter()` 工厂，vendored 原始仓库零改动）。
+The bench adapter code for the causal baselines is in [`scripts/evaluate_baselines/trackA/baseline_adapters/causal/`](../scripts/evaluate_baselines/trackA/baseline_adapters/causal/README.md) (one `build_adapter()` factory per baseline, with the vendored upstream repos untouched).
 
-检索族（`text_frame_retrieval` / `text_segment_retrieval_then_uniform_sampling` /
-`text_segment_retrieval_then_dino_keyframe_sampling` / `text_segment_retrieval_then_frame_retrieval`
-+ recency / bm25 / random 诊断控制项）是**仓内自包含实现**，位于
-`src/vmem_bench/baseline_adapters/external/retrieval/`，**不导入 SUT 包 `memstrata`**（编码器基座在
-同目录 `_retrieval_encoders.py`），经 `baseline_adapters/causal/retrieval_family.py` 挂到因果协议下运行。
+The retrieval families (`text_frame_retrieval` / `text_segment_retrieval_then_uniform_sampling` / `text_segment_retrieval_then_dino_keyframe_sampling` / `text_segment_retrieval_then_frame_retrieval` + recency / bm25 / random diagnostic controls) are a **self-contained in-repo implementation**, located at `src/vmem_bench/baseline_adapters/external/retrieval/`, which **does not import the SUT package `memstrata`** (the encoder base is in the same directory, `_retrieval_encoders.py`) and is hooked into the causal protocol via `baseline_adapters/causal/retrieval_family.py`.
 
-## 运行
+## Running
 
 ```bash
-# 每个 baseline 用装好对应依赖的 Python（见各 adapter 模块头注释）
+# Use a Python with the appropriate dependencies for each baseline (see the header comment of each adapter module)
 PY=python3
 cd scripts/evaluate_baselines/trackA/baseline_adapters/causal
 
-# Stage 1：驱动一个 baseline 跑完一部电影（name_anchored 主表）
+# Stage 1: drive one baseline through a whole movie (name_anchored main table)
 $PY runner.py --adapter longlive_rag \
   --movie-dir <movie_dir> --input-mode name_anchored
 
-# description_provided 模式（产物落到 <name>__descprov，不覆盖主表）
+# description_provided mode (artifacts land in <name>__descprov, not overwriting the main table)
 $PY runner.py --adapter longlive_rag \
   --movie-dir <movie_dir> --input-mode description_provided
 
-# Stage 2：VLM 视觉覆盖打分
+# Stage 2: VLM visual-coverage scoring
 $PY -m vmem_bench.scoring.visual_coverage \
   --movie <movie_dir> --system <run_name> --video <source_video>
 
-# Stage 3：把 per-movie benchmark_run/ 结果按 baseline/dataset/sample 汇总
+# Stage 3: aggregate the per-movie benchmark_run/ results by baseline/dataset/sample
 PYTHONPATH=src python scripts/evaluate_baselines/trackA/aggregate_trackA_outputs.py
 # -> outputs/evaluation/trackA/<baseline>/<dataset>/<sample>/<input_mode>[/B<budget>]/
 #    {score.json, visual_selections.json, finalize.json, meta.json}
-#    + 每 baseline aggregate.{json,md} + 顶层 leaderboard.{json,md}
+#    + per-baseline aggregate.{json,md} + top-level leaderboard.{json,md}
 ```

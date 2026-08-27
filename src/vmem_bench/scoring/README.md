@@ -1,10 +1,8 @@
 # Scoring modules — VLM visual-coverage (new causal protocol)
 
-> 权威 Track A 协议（含新协议数据流、输入模式、产物路径）：[`docs/trackA.md`](../../../docs/trackA.md)。
+> Authoritative Track A protocol (including the new protocol's data flow, input modes, and artifact paths): [`docs/trackA.md`](../../../docs/trackA.md).
 >
-> 旧的 v1 打分器（`metrics.py` ID-set 交集 + `visual.py` gold-crop 嵌入近邻 + `runner.py`/`__main__`
-> gold-replay harness，以及 `vmem_bench.benchmark_run` v1 编排）**已随 gold-replay 协议整体删除**，
-> 不再保留、不再导入。
+> The old v1 scorers (`metrics.py` ID-set intersection + `visual.py` gold-crop embedding nearest-neighbor + the `runner.py`/`__main__` gold-replay harness, plus the `vmem_bench.benchmark_run` v1 orchestration) **were removed entirely along with the gold-replay protocol**; they are no longer kept and no longer imported.
 
 ## Active (release): `visual_coverage.py` — VLM-based visual coverage, v2
 

@@ -5,7 +5,7 @@
 > It does **not** need to run the full generator denoising loop.
 > Track B uses each vendor's official generation scripts + full checkpoints.
 
-本机根目录::
+Local weights root::
 
   ${PUBLIC_MODELS_ROOT}/
 
@@ -21,7 +21,7 @@
 
 ## Local paths (filled)
 
-| 资产 | 路径 | 状态 |
+| Asset | Path | Status |
 |---|---|---|
 | Wan2.1-T2V-1.3B | `.../Wan-AI/Wan2.1-T2V-1.3B` | ✅ (VAE encode gold) |
 | LongLive AE | `.../Causal_Video_Generation/LongLive-RAG/checkpoints/ae_latent_mem.pt` | ✅ |

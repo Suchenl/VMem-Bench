@@ -1,132 +1,131 @@
-# MemStrata-Bench 运行手册（端到端评测流程）
+# MemStrata-Bench operating manual (end-to-end evaluation flow)
 
-> 状态：**当前权威运行手册**。评分公式/数据形态见 [`scoring_v2.md`](scoring_v2.md)。
-> 本文讲**怎么把一部影片从 S4 金标准跑到分数**，以及**这套评测到底在测什么、什么绝对不能做**。
-> 任何要碰本 benchmark 的人或 agent，**先读 §0 三条铁律 + §1 SUT 契约**，再看后面的操作。
-
----
-
-## 0. 三条铁律（硬约束，违反即评测无效，不要再问第二遍）
-
-1. **金标准 = S4 人核标注，且只有文本。**
-   gold 一律由 [`build_gold_from_s4_review.py`](../../scripts/vmem_bench/maintenance/build_gold_from_s4_review.py)
-   从 `tmp/pipeline/s4_segment_sampling_human_review/human_revised_annotation.json` 转出。
-   gold **只含文本**（roster + 逐 chunk present / first_appearances / prompt / seconds_span），
-   **不含任何 crop 像素**（representation 的 `crop_path` 一律为空，这是刻意的）。
-   **禁止**使用任何非 S4 来源的旧 gold。
-
-2. **参考图（context）永远是 SUT 自己产的，bench 不发图。**
-   SUT 通过**观察真实 chunk 视频**、自己做感知/分解，把**自己的 crop** 存进**自己的记忆库**。
-   打分打的就是这些 SUT 自产图。**禁止**把 gold crop（或任何 bench 提供的像素）当作 SUT 的记忆/context——
-   那是已废弃的错误协议（见 §5 的警告）。
-
-3. **SUT 只能看到 prompt + 视频，永远看不到"答案"。**
-   每个 chunk，bench 只给 SUT：① 该 chunk 的 **prompt 文本**；② 该 chunk 的**真实视频片段**。
-   **prompt = S4 人核过的剧本 `action`（+ 音效）原文，逐字照搬**，实体只按剧本自然叙述被提到（谁在场靠 prose 自然点名，
-   这正是 name-anchor 的来源）。**绝不注入** `Canonical entities in this chunk: ...` 这类把 present 全名单显式列出的后缀
-   （已于 2026-07-24 连同 `ensure_prompt_entity_coverage` 一并删除；prompt 完整性只"度量"不"改写"，见 §4）。
-   **绝对禁止**把 gold 的 `present` / `first_appearances` / roster 的 entity_id 列表喂给 SUT——
-   那等于把"这段该出现谁"的答案直接告诉被测系统。"该有谁"只在 **bench 打分侧**使用，SUT 侧不可见。
-
-> 这三条是本 benchmark 的立身之本。gold=S4 文本、图 SUT 自产、SUT 不看答案——三者缺一，得到的分数没有意义。
-
-**输入档（公平性轴，两档都要跑、并列报告）**——`bench_adapters/causal/runner.py --input-mode`：
-- `name_anchored`（默认，主设定）：prompt = S4 剧本 prose 原文，实体按叙述自然点名。
-- `description_provided`：在 name-anchored 之上，用确定性规则在 prompt 尾部追加"该实体长什么样"的
-  外观描述，**只描述该 prompt 里已被点名、且属于身份实体（`kind==character`）的对象**（不泄漏 present/roster）。
-  **道具（prop）/场景（location）不描述**——给"开阔草地""苹果"加外观对实体检索是纯噪声，还会稀释靠文本
-  saliency 的 baseline（MemFlow）的角色信号、把 prompt 顶过 umT5 的 512-token 上限，这正是早期"啥都描述"
-  导致 descprov 反而比 name_anchored 更差的原因（2026-07-25 修正为仅描述 character）。给靠外观/描述匹配
-  记忆的系统一个公平的文本抓手，避免只测 name_anchored 偏袒靠名字检索的系统。输出名 `<adapter>__descprov`，
-  两档并存分别打分。细节与报告方式见 [`../experiments/fairness_experiment_plan.md`](../experiments/fairness_experiment_plan.md)。
+> Status: **the current authoritative operating manual**. For scoring formulas / data shapes, see [`scoring_v2.md`](scoring_v2.md) (Chinese).
+> This document explains **how to take a movie from S4 gold to a score**, and **exactly what this evaluation measures and what must never be done**.
+> Anyone — human or agent — about to touch this benchmark should **read §0 (the three iron rules) + §1 (the SUT contract) first**, before the operational steps that follow.
 
 ---
 
-## 1. SUT 契约（一张表看清边界）
+## 0. The three iron rules (hard constraints; violating any invalidates the evaluation — do not ask twice)
 
-**SUT = 任何消费本 benchmark 的系统**（`memstrata` 是其中一个 SUT，与所有 baseline 在同一套 S4 gold 上平等受测；
-"SUT" 不特指 memstrata）。逐 chunk 按时间序驱动：
+1. **Gold = S4 human-reviewed annotation, and text only.**
+   Gold is always produced by [`build_gold_from_s4_review.py`](../../scripts/vmem_bench/maintenance/build_gold_from_s4_review.py)
+   from `tmp/pipeline/s4_segment_sampling_human_review/human_revised_annotation.json`.
+   Gold **contains only text** (roster + per-chunk present / first_appearances / prompt / seconds_span),
+   and **contains no crop pixels** (every representation's `crop_path` is empty, deliberately).
+   **Do not** use any old gold from a non-S4 source.
 
-> **双评测口径（重要，别再误解）**：`memstrata` 与所有 baseline（longlive_rag / memflow /
-> memflow_sma / iamflow / slotmem …）**地位完全对等**，都只是 SUT。它们会在**两套评测**下被衡量：
-> ① **本记忆 benchmark**（当前文档）——把真实 segment 替代生成器产出、只考"记忆机制"，产出
-> precision/recall/F1/redundancy/selection_efficiency + 时间效率指标；
-> ② **真实生产管道**（`methods/MemStrata/production/`，`montage produce`）——把同一个 SUT 接进
-> 端到端"剧本→生成→回看建记忆→再生成"的闭环，考它在有生成器噪声、真实长片下的**产出质量与稳定性**。
-> 因此 memstrata **不是**"裁判/bench 侧"，baseline 也**不是**只在 bench 里出现；两套评测里它们都是被测对象，
-> 接口一致（prompt+视频进、记忆/context 出）。写代码/文档时不要把 memstrata 特殊化成 bench 的一部分。
+2. **Reference images (context) are always produced by the SUT itself; the bench hands out no images.**
+   The SUT observes the real chunk video, does its own perception/decomposition, and stores **its own crops** in **its own memory bank**.
+   Scoring scores exactly these SUT-produced images. **Do not** feed gold crops (or any bench-provided pixels) as the SUT's memory/context —
+   that is the deprecated, incorrect protocol (see the warning in §5).
 
-| 环节 | bench → SUT（输入） | SUT → bench（输出） | SUT 绝不可见 |
+3. **The SUT can only see the prompt + video, and never sees the "answer."**
+   For each chunk, the bench gives the SUT only: ① that chunk's **prompt text**; ② that chunk's **real video clip**.
+   **The prompt = the S4 human-reviewed screenplay `action` (+ sound effects) verbatim**, where entities are mentioned only as the screenplay's natural narration names them (who is present is naturally named by the prose, which is exactly the source of the name-anchor).
+   **Never inject** a suffix like `Canonical entities in this chunk: ...` that explicitly lists the full present roster
+   (this was deleted on 2026-07-24 along with `ensure_prompt_entity_coverage`; prompt completeness is only "measured," not "rewritten," see §4).
+   **It is absolutely forbidden** to feed the SUT gold's `present` / `first_appearances` / roster entity_id lists —
+   that would directly tell the system under test "who should appear in this segment." "Who should be there" is used **only on the bench scoring side** and is invisible to the SUT.
+
+> These three are the foundation of this benchmark. gold = S4 text, images produced by the SUT, the SUT never sees the answer — if any one of these is missing, the resulting scores are meaningless.
+
+**Input registers (the fairness axis; both must be run and reported side by side)** — `bench_adapters/causal/runner.py --input-mode`:
+- `name_anchored` (default, main setting): prompt = the verbatim S4 screenplay prose, with entities naturally named by the narration.
+- `description_provided`: on top of name-anchored, a deterministic rule appends an appearance description of "what this entity looks like" at the end of the prompt,
+  **describing only objects already named in that prompt and that are identity entities (`kind==character`)** (not leaking present/roster).
+  **Props (prop) / locations (location) are not described** — adding an appearance to an "open meadow" or an "apple" is pure noise for entity retrieval, and it also dilutes the character signal of baselines that rely on text
+  saliency (MemFlow) and pushes the prompt over umT5's 512-token limit; this was exactly why the early "describe everything"
+  made descprov worse than name_anchored (corrected on 2026-07-25 to describe characters only). It gives systems that match memory by
+  appearance/description a fair textual handle, avoiding a name_anchored-only setting that favors name-based retrieval systems. Output name `<adapter>__descprov`,
+  with both registers coexisting and scored separately. For details and reporting, see [`../experiments/fairness_experiment_plan.md`](../experiments/fairness_experiment_plan.md) (Chinese).
+
+---
+
+## 1. The SUT contract (one table for the whole boundary)
+
+**SUT = any system that consumes this benchmark** (`memstrata` is one such SUT, evaluated on the same S4 gold on equal footing with all baselines;
+"SUT" does not specifically mean memstrata). Driven chunk by chunk in time order:
+
+> **Dual evaluation registers (important, do not misread again)**: `memstrata` and all baselines (longlive_rag / memflow /
+> memflow_sma / iamflow / slotmem …) are **completely equal in status**, all just SUTs. They are measured under **two evaluations**:
+> ① **this memory benchmark** (the current document) — replace the generator output with the real segment and measure only the "memory mechanism," producing
+> precision/recall/F1/redundancy/selection_efficiency + time-efficiency metrics;
+> ② **the real production pipeline** (`methods/MemStrata/production/`, `montage produce`) — plug the same SUT into
+> the end-to-end "script → generate → look back to build memory → generate again" loop, and measure its **output quality and stability** on real long-form video with generator noise.
+> So memstrata is **not** the "judge/bench side," and the baselines are **not** present only inside the bench; in both evaluations they are the objects under test,
+> with a consistent interface (prompt+video in, memory/context out). When writing code/docs, do not special-case memstrata as part of the bench.
+
+| Step | bench → SUT (input) | SUT → bench (output) | The SUT never sees |
 |---|---|---|---|
-| 组合 context | 该 chunk 的 **prompt 文本** | 一组它**自己存的参考图**（context） | `present` / `first_appearances` / roster ids |
-| 观察记忆 | 该 chunk 的**真实视频片段** | （无，仅更新自己的记忆库） | gold crop / 任何 bench 像素 |
+| Compose context | that chunk's **prompt text** | a set of **reference images it stored itself** (context) | `present` / `first_appearances` / roster ids |
+| Observe memory | that chunk's **real video clip** | (nothing; only updates its own memory bank) | gold crops / any bench pixels |
 
-- 时序纪律：先 `handle_prompt`（用**当前已建**的记忆 compose 出 context），**再** `handle_observation`
-  （把本 chunk 视频交给 SUT 更新记忆）。SUT 在为 chunk t 组合 context 时，**不能**先看到 chunk t 的视频观察。
-- prompt 里带实体名字是**允许**的（这正是"点名唤起记忆"的机制）；带结构化的 present/first_appearances **不允许**。
-- **所有 SUT（含全部 baseline：helios / retrieval / causal 等）一视同仁**：都只用 prompt + 真实视频自建记忆、自产图，
-  **没有任何系统能走 gold-crop 回放**。
-- **bench 只交两样东西给 SUT，且绝不发图**：① 该 chunk 的 **prompt 文本**；② 该 chunk 的**原始 segment 视频**。
-  这段 segment 是**用来替代 SUT 生成器的产出**——真实系统里 SUT 会先按 context 生成一段视频再回看建记忆，
-  这里直接把真实 segment 塞给它，**消除生成器噪声**，让评测只聚焦"记忆机制"。
-  bench **不做任何感知、不产任何 crop、不下发任何图像或 ID 答案**。
-- **感知 + 记忆一律在"方法侧（SUT）"，不在 bench**：SUT 收到 segment 后，自己决定怎么把它变成记忆——
-  检测 / 抠图 / 编码 / 存储 / 召回全由该 SUT（baseline）的 adapter 完成。多个 baseline 可**共用一套方法侧感知前端**
-  （同样的 detect→crop→embed），这属于"方法侧工具"，与"bench 发图"是两码事；它们真正的差别只在**记忆 / 选择策略**。
-- **adapter 不得替 SUT 维护或补写记忆/检索结果**：每个 SUT 的记忆读写必须来自它自己的原生机制
-  （例如 MemStrata 的 `AssetBank`/`MemoryUpdater`/`IntentInterpreter+compose`，SlotMem 的
-  `RoleWiseSlotMemoryBank`，MemFlow 的 KV bank/SMA routing，IAMFlow 的 `agent_memory_bank`，
-  LongLive-RAG 的 latent descriptor pool）。bench adapter 只允许做两类胶水：
-  ① 按本协议把 `prompt -> compose`、`real segment -> observe/write` 串起来；
-  ② 把 SUT 内部已经选择/保留的 memory 表示**投影成带 `source_seconds` 的 temporal refs**，供 bench
-  从真实视频物化参考帧。**禁止**在 adapter 里新增"如果 SUT 没召回就补最近帧/补 gold/补 roster"这类
-  fallback；真实 SUT 返回空就记录为空，分数自然反映该 read path 的能力。
-- 打分（Stage 2）只看 context 这组 SUT 自产图：是否覆盖了 continuity 实体、有没有乱召回、冗不冗余；
-  "该有谁"来自 S4 gold 文本，只在 bench 侧用。
-
----
-
-## 2. 术语
-
-- **frozen gold（= S4 人核）**：`<movie>/gold/`，`human_reviewed=true`，只含文本 GT，评测只读。
-- **context / visual selection**：SUT 为每个 chunk 从**自己建的记忆库**里组合出的一组**自产**参考图。
-- **continuity 实体**：`present \ first_appearances`，即"之前见过、这次该靠记忆调回"的实体；recall 只在它们上算。
+- Temporal discipline: first `handle_prompt` (compose context using the **already-built** memory), **then** `handle_observation`
+  (hand this chunk's video to the SUT to update its memory). When composing context for chunk t, the SUT **cannot** have already seen chunk t's video observation.
+- Carrying entity names in the prompt is **allowed** (this is exactly the "name-cued memory recall" mechanism); carrying structured present/first_appearances is **not allowed**.
+- **All SUTs (including all baselines: helios / retrieval / causal, etc.) are treated identically**: all build memory and produce images using only the prompt + the real video,
+  and **no system may do gold-crop replay**.
+- **The bench hands the SUT only two things, and never hands out images**: ① that chunk's **prompt text**; ② that chunk's **original segment video**.
+  This segment is **used to replace the SUT generator's output** — in a real system, the SUT would first generate a clip from context and then look back to build memory,
+  and here we just hand it the real segment directly, **eliminating generator noise**, so the evaluation focuses only on the "memory mechanism."
+  The bench **does no perception, produces no crops, hands out no images or ID answers**.
+- **Perception + memory always live on the "method side (SUT)," not the bench**: after receiving the segment, the SUT decides on its own how to turn it into memory —
+  detection / cropping / encoding / storage / recall all done by that SUT's (baseline's) adapter. Multiple baselines may **share one method-side perception frontend**
+  (the same detect→crop→embed), which is a "method-side tool," a separate matter from "the bench handing out images"; their real difference is only in **memory / selection strategy**.
+- **The adapter must not maintain or back-fill memory/retrieval results on the SUT's behalf**: each SUT's memory read/write must come from its own native mechanism
+  (e.g. MemStrata's `AssetBank`/`MemoryUpdater`/`IntentInterpreter+compose`, SlotMem's `RoleWiseSlotMemoryBank`, MemFlow's KV bank/SMA routing, IAMFlow's `agent_memory_bank`,
+  LongLive-RAG's latent descriptor pool). The bench adapter is only allowed two kinds of glue:
+  ① wire up `prompt -> compose` and `real segment -> observe/write` per this protocol;
+  ② project the memory representation the SUT has already selected/retained into **temporal refs with `source_seconds`**, for the bench
+  to materialize reference frames from the real video. **It is forbidden** to add "if the SUT did not recall, back-fill the most recent frame/gold/roster" fallbacks in the adapter;
+  if a real SUT returns empty, record it as empty, and the score naturally reflects that read path's capability.
+- Scoring (Stage 2) looks only at the context — this set of SUT-produced images: does it cover the continuity entities, does it over-recall, is it redundant;
+  "who should be there" comes from the S4 gold text and is used only on the bench side.
 
 ---
 
-## 3. 三阶段总览
+## 2. Terminology
 
-| 阶段 | 干什么 | 需要 GPU/VLM？ | 产物 |
+- **frozen gold (= S4 human-reviewed)**: `<movie>/gold/`, `human_reviewed=true`, text GT only, read-only for evaluation.
+- **context / visual selection**: a set of **self-produced** reference images the SUT composes for each chunk from **its own memory bank**.
+- **continuity entities**: `present \ first_appearances`, i.e. "entities seen before, that should be recalled from memory this time"; recall is computed only over these.
+
+---
+
+## 3. Three-stage overview
+
+| Stage | What it does | Needs GPU/VLM? | Artifacts |
 |---|---|---|---|
-| **Stage 0** | 从 S4 人核标注转出 `gold/`（文本 GT） | 否 | `<movie>/gold/{chunk_index,entity_registry,chunk_annotations}.json` |
-| **Stage 1** | 每个 SUT 观察真实 chunk 视频、**自建记忆库**、逐 chunk 产出**自产** context | **是**（感知/分解：GroundingDINO/SAM3/DINOv3 等） | `outputs/evaluation/trackA/<system>/<dataset>/<movie>/visual_selections/<system>.json`（指向 SUT 自存 crop/temporal refs） |
-| **Stage 2** | VLM 视觉覆盖打分 | **是**（`qwen3-vl-32b` judge；DINOv3 仅用于 `redundancy_sim` 诊断列） | `outputs/evaluation/trackA/<system>/<dataset>/<movie>/_visual_score/<system>/score.json` |
+| **Stage 0** | Convert S4 human-reviewed annotation into `gold/` (text GT) | No | `<movie>/gold/{chunk_index,entity_registry,chunk_annotations}.json` |
+| **Stage 1** | Each SUT observes the real chunk video, **builds its own memory bank**, and produces **self-produced** context chunk by chunk | **Yes** (perception/decomposition: GroundingDINO/SAM3/DINOv3, etc.) | `outputs/evaluation/trackA/<system>/<dataset>/<movie>/visual_selections/<system>.json` (pointing to SUT-stored crops/temporal refs) |
+| **Stage 2** | VLM visual-coverage scoring | **Yes** (`qwen3-vl-32b` judge; DINOv3 only for the `redundancy_sim` diagnostic column) | `outputs/evaluation/trackA/<system>/<dataset>/<movie>/_visual_score/<system>/score.json` |
 
 ---
 
-## 3.1 分辨率约定（统一预处理到 480p / 832×480）
+## 3.1 Resolution convention (uniformly preprocess to 480p / 832×480)
 
-**规矩：所有喂进模型/judge 的视频像素统一预处理到 832 宽 × 480 高**（Wan2.1-T2V-1.3B 原生尺寸，16:9），
-不跑源分辨率（源片常是 720p/1080p，又慢又贵，且判分不需要）。三处强制统一，均已落到代码：
+**The rule: all video pixels fed to models/judge are uniformly preprocessed to 832 wide × 480 high** (Wan2.1-T2V-1.3B's native size, 16:9),
+not the source resolution (source films are often 720p/1080p, which is slow and expensive and unnecessary for judging). Three points enforce this uniformly, all already in code:
 
-| 环节 | 位置 | 处理 |
+| Step | Location | Handling |
 |---|---|---|
-| Stage 1 段落切割 | `baselines/bench_adapters/causal/runner.py:_cut_segment` | ffmpeg `scale=832:480` 落盘 |
-| Stage 1 SUT 观测解码 | `baselines/bench_adapters/causal/_video_io.py`（`WAN_W=832,WAN_H=480`） | 解码即缩放到 832×480 |
-| Stage 1 参考帧抽取 | `baselines/bench_adapters/causal/frame_materializer.py:_cut_frame` | ffmpeg `scale=832:480` |
-| Stage 2 judge 视频 clip | `src/vmem_bench/scoring/visual_coverage.py:_cut_clip`（`JUDGE_CLIP_W/H`） | ffmpeg `scale=832:480` |
-| Stage 2 参考图内嵌 | 同上 `_img`（`JUDGE_IMG_MAX_SIDE=384`） | 发送前再降到最长边 384px |
+| Stage 1 segment cutting | `baselines/bench_adapters/causal/runner.py:_cut_segment` | ffmpeg `scale=832:480` to disk |
+| Stage 1 SUT observation decoding | `baselines/bench_adapters/causal/_video_io.py` (`WAN_W=832,WAN_H=480`) | scale to 832×480 on decode |
+| Stage 1 reference-frame extraction | `baselines/bench_adapters/causal/frame_materializer.py:_cut_frame` | ffmpeg `scale=832:480` |
+| Stage 2 judge video clip | `src/vmem_bench/scoring/visual_coverage.py:_cut_clip` (`JUDGE_CLIP_W/H`) | ffmpeg `scale=832:480` |
+| Stage 2 reference-image embedding | same `_img` (`JUDGE_IMG_MAX_SIDE=384`) | downscale to max side 384px before sending |
 
-**为什么是 480p 且公平**：SUT 全程只在 480p 上感知，judge 在同一分辨率上判分既公平又快；judge 参考图进一步压到
-384px 以控 token（大足迹系统一 chunk 可达 40+ 图）。发布版固定这些常量，不要临时调大。
+**Why 480p is fair**: the SUT perceives only at 480p throughout, and judging at the same resolution is both fair and fast; judge reference images are further compressed to
+384px to control tokens (a large-footprint system can reach 40+ images per chunk). The release fixes these constants; do not raise them ad hoc.
 
-> 已存在的旧产物（`_segments/*.mp4`、`_ref_frames/*`、`_clips/*.mp4`）因有 `if out.is_file()` 缓存**不会自动重切**；
-> 想让旧片享受 480p 提速/一致性，删掉对应缓存目录后重跑即可（解码端 `read_segment_pixels` 本就再缩放到 832×480，
-> 张量不变，仅影响速度/落盘）。
+> Existing old artifacts (`_segments/*.mp4`, `_ref_frames/*`, `_clips/*.mp4`) **will not be re-cut automatically** because of the `if out.is_file()` cache;
+> to let old clips enjoy the 480p speedup/consistency, delete the corresponding cache directory and re-run (the decode side `read_segment_pixels` already re-scales to 832×480,
+> so tensors are unchanged and only speed/disk are affected).
 
 ---
 
-## 4. Stage 0 — 从 S4 人核标注转出 gold（文本 GT）
+## 4. Stage 0 — convert S4 human-reviewed annotation into gold (text GT)
 
 ```bash
 cd VMem-Bench
@@ -134,58 +133,58 @@ PYTHONPATH=src $PY scripts/vmem_bench/maintenance/build_gold_from_s4_review.py \
     --movie-dir data/BlenderOpenMovies/big_buck_bunny
 ```
 
-读 `tmp/pipeline/s4_segment_sampling_human_review/human_revised_annotation.json`，
-转成标准 3 文件 gold（`chunk_annotations.json` 带 present/first_appearances/prompt/seconds_span，
-所有 representation 的 `crop_path` 为空）。**S4 gold 就是最终要发布的金标准。**
+Reads `tmp/pipeline/s4_segment_sampling_human_review/human_revised_annotation.json`
+and converts it into the standard 3-file gold (`chunk_annotations.json` with present/first_appearances/prompt/seconds_span,
+and every representation's `crop_path` empty). **The S4 gold is the final gold standard to be released.**
 
-- **三文件各司其职、不重复**：`chunk_index.json` = 薄布局（chunk_id + shot/frame/seconds spans + `layout_hash`）；
-  `chunk_annotations.json` = 逐 chunk 富 GT（present/first_appearances/prompt/...，**scorer 从这里读**）；
-  `entity_registry.json` = 实体 roster。三者分别被 scorer / harness+freeze+publish / roster 读取，缺一不可。
-  （2026-07-24 起 `chunk_index` 不再冗余承载富标注。）
-- **prompt = S4 剧本 `action`（+ 音效）原文**，转出时**不再注入任何 canonical-entity 后缀**
-  （`ensure_prompt_entity_coverage` 已删除，见铁律 3）。gold 里字段名统一为 `prompt`，不保留 `action` 字样。
-- **gold 是最小包含**：每部只有上述三个 JSON，无 crop 像素、无 embedding、无 tmp。
+- **The three files have distinct roles, no duplication**: `chunk_index.json` = thin layout (chunk_id + shot/frame/seconds spans + `layout_hash`);
+  `chunk_annotations.json` = per-chunk rich GT (present/first_appearances/prompt/..., **the scorer reads from here**);
+  `entity_registry.json` = the entity roster. They are read by the scorer / harness+freeze+publish / roster respectively, all indispensable.
+  (Since 2026-07-24, `chunk_index` no longer redundantly carries rich annotations.)
+- **prompt = the S4 screenplay `action` (+ sound effects) verbatim**, with **no canonical-entity suffix injected** during conversion
+  (`ensure_prompt_entity_coverage` has been deleted, see iron rule 3). The field name in gold is uniformly `prompt`, with no `action` wording retained.
+- **Gold is minimal**: each movie has only the three JSON files above, no crop pixels, no embeddings, no tmp.
 
-## 5. Stage 1 — 每个 SUT 自建记忆库、产出自产 context（需要感知服务）
+## 5. Stage 1 — each SUT builds its own memory bank and produces self-produced context (needs perception services)
 
-**本 benchmark 的核心，也是最容易做错的一步。** 正确协议（严格遵守 §0 / §1）：bench 逐 chunk 按时间序做两件事，
-其余全在方法侧：
+**The core of this benchmark, and the step most easily done wrong.** The correct protocol (strictly follow §0 / §1): the bench does two things per chunk in time order,
+and everything else is on the method side:
 
-1. **把 prompt 交给 SUT** → SUT 用**当前已建记忆** compose 出 context 并存下（`handle_prompt`）。这份 context 就是打分对象。
-2. **把该 chunk 的原始 segment 视频交给 SUT**（替代生成器产出，消除生成噪声）→ SUT 的 adapter 自己对这段真实视频
-   做感知 + 记忆（detect→crop→embed→存储，`handle_observation`），更新自己的记忆库，供后续 chunk 召回。
+1. **Hand the prompt to the SUT** → the SUT composes context using its **already-built memory** and stores it (`handle_prompt`). This context is the scoring target.
+2. **Hand that chunk's original segment video to the SUT** (replacing the generator output, eliminating generation noise) → the SUT's adapter does
+   perception + memory on this real video (detect→crop→embed→store, `handle_observation`), updating its own memory bank for later chunks to recall.
 
-`visual_selections/<system>.json` 里的 `crop_abspath` **必须来自 SUT 自己的 memory 表示经 temporal ref 物化得到的真实帧/图**，
-绝不能是 `gold/crops/...`，也不会有任何 bench 下发的图；若某 SUT 内部 memory 不是显式 crop（如 KV、latent、slot），
-adapter 只能把它已经保留/召回的 source time 投影成 `source_seconds`，再由 bench 统一切真实参考帧。
+The `crop_abspath` in `visual_selections/<system>.json` **must come from real frames/images materialized via temporal refs out of the SUT's own memory representation**,
+never `gold/crops/...`, and there will be no bench-provided images; if a SUT's internal memory is not explicit crops (e.g. KV, latent, slot),
+the adapter may only project the source time it has already retained/recalled into `source_seconds`, and the bench then uniformly cuts the real reference frames.
 
-- **bench 侧**只负责：解析源视频、按 `seconds_span` 切出每 chunk 的**原始 segment**、驱动上面两步循环、收集并保存
-  各 SUT 的 context、最后打分。**bench 不感知、不抠图、不发图。**
-- **方法侧（每个 baseline 的 adapter）**负责：感知（detect/crop/embed）+ 记忆机制（存储/去重/召回/生命周期）+ compose。
-  多个 baseline 可共用同一套**方法侧感知前端**（保证公平、只烧一次 GPU），它们的差别只在记忆/选择策略——这仍是方法侧工具，
-  不是"bench 发图"。
+- **The bench side** is only responsible for: parsing the source video, cutting each chunk's **original segment** according to `seconds_span`, driving the two-step loop above, collecting and saving
+  each SUT's context, and finally scoring. **The bench does no perception, no cropping, no image handout.**
+- **The method side (each baseline's adapter)** is responsible for: perception (detect/crop/embed) + the memory mechanism (store/dedup/recall/lifecycle) + compose.
+  Multiple baselines may share the same **method-side perception frontend** (ensuring fairness and burning GPU only once); their difference is only in memory/selection strategy — this is still a method-side tool,
+  not "the bench handing out images."
 
-> ⚠️ **不要用 `scripts/vmem_bench/compare/run_movie_benchmark.py` + `BenchReplayAdapter` 当 Stage 1。**
-> 那是**已废弃的 gold-crop 回放**：把 gold 观察包里的 crop 直接灌进 SUT 记忆 = bench 发图，违反铁律 2；
-> 且它会把 gold 的 present 通过观察包泄露给 SUT，违反铁律 3。在 S4 gold 下观察包 `crop_path` 全空，
-> 这条路本就跑不出任何像素。**仅可用于纯 ID 契约的离线自测，不能产出用于打分的 context。**
+> ⚠️ **Do not use `scripts/vmem_bench/compare/run_movie_benchmark.py` + `BenchReplayAdapter` as Stage 1.**
+> That is the **deprecated gold-crop replay**: feeding the crops from the gold observation package directly into the SUT's memory = the bench handing out images, violating iron rule 2;
+> and it leaks gold's present to the SUT via the observation package, violating iron rule 3. Under S4 gold, the observation package's `crop_path` is all empty,
+> so this path cannot produce any pixels anyway. **It is usable only for pure-ID-contract offline self-tests, and cannot produce context for scoring.**
 >
-> 正确的"SUT 观察真实 segment → 自建记忆"的 Stage 1 驱动器（切 chunk 视频 + 起 crop-acquisition 服务 +
-> 逐 chunk 并行驱动所有 SUT）**尚在接线中**；接好后在此补最终命令、`<system>` 命名映射与产物校验。
+> The correct Stage 1 driver for "SUT observes the real segment → builds its own memory" (cut chunk video + start the crop-acquisition service +
+> drive all SUTs chunk by chunk in parallel) **is still being wired**; once done, the final command, `<system>` naming map, and artifact checks will be filled in here.
 
-## 6. Stage 2 — VLM 视觉覆盖打分
+## 6. Stage 2 — VLM visual-coverage scoring
 
-前置依赖（缺一不可）：
+Prerequisites (all indispensable):
 
-1. **VLM judge 常驻**：`qwen3-vl-32b`，OpenAI 兼容 `POST /v1/chat/completions`，默认 `http://127.0.0.1:8110`
-   （`--api` 可改）。`temperature=0`、`fps=2.0` 已钉死。**没起服务就跑不了 Stage 2。**
-2. **源视频**：按 `data/dataset_dirs.txt` 解析（见 §7）。scorer 用 ffmpeg 现切 chunk 片段。
-3. **ffmpeg**：默认 `ffmpeg`（`--ffmpeg` 可改）。
-4. **DINOv3**（可选）：给 `redundancy_sim` 列用；torch/权重不可用时该列为 `null`，不阻塞 headline。
+1. **VLM judge resident**: `qwen3-vl-32b`, OpenAI-compatible `POST /v1/chat/completions`, default `http://127.0.0.1:8110`
+   (`--api` to change). `temperature=0`, `fps=2.0` are pinned. **Without the service running, Stage 2 cannot run.**
+2. **Source video**: resolved via `data/dataset_dirs.txt` (see §7). The scorer cuts chunk clips on the fly with ffmpeg.
+3. **ffmpeg**: default `ffmpeg` (`--ffmpeg` to change).
+4. **DINOv3** (optional): used for the `redundancy_sim` column; when torch/weights are unavailable this column is `null` and does not block the headline.
 
 ```bash
 cd VMem-Bench
-# 冒烟：只打前 5 个 chunk 验证链路；全量去掉 --limit
+# Smoke: score only the first 5 chunks to verify the pipeline; drop --limit for a full run
 PYTHONPATH=src $PY -m vmem_bench.scoring.visual_coverage \
     --movie  data/BlenderOpenMovies/big_buck_bunny \
     --system <system> \
@@ -193,43 +192,43 @@ PYTHONPATH=src $PY -m vmem_bench.scoring.visual_coverage \
     --limit  5
 ```
 
-`<system>` = `outputs/evaluation/trackA/<system>/<dataset>/<movie>/visual_selections/` 下的文件名去掉 `.json`
-（每个要对比的 SUT 各跑一次）。产物：
-`outputs/evaluation/trackA/<system>/<dataset>/<movie>/_visual_score/<system>/{score.json,details.json}`；
-chunk 片段缓存在同一 run 目录的 `_clips/`。
+`<system>` = the filename under `outputs/evaluation/trackA/<system>/<dataset>/<movie>/visual_selections/` with `.json` removed
+(run once for each SUT you want to compare). Artifacts:
+`outputs/evaluation/trackA/<system>/<dataset>/<movie>/_visual_score/<system>/{score.json,details.json}`;
+chunk clips are cached in the same run directory's `_clips/`.
 
-## 7. 源视频路径怎么解析
+## 7. How source video paths are resolved
 
-`data/dataset_dirs.txt` 是数据集根目录清单（登记在 benchmark 内，路径可指向大盘）：
+`data/dataset_dirs.txt` is the list of dataset root directories (registered inside the benchmark, with paths that may point to a large disk):
 
 ```
 BlenderOpenMovies: ${VMEM_DATASETS_ROOT}/BlenderOpenMovies/Videos
 LSMDC: ${VMEM_DATASETS_ROOT}/LSMDC/LSMDC_Videos_Stitched
 ```
 
-某部影片的视频 = `<该数据集根>/<movie_id>/<video_file>`，例：
-`big_buck_bunny` → `.../BlenderOpenMovies/Videos/big_buck_bunny/big_buck_bunny_720p_h264.mp4`。
+A movie's video = `<that dataset's root>/<movie_id>/<video_file>`, e.g.:
+`big_buck_bunny` → `.../BlenderOpenMovies/Videos/big_buck_bunny/big_buck_bunny_720p_h264.mp4`.
 
-## 8. 影片级 → 语料级
+## 8. Movie-level → corpus-level
 
-单片 per-chunk → 影片级均值（`score.json.summary`）；跨语料再对影片取宏平均（见 [`scoring_v2.md`](scoring_v2.md) §4.8）。
-发布随附 noise floor（`scoring_v2.md` §5）。
+Single-movie per-chunk → movie-level mean (`score.json.summary`); across corpora, take the macro-average over movies (see [`scoring_v2.md`](scoring_v2.md) (Chinese) §4.8).
+The release includes a noise floor (`scoring_v2.md` §5).
 
-## 9. 常见坑
+## 9. Common pitfalls
 
-- **用了非 S4 的旧 gold** → 违反铁律 1。gold 必须由 Stage 0 从 S4 转出。
-- **context 里出现 `gold/crops/...`** → 违反铁律 2，图必须 SUT 自产，评测无效。
-- **把 present/roster 喂给了 SUT** → 违反铁律 3，等于泄题，评测无效。
-- **Stage 2 连不上 8110 / 超时** → `qwen3-vl-32b` judge 没起或不健康。
-- **`redundancy_sim` 全 `null`** → 打分机无 torch/DINOv3 权重；不影响 headline。
+- **Used non-S4 old gold** → violates iron rule 1. Gold must be converted from S4 by Stage 0.
+- **`gold/crops/...` appears in context** → violates iron rule 2; images must be SUT-produced, evaluation invalid.
+- **Fed present/roster to the SUT** → violates iron rule 3, equivalent to leaking the answer, evaluation invalid.
+- **Stage 2 cannot connect to 8110 / times out** → the `qwen3-vl-32b` judge is not running or is unhealthy.
+- **`redundancy_sim` is all `null`** → the scoring machine lacks torch/DINOv3 weights; does not affect the headline.
 
 ---
 
-## 附录 A：解释器
+## Appendix A: the interpreter
 
-用任一装好依赖的 Python（与 scorer 同一解释器即可，ffmpeg 需在 PATH 上）：
+Use any Python with the dependencies installed (the same interpreter as the scorer is fine, with ffmpeg on PATH):
 
 ```bash
 PY=python3
-# 下文所有 python 都用 $PY；orchestrator 内部用 sys.executable 起子进程，继承同一解释器。
+# All python below uses $PY; the orchestrator starts subprocesses via sys.executable, inheriting the same interpreter.
 ```
