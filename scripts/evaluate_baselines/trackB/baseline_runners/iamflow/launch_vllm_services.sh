@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="${MONTAGE_ROOT:-.}"
-OUT_ROOT="$ROOT/benchmarks/VMem-Bench/outputs/evaluation/trackB/_services/iamflow_vllm"
+OUT_ROOT="$ROOT/outputs/evaluation/trackB/_services/iamflow_vllm"
 PY="${IAMFLOW_VLLM_PY:-python3}"
 SERVICE_GPU="${IAMFLOW_SERVICE_GPU:-6}"
 LLM_SERVICE_GPU="${IAMFLOW_LLM_SERVICE_GPU:-$SERVICE_GPU}"

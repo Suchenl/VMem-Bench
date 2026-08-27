@@ -4,7 +4,7 @@
 # (GroundingDINO + DINOv3 + SBD).
 #
 # Usage (on a GPU node, under tmux):
-#   CLIENT_GPU=2 bash benchmarks/MemStrata/scripts/vmem_bench/core/run_annotation.sh
+#   CLIENT_GPU=2 bash scripts/get_trackA_assets/core/run_annotation.sh
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../.." && pwd)"
@@ -12,7 +12,7 @@ PY="${PY:-python3}"
 
 VIDEO="${VIDEO:-${VMEM_DATASETS_ROOT}/BlenderOpenMovies/big_buck_bunny_720p/big_buck_bunny_720p_h264.mp4}"
 MOVIE_ID="${MOVIE_ID:-big_buck_bunny}"
-OUT="${OUT:-${REPO}/benchmarks/MemStrata/data/blender_open_movies/${MOVIE_ID}}"
+OUT="${OUT:-${REPO}/data/blender_open_movies/${MOVIE_ID}}"
 # Comma-separated port lists are endpoint pools for dataset-level throughput.
 # A single chunk uses BRANCHES_PER_CHUNK branches (default 1), rotated over the pool.
 # For 16 terminals, use e.g. ANNOTATOR_PORTS=8001,8003,8005,8007,8009,8011,8013,8015
@@ -53,7 +53,7 @@ else
 fi
 
 export CUDA_VISIBLE_DEVICES="${CLIENT_GPU:-2}"
-export PYTHONPATH="${REPO}/benchmarks/MemStrata/src"
+export PYTHONPATH="${REPO}/src"
 # Route B needs transformers>=5.9 (Sam3*); the vendored copy must lead the WHOLE process
 # (mixing transformers versions mid-process corrupts model init).
 if [[ "${PERCEPTION_BACKEND:-gdino_track}" == "sam3_track" || "${PERCEPTION_BACKEND:-}" == "fusion_track" ]]; then

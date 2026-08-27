@@ -7,12 +7,12 @@ Uses annotation priority S4 > S3 > S2 (normalized). Default route:
 Example::
 
   CUDA_VISIBLE_DEVICES=0 \\
-  PYTHONPATH=models/vendor/sam3_transformers59:benchmarks/MemStrata/src \\
+  PYTHONPATH=models/vendor/sam3_transformers59:src \\
   MEMSTRATA_SAM3_DEPS=$PWD/models/vendor/sam3_transformers59 \\
   python3 \\
     benchmarks/MemStrata/scripts/vmem_bench/core/run_s5_crops_skip_s3.py \\
     --grounder-base-url http://127.0.0.1:8113/v1 \\
-    --out benchmarks/MemStrata/data/_runs/s5_skip_s3/batch_results.json
+    --out data/_runs/s5_skip_s3/batch_results.json
 """
 
 from __future__ import annotations

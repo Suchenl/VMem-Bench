@@ -14,8 +14,8 @@ optional dep is missing. The SPA shell is ``static/index.html``; CSS/JS modules 
 (no build step; CDN Vue + Tailwind).
 
 Usage:
-    PYTHONPATH=benchmarks/MemStrata/src python3 -m vmem_bench.web.server \
-        --out benchmarks/MemStrata/data/blender_open_movies/big_buck_bunny --port 7863
+    PYTHONPATH=src python3 -m vmem_bench.web.server \
+        --out data/blender_open_movies/big_buck_bunny --port 7863
 """
 
 from __future__ import annotations
