@@ -29,10 +29,14 @@ python scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py \
 
 跑 MemStrata adapter 还需要：
 
+- **`MEMSTRATA_TRACKA_NAME_SOURCE=mllm`（复现论文机制必须）**：adapter 默认 `perception`，用 SAM3/DINOv3 的通用名，对“地点/连续性”类实体会 under-recall（实测 BBB 前两段 location-only 时 recall=0）。论文表走 `mllm`——由 MemStrata 自己的 VLM 绑定可见 prompt 名。跑复现请务必 `export MEMSTRATA_TRACKA_NAME_SOURCE=mllm`。
+
 - `MEMSTRATA_SRC` 指向 MemStrata `paper-reproduction` 仓的 `src/`（两仓零互相 import，adapter 在本仓黑盒加载方法）
 - 源视频：逐步获取（BBB 一键、其他 CC 片、LSMDC 申请与拼接目录）见 [`docs/DATA.md`](docs/DATA.md)；`python scripts/check_source_videos.py` 列出缺哪些 id
 - `PUBLIC_MODELS_ROOT`（SAM3 / DINOv3 等）
 - GPU
+
+> **实测前置补记**（真机 GPU 跑通验证）：SAM3 需 `transformers>=5.9`（仓库自带 vendored 适配可放上 `PYTHONPATH`）；`ffmpeg` 必须在 PATH。二者缺一 Stage 1 会失败但可 100% 复现地补齐，非源码问题。
 
 91 部全量：用你自己的作业调度器反复调用 `causal/runner.py`（预算 `__B16` = `--budget 16`）。不要依赖本仓里的集群投放脚本。
 
@@ -107,6 +111,7 @@ PYTHONPATH=src python -m pytest -q            # 见下：本快照有已知失�
 | `PUBLIC_MODELS_ROOT` | 编码器 / VLM 权重根。未设置时 CPU import / `--help` 不得崩；真正加载权重才报错 |
 | `VMEM_DATASETS_ROOT` | Blender / LSMDC 源视频根 |
 | `MEMSTRATA_SRC` | MemStrata 仓的 `src/`（仅 adapter 需要） |
+| `MEMSTRATA_TRACKA_NAME_SOURCE` | Track A 命名来源：`mllm`（论文复现路径）/ `perception`（默认，通用感知名，会 under-recall） |
 | `FFMPEG` | 可选，默认 `ffmpeg` |
 | `VMEM_KEEPALIVE_STATUS_DIR` | 仅内部 GPU 保活；公开复现不要设 |
 
