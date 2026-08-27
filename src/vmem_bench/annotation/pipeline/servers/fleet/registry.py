@@ -33,7 +33,7 @@ DEFAULT_STARTING_STALE_SECONDS = 900
 # list_fleet() call stats/reads ~4 KFS files per instance (intents + instances +
 # workloads + breaks); with 24 instances that is ~100 Ceph metadata ops. Under
 # KFS pressure (e.g. right after a rerun) those calls degraded to 30s+, so the
-# KML gateway timed out and returned an HTML page that the frontend misread as
+# the reverse proxy timed out and returned an HTML page that the frontend misread as
 # an SSO logout. Cache the read-only (probe=False) snapshot for a few seconds so
 # repeated health polls collapse into one KFS scan. probe=True stays live so
 # dispatch decisions never use a stale reachability result.

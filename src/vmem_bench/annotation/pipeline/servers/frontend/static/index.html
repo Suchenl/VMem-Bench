@@ -88,7 +88,7 @@
         </label>
         <label>Execution target
           <select id="executionTarget">
-            <option value="kml" selected>KML 远程训练机（自动选负载最低节点）</option>
+            <option value="remote" selected>remote 远程训练机（自动选负载最低节点）</option>
             <option value="local">本机兜底（仅调试用）</option>
           </select>
         </label>
@@ -176,7 +176,7 @@
   </div>
 
   <div id="toast" class="toast" hidden></div>
-  <p class="accessTip">访问入口：internal开发机 HTTPS 网关（AccessProxy → 本机 <code>:8890</code>）。SSO 登录页在 <code>sso.corp.example.org</code>：会话失效时页面会自动跳转；也可直接重新打开网关地址完成登录。控制台里的「刷新」只重拉数据，不会登录。保活：<code>ensure_console.sh --watch</code></p>
+  <p class="accessTip">访问入口：internal开发机 HTTPS 网关（the reverse proxy → 本机 <code>:8890</code>）。SSO 登录页在 <code>sso.corp.example.org</code>：会话失效时页面会自动跳转；也可直接重新打开网关地址完成登录。控制台里的「刷新」只重拉数据，不会登录。保活：<code>ensure_console.sh --watch</code></p>
   <script src="/static/js/config.js?v=20260720a"></script>
   <script src="/static/js/api.js?v=20260722sso3"></script>
   <script src="/static/js/app.js?v=20260723s3progress"></script>

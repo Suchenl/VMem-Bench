@@ -20,7 +20,7 @@ def _nodes_tsv(tmp_path: Path) -> Path:
     path = tmp_path / "nodes.tsv"
     path.write_text(
         "# node\tcluster\trole\thost\tip\tnote\n"
-        "0\tkml-h800\tlauncher\th800-node-0.example\t10.83.1.79\ttest\n",
+        "0\tgpu-h800\tlauncher\th800-node-0.example\t10.83.1.79\ttest\n",
         encoding="utf-8",
     )
     return path
@@ -49,11 +49,11 @@ def test_nodes_tsv_backfills_display_name_and_idle_status(tmp_path: Path) -> Non
     fleet_root, nodes_tsv, _ = _running_endpoint(tmp_path)
     row = list_fleet(fleet_root=fleet_root, nodes_tsv=nodes_tsv)["instances"][0]
     assert row["console_status"] == "idle"
-    assert row["cluster"] == "kml-h800"
+    assert row["cluster"] == "gpu-h800"
     assert row["node_id"] == "0"
     assert row["service_name"] == "reviewer/qwen3-vl-8b"
     assert row["display_name"].startswith(
-        "idle · kml-h800/node0/rank? · reviewer/qwen3-vl-8b ·"
+        "idle · gpu-h800/node0/rank? · reviewer/qwen3-vl-8b ·"
     )
 
 
@@ -105,5 +105,5 @@ def test_legacy_instance_id_backfills_missing_host_and_placement(tmp_path: Path)
     )["instances"][0]
     assert row["host"] == "10.83.1.79"
     assert row["port"] == 8110
-    assert row["cluster"] == "kml-h800"
+    assert row["cluster"] == "gpu-h800"
     assert row["node_id"] == "0"

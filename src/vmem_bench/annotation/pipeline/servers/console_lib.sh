@@ -177,8 +177,8 @@ console_print_access() {
   echo "  Local:    ${FRONTEND_URL_LOCAL}"
   echo "  Backend:  ${BACKEND_HEALTH_URL}"
   echo "  Logs:     ${LOG_ROOT}"
-  echo "  Primary UI: KML HTTPS AccessProxy → :${FRONTEND_PORT} (e.g. https://kml-dtmachine-…corp.example.org/)."
-  echo "  If the UI shows SSO/login HTML, refresh the page to renew accessproxy_session."
+  echo "  Primary UI: the HTTPS reverse proxy (SSO) → :${FRONTEND_PORT} (e.g. https://remote-gpu-host-…corp.example.org/)."
+  echo "  If the UI shows SSO/login HTML, refresh the page to renew sso_session."
   while read -r ip; do
     [[ -n "${ip}" ]] || continue
     echo "  LAN debug: http://${ip}:${FRONTEND_PORT}  (optional; bypass corporate squid)"

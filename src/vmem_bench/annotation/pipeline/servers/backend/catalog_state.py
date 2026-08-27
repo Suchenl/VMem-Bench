@@ -19,7 +19,7 @@ from vmem_bench.annotation.pipeline.orchestration.contracts import PIPELINE_STAG
 DATASETS = ("BlenderOpenMovies", "LSMDC")
 
 # Console polls /api/samples every few seconds; rebuilding 100+ KFS-backed rows
-# can take 15–25s and pile up threads behind the KML AccessProxy. Cache briefly.
+# can take 15–25s and pile up threads behind the SSO reverse proxy. Cache briefly.
 _SAMPLES_CACHE_LOCK = threading.Lock()
 _SAMPLES_CACHE: dict[str, Any] = {"key": None, "ts": 0.0, "rows": None}
 _SAMPLES_CACHE_TTL_SEC = 8.0

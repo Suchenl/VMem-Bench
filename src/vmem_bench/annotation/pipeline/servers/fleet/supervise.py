@@ -41,7 +41,7 @@ def _parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--model", default=os.environ.get("SERVED_MODEL_NAME", "qwen3-vl-32b"))
     parser.add_argument("--role", default="reviewer", help="reviewer | grounder | any")
     parser.add_argument("--host", default="", help="Advertise host (default: FLEET_ADVERTISE_HOST / fqdn)")
-    parser.add_argument("--cluster", default=os.environ.get("FLEET_CLUSTER", ""), help="e.g. kml-h800")
+    parser.add_argument("--cluster", default=os.environ.get("FLEET_CLUSTER", ""), help="e.g. gpu-h800")
     parser.add_argument("--node", default=os.environ.get("FLEET_NODE_ID", ""), help="tgpu node id, e.g. 0")
     parser.add_argument(
         "--gpu-rank",

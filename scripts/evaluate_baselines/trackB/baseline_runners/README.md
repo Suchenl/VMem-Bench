@@ -76,7 +76,7 @@ OpenAI-compatible vLLM services on the same node. Do not reload these models per
 story.
 
 ```bash
-# On each kml-a800 node that will run IAMFlow workers:
+# On each gpu-a800 node that will run IAMFlow workers:
 cd .
 IAMFLOW_SERVICE_GPU=6 \
 IAMFLOW_VLLM_PY=python3 \

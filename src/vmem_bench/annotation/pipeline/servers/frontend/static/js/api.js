@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  // ONLY real SSO/AccessProxy login markers. A generic HTML page (e.g. a gateway
+  // ONLY real SSO/the reverse proxy login markers. A generic HTML page (e.g. a gateway
   // 502/504 timeout page shown when the backend is briefly slow under rerun load)
   // must NOT be mistaken for a logout — that produced a bogus "SSO expired →
   // redirect" every time /api/health got slow. Keep this strict.
@@ -11,7 +11,7 @@
     return (
       head.includes('sso-p') ||
       head.includes('sso.corp.example.org') ||
-      head.includes('accessproxy') ||
+      head.includes('sso') ||
       head.includes('cas/login')
     );
   }
@@ -24,7 +24,7 @@
 
   function ssoError(status, loginUrl) {
     const err = new Error(
-      'KML 网关登录已失效（AccessProxy → SSO）。即将跳转internal SSO 登录页；登录后会回到本控制台。'
+      'remote 网关登录已失效（the reverse proxy → SSO）。即将跳转internal SSO 登录页；登录后会回到本控制台。'
     );
     err.code = 'SSO_REQUIRED';
     err.status = status || 401;
@@ -32,7 +32,7 @@
     return err;
   }
 
-  // Non-SSO, non-JSON response: usually the KML gateway returning its own HTML
+  // Non-SSO, non-JSON response: usually the reverse proxy returning its own HTML
   // error page because the backend was briefly slow (KFS pressure after a
   // rerun). This is transient — surface it as "busy, retrying", never as SSO.
   function gatewayBusyError(status) {
@@ -48,7 +48,7 @@
   async function request(method, url, body) {
     const opts = {
       method: method,
-      // Keep AccessProxy session cookie on the KML HTTPS host.
+      // Keep the reverse proxy session cookie on the remote HTTPS host.
       credentials: 'same-origin',
       // Do not follow 302 → sso.corp.example.org into an HTML login page.
       redirect: 'manual',
@@ -65,7 +65,7 @@
     }
     if (resp.status >= 300 && resp.status < 400) {
       const loc = resp.headers.get('Location') || '';
-      if (/sso\.corp\.internal\.com|accessproxy_sso|cas\/login/i.test(loc)) {
+      if (/sso\.corp\.internal\.com|sso|cas\/login/i.test(loc)) {
         throw ssoError(resp.status, loc);
       }
       throw new Error('unexpected redirect (' + resp.status + '): ' + loc.slice(0, 120));
