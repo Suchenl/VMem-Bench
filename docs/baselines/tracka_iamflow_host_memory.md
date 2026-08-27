@@ -1,8 +1,7 @@
 # IAMFlow 在 Track A 上的宿主内存伸缩性
 
 本文是 IAMFlow Track-A 基线 `exit 137` 问题的权威说明：根因、已加的保护、以及
-论文里必须怎么报。整个机队的调度背景见
-[`tracka_opus5_audit_20260728.md`](tracka_opus5_audit_20260728.md)。
+论文里必须怎么报。调度背景属于历史运行记录，不是公开运行入口。
 
 ## 根因
 

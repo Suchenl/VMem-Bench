@@ -18,7 +18,7 @@
 
 ## 复现：如何拿到外部 baseline 源码
 
-这些第三方框架由 **MemStrata 自己**钉死 commit 管理（[`baselines/.sources.tsv`](.sources.tsv)），**不要**写进 Montage 的 `submodules/.sources.tsv`——本 bench 后续会拆成独立仓库，并可能作为 Montage 的「自有 submodule」挂回去。
+这些第三方框架的版本由各自 adapter 的 release metadata 管理；本公开仓库不包含内部 submodule 清单。
 
 ```bash
 # 在 Montage 树内（拆仓前）
