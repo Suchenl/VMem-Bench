@@ -1,7 +1,7 @@
-"""KML SSH remote dispatch for annotation pipeline batches.
+"""SSH remote dispatch for annotation pipeline batches.
 
 CPU-heavy batch work (ffmpeg clip cutting, SAM3/GroundingDINO pre/post) is
-offloaded onto the shared KML training nodes so the dev machine only serves the
+offloaded onto the shared remote training nodes so the dev machine only serves the
 console frontend + Cursor.  The design keeps the console responsive:
 
 - **Launch / stop go over SSH** (via ``MEMSTRATA_TGPU`` if you configure a
@@ -9,7 +9,7 @@ console frontend + Cursor.  The design keeps the console responsive:
   *detached* with ``setsid --fork`` so the SSH call returns in ~0.1s; the remote
   process keeps running after the connection closes.
 - **Status never goes over SSH.**  ``/data`` is shared between the dev
-  machine and every KML node, so the remote batch writes ``progress.json`` /
+  machine and every remote node, so the remote batch writes ``progress.json`` /
   ``return_code.txt`` straight into the shared ``job_dir``.  The backend reads
   those files locally on each refresh — instant, no SSH round-trip, no 504.
 
@@ -32,23 +32,28 @@ TGPU = os.environ.get("MEMSTRATA_TGPU", "").strip()
 _NODES_RAW = os.environ.get("TGPU_NODES_FILE", "").strip()
 NODES_FILE = Path(_NODES_RAW) if _NODES_RAW else Path()
 
+# Cluster labels in nodes.tsv that mark an SSH-reachable remote GPU node. Set this
+# to your own cluster's prefix (e.g. "gpu-", "dgx-", "hpc-"); rows whose cluster
+# label does not start with it are ignored by the remote dispatcher.
+REMOTE_CLUSTER_PREFIX = os.environ.get("REMOTE_CLUSTER_PREFIX", "gpu-")
+
 # Per-cluster CPU-quality penalty. a800 CPUs are weaker than h800, so the same
 # normalized loadavg counts as "more loaded" on a800 → h800 receives more work.
-# Override with e.g. MEMSTRATA_KML_CLUSTER_PENALTY="kml-a800:1.3,kml-h800:1.0".
-_DEFAULT_CLUSTER_PENALTY = {"kml-a800": 1.25, "kml-h800": 1.0}
+# Override with e.g. MEMSTRATA_REMOTE_CLUSTER_PENALTY="gpu-a800:1.3,gpu-h800:1.0".
+_DEFAULT_CLUSTER_PENALTY = {"gpu-a800": 1.25, "gpu-h800": 1.0}
 
 # Extra effective-load added per job we already placed on a node this session.
 # loadavg lags real utilization by ~1 min, so without this a burst of submits
 # all pick the same "currently idle" node.
-_ACTIVE_JOB_PENALTY = float(os.environ.get("MEMSTRATA_KML_ACTIVE_JOB_PENALTY", "0.12"))
+_ACTIVE_JOB_PENALTY = float(os.environ.get("MEMSTRATA_REMOTE_ACTIVE_JOB_PENALTY", "0.12"))
 
-_PROBE_TIMEOUT = int(os.environ.get("MEMSTRATA_KML_PROBE_TIMEOUT", "5"))
-_LAUNCH_TIMEOUT = int(os.environ.get("MEMSTRATA_KML_LAUNCH_TIMEOUT", "20"))
-_STOP_TIMEOUT = int(os.environ.get("MEMSTRATA_KML_STOP_TIMEOUT", "15"))
+_PROBE_TIMEOUT = int(os.environ.get("MEMSTRATA_REMOTE_PROBE_TIMEOUT", "5"))
+_LAUNCH_TIMEOUT = int(os.environ.get("MEMSTRATA_REMOTE_LAUNCH_TIMEOUT", "20"))
+_STOP_TIMEOUT = int(os.environ.get("MEMSTRATA_REMOTE_STOP_TIMEOUT", "15"))
 
 
 @dataclass(slots=True)
-class KmlNode:
+class RemoteNode:
     cluster: str
     node: str
     ip: str
@@ -62,7 +67,7 @@ class KmlNode:
 
 @dataclass(slots=True)
 class NodeState:
-    node: KmlNode
+    node: RemoteNode
     online: bool
     loadavg1: float
     ncpu: int
@@ -78,13 +83,13 @@ class NodeState:
 
 @dataclass(slots=True)
 class Placement:
-    node: KmlNode
+    node: RemoteNode
     state: NodeState
     reason: str
 
 
 def _cluster_penalty() -> dict[str, float]:
-    raw = os.environ.get("MEMSTRATA_KML_CLUSTER_PENALTY", "").strip()
+    raw = os.environ.get("MEMSTRATA_REMOTE_CLUSTER_PENALTY", "").strip()
     if not raw:
         return dict(_DEFAULT_CLUSTER_PENALTY)
     out = dict(_DEFAULT_CLUSTER_PENALTY)
@@ -99,10 +104,10 @@ def _cluster_penalty() -> dict[str, float]:
     return out
 
 
-def load_kml_nodes(nodes_file: Path | None = None) -> list[KmlNode]:
-    """Parse ``nodes.tsv`` and return every KML (SSH-reachable) node."""
+def load_remote_nodes(nodes_file: Path | None = None) -> list[RemoteNode]:
+    """Parse ``nodes.tsv`` and return every remote (SSH-reachable) node."""
     path = Path(nodes_file) if nodes_file else NODES_FILE
-    nodes: list[KmlNode] = []
+    nodes: list[RemoteNode] = []
     if not path.is_file():
         return nodes
     for line in path.read_text(encoding="utf-8").splitlines():
@@ -114,13 +119,13 @@ def load_kml_nodes(nodes_file: Path | None = None) -> list[KmlNode]:
             continue
         node, cluster, role, host, ip = (f.strip() for f in fields[:5])
         # Skip rows that are not SSH-reachable training clusters.
-        if not cluster.startswith("kml-"):
+        if not cluster.startswith(REMOTE_CLUSTER_PREFIX):
             continue
-        nodes.append(KmlNode(cluster=cluster, node=node, ip=ip, host=host, role=role))
+        nodes.append(RemoteNode(cluster=cluster, node=node, ip=ip, host=host, role=role))
     return nodes
 
 
-def _tgpu_run(node: KmlNode, argv: list[str], timeout: int) -> subprocess.CompletedProcess[str]:
+def _tgpu_run(node: RemoteNode, argv: list[str], timeout: int) -> subprocess.CompletedProcess[str]:
     if not TGPU:
         raise RuntimeError(
             "Remote GPU launch is not configured. Set MEMSTRATA_TGPU to your "
@@ -135,7 +140,7 @@ def _tgpu_run(node: KmlNode, argv: list[str], timeout: int) -> subprocess.Comple
     )
 
 
-def _probe_one(node: KmlNode) -> tuple[float, int] | None:
+def _probe_one(node: RemoteNode) -> tuple[float, int] | None:
     """Return ``(loadavg1, ncpu)`` for a node, or ``None`` if unreachable."""
     try:
         proc = _tgpu_run(
@@ -157,7 +162,7 @@ def _probe_one(node: KmlNode) -> tuple[float, int] | None:
 
 
 def probe_states(
-    nodes: list[KmlNode],
+    nodes: list[RemoteNode],
     active_counts: dict[str, int] | None = None,
 ) -> list[NodeState]:
     """Probe all nodes in parallel; offline nodes come back with online=False."""
@@ -175,11 +180,11 @@ def probe_states(
 
 
 def select_node(
-    nodes: list[KmlNode] | None = None,
+    nodes: list[RemoteNode] | None = None,
     active_counts: dict[str, int] | None = None,
 ) -> Placement | None:
-    """Pick the least effectively-loaded online KML node, or ``None`` if all down."""
-    nodes = nodes if nodes is not None else load_kml_nodes()
+    """Pick the least effectively-loaded online remote node, or ``None`` if all down."""
+    nodes = nodes if nodes is not None else load_remote_nodes()
     if not nodes:
         return None
     states = probe_states(nodes, active_counts=active_counts)
@@ -223,7 +228,7 @@ def build_detached_command(
 
 
 def launch(
-    node: KmlNode,
+    node: RemoteNode,
     *,
     inner_script: str,
     cwd: str,
@@ -240,12 +245,12 @@ def launch(
     proc = _tgpu_run(node, argv, timeout=_LAUNCH_TIMEOUT)
     if proc.returncode != 0:
         raise RuntimeError(
-            f"kml launch on {node.key} ({node.ip}) failed rc={proc.returncode}: "
+            f"remote launch on {node.key} ({node.ip}) failed rc={proc.returncode}: "
             f"{(proc.stderr or proc.stdout or '').strip()[:400]}"
         )
 
 
-def stop(node: KmlNode, *, match: str) -> bool:
+def stop(node: RemoteNode, *, match: str) -> bool:
     """SIGTERM the remote batch whose command line contains ``match``.
 
     ``match`` is the unique job_dir path (contains the job_id), so pkill -f only

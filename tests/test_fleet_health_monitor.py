@@ -9,13 +9,13 @@ from vmem_bench.annotation.pipeline.servers.fleet import health_monitor
 
 def test_refresh_overwrites_online_log_and_deletes_lost_service(tmp_path: Path) -> None:
     row = {
-        "cluster": "kml-h800",
+        "cluster": "gpu-h800",
         "node_id": "0",
         "gpu_rank": 3,
         "online": True,
         "reachable": True,
         "console_status": "idle",
-        "display_name": "idle · kml-h800/node0/rank3 · reviewer/qwen3-vl-8b",
+        "display_name": "idle · gpu-h800/node0/rank3 · reviewer/qwen3-vl-8b",
         "base_url": "http://10.83.1.79:8113/v1",
         "model": "qwen3-vl-8b",
         "role": "reviewer",
@@ -30,9 +30,9 @@ def test_refresh_overwrites_online_log_and_deletes_lost_service(tmp_path: Path) 
             output_root=tmp_path / "health",
             probe_timeout=1.0,
         )
-        path = tmp_path / "health" / "kml-h800" / "node0" / "rank3.log"
+        path = tmp_path / "health" / "gpu-h800" / "node0" / "rank3.log"
         assert path.is_file()
-        orphan = tmp_path / "health" / "kml-h800" / "node0" / "rank7.log"
+        orphan = tmp_path / "health" / "gpu-h800" / "node0" / "rank7.log"
         orphan.write_text("old", encoding="utf-8")
 
         offline = {**row, "online": False, "console_status": "broke"}

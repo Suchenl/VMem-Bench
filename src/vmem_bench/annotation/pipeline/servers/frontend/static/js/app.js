@@ -276,7 +276,7 @@
     const modelName = el('reviewerModel').value.trim() || 'qwen3-vl-32b';
     const body = {
       samples: samples,
-      execution_target: el('executionTarget').value || 'kml',
+      execution_target: el('executionTarget').value || 'remote',
       reviewer: el('reviewer').value,
       reviewer_base_url: el('reviewerBaseUrl').value.trim(),
       reviewer_model: modelName,
@@ -375,7 +375,7 @@
       (byCluster[name] || (byCluster[name] = [])).push(row);
     });
     const activeMarkup = Object.keys(byCluster).sort((left, right) => {
-      const preferredOrder = ['kml-h800', 'kml-a800', 'bdy-a800'];
+      const preferredOrder = ['gpu-h800', 'gpu-a800', 'bdy-a800'];
       const leftPreferred = preferredOrder.indexOf(left);
       const rightPreferred = preferredOrder.indexOf(right);
       if (leftPreferred !== -1 || rightPreferred !== -1) {
@@ -462,10 +462,10 @@
       if (!node) return;
       node.className = 'health fail';
       const host = location.hostname || '';
-      const viaKmlGateway = /\.corp\.internal\.com$/i.test(host) || /kml-dtmachine/i.test(host);
+      const viaProxyGateway = /\.example\.com$/i.test(host) || /remote-gpu-host/i.test(host);
       if (err && err.code === 'SSO_REQUIRED') {
         node.textContent =
-          'KML SSO 失效 · 请刷新页面重新登录 AccessProxy（不是 backend 挂了）';
+          'SSO 失效 · 请刷新页面重新登录 the reverse proxy（不是 backend 挂了）';
         return;
       }
       if (err && err.code === 'GATEWAY_BUSY') {
@@ -473,8 +473,8 @@
         node.textContent = '后端繁忙/网关超时 · 正在自动重试（不是登录失效，也不是 backend 挂）';
         return;
       }
-      const hint = viaKmlGateway
-        ? ' · 经 KML HTTPS 网关访问时：先刷新重登 SSO；本机保活 bash servers/ensure_console.sh --watch'
+      const hint = viaProxyGateway
+        ? ' · 经 remote HTTPS 网关访问时：先刷新重登 SSO；本机保活 bash servers/ensure_console.sh --watch'
         : (' · 若持续失败：bash servers/ensure_console.sh --watch');
       node.textContent = 'backend down · ' + ((err && err.message) || err) + hint;
     }

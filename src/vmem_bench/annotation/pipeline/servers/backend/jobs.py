@@ -270,7 +270,7 @@ class JobStore:
         return payload
 
     def _remote_env_exports(self) -> dict[str, str]:
-        """Env vars the KML batch needs that a login shell won't already have.
+        """Env vars the remote batch needs that a login shell won't already have.
 
         Paths are all under the shared ``/data`` tree, so they resolve
         identically on the training nodes.  PYTHONPATH is rebuilt from scratch
@@ -296,23 +296,23 @@ class JobStore:
         )
         return exports
 
-    def _active_kml_node_counts(self) -> dict[str, int]:
-        """How many live jobs we've placed on each KML node (for load spread)."""
+    def _active_remote_node_counts(self) -> dict[str, int]:
+        """How many live jobs we've placed on each remote node (for load spread)."""
         counts: dict[str, int] = {}
         for job in self.active_jobs():
             dispatch = job.get("dispatch") if isinstance(job.get("dispatch"), dict) else {}
             target = str(job.get("execution_target") or dispatch.get("execution_target") or "")
-            if target != "kml":
+            if target != "remote":
                 continue
-            cluster = str(dispatch.get("kml_cluster") or "")
-            node = str(dispatch.get("kml_node") or "")
+            cluster = str(dispatch.get("remote_cluster") or "")
+            node = str(dispatch.get("remote_node") or "")
             if not cluster or not node:
                 continue
             key = f"{cluster}#{node}"
             counts[key] = counts.get(key, 0) + 1
         return counts
 
-    def _submit_kml_job(
+    def _submit_remote_job(
         self,
         *,
         body: dict[str, Any],
@@ -330,13 +330,13 @@ class JobStore:
         The remote batch writes ``progress.json`` / ``return_code.txt`` into the
         shared ``job_dir``, so the backend never needs SSH to read status.
         """
-        nodes = remote_dispatch.load_kml_nodes()
+        nodes = remote_dispatch.load_remote_nodes()
         if not nodes:
             raise ValueError(
-                "nodes.tsv 里没有 kml-* 节点；请用 execution_target=local 在本机跑"
+                "nodes.tsv 里没有 gpu-* 节点；请用 execution_target=local 在本机跑"
             )
         placement = remote_dispatch.select_node(
-            nodes, active_counts=self._active_kml_node_counts()
+            nodes, active_counts=self._active_remote_node_counts()
         )
         if placement is None:
             raise ValueError(
@@ -362,12 +362,12 @@ class JobStore:
             "created_at": _now_stamp(),
             "samples": samples,
             "options": _public_options(body),
-            "execution_target": "kml",
+            "execution_target": "remote",
             "dispatch": {
-                "execution_target": "kml",
-                "kml_cluster": placement.node.cluster,
-                "kml_node": placement.node.node,
-                "kml_ip": placement.node.ip,
+                "execution_target": "remote",
+                "remote_cluster": placement.node.cluster,
+                "remote_node": placement.node.node,
+                "remote_ip": placement.node.ip,
                 "placement_reason": placement.reason,
                 "reviewer_base_url": str(body.get("reviewer_base_url") or ""),
                 "grounder_base_url": str(body.get("grounder_base_url") or ""),
@@ -386,15 +386,15 @@ class JobStore:
         _write_json(self._job_path(job_id), payload)
         return payload
 
-    def _stop_kml_job(self, payload: dict[str, Any]) -> None:
-        """SIGTERM the remote batch for a KML job, best-effort."""
+    def _stop_remote_job(self, payload: dict[str, Any]) -> None:
+        """SIGTERM the remote batch for a job, best-effort."""
         dispatch = payload.get("dispatch") if isinstance(payload.get("dispatch"), dict) else {}
-        cluster = str(dispatch.get("kml_cluster") or "")
-        node_id = str(dispatch.get("kml_node") or "")
+        cluster = str(dispatch.get("remote_cluster") or "")
+        node_id = str(dispatch.get("remote_node") or "")
         match = str(payload.get("remote_match") or self._job_dir(str(payload.get("job_id"))))
         if cluster and node_id:
-            node = remote_dispatch.KmlNode(
-                cluster=cluster, node=node_id, ip=str(dispatch.get("kml_ip") or "")
+            node = remote_dispatch.RemoteNode(
+                cluster=cluster, node=node_id, ip=str(dispatch.get("remote_ip") or "")
             )
             try:
                 remote_dispatch.stop(node, match=match)
@@ -588,18 +588,18 @@ class JobStore:
         if not isinstance(selected, list) or not selected:
             raise ValueError("samples must be a non-empty list")
         body = dict(body)
-        # Default to remote KML dispatch: CPU-heavy batch work runs on the shared
+        # Default to remote dispatch: CPU-heavy batch work runs on the shared
         # training nodes so the dev machine only serves the console + Cursor.
         # 'local' stays as a manual fallback for on-box debugging.
-        execution_target = str(body.get("execution_target") or "kml").strip().lower()
+        execution_target = str(body.get("execution_target") or "remote").strip().lower()
         # bdy-a800 was retired 2026-07-23 (SSH-less shared-FS cluster, unusable).
         if execution_target in {"bdy", "hybrid"}:
             raise ValueError(
                 "execution_target 'bdy'/'hybrid' 已废弃（bdy-a800 集群已下线）；"
-                "请使用 kml（远程训练机）或 local（本机兜底）"
+                "请使用 remote（远程训练机）或 local（本机兜底）"
             )
-        if execution_target not in {"local", "kml"}:
-            raise ValueError("execution_target must be 'kml' (remote) or 'local'")
+        if execution_target not in {"local", "remote"}:
+            raise ValueError("execution_target must be 'remote' (remote) or 'local'")
         idle_samples, skipped_busy = self._partition_busy_samples(list(selected))
         if not idle_samples:
             ids = ", ".join(
@@ -619,10 +619,10 @@ class JobStore:
             return payload
         reviewer = str(body.get("reviewer") or "passthrough").strip()
         reviewer_base_url = str(body.get("reviewer_base_url") or "").strip()
-        # kml reuses the same shared VLM fleet URLs as local: the fleet endpoints
+        # remote reuses the same shared VLM fleet URLs as local: the fleet endpoints
         # (10.82.x / 10.83.x) are routable from the training nodes, so the remote
         # batch talks to the exact same reviewers/grounders (now load-balanced).
-        if execution_target in {"local", "kml"} and reviewer == "qwen" and not reviewer_base_url:
+        if execution_target in {"local", "remote"} and reviewer == "qwen" and not reviewer_base_url:
             urls = resolve_dispatch_urls(
                 fleet_root=self.fleet_root,
                 probe=False,
@@ -643,7 +643,7 @@ class JobStore:
                     "default_model"
                 ) or "qwen3-vl-32b"
         grounder = str(body.get("grounder") or "full-frame").strip()
-        if execution_target in {"local", "kml"} and grounder == "qwen" and not str(body.get("grounder_base_url") or "").strip():
+        if execution_target in {"local", "remote"} and grounder == "qwen" and not str(body.get("grounder_base_url") or "").strip():
             # Prefer grounder-role; fall back to any online reviewer endpoint.
             g_urls = resolve_dispatch_urls(
                 fleet_root=self.fleet_root,
@@ -778,8 +778,8 @@ class JobStore:
                 payload["skipped_unready"] = skipped_unready
             return payload
 
-        if execution_target == "kml":
-            payload = self._submit_kml_job(
+        if execution_target == "remote":
+            payload = self._submit_remote_job(
                 body=body,
                 job_id=job_id,
                 job_dir=job_dir,
@@ -865,10 +865,10 @@ class JobStore:
         if status not in {"queued", "running", "stopping"}:
             return payload
         dispatch = payload.get("dispatch") if isinstance(payload.get("dispatch"), dict) else {}
-        if str(payload.get("execution_target") or dispatch.get("execution_target") or "") == "kml":
+        if str(payload.get("execution_target") or dispatch.get("execution_target") or "") == "remote":
             # Remote job: SIGTERM it over SSH, then mark terminal. No local pid to
             # poll, and refresh is file-based, so settle status immediately.
-            self._stop_kml_job(payload)
+            self._stop_remote_job(payload)
             payload["status"] = "stopped"
             payload["ended_at"] = _now_stamp()
             payload["stopped_at"] = _now_stamp()

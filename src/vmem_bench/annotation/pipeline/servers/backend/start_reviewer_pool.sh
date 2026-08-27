@@ -4,7 +4,7 @@
 # H800: one 32B service per GPU.
 #   FLEET_ADVERTISE_HOST=$(hostname -s) bash start_reviewer_pool.sh 6:8110,7:8111
 # A800: one 32B service per TWO GPUs (tensor parallel).
-#   FLEET_CLUSTER=kml-a800 FLEET_ADVERTISE_HOST=$(hostname -s) \
+#   FLEET_CLUSTER=gpu-a800 FLEET_ADVERTISE_HOST=$(hostname -s) \
 #     bash start_reviewer_pool.sh 0+1:8110,2+3:8111
 #
 # H800 tensor-parallel (SCORING/CONCURRENCY EXPERIMENT ONLY, opt-in, non-default):
@@ -101,7 +101,7 @@ validate_topology() {
     echo "      (scoring/concurrency experiment mode; not the annotation default)." >&2
   fi
   if [[ "${family}" == "unknown" ]]; then
-    echo "ABORT: cannot detect GPU family; set FLEET_CLUSTER=kml-h800 or kml-a800" >&2
+    echo "ABORT: cannot detect GPU family; set FLEET_CLUSTER=gpu-h800 or gpu-a800" >&2
     exit 3
   fi
 }

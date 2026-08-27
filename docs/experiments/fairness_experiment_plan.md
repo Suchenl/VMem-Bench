@@ -92,7 +92,7 @@
 - 缺 iamflow：`cosmos_laundromat_first_cycle`
 - 未开始：其余 17 部 frozen 影片（`sita_..._part1` 无 frozen gold，不算）
 
-**步骤（在 KML 节点上）**
+**步骤（在 remote 节点上）**
 
 1. 起 vLLM 服务（DiT 仍在训练 Python 进程里）：
    ```bash
@@ -112,7 +112,7 @@
    ```bash
    ... generate_causal_traces.py --movies all --skip-complete \
        --iamflow-llm-endpoint ... --iamflow-vlm-endpoint ... --iamflow-vlm-cache \
-       --submit kml-a100:1:0 kml-a100:2:0
+       --submit gpu-a100:1:0 gpu-a100:2:0
    ```
 
 忠实性保证：DiT/VAE 始终在本地训练进程跑（与已冻结的 BBB trace KV 数值一致），

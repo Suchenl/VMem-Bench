@@ -6,7 +6,7 @@ binary on PATH (``MEMSTRATA_TGPU``, default name ``tgpu``) with ``-c`` / ``-node
 The README path is a single-node ``causal/runner.py`` / Track B baseline_runner.
 
 Generates the three baseline long-video systems for the VMem-Bench Track B
-English prompt streams across several KML a800 nodes, one story per GPU, with a
+English prompt streams across several remote a800 nodes, one story per GPU, with a
 shared job queue so every GPU stays saturated until all jobs finish.
 
 Systems / step counts (denoising_step_list length):
@@ -284,7 +284,7 @@ def service_ready(cluster: str, node: int, *, dry_run: bool) -> bool:
 # --------------------------------------------------------------------------- #
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--cluster", default="kml-a800")
+    ap.add_argument("--cluster", default="gpu-a800")
     ap.add_argument("--nodes", default="0,1,2,3,4", help="comma-separated tgpu node ids")
     ap.add_argument("--max-job-sec", type=int, default=18000,
                     help="free a slot if a job writes no EXIT sentinel within this many seconds")

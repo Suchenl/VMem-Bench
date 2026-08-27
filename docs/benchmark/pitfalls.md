@@ -394,7 +394,7 @@ total_time ~= chunks * qa_rounds * branches * (discover + draft + verify + per_c
 
 BDY-A800 的 32 个 Qwen3-VL-8B rank 可以在节点本地完成真实图像 + JSON-schema
 任务，但**当前不得用于 console 发起的 BBB S3/S5 视频生产派发**。在此链路修复并以
-真实视频样本复验前，console 只派发 H800 与 kml-a800 endpoint。
+真实视频样本复验前，console 只派发 H800 与 gpu-a800 endpoint。
 
 ### 症状与证据
 
@@ -432,7 +432,7 @@ BDY 将 Qwen3-VL 权重 stage 到节点本地 `/tmp/memstrata_public_models` 后
 - 计算节点操作走你自己的作业队列，不要从开发机 SSH 进训练节点改服务。
 - BDY 的 `FLEET_ADVERTISE_HOST` 只允许 nodes.tsv 的 `host` 字段；禁止 `10.252.*`。
 - 发现 BDY 视频派发 timeout 时，立即给 BDY endpoint 写 `break`，停止 console 派发；
-  重新提交 job 时只使用 H800 + kml-a800，直到 BDY 真实视频复验通过。
+  重新提交 job 时只使用 H800 + gpu-a800，直到 BDY 真实视频复验通过。
 
 ### 2026-07-20 追加：shared-FS executor 原型仍未跑通
 

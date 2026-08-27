@@ -554,7 +554,7 @@ def main() -> int:
     ap.add_argument("--detail", action="store_true", help="print per-story matrix")
     ap.add_argument("--gpu", action="store_true",
                     help="probe per-node GPU utilization (confirms silent runners are alive)")
-    ap.add_argument("--cluster", default="kml-a800")
+    ap.add_argument("--cluster", default="gpu-a800")
     ap.add_argument("--nodes", default="0,1,2,3,4", help="tgpu node ids for --gpu probe")
     ap.add_argument("--no-update-snapshot", action="store_true")
     args = ap.parse_args()
