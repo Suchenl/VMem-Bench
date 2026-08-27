@@ -17,7 +17,7 @@
 #     bash start_reviewer_pool.sh 0+1:8110,2+3:8111,4+5:8112,6+7:8113
 #
 # Instance intent + status land under:
-#   benchmarks/MemStrata/runtime/services/vlm_fleet/{intents,instances}/
+#   runtime/services/vlm_fleet/{intents,instances}/
 # Console reads that path and dispatches jobs — no manual Base URL needed.
 set -euo pipefail
 

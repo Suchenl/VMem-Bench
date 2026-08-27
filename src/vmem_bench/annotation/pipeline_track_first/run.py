@@ -3,9 +3,9 @@
 Examples (on a GPU node, with the vLLM judger server running):
 
     PY=python3
-    PYTHONPATH=benchmarks/MemStrata/src "$PY" -m vmem_bench.annotation.pipeline_track_first.run \
+    PYTHONPATH=src "$PY" -m vmem_bench.annotation.pipeline_track_first.run \
         --video ${VMEM_DATASETS_ROOT}/BlenderOpenMovies/big_buck_bunny_720p/big_buck_bunny_720p_h264.mp4 \
-        --out benchmarks/MemStrata/data/blender_open_movies/big_buck_bunny \
+        --out data/blender_open_movies/big_buck_bunny \
         --movie-id big_buck_bunny
 
     # after human review:

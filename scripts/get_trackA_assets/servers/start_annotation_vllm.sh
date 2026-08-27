@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Launch one Qwen3-VL vLLM endpoint for the MemStrata annotation pipeline.
-# Registers into benchmarks/MemStrata/runtime/services/vlm_fleet via supervise.
+# Registers into runtime/services/vlm_fleet via supervise.
 #
 # Usage:
 #   MODEL_SIZE=8B  FLEET_ADVERTISE_HOST=$(hostname -s) start_annotation_vllm.sh <gpu_id> <port>

@@ -23,10 +23,10 @@ task shape is different (generated segment videos instead of selected reference
 images), but endpoint discovery and pooling are identical:
 
 ```bash
-PYTHONPATH=benchmarks/VMem-Bench/src \
+PYTHONPATH=src \
 python -m vmem_bench.scoring.end2end_coverage \
   --gt benchmarks/VMem-Bench/assets/trackB/gt/<story>.json \
-  --run benchmarks/VMem-Bench/outputs/evaluation/trackB/<system>/<story>/<register>/<run_tag> \
+  --run outputs/evaluation/trackB/<system>/<story>/<register>/<run_tag> \
   --prompts benchmarks/VMem-Bench/assets/trackB/sut_prompts/<story>_<register>.json \
   --fleet --workers 0
 ```
@@ -84,7 +84,7 @@ IAMFLOW_LLM_PORT=8100 \
 IAMFLOW_VLM_PORT=8101 \
 bash benchmarks/VMem-Bench/scripts/evaluate_baselines/trackB/baseline_runners/iamflow/launch_vllm_services.sh
 
-source benchmarks/VMem-Bench/outputs/evaluation/trackB/_services/iamflow_vllm/latest/iamflow_service.env
+source outputs/evaluation/trackB/_services/iamflow_vllm/latest/iamflow_service.env
 ```
 
 Then launch `iamflow/run.py` in the same Python that has IAMFlow + Wan. The native

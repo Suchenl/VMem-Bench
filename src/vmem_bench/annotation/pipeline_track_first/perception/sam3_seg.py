@@ -28,7 +28,7 @@ def vendored_deps_dir() -> str:
     deps = os.environ.get("MEMSTRATA_SAM3_DEPS")
     if deps:
         return deps
-    # benchmarks/MemStrata/src/vmem_bench/annotation/perception/ -> repo root is 6 up.
+    # src/vmem_bench/annotation/perception/ -> repo root is 6 up.
     repo = Path(__file__).resolve().parents[6]
     candidate = repo / "models" / "vendor" / "sam3_transformers59"
     return str(candidate) if candidate.is_dir() else ""

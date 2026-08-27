@@ -2,7 +2,7 @@
 
 Runtime root (not under ``data/``)::
 
-    benchmarks/MemStrata/runtime/services/vlm_fleet/
+    runtime/services/vlm_fleet/
       intents/<instance_id>.json      # written by launcher (intent)
       instances/<instance_id>.json    # written by supervisor (truth)
 
