@@ -7,7 +7,7 @@
 | Branch | Meaning |
 |---|---|
 | `main` | Production harness. May move. |
-| `paper-reproduction` | Track A Stage-1 freeze (internal `VMem-Track-A-MemStrata` @ `51be2914`). Not `main`. Track B paper tables used later code; that branch does not claim those numbers. |
+| `paper-reproduction` | Track A Stage-1 freeze used for the paper's frozen retrieval protocol. It is not `main`. Track B paper tables used later code; that branch does not claim those numbers. |
 
 ## Track A (retrieval / visual coverage)
 

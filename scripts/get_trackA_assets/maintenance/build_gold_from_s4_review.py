@@ -9,7 +9,7 @@ S2 postprocess / S3 auto-review / **S4 human review** gates. The authoritative g
 deterministic segment->gold conversion (``build_gold_from_segments``), so the roster + per-chunk
 presence come from the reviewed truth.
 
-It is an annotation / gold-maintenance driver (``scripts/vmem_bench/``): imports only
+It is an annotation / gold-maintenance driver (``scripts/get_trackA_assets/maintenance/``): imports only
 ``vmem_bench`` and never ``memstrata`` (benchmarks/MemStrata/AGENTS.md Rule 2).
 
 Output is the standard 3-file gold, each single-purpose (no duplicated rows):
@@ -20,7 +20,7 @@ which the visual-coverage scorer reads; ``gold/entity_registry.json`` = the enti
 Usage::
 
     cd benchmarks/MemStrata
-    PYTHONPATH=src python scripts/vmem_bench/maintenance/build_gold_from_s4_review.py \
+    PYTHONPATH=src python scripts/get_trackA_assets/maintenance/build_gold_from_s4_review.py \
         --movie-dir data/BlenderOpenMovies/big_buck_bunny
 
 By default it writes into ``<movie>/gold/`` and, on the first run, moves any pre-existing ``gold/``

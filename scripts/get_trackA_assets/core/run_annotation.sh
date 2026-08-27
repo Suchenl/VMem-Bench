@@ -67,7 +67,7 @@ fi
 for _d in "$(dirname "$(dirname "${PY}")")"/lib/python*/site-packages/nvidia/nvjitlink/lib; do
   [[ -d "${_d}" ]] && { export LD_LIBRARY_PATH="${_d}:${LD_LIBRARY_PATH:-}"; break; }
 done
-export PUBLIC_MODELS_ROOT="${PUBLIC_MODELS_ROOT:-${PUBLIC_MODELS_ROOT}}"
+export PUBLIC_MODELS_ROOT="${PUBLIC_MODELS_ROOT:?export PUBLIC_MODELS_ROOT=/path/to/hf-style-models}"
 export MONTAGE_WEIGHTS_ROOT="${MONTAGE_WEIGHTS_ROOT:-${REPO}/models/model_weights}"
 export HF_HUB_OFFLINE=1
 export FFMPEG_BIN="${FFMPEG_BIN:-ffmpeg}"

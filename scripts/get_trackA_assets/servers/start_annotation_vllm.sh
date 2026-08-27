@@ -22,14 +22,15 @@ if [[ -n "${VLLM_ENV:-}" ]]; then
   fi
 fi
 MODEL_SIZE="${MODEL_SIZE:-8B}"
+PUBLIC_MODELS_ROOT="${PUBLIC_MODELS_ROOT:?export PUBLIC_MODELS_ROOT=/path/to/hf-style-models}"
 case "${MODEL_SIZE}" in
   8B|8b)
-    MODEL_PATH="${MODEL_PATH:-${PUBLIC_MODELS_ROOT:-${PUBLIC_MODELS_ROOT}}/Qwen/Qwen3-VL-8B-Instruct}"
+    MODEL_PATH="${MODEL_PATH:-${PUBLIC_MODELS_ROOT}/Qwen/Qwen3-VL-8B-Instruct}"
     SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen3-vl-8b}"
     GPU_MEM_UTIL="${GPU_MEM_UTIL:-0.85}"
     ;;
   32B|32b)
-    MODEL_PATH="${MODEL_PATH:-${PUBLIC_MODELS_ROOT:-${PUBLIC_MODELS_ROOT}}/Qwen/Qwen3-VL-32B-Instruct}"
+    MODEL_PATH="${MODEL_PATH:-${PUBLIC_MODELS_ROOT}/Qwen/Qwen3-VL-32B-Instruct}"
     SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-qwen3-vl-32b}"
     GPU_MEM_UTIL="${GPU_MEM_UTIL:-0.90}"
     ;;

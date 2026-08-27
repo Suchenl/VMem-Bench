@@ -45,6 +45,21 @@ python scripts/evaluate_baselines/your_method/run_tracka_example.py \
     --movie-dir assets/trackA/BlenderOpenMovies/charge --limit 5
 ```
 
+## Annotate your own video
+
+VMem-Bench also includes the reproducible S1–S7 annotation pipeline. It accepts
+one continuous source video, uses OpenAI-compatible VLM endpoints for drafting
+and review, and writes resumable intermediate artifacts plus a human-freezeable
+`gold/` package. Start with [`docs/DATA.md`](docs/DATA.md) for source-video
+layout and [`scripts/get_trackA_assets/core/run_annotation.sh`](scripts/get_trackA_assets/core/run_annotation.sh)
+for the service-backed command. Use `PROPOSAL_ONLY=1` for diagnostics; a
+production gold package requires a human-confirmed `ROSTER_SEED` and the review
+/freeze gates. The pipeline CLI is inspectable without services:
+
+```bash
+PYTHONPATH=src python -m vmem_bench.annotation.pipeline_track_first.run --help
+```
+
 ## What it measures
 
 | Track | Question | SUT input | Scoring gold |

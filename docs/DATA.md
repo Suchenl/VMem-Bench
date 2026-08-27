@@ -144,7 +144,63 @@ Git already contains small samples under `assets/trackA/` for tests. Full Track 
 
 ---
 
-## 5. What we will not give you
+## 5. Annotate a new video
+
+You can use the same repository to create a new annotation package; this is
+separate from downloading the frozen gold above. The input must be one
+time-continuous full-length video (not a directory of unrelated clips).
+
+The pipeline has two modes:
+
+- **Diagnostic proposal:** automatic roster discovery is allowed, but the
+  output is not production gold and cannot be frozen.
+- **Production gold:** provide a human-confirmed canonical roster with
+  `ROSTER_SEED`; review and freeze all remaining blockers before publishing.
+
+The pipeline needs OpenAI-compatible VLM endpoints. Start at least one
+annotator/reviewer pair (8B is the lightweight default; use a larger judge
+where available):
+
+```bash
+export PUBLIC_MODELS_ROOT="$HOME/public_models"
+export VLLM_ENV=/path/to/your/vllm-env
+MODEL_SIZE=8B bash scripts/get_trackA_assets/servers/start_annotation_vllm.sh 0 8001
+MODEL_SIZE=8B bash scripts/get_trackA_assets/servers/start_annotation_vllm.sh 1 8002
+```
+
+Then run the resumable S1–S7 pipeline:
+
+```bash
+export PY=/path/to/your/vllm-env/bin/python
+export VIDEO=/path/to/movie.mp4
+export MOVIE_ID=my_movie
+export OUT="$PWD/annotation_runs/$MOVIE_ID"
+
+# Diagnostic proposal (cannot be frozen):
+PROPOSAL_ONLY=1 CLIENT_GPU=2 PY="$PY" \
+  bash scripts/get_trackA_assets/core/run_annotation.sh
+
+# Production annotation (requires a human-confirmed roster JSON):
+ROSTER_SEED=/path/to/human_confirmed_roster.json CLIENT_GPU=2 \
+  PY="$PY" bash scripts/get_trackA_assets/core/run_annotation.sh
+```
+
+The output is written below `$OUT`: stage artifacts are resumable, while
+`gold/` is accepted only after the human review/freeze gates pass. Inspect the
+full CLI and all available options without starting a service:
+
+```bash
+PYTHONPATH=src "$PY" -m vmem_bench.annotation.pipeline_track_first.run --help
+```
+
+The launcher fails early with an actionable message when `PUBLIC_MODELS_ROOT`,
+the source video, the roster (production mode), or an endpoint is missing.
+Model weights and the VLM serving environment are not bundled; keep
+third-party video/model licenses.
+
+---
+
+## 6. What we will not give you
 
 | Artifact | Why |
 |---|---|

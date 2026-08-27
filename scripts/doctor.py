@@ -68,7 +68,7 @@ def main() -> int:
         _bad("PUBLIC_MODELS_ROOT unset (needed for Track A perception / GPU generator, not for CPU MemStrata demo)")
         print("         export PUBLIC_MODELS_ROOT=/path/to/hf-style-models")
         print("         then: huggingface-cli download facebook/sam3 --local-dir $PUBLIC_MODELS_ROOT/facebook/sam3")
-        print("               huggingface-cli download facebook/dinov3-vits16-pretrain-lvd1689m --local-dir $PUBLIC_MODELS_ROOT/facebook/dinov3-vits16-pretrain-lvd1689m")
+        print("               huggingface-cli download facebook/dinov3-vitb16-pretrain-lvd1689m --local-dir $PUBLIC_MODELS_ROOT/facebook/dinov3-vitb16-pretrain-lvd1689m")
         failed += 1
     else:
         sam3 = Path(root).expanduser() / "facebook" / "sam3"

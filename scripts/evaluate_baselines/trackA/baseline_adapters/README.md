@@ -3,7 +3,7 @@
 This directory holds the bench adapter code for every baseline under the MemStrata-Bench **new protocol**. The vendored upstream repositories (`baselines/Causal/<name>/`) remain **untouched**; all glue is written here.
 
 - The causal baselines are implemented under [`causal/`](causal/); for protocol details see [`causal/README.md`](causal/README.md).
-- For the authoritative protocol (the three iron rules + the SUT contract), see [`../../docs/benchmark/running_eval.md`](../../docs/benchmark/running_eval.md) §0/§1.
+- For the authoritative protocol (the three iron rules + the SUT contract), see [`../../../../docs/benchmark/running_eval.md`](../../../../docs/benchmark/running_eval.md) §0/§1.
 
 > The protocol in one sentence: for each segment the bench gives the SUT only two things — the **prompt text + the real segment video** (the real segment **replaces the SUT generator's output** to eliminate generation noise). The SUT uses **its own** perception/memory/retrieval and returns memory items carrying a **temporal identity**; on the bench side, `frame_materializer` cuts the corresponding frames out of the real source video according to temporal consistency and performs VLM visual-coverage scoring.
 

@@ -2,7 +2,7 @@
 
 This directory holds **the bench adapter code for each causal baseline**. The vendored upstream repositories (`baselines/Causal/<name>/`) remain **untouched**: all bench glue is written here and never stuffed into third-party code, which keeps review and re-pulling easy.
 
-> For the authoritative protocol, see [`docs/benchmark/running_eval.md`](../../../docs/benchmark/running_eval.md) §0 (the three iron rules) + §1 (the SUT contract).
+> For the authoritative protocol, see [`docs/benchmark/running_eval.md`](../../../../../docs/benchmark/running_eval.md) §0 (the three iron rules) + §1 (the SUT contract).
 > This layer is the implementation of that protocol for the causal baselines.
 
 ## Why this layer exists (the old route was removed)

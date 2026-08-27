@@ -42,6 +42,19 @@ python scripts/evaluate_baselines/your_method/run_tracka_example.py \
     --movie-dir assets/trackA/BlenderOpenMovies/charge --limit 5
 ```
 
+## 给自己的视频制作标注
+
+VMem-Bench 同时包含可复现的 S1–S7 标注流水线。它接收一部连续的源视频，
+通过 OpenAI-compatible 的 VLM 服务完成起草与审核，并写出可恢复的中间产物
+以及可以经过人工冻结的 `gold/` 数据包。源视频目录布局见 [`docs/DATA.md`](docs/DATA.md)，
+服务化运行命令见 [`scripts/get_trackA_assets/core/run_annotation.sh`](scripts/get_trackA_assets/core/run_annotation.sh)。
+`PROPOSAL_ONLY=1` 只用于诊断；正式 gold 必须提供人工确认的 `ROSTER_SEED`，
+并通过审核 / freeze 门禁。无需启动服务即可查看流水线 CLI：
+
+```bash
+PYTHONPATH=src python -m vmem_bench.annotation.pipeline_track_first.run --help
+```
+
 ## 两个 Track 测什么
 
 | Track | 问题 | SUT 输入 | 打分 gold |
