@@ -99,7 +99,7 @@
   `--verifier-video-for-retry` / `--no-verifier-video` / `--review-spot-check` / `--review-seed`；
   verifier 用独立 model（per-role），`VerifierRole` 传 threshold。
 
-测试（确定性，无 VLM/GPU；`cd benchmarks/MemStrata && PYTHONPATH=src <venv-python> tests/...`）：
+测试（确定性，无 VLM/GPU；`cd VMem-Bench && PYTHONPATH=src <venv-python> tests/...`）：
 
 - `tests/test_annotation_pipeline.py`：9 个 unit checks + stub E2E（含 QA 重试、crop pruning、patch/freeze/publish）全过。
 - `tests/test_schemas_v2.py`：v2 契约 round-trip 全过。

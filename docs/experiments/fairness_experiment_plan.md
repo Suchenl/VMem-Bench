@@ -83,7 +83,7 @@
 ## E 运行手册（GPU，E5 待在节点上执行）
 
 > 跑全部影片 × 全系统的**完整交接指令 + 产物保留清单**见
-> [`run_all_movies_handoff.md`](../../../../methods/MemStrata/docs/experiments/run_all_movies_handoff.md)（可直接交给跑实验的 agent）。
+> [`run_all_movies_handoff.md`](https://github.com/Suchenl/MemStrata/blob/main/docs/experiments/run_all_movies_handoff.md)（可直接交给跑实验的 agent）。
 
 因果 trace 生成由 `scripts/vmem_bench/compare/generate_causal_traces.py` 统一驱动，逐 stage
 幂等可续跑。当前 trace 库存（`data/BlenderOpenMovies/<movie>/gold/`）：
