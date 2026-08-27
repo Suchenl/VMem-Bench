@@ -766,6 +766,18 @@ class MemStrataAdapter:
         self._export_snapshot()
         n_assets = len(self._bank.assets) if self._bank is not None else 0
         reps = {aid: len(a.representations) for aid, a in self._bank.assets.items()} if self._bank else {}
+        # Authoritative crop backend actually wired up this run (grounder wins over SAM3 fallback).
+        crop_backend = (
+            "wedetect_ref" + ("+sam3_fallback" if self._segmenter is not None else "")
+            if self._grounder is not None
+            else ("sam3_concept" if self._segmenter is not None else "none")
+        )
+        # Human-readable crop stage that mirrors `crop_backend` (never a hard-coded backend name).
+        crop_label = (
+            "WeDetect-Ref (describe->bbox) crop"
+            if self._grounder is not None
+            else ("SAM3-concept crop" if self._segmenter is not None else "no crop")
+        )
         return {
             "system": "memstrata",
             "read_path": (
@@ -774,16 +786,12 @@ class MemStrataAdapter:
                 else "IntentInterpreter(name_anchored, model-free FAST) + compose"
             ),
             "write_path": (
-                "DINO-keyframes + VlmEntityDecomposer(Qwen3.5-9B) + SAM3-concept crop + DINOv3 novelty + MemoryUpdater"
+                f"DINO-keyframes + VlmEntityDecomposer(Qwen3.5-9B) + {crop_label} + DINOv3 novelty + MemoryUpdater"
                 if self.name_source == "mllm"
-                else "SAM3-concept + DINOv3 novelty (ProposeIdentify core) + MemoryUpdater"
+                else f"{crop_label} + DINOv3 novelty (ProposeIdentify core) + MemoryUpdater"
             ),
             "name_source": self.name_source,
-            "crop_backend": (
-                "wedetect_ref" + ("+sam3_fallback" if self._segmenter is not None else "")
-                if self._grounder is not None
-                else ("sam3_concept" if self._segmenter is not None else "none")
-            ),
+            "crop_backend": crop_backend,
             "read_slow_fallback": self.read_slow_fallback,
             "read_max_reps_per_asset": self.read_max_reps_per_asset,
             "read_context_budget": self.read_context_budget,
