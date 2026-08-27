@@ -181,37 +181,37 @@ guessing or an unlogged aggregation across layers is not a valid projection.
 Budget-only proxies may exist as **ablations / scaffolding** under names like
 `*_budget_proxy`; they are **not** the method rows in Table 1.
 
-## 权重来源与放置
+## Weight sources and placement
 
-> 合并自旧 `weights.md`（2026-07-22）。Track A（**quantitative** gold-replay）只需要各方法的
-> **retrieval / memory** 权重，**不**跑完整生成 denoising loop；Track B（**qualitative** rollout）
-> 才用各家官方生成脚本 + 完整 checkpoint。本机公共权重根：
-> `${PUBLIC_MODELS_ROOT}/`（下表以 `.../` 代之）。
+> Merged from the old `weights.md` (2026-07-22). Track A (**quantitative** gold-replay) only needs each method's
+> **retrieval / memory** weights and does **not** run the full generation denoising loop; Track B (**qualitative** rollout)
+> is what uses each vendor's official generation scripts + full checkpoint. The local public weights root is
+> `${PUBLIC_MODELS_ROOT}/` (abbreviated as `.../` in the table below).
 
-### 各方法 Track A 需要的权重
+### Weights each method needs for Track A
 
-| 方法 | Track A 需要的资产 |
+| Method | Track A assets needed |
 |---|---|
-| Helios | 无（closed-form window policy，不加载权重） |
-| LongLive-RAG | `ae_latent_mem.pt` + Wan VAE 把 **gold** 视频编码成 `gold_latents.pt` |
-| MemFlow | 已发布 `base.pt` + `lora.pt`，在 GT-encoded history 上跑真实 per-layer KV-bank top-k + local window |
-| IAMFlow | LLM `Qwen3-4B-Instruct-2507` + VLM `Qwen3-VL-2B-Instruct` + DiT `iamflow_fp8.safetensors`（+`tinyvae.pth`）；DiT 必需，因为 entity_score 来自其 forward（fp8→bf16 反量化以在 SM80 运行） |
-| DecMem | GT 上的 LTM selection——本节点**不可运行**（LTM kernel 只支持 SM90a；且需 WorldMem action/pose 输入）；`decmem.pt` 已下载但只作 ablation 的 `*_budget_proxy` |
+| Helios | none (closed-form window policy, loads no weights) |
+| LongLive-RAG | `ae_latent_mem.pt` + Wan VAE to encode the **gold** video into `gold_latents.pt` |
+| MemFlow | the released `base.pt` + `lora.pt`, running the real per-layer KV-bank top-k + local window on GT-encoded history |
+| IAMFlow | LLM `Qwen3-4B-Instruct-2507` + VLM `Qwen3-VL-2B-Instruct` + DiT `iamflow_fp8.safetensors` (+`tinyvae.pth`); the DiT is required because entity_score comes from its forward (fp8→bf16 dequantization to run on SM80) |
+| DecMem | LTM selection on GT — **not runnable on this node** (the LTM kernel only supports SM90a; and it needs WorldMem action/pose inputs); `decmem.pt` is downloaded but serves only as the ablation `*_budget_proxy` |
 
-### 本机路径（已落位）
+### Local paths (in place)
 
-| 资产 | 路径 | 状态 |
+| Asset | Path | Status |
 |---|---|---|
-| Wan2.1-T2V-1.3B | `.../Wan-AI/Wan2.1-T2V-1.3B` | ✅（VAE encode gold） |
+| Wan2.1-T2V-1.3B | `.../Wan-AI/Wan2.1-T2V-1.3B` | ✅ (VAE encode gold) |
 | LongLive AE | `.../Causal_Video_Generation/LongLive-RAG/checkpoints/ae_latent_mem.pt` | ✅ |
-| MemFlow ckpt | `.../KlingTeam/MemFlow` | ✅ Track A 真实 trace（`base.pt`+`lora.pt`）+ Track B |
-| DecMem | `.../KlingTeam/DecMem` | ⛔ Track A 本节点被 SM90a kernel 阻塞；仅 Track B / ablation proxy |
-| Helios-Distilled | `.../BestWishYsh/Helios-Distilled` | ✅ Track B（Track A 无需权重） |
-| Qwen3-4B-Instruct-2507（IAMFlow LLM） | `.../Qwen/Qwen3-4B-Instruct-2507` | ✅ |
-| Qwen3-VL-2B-Instruct（IAMFlow VLM） | `.../Qwen/Qwen3-VL-2B-Instruct` | ✅ |
-| IAMFlow DiT（`iamflow_fp8.safetensors`, `tinyvae.pth`） | `.../Causal_Video_Generation/IAMFlow/` | ✅（load 时 fp8→bf16 反量化） |
+| MemFlow ckpt | `.../KlingTeam/MemFlow` | ✅ Track A real trace (`base.pt`+`lora.pt`) + Track B |
+| DecMem | `.../KlingTeam/DecMem` | ⛔ Track A blocked on this node by the SM90a kernel; Track B / ablation proxy only |
+| Helios-Distilled | `.../BestWishYsh/Helios-Distilled` | ✅ Track B (Track A needs no weights) |
+| Qwen3-4B-Instruct-2507 (IAMFlow LLM) | `.../Qwen/Qwen3-4B-Instruct-2507` | ✅ |
+| Qwen3-VL-2B-Instruct (IAMFlow VLM) | `.../Qwen/Qwen3-VL-2B-Instruct` | ✅ |
+| IAMFlow DiT (`iamflow_fp8.safetensors`, `tinyvae.pth`) | `.../Causal_Video_Generation/IAMFlow/` | ✅ (fp8→bf16 dequantization at load) |
 
-Track B 使用各家在 `baselines/Causal/*/` 下的官方脚本；我们不像 Track A 那样包装生成。
+Track B uses each vendor's official scripts under `baselines/Causal/*/`; we do not wrap generation the way the Track A path does.
 
 ## CLI (as adapters mature)
 

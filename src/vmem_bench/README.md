@@ -1,121 +1,110 @@
-# `vmem_bench` 包级架构
+# `vmem_bench` package architecture
 
-`vmem_bench` 是 MemStrata 的 benchmark、标注、冻结发布和确定性评分包。它不导入 `memstrata` SUT；SUT 只通过 `common.schemas` 定义的 JSON 契约与 benchmark 交互。
+`vmem_bench` is MemStrata's package for benchmarking, annotation, frozen releases, and deterministic scoring. It does not import the `memstrata` SUT; the SUT interacts with the benchmark only through the JSON contracts defined in `common.schemas`.
 
-本文件只描述包级职责、公共边界和迁移规则。VLM 标注管线的阶段、artifact 和人审细节见统一文档 [`docs/benchmark/annotation_pipeline.md`](../../docs/benchmark/annotation_pipeline.md)。
+This file describes only package-level responsibilities, public boundaries, and migration rules. For the stages, artifacts, and human-review details of the VLM annotation pipeline, see the consolidated doc [`docs/benchmark/annotation_pipeline.md`](../../docs/benchmark/annotation_pipeline.md) (Chinese).
 
-## Track A 协议（新因果协议）
+## Track A protocol (new causal protocol)
 
-旧的 **gold-replay / ID-fidelity** 协议（`baseline_adapters/` 的适配机器、`scoring` 的
-`runner`/`metrics`/`visual`/`__main__` v1 打分 harness、`benchmark_run/` v1 嵌入器编排）
-**已整体删除**。Track A 现在只跑因果协议：bench 每 chunk 给 SUT prompt + 真实 segment，SUT
-先 `compose` 组合上下文（持久化，供评分+论文找图）再 `observe_segment` 建记忆，检索项按时序身份
-物化成真帧，由 `scoring.visual_coverage` 做 VLM 视觉覆盖打分。权威说明见
-[`docs/trackA.md`](../../docs/trackA.md)。
+The old **gold-replay / ID-fidelity** protocol (the adapter machinery under `baseline_adapters/`, the v1 scoring harness in `scoring` — `runner`/`metrics`/`visual`/`__main__` — and the v1 embedder orchestration under `benchmark_run/`) **has been removed entirely**. Track A now runs only the causal protocol: for each chunk the bench gives the SUT a prompt plus the real segment; the SUT first calls `compose` to assemble context (persisted, for scoring and for finding figures for the paper) and then `observe_segment` to build memory; retrieved items are materialized into real frames according to their temporal identity, and `scoring.visual_coverage` performs VLM visual-coverage scoring. See [`docs/trackA.md`](../../docs/trackA.md) for the authoritative description.
 
-## 目录职责
+## Directory responsibilities
 
 ```text
 vmem_bench/
-├── README.md                    # 本文件：包级架构与迁移边界
-├── __init__.py                  # 包初始化与运行时环境约束
-├── common/                      # 跨模块公开契约与确定性工具
-├── baseline_adapters/           # ★ 仓内自包含检索族 baseline（零 import memstrata）
-│   └── external/retrieval/      # 四个检索族 + 控制项 + 自包含编码器基座
+├── README.md                    # this file: package architecture and migration boundaries
+├── __init__.py                  # package initialization and runtime environment constraints
+├── common/                      # cross-module public contracts and deterministic utilities
+├── baseline_adapters/           # ★ self-contained in-repo retrieval-family baselines (zero import of memstrata)
+│   └── external/retrieval/      # four retrieval families + control conditions + self-contained encoder base
 ├── annotation/
-│   ├── pipeline/                # 唯一维护的标注生产管线
-│   ├── chunking.py              # 公共 chunk/layout 工具
-│   ├── pipeline_track_first/    # 迁移期 legacy，仅作复制/兼容来源
-│   └── pipeline_vlm_dominant/   # 迁移期 legacy，仅作复制/兼容来源
-├── scoring/                     # SUT 无关的 VLM 视觉覆盖打分 + 固定嵌入器
-├── publish.py                   # 冻结 movie gold → 发布包
-├── judger/                      # legacy 标注期 VLM 客户端；迁移完成前保留
-├── services/                    # legacy/可选常驻模型服务
-├── skills/                      # 可复用算法组件，例如 SBD
-└── docs/                        # 协议、schema、设计与历史决策文档
+│   ├── pipeline/                # the only maintained annotation production pipeline
+│   ├── chunking.py              # shared chunk/layout utilities
+│   ├── pipeline_track_first/    # legacy during migration, kept only as a copy/compat source
+│   └── pipeline_vlm_dominant/   # legacy during migration, kept only as a copy/compat source
+├── scoring/                     # SUT-agnostic VLM visual-coverage scoring + pinned embedders
+├── publish.py                   # freeze movie gold → release package
+├── judger/                      # legacy annotation-time VLM client; kept until migration completes
+├── services/                    # legacy/optional resident model services
+├── skills/                      # reusable algorithmic components, e.g. SBD
+└── docs/                        # protocol, schema, design, and historical-decision docs
 ```
 
-## 公共边界：必须保留
+## Public boundary: must be preserved
 
-以下目录/文件是跨管线、跨 baseline 或发布包依赖的公开面，不随 annotation 重构删除或改为 SUT 专用逻辑：
+The following directories/files are the public surface depended on across pipelines, across baselines, or by the release package. They are not deleted or turned into SUT-specific logic during the annotation refactor:
 
-- `common/schemas.py`：bench ↔ SUT JSON 契约；
-- `common/paths.py`：movie 目录与资产路径契约；
-- `common/gold_lint.py`：candidate/freeze/publish 的严格门；
-- `common/media.py`、`common/vecmath.py`、`common/model_weights.py`：稳定基础工具；
-- `baseline_adapters/external/retrieval/`：仓内自包含检索族 baseline（不 import SUT）；
-- `scoring/`：`visual_coverage`/`end2end_coverage` VLM 视觉覆盖打分 + `embedder` 固定嵌入器；
-- `publish.py`：冻结 gold 发布；
-- `common/schemas.py`：字段与协议的权威定义（`docs/trackA.md` 为 Track A 协议文字说明）。
+- `common/schemas.py`: the bench ↔ SUT JSON contract;
+- `common/paths.py`: the movie-directory and asset-path contract;
+- `common/gold_lint.py`: the strict gate for candidate/freeze/publish;
+- `common/media.py`, `common/vecmath.py`, `common/model_weights.py`: stable base utilities;
+- `baseline_adapters/external/retrieval/`: self-contained in-repo retrieval-family baselines (do not import the SUT);
+- `scoring/`: `visual_coverage`/`end2end_coverage` VLM visual-coverage scoring + the `embedder` pinned embedders;
+- `publish.py`: frozen-gold release;
+- `common/schemas.py`: the authoritative definition of fields and protocol (`docs/trackA.md` is the prose description of the Track A protocol).
 
-`scoring/` 不构造、import 或特殊分支任何具体 SUT。因果 baseline 的构造与运行在包外的
-`scripts/evaluate_baselines/trackA/baseline_adapters/causal/`（runner + 各 baseline 适配 + 打分驱动）。
+`scoring/` never constructs, imports, or special-cases any concrete SUT. The construction and running of causal baselines lives outside the package in `scripts/evaluate_baselines/trackA/baseline_adapters/causal/` (runner + per-baseline adapters + scoring driver).
 
-## 标注生产边界
+## Annotation production boundary
 
-[`annotation/pipeline/`](annotation/pipeline/) 是唯一的生产标注实现：
+[`annotation/pipeline/`](annotation/pipeline/) is the only production annotation implementation:
 
-- 所有新 VLM prompt、后处理、segment 自动审核、crop 获取、Web 人审、freeze artifact 和标注 batch 编排均放在此目录；
-- 它不运行时 import 或修改 `pipeline_track_first/`、`pipeline_vlm_dominant/`；
-- 旧实现只能作为一次性复制来源；复制后由 `pipeline/` 自己维护；
-- `pipeline/` 可只读使用 `common/` 的公开契约和基础工具。
+- all new VLM prompts, post-processing, automatic segment review, crop acquisition, web-based human review, freeze artifacts, and annotation batch orchestration go in this directory;
+- it does not import or modify `pipeline_track_first/` or `pipeline_vlm_dominant/` at runtime;
+- the old implementations may serve only as a one-time copy source; once copied, `pipeline/` maintains its own copy;
+- `pipeline/` may use `common/`'s public contracts and base utilities read-only.
 
-`annotation/chunking.py` 保留为公共 layout 工具。当前 v5 标注以 `visual_segments` 作为 chunk 布局，不要求新管线运行 SBD；旧管线和历史测试仍可使用 SBD。
+`annotation/chunking.py` is kept as a shared layout utility. The current v5 annotation uses `visual_segments` as the chunk layout and does not require the new pipeline to run SBD; the old pipelines and historical tests can still use SBD.
 
-## Track A 评测编排的职责
+## Responsibilities of Track A evaluation orchestration
 
-数据集级、SUT-aware 的因果评测编排在包外
-`scripts/evaluate_baselines/trackA/`：`baseline_adapters/causal/runner.py` 逐 chunk 驱动单个
-baseline（Stage 1），`scoring.visual_coverage` 打分（Stage 2），`overnight_two_movie_run.sh` 做两部影片编排；全量请用你自己的作业调度器反复调用
-`baseline_adapters/causal/runner.py`，
-`scripts/get_trackA_assets/compare/build_leaderboard_v2.py` 汇总榜单。每部影片的评测 artifact 写到：
+The dataset-level, SUT-aware causal evaluation orchestration lives outside the package under `scripts/evaluate_baselines/trackA/`: `baseline_adapters/causal/runner.py` drives a single baseline chunk by chunk (Stage 1), `scoring.visual_coverage` scores it (Stage 2), and `overnight_two_movie_run.sh` orchestrates two movies. For full runs, use your own job scheduler to invoke `baseline_adapters/causal/runner.py` repeatedly, and `scripts/get_trackA_assets/compare/build_leaderboard_v2.py` to aggregate the leaderboard. Per-movie evaluation artifacts are written to:
 
 ```text
 <movie>/benchmark_run/{visual_selections,_visual_score,_ref_frames,_segments}/
 ```
 
-数据集/样本级汇总由 `scripts/evaluate_baselines/trackA/aggregate_trackA_outputs.py` 收进
-`outputs/evaluation/trackA/<baseline>/<dataset>/<sample>/`。
+Dataset/sample-level aggregation is collected by `scripts/evaluate_baselines/trackA/aggregate_trackA_outputs.py` into `outputs/evaluation/trackA/<baseline>/<dataset>/<sample>/`.
 
-## 迁移与归档规则
+## Migration and archival rules
 
-### 当前迁移期
+### Current migration period
 
-- `annotation/pipeline_track_first/` 和 `annotation/pipeline_vlm_dominant/` 仍被旧脚本、测试、历史实验和当前 v5 gold 入口引用，**不得立即删除**。
-- 新 `annotation/pipeline/` 每完成一个阶段，必须有自己的测试和 CLI，再迁移对应调用方。
-- 旧管线中的 prompts、样例 JSON、probe outputs 不再新增；新的生产资产只写入 `annotation/pipeline/`、`data/` 或 `experiments/`。
+- `annotation/pipeline_track_first/` and `annotation/pipeline_vlm_dominant/` are still referenced by old scripts, tests, historical experiments, and the current v5 gold entry point, and **must not be deleted immediately**.
+- For each stage completed in the new `annotation/pipeline/`, it must have its own tests and CLI before the corresponding callers are migrated.
+- No new prompts, sample JSON, or probe outputs are added to the old pipelines; new production assets are written only to `annotation/pipeline/`, `data/`, or `experiments/`.
 
-### 删除或归档的前置条件
+### Preconditions for deletion or archival
 
-任何 legacy 文件删除前必须同时满足：
+Before any legacy file is deleted, all of the following must hold simultaneously:
 
-1. 全仓 import 与 CLI 引用已清零，或已改为新的 `pipeline/` / `benchmark_run/` 入口；
-2. 对应的公共契约测试、标注阶段测试和评分测试通过；
-3. 至少 BBB、一个额外 BlenderOpenMovies 样本、一个 LSMDC 聚合样本已通过新管线端到端验收；
-4. 历史代码先迁入 `benchmarks/MemStrata/_archive/annotation_legacy/` 或标记 `LEGACY`，再考虑物理删除。
+1. All repo-wide imports and CLI references have been eliminated, or migrated to the new `pipeline/` / `benchmark_run/` entry points;
+2. The corresponding public-contract tests, annotation-stage tests, and scoring tests pass;
+3. At least BBB, one additional BlenderOpenMovies sample, and one LSMDC aggregate sample have passed end-to-end acceptance through the new pipeline;
+4. Historical code is first moved into `benchmarks/MemStrata/_archive/annotation_legacy/` or marked `LEGACY` before physical deletion is considered.
 
-明确的首批归档候选是：
+The explicit first batch of archival candidates is:
 
-- `pipeline_vlm_dominant/web_vlm/**/outputs/*.json` 等源码树内实验产物（迁到 `experiments/` 或对应 `data/`）；
-- 多份已被固定 v5 替代的旧 prompt；
-- 仅服务于旧 VLM-first `annotate_movie()` 的测试和脚本。
+- in-source-tree experiment artifacts such as `pipeline_vlm_dominant/web_vlm/**/outputs/*.json` (move to `experiments/` or the corresponding `data/`);
+- multiple old prompts already superseded by the pinned v5;
+- tests and scripts that serve only the old VLM-first `annotate_movie()`.
 
-`common/`、`scoring/`、`publish.py`、`docs/schemas_and_contracts.md`、`annotation/chunking.py` 不属于删除候选。
+`common/`, `scoring/`, `publish.py`, `docs/schemas_and_contracts.md`, and `annotation/chunking.py` are not deletion candidates.
 
-## 已知入口债务
+## Known entry-point debt
 
-迁移期间应优先修复而不是绕过以下失配：
+During migration, prefer fixing rather than working around the following mismatches:
 
-- 旧脚本/文档引用的 `vmem_bench.annotation.pipeline_track_first.run` 与实际 legacy CLI 路径不一致；
-- `vmem_bench.web.server` 的兼容入口与实际 legacy Web 位置不一致；
-- 旧的 in-process scoring CLI 文档/测试与当前 records-dir CLI 参数不一致；
-- `baselines/` 文档所声称的 adapter 包并非当前可运行实现。
+- the `vmem_bench.annotation.pipeline_track_first.run` referenced by old scripts/docs does not match the actual legacy CLI path;
+- the compat entry point for `vmem_bench.web.server` does not match the actual legacy web location;
+- the old in-process scoring CLI docs/tests do not match the current records-dir CLI arguments;
+- the adapter package claimed by the `baselines/` docs is not the currently runnable implementation.
 
-这些是迁移任务，不应通过把 SUT 构造逻辑塞进 `scoring/` 来“修复”。
+These are migration tasks and should not be "fixed" by stuffing SUT construction logic into `scoring/`.
 
-## 权威文档层级
+## Authoritative documentation hierarchy
 
-1. `common/schemas.py` + [`docs/benchmark/schemas_and_contracts.md`](../../docs/benchmark/schemas_and_contracts.md)：公开数据与评测契约；
-2. [`docs/benchmark/annotation_pipeline.md`](../../docs/benchmark/annotation_pipeline.md)：标注生产阶段细节（S1–S7）；
-3. 本文件：包级目录、边界和迁移规则；
-4. [`docs/benchmark/annotation_tracking_internals.md`](../../docs/benchmark/annotation_tracking_internals.md)、[`docs/benchmark/pitfalls.md`](../../docs/benchmark/pitfalls.md) 等：历史/机制设计记录，不能覆盖以上三项。
+1. `common/schemas.py` + [`docs/benchmark/schemas_and_contracts.md`](../../docs/benchmark/schemas_and_contracts.md) (Chinese): the public data and evaluation contracts;
+2. [`docs/benchmark/annotation_pipeline.md`](../../docs/benchmark/annotation_pipeline.md) (Chinese): the annotation production stage details (S1–S7);
+3. this file: package-level directories, boundaries, and migration rules;
+4. [`docs/benchmark/annotation_tracking_internals.md`](../../docs/benchmark/annotation_tracking_internals.md) (Chinese), [`docs/benchmark/pitfalls.md`](../../docs/benchmark/pitfalls.md) (Chinese), etc.: historical/mechanism design records, which cannot override the three above.
