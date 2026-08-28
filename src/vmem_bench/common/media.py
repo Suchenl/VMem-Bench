@@ -19,6 +19,15 @@ def _resolve_media_tool(name: str, env_key: str) -> str:
     found = shutil.which(name)
     if found:
         return found
+    if name == "ffmpeg":
+        try:
+            import imageio_ffmpeg
+
+            bundled = imageio_ffmpeg.get_ffmpeg_exe()
+            if bundled:
+                return bundled
+        except Exception:
+            pass
     here = Path(sys.executable).resolve().parent
     search_roots = [here, *list(here.parents)[:4]]
     for root in search_roots:
@@ -60,8 +69,33 @@ def probe_media(path: Path | str) -> MediaInfo:
     if not source.is_file():
         raise FileNotFoundError(f"Media file does not exist: {source}")
     command = [ffprobe_bin(), "-v", "error", "-show_streams", "-show_format", "-of", "json", str(source)]
-    completed = subprocess.run(command, check=True, capture_output=True, text=True)
-    payload = json.loads(completed.stdout)
+    try:
+        completed = subprocess.run(command, check=True, capture_output=True, text=True)
+        payload = json.loads(completed.stdout)
+    except FileNotFoundError:
+        # imageio-ffmpeg bundles ffmpeg but not ffprobe; use its reader metadata when a
+        # system ffprobe is unavailable so the lightweight annotation smoke remains portable.
+        try:
+            import imageio_ffmpeg
+
+            reader = imageio_ffmpeg.read_frames(str(source))
+            try:
+                meta = next(reader)
+            finally:
+                reader.close()
+        except Exception as exc:
+            raise RuntimeError(
+                "Cannot probe media: install ffprobe or set FFPROBE_BIN"
+            ) from exc
+        width, height = (meta.get("source_size") or meta.get("size") or (None, None))[:2]
+        return MediaInfo(
+            duration_sec=float(meta["duration"]),
+            width=int(width) if width else None,
+            height=int(height) if height else None,
+            fps=float(meta["fps"]) if meta.get("fps") else None,
+            has_audio=False,
+            format_name=None,
+        )
     streams = payload.get("streams", [])
     video = next((item for item in streams if item.get("codec_type") == "video"), None)
     if video is None:
