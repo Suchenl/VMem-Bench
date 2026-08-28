@@ -112,15 +112,23 @@ $VMEM_DATASETS_ROOT/LSMDC/LSMDC_Videos_Stitched/0001_American_Beauty.mp4
 
 `<movie_id>` must equal the gold directory name (including the numeric prefix). Other extensions (`.mkv`, `.mov`, …) are accepted. Flat file next to the stitched root, **not** a per-movie subdirectory.
 
-ffmpeg concat example once you have ordered clips:
+Create a plain-text manifest after you have obtained and ordered the clips.
+Use one path per line, in chronological order; blank lines and lines beginning
+with `#` are ignored. Relative paths are resolved relative to the manifest:
 
 ```bash
 # files.txt: one line per clip, in time order
-#   file 'clip_001.mp4'
-#   file 'clip_002.mp4'
-ffmpeg -f concat -safe 0 -i files.txt -c copy \
-  "$VMEM_DATASETS_ROOT/LSMDC/LSMDC_Videos_Stitched/0001_American_Beauty.mp4"
+#   clip_001.mp4
+#   clip_002.mp4
+python3 scripts/stitch_lsmdc.py \
+  --manifest files.txt \
+  --output "$VMEM_DATASETS_ROOT/LSMDC/LSMDC_Videos_Stitched/0001_American_Beauty.mp4"
 ```
+
+The helper uses stream-copying by default and supports `--reencode` when the
+clips are not codec-compatible. It never downloads LSMDC media. Use
+`--dry-run` to validate the manifest and inspect the exact ffmpeg command
+without producing a file.
 
 ### Cite
 
