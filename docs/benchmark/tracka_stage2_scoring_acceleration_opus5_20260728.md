@@ -9,7 +9,7 @@
 1. `start_qwen32_vllm.sh:62` 用 `--max-num-seqs "${MAX_NUM_SEQS:-1}"`，即每个 vLLM 副本一次只跑 **1 条序列**。
 2. `ReviewerEndpointPool` 的设计就是「每个 URL 一次一个租约」，并在 docstring 里明确写了它是为 `MAX_NUM_SEQS=1` 副本设计的：
 
-```56:62:benchmarks/VMem-Bench/src/vmem_bench/annotation/pipeline/stages/s3_segment_auto_review_revise/reviewer_pool.py
+```56:62:src/vmem_bench/annotation/pipeline/stages/s3_segment_auto_review_revise/reviewer_pool.py
 class ReviewerEndpointPool:
     """Queue of reviewer base URLs with one-at-a-time leases per URL.
 
@@ -87,7 +87,7 @@ VRAM 算术验证了 `max_num_seqs=1` 是被迫的，也指出了出路（Qwen3-
 
 MemStrata 自己就把 WeDetect-Ref 当**默认** crop 后端，并用 DINOv3 做身份门控与关键帧选择：
 
-```62:64:benchmarks/VMem-Bench/scripts/evaluate_baselines/trackA/baseline_adapters/causal/memstrata.py
+```62:64:scripts/evaluate_baselines/trackA/baseline_adapters/causal/memstrata.py
 # WeDetect-Ref is the DEFAULT crop backend (describe->bbox); the isolated service normally
 # listens here. Override with MEMSTRATA_WEDETECT_URL; set it to "" only to force it off.
 _DEFAULT_WEDETECT_URL = "http://127.0.0.1:8710"
@@ -95,11 +95,11 @@ _DEFAULT_WEDETECT_URL = "http://127.0.0.1:8710"
 
 同文件 `_build_perception()`（221-302 行）注释亦写明「DINOv3 是 identity gate / bank reconciliation / keyframe selection 都要用的」。此外消融族 `retrieval_seg_dinokey_ablation__B16`（`retrieval_family.py`）本身就用 DINO 选关键帧。
 
-**让判官使用被评方法自己的感知骨干打分 = 自我偏好 / 循环评估**，这是审稿人会第一时间抓住的问题，且与 `benchmarks/VMem-Bench/AGENTS.md` 的公平性契约精神冲突。若一定要用，只能用于非 headline 指标，并附上敏感性分析。
+**让判官使用被评方法自己的感知骨干打分 = 自我偏好 / 循环评估**，这是审稿人会第一时间抓住的问题，且与 `AGENTS.md` 的公平性契约精神冲突。若一定要用，只能用于非 headline 指标，并附上敏感性分析。
 
 ### 3.3 三个硬工程约束
 
-1. **导入边界**：`vmem_bench` 不得 import `memstrata`（`methods/MemStrata/AGENTS.md` 规则 2，`scoring/embedder.py:5-7` 亦明文重申）。因此不能直接复用 `wedetect_client.py`，必须在 bench 侧另写一份 HTTP 客户端。
+1. **导入边界**：`vmem_bench` 不得 import `memstrata`（MemStrata 的 `AGENTS.md` 规则 2，`scoring/embedder.py:5-7` 亦明文重申）。因此不能直接复用 `wedetect_client.py`，必须在 bench 侧另写一份 HTTP 客户端。
 2. **许可证**：WeDetect 是 GPL-v3，现行做法是隔离进程、绝不 import（`wedetect_client.py:1-15`）。把它放进一个**要公开发布的 benchmark 的评分链路**，有发布层面的影响，需提前确认。
 3. **服务不返回 embedding**：`WeDetectRefGrounder.ground()` 只返回 `([y0,x0,y1,x1] on 0-1000 grid, score)`（`wedetect_client.py:71-109`）。用户设想的「用它自己的 embedding 聚类检测框」在当前服务上**不可用**，得改服务或另用 DINOv3 对裁剪框补一次 embedding（额外成本）。
 
@@ -107,7 +107,7 @@ _DEFAULT_WEDETECT_URL = "http://127.0.0.1:8710"
 
 判官提示词对场景类实体的 `present` 定义是「视频**发生在该场景**里」：
 
-```368:369:benchmarks/VMem-Bench/src/vmem_bench/scoring/visual_coverage.py
+```368:369:src/vmem_bench/scoring/visual_coverage.py
         "1) present:该图代表的对象是否**出现在视频**中(true/false)。"
         "若为场景/地点,present 指视频**发生在该场景**里。\n"
 ```
@@ -191,7 +191,7 @@ fps=2 抽帧后用 DINOv3 去重，保留 25-50% 关键帧再交给判官。**�
 
 这个实验一举两得：既验证 A1，又补上论文**已承诺但尚未产出**的数字——模块 docstring 自己写着要报噪声底：
 
-```52:54:benchmarks/VMem-Bench/src/vmem_bench/scoring/visual_coverage.py
+```52:54:src/vmem_bench/scoring/visual_coverage.py
 The "what should be present" side (roster + present set) is FROZEN gold, so scoring
 is reproducible; only the per-image visual judgement uses the (pinned) VLM. Report
 this together with a measured human-agreement / noise-floor number.
@@ -220,9 +220,9 @@ this together with a measured human-agreement / noise-floor number.
 0.01 这个门槛的依据是现有 leaderboard 相邻系统间距约 0.04（0.6769 / 0.6328 / 0.5834），留了 4 倍余量；**但需注意那份 leaderboard 是 `n_chunks=6` 的小样本产物，正式定阈时应用大样本间距复核**。
 
 **要改动的文件**（按改动量排序）：
-1. `benchmarks/VMem-Bench/src/vmem_bench/annotation/pipeline/stages/s3_segment_auto_review_revise/reviewer_pool.py` — `ReviewerEndpointPool` 加 opt-in 的 `slots_per_url`（唯一实质改动）
-2. `benchmarks/VMem-Bench/src/vmem_bench/scoring/judge_service.py` — `PooledJudgeCaller.__init__` 透传槽位数
-3. `benchmarks/VMem-Bench/src/vmem_bench/scoring/visual_coverage.py` — `run()` 的 `workers` 默认值（500-502 行）解绑 pool size；A2a 则并行化 `score_segment` 的 group 子调用（398-410 行）
+1. `src/vmem_bench/annotation/pipeline/stages/s3_segment_auto_review_revise/reviewer_pool.py` — `ReviewerEndpointPool` 加 opt-in 的 `slots_per_url`（唯一实质改动）
+2. `src/vmem_bench/scoring/judge_service.py` — `PooledJudgeCaller.__init__` 透传槽位数
+3. `src/vmem_bench/scoring/visual_coverage.py` — `run()` 的 `workers` 默认值（500-502 行）解绑 pool size；A2a 则并行化 `score_segment` 的 group 子调用（398-410 行）
 4. **无需改**：`start_qwen32_vllm.sh`（`TENSOR_PARALLEL_SIZE` / `MAX_NUM_SEQS` / `GPU_MEM_UTIL` 已参数化）、`stage2_service.py`（`--workers` / `STAGE2_WORKERS` 已存在）
 5. 新增对比脚本：可直接改自 `experiments/results/probe/tracka_stage2_8b_probe_20260727_2305/compare_probe.py`（8B 探针已有现成的指标比对逻辑），产物按 `experiments/` 布局落盘
 

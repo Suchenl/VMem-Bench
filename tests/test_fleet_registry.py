@@ -21,7 +21,7 @@ def _nodes_tsv(tmp_path: Path) -> Path:
     path = tmp_path / "nodes.tsv"
     path.write_text(
         "# node\tcluster\trole\thost\tip\tnote\n"
-        "0\tgpu-h800\tlauncher\th800-node-0.example\t10.83.1.79\ttest\n",
+        "0\tgpu-h800\tlauncher\th800-node-0.example\t192.0.2.79\ttest\n",
         encoding="utf-8",
     )
     return path
@@ -33,17 +33,17 @@ def _running_endpoint(tmp_path: Path) -> tuple[Path, Path, str]:
         port=8110,
         model="qwen3-vl-8b",
         role="reviewer",
-        host="10.83.1.79",
+        host="192.0.2.79",
         fleet_root=fleet_root,
     )
     write_instance_status(
         instance_id=intent["instance_id"],
         status=STATUS_RUNNING,
         fleet_root=fleet_root,
-        host="10.83.1.79",
+        host="192.0.2.79",
         port=8110,
     )
-    return fleet_root, _nodes_tsv(tmp_path), "http://10.83.1.79:8110/v1"
+    return fleet_root, _nodes_tsv(tmp_path), "http://192.0.2.79:8110/v1"
 
 
 def test_nodes_tsv_backfills_display_name_and_idle_status(tmp_path: Path) -> None:
@@ -84,7 +84,7 @@ def test_stale_running_instance_is_broke(tmp_path: Path) -> None:
 
 def test_legacy_instance_id_backfills_missing_host_and_placement(tmp_path: Path) -> None:
     fleet_root = tmp_path / "fleet"
-    instance_id = "10.83.1.79-8110"
+    instance_id = "192.0.2.79-8110"
     instance_dir = fleet_root / "instances"
     instance_dir.mkdir(parents=True)
     (instance_dir / f"{instance_id}.json").write_text(
@@ -92,7 +92,7 @@ def test_legacy_instance_id_backfills_missing_host_and_placement(tmp_path: Path)
             {
                 "instance_id": instance_id,
                 "status": "running",
-                "base_url": "http://10.83.1.79:8110/v1",
+                "base_url": "http://192.0.2.79:8110/v1",
                 "heartbeat_at": "2026-07-20 12:00:00",
                 "timezone": "Asia/Shanghai",
                 "model": "qwen3-vl-8b",
@@ -105,7 +105,7 @@ def test_legacy_instance_id_backfills_missing_host_and_placement(tmp_path: Path)
         nodes_tsv=_nodes_tsv(tmp_path),
         stale_seconds=60 * 60 * 24 * 365,
     )["instances"][0]
-    assert row["host"] == "10.83.1.79"
+    assert row["host"] == "192.0.2.79"
     assert row["port"] == 8110
     assert row["cluster"] == "gpu-h800"
     assert row["node_id"] == "0"

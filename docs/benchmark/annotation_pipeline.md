@@ -77,7 +77,7 @@ S2 的 `vlm_output.json`。权威复现文档：
    动作类型：`FULL_RERUN` / `CONTINUE_HEAD|TAIL` / `FILL_GAP(S)` / `REPLACE_RANGE` /
    `REVISE_OVERLONG` / `SPLIT_OVERLONG_GT30`；稳定模板在
    `stages/s1_vlm_annotation/prompts/`，当次作业台在 `data/_vlm_rerun_kit_*/`
-   （合并后清场，见 `benchmarks/VMem-Bench/AGENTS.md` 规则 3）。[实跑]
+   （合并后清场，见 `AGENTS.md` 规则 3）。[实跑]
    **已拍板策略**：生产基座 v5；**`>30s` 强制 VLM 拆分**；**15–30s 可暂缓**硬切（若日后强制合规，
    优先 S2 确定性硬切而非 S3 重标）；≈1s 小缝可忽略；续标默认不附整份旧 JSON。
    验收清单见 `stages/s1_vlm_annotation/audit_checklist.md`。

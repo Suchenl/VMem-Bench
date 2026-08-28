@@ -56,7 +56,7 @@ A `--movie-list` is a batch of **mutually independent** jobs, and the long runti
 - **Progress lines carry an ETA**: `[stage1] ... segment=i/N ... eta_min=...`. Per-segment time swings between 11–165 s with node contention, so you cannot eyeball whether a long run is worth keeping — so we just print the answer.
 - **Adapters may decline a job**: if an adapter implements `preflight(movie) -> str | None`, the runner calls it before `reset()`; returning a string skips that film and records the reason. IAMFlow uses it for a host-memory budget check, see [`docs/baselines/tracka_iamflow_host_memory.md`](../../../../../docs/baselines/tracka_iamflow_host_memory.md) (Chinese).
 
-Regression tests: `benchmarks/VMem-Bench/tests/test_trackA_stage1_job_lock.py`, `test_iamflow_host_memory_guard.py` (no GPU, no weights, <1 s).
+Regression tests: `tests/test_trackA_stage1_job_lock.py`, `test_iamflow_host_memory_guard.py` (no GPU, no weights, <1 s).
 
 ## Current status
 

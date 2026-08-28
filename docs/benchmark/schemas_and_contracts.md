@@ -297,7 +297,7 @@ post-score observation ingest。这样可比较检索成本，但不会让系统
 - **Fidelity 的真实含义**：`introduce` vs `continuity` 的正确分类要求 SUT 查询自身记忆判断
   "该实体是否已见过"——它实测的是 SUT 记忆索引的完好性（记忆若把同一实体错误分裂，
   回归实体会被误报为 introduce）。
-- 评测报告由 `scoring/metrics.py::aggregate_scores` 产出（入口 `python -m vmem_bench.scoring`），
+- 评测报告由 `scoring/metrics.py::aggregate_scores` 产出（入口 `python3 -m vmem_bench.scoring`），
   schema：
   `{score_name: "MemStrata Score", "MemStrata Score": float, weights: {suf,par,com,fid,avo,memrecall},
     metrics_active: [metric], effective_weights: {metric: float},

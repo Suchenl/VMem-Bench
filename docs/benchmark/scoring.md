@@ -4,14 +4,9 @@
 > 依赖 gold crop 与状态标注）。当前权威规范是 [`scoring_v2.md`](scoring_v2.md)（Visual-Coverage，VLM 判定、
 > 无 crop、无状态）。本文件仅保留用于复现旧数据，**新的 benchmark claim 请勿再基于本文件**。
 
-> 状态：**已批准的评分权威规范**。headline / 多 embedder 路由 / location 计分 / slim gold 的
-> 决定见 [`../baselines/fairness_decisions.md`](../baselines/fairness_decisions.md)（D2，2026-07-22 固化），
-> 本文件据此定稿。**本文件是 MemStrata-Bench 评分与回放的唯一权威源**：视觉 headline、指标集合、
-> 复合权重、评分/回放流程、钉死项以此为准，取代 [`schemas_and_contracts.md`](schemas_and_contracts.md)
-> §4 中「ID-Fidelity 作 headline」的表述（schema 字段/契约结构仍以 `schemas_and_contracts.md` 为准）。
-> **标注阶段见 [`annotation_pipeline.md`](annotation_pipeline.md)**（本文件不复述离线标注步骤）。
-> 术语以 [`glossary.md`](https://github.com/Suchenl/MemStrata/blob/main/docs/glossary.md) 为准。本文件遵循 `.agents/skills/research/atomic/benchmark-design/SKILL.md`
-> 的方法学原则（下文括号标注对应原则号）。
+> 当前公开评分权威源是 [`scoring_v2.md`](scoring_v2.md) 与
+> [`running_eval.md`](running_eval.md)。本文件只保留旧协议的历史说明，
+> 不应作为新实验、论文表格或用户方法评测的入口。
 
 > ## 落地状态与实测记录（截至 2026-07-21）
 >
@@ -257,7 +252,7 @@ pinned scoring embedder 由 `vmem_bench` 自持、对所有系统 byte-for-byte 
 ### 4.3 评分脚本入口（pinned）
 
 - `scripts/memstrata/score_memstrata.py`（SUT 驱动）
-- `python -m vmem_bench.scoring`（harness）
+- `python3 -m vmem_bench.scoring`（harness）
 - 派生器 / crop embed / 免阈值最近邻 / VLM 裁判：VLM 裁判为 OPEN（§3.3）；其余落地后在此登记确切入口与默认参数。
 
 ### 4.4 LSMDC 专项视觉分与主分配置（pinned）
@@ -337,7 +332,7 @@ specialized_metrics:
 发布只版本化「切分逻辑 + 标注结果 + 下载方式」；视频、切片、抽帧、crop 一律本地按需从源视频重建（gitignore）。
 
 ```
-benchmarks/VMem-Bench/data/<dataset>/<movie>/
+data/<dataset>/<movie>/
 ├── manifest.json             # ★ 源视频下载方式 + sha256 + fps/时长 + license + layout_hash + 管线出处
 ├── gold/                     # ★ 冻结标注 + 切分逻辑（human_reviewed: true 后不可变，小、可发布）
 │   ├── chunk_index.json      #   chunk ↔ shot/frame 映射 + layout_hash（legacy: layout/chunk_index.json）

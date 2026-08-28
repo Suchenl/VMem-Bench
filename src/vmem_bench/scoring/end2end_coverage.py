@@ -29,7 +29,7 @@ generated video is error-prone). Per-entity JSON keyed by entity_id, strict pars
 CLI::
 
     python -m vmem_bench.scoring.end2end_coverage \
-        --gt   assets/trackB/gt/0001_lighthouse_keeper.json \
+        --gt   assets/trackB/en/gt/0001_lighthouse_keeper.json \
         --run  production/outputs/0001_lighthouse_keeper/memstrata/optCA \
         --out  production/outputs/0001_lighthouse_keeper/memstrata/optCA/_trackB_score
 """

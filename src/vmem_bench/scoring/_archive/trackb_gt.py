@@ -1,9 +1,9 @@
 """[RETIRED 2026-07 — do not use] MoVE-Bench Track B — ground-truth exporter.
 
 Superseded by the hand-authored hard-case pipeline:
-  * author:  assets/trackB/gt_source/<story>.json
-  * compile: assets/trackB/complete_gt.py  -> assets/trackB/gt/<story>.json (gt_version 2.0)
-  * prompts: assets/trackB/get_sut_prompts.py -> assets/trackB/sut_prompts/<story>_*.json
+  * author:  assets/trackB/en/gt_source/<story>.json
+  * compile: assets/trackB/complete_gt.py  -> assets/trackB/en/gt/<story>.json (gt_version 2.0)
+  * prompts: assets/trackB/get_sut_prompts.py -> assets/trackB/en/sut_prompts/<story>_*.json
 The current judge (``end2end_coverage.py``) reads the 2.0 per-segment GT, NOT this output.
 Kept only for provenance. Original docstring follows.
 
@@ -41,7 +41,7 @@ whose ``from_shot`` index ≤ current shot (supports 完好→碎裂→拼合).
 CLI::
 
     python -m vmem_bench.scoring.trackb_gt \
-        --screenplay data/Screenplay/products/cn/0001_lighthouse_keeper.json \
+        --screenplay <memstrata-repo>/production/screenplay/products/cn/0001_lighthouse_keeper.json \
         --out        data/MoVE-Bench/trackB/gt/0001_lighthouse_keeper.json
 """
 from __future__ import annotations

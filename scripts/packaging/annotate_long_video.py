@@ -12,8 +12,8 @@ The annotations switch at every segment boundary. Output is meant for paper
 figures and the project page.
 
 Segment metadata comes from the frozen TrackB ground truth
-(``assets/trackB/gt/<story>.json``) and the SUT prompt stream
-(``assets/trackB/sut_prompts/<story>_<register>.json``). Segment->frame
+(``assets/trackB/en/gt/<story>.json``) and the SUT prompt stream
+(``assets/trackB/en/sut_prompts/<story>_<register>.json``). Segment->frame
 mapping comes from ``input/trackb_generation_params.json`` (frames_per_segment).
 
 Runs under a Python that has cv2 + PIL:

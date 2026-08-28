@@ -13,8 +13,8 @@ Cluster-specific launchers (internal job queues, node maps) are **not** shipped.
 Drive Track A evaluation with:
 
 ```bash
-python scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py --help
-python -m vmem_bench.scoring.visual_coverage --help
+python3 scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py --help
+python3 -m vmem_bench.scoring.visual_coverage --help
 ```
 
 Source videos: [`docs/DATA.md`](../../docs/DATA.md).

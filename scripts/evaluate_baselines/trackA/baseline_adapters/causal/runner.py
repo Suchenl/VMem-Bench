@@ -69,7 +69,7 @@ def _env_float(name: str, default: float) -> float:
         print(f"[stage1][warn] invalid {name}={raw!r}; using {default}",
               file=sys.stderr, flush=True)
         return default
-_BENCH_ROOT = Path(__file__).resolve().parents[5]  # benchmarks/VMem-Bench (bench root)
+_BENCH_ROOT = Path(__file__).resolve().parents[5]  # public VMem-Bench checkout
 _INPUT_MODES = ("name_anchored", "description_provided", "description_only")
 _BUDGET_CHOICES = (1, 2, 4, 8, 16)
 _RRF_K = 60

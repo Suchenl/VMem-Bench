@@ -7,13 +7,13 @@ real segment) over a bundled/frozen gold movie, and writes
 
 Example (CPU, bundled gold, placeholder frames)::
 
-    python scripts/evaluate_baselines/your_method/run_tracka_example.py \
+    python3 scripts/evaluate_baselines/your_method/run_tracka_example.py \
         --movie-dir assets/trackA/BlenderOpenMovies/charge \
         --limit 5
 
 Then score (needs a VLM judge endpoint + the real source video; see README)::
 
-    PYTHONPATH=src python -m vmem_bench.scoring.visual_coverage \
+    PYTHONPATH=src python3 -m vmem_bench.scoring.visual_coverage \
         --movie assets/trackA/BlenderOpenMovies/charge \
         --system your_method-recency \
         --video /path/to/charge.mp4 --limit 5
@@ -45,7 +45,7 @@ def run(movie_dir: Path, system: str, out_path: Path, mem_dir: Path,
     written = write_tracka_selections(out_path, system, per_segment)
     print(f"\nwrote {written}")
     print("score with:\n"
-          f"  PYTHONPATH=src python -m vmem_bench.scoring.visual_coverage \\\n"
+          f"  PYTHONPATH=src python3 -m vmem_bench.scoring.visual_coverage \\\n"
           f"      --movie {movie_dir} --system {system} --video <source_video.mp4>")
     return written
 

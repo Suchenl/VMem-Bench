@@ -52,7 +52,7 @@
 > ① **this memory benchmark** (the current document) — replace the generator output with the real segment and measure only the "memory mechanism," producing
 > precision/recall/F1/redundancy/selection_efficiency + time-efficiency metrics;
 > ② **the real MemStrata production pipeline** (`scripts/memstrata/run_production.sh`,
-> `python -m memstrata.production.run`) — plug the same SUT into
+> `python3 -m memstrata.production.run`) — plug the same SUT into
 > the end-to-end "script → generate → look back to build memory → generate again" loop, and measure its **output quality and stability** on real long-form video with generator noise.
 > So memstrata is **not** the "judge/bench side," and the baselines are **not** present only inside the bench; in both evaluations they are the objects under test,
 > with a consistent interface (prompt+video in, memory/context out). When writing code/docs, do not special-case memstrata as part of the bench.
@@ -165,13 +165,17 @@ the adapter may only project the source time it has already retained/recalled in
   Multiple baselines may share the same **method-side perception frontend** (ensuring fairness and burning GPU only once); their difference is only in memory/selection strategy — this is still a method-side tool,
   not "the bench handing out images."
 
-> ⚠️ **Do not use `scripts/vmem_bench/compare/run_movie_benchmark.py` + `BenchReplayAdapter` as Stage 1.**
-> That is the **deprecated gold-crop replay**: feeding the crops from the gold observation package directly into the SUT's memory = the bench handing out images, violating iron rule 2;
-> and it leaks gold's present to the SUT via the observation package, violating iron rule 3. Under S4 gold, the observation package's `crop_path` is all empty,
-> so this path cannot produce any pixels anyway. **It is usable only for pure-ID-contract offline self-tests, and cannot produce context for scoring.**
+> ⚠️ **Do not use the retired gold-replay runner as Stage 1.** Feeding gold
+> observation crops or labels into a SUT violates the no-image-handout and
+> no-gold-leakage rules. That retired path is kept only as historical context
+> and cannot produce a valid public score.
 >
-> The correct Stage 1 driver for "SUT observes the real segment → builds its own memory" (cut chunk video + start the crop-acquisition service +
-> drive all SUTs chunk by chunk in parallel) **is still being wired**; once done, the final command, `<system>` naming map, and artifact checks will be filled in here.
+> The correct Stage 1 driver is
+> `scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py`.
+> It cuts the real segment, drives `compose → observe`, and writes the
+> `visual_selections` manifest used by Stage 2. See
+> `REPRODUCE.md` and `scripts/evaluate_baselines/your_method/README.md` for
+> copy-pasteable commands.
 
 ## 6. Stage 2 — VLM visual-coverage scoring
 
@@ -231,5 +235,5 @@ Use any Python with the dependencies installed (the same interpreter as the scor
 
 ```bash
 PY=python3
-# All python below uses $PY; the orchestrator starts subprocesses via sys.executable, inheriting the same interpreter.
+# All python3 below uses $PY; the orchestrator starts subprocesses via sys.executable, inheriting the same interpreter.
 ```

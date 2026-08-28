@@ -13,9 +13,9 @@ been addressed by follow-up rewrite/polish passes for `0004`, `0005`,
 Post-optimization validation:
 
 ```text
-python3 benchmarks/VMem-Bench/assets/trackB/scripts/complete_gt.py
-python3 benchmarks/VMem-Bench/assets/trackB/scripts/get_sut_prompts.py
-python3 benchmarks/VMem-Bench/assets/trackB/scripts/audit_quality.py --strict
+python3 assets/trackB/scripts/complete_gt.py
+python3 assets/trackB/scripts/get_sut_prompts.py
+python3 assets/trackB/scripts/audit_quality.py --strict
 
 stories=50 segments min=68 max=197 mean=123.2 buckets={'50-80': 8, '81-120': 19, '121-160': 8, '161-200': 15}
 gt_warnings=0
@@ -36,7 +36,7 @@ The 50-story TrackB pool is **not freeze-ready as-is**.
 The strict mechanical gate passes:
 
 ```text
-python3 benchmarks/VMem-Bench/assets/trackB/scripts/audit_quality.py --strict
+python3 assets/trackB/scripts/audit_quality.py --strict
 stories=50 segments min=68 max=197 mean=123.2 buckets={'50-80': 8, '81-120': 19, '121-160': 8, '161-200': 15}
 OK
 ```

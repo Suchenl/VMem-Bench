@@ -2,9 +2,9 @@ name: tests
 
 on:
   push:
-    branches: [main]
+    branches: [main, paper-reproduction]
   pull_request:
-    branches: [main]
+    branches: [main, paper-reproduction]
   workflow_dispatch:
 
 permissions:
@@ -20,7 +20,7 @@ jobs:
           python-version: "3.11"
       - name: Install
         run: |
-          python -m pip install -U pip
-          python -m pip install -e ".[dev]"
+          python3 -m pip install -U pip
+          python3 -m pip install -e ".[dev]"
       - name: Unit tests
-        run: python -m pytest -q
+        run: python3 -m pytest -q

@@ -146,7 +146,7 @@ opt-in，默认只告警。
 元数据保留，所以实体覆盖召回仍会把老帧排进来，但 `get_memory_kv` 会静默跳过切片已
 丢失的帧（它容忍 `None`），于是被召回的记忆集合变小了。
 
-这改变了基线行为。按 `benchmarks/VMem-Bench/AGENTS.md` 的公平契约，这样得到的数字必须
+这改变了基线行为。按 `AGENTS.md` 的公平契约，这样得到的数字必须
 报成 **`IAMFlow-boundedKV(K)`** 并写明 `K`，**绝不能**报成 `IAMFlow`。只在「否则完全
 跑不出来」的电影上使用，并在表里标注。
 
@@ -168,8 +168,8 @@ opt-in，默认只告警。
 
 ```bash
 python3 -m pytest \
-  benchmarks/VMem-Bench/tests/test_iamflow_host_memory_guard.py \
-  benchmarks/VMem-Bench/tests/test_trackA_stage1_job_lock.py -q
+  tests/test_iamflow_host_memory_guard.py \
+  tests/test_trackA_stage1_job_lock.py -q
 ```
 
 不需要 GPU、不需要模型权重、不 import vendored 包，总耗时远小于 1 秒。

@@ -32,7 +32,7 @@ ln -sfn "$LOGDIR" "$BENCH/_overnight_run/latest"
 
 log(){ echo "[$(date '+%m-%d %H:%M:%S')] $*" | tee -a "$MASTER"; }
 
-# system -> python interpreter (override WAN_PYTHON / MEMSTRATA_PYTHON / RETRIEVAL_PYTHON)
+# system -> python3 interpreter (override WAN_PYTHON / MEMSTRATA_PYTHON / RETRIEVAL_PYTHON)
 env_of(){
   case "$1" in
     memstrata) echo "$HELIOS";;

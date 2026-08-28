@@ -69,7 +69,7 @@ terminology within a story (same prop/location always worded the same way).
 
 ## Self-check — REQUIRED before you finish each file
 
-Run, from `benchmarks/VMem-Bench/assets/trackB/`:
+Run, from `assets/trackB/`:
 
 ```
 python3 scripts/validate_en_source.py --story <story_id>

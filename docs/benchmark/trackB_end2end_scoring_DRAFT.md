@@ -1,7 +1,8 @@
-# MoVE-Bench · Track B 打分方案（剧本驱动 · 端到端生产）— DRAFT v0.2
+# VMem-Bench · Track B 打分方案（剧本驱动 · 端到端生产）— DRAFT v0.2
 
-> 状态：**草案 v0.2**，已按 Opus-5 评审收敛到可实现。不改动权威规范 [`scoring_v2.md`](scoring_v2.md)（Track A / gold-replay 权威）。
-> 命名：**MoVE-Bench** = *Memory-aware causal long video generation benchmark*。
+> 状态：**历史草案 v0.2**。Track A 的当前规范见
+> [`scoring_v2.md`](scoring_v2.md)，Track B 的可运行入口见
+> [`running_eval.md`](running_eval.md) 与 `scoring.end2end_coverage`。
 > 本文只定义 **Track B**（端到端生产）：以**剧本**为输入，对 **SUT 生成出来的视频**打分，**不使用 gold 影片**。
 >
 > **v0.2 相对 v0.1 的关键修订**（评审 P0/P1）：
@@ -34,7 +35,7 @@
 - **运行契约**：Track B 的生产 run 必须以 **`--bench-mode`** 跑（见 §6），启动时断言「本 run 未消费任何 GT 字段」并写入 run manifest；否则该 run 的 avoidance/recall 记为 **oracle-assisted**，不得作为 Track B 结果。
 
 ## 2. GT（来自剧本冻结文本 + 手写硬样本标注层）
-由 **`vmem_bench` 侧导出器**（`scoring/trackb_gt.py`）从 `production_screenplay` 逐 shot 派生，叠加**手写标注 sidecar**（`trackB_gt/<story>.overrides.json`）。**导出器与 SUT 包零 import**（遵 `benchmarks/VMem-Bench/AGENTS.md` 规则2）。
+由 **`vmem_bench` 侧导出器**（`scoring/trackb_gt.py`）从 `production_screenplay` 逐 shot 派生，叠加**手写标注 sidecar**（`trackB_gt/<story>.overrides.json`）。**导出器与 SUT 包零 import**（遵 `AGENTS.md` 规则2）。
 
 | GT 字段 | 定义 | 来源 |
 |---|---|---|

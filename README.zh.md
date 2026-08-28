@@ -2,6 +2,7 @@
 
 > 英文主文档见 [`README.md`](README.md)。本文件是与之对应的中文说明，与英文 README 一一对应，不做中英混排。
 > 深层设计文档（`docs/benchmark/*`、`docs/baselines/*`、`docs/design/*` 等）本身即为中文文档，本文末尾给出索引。
+> HF 数据集与可下载 gold：[Suchenl/VMem-Bench](https://huggingface.co/datasets/Suchenl/VMem-Bench)。
 
 面向**因果长视频生成**的长程视觉记忆基准：Track A 考察一部影片时间线上的身份检索，Track B 考察视觉记忆能否一路存活到**生成**的像素里。
 
@@ -13,16 +14,16 @@
 git clone https://github.com/Suchenl/MemStrata.git
 git clone https://github.com/Suchenl/VMem-Bench.git
 cd VMem-Bench
-python -m pip install -e ".[dev]"
-python scripts/doctor.py
-python -m pytest -q
+python3 -m pip install -e ".[dev]"
+python3 scripts/doctor.py
+python3 -m pytest -q
 ```
 
 `doctor.py` 会为每个缺失项（ffmpeg、并列的 MemStrata、BBB 视频、SAM3）打印出确切的下一步命令。
 
 ```bash
 bash scripts/prepare_blender.sh    # 官方 BBB 720p；gold 已在 assets/trackA/
-python scripts/check_source_videos.py
+python3 scripts/check_source_videos.py
 # Track A Stage-1 冒烟（需 PUBLIC_MODELS_ROOT + GPU 感知）：
 bash scripts/run_tracka_smoke.sh
 ```
@@ -38,7 +39,7 @@ bash scripts/run_tracka_smoke.sh
 复制 [`scripts/evaluate_baselines/your_method/`](scripts/evaluate_baselines/your_method/) —— 一个仅依赖标准库的「自带方法」模板。实现两个钩子（`compose`、`observe`），先跑 CPU 干跑在自带 gold 上验证接线，再用两条 `vmem_bench.scoring` 命令打分。完整流程 + 公平性清单见其 [`README.md`](scripts/evaluate_baselines/your_method/README.md)。
 
 ```bash
-python scripts/evaluate_baselines/your_method/run_tracka_example.py \
+python3 scripts/evaluate_baselines/your_method/run_tracka_example.py \
     --movie-dir assets/trackA/BlenderOpenMovies/charge --limit 5
 ```
 
@@ -52,7 +53,7 @@ VMem-Bench 同时包含可复现的 S1–S7 标注流水线。它接收一部连
 并通过审核 / freeze 门禁。无需启动服务即可查看流水线 CLI：
 
 ```bash
-PYTHONPATH=src python -m vmem_bench.annotation.pipeline_track_first.run --help
+PYTHONPATH=src python3 -m vmem_bench.annotation.pipeline_track_first.run --help
 ```
 
 ## 两个 Track 测什么
@@ -102,8 +103,8 @@ huggingface-cli download Suchenl/VMem-Bench --repo-type dataset --local-dir ./VM
 暂无 PyPI 发布。在本目录下：
 
 ```bash
-python -m pip install -e ".[dev]"
-python -m pytest -q
+python3 -m pip install -e ".[dev]"
+python3 -m pytest -q
 ```
 
 `pytest.ini` 设置了 `pythonpath=src`。这些测试**不会**下载影片、加载 Wan 权重或复现论文表。

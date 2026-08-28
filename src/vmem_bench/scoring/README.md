@@ -31,7 +31,7 @@ a measured human-agreement / noise-floor number.
 Run:
 
 ```bash
-PYTHONPATH=src python -m vmem_bench.scoring.visual_coverage \
+PYTHONPATH=src python3 -m vmem_bench.scoring.visual_coverage \
   --movie  data/BlenderOpenMovies/big_buck_bunny \
   --system memstrata_memstrata-fast \
   --video  <source_video.mp4>
@@ -47,7 +47,7 @@ keeping legacy aliases.
 ## Track B: `end2end_coverage.py` — end-to-end generated-video judge
 
 Judges what the SUT **rendered** (not what it selected). Reads the per-segment GT
-(`gt_version: trackB-gt-2.0`) authored under `assets/trackB/gt_source/` and compiled by
+(`gt_version: trackB-gt-2.0`) authored under `assets/trackB/en/gt_source/` and compiled by
 `assets/trackB/complete_gt.py`; the SUT-facing prompts come from
 `assets/trackB/get_sut_prompts.py`. Uses the same pinned VLM (`qwen3-vl-32b`) on a **blinded
 mixed roster** per segment = present(cast) ∪ forbidden ∪ false-friend targets ∪ deterministic
@@ -69,10 +69,10 @@ check) plus a **gap-stratified recall decay curve**; the headline recall is unwe
 | noise floor | `decoy_fpr`, `vote_self_consistency`, `abstain_rate` |
 
 ```bash
-PYTHONPATH=src python -m vmem_bench.scoring.end2end_coverage \
-  --gt      assets/trackB/gt/0001_lighthouse_keeper.json \
+PYTHONPATH=src python3 -m vmem_bench.scoring.end2end_coverage \
+  --gt      assets/trackB/en/gt/0001_lighthouse_keeper.json \
   --run     <sut_run_dir> \
-  --prompts assets/trackB/sut_prompts/0001_lighthouse_keeper_name_anchored.json
+  --prompts assets/trackB/en/sut_prompts/0001_lighthouse_keeper_name_anchored.json
 ```
 
 ## Other active modules
@@ -84,4 +84,4 @@ PYTHONPATH=src python -m vmem_bench.scoring.end2end_coverage \
 ## Retired
 
 - `_archive/trackb_gt.py` — the old screenplay-derived, per-shot Track B GT exporter. Track B
-  GT is now hand-authored (`assets/trackB/gt_source/`) and compiled by `complete_gt.py`.
+  GT is now hand-authored (`assets/trackB/en/gt_source/`) and compiled by `complete_gt.py`.

@@ -2,7 +2,8 @@
 
 A benchmark for long-range visual memory in causal long video generation — Track A (identity retrieval over a movie timeline) and Track B (memory survival into generated pixels).
 
-> 中文文档见 [`README.zh.md`](README.zh.md).
+> Chinese documentation: [`README.zh.md`](README.zh.md).
+> Dataset card and downloadable gold: [Suchenl/VMem-Bench](https://huggingface.co/datasets/Suchenl/VMem-Bench).
 
 # Getting started
 
@@ -12,16 +13,16 @@ Clone **next to** [MemStrata](https://github.com/Suchenl/MemStrata) (the adapter
 git clone https://github.com/Suchenl/MemStrata.git
 git clone https://github.com/Suchenl/VMem-Bench.git
 cd VMem-Bench
-python -m pip install -e ".[dev]"
-python scripts/doctor.py
-python -m pytest -q
+python3 -m pip install -e ".[dev]"
+python3 scripts/doctor.py
+python3 -m pytest -q
 ```
 
 `doctor.py` prints the exact next command for anything missing (ffmpeg, sibling MemStrata, BBB video, SAM3).
 
 ```bash
 bash scripts/prepare_blender.sh    # official BBB 720p; gold is already in assets/trackA/
-python scripts/check_source_videos.py
+python3 scripts/check_source_videos.py
 # Track A Stage-1 smoke (needs PUBLIC_MODELS_ROOT + GPU perception):
 bash scripts/run_tracka_smoke.sh
 ```
@@ -41,7 +42,7 @@ run the CPU dry run to validate the plumbing on bundled gold, then score with th
 [`README.md`](scripts/evaluate_baselines/your_method/README.md).
 
 ```bash
-python scripts/evaluate_baselines/your_method/run_tracka_example.py \
+python3 scripts/evaluate_baselines/your_method/run_tracka_example.py \
     --movie-dir assets/trackA/BlenderOpenMovies/charge --limit 5
 ```
 
@@ -57,7 +58,7 @@ production gold package requires a human-confirmed `ROSTER_SEED` and the review
 /freeze gates. The pipeline CLI is inspectable without services:
 
 ```bash
-PYTHONPATH=src python -m vmem_bench.annotation.pipeline_track_first.run --help
+PYTHONPATH=src python3 -m vmem_bench.annotation.pipeline_track_first.run --help
 ```
 
 ## What it measures
@@ -107,8 +108,8 @@ huggingface-cli download Suchenl/VMem-Bench --repo-type dataset --local-dir ./VM
 There is no PyPI release yet. From this directory:
 
 ```bash
-python -m pip install -e ".[dev]"
-python -m pytest -q
+python3 -m pip install -e ".[dev]"
+python3 -m pytest -q
 ```
 
 `pytest.ini` sets `pythonpath=src`. These tests do **not** download movies, load Wan weights, or reproduce paper tables.

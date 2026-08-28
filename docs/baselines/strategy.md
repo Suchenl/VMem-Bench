@@ -10,7 +10,10 @@
 > 本目录是 **baseline 策略与对照记录**（文档）。代码侧实现见
 > `../src/vmem_bench/baseline_adapters/`（`MemoryEvidenceRecord` 映射、诊断 baseline、
 > 外部框架薄转换器）。`benchmark_run/adapters/` 仅保留向后兼容 re-export。
-> 原则（2026-07-17 修订）：Track A = **online gold-replay**（`baseline_adapters` 的 online adapter）；**不**包装各家 `inference.py`。真实出片用官方脚本，属 Track B。详见 `track_a.md`。
+> 当前可运行协议：Track A 使用
+> `scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py`
+> 的真实视频 `compose → observe` 闭环；Track B 使用各方法的真实生成视频。
+> 本文件其余内容是历史策略记录，不是运行入口。
 
 最新外部 baseline 核验表见 [`external_baseline_audit.md`](external_baseline_audit.md)。该文档的 2026-06 分类仍有参考价值；但当前论文 claim 已收敛为"因果长视频生成的分层记忆管理"，所以主表优先级改按"可观测 memory decision 是否能映射到帧/实体证据"排序，而不是按 generator 是否耦合直接降级。
 
@@ -22,11 +25,11 @@
 
 ```bash
 # 在 Montage 树内（拆仓前）
-python benchmarks/VMem-Bench/baselines/sync_baselines.py
+python baselines/sync_baselines.py
 
 # 或只拉一类
-python benchmarks/VMem-Bench/baselines/sync_baselines.py Scripted
-python benchmarks/VMem-Bench/baselines/sync_baselines.py Causal
+python baselines/sync_baselines.py Scripted
+python baselines/sync_baselines.py Causal
 ```
 
 `Scripted/<name>` / `Causal/<name>` 是本地 checkout（已被 `baselines/.gitignore` 忽略）。清单与 sync 脚本随 MemStrata 拆仓一起带走即可。

@@ -21,7 +21,7 @@ import sys
 from pathlib import Path
 from statistics import mean
 
-_SRC = Path(__file__).resolve().parents[3] / "src"  # trackA/../../../ -> benchmarks/VMem-Bench
+_SRC = Path(__file__).resolve().parents[3] / "src"  # trackA/../../../ -> repo root
 if str(_SRC) not in sys.path:
     sys.path.insert(0, str(_SRC))
 
