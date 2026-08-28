@@ -14,7 +14,7 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-_BENCH_ROOT = Path(__file__).resolve().parents[3]   # benchmarks/VMem-Bench
+_BENCH_ROOT = Path(__file__).resolve().parents[3]   # public benchmark root
 _REPO = _BENCH_ROOT.parents[1]                       # repo root
 for _src in (_BENCH_ROOT / "src", _REPO / "methods" / "MemStrata" / "src"):
     _s = str(_src)

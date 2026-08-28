@@ -32,7 +32,7 @@ ln -sfn "$LOGDIR" "$BENCH/_overnight_run/latest"
 
 log(){ echo "[$(date '+%m-%d %H:%M:%S')] $*" | tee -a "$MASTER"; }
 
-# system -> conda python
+# system -> conda python3
 env_of(){
   case "$1" in
     memstrata) echo "$HELIOS";;

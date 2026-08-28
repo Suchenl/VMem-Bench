@@ -21,7 +21,14 @@ from typing import Any
 
 BENCH_ROOT = Path(__file__).resolve().parents[4]
 REPO_ROOT = Path(__file__).resolve().parents[6]
-ASSETS_ROOT = BENCH_ROOT / "assets" / "trackB"
+_TRACK_B_ROOT = BENCH_ROOT / "assets" / "trackB"
+# Public assets are language-scoped. Keep a root-level fallback for older
+# checkouts so adapters remain migration-friendly without hiding a bad default.
+ASSETS_ROOT = (
+    _TRACK_B_ROOT / "en"
+    if (_TRACK_B_ROOT / "en" / "sut_prompts").is_dir()
+    else _TRACK_B_ROOT
+)
 DEFAULT_OUTPUT_ROOT = BENCH_ROOT / "outputs" / "evaluation" / "trackB"
 DEFAULT_PYTHON = "python3"
 
@@ -189,6 +196,28 @@ def command_env(extra: dict[str, str] | None = None) -> dict[str, str]:
     if extra:
         env.update({k: str(v) for k, v in extra.items()})
     return env
+
+
+def find_memstrata_src() -> Path:
+    """Locate a standalone MemStrata checkout for the Track B adapter."""
+    candidates: list[Path] = []
+    configured = os.environ.get("MEMSTRATA_SRC", "").strip()
+    if configured:
+        candidates.append(Path(configured).expanduser())
+    candidates.extend(
+        [
+            BENCH_ROOT.parent / "MemStrata" / "src",
+            BENCH_ROOT.parent / "MemStrata-paper" / "src",
+        ]
+    )
+    for candidate in candidates:
+        resolved = candidate.resolve()
+        if (resolved / "memstrata").is_dir():
+            return resolved
+    raise FileNotFoundError(
+        "Cannot find MemStrata. Clone it next to VMem-Bench or set "
+        "MEMSTRATA_SRC=/path/to/MemStrata/src."
+    )
 
 
 def run_command(

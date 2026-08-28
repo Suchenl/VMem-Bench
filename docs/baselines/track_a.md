@@ -1,20 +1,15 @@
 # Track A = real retrieval / memory on GT visuals
 
-> **Paper terminology (2026-07-21):** the paper no longer uses the "Track A / Track B"
-> labels — it says **quantitative** (this generator-free gold-replay protocol, the only
-> scored one) vs **qualitative** (capability case studies on the bench + real long-video
-> rollouts). This code doc keeps the `TRACK_A.md` filename for continuity because many
-> scripts/paths reference it; read "Track A" here as the **quantitative gold-replay
-> protocol** and "Track B" as **qualitative rollouts**. Authoritative decision record:
-> `docs/paper/paper_organization.md`.
+> **Archived protocol note.** The historical gold-replay discussion below is
+> not the public evaluation contract. For the runnable release protocol use
+> [`docs/benchmark/running_eval.md`](../benchmark/running_eval.md) and
+> [`REPRODUCE.md`](../../REPRODUCE.md), which drive each SUT with real video
+> observations and self-produced memory.
 
-> **Corrected boundary (2026-07-17):** Track A is still generator-free
-> gold-replay, but that does **not** mean replacing a method's *retrieval*.
-> It means: run the method's memory / retrieval as published; only the
-> *generated pixels / self-generated history* are replaced by **gold (GT)
-> visuals**. Track B is when you keep their full generation loop and judge
-> the final video.
-
+> The historical terminology and examples below are retained for provenance
+> only. They must not be used to generate new benchmark numbers: the release
+> contract is real-video causal evaluation, with SUT-owned memory and no gold
+> observation handout.
 ## What is swapped vs what is kept
 
 | Component | Track A | Track B |
@@ -217,7 +212,7 @@ Track B uses each vendor's official scripts under `baselines/Causal/*/`; we do n
 
 ```bash
 PYTHONPATH=src \
-python -m vmem_bench.baseline_adapters.run_gold_replay --list
+python3 -m vmem_bench.baseline_adapters.run_gold_replay --list
 ```
 
 Helios, LongLive-RAG, MemFlow and IAMFlow run as real online gold-replay Track-A

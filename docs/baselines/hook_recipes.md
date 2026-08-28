@@ -1,7 +1,9 @@
 # Optional dump hooks (NOT Track A)
 
-Track A is online gold-replay (`docs/baselines/track_a.md`). Do **not** start here for
-main-table numbers.
+Track A is the causal `compose → observe` protocol described in
+[`docs/benchmark/running_eval.md`](../benchmark/running_eval.md). Do **not**
+start here for main-table numbers. This page only documents optional dump
+hooks for Track B or local debugging.
 
 If you run a vendor's **official** inference for Track B / debugging and want to
 import a selection dump into `*_dump` converters, use the schema below. Keep
@@ -30,6 +32,6 @@ hooks local to your run scripts; do not commit patches into vendor checkouts.
 | iamflow_dump | `mapping_*.json` |
 
 ```bash
-python -m vmem_bench.baseline_adapters.convert \
+python3 -m vmem_bench.baseline_adapters.convert \
   --baseline memflow_dump --export-dir <dump_dir> --out /tmp/ev
 ```

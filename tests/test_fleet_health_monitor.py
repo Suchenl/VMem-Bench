@@ -16,7 +16,7 @@ def test_refresh_overwrites_online_log_and_deletes_lost_service(tmp_path: Path) 
         "reachable": True,
         "console_status": "idle",
         "display_name": "idle · gpu-h800/node0/rank3 · reviewer/qwen3-vl-8b",
-        "base_url": "http://10.83.1.79:8113/v1",
+        "base_url": "http://192.0.2.79:8113/v1",
         "model": "qwen3-vl-8b",
         "role": "reviewer",
         "heartbeat_at": "2026-07-20 12:00:00",

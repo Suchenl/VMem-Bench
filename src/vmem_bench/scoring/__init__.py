@@ -12,7 +12,7 @@ gold-replay protocol. Track A now scores retrieved-memory coverage with a VLM ju
   reused by the scorer and by the self-contained retrieval baselines.
 
 Retired: ``scoring._archive.trackb_gt`` — the old screenplay-derived, per-shot GT exporter.
-Track B GT is now hand-authored under ``assets/trackB/gt_source/`` and compiled by
+Track B GT is now hand-authored under ``assets/trackB/en/gt_source/`` and compiled by
 ``assets/trackB/complete_gt.py``; SUT prompts by ``assets/trackB/get_sut_prompts.py``.
 
 Import the submodule you need directly; this package intentionally re-exports nothing.

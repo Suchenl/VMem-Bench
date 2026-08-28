@@ -1,7 +1,8 @@
-# MoVE-Bench · Track B 打分方案（剧本驱动 · 端到端生产）— DRAFT v0.2
+# VMem-Bench · Track B 打分方案（剧本驱动 · 端到端生产）— DRAFT v0.2
 
-> 状态：**草案 v0.2**，已按 Opus-5 评审收敛到可实现。不改动权威规范 [`scoring_v2.md`](scoring_v2.md)（Track A / gold-replay 权威）。
-> 命名：**MoVE-Bench** = *Memory-aware causal long video generation benchmark*。
+> 状态：**历史草案 v0.2**。Track A 的当前规范见
+> [`scoring_v2.md`](scoring_v2.md)，Track B 的可运行入口见
+> [`running_eval.md`](running_eval.md) 与 `scoring.end2end_coverage`。
 > 本文只定义 **Track B**（端到端生产）：以**剧本**为输入，对 **SUT 生成出来的视频**打分，**不使用 gold 影片**。
 >
 > **v0.2 相对 v0.1 的关键修订**（评审 P0/P1）：

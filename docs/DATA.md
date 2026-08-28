@@ -18,7 +18,7 @@ LSMDC:             ${VMEM_DATASETS_ROOT}/LSMDC/LSMDC_Videos_Stitched
 Check what you already have (stats expected paths only; does not walk the tree):
 
 ```bash
-python scripts/check_source_videos.py
+python3 scripts/check_source_videos.py
 ```
 
 Track B scoring uses authored prompts / GT JSON. **No source films.**
@@ -44,7 +44,7 @@ into
 Gold for this id is already in `assets/trackA/BlenderOpenMovies/big_buck_bunny/`. Then:
 
 ```bash
-python scripts/doctor.py
+python3 scripts/doctor.py
 bash scripts/run_tracka_smoke.sh   # needs sibling MemStrata + PUBLIC_MODELS_ROOT + GPU perception
 ```
 
@@ -130,7 +130,7 @@ When you use LSMDC titles, cite:
 
 ### Movie ids in the public gold (git sample + HF full set)
 
-The ids are the LSMDC directory names under `assets/trackA/LSMDC/` and `trackA/LSMDC/` on Hugging Face. `python scripts/check_source_videos.py` prints every missing id.
+The ids are the LSMDC directory names under `assets/trackA/LSMDC/` and `trackA/LSMDC/` on Hugging Face. `python3 scripts/check_source_videos.py` prints every missing id.
 
 ---
 

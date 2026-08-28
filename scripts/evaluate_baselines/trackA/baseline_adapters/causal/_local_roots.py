@@ -1,8 +1,8 @@
 """Locate sibling checkouts and dataset roots for the public two-repo layout.
 
-Internal Montage layout is still accepted (``methods/MemStrata``, ``baselines/Causal/...``)
-so this file can stay a thin copy of the old parents[7] convention without inventing a
-new protocol.
+Legacy Montage checkouts are still accepted for migration, but public users
+should use sibling repositories or set ``MEMSTRATA_SRC`` explicitly. This file
+keeps the compatibility fallback without adding a second public protocol.
 """
 
 from __future__ import annotations
@@ -26,8 +26,7 @@ def _existing_dir(path: Path) -> Path | None:
 def find_memstrata_src() -> Path:
     """Return the directory that contains the ``memstrata`` package (i.e. ``.../src``).
 
-    Order: ``MEMSTRATA_SRC`` → sibling ``../MemStrata/src`` → Montage
-    ``../../methods/MemStrata/src``.
+    Order: ``MEMSTRATA_SRC`` → sibling ``../MemStrata/src`` → legacy checkout.
     """
     env = os.environ.get("MEMSTRATA_SRC")
     if env:

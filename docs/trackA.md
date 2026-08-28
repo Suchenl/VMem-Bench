@@ -89,7 +89,7 @@ $PY -m vmem_bench.scoring.visual_coverage \
   --movie <movie_dir> --system <run_name> --video <source_video>
 
 # Stage 3: aggregate the per-movie benchmark_run/ results by baseline/dataset/sample
-PYTHONPATH=src python scripts/evaluate_baselines/trackA/aggregate_trackA_outputs.py
+PYTHONPATH=src python3 scripts/evaluate_baselines/trackA/aggregate_trackA_outputs.py
 # -> outputs/evaluation/trackA/<baseline>/<dataset>/<sample>/<input_mode>[/B<budget>]/
 #    {score.json, visual_selections.json, finalize.json, meta.json}
 #    + per-baseline aggregate.{json,md} + top-level leaderboard.{json,md}

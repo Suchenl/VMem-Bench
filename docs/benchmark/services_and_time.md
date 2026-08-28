@@ -80,7 +80,7 @@ headroom（≥10GiB 或峰值 20% 取大者），**不杀** gpu.py/occupy 等保
 
 ### 1.4 启动器 + 客户端（自包含在 benchmark 内）
 
-- `scripts/start_services.py`（或 `python -m vmem_bench.services.launch`）：读 config→推导启用集合→
+- `scripts/start_services.py`（或 `python3 -m vmem_bench.services.launch`）：读 config→推导启用集合→
   预检+放置→在训练节点用 **tmux/nohup** 逐个起服务（不前台挂 SSH，遵守规则）→写 `services.json`→
   健康探活（HTTP `/health` 或 `/v1/models`）。幂等：已在跑且健康则复用。
 - pathhttp 服务实现：`vmem_bench/services/perception_server.py`，FastAPI/stdlib http，端点

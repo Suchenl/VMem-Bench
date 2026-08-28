@@ -15,10 +15,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from common import (  # noqa: E402
-    REPO_ROOT,
     add_common_args,
     command_env,
     copy_prompt_stream,
+    find_memstrata_src,
     iter_requested_streams,
     output_dir_for,
     prepare_output_dir,
@@ -48,9 +48,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--angle-classifier", default="")
     args = parser.parse_args(argv)
 
-    method_root = REPO_ROOT / "methods" / "MemStrata"
-    if not method_root.is_dir():
-        raise SystemExit(f"missing MemStrata checkout: {method_root}")
+    method_src = find_memstrata_src()
+    method_root = method_src.parent
 
     rc_all = 0
     for stream in iter_requested_streams(args):
@@ -98,7 +97,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.angle_classifier:
             cmd += ["--angle-classifier", args.angle_classifier]
 
-        env = command_env({"PYTHONPATH": f"{method_root / 'src'}:{method_root}:{os.environ.get('PYTHONPATH', '')}"})
+        env = command_env({"PYTHONPATH": f"{method_src}:{method_root}:{os.environ.get('PYTHONPATH', '')}"})
         rc = run_command(
             cmd,
             cwd=method_root,

@@ -177,7 +177,7 @@ console_print_access() {
   echo "  Local:    ${FRONTEND_URL_LOCAL}"
   echo "  Backend:  ${BACKEND_HEALTH_URL}"
   echo "  Logs:     ${LOG_ROOT}"
-  echo "  Primary UI: the HTTPS reverse proxy (SSO) → :${FRONTEND_PORT} (e.g. https://remote-gpu-host-…corp.example.org/)."
+  echo "  Primary UI: the HTTPS reverse proxy (SSO) → :${FRONTEND_PORT} (e.g. https://remote-gpu-host-…example.org/)."
   echo "  If the UI shows SSO/login HTML, refresh the page to renew sso_session."
   while read -r ip; do
     [[ -n "${ip}" ]] || continue

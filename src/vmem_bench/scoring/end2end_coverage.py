@@ -29,7 +29,7 @@ generated video is error-prone). Per-entity JSON keyed by entity_id, strict pars
 CLI::
 
     python -m vmem_bench.scoring.end2end_coverage \
-        --gt   assets/trackB/gt/0001_lighthouse_keeper.json \
+        --gt   assets/trackB/en/gt/0001_lighthouse_keeper.json \
         --run  production/outputs/0001_lighthouse_keeper/memstrata/optCA \
         --out  production/outputs/0001_lighthouse_keeper/memstrata/optCA/_trackB_score
 """
@@ -675,7 +675,7 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--gt", required=True, type=Path, help="complete_gt.py output (gt_version trackB-gt-2.0)")
     ap.add_argument("--run", required=True, type=Path, help="SUT run dir (progress.json + review/segments)")
     ap.add_argument("--prompts", type=Path, default=None,
-                    help="frozen SUT prompts json (assets/trackB/sut_prompts/<story>_name_anchored.json)")
+                    help="frozen SUT prompts json (assets/trackB/en/sut_prompts/<story>_name_anchored.json)")
     ap.add_argument("--out", type=Path, default=None)
     ap.add_argument("--api", default=DEFAULT_API)
     ap.add_argument("--api-list", default="", help="comma/whitespace separated /v1 base URLs or chat endpoints")

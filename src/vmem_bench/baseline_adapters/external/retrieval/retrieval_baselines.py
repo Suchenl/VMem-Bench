@@ -7,7 +7,8 @@ diversity-keyframe similarity, returning temporally-identified refs (source seco
 the causal ``frame_materializer`` turns into reference frames for VLM visual-coverage scoring.
 
 Self-containment (per project requirement): this module is a *reference reimplementation* of
-``methods/MemStrata/src/memstrata/skills/memory_retrieval/retrievers.py`` — the original stays
+The original implementation remains in the public MemStrata repository under
+``src/memstrata/skills/memory_retrieval/retrievers.py`` —
 untouched and is NOT imported. These four baselines never import ``memstrata``; their encoder
 substrate lives in the sibling :mod:`._retrieval_encoders` (bench package). Other parts of
 ``vmem_bench`` may still import ``memstrata``; the no-SUT-import rule is scoped to *these*

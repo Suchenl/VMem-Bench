@@ -32,8 +32,8 @@ the real segment into memory).** Never look at chunk *t*'s video while composing
 
 ```bash
 cd VMem-Bench
-python -m pip install -e ".[dev]"
-python scripts/evaluate_baselines/your_method/run_tracka_example.py \
+python3 -m pip install -e ".[dev]"
+python3 scripts/evaluate_baselines/your_method/run_tracka_example.py \
     --movie-dir assets/trackA/BlenderOpenMovies/charge --limit 5
 ```
 
@@ -71,7 +71,7 @@ Real scoring needs the **source video** (obtain per `docs/DATA.md`) and a pinned
 judge endpoint (`qwen3-vl-32b`, OpenAI-compatible; see `docs/benchmark/running_eval.md` §6):
 
 ```bash
-PYTHONPATH=src python -m vmem_bench.scoring.visual_coverage \
+PYTHONPATH=src python3 -m vmem_bench.scoring.visual_coverage \
     --movie  assets/trackA/BlenderOpenMovies/charge \
     --system your_method-recency \
     --video  /path/to/charge_source.mp4 \
@@ -89,7 +89,7 @@ Track B judges what your method **renders**. Produce one video per story segment
 lay out a run dir with `write_trackb_run(...)`, then:
 
 ```bash
-PYTHONPATH=src python -m vmem_bench.scoring.end2end_coverage \
+PYTHONPATH=src python3 -m vmem_bench.scoring.end2end_coverage \
     --gt      assets/trackB/en/gt/0001_lighthouse_keeper.json \
     --prompts assets/trackB/en/sut_prompts/0001_lighthouse_keeper_name_anchored.json \
     --run     <your_run_dir> \

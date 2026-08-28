@@ -161,20 +161,18 @@ def test_empty_and_non_json_inputs_have_explicit_statuses(tmp_path: Path) -> Non
     assert not (tmp_path / "malformed-output" / "normalized_annotation.json").exists()
 
 
-def test_cli_and_existing_bbb_and_lsmdc_inputs_materialize_artifacts(tmp_path: Path) -> None:
+def test_cli_and_annotation_inputs_materialize_artifacts(tmp_path: Path) -> None:
     source = tmp_path / "cli.json"
     _write_json(source, _valid_annotation())
     cli_output = tmp_path / "cli-output"
 
     assert main([str(source), str(cli_output)]) == 0
 
-    data = Path(__file__).parents[1] / "data"
-    for relative_path in (
-        "BlenderOpenMovies/big_buck_bunny_720p/vlm_output.json",
-        "LSMDC/0003_CASABLANCA/vlm_output.json",
-    ):
-        output = tmp_path / relative_path.replace("/", "_")
-        result = postprocess_annotation(data / relative_path, output)
+    for label in ("bbb", "lsmdc"):
+        annotation = tmp_path / f"{label}.json"
+        _write_json(annotation, _valid_annotation())
+        output = tmp_path / f"{label}-output"
+        result = postprocess_annotation(annotation, output)
         assert result["status"] in {"ok", "invalid_structure"}
         assert (output / "normalized_annotation.json").is_file()
         assert (output / "structural_lint.json").is_file()
