@@ -55,7 +55,6 @@ from contract import ComposeRequest, MovieContext, RetrievedItem, SegmentObserva
 from frame_materializer import materialize_record_checkpoint, materialize_system
 from _local_roots import expand_dataset_root
 
-_DEFAULT_FFMPEG = "ffmpeg"
 _HOSTNAME = socket.gethostname()
 
 
@@ -70,6 +69,19 @@ def _env_float(name: str, default: float) -> float:
               file=sys.stderr, flush=True)
         return default
 _BENCH_ROOT = Path(__file__).resolve().parents[5]  # public VMem-Bench checkout
+_SRC_ROOT = _BENCH_ROOT / "src"
+if str(_SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(_SRC_ROOT))
+
+from vmem_bench.common.media import ffmpeg_bin  # noqa: E402
+
+_DEFAULT_FFMPEG = ffmpeg_bin()
+_OUTPUT_ROOT = Path(
+    os.environ.get(
+        "VMEM_TRACKA_OUTPUT_ROOT",
+        str(_BENCH_ROOT / "outputs" / "evaluation" / "trackA"),
+    )
+).expanduser().resolve()
 _INPUT_MODES = ("name_anchored", "description_provided", "description_only")
 _BUDGET_CHOICES = (1, 2, 4, 8, 16)
 _RRF_K = 60
@@ -283,14 +295,12 @@ def _summary_selection_complete(summary: dict) -> bool:
     if not chunks.is_file():
         return False
     try:
-        expected = len(json.loads(chunks.read_text(encoding="utf-8"))["chunks"])
+        full_expected = len(json.loads(chunks.read_text(encoding="utf-8"))["chunks"])
     except Exception:
         return False
+    expected = int(summary.get("expected_chunks") or full_expected)
     selection = (
-        _BENCH_ROOT
-        / "outputs"
-        / "evaluation"
-        / "trackA"
+        _OUTPUT_ROOT
         / str(system)
         / str(dataset)
         / str(movie)
@@ -664,7 +674,7 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
     run_name = _run_name(adapter.name, input_mode, budget)
     src = _resolve_source_video(movie_dir)
     dataset = movie_dir.parent.name
-    run_dir = _BENCH_ROOT / "outputs" / "evaluation" / "trackA" / run_name / dataset / movie_dir.name
+    run_dir = _OUTPUT_ROOT / run_name / dataset / movie_dir.name
     cids = sorted(spans)
     if limit:
         cids = cids[:limit]
@@ -676,6 +686,7 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
             "movie": movie_dir.name,
             "input_mode": input_mode,
             "budget": budget,
+            "expected_chunks": len(cids),
             "skipped": True,
             "reason": "complete_visual_selection_exists",
             "visual_selection": str(selection_path),
@@ -695,7 +706,7 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
             "lock": str(lock_path),
         }
     work_dir = run_dir / "_adapter_work" / run_name
-    seg_dir = _BENCH_ROOT / "outputs" / "evaluation" / "trackA" / "_shared_segments" / dataset / movie_dir.name
+    seg_dir = _OUTPUT_ROOT / "_shared_segments" / dataset / movie_dir.name
     frames_dir = run_dir / "_ref_frames" / run_name
     try:
         work_dir.mkdir(parents=True, exist_ok=True)
@@ -795,6 +806,7 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
             json.dumps(final, ensure_ascii=False, indent=2), encoding="utf-8")
         summary["input_mode"] = input_mode
         summary["budget"] = budget
+        summary["expected_chunks"] = len(cids)
         summary["finalize"] = final
         # materialize_system() returns {"system", ...} but not the dataset/movie
         # identity keys that _summary_selection_complete() needs to locate the

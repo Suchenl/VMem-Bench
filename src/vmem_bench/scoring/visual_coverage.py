@@ -81,6 +81,7 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from statistics import mean
 
+from vmem_bench.common.media import ffmpeg_bin
 from vmem_bench.scoring.judge_service import (
     DEFAULT_API,
     DEFAULT_MODEL,
@@ -89,8 +90,14 @@ from vmem_bench.scoring.judge_service import (
     call_judge,
 )
 
-DEFAULT_FFMPEG = "ffmpeg"
+DEFAULT_FFMPEG = ffmpeg_bin()
 _BENCH_ROOT = Path(__file__).resolve().parents[3]
+_TRACKA_OUTPUT_ROOT = Path(
+    os.environ.get(
+        "VMEM_TRACKA_OUTPUT_ROOT",
+        str(_BENCH_ROOT / "outputs" / "evaluation" / "trackA"),
+    )
+).expanduser().resolve()
 # Per-image downscale (longest side, px) sent to the judge, applied UNIFORMLY to
 # every system so the comparison is fair. It bounds per-image token cost so
 # large-memory systems (e.g. MemFlow keeps a wide sink+local+bank footprint = tens
@@ -137,7 +144,7 @@ def _load_gold(movie: Path):
 def _tracka_run_dir(movie: Path, system: str) -> Path:
     """Stage-1/2 run dir under outputs/evaluation/trackA for this movie+system."""
     dataset = movie.parent.name
-    return _BENCH_ROOT / "outputs" / "evaluation" / "trackA" / system / dataset / movie.name
+    return _TRACKA_OUTPUT_ROOT / system / dataset / movie.name
 
 
 def _materialize_source_frame(
@@ -239,8 +246,8 @@ def _load_selection(
 # ------------------------------------------------------------------------- clip
 def _shared_segment(movie: Path, chunk_id: int) -> Path | None:
     seg = (
-        _BENCH_ROOT
-        / "outputs/evaluation/trackA/_shared_segments"
+        _TRACKA_OUTPUT_ROOT
+        / "_shared_segments"
         / movie.parent.name
         / movie.name
         / f"chunk_{int(chunk_id):05d}.mp4"

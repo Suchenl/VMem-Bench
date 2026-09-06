@@ -47,6 +47,21 @@ python runner.py --adapter memstrata \
 Or from the repo root: `bash scripts/run_tracka_smoke.sh` (runs `scripts/doctor.py` first).
 MemStrata is resolved from `../MemStrata/src` or `MEMSTRATA_SRC`.
 
+The MemStrata adapter is intentionally only process/JSON glue. It calls the
+method-owned production profile
+`memstrata.production.realized.build_realized_segment_pipeline`; all
+observation construction, crop acquisition, quality scoring, memory updates,
+and intent interpretation remain in the MemStrata repository. Until that
+documented entry is present in the selected MemStrata checkout, the adapter
+fails at `reset()` instead of reconstructing a fallback method inside the
+benchmark.
+
+For isolated canaries, set `VMEM_TRACKA_OUTPUT_ROOT` for both Stage-1 and
+Stage-2. Media tools resolve through `FFMPEG_BIN`/`PATH`/`imageio-ffmpeg`, or
+can be pinned with `--ffmpeg`. Stage-2 custom movies should pass both
+`--movie-dir /path/to/<movie>` and
+`--movie-video <movie>=/path/to/source.mp4`.
+
 ## runner batch protection (shared by all causal baselines)
 
 A `--movie-list` is a batch of **mutually independent** jobs, and the long runtimes (memflow_sma is 11–165 s per segment, 8 h+ for a full film) make the following properties necessary; otherwise you waste hours of compute:

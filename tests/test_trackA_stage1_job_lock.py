@@ -15,7 +15,9 @@ always be treated as live -- the live fleet holds such locks for hours.
 from __future__ import annotations
 
 import importlib.util
+import json
 import os
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -45,6 +47,45 @@ def _load_runner():
 
 
 runner = _load_runner()
+
+
+def test_output_root_can_be_isolated_for_canaries(tmp_path):
+    env = os.environ.copy()
+    env["VMEM_TRACKA_OUTPUT_ROOT"] = str(tmp_path / "isolated")
+    value = subprocess.check_output(
+        [sys.executable, "-c", "import runner; print(runner._OUTPUT_ROOT)"],
+        cwd=_ADAPTER_DIR,
+        env=env,
+        text=True,
+    ).strip()
+    assert value == str((tmp_path / "isolated").resolve())
+
+
+def test_limited_smoke_completion_uses_requested_chunk_count(tmp_path, monkeypatch):
+    bench = tmp_path / "bench"
+    output = tmp_path / "output"
+    movie = bench / "assets" / "trackA" / "Dataset" / "Movie"
+    selection = output / "memstrata__B16" / "Dataset" / "Movie" / "visual_selections"
+    (movie / "gold").mkdir(parents=True)
+    selection.mkdir(parents=True)
+    (movie / "gold" / "chunk_annotations.json").write_text(
+        json.dumps({"chunks": [{"chunk_id": index} for index in range(10)]}),
+        encoding="utf-8",
+    )
+    (selection / "memstrata__B16.json").write_text(
+        json.dumps({"chunks": [{"chunk_id": index} for index in range(3)]}),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(runner, "_BENCH_ROOT", bench)
+    monkeypatch.setattr(runner, "_OUTPUT_ROOT", output)
+    assert runner._summary_selection_complete(
+        {
+            "system": "memstrata__B16",
+            "dataset": "Dataset",
+            "movie": "Movie",
+            "expected_chunks": 3,
+        }
+    )
 
 
 def test_acquire_then_second_caller_is_refused(tmp_path):

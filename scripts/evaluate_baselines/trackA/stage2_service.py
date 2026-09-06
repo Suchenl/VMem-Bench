@@ -32,7 +32,13 @@ from vmem_bench.scoring.visual_coverage import (  # noqa: E402
     run as run_visual_coverage,
 )
 
-DEFAULT_PUBLIC_MODELS_ROOT = "${PUBLIC_MODELS_ROOT}"
+DEFAULT_PUBLIC_MODELS_ROOT = os.environ.get("PUBLIC_MODELS_ROOT", "").strip()
+TRACKA_OUTPUT_ROOT = Path(
+    os.environ.get(
+        "VMEM_TRACKA_OUTPUT_ROOT",
+        str(BENCH_ROOT / "outputs" / "evaluation" / "trackA"),
+    )
+).expanduser().resolve()
 DEFAULT_SYSTEMS = (
     "memstrata",
     "longlive_rag",
@@ -113,7 +119,7 @@ def resolve_video(movie_dir: Path) -> Path:
 
 
 def _tracka_run_dir(movie_dir: Path, system: str) -> Path:
-    return BENCH_ROOT / "outputs/evaluation/trackA" / system / movie_dir.parent.name / movie_dir.name
+    return TRACKA_OUTPUT_ROOT / system / movie_dir.parent.name / movie_dir.name
 
 
 def _selection_exists(movie_dir: Path, system: str) -> bool:
@@ -122,13 +128,22 @@ def _selection_exists(movie_dir: Path, system: str) -> bool:
     return new_path.is_file() or legacy_path.is_file()
 
 
-def discover_tasks(*, systems: list[str], movies: list[str], modes: list[str]) -> tuple[list[ScoreTask], list[str]]:
+def discover_tasks(
+    *,
+    systems: list[str],
+    movies: list[str],
+    modes: list[str],
+    movie_dirs: dict[str, Path] | None = None,
+    movie_videos: dict[str, Path] | None = None,
+) -> tuple[list[ScoreTask], list[str]]:
     tasks: list[ScoreTask] = []
     skipped: list[str] = []
+    available_movies = movie_dirs or DEFAULT_MOVIES
+    explicit_videos = movie_videos or {}
     for system_base in systems:
         for movie_key in movies:
-            movie_dir = DEFAULT_MOVIES[movie_key]
-            video = resolve_video(movie_dir)
+            movie_dir = available_movies[movie_key]
+            video = explicit_videos.get(movie_key) or resolve_video(movie_dir)
             for mode in modes:
                 system = f"{system_base}{MODE_SUFFIX[mode]}"
                 if not _selection_exists(movie_dir, system):
@@ -222,6 +237,20 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--systems", default=",".join(DEFAULT_SYSTEMS))
     parser.add_argument("--movies", default=",".join(DEFAULT_MOVIES))
+    parser.add_argument(
+        "--movie-dir",
+        action="append",
+        type=Path,
+        default=[],
+        help="additional movie directory; repeat and select by basename via --movies",
+    )
+    parser.add_argument(
+        "--movie-video",
+        action="append",
+        default=[],
+        metavar="MOVIE=PATH",
+        help="explicit source video for a custom movie key; repeat as needed",
+    )
     parser.add_argument("--modes", default="name_anchored")
     parser.add_argument("--log-dir", type=Path, default=None)
     parser.add_argument("--progress", type=Path, default=None)
@@ -238,7 +267,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     if args.score_gpu:
         os.environ["CUDA_VISIBLE_DEVICES"] = str(args.score_gpu)
-    os.environ.setdefault("PUBLIC_MODELS_ROOT", DEFAULT_PUBLIC_MODELS_ROOT)
+    if DEFAULT_PUBLIC_MODELS_ROOT:
+        os.environ.setdefault("PUBLIC_MODELS_ROOT", DEFAULT_PUBLIC_MODELS_ROOT)
     os.environ.setdefault("NO_PROXY", "localhost,127.0.0.1")
 
     stamp = time.strftime("%Y%m%d_%H%M%S")
@@ -249,10 +279,20 @@ def main(argv: list[str] | None = None) -> int:
     systems = _split_csvish(args.systems)
     movies = _split_csvish(args.movies)
     modes = _split_csvish(args.modes)
-    unknown_movies = sorted(set(movies) - set(DEFAULT_MOVIES))
+    movie_dirs = dict(DEFAULT_MOVIES)
+    for movie_dir in args.movie_dir:
+        resolved = movie_dir.expanduser().resolve()
+        movie_dirs[resolved.name] = resolved
+    movie_videos: dict[str, Path] = {}
+    for item in args.movie_video:
+        key, separator, raw_path = item.partition("=")
+        if not separator or not key.strip() or not raw_path.strip():
+            raise ValueError(f"--movie-video requires MOVIE=PATH, got {item!r}")
+        movie_videos[key.strip()] = Path(raw_path).expanduser().resolve()
+    unknown_movies = sorted(set(movies) - set(movie_dirs))
     unknown_modes = sorted(set(modes) - set(MODE_SUFFIX))
     if unknown_movies:
-        raise ValueError(f"unknown movies: {unknown_movies}; choose from {sorted(DEFAULT_MOVIES)}")
+        raise ValueError(f"unknown movies: {unknown_movies}; choose from {sorted(movie_dirs)}")
     if unknown_modes:
         raise ValueError(f"unknown modes: {unknown_modes}; choose from {sorted(MODE_SUFFIX)}")
 
@@ -267,7 +307,13 @@ def main(argv: list[str] | None = None) -> int:
             timeout_min=args.wait_stage1_timeout_min,
         )
 
-    tasks, skipped = discover_tasks(systems=systems, movies=movies, modes=modes)
+    tasks, skipped = discover_tasks(
+        systems=systems,
+        movies=movies,
+        modes=modes,
+        movie_dirs=movie_dirs,
+        movie_videos=movie_videos,
+    )
     judge_api = build_judge_api(
         api=args.api,
         api_list=args.api_list,
