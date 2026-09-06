@@ -51,6 +51,19 @@ from urllib import error as urllib_error
 from urllib import request as urllib_request
 from pathlib import Path
 
+_EVALUATE_ROOT = Path(__file__).resolve().parents[3]
+if str(_EVALUATE_ROOT) not in sys.path:
+    sys.path.insert(0, str(_EVALUATE_ROOT))
+
+from internal_runtime import (  # noqa: E402
+    INTERNAL_ONLY_NOTICE,
+    atomic_write_json,
+    elapsed_ms,
+    gpu_snapshot,
+    runtime_context,
+    utc_now_iso,
+)
+
 from contract import ComposeRequest, MovieContext, RetrievedItem, SegmentObservation
 from frame_materializer import materialize_record_checkpoint, materialize_system
 from _local_roots import expand_dataset_root
@@ -657,6 +670,8 @@ def _run_name(adapter_name: str, input_mode: str, budget: int | None) -> str:
 
 def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int | None,
               input_mode: str = "name_anchored", budget: int | None = None) -> dict:
+    movie_started_at = utc_now_iso()
+    movie_t0 = time.perf_counter()
     if input_mode not in _INPUT_MODES:
         raise SystemExit(f"--input-mode must be one of {_INPUT_MODES}, got {input_mode!r}")
     if budget is not None and int(budget) not in _BUDGET_CHOICES:
@@ -708,6 +723,32 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
     work_dir = run_dir / "_adapter_work" / run_name
     seg_dir = _OUTPUT_ROOT / "_shared_segments" / dataset / movie_dir.name
     frames_dir = run_dir / "_ref_frames" / run_name
+    timing_path = run_dir / "logs" / "timing.json"
+    timing = {
+        "schema_version": 1,
+        "visibility": "internal_only",
+        "notice": INTERNAL_ONLY_NOTICE,
+        "track": "A",
+        "system": run_name,
+        "dataset": dataset,
+        "movie": movie_dir.name,
+        "status": "running",
+        "started_at": movie_started_at,
+        "runtime": runtime_context(),
+        "gpu": {"pre": gpu_snapshot(), "post": None},
+        "phases_ms": {
+            "preflight": 0.0,
+            "reset_cold_start": 0.0,
+            "final_materialization": 0.0,
+            "finalize": 0.0,
+        },
+        "segments": [],
+        "separation": {
+            "method_time": ["reset_cold_start", "compose", "observe", "finalize"],
+            "benchmark_io_time": ["segment_cut", "checkpoint_materialization", "final_materialization"],
+            "scorer_time": "not included; Stage-2 score_ms remains a separate artifact",
+        },
+    }
     try:
         work_dir.mkdir(parents=True, exist_ok=True)
 
@@ -723,8 +764,12 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
         # so we skip it cheaply instead of burning hours and dying mid-run.
         preflight = getattr(adapter, "preflight", None)
         if callable(preflight):
+            phase_t0 = time.perf_counter()
             refusal = preflight(movie)
+            timing["phases_ms"]["preflight"] = elapsed_ms(phase_t0)
             if refusal:
+                timing["status"] = "skipped"
+                timing["reason"] = str(refusal)
                 return {
                     "system": run_name,
                     "dataset": dataset,
@@ -733,12 +778,15 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
                     "budget": budget,
                     "skipped": True,
                     "reason": str(refusal),
+                    "internal_timing": str(timing_path),
                 }
+        phase_t0 = time.perf_counter()
         adapter.reset(movie)
+        timing["phases_ms"]["reset_cold_start"] = elapsed_ms(phase_t0)
 
         records = []
         total_chunks = len(cids)
-        movie_t0 = time.perf_counter()
+        segment_loop_t0 = time.perf_counter()
         for idx, cid in enumerate(cids, start=1):
             s0, s1 = spans[cid]
             print(
@@ -746,7 +794,10 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
                 file=sys.stderr,
                 flush=True,
             )
+            segment_cached = (seg_dir / f"chunk_{cid:05d}.mp4").is_file()
+            phase_t0 = time.perf_counter()
             seg = _cut_segment(ffmpeg, src, seg_dir / f"chunk_{cid:05d}.mp4", s0, s1)
+            segment_cut_ms = elapsed_ms(phase_t0)
             # 1) compose from current memory (built only from earlier segments).
             # Time the retrieval itself: this is the per-segment RETRIEVAL latency, a
             # time-efficiency metric that grows with movie length (see running_eval
@@ -767,7 +818,13 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
             rec.extras["observe_ms"] = observe_ms
             rec.extras["n_retrieved"] = len(rec.items)
             records.append(rec)
-            if os.environ.get("MAVE_STAGE1_INCREMENTAL_SELECTIONS", "1").lower() not in {"0", "false", "no"}:
+            checkpoint_ms = 0.0
+            checkpoint_enabled = (
+                os.environ.get("MAVE_STAGE1_INCREMENTAL_SELECTIONS", "1").lower()
+                not in {"0", "false", "no"}
+            )
+            if checkpoint_enabled:
+                phase_t0 = time.perf_counter()
                 materialize_record_checkpoint(
                     system=run_name,
                     movie=movie,
@@ -778,13 +835,25 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
                     prompts=prompts,
                     expected_chunks=total_chunks,
                 )
+                checkpoint_ms = elapsed_ms(phase_t0)
+            timing["segments"].append(
+                {
+                    "chunk_id": cid,
+                    "segment_cut_ms": segment_cut_ms,
+                    "segment_cut_cache_hit": segment_cached,
+                    "compose_ms": compose_ms,
+                    "observe_ms": observe_ms,
+                    "checkpoint_materialization_ms": checkpoint_ms,
+                    "checkpoint_enabled": checkpoint_enabled,
+                }
+            )
             # Heartbeat the lock: proves to other hosts that a slow run is alive,
             # so nobody "cleans up" this lock and starts a duplicate runner.
             _touch_job_lock(lock_path)
             # ETA from this movie's own mean segment cost. Per-segment cost swings
             # 11-165 s with node co-tenancy, so an operator cannot eyeball whether
             # a long run is worth keeping; print the answer instead.
-            eta_min = (time.perf_counter() - movie_t0) / idx * (total_chunks - idx) / 60.0
+            eta_min = (time.perf_counter() - segment_loop_t0) / idx * (total_chunks - idx) / 60.0
             print(
                 f"[stage1] {run_name}/{dataset}/{movie_dir.name} segment={idx}/{total_chunks} "
                 f"id={cid} done compose_ms={compose_ms} observe_ms={observe_ms} "
@@ -793,12 +862,16 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
                 flush=True,
             )
 
+        phase_t0 = time.perf_counter()
         summary = materialize_system(
             system=run_name, movie=movie, records=records,
             out_dir=run_dir / "visual_selections", frames_dir=frames_dir,
             ffmpeg=ffmpeg, prompts=prompts,
         )
+        timing["phases_ms"]["final_materialization"] = elapsed_ms(phase_t0)
+        phase_t0 = time.perf_counter()
         final = adapter.finalize() or {}
+        timing["phases_ms"]["finalize"] = elapsed_ms(phase_t0)
         final["input_mode"] = input_mode
         final["budget"] = budget
         final["budget_policy"] = "runner_score_sorted_topB"
@@ -808,14 +881,65 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
         summary["budget"] = budget
         summary["expected_chunks"] = len(cids)
         summary["finalize"] = final
+        summary["internal_timing"] = str(timing_path)
+        segment_rows = timing["segments"]
+        summary["internal_timing_summary"] = {
+            "total_movie_wall_ms": elapsed_ms(movie_t0),
+            "reset_cold_start_ms": timing["phases_ms"]["reset_cold_start"],
+            "final_materialization_ms": timing["phases_ms"]["final_materialization"],
+            "finalize_ms": timing["phases_ms"]["finalize"],
+            "method_ms": round(
+                float(timing["phases_ms"]["reset_cold_start"])
+                + float(timing["phases_ms"]["finalize"])
+                + sum(float(row["compose_ms"]) + float(row["observe_ms"]) for row in segment_rows),
+                2,
+            ),
+            "benchmark_io_ms": round(
+                float(timing["phases_ms"]["final_materialization"])
+                + sum(
+                    float(row["segment_cut_ms"]) + float(row["checkpoint_materialization_ms"])
+                    for row in segment_rows
+                ),
+                2,
+            ),
+            "scorer_ms": None,
+        }
         # materialize_system() returns {"system", ...} but not the dataset/movie
         # identity keys that _summary_selection_complete() needs to locate the
         # durable selection file. Without them every single-movie success is
         # (wrongly) flagged incomplete and the process exits 31. Supply them.
         summary.setdefault("dataset", movie_dir.parent.name)
         summary.setdefault("movie", movie_dir.name)
+        timing["status"] = "done"
         return summary
+    except BaseException as exc:
+        timing["status"] = "failed"
+        timing["error"] = {"type": type(exc).__name__, "message": str(exc)[:2000]}
+        raise
     finally:
+        timing["finished_at"] = utc_now_iso()
+        timing["total_movie_wall_ms"] = elapsed_ms(movie_t0)
+        timing["gpu"]["post"] = gpu_snapshot()
+        segment_rows = timing["segments"]
+        phases = timing["phases_ms"]
+        timing["aggregates_ms"] = {
+            "method": round(
+                float(phases["reset_cold_start"])
+                + float(phases["finalize"])
+                + sum(float(row["compose_ms"]) + float(row["observe_ms"]) for row in segment_rows),
+                2,
+            ),
+            "benchmark_io": round(
+                float(phases["final_materialization"])
+                + sum(
+                    float(row["segment_cut_ms"]) + float(row["checkpoint_materialization_ms"])
+                    for row in segment_rows
+                ),
+                2,
+            ),
+            "scorer": None,
+        }
+        atomic_write_json(timing_path, timing)
         os.close(lock_fd)
         try:
             lock_path.unlink()

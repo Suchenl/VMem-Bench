@@ -8,13 +8,22 @@ Output layout:
 ```text
 outputs/evaluation/trackB/<system>/<story_id>/<register>/<run_tag>/
   input/                 # copied prompt stream + converted runner inputs
-  logs/                  # stdout/stderr and command.sh
+  logs/                  # stdout/stderr, command.sh, internal-only timing.json
   review/                # generated long video(s); stage-2 scorer reads here
   trackb_manifest.json   # machine-readable run summary
 ```
 
 The runners do not call the stage-2 scorer. They only generate and register
 long-video artifacts.
+
+`logs/timing.json` records subprocess wall time, timestamps, exit code, host,
+Python, `CUDA_VISIBLE_DEVICES`, and best-effort pre/post `nvidia-smi` snapshots.
+It is **INTERNAL ONLY**: never copy hardware/runtime provenance into paper
+tables or publication outputs. `trackb_manifest.json` references this sidecar
+and embeds only a hardware-free timing summary. Per-subprocess max RSS is
+currently recorded as unavailable: Python's portable subprocess API does not
+expose it, while `RUSAGE_CHILDREN` is cumulative and would misattribute memory
+when one runner processes multiple stories.
 
 ## Stage-2 Scoring Service
 

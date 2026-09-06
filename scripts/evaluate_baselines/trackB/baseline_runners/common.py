@@ -15,6 +15,7 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -23,6 +24,20 @@ from typing import Any
 
 BENCH_ROOT = Path(__file__).resolve().parents[4]
 REPO_ROOT = Path(__file__).resolve().parents[6]
+_EVALUATE_ROOT = Path(__file__).resolve().parents[2]
+if str(_EVALUATE_ROOT) not in sys.path:
+    sys.path.insert(0, str(_EVALUATE_ROOT))
+
+from internal_runtime import (  # noqa: E402
+    INTERNAL_ONLY_NOTICE,
+    atomic_write_json,
+    elapsed_ms,
+    gpu_snapshot,
+    max_rss_omission,
+    runtime_context,
+    utc_now_iso,
+)
+
 _TRACK_B_ROOT = BENCH_ROOT / "assets" / "trackB"
 # Public assets are language-scoped. Keep a root-level fallback for older
 # checkouts so adapters remain migration-friendly without hiding a bad default.
@@ -304,18 +319,64 @@ def run_command(
     dry_run: bool = False,
 ) -> int:
     log_path.parent.mkdir(parents=True, exist_ok=True)
+    timing_path = log_path.parent / "timing.json"
     (log_path.parent / "command.sh").write_text(
         "#!/usr/bin/env bash\nset -euo pipefail\ncd " + json.dumps(str(cwd)) + "\n"
         + " ".join(json.dumps(x) for x in cmd)
         + "\n",
         encoding="utf-8",
     )
-    if dry_run:
-        log_path.write_text("[dry-run] " + " ".join(cmd) + "\n", encoding="utf-8")
-        return 0
-    with log_path.open("ab") as log:
-        proc = subprocess.run(cmd, cwd=str(cwd), env=env, stdout=log, stderr=subprocess.STDOUT)
-    return int(proc.returncode)
+    effective_env = os.environ.copy() if env is None else env
+    started_at = utc_now_iso()
+    started = time.perf_counter()
+    pre_gpu = gpu_snapshot()
+    rc: int | None = None
+    launch_error: dict[str, str] | None = None
+    try:
+        if dry_run:
+            log_path.write_text("[dry-run] " + " ".join(cmd) + "\n", encoding="utf-8")
+            rc = 0
+        else:
+            with log_path.open("ab") as log:
+                proc = subprocess.run(
+                    cmd,
+                    cwd=str(cwd),
+                    env=effective_env,
+                    stdout=log,
+                    stderr=subprocess.STDOUT,
+                )
+            rc = int(proc.returncode)
+    except BaseException as exc:
+        launch_error = {"type": type(exc).__name__, "message": str(exc)[:2000]}
+        raise
+    finally:
+        payload = {
+            "schema_version": 1,
+            "visibility": "internal_only",
+            "notice": INTERNAL_ONLY_NOTICE,
+            "track": "B",
+            "started_at": started_at,
+            "finished_at": utc_now_iso(),
+            "wall_time_ms": elapsed_ms(started),
+            "exit_code": rc,
+            "dry_run": bool(dry_run),
+            "command": cmd,
+            "cwd": str(cwd),
+            "runtime": runtime_context(env=effective_env, python_executable=cmd[0]),
+            "gpu": {"pre": pre_gpu, "post": gpu_snapshot()},
+            "subprocess_max_rss": max_rss_omission(),
+        }
+        if launch_error is not None:
+            payload["launch_error"] = launch_error
+        try:
+            atomic_write_json(timing_path, payload)
+        except OSError:
+            if launch_error is None:
+                raise
+            # Preserve the original launch failure if timing storage also fails.
+            pass
+    assert rc is not None
+    return rc
 
 
 def write_manifest(
@@ -329,6 +390,31 @@ def write_manifest(
     artifacts: dict[str, Any] | None = None,
     notes: list[str] | None = None,
 ) -> Path:
+    timing_path = out_dir / "logs" / "timing.json"
+    if status == "deferred" or not timing_path.is_file():
+        # Deferred/admission-refused jobs never enter run_command, but still get
+        # a machine-readable provenance artifact with an explicit non-execution state.
+        now = utc_now_iso()
+        atomic_write_json(
+            timing_path,
+            {
+                "schema_version": 1,
+                "visibility": "internal_only",
+                "notice": INTERNAL_ONLY_NOTICE,
+                "track": "B",
+                "started_at": now,
+                "finished_at": now,
+                "wall_time_ms": 0.0,
+                "exit_code": exit_code,
+                "dry_run": False,
+                "execution": "not_started",
+                "command": command,
+                "runtime": runtime_context(python_executable=command[0] if command else None),
+                "gpu": {"pre": gpu_snapshot(), "post": None},
+                "subprocess_max_rss": max_rss_omission(),
+            },
+        )
+    timing = json.loads(timing_path.read_text(encoding="utf-8"))
     payload = {
         "schema_version": 1,
         "track": "B",
@@ -342,6 +428,16 @@ def write_manifest(
         "exit_code": exit_code,
         "command": command,
         "artifacts": artifacts or {},
+        "internal_artifacts": {
+            "timing": "logs/timing.json",
+            "visibility": "internal_only",
+        },
+        "internal_timing_summary": {
+            "wall_time_ms": timing.get("wall_time_ms"),
+            "started_at": timing.get("started_at"),
+            "finished_at": timing.get("finished_at"),
+            "exit_code": timing.get("exit_code"),
+        },
         "notes": notes or [],
         "created_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
     }
