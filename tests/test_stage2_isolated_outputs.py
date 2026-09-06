@@ -47,6 +47,16 @@ def test_stage2_preserves_visual_coverage_22_qwen3_contract() -> None:
     )
 
 
+def test_stage2_can_inline_video_outside_judge_mount(tmp_path, monkeypatch) -> None:
+    clip = tmp_path / "clip.mp4"
+    clip.write_bytes(b"\x00\x01video")
+    monkeypatch.setenv("VMEM_JUDGE_INLINE_VIDEO", "1")
+    part = visual_coverage._vid(clip)
+    assert part["type"] == "video_url"
+    assert part["video_url"]["url"].startswith("data:video/mp4;base64,")
+    assert "file://" not in part["video_url"]["url"]
+
+
 def test_stage2_discovers_custom_movie_in_isolated_tree(tmp_path, monkeypatch) -> None:
     service = _load_service()
     output_root = tmp_path / "isolated"

@@ -305,7 +305,23 @@ def _img(p):
     im.save(buf, format="JPEG", quality=90)
     b64 = base64.b64encode(buf.getvalue()).decode()
     return {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}
-def _vid(p): return {"type": "video_url", "video_url": {"url": f"file://{p}"}}
+
+
+def _vid(p):
+    """Build a judge video part, optionally independent of server filesystem mounts."""
+    if os.environ.get("VMEM_JUDGE_INLINE_VIDEO", "").strip().lower() in {
+        "1", "true", "yes", "on",
+    }:
+        import base64
+
+        encoded = base64.b64encode(Path(p).read_bytes()).decode("ascii")
+        return {
+            "type": "video_url",
+            "video_url": {"url": f"data:video/mp4;base64,{encoded}"},
+        }
+    return {"type": "video_url", "video_url": {"url": f"file://{p}"}}
+
+
 def _txt(t): return {"type": "text", "text": t}
 
 
