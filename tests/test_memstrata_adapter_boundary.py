@@ -62,5 +62,7 @@ def test_memstrata_adapter_selects_strict_paper_profile_by_default() -> None:
     )
     assert isinstance(profile, ast.Attribute)
     assert profile.attr == "production_profile"
+    keywords = {keyword.arg for keyword in pipeline_calls[0].keywords}
+    assert {"mllm_base_url", "mllm_model"} <= keywords
     assert '"MEMSTRATA_TRACKA_PROFILE", "paper_tracka_202607"' in source
     assert '"MEMSTRATA_TRACKA_NAME_SOURCE", "mllm"' in source

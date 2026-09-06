@@ -55,6 +55,16 @@ class MemStrataAdapter:
         self.max_reps_per_asset = int(max_reps_per_asset)
         self.decompose_frames = max(1, int(decompose_frames))
         self.production_profile = str(production_profile)
+        self.mllm_base_url = (
+            os.environ.get("MEMSTRATA_CONTEXT_JUDGER_BASE_URL")
+            or os.environ.get("MEMSTRATA_CROP_ATTR_BASE_URL")
+            or ""
+        ).strip()
+        self.mllm_model = (
+            os.environ.get("MEMSTRATA_VLM_MODEL")
+            or os.environ.get("MEMSTRATA_CROP_ATTR_MODEL")
+            or ""
+        ).strip()
         self.read_slow_fallback = os.environ.get(
             "MEMSTRATA_TRACKA_READ_SLOW_FALLBACK",
             "1" if self.name_source == "mllm" else "0",
@@ -104,6 +114,8 @@ class MemStrataAdapter:
             read_max_reps_per_asset=self.read_max_reps_per_asset,
             read_context_rep_budget=self.read_context_budget,
             max_reps_per_asset=self.max_reps_per_asset,
+            mllm_base_url=self.mllm_base_url or None,
+            mllm_model=self.mllm_model or None,
         )
         self._mem.fps = float(movie.fps)
         self._mem.long_video_path = str(movie.source_video)
