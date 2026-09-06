@@ -40,6 +40,7 @@ class MemStrataAdapter:
         max_reps_per_asset: int = 5,
         decompose_frames: int = 3,
         decompose_fps: float = 2.0,
+        production_profile: str = "paper_tracka_202607",
     ) -> None:
         del ffmpeg, decompose_fps  # production crop acquisition owns media decoding.
         models = public_models_root or os.environ.get("PUBLIC_MODELS_ROOT", "").strip()
@@ -53,6 +54,7 @@ class MemStrataAdapter:
         self.name_source = str(name_source)
         self.max_reps_per_asset = int(max_reps_per_asset)
         self.decompose_frames = max(1, int(decompose_frames))
+        self.production_profile = str(production_profile)
         self.read_slow_fallback = os.environ.get(
             "MEMSTRATA_TRACKA_READ_SLOW_FALLBACK",
             "1" if self.name_source == "mllm" else "0",
@@ -88,6 +90,7 @@ class MemStrataAdapter:
         provider = os.environ.get("MEMSTRATA_GENERAL_EMBEDDER_PROVIDER", "dinov3")
         self._mem = build_realized_segment_pipeline(
             run_dir=self._work_dir,
+            profile=self.production_profile,
             persist_path=self._work_dir / "bank.json",
             movie_id=movie.movie_id,
             write_naming=self.name_source,
@@ -160,6 +163,7 @@ class MemStrataAdapter:
         return {
             "system": self.name,
             "implementation": "memstrata.production.realized",
+            "production_profile": self.production_profile,
             "policy": self._mem.policy.name,
             "name_source": self.name_source,
             "read_slow_fallback": self.read_slow_fallback,
@@ -173,10 +177,13 @@ class MemStrataAdapter:
 
 
 def build_adapter() -> MemStrataAdapter:
-    name_source = os.environ.get("MEMSTRATA_TRACKA_NAME_SOURCE", "perception").strip().lower()
+    profile = os.environ.get(
+        "MEMSTRATA_TRACKA_PROFILE", "paper_tracka_202607"
+    ).strip()
+    name_source = os.environ.get("MEMSTRATA_TRACKA_NAME_SOURCE", "mllm").strip().lower()
     if name_source not in {"perception", "mllm"}:
         raise SystemExit(
             "MEMSTRATA_TRACKA_NAME_SOURCE must be 'perception' or 'mllm', "
             f"got {name_source!r}"
         )
-    return MemStrataAdapter(name_source=name_source)
+    return MemStrataAdapter(name_source=name_source, production_profile=profile)

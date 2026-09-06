@@ -42,3 +42,25 @@ def test_memstrata_adapter_does_not_construct_method_internals() -> None:
         if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
     }
     assert not (constructed & forbidden)
+
+
+def test_memstrata_adapter_selects_strict_paper_profile_by_default() -> None:
+    source = ADAPTER.read_text(encoding="utf-8")
+    tree = ast.parse(source)
+    pipeline_calls = [
+        node
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id == "build_realized_segment_pipeline"
+    ]
+    assert len(pipeline_calls) == 1
+    profile = next(
+        keyword.value
+        for keyword in pipeline_calls[0].keywords
+        if keyword.arg == "profile"
+    )
+    assert isinstance(profile, ast.Attribute)
+    assert profile.attr == "production_profile"
+    assert '"MEMSTRATA_TRACKA_PROFILE", "paper_tracka_202607"' in source
+    assert '"MEMSTRATA_TRACKA_NAME_SOURCE", "mllm"' in source

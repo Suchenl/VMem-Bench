@@ -56,6 +56,12 @@ documented entry is present in the selected MemStrata checkout, the adapter
 fails at `reset()` instead of reconstructing a fallback method inside the
 benchmark.
 
+Formal runs default to `MEMSTRATA_TRACKA_PROFILE=paper_tracka_202607` and
+`MEMSTRATA_TRACKA_NAME_SOURCE=mllm`. This profile requires a healthy
+WeDetect-Ref service and fails before processing if it is unavailable; it never
+silently substitutes the SAM3/GroundingDINO fallback. Use the ordinary
+`production` profile only for explicitly labeled diagnostics.
+
 For isolated canaries, set `VMEM_TRACKA_OUTPUT_ROOT` for both Stage-1 and
 Stage-2. Media tools resolve through `FFMPEG_BIN`/`PATH`/`imageio-ffmpeg`, or
 can be pinned with `--ffmpeg`. Stage-2 custom movies should pass both
@@ -77,7 +83,7 @@ Regression tests: `tests/test_trackA_stage1_job_lock.py`, `test_iamflow_host_mem
 
 | baseline | Python / libs | adapter | native memory / retrieval | status |
 |---|---|---|---|---|
-| **MemStrata (this system)** | torch + transformers (SAM3 vendored bundle prepended to PYTHONPATH) | `memstrata.py` | layered AssetBank (SAM3-concept+DINOv3 perception write) / IntentInterpreter name-anchor + model-free compose | **TrackA minismoke PASS**: BlenderOpenMovies:`big_buck_bunny` + LSMDC:`0001_American_Beauty`, limit=6 each, both produce `visual_selections`. |
+| **MemStrata (this system)** | torch + transformers + WeDetect-Ref service | `memstrata.py` | canonical production AssetBank (MLLM naming, WeDetect authoritative grounding, DINOv3 identity) / IntentInterpreter name-anchor + model-free compose | **Pending revalidation** after canonical production convergence; formal runs fail closed if WeDetect is unavailable. |
 | SlotMem | torch 2.5 + flash-attn 2.8 (diagnostic only) | `slotmem.py` | character slots (RoleWiseSlotMemoryBank) | **does not enter the oracle-free main table**: its released interface needs external/scripted `role_names` to locate slots stably; this is an oracle-role / Scripted diagnostic condition and does not fit TrackA/B prompt-only causal production evaluation. The runner skips it quickly on the mainline via `scripts/evaluate_baselines/trackA/.disable_slotmem_mainline`. |
 | LongLive-RAG | torch (VAE + AE; DiT need not run) | `longlive_rag.py` | self-encoded latent descriptors + AE cosine top-k | **TrackA minismoke PASS**: 1 sample per dataset at limit=6 both pass; pure descriptor computation, no generator forward needed. |
 | MemFlow (w/o SMA) | torch 2.6 + flash-attn 2.6 | `memflow.py` | sink + local window + KV bank (text-saliency top-k) | **TrackA minismoke PASS**: 1 sample per dataset at limit=6 both pass. |
