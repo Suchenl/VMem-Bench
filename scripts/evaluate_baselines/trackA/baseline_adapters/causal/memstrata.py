@@ -11,6 +11,13 @@ from contract import ComposeRequest, MovieContext, RetrievedItem, RetrievedMemor
 from _local_roots import find_memstrata_src
 
 
+def _env_flag(name: str, default: bool = False) -> bool:
+    raw = os.environ.get(name)
+    if raw is None:
+        return default
+    return raw.strip().lower() in {"1", "true", "on", "yes"}
+
+
 def _ensure_method_package() -> None:
     """Resolve the method package despite this adapter's top-level ``memstrata`` name."""
     source = str(find_memstrata_src())
@@ -77,6 +84,8 @@ class MemStrataAdapter:
         self.snapshot_each_segment = os.environ.get(
             "MEMSTRATA_TRACKA_SNAPSHOT_EACH_SEGMENT", "1"
         ).lower() in {"1", "true", "on", "yes"}
+        self.location_scene_plate = _env_flag("MEMSTRATA_TRACKA_LOCATION_SCENE_PLATE")
+        self.location_semantic_gates = _env_flag("MEMSTRATA_TRACKA_LOCATION_SEMANTIC_GATES")
         self._movie: MovieContext | None = None
         self._mem: Any = None
         self._work_dir: Path | None = None
@@ -108,6 +117,8 @@ class MemStrataAdapter:
             crop_acq_device=self.device,
             embedder_provider=provider,
             identity_threshold=self.identity_threshold,
+            location_scene_plate=self.location_scene_plate,
+            location_semantic_gates=self.location_semantic_gates,
             frame_pos=self.frame_pos,
             namer_frames=self.decompose_frames,
             read_slow_fallback=self.read_slow_fallback,
@@ -181,6 +192,8 @@ class MemStrataAdapter:
             "read_slow_fallback": self.read_slow_fallback,
             "read_max_reps_per_asset": self.read_max_reps_per_asset,
             "read_context_budget": self.read_context_budget,
+            "location_scene_plate": self.location_scene_plate,
+            "location_semantic_gates": self.location_semantic_gates,
             "assets": len(bank.assets),
             "representations": sum(len(asset.representations) for asset in bank.assets.values()),
             "retrieval_sources": dict(sorted(self._retrieval_sources.items())),
