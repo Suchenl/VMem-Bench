@@ -56,7 +56,11 @@ def test_tracka_writes_separated_internal_timing(tmp_path, monkeypatch):
     output = tmp_path / "outputs"
 
     monkeypatch.setattr(tracka, "_OUTPUT_ROOT", output)
-    monkeypatch.setattr(tracka, "_load_layout", lambda _: ({1: (0.0, 1.0)}, {1: "prompt"}))
+    monkeypatch.setattr(
+        tracka,
+        "_load_layout",
+        lambda _: ({1: (0.0, 1.0), 2: (1.0, 2.0)}, {1: "first", 2: "selected"}),
+    )
     monkeypatch.setattr(tracka, "_resolve_source_video", lambda _: source)
     monkeypatch.setattr(tracka, "gpu_snapshot", lambda: {"available": False, "reason": "test"})
 
@@ -73,8 +77,15 @@ def test_tracka_writes_separated_internal_timing(tmp_path, monkeypatch):
         lambda **_: {"system": "fake__B16", "out": "selection.json", "chunks": 1},
     )
 
+    adapter = _Adapter()
     summary = tracka.run_movie(
-        _Adapter(), movie_dir, ffmpeg="ffmpeg", fps=16.0, limit=None, budget=16
+        adapter,
+        movie_dir,
+        ffmpeg="ffmpeg",
+        fps=16.0,
+        limit=None,
+        budget=16,
+        chunk_ids=[2],
     )
     timing_path = Path(summary["internal_timing"])
     timing = json.loads(timing_path.read_text(encoding="utf-8"))
@@ -86,6 +97,8 @@ def test_tracka_writes_separated_internal_timing(tmp_path, monkeypatch):
     assert timing["total_movie_wall_ms"] >= 0
     assert timing["aggregates_ms"]["method"] >= 0
     assert timing["aggregates_ms"]["scorer"] is None
+    assert timing["segments"][0]["chunk_id"] == 2
+    assert adapter.last_observation.chunk_id == 2
     assert timing["segments"][0].keys() >= {
         "segment_cut_ms",
         "compose_ms",

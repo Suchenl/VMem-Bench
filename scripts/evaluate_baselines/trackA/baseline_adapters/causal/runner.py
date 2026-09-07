@@ -669,7 +669,8 @@ def _run_name(adapter_name: str, input_mode: str, budget: int | None) -> str:
 
 
 def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int | None,
-              input_mode: str = "name_anchored", budget: int | None = None) -> dict:
+              input_mode: str = "name_anchored", budget: int | None = None,
+              chunk_ids: list[int] | None = None) -> dict:
     movie_started_at = utc_now_iso()
     movie_t0 = time.perf_counter()
     if input_mode not in _INPUT_MODES:
@@ -691,6 +692,12 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
     dataset = movie_dir.parent.name
     run_dir = _OUTPUT_ROOT / run_name / dataset / movie_dir.name
     cids = sorted(spans)
+    if chunk_ids:
+        requested = set(int(cid) for cid in chunk_ids)
+        unknown = sorted(requested.difference(cids))
+        if unknown:
+            raise SystemExit(f"requested --chunk-id values are absent from layout: {unknown}")
+        cids = [cid for cid in cids if cid in requested]
     if limit:
         cids = cids[:limit]
     selection_path = run_dir / "visual_selections" / f"{run_name}.json"
@@ -972,6 +979,13 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--ffmpeg", default=_DEFAULT_FFMPEG)
     ap.add_argument("--fps", type=float, default=16.0)
     ap.add_argument("--limit", type=int, default=None, help="only first N segments (smoke)")
+    ap.add_argument(
+        "--chunk-id",
+        type=int,
+        action="append",
+        default=None,
+        help="drive only this chunk id (repeatable; mutually exclusive with --limit)",
+    )
     ap.add_argument("--input-mode", choices=list(_INPUT_MODES), default="name_anchored",
                     help="name_anchored (main) | description_provided (append appearance "
                          "descriptions for prompt-named entities; fairness axis) | "
@@ -983,6 +997,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--budget-sweep", action="store_true",
                     help="run B in {1,2,4,8,16}; outputs are suffixed with __B<budget>")
     args = ap.parse_args(argv)
+    if args.limit and args.chunk_id:
+        ap.error("--limit and --chunk-id are mutually exclusive")
 
     if (args.movie_dir is None) == (args.movie_list is None):
         raise SystemExit("provide exactly one of --movie-dir or --movie-list")
@@ -1026,7 +1042,8 @@ def main(argv: list[str] | None = None) -> int:
             # queued behind it (that is how whole IAMFlow lists were lost).
             try:
                 summary = run_movie(adapter, movie_dir, ffmpeg=args.ffmpeg, fps=args.fps,
-                                    limit=args.limit, input_mode=args.input_mode, budget=budget)
+                                    limit=args.limit, input_mode=args.input_mode, budget=budget,
+                                    chunk_ids=args.chunk_id)
             # SystemExit is included on purpose: run_movie raises it for per-movie
             # data problems such as a missing source video, which must not take the
             # rest of the list down either.
