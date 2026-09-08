@@ -39,6 +39,11 @@ def _ffmpeg_threads() -> str:
 def _link_or_copy(src: Path, dst: Path) -> bool:
     dst.parent.mkdir(parents=True, exist_ok=True)
     try:
+        if src.resolve() == dst.resolve():
+            return src.is_file() and src.stat().st_size > 0
+    except OSError:
+        return False
+    try:
         if dst.exists() or dst.is_symlink():
             dst.unlink()
         os.link(src, dst)

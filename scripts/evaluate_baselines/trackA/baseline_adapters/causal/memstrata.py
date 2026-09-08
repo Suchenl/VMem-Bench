@@ -2,13 +2,21 @@
 
 from __future__ import annotations
 
+import hashlib
+import json
 import os
+import shutil
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
 
 from contract import ComposeRequest, MovieContext, RetrievedItem, RetrievedMemory, SegmentObservation
 from _local_roots import find_memstrata_src
+
+_LEGACY_RESUME_COMPATIBLE_METHOD_COMMITS = {
+    "92488e42b6cb5bf55fed289f684e56aa9d4adb28",
+}
 
 
 def _ensure_method_package() -> None:
@@ -20,6 +28,23 @@ def _ensure_method_package() -> None:
     shadow = sys.modules.get("memstrata")
     if shadow is not None and getattr(shadow, "__file__", "").endswith("/causal/memstrata.py"):
         sys.modules.pop("memstrata", None)
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def _git_state(root: Path) -> dict[str, str]:
+    def _git(*args: str) -> bytes:
+        return subprocess.check_output(["git", "-C", str(root), *args])
+
+    commit = _git("rev-parse", "HEAD").decode().strip()
+    diff = _git("diff", "--no-ext-diff", "--binary", "HEAD")
+    return {"commit": commit, "tracked_diff_sha256": hashlib.sha256(diff).hexdigest()}
 
 
 class MemStrataAdapter:
@@ -74,6 +99,7 @@ class MemStrataAdapter:
         )
         raw_budget = os.environ.get("MEMSTRATA_TRACKA_READ_CONTEXT_BUDGET", "").strip()
         self.read_context_budget = int(raw_budget) if raw_budget else None
+        self.embedder_provider = os.environ.get("MEMSTRATA_GENERAL_EMBEDDER_PROVIDER", "dinov3")
         self.snapshot_each_segment = os.environ.get(
             "MEMSTRATA_TRACKA_SNAPSHOT_EACH_SEGMENT", "1"
         ).lower() in {"1", "true", "on", "yes"}
@@ -81,6 +107,66 @@ class MemStrataAdapter:
         self._mem: Any = None
         self._work_dir: Path | None = None
         self._retrieval_sources: dict[str, int] = {}
+
+    def _checkpoint_identity(self) -> dict[str, Any]:
+        method_root = find_memstrata_src().parent
+        return {
+            "adapter": self.name,
+            "method_git": _git_state(method_root),
+            "config": {
+                "production_profile": self.production_profile,
+                "name_source": self.name_source,
+                "enable_perception": self.enable_perception,
+                "identity_threshold": self.identity_threshold,
+                "frame_pos": self.frame_pos,
+                "max_reps_per_asset": self.max_reps_per_asset,
+                "decompose_frames": self.decompose_frames,
+                "embedder_provider": self.embedder_provider,
+                "read_slow_fallback": self.read_slow_fallback,
+                "read_max_reps_per_asset": self.read_max_reps_per_asset,
+                "read_context_budget": self.read_context_budget,
+                "mllm_base_url": self.mllm_base_url,
+                "mllm_model": self.mllm_model,
+            },
+        }
+
+    def stage1_resume_identity(self) -> dict[str, Any]:
+        """Public runner handshake for legacy provenance validation."""
+        return {
+            **self._checkpoint_identity(),
+            "legacy_compatible_commits": sorted(
+                _LEGACY_RESUME_COMPATIBLE_METHOD_COMMITS
+            ),
+        }
+
+    def adopt_stage1_checkpoint(
+        self, *, work_dir: str | Path, bank_path: str | Path, segment_id: int
+    ) -> dict[str, Any]:
+        """Freeze a validated legacy bank before the active copy can advance."""
+        root = Path(work_dir).resolve()
+        source = Path(bank_path).resolve()
+        try:
+            source.relative_to(root)
+        except ValueError as exc:
+            raise RuntimeError("legacy bank is outside the adapter work directory") from exc
+        if not source.is_file():
+            raise RuntimeError(f"legacy bank is missing: {source}")
+        checkpoint_bank = (
+            root
+            / "segment_checkpoints"
+            / f"segment_{int(segment_id):05d}"
+            / "bank.json"
+        )
+        checkpoint_bank.parent.mkdir(parents=True, exist_ok=True)
+        tmp = checkpoint_bank.with_suffix(".json.adopt.tmp")
+        shutil.copyfile(source, tmp)
+        os.replace(tmp, checkpoint_bank)
+        return {
+            "identity": self._checkpoint_identity(),
+            "bank_path": str(checkpoint_bank),
+            "bank_sha256": _sha256(checkpoint_bank),
+            "retrieval_sources": {},
+        }
 
     def reset(self, movie: MovieContext) -> None:
         _ensure_method_package()
@@ -97,16 +183,44 @@ class MemStrataAdapter:
         self._movie = movie
         self._work_dir = Path(movie.work_dir)
         self._work_dir.mkdir(parents=True, exist_ok=True)
-        provider = os.environ.get("MEMSTRATA_GENERAL_EMBEDDER_PROVIDER", "dinov3")
+        resume_state = movie.extras.get("stage1_resume")
+        resume = resume_state is not None
+        active_bank = self._work_dir / "bank.json"
+        if resume:
+            if not isinstance(resume_state, dict):
+                raise RuntimeError("invalid MemStrata Stage-1 resume state")
+            expected = self._checkpoint_identity()
+            actual_identity = resume_state.get("identity")
+            if actual_identity != expected:
+                raise RuntimeError(
+                    "MemStrata Stage-1 checkpoint method commit/config mismatch: "
+                    + json.dumps(
+                        {"expected": expected, "checkpoint": actual_identity},
+                        ensure_ascii=False,
+                        sort_keys=True,
+                    )
+                )
+            checkpoint_bank = Path(str(resume_state.get("bank_path") or "")).resolve()
+            try:
+                checkpoint_bank.relative_to(self._work_dir.resolve())
+            except ValueError as exc:
+                raise RuntimeError("checkpoint bank is outside the adapter work directory") from exc
+            if not checkpoint_bank.is_file():
+                raise RuntimeError(f"checkpoint bank is missing: {checkpoint_bank}")
+            if _sha256(checkpoint_bank) != resume_state.get("bank_sha256"):
+                raise RuntimeError("checkpoint bank hash mismatch")
+            tmp = active_bank.with_suffix(".json.resume.tmp")
+            shutil.copyfile(checkpoint_bank, tmp)
+            os.replace(tmp, active_bank)
         self._mem = build_realized_segment_pipeline(
             run_dir=self._work_dir,
             profile=self.production_profile,
-            persist_path=self._work_dir / "bank.json",
+            persist_path=active_bank,
             movie_id=movie.movie_id,
             write_naming=self.name_source,
             discovery=self.enable_perception and self.name_source != "mllm",
             crop_acq_device=self.device,
-            embedder_provider=provider,
+            embedder_provider=self.embedder_provider,
             identity_threshold=self.identity_threshold,
             frame_pos=self.frame_pos,
             namer_frames=self.decompose_frames,
@@ -116,10 +230,20 @@ class MemStrataAdapter:
             max_reps_per_asset=self.max_reps_per_asset,
             mllm_base_url=self.mllm_base_url or None,
             mllm_model=self.mllm_model or None,
+            resume=resume,
         )
         self._mem.fps = float(movie.fps)
         self._mem.long_video_path = str(movie.source_video)
-        self._retrieval_sources = {}
+        self._retrieval_sources = (
+            dict(resume_state.get("retrieval_sources") or {}) if resume else {}
+        )
+        if resume:
+            for cid in resume_state.get("completed_chunk_ids") or []:
+                span = movie.seconds_span_by_chunk[int(cid)]
+                self._mem.segment_start_sec[int(cid)] = float(span[0])
+                self._mem.segment_duration_sec[int(cid)] = max(
+                    0.0, float(span[1]) - float(span[0])
+                )
 
     def compose(self, req: ComposeRequest) -> RetrievedMemory:
         record = RetrievedMemory(chunk_id=req.chunk_id)
@@ -166,6 +290,24 @@ class MemStrataAdapter:
         )
         if self.snapshot_each_segment:
             self._mem.write_memory_snapshot()
+
+    def stage1_checkpoint(self, segment_id: int) -> dict[str, Any]:
+        """Freeze the bank for one runner commit; later active writes cannot alter it."""
+        if self._mem is None or self._work_dir is None:
+            raise RuntimeError("reset() must be called before stage1_checkpoint()")
+        checkpoint_bank = (
+            self._work_dir
+            / "segment_checkpoints"
+            / f"segment_{int(segment_id):05d}"
+            / "bank.json"
+        )
+        self._mem.bank.save(checkpoint_bank)
+        return {
+            "identity": self._checkpoint_identity(),
+            "bank_path": str(checkpoint_bank.resolve()),
+            "bank_sha256": _sha256(checkpoint_bank),
+            "retrieval_sources": dict(sorted(self._retrieval_sources.items())),
+        }
 
     def finalize(self) -> dict[str, Any]:
         if self._mem is None:

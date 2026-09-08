@@ -44,6 +44,14 @@ def _manifest(out_dir: Path) -> dict:
     return json.loads((out_dir / "memstrata.json").read_text(encoding="utf-8"))
 
 
+def test_link_or_copy_preserves_same_materialized_frame(tmp_path: Path) -> None:
+    frame = tmp_path / "already_materialized.png"
+    frame.write_bytes(PNG_BYTES)
+
+    assert frame_materializer._link_or_copy(frame, frame) is True
+    assert frame.read_bytes() == PNG_BYTES
+
+
 def test_direct_image_path_is_used_without_ffmpeg(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     movie, work_dir, frames_dir, out_dir = _layout(tmp_path)
     crop = work_dir / "segment_00000" / "crop.png"

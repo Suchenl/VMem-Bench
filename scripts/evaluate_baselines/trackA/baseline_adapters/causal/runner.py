@@ -39,6 +39,7 @@ the same clipping.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -64,7 +65,13 @@ from internal_runtime import (  # noqa: E402
     utc_now_iso,
 )
 
-from contract import ComposeRequest, MovieContext, RetrievedItem, SegmentObservation
+from contract import (
+    ComposeRequest,
+    MovieContext,
+    RetrievedItem,
+    RetrievedMemory,
+    SegmentObservation,
+)
 from frame_materializer import materialize_record_checkpoint, materialize_system
 from _local_roots import expand_dataset_root
 
@@ -98,6 +105,9 @@ _OUTPUT_ROOT = Path(
 _INPUT_MODES = ("name_anchored", "description_provided", "description_only")
 _BUDGET_CHOICES = (1, 2, 4, 8, 16)
 _RRF_K = 60
+_LEGACY_RESUME_COMPATIBLE_BENCHMARK_COMMITS = {
+    "9301039e0741d879c40ff9f454c879b1446a976a",
+}
 def _keepalive_status_dir() -> Path | None:
     raw = os.environ.get("GPU_KEEPALIVE_STATUS_DIR", "").strip()
     return Path(raw) if raw else None
@@ -287,6 +297,246 @@ def _selection_complete(path: Path, expected_chunks: int) -> bool:
         return False
     chunks = data.get("chunks") if isinstance(data, dict) else None
     return isinstance(chunks, list) and len(chunks) >= int(expected_chunks)
+
+
+def _git_state(root: Path) -> dict[str, str]:
+    def _git(*args: str) -> bytes:
+        return subprocess.check_output(["git", "-C", str(root), *args])
+
+    commit = _git("rev-parse", "HEAD").decode().strip()
+    diff = _git("diff", "--no-ext-diff", "--binary", "HEAD")
+    return {"commit": commit, "tracked_diff_sha256": hashlib.sha256(diff).hexdigest()}
+
+
+def _checkpoint_config(
+    *,
+    system: str,
+    dataset: str,
+    movie: str,
+    input_mode: str,
+    budget: int | None,
+    fps: float,
+    cids: list[int],
+    spans: dict[int, tuple[float, float]],
+    prompts: dict[int, str],
+    source_video: Path,
+) -> dict:
+    stat = source_video.stat()
+    prompt_layout = [
+        {
+            "chunk_id": cid,
+            "seconds_span": list(spans[cid]),
+            "prompt": prompts.get(cid, ""),
+        }
+        for cid in cids
+    ]
+    layout_sha256 = hashlib.sha256(
+        json.dumps(
+            prompt_layout, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+        ).encode("utf-8")
+    ).hexdigest()
+    return {
+        "system": system,
+        "dataset": dataset,
+        "movie": movie,
+        "input_mode": input_mode,
+        "budget": budget,
+        "fps": float(fps),
+        "chunk_ids": cids,
+        "layout_sha256": layout_sha256,
+        "source_video": {
+            "path": str(source_video.resolve()),
+            "size": stat.st_size,
+            "mtime_ns": stat.st_mtime_ns,
+        },
+        "benchmark_git": _git_state(_BENCH_ROOT),
+    }
+
+
+def _record_from_dict(raw: dict) -> RetrievedMemory:
+    return RetrievedMemory(
+        chunk_id=int(raw["chunk_id"]),
+        items=[RetrievedItem(**item) for item in raw.get("items", [])],
+        extras=dict(raw.get("extras") or {}),
+    )
+
+
+def _load_stage1_checkpoint(path: Path, expected_config: dict) -> tuple[list[RetrievedMemory], dict]:
+    if not path.is_file():
+        raise RuntimeError(f"--resume requires a committed Stage-1 checkpoint: {path}")
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise RuntimeError(f"invalid Stage-1 checkpoint manifest: {path}") from exc
+    if payload.get("schema_version") != 1 or payload.get("status") != "committed":
+        raise RuntimeError(f"unsupported or uncommitted Stage-1 checkpoint: {path}")
+    if payload.get("config") != expected_config:
+        raise RuntimeError(
+            "Stage-1 checkpoint commit/config mismatch: "
+            + json.dumps(
+                {"expected": expected_config, "checkpoint": payload.get("config")},
+                ensure_ascii=False,
+                sort_keys=True,
+            )
+        )
+    completed = [int(cid) for cid in payload.get("completed_chunk_ids") or []]
+    expected_prefix = expected_config["chunk_ids"][: len(completed)]
+    if completed != expected_prefix:
+        raise RuntimeError("Stage-1 checkpoint completed chunks are not an exact prefix")
+    raw_records = payload.get("records")
+    if not isinstance(raw_records, list):
+        raise RuntimeError("Stage-1 checkpoint is missing retrieval records")
+    records = [_record_from_dict(raw) for raw in raw_records]
+    if [record.chunk_id for record in records] != completed:
+        raise RuntimeError("Stage-1 checkpoint records do not match completed chunks")
+    adapter_state = payload.get("adapter_state")
+    if not isinstance(adapter_state, dict):
+        raise RuntimeError("Stage-1 checkpoint is missing adapter state")
+    return records, adapter_state
+
+
+def _legacy_records(selection_path: Path, expected_cids: list[int]) -> list[RetrievedMemory]:
+    try:
+        payload = json.loads(selection_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise RuntimeError(f"invalid legacy visual selection: {selection_path}") from exc
+    chunks = payload.get("chunks") if isinstance(payload, dict) else None
+    if not isinstance(chunks, list):
+        raise RuntimeError("legacy visual selection is missing chunks")
+    chunk_ids = [int(row["chunk_id"]) for row in chunks if isinstance(row, dict)]
+    if chunk_ids != expected_cids[: len(chunk_ids)] or not chunk_ids:
+        raise RuntimeError("legacy visual selection chunks are not a non-empty exact prefix")
+    records: list[RetrievedMemory] = []
+    for chunk in chunks:
+        items: list[RetrievedItem] = []
+        for selected in chunk.get("selected") or []:
+            for rep in selected.get("representations") or []:
+                items.append(
+                    RetrievedItem(
+                        evidence_kind=str(rep.get("evidence_kind") or "reference_image"),
+                        source_seconds=rep.get("source_seconds"),
+                        source_chunk_id=rep.get("source_chunk_id"),
+                        score=rep.get("score"),
+                        raw_ref="legacy_committed_selection",
+                        image_path=str(rep.get("crop_abspath") or "") or None,
+                    )
+                )
+        records.append(
+            RetrievedMemory(
+                chunk_id=int(chunk["chunk_id"]),
+                items=items,
+                extras=dict(chunk.get("retrieval_timing") or {}),
+            )
+        )
+    return records
+
+
+def _command_option(command: list[str], flag: str) -> str | None:
+    try:
+        index = command.index(flag)
+        return command[index + 1]
+    except (ValueError, IndexError):
+        return None
+
+
+def _adopt_legacy_stage1_checkpoint(
+    *,
+    provenance_path: Path,
+    checkpoint_path: Path,
+    expected_config: dict,
+    selection_path: Path,
+    adapter,
+    work_dir: Path,
+) -> tuple[list[RetrievedMemory], dict]:
+    try:
+        provenance = json.loads(provenance_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise RuntimeError(f"invalid legacy provenance manifest: {provenance_path}") from exc
+    identity_fn = getattr(adapter, "stage1_resume_identity", None)
+    adopt_fn = getattr(adapter, "adopt_stage1_checkpoint", None)
+    if not callable(identity_fn) or not callable(adopt_fn):
+        raise RuntimeError(f"adapter {adapter.name!r} cannot adopt legacy Stage-1 output")
+    identity = identity_fn()
+    method_commit = ((identity.get("method_git") or {}).get("commit"))
+    benchmark_commit = expected_config["benchmark_git"]["commit"]
+    compatible_method_commits = set(identity.get("legacy_compatible_commits") or [])
+    if provenance.get("method_git_sha") not in compatible_method_commits:
+        raise RuntimeError("legacy provenance method commit mismatch")
+    if provenance.get("benchmark_git_sha") not in _LEGACY_RESUME_COMPATIBLE_BENCHMARK_COMMITS:
+        raise RuntimeError("legacy provenance benchmark commit mismatch")
+    if not method_commit or not benchmark_commit:
+        raise RuntimeError("current checkout commit provenance is unavailable")
+    command = provenance.get("command")
+    if not isinstance(command, list):
+        raise RuntimeError("legacy provenance is missing the executed command")
+    expected_command = {
+        "--adapter": "memstrata",
+        "--input-mode": expected_config["input_mode"],
+        "--budget": str(expected_config["budget"]),
+    }
+    mismatches = {
+        flag: {"expected": value, "actual": _command_option(command, flag)}
+        for flag, value in expected_command.items()
+        if _command_option(command, flag) != value
+    }
+    if mismatches:
+        raise RuntimeError(
+            "legacy provenance command/config mismatch: "
+            + json.dumps(mismatches, sort_keys=True)
+        )
+    command_movie = _command_option(command, "--movie-dir")
+    movie_suffix = (
+        "assets",
+        "trackA",
+        expected_config["dataset"],
+        expected_config["movie"],
+    )
+    if command_movie is None or tuple(Path(command_movie).parts[-4:]) != movie_suffix:
+        raise RuntimeError("legacy provenance movie/config mismatch")
+    artifacts = provenance.get("artifacts") or {}
+    if Path(str(artifacts.get("selection") or "")).resolve() != selection_path.resolve():
+        raise RuntimeError("legacy provenance selection path mismatch")
+    bank_path = work_dir / "bank.json"
+    if Path(str(artifacts.get("bank") or "")).resolve() != bank_path.resolve():
+        raise RuntimeError("legacy provenance bank path mismatch")
+    records = _legacy_records(selection_path, expected_config["chunk_ids"])
+    try:
+        bank = json.loads(bank_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise RuntimeError(f"invalid legacy bank: {bank_path}") from exc
+    completed = {record.chunk_id for record in records}
+    origin_ids = {
+        int(rep["origin_segment_id"])
+        for asset in (bank.get("assets") or {}).values()
+        for rep in asset.get("representations") or []
+        if rep.get("origin_segment_id") is not None
+    }
+    if not origin_ids.issubset(completed):
+        raise RuntimeError("legacy bank contains writes beyond the committed selection prefix")
+    adapter_state = adopt_fn(
+        work_dir=work_dir,
+        bank_path=bank_path,
+        segment_id=records[-1].chunk_id,
+    )
+    atomic_write_json(
+        checkpoint_path,
+        {
+            "schema_version": 1,
+            "status": "committed",
+            "config": expected_config,
+            "completed_chunk_ids": [record.chunk_id for record in records],
+            "records": [record.to_dict() for record in records],
+            "adapter_state": adapter_state,
+            "adopted_from": str(provenance_path.resolve()),
+        },
+    )
+    return records, adapter_state
+
+
+def _has_partial_output(run_dir: Path) -> bool:
+    if not run_dir.is_dir():
+        return False
+    return any(path.name != ".stage1.lock" for path in run_dir.iterdir())
 
 
 def _summary_selection_complete(summary: dict) -> bool:
@@ -668,8 +918,18 @@ def _run_name(adapter_name: str, input_mode: str, budget: int | None) -> str:
     return run_name
 
 
-def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int | None,
-              input_mode: str = "name_anchored", budget: int | None = None) -> dict:
+def run_movie(
+    adapter,
+    movie_dir: Path,
+    *,
+    ffmpeg: str,
+    fps: float,
+    limit: int | None,
+    input_mode: str = "name_anchored",
+    budget: int | None = None,
+    resume: bool = False,
+    resume_provenance: Path | None = None,
+) -> dict:
     movie_started_at = utc_now_iso()
     movie_t0 = time.perf_counter()
     if input_mode not in _INPUT_MODES:
@@ -706,6 +966,47 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
             "reason": "complete_visual_selection_exists",
             "visual_selection": str(selection_path),
         }
+    checkpoint_path = run_dir / "stage1_checkpoint.json"
+    if _has_partial_output(run_dir) and not resume:
+        raise FileExistsError(
+            f"incomplete Stage-1 output exists; choose a new output root or pass --resume: {run_dir}"
+        )
+    if resume and not callable(getattr(adapter, "stage1_checkpoint", None)):
+        raise RuntimeError(f"adapter {adapter.name!r} does not support safe Stage-1 resume")
+    checkpoint_config = _checkpoint_config(
+        system=run_name,
+        dataset=dataset,
+        movie=movie_dir.name,
+        input_mode=input_mode,
+        budget=budget,
+        fps=fps,
+        cids=cids,
+        spans=spans,
+        prompts=prompts,
+        source_video=src,
+    )
+    work_dir = run_dir / "_adapter_work" / run_name
+    records: list[RetrievedMemory] = []
+    adapter_resume_state: dict | None = None
+    if resume:
+        if checkpoint_path.is_file():
+            records, adapter_resume_state = _load_stage1_checkpoint(
+                checkpoint_path, checkpoint_config
+            )
+        elif resume_provenance is not None:
+            records, adapter_resume_state = _adopt_legacy_stage1_checkpoint(
+                provenance_path=resume_provenance,
+                checkpoint_path=checkpoint_path,
+                expected_config=checkpoint_config,
+                selection_path=selection_path,
+                adapter=adapter,
+                work_dir=work_dir,
+            )
+        else:
+            raise RuntimeError(
+                "--resume found no committed checkpoint; legacy output additionally "
+                "requires --resume-provenance <results.json>"
+            )
     run_dir.mkdir(parents=True, exist_ok=True)
     lock_path = run_dir / ".stage1.lock"
     lock_fd = _acquire_job_lock(lock_path)
@@ -720,7 +1021,6 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
             "reason": "stage1_lock_exists",
             "lock": str(lock_path),
         }
-    work_dir = run_dir / "_adapter_work" / run_name
     seg_dir = _OUTPUT_ROOT / "_shared_segments" / dataset / movie_dir.name
     frames_dir = run_dir / "_ref_frames" / run_name
     timing_path = run_dir / "logs" / "timing.json"
@@ -758,6 +1058,14 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
             fps=fps,
             seconds_span_by_chunk=spans,
             work_dir=str(work_dir),
+            extras={
+                "stage1_resume": {
+                    **adapter_resume_state,
+                    "completed_chunk_ids": [record.chunk_id for record in records],
+                }
+            }
+            if adapter_resume_state is not None
+            else {},
         )
         # Optional adapter admission check. An adapter that knows it cannot finish
         # this movie under the pod's resource budget returns a reason string here,
@@ -784,10 +1092,20 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
         adapter.reset(movie)
         timing["phases_ms"]["reset_cold_start"] = elapsed_ms(phase_t0)
 
-        records = []
         total_chunks = len(cids)
+        completed_count = len(records)
+        if records:
+            materialize_system(
+                system=run_name,
+                movie=movie,
+                records=records,
+                out_dir=run_dir / "visual_selections",
+                frames_dir=frames_dir,
+                ffmpeg=ffmpeg,
+                prompts=prompts,
+            )
         segment_loop_t0 = time.perf_counter()
-        for idx, cid in enumerate(cids, start=1):
+        for idx, cid in enumerate(cids[completed_count:], start=completed_count + 1):
             s0, s1 = spans[cid]
             print(
                 f"[stage1] {run_name}/{dataset}/{movie_dir.name} segment={idx}/{total_chunks} id={cid} start",
@@ -835,6 +1153,20 @@ def run_movie(adapter, movie_dir: Path, *, ffmpeg: str, fps: float, limit: int |
                     prompts=prompts,
                     expected_chunks=total_chunks,
                 )
+                checkpoint_adapter = getattr(adapter, "stage1_checkpoint", None)
+                if callable(checkpoint_adapter):
+                    adapter_state = checkpoint_adapter(cid)
+                    atomic_write_json(
+                        checkpoint_path,
+                        {
+                            "schema_version": 1,
+                            "status": "committed",
+                            "config": checkpoint_config,
+                            "completed_chunk_ids": [record.chunk_id for record in records],
+                            "records": [record.to_dict() for record in records],
+                            "adapter_state": adapter_state,
+                        },
+                    )
                 checkpoint_ms = elapsed_ms(phase_t0)
             timing["segments"].append(
                 {
@@ -982,10 +1314,30 @@ def main(argv: list[str] | None = None) -> int:
                     help="runner-level top-B cap over returned items")
     ap.add_argument("--budget-sweep", action="store_true",
                     help="run B in {1,2,4,8,16}; outputs are suffixed with __B<budget>")
+    ap.add_argument(
+        "--resume",
+        action="store_true",
+        help="explicitly resume a manifest/commit/config-validated segment checkpoint",
+    )
+    ap.add_argument(
+        "--resume-provenance",
+        type=Path,
+        default=None,
+        help="results.json used to validate and adopt a legacy incremental output",
+    )
     args = ap.parse_args(argv)
 
     if (args.movie_dir is None) == (args.movie_list is None):
         raise SystemExit("provide exactly one of --movie-dir or --movie-list")
+    if args.resume_provenance is not None and not args.resume:
+        raise SystemExit("--resume-provenance requires --resume")
+    if args.resume_provenance is not None and (
+        args.movie_list is not None or args.budget_sweep
+    ):
+        raise SystemExit(
+            "--resume-provenance adopts exactly one movie/budget; "
+            "it cannot be combined with --movie-list or --budget-sweep"
+        )
 
     _require_iamflow_http_services(args.adapter)
 
@@ -1026,7 +1378,9 @@ def main(argv: list[str] | None = None) -> int:
             # queued behind it (that is how whole IAMFlow lists were lost).
             try:
                 summary = run_movie(adapter, movie_dir, ffmpeg=args.ffmpeg, fps=args.fps,
-                                    limit=args.limit, input_mode=args.input_mode, budget=budget)
+                                    limit=args.limit, input_mode=args.input_mode, budget=budget,
+                                    resume=args.resume,
+                                    resume_provenance=args.resume_provenance)
             # SystemExit is included on purpose: run_movie raises it for per-movie
             # data problems such as a missing source video, which must not take the
             # rest of the list down either.

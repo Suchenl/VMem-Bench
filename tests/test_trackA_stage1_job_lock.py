@@ -177,3 +177,282 @@ def test_env_float_falls_back_on_garbage(monkeypatch):
     assert runner._env_float("MAVE_TEST_FLOAT", 7.5) == pytest.approx(7.5)
     monkeypatch.setenv("MAVE_TEST_FLOAT", "2.5")
     assert runner._env_float("MAVE_TEST_FLOAT", 7.5) == pytest.approx(2.5)
+
+
+def test_resume_checkpoint_requires_exact_config_and_prefix(tmp_path):
+    path = tmp_path / "stage1_checkpoint.json"
+    config = {"chunk_ids": [0, 1, 2], "benchmark_git": {"commit": "bench-a"}}
+    payload = {
+        "schema_version": 1,
+        "status": "committed",
+        "config": config,
+        "completed_chunk_ids": [0, 1],
+        "records": [
+            {"chunk_id": 0, "items": [], "extras": {"intent_resolution_source": "recency"}},
+            {
+                "chunk_id": 1,
+                "items": [
+                    {
+                        "evidence_kind": "reference_image",
+                        "source_seconds": 0.0,
+                        "source_chunk_id": 0,
+                        "latent_index": None,
+                        "score": None,
+                        "raw_ref": "memstrata:a:r",
+                        "image_path": "/tmp/ref.png",
+                    }
+                ],
+                "extras": {},
+            },
+        ],
+        "adapter_state": {"bank_sha256": "abc"},
+    }
+    path.write_text(json.dumps(payload), encoding="utf-8")
+
+    records, adapter_state = runner._load_stage1_checkpoint(path, config)
+    assert [record.chunk_id for record in records] == [0, 1]
+    assert records[1].items[0].source_chunk_id == 0
+    assert adapter_state == {"bank_sha256": "abc"}
+
+    with pytest.raises(RuntimeError, match="commit/config mismatch"):
+        runner._load_stage1_checkpoint(
+            path, {"chunk_ids": [0, 1, 2], "benchmark_git": {"commit": "bench-b"}}
+        )
+
+    payload["completed_chunk_ids"] = [0, 2]
+    payload["records"][1]["chunk_id"] = 2
+    path.write_text(json.dumps(payload), encoding="utf-8")
+    with pytest.raises(RuntimeError, match="exact prefix"):
+        runner._load_stage1_checkpoint(path, config)
+
+
+def test_partial_output_requires_explicit_resume(tmp_path):
+    run_dir = tmp_path / "run"
+    run_dir.mkdir()
+    assert runner._has_partial_output(run_dir) is False
+    (run_dir / ".stage1.lock").write_text("pid=1", encoding="utf-8")
+    assert runner._has_partial_output(run_dir) is False
+    (run_dir / "_adapter_work").mkdir()
+    assert runner._has_partial_output(run_dir) is True
+
+
+def test_legacy_adoption_validates_provenance_and_freezes_bank(tmp_path):
+    run_dir = tmp_path / "output" / "memstrata__B16" / "Dataset" / "Movie"
+    work_dir = run_dir / "_adapter_work" / "memstrata__B16"
+    selection = run_dir / "visual_selections" / "memstrata__B16.json"
+    selection.parent.mkdir(parents=True)
+    work_dir.mkdir(parents=True)
+    selection.write_text(
+        json.dumps(
+            {
+                "chunks": [
+                    {
+                        "chunk_id": 0,
+                        "retrieval_timing": {"compose_ms": 1, "observe_ms": 2},
+                        "selected": [],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    bank = work_dir / "bank.json"
+    bank.write_text(json.dumps({"assets": {}, "version": 1}), encoding="utf-8")
+    provenance = tmp_path / "results.json"
+    provenance.write_text(
+        json.dumps(
+            {
+                "method_git_sha": "method-base",
+                "benchmark_git_sha": next(
+                    iter(runner._LEGACY_RESUME_COMPATIBLE_BENCHMARK_COMMITS)
+                ),
+                "command": [
+                    "python",
+                    "runner.py",
+                    "--adapter",
+                    "memstrata",
+                    "--movie-dir",
+                    "/old/checkout/assets/trackA/Dataset/Movie",
+                    "--input-mode",
+                    "name_anchored",
+                    "--budget",
+                    "16",
+                ],
+                "artifacts": {"selection": str(selection), "bank": str(bank)},
+            }
+        ),
+        encoding="utf-8",
+    )
+    config = {
+        "chunk_ids": [0, 1],
+        "dataset": "Dataset",
+        "movie": "Movie",
+        "input_mode": "name_anchored",
+        "budget": 16,
+        "benchmark_git": {"commit": "fixed-benchmark"},
+    }
+
+    class Adopter:
+        name = "memstrata"
+
+        def stage1_resume_identity(self):
+            return {
+                "method_git": {"commit": "fixed-method"},
+                "legacy_compatible_commits": ["method-base"],
+            }
+
+        def adopt_stage1_checkpoint(self, **kwargs):
+            assert kwargs["bank_path"] == bank
+            return {"bank_sha256": "frozen"}
+
+    checkpoint = run_dir / "stage1_checkpoint.json"
+    records, state = runner._adopt_legacy_stage1_checkpoint(
+        provenance_path=provenance,
+        checkpoint_path=checkpoint,
+        expected_config=config,
+        selection_path=selection,
+        adapter=Adopter(),
+        work_dir=work_dir,
+    )
+    assert [record.chunk_id for record in records] == [0]
+    assert state == {"bank_sha256": "frozen"}
+    assert json.loads(checkpoint.read_text())["adopted_from"] == str(provenance.resolve())
+
+    bad = json.loads(provenance.read_text())
+    bad["method_git_sha"] = "wrong"
+    provenance.write_text(json.dumps(bad), encoding="utf-8")
+    with pytest.raises(RuntimeError, match="method commit mismatch"):
+        runner._adopt_legacy_stage1_checkpoint(
+            provenance_path=provenance,
+            checkpoint_path=checkpoint,
+            expected_config=config,
+            selection_path=selection,
+            adapter=Adopter(),
+            work_dir=work_dir,
+        )
+
+
+def test_run_movie_resumes_only_committed_prefix_without_duplicate_writes(
+    tmp_path, monkeypatch
+):
+    movie_dir = tmp_path / "bench" / "assets" / "trackA" / "Dataset" / "Movie"
+    (movie_dir / "gold").mkdir(parents=True)
+    (movie_dir / "gold" / "chunk_annotations.json").write_text(
+        json.dumps(
+            {
+                "chunks": [
+                    {"chunk_id": cid, "seconds_span": [cid, cid + 1], "prompt": f"p{cid}"}
+                    for cid in range(3)
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    source = tmp_path / "source.mp4"
+    source.write_bytes(b"video")
+    output = tmp_path / "output"
+    monkeypatch.setattr(runner, "_OUTPUT_ROOT", output)
+    monkeypatch.setattr(runner, "_resolve_source_video", lambda _: source)
+    monkeypatch.setattr(
+        runner, "_git_state", lambda _: {"commit": "bench", "tracked_diff_sha256": "clean"}
+    )
+
+    def fake_cut(_ffmpeg, _src, out, _s0, _s1):
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_bytes(b"segment")
+        return out
+
+    def write_selection(*, system, movie, records, out_dir, **_kwargs):
+        out_dir.mkdir(parents=True, exist_ok=True)
+        rows = [
+            {"chunk_id": record.chunk_id, "prompt": "", "selected": []}
+            for record in records
+        ]
+        (out_dir / f"{system}.json").write_text(
+            json.dumps({"movie": movie.movie_id, "system": system, "chunks": rows}),
+            encoding="utf-8",
+        )
+        return {"system": system, "chunks": len(rows)}
+
+    def append_selection(*, system, movie, rec, out_dir, **kwargs):
+        path = out_dir / f"{system}.json"
+        previous = json.loads(path.read_text())["chunks"] if path.is_file() else []
+        by_id = {int(row["chunk_id"]): row for row in previous}
+        by_id[rec.chunk_id] = {"chunk_id": rec.chunk_id, "prompt": "", "selected": []}
+        return write_selection(
+            system=system,
+            movie=movie,
+            records=[
+                runner.RetrievedMemory(chunk_id=cid) for cid in sorted(by_id)
+            ],
+            out_dir=out_dir,
+            **kwargs,
+        )
+
+    monkeypatch.setattr(runner, "_cut_segment", fake_cut)
+    monkeypatch.setattr(runner, "materialize_record_checkpoint", append_selection)
+    monkeypatch.setattr(runner, "materialize_system", write_selection)
+    monkeypatch.setattr(runner, "gpu_snapshot", lambda: {"available": False})
+    monkeypatch.setattr(runner, "runtime_context", lambda: {})
+
+    class FakeAdapter:
+        name = "memstrata"
+
+        def __init__(self, fail_on=None):
+            self.fail_on = fail_on
+            self.observed = []
+            self.resume_state = None
+
+        def reset(self, movie):
+            self.resume_state = movie.extras.get("stage1_resume")
+
+        def compose(self, req):
+            return runner.RetrievedMemory(chunk_id=req.chunk_id)
+
+        def observe_segment(self, obs):
+            if obs.chunk_id == self.fail_on:
+                raise RuntimeError("simulated crop failure")
+            self.observed.append(obs.chunk_id)
+
+        def stage1_checkpoint(self, segment_id):
+            return {"bank_sha256": f"bank-through-{segment_id}"}
+
+        def finalize(self):
+            return {"assets": len(self.observed)}
+
+    first = FakeAdapter(fail_on=2)
+    with pytest.raises(RuntimeError, match="simulated crop failure"):
+        runner.run_movie(
+            first,
+            movie_dir,
+            ffmpeg="ffmpeg",
+            fps=16,
+            limit=None,
+            budget=16,
+        )
+    assert first.observed == [0, 1]
+
+    resumed = FakeAdapter()
+    summary = runner.run_movie(
+        resumed,
+        movie_dir,
+        ffmpeg="ffmpeg",
+        fps=16,
+        limit=None,
+        budget=16,
+        resume=True,
+    )
+    assert resumed.resume_state["completed_chunk_ids"] == [0, 1]
+    assert resumed.observed == [2]
+    assert summary["chunks"] == 3
+    selection = json.loads(
+        (
+            output
+            / "memstrata__B16"
+            / "Dataset"
+            / "Movie"
+            / "visual_selections"
+            / "memstrata__B16.json"
+        ).read_text()
+    )
+    assert [row["chunk_id"] for row in selection["chunks"]] == [0, 1, 2]
