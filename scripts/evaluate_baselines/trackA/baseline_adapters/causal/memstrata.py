@@ -14,8 +14,16 @@ from typing import Any
 from contract import ComposeRequest, MovieContext, RetrievedItem, RetrievedMemory, SegmentObservation
 from _local_roots import find_memstrata_src
 
-_LEGACY_RESUME_COMPATIBLE_METHOD_COMMITS = {
-    "92488e42b6cb5bf55fed289f684e56aa9d4adb28",
+_RECOVERY_PATCH_IDS = {
+    "f8f48cfd07362093cc3128530dd16c9c671b8de5",
+    "bbcbf62aae3275b98dc9e2cf233e966cafda6d96",
+}
+_RECOVERY_PATHS = {
+    "scripts/memstrata/servers/serve_wedetect.py",
+    "src/memstrata/skills/crop_acquisition/crop_client.py",
+    "src/memstrata/skills/crop_acquisition/crop_server.py",
+    "src/memstrata/tests/test_crop_acquisition_robustness.py",
+    "src/memstrata/tests/test_wedetect_crop_server.py",
 }
 
 
@@ -132,11 +140,14 @@ class MemStrataAdapter:
 
     def stage1_resume_identity(self) -> dict[str, Any]:
         """Public runner handshake for legacy provenance validation."""
+        method_root = find_memstrata_src().parent
         return {
             **self._checkpoint_identity(),
-            "legacy_compatible_commits": sorted(
-                _LEGACY_RESUME_COMPATIBLE_METHOD_COMMITS
-            ),
+            "repo_root": str(method_root),
+            "recovery_policy": {
+                "patch_ids": sorted(_RECOVERY_PATCH_IDS),
+                "paths": sorted(_RECOVERY_PATHS),
+            },
         }
 
     def adopt_stage1_checkpoint(

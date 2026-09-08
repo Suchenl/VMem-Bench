@@ -105,8 +105,15 @@ _OUTPUT_ROOT = Path(
 _INPUT_MODES = ("name_anchored", "description_provided", "description_only")
 _BUDGET_CHOICES = (1, 2, 4, 8, 16)
 _RRF_K = 60
-_LEGACY_RESUME_COMPATIBLE_BENCHMARK_COMMITS = {
-    "9301039e0741d879c40ff9f454c879b1446a976a",
+_RECOVERY_PATCH_IDS = {
+    "f8e036c3684e8d76d92667242db81ecef2ac3b4a",
+}
+_RECOVERY_PATHS = {
+    "scripts/evaluate_baselines/tests/test_frame_materializer_pixel_channel.py",
+    "scripts/evaluate_baselines/trackA/baseline_adapters/causal/frame_materializer.py",
+    "scripts/evaluate_baselines/trackA/baseline_adapters/causal/memstrata.py",
+    "scripts/evaluate_baselines/trackA/baseline_adapters/causal/runner.py",
+    "tests/test_trackA_stage1_job_lock.py",
 }
 def _keepalive_status_dir() -> Path | None:
     raw = os.environ.get("GPU_KEEPALIVE_STATUS_DIR", "").strip()
@@ -308,6 +315,76 @@ def _git_state(root: Path) -> dict[str, str]:
     return {"commit": commit, "tracked_diff_sha256": hashlib.sha256(diff).hexdigest()}
 
 
+def _recovery_lineage_proof(
+    *,
+    root: Path,
+    old_commit: str,
+    current_commit: str,
+    allowed_patch_ids: set[str],
+    allowed_paths: set[str],
+) -> dict:
+    """Prove old->current consists only of an approved recovery patch series."""
+    def _git(*args: str, check: bool = True) -> subprocess.CompletedProcess:
+        return subprocess.run(
+            ["git", "-C", str(root), *args],
+            check=check,
+            capture_output=True,
+        )
+
+    old = _git("rev-parse", f"{old_commit}^{{commit}}").stdout.decode().strip()
+    current = _git("rev-parse", f"{current_commit}^{{commit}}").stdout.decode().strip()
+    if _git("merge-base", "--is-ancestor", old, current, check=False).returncode != 0:
+        raise RuntimeError(
+            f"recovery compatibility failed: old commit {old} is not an ancestor of {current}"
+        )
+    commits = (
+        _git("rev-list", "--reverse", "--first-parent", f"{old}..{current}")
+        .stdout.decode()
+        .split()
+    )
+    if not commits:
+        raise RuntimeError("recovery compatibility failed: no recovery commits to verify")
+    patch_ids: list[str] = []
+    for commit in commits:
+        patch = _git("show", "--pretty=format:", "--binary", commit).stdout
+        patch_id_proc = subprocess.run(
+            ["git", "patch-id", "--stable"],
+            input=patch,
+            check=True,
+            capture_output=True,
+        )
+        patch_id = patch_id_proc.stdout.decode().split()[0]
+        patch_ids.append(patch_id)
+    unexpected_patches = sorted(set(patch_ids) - allowed_patch_ids)
+    changed_paths = set(
+        _git("diff", "--name-only", old, current).stdout.decode().splitlines()
+    )
+    unexpected_paths = sorted(changed_paths - allowed_paths)
+    if unexpected_patches or unexpected_paths:
+        raise RuntimeError(
+            "recovery compatibility failed: "
+            + json.dumps(
+                {
+                    "unexpected_patch_ids": unexpected_patches,
+                    "unexpected_paths": unexpected_paths,
+                },
+                sort_keys=True,
+            )
+        )
+    return {
+        "verdict": "PASS",
+        "old_commit": old,
+        "new_commit": current,
+        "commits": commits,
+        "patch_ids": patch_ids,
+        "changed_paths": sorted(changed_paths),
+        "policy": {
+            "allowed_patch_ids": sorted(allowed_patch_ids),
+            "allowed_paths": sorted(allowed_paths),
+        },
+    }
+
+
 def _checkpoint_config(
     *,
     system: str,
@@ -459,13 +536,23 @@ def _adopt_legacy_stage1_checkpoint(
     identity = identity_fn()
     method_commit = ((identity.get("method_git") or {}).get("commit"))
     benchmark_commit = expected_config["benchmark_git"]["commit"]
-    compatible_method_commits = set(identity.get("legacy_compatible_commits") or [])
-    if provenance.get("method_git_sha") not in compatible_method_commits:
-        raise RuntimeError("legacy provenance method commit mismatch")
-    if provenance.get("benchmark_git_sha") not in _LEGACY_RESUME_COMPATIBLE_BENCHMARK_COMMITS:
-        raise RuntimeError("legacy provenance benchmark commit mismatch")
     if not method_commit or not benchmark_commit:
         raise RuntimeError("current checkout commit provenance is unavailable")
+    method_policy = identity.get("recovery_policy") or {}
+    method_proof = _recovery_lineage_proof(
+        root=Path(str(identity.get("repo_root") or "")),
+        old_commit=str(provenance.get("method_git_sha") or ""),
+        current_commit=method_commit,
+        allowed_patch_ids=set(method_policy.get("patch_ids") or []),
+        allowed_paths=set(method_policy.get("paths") or []),
+    )
+    benchmark_proof = _recovery_lineage_proof(
+        root=_BENCH_ROOT,
+        old_commit=str(provenance.get("benchmark_git_sha") or ""),
+        current_commit=benchmark_commit,
+        allowed_patch_ids=_RECOVERY_PATCH_IDS,
+        allowed_paths=_RECOVERY_PATHS,
+    )
     command = provenance.get("command")
     if not isinstance(command, list):
         raise RuntimeError("legacy provenance is missing the executed command")
@@ -528,6 +615,24 @@ def _adopt_legacy_stage1_checkpoint(
             "records": [record.to_dict() for record in records],
             "adapter_state": adapter_state,
             "adopted_from": str(provenance_path.resolve()),
+            "compatibility_verification": {
+                "verdict": "PASS",
+                "method": method_proof,
+                "benchmark": benchmark_proof,
+                "config": {
+                    "verdict": "PASS",
+                    "expected": expected_config,
+                    "command": command,
+                },
+                "artifacts": {
+                    "verdict": "PASS",
+                    "selection": str(selection_path.resolve()),
+                    "bank": str(bank_path.resolve()),
+                    "bank_sha256": adapter_state.get("bank_sha256"),
+                    "completed_chunk_ids": [record.chunk_id for record in records],
+                    "record_count": len(records),
+                },
+            },
         },
     )
     return records, adapter_state

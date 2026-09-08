@@ -226,6 +226,27 @@ def test_resume_checkpoint_requires_exact_config_and_prefix(tmp_path):
         runner._load_stage1_checkpoint(path, config)
 
 
+def test_recovery_lineage_requires_approved_patch_and_ancestry():
+    proof = runner._recovery_lineage_proof(
+        root=runner._BENCH_ROOT,
+        old_commit="9301039e0741d879c40ff9f454c879b1446a976a",
+        current_commit="d8bbc0d8fa4c39a1dd858a53ad9cf9d734ed7477",
+        allowed_patch_ids=runner._RECOVERY_PATCH_IDS,
+        allowed_paths=runner._RECOVERY_PATHS,
+    )
+    assert proof["verdict"] == "PASS"
+    assert proof["patch_ids"] == ["f8e036c3684e8d76d92667242db81ecef2ac3b4a"]
+
+    with pytest.raises(RuntimeError, match="not an ancestor"):
+        runner._recovery_lineage_proof(
+            root=runner._BENCH_ROOT,
+            old_commit="996e975",
+            current_commit="d8bbc0d8",
+            allowed_patch_ids=runner._RECOVERY_PATCH_IDS,
+            allowed_paths=runner._RECOVERY_PATHS,
+        )
+
+
 def test_partial_output_requires_explicit_resume(tmp_path):
     run_dir = tmp_path / "run"
     run_dir.mkdir()
@@ -236,7 +257,7 @@ def test_partial_output_requires_explicit_resume(tmp_path):
     assert runner._has_partial_output(run_dir) is True
 
 
-def test_legacy_adoption_validates_provenance_and_freezes_bank(tmp_path):
+def test_legacy_adoption_validates_provenance_and_freezes_bank(tmp_path, monkeypatch):
     run_dir = tmp_path / "output" / "memstrata__B16" / "Dataset" / "Movie"
     work_dir = run_dir / "_adapter_work" / "memstrata__B16"
     selection = run_dir / "visual_selections" / "memstrata__B16.json"
@@ -263,9 +284,7 @@ def test_legacy_adoption_validates_provenance_and_freezes_bank(tmp_path):
         json.dumps(
             {
                 "method_git_sha": "method-base",
-                "benchmark_git_sha": next(
-                    iter(runner._LEGACY_RESUME_COMPATIBLE_BENCHMARK_COMMITS)
-                ),
+                "benchmark_git_sha": "benchmark-base",
                 "command": [
                     "python",
                     "runner.py",
@@ -298,13 +317,22 @@ def test_legacy_adoption_validates_provenance_and_freezes_bank(tmp_path):
         def stage1_resume_identity(self):
             return {
                 "method_git": {"commit": "fixed-method"},
-                "legacy_compatible_commits": ["method-base"],
+                "repo_root": "/method",
+                "recovery_policy": {"patch_ids": ["method-patch"], "paths": ["method.py"]},
             }
 
         def adopt_stage1_checkpoint(self, **kwargs):
             assert kwargs["bank_path"] == bank
             return {"bank_sha256": "frozen"}
 
+    def fake_proof(**kwargs):
+        return {
+            "verdict": "PASS",
+            "old_commit": kwargs["old_commit"],
+            "new_commit": kwargs["current_commit"],
+        }
+
+    monkeypatch.setattr(runner, "_recovery_lineage_proof", fake_proof)
     checkpoint = run_dir / "stage1_checkpoint.json"
     records, state = runner._adopt_legacy_stage1_checkpoint(
         provenance_path=provenance,
@@ -316,20 +344,10 @@ def test_legacy_adoption_validates_provenance_and_freezes_bank(tmp_path):
     )
     assert [record.chunk_id for record in records] == [0]
     assert state == {"bank_sha256": "frozen"}
-    assert json.loads(checkpoint.read_text())["adopted_from"] == str(provenance.resolve())
-
-    bad = json.loads(provenance.read_text())
-    bad["method_git_sha"] = "wrong"
-    provenance.write_text(json.dumps(bad), encoding="utf-8")
-    with pytest.raises(RuntimeError, match="method commit mismatch"):
-        runner._adopt_legacy_stage1_checkpoint(
-            provenance_path=provenance,
-            checkpoint_path=checkpoint,
-            expected_config=config,
-            selection_path=selection,
-            adapter=Adopter(),
-            work_dir=work_dir,
-        )
+    committed = json.loads(checkpoint.read_text())
+    assert committed["adopted_from"] == str(provenance.resolve())
+    assert committed["compatibility_verification"]["verdict"] == "PASS"
+    assert committed["compatibility_verification"]["method"]["old_commit"] == "method-base"
 
 
 def test_run_movie_resumes_only_committed_prefix_without_duplicate_writes(
