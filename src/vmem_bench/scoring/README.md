@@ -4,7 +4,14 @@
 >
 > The old v1 scorers (`metrics.py` ID-set intersection + `visual.py` gold-crop embedding nearest-neighbor + the `runner.py`/`__main__` gold-replay harness, plus the `vmem_bench.benchmark_run` v1 orchestration) **were removed entirely along with the gold-replay protocol**; they are no longer kept and no longer imported.
 
-## Active (release): `visual_coverage.py` — VLM-based visual coverage, v2
+## Active: `visual_coverage.py` — VLM-based visual coverage
+
+The CLI and Stage-2 service default to the refs-only, per-reference,
+multi-label `visual-coverage-3.0` protocol. The previous
+`visual-coverage-2.2` batch+video protocol remains available explicitly for
+artifact replay. The v3 contract, nullability changes, and execution controls
+are specified in
+[`docs/benchmark/scoring_v3.md`](../../../docs/benchmark/scoring_v3.md).
 
 The public MemStrata benchmark scorer. Track A: the system emits a *context* (a set
 of reference images); the scorer judges them **visually** against the segment video,
@@ -34,7 +41,10 @@ Run:
 PYTHONPATH=src python3 -m vmem_bench.scoring.visual_coverage \
   --movie  data/BlenderOpenMovies/big_buck_bunny \
   --system memstrata_memstrata-fast \
-  --video  <source_video.mp4>
+  --video  <source_video.mp4> \
+  --metric-version visual-coverage-3.0 \
+  --endpoint-slots 2 \
+  --ref-workers 2
 ```
 
 Inputs are read from artifacts the causal runner already produces

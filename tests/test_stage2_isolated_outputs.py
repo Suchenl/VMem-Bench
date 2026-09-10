@@ -38,13 +38,38 @@ def test_visual_coverage_uses_configured_tracka_root(tmp_path, monkeypatch) -> N
     )
 
 
-def test_stage2_preserves_visual_coverage_22_qwen3_contract() -> None:
+def test_stage2_defaults_to_v3_and_preserves_explicit_v22() -> None:
     assert DEFAULT_MODEL == "qwen3-vl-32b"
     parameters = inspect.signature(visual_coverage._load_selection).parameters
     assert {"video", "ffmpeg"} <= set(parameters)
-    assert '"metric_version": "visual-coverage-2.2"' in inspect.getsource(
-        visual_coverage.run
+    run_parameters = inspect.signature(visual_coverage.run).parameters
+    assert run_parameters["metric_version"].default == "visual-coverage-3.0"
+    score_parameters = inspect.signature(
+        visual_coverage.score_segment
+    ).parameters
+    assert score_parameters["metric_version"].default == "visual-coverage-2.2"
+    assert visual_coverage.PER_REF_METRIC_VERSION == "visual-coverage-3.0"
+    assert set(visual_coverage.SUPPORTED_METRIC_VERSIONS) == {
+        "visual-coverage-2.2",
+        "visual-coverage-3.0",
+    }
+
+
+def test_stage2_service_accepts_v3_execution_controls(tmp_path) -> None:
+    service = _load_service()
+    args = service.parse_args(
+        [
+            "--metric-version",
+            "visual-coverage-3.0",
+            "--ref-workers",
+            "3",
+            "--judge-cache",
+            str(tmp_path / "cache"),
+        ]
     )
+    assert args.metric_version == "visual-coverage-3.0"
+    assert args.ref_workers == 3
+    assert args.judge_cache == tmp_path / "cache"
 
 
 def test_stage2_can_inline_video_outside_judge_mount(tmp_path, monkeypatch) -> None:

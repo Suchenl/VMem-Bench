@@ -27,7 +27,9 @@ if str(SRC_ROOT) not in sys.path:
 from vmem_bench.scoring.visual_coverage import (  # noqa: E402
     DEFAULT_API,
     DEFAULT_FFMPEG,
+    DEFAULT_METRIC_VERSION,
     DEFAULT_MODEL,
+    SUPPORTED_METRIC_VERSIONS,
     build_judge_api,
     run as run_visual_coverage,
 )
@@ -226,6 +228,27 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--ffmpeg", default=os.environ.get("FFMPEG", DEFAULT_FFMPEG))
     parser.add_argument("--workers", type=int, default=int(os.environ.get("STAGE2_WORKERS", "0") or 0))
     parser.add_argument(
+        "--metric-version",
+        choices=sorted(SUPPORTED_METRIC_VERSIONS),
+        default=os.environ.get("STAGE2_METRIC_VERSION", DEFAULT_METRIC_VERSION),
+    )
+    parser.add_argument(
+        "--ref-workers",
+        type=int,
+        default=int(os.environ.get("STAGE2_REF_WORKERS", "1") or 1),
+        help="per-segment reference workers for visual-coverage-3.0",
+    )
+    parser.add_argument(
+        "--judge-cache",
+        type=Path,
+        default=(
+            Path(os.environ["STAGE2_JUDGE_CACHE"]).expanduser()
+            if os.environ.get("STAGE2_JUDGE_CACHE")
+            else None
+        ),
+        help="optional shared content-addressed visual-coverage-3.0 judge cache",
+    )
+    parser.add_argument(
         "--endpoint-slots",
         type=int,
         default=int(os.environ.get("STAGE2_ENDPOINT_SLOTS", "1") or 1),
@@ -333,7 +356,9 @@ def main(argv: list[str] | None = None) -> int:
         "log_dir": str(log_dir),
         "progress_path": str(progress_path),
         "model": args.model,
+        "metric_version": args.metric_version,
         "workers": workers,
+        "ref_workers": args.ref_workers,
         "endpoint_slots": args.endpoint_slots,
         "endpoint_urls": endpoint_urls,
         "total": len(tasks),
@@ -364,6 +389,9 @@ def main(argv: list[str] | None = None) -> int:
                 args.ffmpeg,
                 args.limit,
                 workers=workers,
+                metric_version=args.metric_version,
+                ref_workers=args.ref_workers,
+                judge_cache_dir=args.judge_cache,
             )
         except Exception as exc:  # noqa: BLE001 - record and continue unless fail-fast
             failures += 1
