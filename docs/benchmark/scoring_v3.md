@@ -1,6 +1,6 @@
 # Track A visual-coverage 3.0
 
-Status: opt-in production contract pending the frozen speed/effect pilot.
+Status: production default after the frozen speed/effect pilot passed.
 Implementation: `src/vmem_bench/scoring/visual_coverage.py`.
 
 ## Capability boundary
@@ -58,7 +58,8 @@ A future redundancy contract requires its own preregistered validation.
 in-flight cap, so configure `--endpoint-slots` no higher than the serving
 replica's `max_num_seqs`.
 
-`--judge-cache PATH` enables an optional content-addressed cache. Its key covers
+v3 enables a run-local content-addressed cache by default; `--judge-cache PATH`
+selects an explicit shared location. Its key covers
 the contract version, model, exact prompt, downscaled image payload, structured
 response schema, and sampling temperature. Cache records are accepted only
 after the response passes the same strict validator as a live call.
@@ -69,11 +70,11 @@ original selection order regardless of completion order.
 
 ## Compatibility
 
-`visual-coverage-2.2` remains the CLI and Stage-2 service default until a frozen
-pilot establishes v3 quality and runtime. Select 3.0 explicitly with:
+`visual-coverage-3.0` is the CLI and Stage-2 service default. Replay a legacy
+v2.2 artifact explicitly with:
 
 ```bash
---metric-version visual-coverage-3.0 --ref-workers 2
+--metric-version visual-coverage-2.2
 ```
 
 Existing v2 artifacts are not rewritten. A v3 result must retain

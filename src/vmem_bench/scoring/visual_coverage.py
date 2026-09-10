@@ -1,4 +1,4 @@
-"""Visual-coverage scoring (v2, VLM-based) — the NEW MemStrata benchmark scorer.
+"""Visual-coverage scoring (v3 default; legacy v2.2 available).
 
 WHY THIS EXISTS
 ---------------
@@ -9,17 +9,17 @@ benchmark should measure. This module replaces it with a purely visual, VLM-judg
 protocol that needs only text ground-truth (roster + per-segment present set) — NO
 gold crops and NO state annotation.
 
-WHAT IT MEASURES (Track A: the system emits a *context* = a set of reference images)
-------------------------------------------------------------------------------------
-For each segment we give a VLM: the gold ROSTER (present entity ids + descriptions),
-the system's selected reference images (UNLABELED), and the segment VIDEO. The VLM
-returns, per reference image: is the depicted thing on-screen (``present``) and which
-roster entity it is (``entity_id`` or ``none``); plus ``missing`` = present roster
-entities that NONE of the images cover.
+WHAT IT MEASURES (Track A: the system emits a *context* = reference images)
+----------------------------------------------------------------------------
+The v3 default judges each unlabeled reference independently against the frozen
+gold-present roster. It sends neither target video nor segment prompt, returns a
+strict multi-label ``entity_ids`` list, and derives ``missing`` from the union.
+This isolates reference-selection coverage and removes cross-reference order
+effects. Legacy v2.2 remains selectable and sends batched refs plus target video.
 
 From that we compute, per segment, four transparent metrics in [0,1]:
 
-  precision  = (# reference images judged on-screen) / (# reference images)
+  precision  = (# reference images matching >=1 gold-present entity) / (# refs)
                -> penalises over-retrieval / hallucinated references.
   recall     = (|continuity| - |missing ∩ continuity|) / |continuity|   [HEADLINE]
                -> memory recall: only over CONTINUITY entities (seen before, must be
@@ -28,7 +28,9 @@ From that we compute, per segment, four transparent metrics in [0,1]:
   recall_all = (|present| - |missing|) / |present|                       [diagnostic]
                -> coverage over all present entities incl. first appearances.
   f1         = harmonic mean(precision, recall[continuity])              [HEADLINE]
-  redundancy is reported as TWO complementary variants (both PER-ENTITY; complementary
+  redundancy is null in v3 because one multi-label ref has no unique per-entity
+  partition. Legacy v2.2 reports TWO complementary variants (both PER-ENTITY;
+  complementary
   views at different angle/appearance are NEVER penalised, only near-identical ones):
     redundancy_vlm = (# on-screen refs that are per-entity near-duplicates)
                      / (# on-screen refs)      -- VLM counts distinct views per group.
@@ -49,9 +51,9 @@ NOT folded into a score; compare systems at matched budget when fairness matters
 Empty selection (system returned no images for a segment) is scored WITHOUT a VLM
 call: precision undefined (excluded), recall = 0 if any continuity entity was present.
 
-The "what should be present" side (roster + present set) is FROZEN gold, so scoring
-is reproducible; only the per-image visual judgement uses the (pinned) VLM. Report
-this together with a measured human-agreement / noise-floor number.
+The "what should be present" side is FROZEN gold, so scoring is reproducible;
+only per-image visual matching uses the pinned VLM. Structured JSON, bounded
+concurrency, and validated content-addressed caching are part of v3.
 
 INPUTS (all already produced by the existing pipeline — this module reads them)
   gold/chunk_annotations.json: per-segment {present, first_appearances, prompt, seconds_span}
@@ -116,10 +118,11 @@ JUDGE_MAX_IMAGES_PER_PROMPT = int(os.environ.get("MAVE_JUDGE_MAX_IMAGES_PER_PROM
 # feeding the judge full-res (e.g. 1080p) clips. Keep fixed across the release.
 JUDGE_CLIP_W = 832
 JUDGE_CLIP_H = 480
-DEFAULT_METRIC_VERSION = "visual-coverage-2.2"
+LEGACY_METRIC_VERSION = "visual-coverage-2.2"
 PER_REF_METRIC_VERSION = "visual-coverage-3.0"
+DEFAULT_METRIC_VERSION = PER_REF_METRIC_VERSION
 SUPPORTED_METRIC_VERSIONS = {
-    DEFAULT_METRIC_VERSION,
+    LEGACY_METRIC_VERSION,
     PER_REF_METRIC_VERSION,
 }
 V3_CONTRACT_VERSION = "refs-only-per-reference-multilabel-v1"
@@ -1002,12 +1005,12 @@ def score_segment(
     model,
     emb=None,
     *,
-    metric_version: str = DEFAULT_METRIC_VERSION,
+    metric_version: str = LEGACY_METRIC_VERSION,
     roster: list[dict[str, str]] | None = None,
     ref_workers: int = 1,
     judge_cache: _V3JudgeCache | None = None,
 ) -> tuple[SegmentScore, dict]:
-    if metric_version == DEFAULT_METRIC_VERSION:
+    if metric_version == LEGACY_METRIC_VERSION:
         return _score_segment_v2(
             cid,
             refs,
@@ -1067,7 +1070,9 @@ def run(
     clip_dir = run_dir / "_clips"
     # v3 intentionally leaves redundancy undefined until multi-label grouping has
     # a non-ambiguous contract, so it neither loads nor runs DINO.
-    emb = _get_embedder() if metric_version == DEFAULT_METRIC_VERSION else None
+    emb = _get_embedder() if metric_version == LEGACY_METRIC_VERSION else None
+    if metric_version == PER_REF_METRIC_VERSION and judge_cache_dir is None:
+        judge_cache_dir = out_dir / "_judge_cache" / PER_REF_METRIC_VERSION
     judge_cache = (
         _V3JudgeCache(judge_cache_dir)
         if metric_version == PER_REF_METRIC_VERSION and judge_cache_dir
@@ -1102,7 +1107,7 @@ def run(
         refs = sel.get(cid, [])
         span = meta.get("seconds_span")
         clip = None
-        if refs and metric_version == DEFAULT_METRIC_VERSION:
+        if refs and metric_version == LEGACY_METRIC_VERSION:
             s0, s1 = span
             clip = _cut_clip(ffmpeg, video, clip_dir / f"chunk_{cid:03d}.mp4", s0, s1,
                              movie=movie, chunk_id=cid)
@@ -1203,6 +1208,12 @@ def run(
         "judge_cache_hits": (
             sum(int(detail.get("judge_cache_hits", 0)) for detail in details)
             if metric_version == PER_REF_METRIC_VERSION
+            else None
+        ),
+        "judge_cache_dir": (
+            str(judge_cache_dir.resolve())
+            if metric_version == PER_REF_METRIC_VERSION
+            and judge_cache_dir is not None
             else None
         ),
         "n_segments": len(scores),
@@ -1327,8 +1338,9 @@ def main():
         choices=sorted(SUPPORTED_METRIC_VERSIONS),
         default=DEFAULT_METRIC_VERSION,
         help=(
-            "visual-coverage-2.2 preserves the released batch+video scorer; "
-            "visual-coverage-3.0 uses refs-only per-reference multi-label judging"
+            "visual-coverage-3.0 (default) uses refs-only per-reference "
+            "multi-label judging; visual-coverage-2.2 preserves the legacy "
+            "batch+video scorer"
         ),
     )
     ap.add_argument(
@@ -1351,8 +1363,8 @@ def main():
         type=Path,
         default=None,
         help=(
-            "optional content-addressed cache for validated "
-            "visual-coverage-3.0 per-reference responses"
+            "content-addressed cache for validated visual-coverage-3.0 "
+            "responses; defaults to <out>/_judge_cache/visual-coverage-3.0"
         ),
     )
     a = ap.parse_args()

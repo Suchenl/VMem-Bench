@@ -310,3 +310,11 @@ def test_v3_run_skips_target_clip_and_records_contract(
     )
     assert summary["judge_requests"] == 1
     assert summary["judge_cache_hits"] == 0
+    assert summary["judge_cache_dir"] == str(
+        (
+            tmp_path
+            / "scores"
+            / "_judge_cache"
+            / "visual-coverage-3.0"
+        ).resolve()
+    )

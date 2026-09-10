@@ -6,10 +6,11 @@
 
 ## Active: `visual_coverage.py` — VLM-based visual coverage
 
-The CLI keeps `visual-coverage-2.2` as the compatibility default and exposes
-`--metric-version visual-coverage-3.0` for the refs-only per-reference
-multi-label protocol. The v3 contract, nullability changes, and execution
-controls are specified in
+The CLI and Stage-2 service default to the refs-only, per-reference,
+multi-label `visual-coverage-3.0` protocol. The previous
+`visual-coverage-2.2` batch+video protocol remains available explicitly for
+artifact replay. The v3 contract, nullability changes, and execution controls
+are specified in
 [`docs/benchmark/scoring_v3.md`](../../../docs/benchmark/scoring_v3.md).
 
 The public MemStrata benchmark scorer. Track A: the system emits a *context* (a set

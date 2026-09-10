@@ -38,12 +38,16 @@ def test_visual_coverage_uses_configured_tracka_root(tmp_path, monkeypatch) -> N
     )
 
 
-def test_stage2_preserves_v22_default_and_exposes_v3_contract() -> None:
+def test_stage2_defaults_to_v3_and_preserves_explicit_v22() -> None:
     assert DEFAULT_MODEL == "qwen3-vl-32b"
     parameters = inspect.signature(visual_coverage._load_selection).parameters
     assert {"video", "ffmpeg"} <= set(parameters)
     run_parameters = inspect.signature(visual_coverage.run).parameters
-    assert run_parameters["metric_version"].default == "visual-coverage-2.2"
+    assert run_parameters["metric_version"].default == "visual-coverage-3.0"
+    score_parameters = inspect.signature(
+        visual_coverage.score_segment
+    ).parameters
+    assert score_parameters["metric_version"].default == "visual-coverage-2.2"
     assert visual_coverage.PER_REF_METRIC_VERSION == "visual-coverage-3.0"
     assert set(visual_coverage.SUPPORTED_METRIC_VERSIONS) == {
         "visual-coverage-2.2",
