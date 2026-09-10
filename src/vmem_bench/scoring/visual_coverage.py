@@ -69,6 +69,7 @@ CLI
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -80,6 +81,7 @@ from contextlib import nullcontext
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from statistics import mean
+from typing import Any
 
 from vmem_bench.common.media import ffmpeg_bin
 from vmem_bench.scoring.judge_service import (
@@ -114,6 +116,13 @@ JUDGE_MAX_IMAGES_PER_PROMPT = int(os.environ.get("MAVE_JUDGE_MAX_IMAGES_PER_PROM
 # feeding the judge full-res (e.g. 1080p) clips. Keep fixed across the release.
 JUDGE_CLIP_W = 832
 JUDGE_CLIP_H = 480
+DEFAULT_METRIC_VERSION = "visual-coverage-2.2"
+PER_REF_METRIC_VERSION = "visual-coverage-3.0"
+SUPPORTED_METRIC_VERSIONS = {
+    DEFAULT_METRIC_VERSION,
+    PER_REF_METRIC_VERSION,
+}
+V3_CONTRACT_VERSION = "refs-only-per-reference-multilabel-v1"
 
 
 def build_judge_api(**kwargs):
@@ -292,6 +301,175 @@ def _parse(s: str):
     if m:
         missing = [x.strip().strip('"\'') for x in m.group(1).split(",") if x.strip()]
     return items, missing
+
+
+def _json_sha256(value: Any) -> str:
+    encoded = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def _v3_response_format(allowed: set[str]) -> dict[str, Any]:
+    entity_schema: dict[str, Any] = {"type": "string"}
+    if allowed:
+        entity_schema["enum"] = sorted(allowed)
+    return {
+        "type": "json_schema",
+        "json_schema": {
+            "name": "visual_coverage_v3_reference",
+            "strict": True,
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "entity_ids": {
+                        "type": "array",
+                        "items": entity_schema,
+                    }
+                },
+                "required": ["entity_ids"],
+                "additionalProperties": False,
+            },
+        },
+    }
+
+
+def _parse_v3_reference(raw: str, allowed: set[str]) -> list[str]:
+    """Strictly validate one structured per-reference multi-label response."""
+    payload = json.loads(str(raw).strip())
+    if not isinstance(payload, dict) or set(payload) != {"entity_ids"}:
+        raise ValueError("v3 response must contain exactly entity_ids")
+    entity_ids = payload["entity_ids"]
+    if (
+        not isinstance(entity_ids, list)
+        or any(not isinstance(value, str) for value in entity_ids)
+        or len(entity_ids) != len(set(entity_ids))
+        or any(value not in allowed for value in entity_ids)
+    ):
+        raise ValueError("v3 entity_ids must be a unique subset of the roster")
+    return sorted(entity_ids)
+
+
+class _V3JudgeCache:
+    """Optional content-addressed cache for validated v3 judge responses."""
+
+    def __init__(self, root: Path):
+        self.root = root.resolve()
+        self._lock = threading.Lock()
+
+    def _path(self, key: str) -> Path:
+        return self.root / key[:2] / f"{key}.json"
+
+    def get(self, key: str, allowed: set[str]) -> tuple[list[str], str] | None:
+        path = self._path(key)
+        if not path.is_file():
+            return None
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if (
+            payload.get("schema") != "vmem-bench.v3-judge-cache.v1"
+            or payload.get("key") != key
+        ):
+            raise ValueError(f"invalid v3 judge cache record: {path}")
+        raw = str(payload["raw"])
+        entity_ids = _parse_v3_reference(raw, allowed)
+        if entity_ids != payload.get("entity_ids"):
+            raise ValueError(f"v3 judge cache labels changed: {path}")
+        return entity_ids, raw
+
+    def put(self, key: str, entity_ids: list[str], raw: str) -> None:
+        path = self._path(key)
+        record = {
+            "schema": "vmem-bench.v3-judge-cache.v1",
+            "key": key,
+            "entity_ids": entity_ids,
+            "raw": raw,
+        }
+        path.parent.mkdir(parents=True, exist_ok=True)
+        temporary = path.with_suffix(
+            f".{os.getpid()}.{threading.get_ident()}.tmp"
+        )
+        temporary.write_text(
+            json.dumps(record, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        with self._lock:
+            if not path.exists():
+                temporary.replace(path)
+            elif temporary.exists():
+                temporary.unlink()
+
+
+def _v3_prompt(roster: list[dict[str, str]]) -> str:
+    roster_text = "\n".join(
+        (
+            f"- {row['entity_id']} | {row['name']} ({row['kind']}): "
+            f"{row['description']}"
+        )
+        for row in roster
+    ) or "(无)"
+    return (
+        "以下清单是当前片段中权威标注为在场的实体。随后只给出一张历史参考图，"
+        "不会给出当前视频，也不要重新判断清单实体是否在场。\n"
+        f"{roster_text}\n\n"
+        "返回参考图中能由视觉内容直接支持的所有清单实体 ID。"
+        "同一图可以同时覆盖人物、物体和地点；人物位于清晰可辨场景中时，"
+        "可以同时返回人物和地点。不要由人物身份推断不可见地点。"
+        "不得输出清单外 ID。\n"
+        '严格只输出 JSON：{"entity_ids":["char_001","loc_001"]}。'
+    )
+
+
+def _judge_v3_reference(
+    ref: str,
+    roster: list[dict[str, str]],
+    api: str | PooledJudgeCaller,
+    model: str,
+    cache: _V3JudgeCache | None,
+) -> dict[str, Any]:
+    allowed = {row["entity_id"] for row in roster}
+    content = [_txt(_v3_prompt(roster)), _img(ref)]
+    response_format = _v3_response_format(allowed)
+    key = _json_sha256(
+        {
+            "contract": V3_CONTRACT_VERSION,
+            "model": model,
+            "content": content,
+            "response_format": response_format,
+            "temperature": 0.0,
+        }
+    )
+    if cache is not None:
+        cached = cache.get(key, allowed)
+        if cached is not None:
+            entity_ids, raw = cached
+            return {
+                "entity_ids": entity_ids,
+                "raw": raw,
+                "cache_key": key,
+                "cache_hit": True,
+                "judge_called": False,
+            }
+    raw = call_judge(
+        api,
+        model,
+        content,
+        temperature=0.0,
+        max_tokens=256,
+        response_format=response_format,
+    )
+    entity_ids = _parse_v3_reference(raw, allowed)
+    if cache is not None:
+        cache.put(key, entity_ids, raw)
+    return {
+        "entity_ids": entity_ids,
+        "raw": raw,
+        "cache_key": key,
+        "cache_hit": False,
+        "judge_called": True,
+    }
 
 
 def _img(p):
@@ -485,7 +663,18 @@ def _f1(p, r):
 ChunkScore = SegmentScore  # backward-compatible type alias
 
 
-def score_segment(cid, refs, present, continuity, roster_txt, prompt, clip, api, model, emb=None) -> tuple[SegmentScore, dict]:
+def _score_segment_v2(
+    cid,
+    refs,
+    present,
+    continuity,
+    roster_txt,
+    prompt,
+    clip,
+    api,
+    model,
+    emb=None,
+) -> tuple[SegmentScore, dict]:
     P = set(present)
     C = set(continuity)
     n = len(refs)
@@ -614,11 +803,242 @@ def score_segment(cid, refs, present, continuity, roster_txt, prompt, clip, api,
     return sc, detail
 
 
+def _score_segment_v3(
+    cid: int,
+    refs: list[str],
+    present: list[str],
+    continuity: list[str],
+    roster: list[dict[str, str]],
+    api: str | PooledJudgeCaller,
+    model: str,
+    *,
+    ref_workers: int = 1,
+    judge_cache: _V3JudgeCache | None = None,
+) -> tuple[SegmentScore, dict]:
+    """Score each reference independently against the gold-present roster."""
+    present_set = set(present)
+    continuity_set = set(continuity)
+    n = len(refs)
+    if n == 0:
+        recall = 1.0 if not continuity_set else 0.0
+        recall_all = 1.0 if not present_set else 0.0
+        return (
+            SegmentScore(
+                cid,
+                0,
+                len(present_set),
+                len(continuity_set),
+                None,
+                recall,
+                recall_all,
+                _f1(None, recall) if continuity_set else None,
+                None,
+                None,
+                None,
+            ),
+            {
+                "segment_id": cid,
+                "chunk_id": cid,
+                "note": "empty_selection",
+                "refs": [],
+                "missing_pred": sorted(present_set),
+                "judge_contract": V3_CONTRACT_VERSION,
+                "judge_requests": 0,
+                "judge_cache_hits": 0,
+            },
+        )
+    if not roster:
+        judged = [
+            {
+                "entity_ids": [],
+                "raw": '{"entity_ids":[]}',
+                "cache_key": None,
+                "cache_hit": False,
+                "judge_called": False,
+            }
+            for _ in refs
+        ]
+    else:
+        workers = max(1, min(int(ref_workers), n))
+        snapshot = (
+            api.current_workload()
+            if hasattr(api, "current_workload")
+            else None
+        )
+
+        def _one(ref: str) -> dict[str, Any]:
+            with (
+                api.workload(**snapshot)
+                if snapshot
+                else nullcontext()
+            ):
+                return _judge_v3_reference(
+                    ref,
+                    roster,
+                    api,
+                    model,
+                    judge_cache,
+                )
+
+        if workers == 1:
+            judged = [_one(ref) for ref in refs]
+        else:
+            judged_by_index: dict[int, dict[str, Any]] = {}
+            with ThreadPoolExecutor(max_workers=workers) as pool:
+                futures = {
+                    pool.submit(_one, ref): index
+                    for index, ref in enumerate(refs)
+                }
+                for future in as_completed(futures):
+                    judged_by_index[futures[future]] = future.result()
+            judged = [judged_by_index[index] for index in range(n)]
+
+    covered = {
+        entity_id
+        for row in judged
+        for entity_id in row["entity_ids"]
+    } & present_set
+    rows = [
+        {
+            "i": index,
+            "crop": ref,
+            "pred_present": bool(judgement["entity_ids"]),
+            "pred_entity": (
+                judgement["entity_ids"][0]
+                if len(judgement["entity_ids"]) == 1
+                else None
+            ),
+            "pred_entities": judgement["entity_ids"],
+            "cache_key": judgement["cache_key"],
+            "cache_hit": judgement["cache_hit"],
+        }
+        for index, (ref, judgement) in enumerate(zip(refs, judged, strict=True))
+    ]
+    n_present = sum(row["pred_present"] for row in rows)
+    precision = round(n_present / n, 4)
+    missing = present_set - covered
+    missing_continuity = missing & continuity_set
+    recall = (
+        round(
+            (len(continuity_set) - len(missing_continuity))
+            / len(continuity_set),
+            4,
+        )
+        if continuity_set
+        else 1.0
+    )
+    recall_all = (
+        round((len(present_set) - len(missing)) / len(present_set), 4)
+        if present_set
+        else 1.0
+    )
+    score = SegmentScore(
+        cid,
+        n,
+        len(present_set),
+        len(continuity_set),
+        precision,
+        recall,
+        recall_all,
+        _f1(precision, recall),
+        None,
+        None,
+        None,
+    )
+    detail = {
+        "segment_id": cid,
+        "chunk_id": cid,
+        "refs": rows,
+        "groups": [],
+        "covered_pred": sorted(covered),
+        "missing_pred": sorted(missing),
+        "judge_contract": V3_CONTRACT_VERSION,
+        "judge_requests": sum(row["judge_called"] for row in judged),
+        "judge_cache_hits": sum(row["cache_hit"] for row in judged),
+        "judge_responses": [
+            {
+                "i": index,
+                "raw": row["raw"],
+                "cache_key": row["cache_key"],
+                "cache_hit": row["cache_hit"],
+                "judge_called": row["judge_called"],
+            }
+            for index, row in enumerate(judged)
+        ],
+        "redundancy_note": (
+            "Not defined for multi-label references in visual-coverage-3.0."
+        ),
+    }
+    return score, detail
+
+
+def score_segment(
+    cid,
+    refs,
+    present,
+    continuity,
+    roster_txt,
+    prompt,
+    clip,
+    api,
+    model,
+    emb=None,
+    *,
+    metric_version: str = DEFAULT_METRIC_VERSION,
+    roster: list[dict[str, str]] | None = None,
+    ref_workers: int = 1,
+    judge_cache: _V3JudgeCache | None = None,
+) -> tuple[SegmentScore, dict]:
+    if metric_version == DEFAULT_METRIC_VERSION:
+        return _score_segment_v2(
+            cid,
+            refs,
+            present,
+            continuity,
+            roster_txt,
+            prompt,
+            clip,
+            api,
+            model,
+            emb,
+        )
+    if metric_version == PER_REF_METRIC_VERSION:
+        if roster is None:
+            raise ValueError("visual-coverage-3.0 requires structured roster rows")
+        return _score_segment_v3(
+            cid,
+            refs,
+            present,
+            continuity,
+            roster,
+            api,
+            model,
+            ref_workers=ref_workers,
+            judge_cache=judge_cache,
+        )
+    raise ValueError(f"unsupported metric_version: {metric_version}")
+
+
 score_chunk = score_segment  # backward-compatible function alias
 
 
-def run(movie: Path, system: str, video: Path, out_dir: Path, api: str | PooledJudgeCaller,
-        model: str, ffmpeg: str, limit: int | None = None, workers: int = 1):
+def run(
+    movie: Path,
+    system: str,
+    video: Path,
+    out_dir: Path,
+    api: str | PooledJudgeCaller,
+    model: str,
+    ffmpeg: str,
+    limit: int | None = None,
+    workers: int = 1,
+    *,
+    metric_version: str = DEFAULT_METRIC_VERSION,
+    ref_workers: int = 1,
+    judge_cache_dir: Path | None = None,
+):
+    if metric_version not in SUPPORTED_METRIC_VERSIONS:
+        raise ValueError(f"unsupported metric_version: {metric_version}")
     # Resolve to absolute so the clip file:// URLs sent to the VLM server are absolute
     # (the server has a different cwd; relative paths 500 with "No such file").
     movie = movie.resolve()
@@ -627,7 +1047,14 @@ def run(movie: Path, system: str, video: Path, out_dir: Path, api: str | PooledJ
     sel, sel_timing = _load_selection(movie, system, video=video, ffmpeg=ffmpeg)
     run_dir = _tracka_run_dir(movie, system)
     clip_dir = run_dir / "_clips"
-    emb = _get_embedder()  # DINOv3 for redundancy_sim; None -> that column is null
+    # v3 intentionally leaves redundancy undefined until multi-label grouping has
+    # a non-ambiguous contract, so it neither loads nor runs DINO.
+    emb = _get_embedder() if metric_version == DEFAULT_METRIC_VERSION else None
+    judge_cache = (
+        _V3JudgeCache(judge_cache_dir)
+        if metric_version == PER_REF_METRIC_VERSION and judge_cache_dir
+        else None
+    )
 
     cids = sorted(segments)
     if limit:
@@ -637,13 +1064,27 @@ def run(movie: Path, system: str, video: Path, out_dir: Path, api: str | PooledJ
         meta = segments[cid]
         present = meta["present"]
         continuity = meta["continuity"]
-        roster = [(e, ents[e]["name"], (ents[e].get("description") or "")[:70])
-                  for e in present if e in ents]
-        roster_txt = "\n".join(f"- {e} | {nm} ({ents[e]['kind']}): {ds}" for e, nm, ds in roster) or "(无)"
+        roster = [
+            {
+                "entity_id": e,
+                "name": str(ents[e]["name"]),
+                "kind": str(ents[e]["kind"]),
+                "description": str(ents[e].get("description") or "")[:70],
+            }
+            for e in present
+            if e in ents
+        ]
+        roster_txt = "\n".join(
+            (
+                f"- {row['entity_id']} | {row['name']} ({row['kind']}): "
+                f"{row['description']}"
+            )
+            for row in roster
+        ) or "(无)"
         refs = sel.get(cid, [])
         span = meta.get("seconds_span")
         clip = None
-        if refs:
+        if refs and metric_version == DEFAULT_METRIC_VERSION:
             s0, s1 = span
             clip = _cut_clip(ffmpeg, video, clip_dir / f"chunk_{cid:03d}.mp4", s0, s1,
                              movie=movie, chunk_id=cid)
@@ -661,7 +1102,20 @@ def run(movie: Path, system: str, video: Path, out_dir: Path, api: str | PooledJ
         with workload_ctx:
             _t = time.perf_counter()
             sc, det = score_segment(
-                cid, refs, present, continuity, roster_txt, meta["prompt"], clip, api, model, emb
+                cid,
+                refs,
+                present,
+                continuity,
+                roster_txt,
+                meta["prompt"],
+                clip,
+                api,
+                model,
+                emb,
+                metric_version=metric_version,
+                roster=roster,
+                ref_workers=ref_workers,
+                judge_cache=judge_cache,
             )
         sc.score_ms = round((time.perf_counter() - _t) * 1000.0, 2)  # Stage-2 latency
         # Segment duration -> used for duration-weighted aggregation (segments are NOT
@@ -717,7 +1171,22 @@ def run(movie: Path, system: str, video: Path, out_dir: Path, api: str | PooledJ
     with_refs = [s for s in scores if s.n_refs > 0]
     summary = {
         "movie": movie.name, "system": system, "model": model,
-        "metric_version": "visual-coverage-2.2",
+        "metric_version": metric_version,
+        "judge_contract": (
+            V3_CONTRACT_VERSION
+            if metric_version == PER_REF_METRIC_VERSION
+            else "batch-reference-plus-target-video-single-label-v2"
+        ),
+        "judge_requests": (
+            sum(int(detail.get("judge_requests", 0)) for detail in details)
+            if metric_version == PER_REF_METRIC_VERSION
+            else None
+        ),
+        "judge_cache_hits": (
+            sum(int(detail.get("judge_cache_hits", 0)) for detail in details)
+            if metric_version == PER_REF_METRIC_VERSION
+            else None
+        ),
         "n_segments": len(scores),
         "n_segments_with_refs": len(with_refs),
         # Backward-compatible aliases for older aggregators/artifacts.
@@ -836,10 +1305,37 @@ def main():
     ap.add_argument("--ffmpeg", default=DEFAULT_FFMPEG)
     ap.add_argument("--limit", type=int, default=None, help="score only first N segments (smoke)")
     ap.add_argument(
+        "--metric-version",
+        choices=sorted(SUPPORTED_METRIC_VERSIONS),
+        default=DEFAULT_METRIC_VERSION,
+        help=(
+            "visual-coverage-2.2 preserves the released batch+video scorer; "
+            "visual-coverage-3.0 uses refs-only per-reference multi-label judging"
+        ),
+    )
+    ap.add_argument(
         "--workers",
         type=int,
         default=0,
         help="segment workers; 0 = endpoint-pool size when pooled, otherwise 1",
+    )
+    ap.add_argument(
+        "--ref-workers",
+        type=int,
+        default=1,
+        help=(
+            "bounded per-segment reference workers for visual-coverage-3.0; "
+            "global in-flight calls remain capped by the endpoint pool"
+        ),
+    )
+    ap.add_argument(
+        "--judge-cache",
+        type=Path,
+        default=None,
+        help=(
+            "optional content-addressed cache for validated "
+            "visual-coverage-3.0 per-reference responses"
+        ),
     )
     a = ap.parse_args()
     out_dir = a.out or (_tracka_run_dir(a.movie.resolve(), a.system) / "_visual_score")
@@ -852,7 +1348,20 @@ def main():
         model=a.model,
         endpoint_slots=a.endpoint_slots,
     )
-    run(a.movie, a.system, a.video, out_dir, api, a.model, a.ffmpeg, a.limit, workers=a.workers)
+    run(
+        a.movie,
+        a.system,
+        a.video,
+        out_dir,
+        api,
+        a.model,
+        a.ffmpeg,
+        a.limit,
+        workers=a.workers,
+        metric_version=a.metric_version,
+        ref_workers=a.ref_workers,
+        judge_cache_dir=a.judge_cache,
+    )
 
 
 if __name__ == "__main__":

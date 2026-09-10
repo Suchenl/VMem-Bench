@@ -64,16 +64,18 @@ def call_judge_http(
     temperature: float = 0.0,
     max_tokens: int = 2048,
     mm_processor_kwargs: dict[str, Any] | None = None,
+    response_format: dict[str, Any] | None = None,
 ) -> str:
-    body = json.dumps(
-        {
-            "model": model,
-            "messages": [{"role": "user", "content": content}],
-            "temperature": float(temperature),
-            "max_tokens": int(max_tokens),
-            "mm_processor_kwargs": mm_processor_kwargs or DEFAULT_MM_PROCESSOR_KWARGS,
-        }
-    ).encode()
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": content}],
+        "temperature": float(temperature),
+        "max_tokens": int(max_tokens),
+        "mm_processor_kwargs": mm_processor_kwargs or DEFAULT_MM_PROCESSOR_KWARGS,
+    }
+    if response_format is not None:
+        payload["response_format"] = response_format
+    body = json.dumps(payload).encode()
     req = urllib.request.Request(chat_endpoint(api), data=body, headers={"Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=900) as resp:  # noqa: S310 - operator-controlled judge URLs
@@ -167,6 +169,7 @@ class PooledJudgeCaller:
         temperature: float = 0.0,
         max_tokens: int = 2048,
         mm_processor_kwargs: dict[str, Any] | None = None,
+        response_format: dict[str, Any] | None = None,
     ) -> str:
         workload = getattr(self._local, "workload", None)
         attempts = max(1, JUDGE_MAX_ATTEMPTS)
@@ -185,6 +188,7 @@ class PooledJudgeCaller:
                         temperature=temperature,
                         max_tokens=max_tokens,
                         mm_processor_kwargs=mm_processor_kwargs,
+                        response_format=response_format,
                     )
                 except Exception as exc:  # noqa: BLE001 - decide retry vs re-raise below
                     last_exc = exc
@@ -257,6 +261,7 @@ def call_judge(
     temperature: float = 0.0,
     max_tokens: int = 2048,
     mm_processor_kwargs: dict[str, Any] | None = None,
+    response_format: dict[str, Any] | None = None,
 ) -> str:
     if callable(api) and not isinstance(api, str):
         return api(
@@ -264,6 +269,7 @@ def call_judge(
             temperature=temperature,
             max_tokens=max_tokens,
             mm_processor_kwargs=mm_processor_kwargs,
+            response_format=response_format,
         )
     return call_judge_http(
         str(api),
@@ -272,4 +278,5 @@ def call_judge(
         temperature=temperature,
         max_tokens=max_tokens,
         mm_processor_kwargs=mm_processor_kwargs,
+        response_format=response_format,
     )
