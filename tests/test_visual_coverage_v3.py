@@ -175,6 +175,38 @@ def test_v3_cache_reuses_only_validated_exact_payloads(tmp_path):
     assert first["refs"][0]["cache_key"] == second["refs"][0]["cache_key"]
 
 
+def test_v3_cache_single_flights_duplicate_concurrent_refs(tmp_path):
+    ref = _image(tmp_path / "ref.png", (255, 0, 0))
+    image_url = visual_coverage._img(ref)["image_url"]["url"]
+    judge = _FakeJudge({image_url: ["char_001"]})
+    cache = visual_coverage._V3JudgeCache(tmp_path / "cache")
+
+    _score, detail = visual_coverage.score_segment(
+        1,
+        [ref, ref, ref],
+        ["char_001"],
+        ["char_001"],
+        "unused",
+        "unused",
+        None,
+        judge,
+        "qwen3-vl-32b",
+        metric_version=visual_coverage.PER_REF_METRIC_VERSION,
+        roster=[_roster()[0]],
+        ref_workers=3,
+        judge_cache=cache,
+    )
+
+    assert len(judge.calls) == 1
+    assert detail["judge_requests"] == 1
+    assert detail["judge_cache_hits"] == 2
+    assert [row["pred_entities"] for row in detail["refs"]] == [
+        ["char_001"],
+        ["char_001"],
+        ["char_001"],
+    ]
+
+
 def test_v3_run_skips_target_clip_and_records_contract(
     tmp_path,
     monkeypatch,

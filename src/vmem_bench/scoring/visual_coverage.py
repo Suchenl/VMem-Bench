@@ -359,9 +359,15 @@ class _V3JudgeCache:
     def __init__(self, root: Path):
         self.root = root.resolve()
         self._lock = threading.Lock()
+        self._key_locks: dict[str, threading.Lock] = {}
 
     def _path(self, key: str) -> Path:
         return self.root / key[:2] / f"{key}.json"
+
+    def key_lock(self, key: str) -> threading.Lock:
+        """Return the process-local single-flight lock for one payload."""
+        with self._lock:
+            return self._key_locks.setdefault(key, threading.Lock())
 
     def get(self, key: str, allowed: set[str]) -> tuple[list[str], str] | None:
         path = self._path(key)
@@ -452,17 +458,29 @@ def _judge_v3_reference(
                 "cache_hit": True,
                 "judge_called": False,
             }
-    raw = call_judge(
-        api,
-        model,
-        content,
-        temperature=0.0,
-        max_tokens=256,
-        response_format=response_format,
-    )
-    entity_ids = _parse_v3_reference(raw, allowed)
-    if cache is not None:
-        cache.put(key, entity_ids, raw)
+    with cache.key_lock(key) if cache is not None else nullcontext():
+        if cache is not None:
+            cached = cache.get(key, allowed)
+            if cached is not None:
+                entity_ids, raw = cached
+                return {
+                    "entity_ids": entity_ids,
+                    "raw": raw,
+                    "cache_key": key,
+                    "cache_hit": True,
+                    "judge_called": False,
+                }
+        raw = call_judge(
+            api,
+            model,
+            content,
+            temperature=0.0,
+            max_tokens=256,
+            response_format=response_format,
+        )
+        entity_ids = _parse_v3_reference(raw, allowed)
+        if cache is not None:
+            cache.put(key, entity_ids, raw)
     return {
         "entity_ids": entity_ids,
         "raw": raw,
