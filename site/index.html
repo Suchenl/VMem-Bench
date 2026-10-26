@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VMem-Bench — More Memory, Better Videos?</title>
+<meta name="description" content="A relevant past can be wrong for the present. VMem-Bench studies what visual memory retrieves and what a long-video generator actually uses.">
+<meta property="og:title" content="VMem-Bench — More Memory, Better Videos?">
+<meta property="og:description" content="Retrieval improves recall, but can bring back the wrong entity or an obsolete appearance. Explore the evidence.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://suchenl.github.io/VMem-Bench/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/site.css">
+<script src="assets/data.js" defer></script>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav" aria-label="Main navigation"><div class="wrap nav-inner">
+<a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">↶</span> VMem-Bench</a>
+<div class="nav-links"><a href="#evidence">Examples</a><a href="#results">Results</a><a href="#protocol">Benchmark</a><a href="#resources">Resources</a></div>
+<div class="language-switch" role="group" aria-label="Language / 语言"><button type="button" data-lang="en" lang="en" aria-pressed="true">EN</button><button type="button" data-lang="zh-CN" lang="zh-CN" aria-pressed="false">中文</button></div><span class="nav-paper">Paper · forthcoming</span>
+</div></nav>
+<main id="main">
+<header class="hero wrap" id="top">
+<p class="eyebrow">VISUAL MEMORY · LONG-VIDEO GENERATION</p>
+<h1>More memory.<br><span>Better videos?</span></h1>
+<p class="hero-line">A relevant past can be wrong for the present.</p>
+<p class="hero-description">We separate what memory retrieves from what a generator actually renders.<br class="desktop-br"> More recall can come with unwanted entities and outdated appearances.</p>
+<div class="btns"><span class="btn primary">Paper · forthcoming</span><a class="btn" href="https://github.com/Suchenl/VMem-Bench">Code <span aria-hidden="true">↗</span></a><a class="btn" href="https://huggingface.co/datasets/Suchenl/VMem-Bench">Dataset <span aria-hidden="true">↗</span></a><a class="btn quiet" href="#citation">Cite this work ↓</a></div>
+</header>
+<section class="evidence wrap" id="evidence" aria-labelledby="evidence-title">
+<div class="section-label"><span>01 / SEE THE PROBLEM</span><span>Existing generated results</span></div>
+<div class="evidence-shell">
+<div class="case-tabs" role="group" aria-label="Choose a memory failure"><button class="active" aria-pressed="true" data-case="stale">01 · An outdated look</button><button aria-pressed="false" data-case="forbidden">02 · A forbidden return</button><button aria-pressed="false" data-case="lookalike">03 · The wrong identity</button></div>
+<div class="case-intro"><h2 id="evidence-title">The story changes.<br>The memory doesn’t.</h2><div><p id="case-description">Axi’s scarf has changed to a short cape. Retrieved history and the generated result keep the old scarf.</p><span class="case-tag" id="case-tag">Outdated appearance</span></div></div>
+<div class="filmstrip" id="filmstrip">
+<figure><figcaption><span>01</span> Previous appearance</figcaption><img id="frame-earlier" src="assets/257ffe6d73_earlier.jpg" alt="Earlier generated appearance of Axi wearing a scarf" width="960" height="540"><p>The history we want to remember.</p></figure>
+<figure><figcaption><span>02</span> Retrieved reference</figcaption><img id="frame-reference" src="assets/257ffe6d73_ref_0.jpg" alt="An older reference preserving the scarf" width="960" height="540"><p>Relevant to the past.</p></figure>
+<figure><figcaption><span>03</span> Composed keyframe</figcaption><img id="frame-keyframe" src="assets/257ffe6d73_keyframe.jpg" alt="Composed keyframe showing the old scarf" width="960" height="540"><p>The old look is carried forward.</p></figure>
+<figure class="outcome"><figcaption><span>04</span> Generated clip <span class="failure-label">Mismatch</span></figcaption><img id="frame-output" src="assets/257ffe6d73_clip.jpg" alt="Still from the generated clip retaining the obsolete scarf" width="960" height="540"><p>Wrong for the present.</p></figure>
+</div>
+<p class="evidence-note">Stills from earlier Track-B rollouts, shown in the paper’s Figure 1. One retrieved reference is displayed. These illustrate failure paths; they are not fixed-history causal interventions or samples from the main quantitative rerun.</p>
+</div>
+<div class="takeaway"><span class="orange-dot"></span><p>Remembering an entity is only half the problem.<br><strong>Memory must also respect what has changed.</strong></p><a href="#results">Explore the measurements <span aria-hidden="true">↓</span></a></div>
+</section>
+<section class="results-section" id="results"><div class="wrap">
+<div class="section-label"><span>02 / THE TRADE-OFF</span><span>Same shared generator</span></div>
+<div class="section-heading"><h2>More recall.<br><span>Less correctness.</span></h2><p>Retrieval helps the right entities reappear. It also brings in entities that should be absent. A single consistency score misses this trade-off.</p></div>
+<div class="control-row"><label for="policy">Compare a retrieval policy with no memory</label><select id="policy"><option value="retr_seg_dinokey">Seg+DINO-key</option><option value="retr_frame_text">Text-frame</option><option value="retr_seg_uniform">Seg+uniform</option><option value="retr_seg_framererank">Seg+frame</option></select></div>
+<div class="metric-grid" id="metrics" aria-live="polite"></div>
+<div class="chart-legend"><span><i class="baseline-key"></i>No memory</span><span><i class="memory-key"></i>Selected retrieval policy</span><span>Absolute rates · higher is better for all three</span></div>
+<p class="measurement-note">30 stories · 2,824 five-second segments per condition · seed 2026 · FLUX.2 + Wan2.2. Differences and 95% intervals use paired story-clustered bootstrap; they do not cover generation-seed variability.</p>
+<details class="full-results"><summary>See all four policies and the no-memory control <span aria-hidden="true">+</span></summary><div class="table-scroll"><table><caption>Absolute entity outcomes under the shared generator</caption><thead><tr><th scope="col">Condition</th><th scope="col">Recall ↑</th><th scope="col">Precision ↑</th><th scope="col">Avoid-OK ↑</th></tr></thead><tbody id="result-rows"></tbody></table></div></details>
+</div></section>
+<section class="prompt-section wrap" id="prompt">
+<div class="section-label"><span>03 / A HIDDEN SHORTCUT</span><span>Appearance-stripping analysis</span></div>
+<div class="prompt-layout"><div><h2>Did memory remember?<br><span>Or did the prompt tell it?</span></h2><p class="lead">A character can return after a long gap even with no visual memory, because the current prompt describes the character’s appearance.</p><p class="muted">On the same 62 long-gap character-return events, removing the appearance information sharply reduces no-memory presence. Long-gap success alone is insufficient evidence of visual-memory use.</p><p class="small-note">Targeted prompt intervention; these are entity-presence rates, not proof of identity fidelity or a memory-capacity scaling law.</p></div><div class="prompt-chart"><p class="chart-kicker">NO MEMORY · LONG-GAP CHARACTER PRESENCE</p><div class="prompt-row"><div><span>Original prompt</span><strong id="prompt-original">98.4%</strong></div><div class="prompt-track"><i id="prompt-original-bar" style="width:98.39%"></i></div></div><div class="prompt-row stripped"><div><span>Appearance stripped</span><strong id="prompt-stripped">56.5%</strong></div><div class="prompt-track"><i id="prompt-stripped-bar" style="width:56.45%"></i></div></div><p>Same event cohort.<br>Different information in the current prompt.</p></div></div>
+</section>
+<section class="protocol-section" id="protocol"><div class="wrap">
+<div class="section-label"><span>04 / TWO COMPLEMENTARY TRACKS</span><span>Selection → generated outcomes</span></div>
+<div class="section-heading"><h2>Measure the evidence.<br><span>Then measure its use.</span></h2><p>Track A evaluates reference selection before generation. Track B evaluates the generated pixels. They answer different questions on different instances.</p></div>
+<div class="track-grid"><article class="track"><span class="track-label">TRACK A</span><h3>What did memory retrieve?</h3><p>Choose references before the current real segment is revealed; observe the segment afterward.</p><div class="track-flow"><span>Prompt</span><b>→</b><span>Retrieve</span><b>→</b><span>Score references</span></div><div class="track-stats"><strong>92<span>real films</span></strong><strong>16,548<span>segments</span></strong></div><p class="small-note">No generator confound. The scoring gold is never an input to the method.</p></article><article class="track"><span class="track-label">TRACK B</span><h3>What did the generator render?</h3><p>Generate causally from prompts and the system’s own history. Evaluate the entities and states that appear.</p><div class="track-flow"><span>Retrieve</span><b>→</b><span>Generate</span><b>→</b><span>Observe</span></div><div class="track-stats"><strong>30<span>evaluated stories</span></strong><strong>2,824<span>segments / condition</span></strong></div><p class="small-note">Four retrieval policies, no memory and a separate gold-ID Last-seen diagnostic control.</p></article></div>
+<p class="protocol-boundary">The 30-story evaluated cohort is part of a larger 50-story authoring pool. The two tracks are not matched instances, so Track-A scores cannot be directly correlated with Track-B outcomes.</p>
+</div></section>
+<section class="lessons wrap" id="lessons"><div class="section-label"><span>05 / WHAT TO TAKE AWAY</span><span>For builders and evaluators</span></div><h2>Ask three questions<br><span>before you retrieve.</span></h2><div class="lesson-grid"><article><span class="lesson-number">01</span><h3>What information<br>is valid now?</h3><p>Historical fidelity is useful only when the remembered state still agrees with the current story.</p></article><article><span class="lesson-number">02</span><h3>What else comes<br>with that reference?</h3><p>A needed entity may share its frame with a forbidden character, a look-alike or an obsolete appearance.</p></article><article><span class="lesson-number">03</span><h3>What did the prompt<br>already supply?</h3><p>Separate gains from visual history from successes explained by the current prompt itself.</p></article></div><details class="scope"><summary>What the study establishes, and what remains open</summary><p>The main comparison measures complete retrieval policies on one shared generator, conditional on one rollout per story. Histories diverge, so it does not isolate the causal effect of replacing a single reference. The paper also reports second-judge and eight-story H3 sensitivity checks. Absolute rates depend on the judge, and the backend check has limited scope. Last-seen has privileged gold-ID access and variable reference counts; it is not a deployable method or a budget-matched upper bound. The 224-unit mechanism audit was performed by one author and does not estimate population failure frequencies.</p></details></section>
+<section class="resources-section" id="resources"><div class="wrap"><div class="section-label"><span>06 / READ · USE · REPRODUCE</span><span>VMem-Bench</span></div><h2>Build memory that knows<br><span>when the past is useful.</span></h2><div class="resource-grid"><article><span>01</span><h3>Paper · forthcoming</h3><p>The paper link will be added after the arXiv publication.</p></article><a href="https://github.com/Suchenl/VMem-Bench"><span>02</span><h3>Use the benchmark ↗</h3><p>Scorers, method adapters, shared-generator testbed and reproduction guide.</p></a><a href="https://huggingface.co/datasets/Suchenl/VMem-Bench"><span>03</span><h3>Explore the data ↗</h3><p>Text gold and prompts. Track B needs no source films; Track A requires separate video access.</p></a></div></div></section>
+<section class="paper-section wrap" id="citation"><p class="eyebrow">THE PAPER</p><h2>More Memory, Better Videos?</h2><p class="paper-subtitle">A Controlled Study of Visual Memory in Long-Video Generation</p><div class="authors">Yuzhuo Chen<sup>1,2,†</sup> · Huafeng Shi<sup>2,*,‡</sup> · Xinyu Wang<sup>2,3</sup> · Yulong Xu<sup>2</sup> · Yucheng Wang<sup>2,4</sup> · Haoqin Hong<sup>1,2,5</sup> · Guoxin Zhang<sup>2</sup> · Zehua Ma<sup>1,*</sup> · Weiming Zhang<sup>1</sup></div><p class="affiliations"><sup>1</sup> University of Science and Technology of China · <sup>2</sup> KlingAI Research · <sup>3</sup> Tsinghua University · <sup>4</sup> The Hong Kong University of Science and Technology · <sup>5</sup> City University of Hong Kong</p><p class="author-notes">* Co-corresponding authors · ‡ Project leader<br>† This work was conducted during the author’s internship at KlingAI.</p><div class="citation-header"><h3>BibTeX</h3><button id="copy-citation" type="button">Copy citation</button><span id="copy-status" role="status"></span></div><pre id="bibtex">@misc{chen2026vmembench,
+  title={More Memory, Better Videos? A Controlled Study of Visual Memory in Long-Video Generation},
+  author={Chen, Yuzhuo and Shi, Huafeng and Wang, Xinyu and Xu, Yulong and Wang, Yucheng and Hong, Haoqin and Zhang, Guoxin and Ma, Zehua and Zhang, Weiming},
+  year={2026}
+}</pre></section>
+</main>
+<footer><div class="wrap"><span>VMem-Bench · 2026</span><p>A relevant past can be wrong for the present.</p><a href="https://github.com/Suchenl/VMem-Bench">GitHub ↗</a></div></footer>
+<noscript><p class="noscript">Enable JavaScript to switch examples and compare policies. The paper and dataset links remain available.</p></noscript>
+</body>
+</html>

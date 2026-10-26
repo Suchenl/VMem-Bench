@@ -1,0 +1,78 @@
+/* 锁死视口高度，保证事件流在面板内滚动，而不是把整页撑开 */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 全局基础重置与渐变网格背景 */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(13, 20, 44, 0.4) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(20, 11, 48, 0.3) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(8, 12, 28, 0.5) 0px, transparent 100%);
+  background-attachment: fixed;
+}
+
+/* 事件流右侧可拖动位置条 */
+.log-scrubber {
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+.log-scrubber:active,
+.log-scrubber.is-scrubbing {
+  cursor: grabbing;
+}
+.log-scrubber-thumb {
+  pointer-events: none;
+}
+
+/* 霓虹发光呼吸 */
+@keyframes neon-pulse {
+  0%, 100% { 
+    opacity: 0.5; 
+    box-shadow: 0 0 4px rgba(59, 130, 246, 0.3);
+  }
+  50% { 
+    opacity: 1; 
+    box-shadow: 0 0 16px rgba(59, 130, 246, 0.7);
+  }
+}
+.pulse-active {
+  animation: neon-pulse 2s infinite alternate;
+}
+
+/* 隐藏滚动条但保留滚动能力 */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 极细、极其雅致的暗黑滚动条 */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e294b;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+/* 优雅平滑过渡 */
+.smooth-all {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}

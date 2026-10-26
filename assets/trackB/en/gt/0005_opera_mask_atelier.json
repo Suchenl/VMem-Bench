@@ -1,0 +1,3102 @@
+{
+  "story_id": "0005_opera_mask_atelier",
+  "gt_version": "trackB-gt-2.0",
+  "title": "Mask Atelier",
+  "premise": "A master-apprentice relay in an old opera house papier-mache workshop. Lu Qing and A-Tang guard the white-faced Cao Cao headdress; A-Tang and A-Lin look nearly identical except for hair ornaments; after the vermilion lacquer prop chest burns it must be avoided; oil-stained pattern book, count memory, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "built_from": "gt_source/0005_opera_mask_atelier.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "Lu Qing",
+      "kind": "character",
+      "states": {
+        "prime_master": "A mask craftsman around forty, indigo short jacket dusted with pigment powder, right hand often gripping a wolf-hair brush, brows deeply furrowed.",
+        "lacquer_burn_arm": "The same Lu Qing: right arm wrapped in white cloth burned by raw lacquer, brush switched to the left hand, jacket cuff charred black.",
+        "eyes_closed_dead": "Lu Qing has closed his eyes in death, lying still on the workshop wooden couch, indigo short jacket covering his chest."
+      },
+      "initial_state": "prime_master"
+    },
+    "E2": {
+      "name": "A-Tang",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "A fifteen-year-old apprentice girl with twin topknots, a vermilion bib apron, vermilion paint on her fingertips, keen eyes.",
+        "adult_master": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+      },
+      "initial_state": "young_apprentice"
+    },
+    "E3": {
+      "name": "white-faced Cao Cao headdress",
+      "kind": "prop",
+      "states": {
+        "intact": "A freshly papier-mached white-faced Cao Cao headdress, silk beard black and neat, gold leaf on the crest still unworn.",
+        "lacquer_cracked": "The same white-faced Cao Cao headdress: white face cracked open to hemp cloth core, beard tangled, gold leaf peeling.",
+        "rebacked": "The white-faced Cao Cao headdress after rebacking: white face smooth, beard re-combed, gold leaf patched but slightly paler."
+      },
+      "initial_state": "intact"
+    },
+    "E4": {
+      "name": "face-pattern model book",
+      "kind": "prop",
+      "states": {
+        "intact": "A thread-bound face-pattern model book, vermilion and ink sketching painted-face formulas on xuan paper, cover stamped with a 'Lu's' vermilion seal.",
+        "oil_stained_pages": "The same face-pattern model book soaked through with tung oil, cover sticky, formulas bled into a blur."
+      },
+      "initial_state": "intact"
+    },
+    "E5": {
+      "name": "vermilion lacquer prop chest",
+      "kind": "prop",
+      "states": {
+        "intact": "A large vermilion lacquer prop chest, twin-dragon relief on the lid, copper lock gleaming, blue cloth lining.",
+        "burned": "The vermilion prop chest scorched by fire, lid collapsed, twin-dragon relief charred and incomplete."
+      },
+      "initial_state": "intact"
+    },
+    "E6": {
+      "name": "A-Lin",
+      "kind": "character",
+      "states": {
+        "young_rival": "A youth whose face closely resembles A-Tang's, but with a peacock-plume hairpin worn askew and an ink-blue apron, swaggering expression.",
+        "disguised_anew": "A-Lin after a makeover still wears the peacock plume askew; a greasepaint scar on the temple, expression deeper."
+      },
+      "initial_state": "young_rival"
+    },
+    "E7": {
+      "name": "papier-mache atelier",
+      "kind": "location",
+      "appearance": "A street-front papier-mache atelier; half-dry mask shells dry on wooden racks, unpainted white blanks hang on the wall."
+    },
+    "E8": {
+      "name": "stage side chamber",
+      "kind": "location",
+      "appearance": "An old opera house side chamber; half a red carpet runs to the stage lip, greasepaint dishes piled by the makeup mirror."
+    },
+    "E9": {
+      "name": "headdress storeroom",
+      "kind": "location",
+      "appearance": "A narrow headdress storeroom; wooden racks packed with beards and velvet pompons of every color, dust drifting in light shafts."
+    },
+    "E10": {
+      "name": "abandoned opera house",
+      "kind": "location",
+      "appearance": "The abandoned opera house main hall; a corner of roof tiles collapsed, half a table drape still on the empty stage."
+    },
+    "E11": {
+      "name": "Lu's wooden plaque",
+      "kind": "prop",
+      "appearance": "A black-lacquer wooden plaque hung on the atelier lintel, gilt letters 'Lu's Headdresses', paint chipped at the corners."
+    },
+    "E12": {
+      "name": "cinnabar dishes",
+      "kind": "prop",
+      "appearance": "Three celadon cinnabar dishes with undried vermilion in the wells, set on the atelier windowsill."
+    },
+    "E13": {
+      "name": "indigo-cloth prop box",
+      "kind": "prop",
+      "appearance": "An indigo-cloth-covered prop box with no twin-dragon relief, utterly unlike the vermilion prop chest."
+    },
+    "E14": {
+      "name": "Troupe master Old Xue",
+      "kind": "character",
+      "appearance": "A lean troupe master also in an indigo short jacket, but with an ivory name-plaque on his chest; build close to Lu Qing's."
+    },
+    "E15": {
+      "name": "tung-oil lamps",
+      "kind": "prop",
+      "appearance": "A row of five tung-oil iron lamps hanging under the papier-mache atelier beam, shades yellowed by soot."
+    },
+    "E16": {
+      "name": "copper clappers",
+      "kind": "prop",
+      "appearance": "Two pairs of copper clappers hanging by the door, faces carved with key patterns, lightly knocking when wind passes."
+    },
+    "E17": {
+      "name": "Xiao Ju",
+      "kind": "character",
+      "appearance": "A girl from the neighboring embroidery shop in a pale-pink apron; at a glance she resembles young A-Tang, but wears a single braid and shy eyes."
+    },
+    "E18": {
+      "name": "replica white-faced helmet",
+      "kind": "prop",
+      "appearance": "A half-finished replica white-faced helmet, shaped like the Cao Cao headdress but without a beard, gold leaf replaced by yellow paper."
+    },
+    "E19": {
+      "name": "bamboo opera basket",
+      "kind": "prop",
+      "appearance": "A bamboo-woven opera basket holding water sleeves rather than headdresses—nothing like the vermilion prop chest."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_master",
+      "lacquer_burn_arm",
+      "eyes_closed_dead"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_master"
+    ],
+    "E3": [
+      "intact",
+      "lacquer_cracked",
+      "rebacked"
+    ],
+    "E4": [
+      "intact",
+      "oil_stained_pages"
+    ],
+    "E5": [
+      "intact",
+      "burned"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised_anew"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "A-Tang: vermilion bib apron, twin topknots.",
+        "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+      },
+      "note": "Apprentice misidentification: apron color and hair ornament are binding cues."
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dusk, mask craftsman Lu Qing pushes open the papier-mache atelier wooden door, both hands cradling the freshly papier-mached white-faced Cao Cao headdress.",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A row of five tung-oil lamps hangs under the papier-mache atelier beam; Lu Qing wipes soot from each with a cloth.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two pairs of copper clappers hang by the door; Lu Qing brushes them and they ring clear and bright.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing sets the white-faced Cao Cao headdress on a wooden stand and combs the silk beard smooth with a bamboo comb.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing rests against the mask-shell drying rack; tung-oil lamplight falls on his indigo short jacket.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Lu Qing opens the thread-bound face-pattern model book and checks it against the headdress formula.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He uses a vermilion brush to fill in painted-face brow lines and eye-socket finishes in the blank margins.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing closes the model book and moves the white-faced Cao Cao headdress under a dust cover.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the morning stage side chamber, Lu Qing greets young A-Tang dragging in the vermilion lacquer prop chest.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Tang opens the vermilion lacquer prop chest and takes out still-wet greasepaint dishes.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing points to the three cinnabar dishes on the windowsill and teaches A-Tang to judge thick from thin.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Tang squats by the side-chamber red carpet and curiously touches the twin-dragon relief on the prop chest.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the headdress storeroom, A-Lin with the peacock plume askew turns from behind a wooden rack.",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Lin parts a row of beards with fingertips; the ink-blue apron picks up dust.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Lin carries an empty greasepaint bucket through the far end of the headdress storeroom.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the stage side chamber, A-Tang and A-Lin brush past each other—one in a vermilion apron, one with a peacock plume askew.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Tang shields the white blank in her arms; A-Lin flicks the peacock plume and skirts the mirror stand.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "They part before the makeup mirror and walk opposite ways.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Months later on a rainy night, Lu Qing keeps watch alone in the papier-mache atelier, the white-faced Cao Cao headdress on his knees.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing opens the face-pattern model book; the cover is soaked through with tung oil, formulas blurred into a paste.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "oil_stained_pages",
+            "appearance": "The same face-pattern model book soaked through with tung oil, cover sticky, formulas bled into a blur."
+          },
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing carefully wipes oil flecks from the headdress gold-leaf edge, expression grave.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "oil_stained_pages",
+            "appearance": "The same face-pattern model book soaked through with tung oil, cover sticky, formulas bled into a blur."
+          },
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The opera season stretches long; day after day Lu Qing mixes white powder, brushes base lacquer, and waits for hemp cores to dry in the shade.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another snowy night, he tightens his indigo short jacket and trims tangled beards beside the tung-oil lamp.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At opening season, Lu Qing stands by the door tallying headdress loads carried out.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At high-summer noon he fans half-dry mask shells slowly with a fine fan.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Autumn rain falls on end; the atelier smells of tung oil, cinnabar, and damp xuan paper.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another New Year's Eve, Lu Qing lines beards on wooden racks and keeps vigil alone in the atelier till dawn.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dawn Lu Qing patrols along the stage side chamber; the vermilion lacquer prop chest leans by the mirror.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 15,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing crouches to check whether the prop chest copper lock is fully bitten shut.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing rearranges scattered greasepaint dishes by black, white, and vermilion.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "An indigo-cloth prop box is carried into the side chamber—no twin-dragon relief, not the vermilion lacquer prop chest.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Fire breaks at midnight; thick smoke fills the papier-mache atelier, drying racks creaking in the heat.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In the glare of flame, the white face lacquer of the white-faced Cao Cao headdress cracks open, exposing the hemp cloth core.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "lacquer_cracked",
+            "appearance": "The same white-faced Cao Cao headdress: white face cracked open to hemp cloth core, beard tangled, gold leaf peeling."
+          },
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In the side chamber, fire tongues lick the lid of the vermilion lacquer prop chest; the copper lock darkens with heat.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The vermilion lacquer prop chest finally burns and collapses; the twin-dragon relief is charred and incomplete.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "burned",
+            "appearance": "The vermilion prop chest scorched by fire, lid collapsed, twin-dragon relief charred and incomplete."
+          },
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing lunges for the cracked white-faced Cao Cao headdress and clutches it hard against his chest.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "lacquer_cracked",
+            "appearance": "The same white-faced Cao Cao headdress: white face cracked open to hemp cloth core, beard tangled, gold leaf peeling."
+          },
+          "gap": 2,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The day after the fire, Lu Qing stands in the papier-mache atelier, left hand lifting the cracked white-faced Cao Cao headdress.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "lacquer_cracked",
+            "appearance": "The same white-faced Cao Cao headdress: white face cracked open to hemp cloth core, beard tangled, gold leaf peeling."
+          },
+          "gap": 0,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On a blank page of the face-pattern model book Lu Qing sketches the burned-through chest lock and notes the date the vermilion lacquer prop chest burned.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "oil_stained_pages",
+            "appearance": "The same face-pattern model book soaked through with tung oil, cover sticky, formulas bled into a blur."
+          },
+          "gap": 16,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Half a copper lock from the vermilion lacquer prop chest hangs by the wall; Lu Qing wraps the still-blackened bolt in cloth.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He takes down one of the five tung-oil lamps from the beam and sits alone by its faint light.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 37,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At the end of the prop inventory Lu Qing adds the costumes once packed in the vermilion lacquer prop chest; the brush tip trembles slightly.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "oil_stained_pages",
+            "appearance": "The same face-pattern model book soaked through with tung oil, cover sticky, formulas bled into a blur."
+          },
+          "gap": 2,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Weeks later, Lu Qing scrapes away the cracked lacquer layer and begins rebacking the white-faced Cao Cao headdress.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "lacquer_cracked",
+            "appearance": "The same white-faced Cao Cao headdress: white face cracked open to hemp cloth core, beard tangled, gold leaf peeling."
+          },
+          "gap": 4,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He takes out a replica white-faced helmet to check the shape—it looks like the true headdress but has no beard, and the gold leaf is only yellow paper.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "After the new hemp core is pressed flat and powdered again, the white-faced Cao Cao headdress is usable once more, gold leaf slightly paler.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "rebacked",
+            "appearance": "The white-faced Cao Cao headdress after rebacking: white face smooth, beard re-combed, gold leaf patched but slightly paler."
+          },
+          "gap": 1,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing divides the rebacked beard into three neat locks with a bamboo comb.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rebacked",
+            "appearance": "The white-faced Cao Cao headdress after rebacking: white face smooth, beard re-combed, gold leaf patched but slightly paler."
+          },
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A bamboo opera basket is carried into the stage side chamber packed with water sleeves—nothing to do with the burned vermilion lacquer prop chest.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Troupe master Old Xue enters the side chamber and talks beside Lu Qing; both wear indigo short jackets.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Old Xue points at the bamboo opera basket and asks for a separate water-sleeve rack; Lu Qing notes the size in the model-book margin.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_046",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "From the next street comes Xiao Ju in a pale-pink apron; at a glance she somewhat resembles young A-Tang.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiao Ju tries to tidy a beard, but Lu Qing shakes his head—she wears a single braid; she is not A-Tang after all.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Years later at dusk, Lu Qing with his right arm wrapped in white cloth stands under the empty stage of the abandoned opera house.",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "lacquer_burn_arm",
+            "appearance": "The same Lu Qing: right arm wrapped in white cloth burned by raw lacquer, brush switched to the left hand, jacket cuff charred black."
+          },
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Those two pairs of copper clappers by the abandoned opera house door knock lightly in the wind; Lu Qing stops to listen.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "lacquer_burn_arm",
+            "appearance": "The same Lu Qing: right arm wrapped in white cloth burned by raw lacquer, brush switched to the left hand, jacket cuff charred black."
+          },
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 48,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing presses his left palm to the cold stone pillar, as if saying goodbye.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "lacquer_burn_arm",
+            "appearance": "The same Lu Qing: right arm wrapped in white cloth burned by raw lacquer, brush switched to the left hand, jacket cuff charred black."
+          },
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "By day, adult A-Tang returns along the alley and hurries toward the abandoned opera house.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 35,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Under the empty stage A-Tang reunites with arms-folded Lu Qing; they embrace.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "lacquer_burn_arm",
+            "appearance": "The same Lu Qing: right arm wrapped in white cloth burned by raw lacquer, brush switched to the left hand, jacket cuff charred black."
+          },
+          "gap": 1,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the opera-house wooden couch, A-Tang holds Lu Qing's withered hand.",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "lacquer_burn_arm",
+            "appearance": "The same Lu Qing: right arm wrapped in white cloth burned by raw lacquer, brush switched to the left hand, jacket cuff charred black."
+          },
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lu Qing's breath fades; at last he closes his eyes and dies with eyes shut.",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "eyes_closed_dead",
+            "appearance": "Lu Qing has closed his eyes in death, lying still on the workshop wooden couch, indigo short jacket covering his chest."
+          },
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Behind the atelier door Lu Qing's old indigo short jacket still hangs; A-Tang brushes pigment powder from the cuff.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 12,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Under the lintel, adult A-Tang straightens the tilted Lu's wooden plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Tang polishes the four gilt letters 'Lu's Headdresses' with a fine cloth.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A-Lin after a makeover arrives from outside the opera house and locks eyes with A-Tang under the empty stage.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "disguised_anew",
+            "appearance": "A-Lin after a makeover still wears the peacock plume askew; a greasepaint scar on the temple, expression deeper."
+          },
+          "gap": 42,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Tang and A-Lin stand side by side in the abandoned opera house—one calm, one sombre.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "disguised_anew",
+            "appearance": "A-Lin after a makeover still wears the peacock plume askew; a greasepaint scar on the temple, expression deeper."
+          },
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "A-Tang: vermilion bib apron, twin topknots.",
+            "E6": "A-Lin: face nearly identical to A-Tang's, but peacock plume askew and ink-blue apron."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The gongs and drums soften; the youth who once touched the twin-dragon relief by the side-chamber red carpet reappears.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "young_apprentice",
+            "appearance": "A fifteen-year-old apprentice girl with twin topknots, a vermilion bib apron, vermilion paint on her fingertips, keen eyes.",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_062",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the youth who touched the twin-dragon relief by the side-chamber red carpet",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lamplight returns to the papier-mache atelier; a white-faced headdress is set firmly on a wooden stand for the first time.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "intact",
+            "appearance": "A freshly papier-mached white-faced Cao Cao headdress, silk beard black and neat, gold leaf on the crest still unworn.",
+            "flashback": true
+          },
+          "gap": 18,
+          "last_seen": "seg_045",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the white-faced headdress first set on a wooden stand at the opening",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Dust rises again in the headdress storeroom; the figure with peacock plume askew and ink-blue apron passes the wooden racks.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "young_rival",
+            "appearance": "A youth whose face closely resembles A-Tang's, but with a peacock-plume hairpin worn askew and an ink-blue apron, swaggering expression.",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_062",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the figure with peacock plume askew in the storeroom that year",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "That row of five tung-oil iron lamps under the atelier beam lights one by one in the dark.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 25,
+          "last_seen": "seg_040",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "that row of five tung-oil iron lamps under the atelier beam",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The side chamber with the makeup mirror from first meeting unfolds again; the half-rolled red carpet stops at the stage lip.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 16,
+          "last_seen": "seg_050",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the side chamber with the makeup mirror from first meeting",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A-Tang carries the oil-stained face-pattern model book into the papier-mache atelier.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 4,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "oil_stained_pages",
+            "appearance": "The same face-pattern model book soaked through with tung oil, cover sticky, formulas bled into a blur."
+          },
+          "gap": 26,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Those five tung-oil lamps under the atelier beam still burn; A-Tang checks them one by one along the posts.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_066",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On the windowsill, those earlier three cinnabar dishes still sit ranked by thickness.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 58,
+          "last_seen": "seg_011",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Tang lifts the rebacked white-faced Cao Cao headdress and dips cinnabar to start the brush anew.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_master",
+            "appearance": "A woman master in her early twenties, still wearing the vermilion apron, hair in a neat bun, steady gaze."
+          },
+          "gap": 1,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rebacked",
+            "appearance": "The white-faced Cao Cao headdress after rebacking: white face smooth, beard re-combed, gold leaf patched but slightly paler."
+          },
+          "gap": 6,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 71,
+    "n_scenes": 19,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 139,
+      "transform": 8,
+      "persist": 25,
+      "recall_after_gap": 3
+    },
+    "probe_counts": {
+      "first_appearance": 14,
+      "continuity": 66,
+      "lookalike_disambiguation": 12,
+      "state_change": 8,
+      "persist_state": 20,
+      "false_friend": 5,
+      "deprecation_avoidance": 10,
+      "reference_indirect": 5,
+      "long_gap_reappearance": 5,
+      "count_memory": 5,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 12,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 154,
+      "5-29": 16,
+      ">=30": 5
+    },
+    "longest_gap": {
+      "eid": "E12",
+      "gap": 58,
+      "at": "seg_070"
+    }
+  },
+  "warnings": []
+}

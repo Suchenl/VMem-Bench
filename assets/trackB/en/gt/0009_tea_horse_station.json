@@ -1,0 +1,3038 @@
+{
+  "story_id": "0009_tea_horse_station",
+  "gt_version": "trackB-gt-2.0",
+  "title": "Tea-Horse Station",
+  "premise": "A long drama at a Sichuan-Tibet Tea-Horse Road station. Caravan boss Cheng Yuan and tea worker Xiaoman guard the official tea brand; Xiaoman and A-Du look nearly identical but wear different wrist guards; tea packhorse Qiuli falls to its death and must be avoided; the tea-horse tax ledger, count memory, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "built_from": "gt_source/0009_tea_horse_station.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "Cheng Yuan",
+      "kind": "character",
+      "states": {
+        "prime_boss": "A forty-year-old tea-caravan boss, dark-red headwrap, sheepskin jacket, copper scale-weight and horsewhip at the waist, booming voice, hands calloused by tea ropes.",
+        "lame_from_kick": "The same Cheng Yuan: left leg kicked by a horse, limping on a broken whip, sheepskin jacket mud-spotted, copper scale-weight still at the waist.",
+        "died_at_office": "Cheng Yuan has closed his eyes in death, lying still on the tea-office earthen kang, sheepskin jacket covering his chest, broken whip leaning by the bed."
+      },
+      "initial_state": "prime_boss"
+    },
+    "E2": {
+      "name": "Xiaoman",
+      "kind": "character",
+      "states": {
+        "young_worker": "A fifteen-year-old tea-worker girl, indigo waist sash, coral stud in the left ear, tea rope often wound on her wrist, bright clear eyes.",
+        "adult_boss": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+      },
+      "initial_state": "young_worker"
+    },
+    "E3": {
+      "name": "official tea brand",
+      "kind": "prop",
+      "states": {
+        "intact": "A copper official tea brand issued by the government, the two characters 'Border Tea' clear on the face, long handle wrapped in deep-brown leather strip.",
+        "cracked_seal": "The same official tea brand, face cracked, the 'Border' character incomplete, deep-brown leather on the handle loose and curled.",
+        "recast": "After recasting, the official tea brand's inscription is complete again, new copper a shade brighter, long handle rewrapped tight in deep-brown leather."
+      },
+      "initial_state": "intact"
+    },
+    "E4": {
+      "name": "tea-horse tax ledger",
+      "kind": "prop",
+      "states": {
+        "intact": "A cowhide-covered tea-horse tax ledger recording tea-brick counts, fodder accounts, porter silver, and mountain-pass clearance dates.",
+        "tea_stained": "The same tea-horse tax ledger soaked through with strong tea, cowhide cover sticky, vermilion numbers blurred into brown clumps."
+      },
+      "initial_state": "intact"
+    },
+    "E5": {
+      "name": "tea packhorse Qiuli",
+      "kind": "prop",
+      "states": {
+        "intact": "A date-red tea packhorse named Qiuli, border-tea brand burned into the saddle flaps, symmetric tea-brick packs on both sides.",
+        "fallen_dead": "Tea packhorse Qiuli has fallen dead on a steep slope, saddle flaps torn, tea-brick packs scattered, border-tea brand mark still clear."
+      },
+      "initial_state": "intact"
+    },
+    "E6": {
+      "name": "A-Du",
+      "kind": "character",
+      "states": {
+        "young_rival": "A young caravan bookkeeper nearly identical in face to Xiaoman, but wearing silver-gray wrist guards and an ochre waist sash, cold hard eyes.",
+        "disguised": "Disguised A-Du still wears silver-gray wrist guards, a knife scar now at the brow, ochre sash replaced by an old leather belt."
+      },
+      "initial_state": "young_rival"
+    },
+    "E7": {
+      "name": "tea warehouse hall",
+      "kind": "location",
+      "appearance": "The tea warehouse hall of the tea-horse station, compressed tea bricks stacked along the walls, tack, tax plaques, and a branding furnace hanging from the beams."
+    },
+    "E8": {
+      "name": "hitching yard",
+      "kind": "location",
+      "appearance": "The hitching yard outside the station, wooden stakes in rows, hay and hoofprints on the ground, mountain trail visible at the far end."
+    },
+    "E9": {
+      "name": "tea-inn alley",
+      "kind": "location",
+      "appearance": "A narrow alley between the tea inn's wings, empty back-baskets and saddle pads stacked by the walls, courtyard light falling on blue stone slabs."
+    },
+    "E10": {
+      "name": "abandoned tea-horse office",
+      "kind": "location",
+      "appearance": "An abandoned tea-horse office yamen, empty main hall, flagpole snapped, grass on the stone steps, mountain wind through the broken door."
+    },
+    "E11": {
+      "name": "Cheng tea plaque",
+      "kind": "prop",
+      "appearance": "A wooden tea plaque nailed to a hall pillar, carved with 'Cheng Caravan Boss' and the year, edges blackened by tea smoke."
+    },
+    "E12": {
+      "name": "tea-brick samples",
+      "kind": "prop",
+      "appearance": "Three corner-cut tea-brick samples bound with hemp rope, set on the tea-warehouse desk for checking grade and press marks."
+    },
+    "E13": {
+      "name": "gray mule",
+      "kind": "prop",
+      "appearance": "A blue-gray pack mule, saddle flaps without a border-tea brand, salt bags on its back instead of tea-brick packs."
+    },
+    "E14": {
+      "name": "tea-tax clerk",
+      "kind": "character",
+      "appearance": "A lean tea-tax clerk, also in a dark-red headwrap, but with an official plaque on his chest and bamboo tallies in hand, build close to Cheng Yuan's."
+    },
+    "E15": {
+      "name": "butter lamps",
+      "kind": "prop",
+      "appearance": "A row of five butter copper lamps hanging under the tea-warehouse hall beams, flames steady, tea-smoke black marks on the bowl rims."
+    },
+    "E16": {
+      "name": "horse bells",
+      "kind": "prop",
+      "appearance": "Two copper horse bells hung inside the hall door beam, tongues polished bright, ringing clear when mountain wind passes the door."
+    },
+    "E17": {
+      "name": "tea girl",
+      "kind": "character",
+      "appearance": "A kitchen helper girl at the station, light-brown waist sash; at a glance like young Xiaoman, but green glass earrings and a shy gaze."
+    },
+    "E18": {
+      "name": "forged brand",
+      "kind": "prop",
+      "appearance": "A forged brand shaped much like the official tea brand, but shallow inscription, no official plaque number, handle leather grayish."
+    },
+    "E19": {
+      "name": "back-basket frame",
+      "kind": "prop",
+      "appearance": "A wooden back-basket frame bound with clay jars and straw rope, neither saddle flaps nor tea-brick packs."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_boss",
+      "lame_from_kick",
+      "died_at_office"
+    ],
+    "E2": [
+      "young_worker",
+      "adult_boss"
+    ],
+    "E3": [
+      "intact",
+      "cracked_seal",
+      "recast"
+    ],
+    "E4": [
+      "intact",
+      "tea_stained"
+    ],
+    "E5": [
+      "intact",
+      "fallen_dead"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+        "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+      },
+      "note": "Tea worker and caravan bookkeeper confuse."
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dusk, tea-caravan boss Cheng Yuan lifts the thick cotton door curtain into the tea warehouse hall and sets the official tea brand by a small stove to preheat.",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Five butter lamps hang under the tea-warehouse hall beams; Cheng Yuan trims each wick in turn, light falling on stacked tea bricks.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two copper horse bells hang inside the door beam; Cheng Yuan taps them with a knuckle, and the ring carries through the hall.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan presses the official tea brand onto damp cotton to test the heat; the characters 'Border Tea' rise clear in white steam.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Cheng Yuan unties a leather cord, opens the cowhide-covered tea-horse tax ledger, and checks tomorrow's tea-brick count for the mountain pass.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He looks up and counts the five butter lamps under the beams, confirming enough light before sealing the tea for the night.",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan sets the official tea brand beside the tea-horse tax ledger, ready to brand each pack after the mouths are sealed.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the morning hitching yard, Cheng Yuan greets young Xiaoman leading tea packhorse Qiuli, tea-brick packs hanging full on both sides of the saddle.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiaoman retightens Qiuli's girth, fingertips working through the saddle buckle and tea-rope knots.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan lays out three tea-brick samples on the tea-warehouse desk, teaching Xiaoman to read press marks, cut corners, and stem thickness.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiaoman crouches beside Qiuli, studying the border-tea brand mark burned into the saddle flaps.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the tea-inn alley, A-Du in silver-gray wrist guards turns from behind empty back-baskets, face almost like Xiaoman's.",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Du looks down through a hidden caravan bill; the ochre waist sash hangs by the blue stone slabs.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A-Du avoids the courtyard light and carries an empty tea pack through the end of the alley.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the hitching yard, Xiaoman and A-Du brush past—one in an indigo waist sash, one showing silver-gray wrist guards.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiaoman tucks the coral stud into her hair; A-Du cinches the ochre waist sash tighter.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Both turn at once toward the horse train; nearly identical faces briefly overlap in the dusty light.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Months later on a mountain-rain night, Cheng Yuan keeps the fire alone in the tea warehouse hall; the official tea brand by the stove glows faintly red.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A bowl of strong tea is knocked over by the wind; the tea-horse tax ledger is soaked through, vermilion numbers blurred into brown clumps.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "tea_stained",
+            "appearance": "The same tea-horse tax ledger soaked through with strong tea, cowhide cover sticky, vermilion numbers blurred into brown clumps."
+          },
+          "gap": 0,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan spreads the tea-horse tax ledger under a lamp to dry, then clears tea dust from the official tea brand's seams with a fine needle.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "tea_stained",
+            "appearance": "The same tea-horse tax ledger soaked through with strong tea, cowhide cover sticky, vermilion numbers blurred into brown clumps."
+          },
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The spring tea season stretches long; every day Cheng Yuan weighs newly pressed tea bricks in the tea warehouse hall.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Before the Start of Summer, Cheng Yuan beats dust from saddle pads at the doorway; mountain-pass fog clings to the stone steps.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At autumn harvest, the caravan sorts damp tea packs in the hall; Cheng Yuan never takes his eyes off the branding furnace.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On a snowy night, Cheng Yuan wraps his sheepskin jacket tight and listens to distant horse-train bells drawing near.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another New Year's Eve, only furnace fire and rows of tea bricks remain in the warehouse; Cheng Yuan locks the brand into an iron box.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dawn, Cheng Yuan patrols the hitching yard; tea packhorse Qiuli grazes with head down, paired tea packs still hanging at the saddle.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan bends to check Qiuli's shoes, girth, and saddle-flap brand mark.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He returns to the tea-warehouse desk and confirms those three tea-brick samples are still ranked by shade.",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_010",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A gray mule is led in by a porter, salt bags on its back, saddle flaps without a border-tea brand.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Afternoon storm pins the mountain pass; mud floods the hitching yard; the caravan hurries tea packs into the warehouse.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan rushes over the threshold clutching the official tea brand; the copper seal strikes a stone step and a crack bursts across the face.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "cracked_seal",
+            "appearance": "The same official tea brand, face cracked, the 'Border' character incomplete, deep-brown leather on the handle loose and curled."
+          },
+          "gap": 0,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Toward the pass, tea packhorse Qiuli charges with the last two tea-brick packs; the stone underfoot suddenly loosens.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Down the steep slope, tea packhorse Qiuli tumbles and falls dead; saddle flaps tear, tea-brick packs roll into the rain ditch.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "fallen_dead",
+            "appearance": "Tea packhorse Qiuli has fallen dead on a steep slope, saddle flaps torn, tea-brick packs scattered, border-tea brand mark still clear."
+          },
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan stands in the rain gripping the cracked official tea brand, forbidding anyone to mix up the tack again.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "cracked_seal",
+            "appearance": "The same official tea brand, face cracked, the 'Border' character incomplete, deep-brown leather on the handle loose and curled."
+          },
+          "gap": 2,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The day after the mountain rain, Cheng Yuan writes on a blank page of the tea-horse tax ledger the hour tea packhorse Qiuli fell dead.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "tea_stained",
+            "appearance": "The same tea-horse tax ledger soaked through with strong tea, cowhide cover sticky, vermilion numbers blurred into brown clumps."
+          },
+          "gap": 14,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Qiuli's torn girth is hung on the tea-warehouse wall; Cheng Yuan stares a long time at that scrap of old leather.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan packs Qiuli's saddle-flap shards into a wooden box, leaving only the brand mark face-up.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The five butter lamps under the beams remain; Cheng Yuan takes one to light Qiuli's old nameplate.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 31,
+          "last_seen": "seg_006",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The cracked official tea brand lies on the desk; Cheng Yuan adds another line to the ledger for Qiuli's loss.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "cracked_seal",
+            "appearance": "The same official tea brand, face cracked, the 'Border' character incomplete, deep-brown leather on the handle loose and curled."
+          },
+          "gap": 4,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "tea_stained",
+            "appearance": "The same tea-horse tax ledger soaked through with strong tea, cowhide cover sticky, vermilion numbers blurred into brown clumps."
+          },
+          "gap": 3,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Weeks later, Cheng Yuan brings a tea-office coppersmith and sets a small furnace in the tea warehouse hall to recast the official tea brand.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "cracked_seal",
+            "appearance": "The same official tea brand, face cracked, the 'Border' character incomplete, deep-brown leather on the handle loose and curled."
+          },
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The smith first holds up a forged brand for comparison—shape close, but shallow inscription and no official plaque number.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan watches the furnace mouth as copper fills the crack and the deep-brown leather is rewrapped tight.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "cracked_seal",
+            "appearance": "The same official tea brand, face cracked, the 'Border' character incomplete, deep-brown leather on the handle loose and curled."
+          },
+          "gap": 1,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "After the new copper cools, the official tea brand inscription is complete; Cheng Yuan brands clear 'Border Tea' characters onto a scrap brick.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "recast",
+            "appearance": "After recasting, the official tea brand's inscription is complete again, new copper a shade brighter, long handle rewrapped tight in deep-brown leather."
+          },
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A porter carries a back-basket frame into the hitching yard, clay jars and straw rope bound on top—no saddle, no tea-brick packs.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A tea-tax clerk walks in, also in a dark-red headwrap, but the official plaque on his chest swings plainly.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The tea-tax clerk points at the back-basket frame to check bamboo tallies; Cheng Yuan only tucks the recast official tea brand back to his waist.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "recast",
+            "appearance": "After recasting, the official tea brand's inscription is complete again, new copper a shade brighter, long handle rewrapped tight in deep-brown leather."
+          },
+          "gap": 2,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_044",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "From the kitchen comes a tea girl in a light-brown waist sash; her profile at a glance looks like young Xiaoman, but she wears green glass earrings.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The tea girl practices coiling tea rope; Cheng Yuan reads her shy eyes and shakes his head, sending her to add firewood.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Years later at dusk, after a startled horse kicks him, Cheng Yuan limps on a broken whip to the abandoned tea-horse office door.",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "lame_from_kick",
+            "appearance": "The same Cheng Yuan: left leg kicked by a horse, limping on a broken whip, sheepskin jacket mud-spotted, copper scale-weight still at the waist."
+          },
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two old horse bells still hang in the abandoned tea-horse office door beam; Cheng Yuan stops to hear them ring softly in the mountain wind.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "lame_from_kick",
+            "appearance": "The same Cheng Yuan: left leg kicked by a horse, limping on a broken whip, sheepskin jacket mud-spotted, copper scale-weight still at the waist."
+          },
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 46,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan lays a palm on the grassy stone steps, as if saying goodbye to the whole mountain trail.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "lame_from_kick",
+            "appearance": "The same Cheng Yuan: left leg kicked by a horse, limping on a broken whip, sheepskin jacket mud-spotted, copper scale-weight still at the waist."
+          },
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "By day, adult Xiaoman returns along the mountain trail; the indigo waist sash clings to her short jacket in the wind.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 34,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Under the abandoned tea-horse office gate Xiaoman steadies limping Cheng Yuan and takes the copper scale-weight from his waist.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "lame_from_kick",
+            "appearance": "The same Cheng Yuan: left leg kicked by a horse, limping on a broken whip, sheepskin jacket mud-spotted, copper scale-weight still at the waist."
+          },
+          "gap": 1,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the tea-office earthen kang, Xiaoman holds Cheng Yuan's gaunt hand and hears him explain the branding furnace's heat.",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "lame_from_kick",
+            "appearance": "The same Cheng Yuan: left leg kicked by a horse, limping on a broken whip, sheepskin jacket mud-spotted, copper scale-weight still at the waist."
+          },
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cheng Yuan's breath fades; at last he closes his eyes and dies at the tea office.",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "died_at_office",
+            "appearance": "Cheng Yuan has closed his eyes in death, lying still on the tea-office earthen kang, sheepskin jacket covering his chest, broken whip leaning by the bed."
+          },
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Cheng Yuan's dark-red old headwrap still hangs behind the tea-office door; Xiaoman reaches out and gently brushes the dust away.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Adult Xiaoman nails the Cheng tea plaque back onto the tea-warehouse pillar; Cheng Yuan's year is still carved on it.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiaoman strokes Cheng Yuan's name on the Cheng tea plaque with a fingertip, then sets the recast official tea brand beneath it.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "recast",
+            "appearance": "After recasting, the official tea brand's inscription is complete again, new copper a shade brighter, long handle rewrapped tight in deep-brown leather."
+          },
+          "gap": 11,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Disguised A-Du arrives from outside the tea-horse office, silver-gray wrist guards still showing at the cuffs, locking eyes with Xiaoman under the doorway.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "disguised",
+            "appearance": "Disguised A-Du still wears silver-gray wrist guards, a knife scar now at the brow, ochre sash replaced by an old leather belt."
+          },
+          "gap": 41,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiaoman and A-Du stand side by side in the empty hall—one steady in an indigo waist sash, one dull in an old leather belt.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "disguised",
+            "appearance": "Disguised A-Du still wears silver-gray wrist guards, a knife scar now at the brow, ochre sash replaced by an old leather belt."
+          },
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+            "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The shot returns to years ago—the girl in an indigo waist sash learning tea-rope knots by a saddle appears again.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "young_worker",
+            "appearance": "A fifteen-year-old tea-worker girl, indigo waist sash, coral stud in the left ear, tea rope often wound on her wrist, bright clear eyes.",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_060",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the girl learning tea-rope knots by a saddle",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The opening moment returns—by the stove, that copper seal stamped 'Border Tea' first raises white steam.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "intact",
+            "appearance": "A copper official tea brand issued by the government, the two characters 'Border Tea' clear on the face, long handle wrapped in deep-brown leather strip.",
+            "flashback": true
+          },
+          "gap": 3,
+          "last_seen": "seg_058",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the copper seal that first raised white steam by the stove",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Flash back to the early tea-inn alley—a figure in silver-gray wrist guards and ochre waist sash slips past empty back-baskets.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "young_rival",
+            "appearance": "A young caravan bookkeeper nearly identical in face to Xiaoman, but wearing silver-gray wrist guards and an ochre waist sash, cold hard eyes.",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_060",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the figure in silver-gray wrist guards in the early tea-inn alley",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Before the eyes again: an old night when five oil lamps under the beams lit a wall of tea bricks.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 25,
+          "last_seen": "seg_038",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "an old night when five oil lamps under the beams lit a wall of tea bricks",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Back to the yard of first meeting—wooden stakes in rows, the far end leading to the mountain pass; the smell of hay remains.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 16,
+          "last_seen": "seg_048",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the yard of first meeting with wooden stakes in rows leading to the mountain pass",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Xiaoman opens that tea-stained tea-horse tax ledger and stands in the tea warehouse hall resetting the caravan's departure day.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 4,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "tea_stained",
+            "appearance": "The same tea-horse tax ledger soaked through with strong tea, cowhide cover sticky, vermilion numbers blurred into brown clumps."
+          },
+          "gap": 26,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The five butter lamps under the beams still burn; Xiaoman looks up, finishes counting, then dims the flames.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_064",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Those three tea-brick samples on the desk are still ranked by shade; Xiaoman sets the recast official tea brand beside them.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_boss",
+            "appearance": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "recast",
+            "appearance": "After recasting, the official tea brand's inscription is complete again, new copper a shade brighter, long handle rewrapped tight in deep-brown leather."
+          },
+          "gap": 5,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 39,
+          "last_seen": "seg_028",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 68,
+    "n_scenes": 19,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 133,
+      "transform": 8,
+      "persist": 27,
+      "recall_after_gap": 3
+    },
+    "probe_counts": {
+      "first_appearance": 14,
+      "continuity": 63,
+      "count_memory": 7,
+      "lookalike_disambiguation": 12,
+      "state_change": 8,
+      "persist_state": 20,
+      "false_friend": 5,
+      "deprecation_avoidance": 8,
+      "reference_indirect": 4,
+      "long_gap_reappearance": 5,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 12,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 4,
+        "target": 5,
+        "ok": false
+      },
+      "deprecation_avoidance": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 7,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 151,
+      "5-29": 15,
+      ">=30": 5
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 46,
+      "at": "seg_050"
+    }
+  },
+  "warnings": [
+    "balance: probe 'reference_indirect' underrepresented (4<5)"
+  ]
+}

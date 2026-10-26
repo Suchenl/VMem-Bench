@@ -1,0 +1,371 @@
+{
+ "_doc": "SHA256 of every scoring-model file, recorded from local copies; see vmem_bench.install_models",
+ "models": {
+  "dinov3-vitb16": {
+   "target": {
+    "root": "public",
+    "rel": "facebook/dinov3-vitb16-pretrain-lvd1689m"
+   },
+   "source": {
+    "type": "hf",
+    "repo": "facebook/dinov3-vitb16-pretrain-lvd1689m"
+   },
+   "optional": false,
+   "used_by": [
+    "embedder dinov3 (Track A redundancy_sim, Track B trackB-embed-1.0 crops/frames)"
+   ],
+   "recorded_from": "${PUBLIC_MODELS_ROOT}/facebook/dinov3-vitb16-pretrain-lvd1689m",
+   "files": [
+    {
+     "path": "config.json",
+     "size": 744,
+     "sha256": "3c9cc418f4622fd6d5587fd142b6f3cba0ba6a69f67ced907d8b7f26118451ec"
+    },
+    {
+     "path": "model.safetensors",
+     "size": 342662192,
+     "sha256": "9a21ac3df0c63839d62612dda6f454d816c25611cc7a52966ed5a5a94921dc8b"
+    },
+    {
+     "path": "preprocessor_config.json",
+     "size": 585,
+     "sha256": "960c41d1f3a7778b936365769a2d90550b318a6c0a53a0296957adacfe5e0dd7"
+    }
+   ]
+  },
+  "grounding-dino-base": {
+   "target": {
+    "root": "public",
+    "rel": "IDEA-Research/grounding-dino-base"
+   },
+   "source": {
+    "type": "hf",
+    "repo": "IDEA-Research/grounding-dino-base"
+   },
+   "optional": false,
+   "used_by": [
+    "trackB-embed-1.0 entity localization"
+   ],
+   "recorded_from": "${PUBLIC_MODELS_ROOT}/IDEA-Research/grounding-dino-base/snapshots/12bdfa3120f3e7ec7b434d90674b3396eccf88eb",
+   "files": [
+    {
+     "path": "config.json",
+     "size": 1737,
+     "sha256": "eda416dae6f49419ff831b1c190ec430a060b19aae688dbaf2425a075b650608"
+    },
+    {
+     "path": "model.safetensors",
+     "size": 933400872,
+     "sha256": "5548f844c928c4b6f411fa8cbcc2bfa8dbbba437cb1d513975519f93c2a9ed21"
+    },
+    {
+     "path": "preprocessor_config.json",
+     "size": 457,
+     "sha256": "8454179ba95e2ad22947835aad7b45862a601fc0055ab88bf1ee70892d3aea60"
+    },
+    {
+     "path": "special_tokens_map.json",
+     "size": 125,
+     "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+    },
+    {
+     "path": "tokenizer.json",
+     "size": 711396,
+     "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+    },
+    {
+     "path": "tokenizer_config.json",
+     "size": 1237,
+     "sha256": "d40ab645b68211910b9170d22433d43186a6ec8ee6fd10ba170524b25bf4fb56"
+    },
+    {
+     "path": "vocab.txt",
+     "size": 231508,
+     "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+    }
+   ]
+  },
+  "arcface-buffalo_l": {
+   "target": {
+    "root": "weights",
+    "rel": "human_face_embedding/models/buffalo_l"
+   },
+   "source": {
+    "type": "zip",
+    "url": "https://github.com/deepinsight/insightface/releases/download/v0.7/buffalo_l.zip",
+    "strip": ""
+   },
+   "optional": false,
+   "used_by": [
+    "embedder arcface (trackB-embed-1.0 faces)"
+   ],
+   "recorded_from": "${MEMSTRATA_WEIGHTS_ROOT}/human_face_embedding/models/buffalo_l",
+   "files": [
+    {
+     "path": "1k3d68.onnx",
+     "size": 143607619,
+     "sha256": "df5c06b8a0c12e422b2ed8947b8869faa4105387f199c477af038aa01f9a45cc"
+    },
+    {
+     "path": "2d106det.onnx",
+     "size": 5030888,
+     "sha256": "f001b856447c413801ef5c42091ed0cd516fcd21f2d6b79635b1e733a7109dbf"
+    },
+    {
+     "path": "det_10g.onnx",
+     "size": 16923827,
+     "sha256": "5838f7fe053675b1c7a08b633df49e7af5495cee0493c7dcf6697200b85b5b91"
+    },
+    {
+     "path": "genderage.onnx",
+     "size": 1322532,
+     "sha256": "4fde69b1c810857b88c64a335084f1c3fe8f01246c9a191b48c7bb756d6652fb"
+    },
+    {
+     "path": "w600k_r50.onnx",
+     "size": 174383860,
+     "sha256": "4c06341c33c2ca1f86781dab0e829f88ad5b64be9fba56e56bc9ebdefc619e43"
+    }
+   ]
+  },
+  "megaloc-code": {
+   "target": {
+    "root": "weights",
+    "rel": "torch_hub/gmberton_MegaLoc_main"
+   },
+   "source": {
+    "type": "zip",
+    "url": "https://github.com/gmberton/MegaLoc/archive/refs/heads/main.zip",
+    "strip": "MegaLoc-main/"
+   },
+   "optional": false,
+   "used_by": [
+    "embedder megaloc (model code)"
+   ],
+   "recorded_from": "${MEMSTRATA_WEIGHTS_ROOT}/torch_hub/gmberton_MegaLoc_main",
+   "files": [
+    {
+     "path": "hubconf.py",
+     "size": 762,
+     "sha256": "7b8b590df39cbaf210061503deb56d3dcb6a7c0de864267a53f34e05e3b61a62"
+    },
+    {
+     "path": "megaloc_model.py",
+     "size": 15258,
+     "sha256": "3cbf1d20515b1da423998a8edab787031eaa7bb273c5a86a5c41c4f6d84e2a6d"
+    }
+   ]
+  },
+  "megaloc-weights": {
+   "target": {
+    "root": "weights",
+    "rel": "location_embedding/MegaLoc"
+   },
+   "source": {
+    "type": "hf",
+    "repo": "gberton/MegaLoc"
+   },
+   "optional": false,
+   "used_by": [
+    "embedder megaloc (trackB-embed-1.0 locations)"
+   ],
+   "recorded_from": "${MEMSTRATA_WEIGHTS_ROOT}/hub/models--gberton--MegaLoc/snapshots/7cb9f7970d366fdf059963d04d372e503e8e9df9",
+   "files": [
+    {
+     "path": "model.safetensors",
+     "size": 914577436,
+     "sha256": "d4f9f2bcb60018f91eb6a8e061ed054fd55654e10c2569cf13841ea986ffb4f8"
+    }
+   ]
+  },
+  "qwen3-vl-32b-instruct": {
+   "target": {
+    "root": "public",
+    "rel": "Qwen/Qwen3-VL-32B-Instruct"
+   },
+   "source": {
+    "type": "hf",
+    "repo": "Qwen/Qwen3-VL-32B-Instruct"
+   },
+   "optional": false,
+   "used_by": [
+    "judge: trackB-end2end-1.0, trackB-identity-1.0, visual-coverage (vLLM served as qwen3-vl-32b)"
+   ],
+   "recorded_from": "${PUBLIC_MODELS_ROOT}/Qwen/Qwen3-VL-32B-Instruct",
+   "files": [
+    {
+     "path": "chat_template.json",
+     "size": 5499,
+     "sha256": "5c72a170d2a4a1a3bc5adad2e689ae28138a9700e5b8c96c0266331e86c0acce"
+    },
+    {
+     "path": "config.json",
+     "size": 1474,
+     "sha256": "d2dd0c60d01b9e195d9447c52da61c7302d28828524914c044d9c6e1b81d0427"
+    },
+    {
+     "path": "generation_config.json",
+     "size": 269,
+     "sha256": "1e241830b48b397cb0900101421df5450baddc7adf01e5fc86b5615865f3bae4"
+    },
+    {
+     "path": "merges.txt",
+     "size": 1671839,
+     "sha256": "599bab54075088774b1733fde865d5bd747cbcc7a547c5bc12610e874e26f5e3"
+    },
+    {
+     "path": "model-00001-of-00014.safetensors",
+     "size": 4932328944,
+     "sha256": "6b9dfbc930e505402ae9d7e5091a9d7d656cda5f34614f01cfe70bfb0cca27cb"
+    },
+    {
+     "path": "model-00002-of-00014.safetensors",
+     "size": 4875990528,
+     "sha256": "d8bb44b4ff303fe76fe9e894022fb3dc71b15a2e716592790fe0e3c3e60478fa"
+    },
+    {
+     "path": "model-00003-of-00014.safetensors",
+     "size": 4875990552,
+     "sha256": "54f22e8b3168f8dc962fac0d313607ebf52a12b433d4cf3098a0d82d9f042940"
+    },
+    {
+     "path": "model-00004-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "ad09c74d3c13ee29b5d0d84548fd8a3424a651564eaccd519946c296e59c557f"
+    },
+    {
+     "path": "model-00005-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "fc993c8a0e2a5b0570f383e1a95dc3a1281d1b224b6f3ee908f4827941e1dfc2"
+    },
+    {
+     "path": "model-00006-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "82f05620d1f718a90c362b221d6a184ff1a0f53301d706882d3df49695fa1974"
+    },
+    {
+     "path": "model-00007-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "fb91da8cb01ff4de3eef0eab1c3e769a734b3a1aafc61734068638a0d6c86934"
+    },
+    {
+     "path": "model-00008-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "431ca56535c8781944ce3801f5eb61c45531e853ecc5846d936ebaf4761b764f"
+    },
+    {
+     "path": "model-00009-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "3825e3f4302f4d2f7d76aa7430d2ce0864fde6b9e540a5806bf0d8e38e4d9f47"
+    },
+    {
+     "path": "model-00010-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "aded5a4d1d5e22dbd8b6f79266b6eb88c840411b09527c53917a1419ace22e2f"
+    },
+    {
+     "path": "model-00011-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "3820ffe8d8d6477f6fe8d614ef3c87abb264ee39accebf43a1507b970d80946f"
+    },
+    {
+     "path": "model-00012-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "05ad2d08ce71963121c9b03f1d9ec5d7641052f4b23c6c12b80d71065eb8e98e"
+    },
+    {
+     "path": "model-00013-of-00014.safetensors",
+     "size": 4875990584,
+     "sha256": "b64f2289871261fdd1abbd3b78bcd66011b341de3dc8eeb2ed1a473ee7c8d95c"
+    },
+    {
+     "path": "model-00014-of-00014.safetensors",
+     "size": 3270697008,
+     "sha256": "e45b6c9998c77ee5a6577f9f47bc76416c1d4d387169e50c4c9d3134ea51b13b"
+    },
+    {
+     "path": "model.safetensors.index.json",
+     "size": 97831,
+     "sha256": "06c952c569285870b811989b794b9766493e280fb77fbcb957fc4e5fcf25403a"
+    },
+    {
+     "path": "preprocessor_config.json",
+     "size": 390,
+     "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+    },
+    {
+     "path": "tokenizer.json",
+     "size": 7032403,
+     "sha256": "a5d85b6dcc535e6b93115a9ef287e6132fdbf30270da6218194ba742261173c7"
+    },
+    {
+     "path": "tokenizer_config.json",
+     "size": 10868,
+     "sha256": "c2da771801886ad9ae98181793ffd3dfb7f1af30f6f7c6a4e15d7dbba52e2399"
+    },
+    {
+     "path": "video_preprocessor_config.json",
+     "size": 386,
+     "sha256": "00bd47a5eaaf8760744a12658cd99ba168b818edc4c0a983b90157289c8e546a"
+    },
+    {
+     "path": "vocab.json",
+     "size": 2776833,
+     "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+    }
+   ]
+  },
+  "siglip2-base": {
+   "target": {
+    "root": "public",
+    "rel": "google/siglip2-base-patch16-224"
+   },
+   "source": {
+    "type": "hf",
+    "repo": "google/siglip2-base-patch16-224"
+   },
+   "optional": true,
+   "used_by": [
+    "embedder siglip2 (optional secondary axis)"
+   ],
+   "recorded_from": "${MEMSTRATA_WEIGHTS_ROOT}/hub/models--google--siglip2-base-patch16-224/snapshots/75de2d55ec2d0b4efc50b3e9ad70dba96a7b2fa2",
+   "files": [
+    {
+     "path": "config.json",
+     "size": 253,
+     "sha256": "fe8b5fe6d5734360678fd71c11c21e1ea3364bd8598d34295d9206335973ffd7"
+    },
+    {
+     "path": "model.safetensors",
+     "size": 1500800904,
+     "sha256": "612923381c76ec5a9bed335d1c48827e3f2e506ac31b044b63b2031fadee6a0b"
+    },
+    {
+     "path": "preprocessor_config.json",
+     "size": 394,
+     "sha256": "9b36b57ebaf20f09bf4c22100ccc21877ea6bfe5aead0c00c59f8af8ccefacfc"
+    },
+    {
+     "path": "special_tokens_map.json",
+     "size": 636,
+     "sha256": "baec30ea10906f16adb8c18af7a34023002c1746542612b8b41c9f09e1351351"
+    },
+    {
+     "path": "tokenizer.json",
+     "size": 34363039,
+     "sha256": "cb9140fae3ac5122c972d37adf83e1248471a38147ad76f8215c8872c6fd8322"
+    },
+    {
+     "path": "tokenizer.model",
+     "size": 4241003,
+     "sha256": "61a7b147390c64585d6c3543dd6fc636906c9af3865a5548f27f31aee1d4c8e2"
+    },
+    {
+     "path": "tokenizer_config.json",
+     "size": 47164,
+     "sha256": "14afe629fe4959b9e0d51e1852b8d9f7ad074f90a1a7125a4fcdd17f06e78fc8"
+    }
+   ]
+  }
+ }
+}

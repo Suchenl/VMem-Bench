@@ -1,0 +1,4421 @@
+{
+  "story_id": "0024_circus_acrobat",
+  "gt_version": "trackB-gt-2.0",
+  "title": "Wire Under the Big Top",
+  "premise": "A long circus drama under the red-and-white big top with flashing magnesium light. Annuan and Anchuan have faces easily confused; the aerial rings go intact→rope worn→rope replaced; the carriage 'Spark Star' must be avoided after it is wrecked; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "built_from": "gt_source/0024_circus_acrobat.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "Pei Lie",
+      "kind": "character",
+      "states": {
+        "prime_ringmaster": "Ringmaster Pei Lie in his fifties, gray buzz cut, deep-red tailcoat and black vest, a gilt whistle pinned to his chest, hands covered in calluses and old scars.",
+        "injured_with_cane": "The same Pei Lie injured: right leg in a splint, leaning on a black lacquer cane as he walks slowly, still wearing that faded deep-red tailcoat.",
+        "deceased": "Pei Lie has closed his eyes and passed away, lying quietly on the narrow couch in the dressing room behind the tent, face peaceful, breath gone."
+      },
+      "initial_state": "prime_ringmaster"
+    },
+    "E2": {
+      "name": "Annuan",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Annuan: a fifteen-year-old lean aerial apprentice, coral-red hair ribbon, cream practice leotard, cyan ankle guard on her left ankle, bright stubborn eyes.",
+        "adult_lead": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+      },
+      "initial_state": "young_apprentice"
+    },
+    "E3": {
+      "name": "aerial rings",
+      "kind": "prop",
+      "states": {
+        "intact_taut": "A pair of aerial rings suspended from the big-top dome, chrome steel rings intact, hemp rope taut and gleaming, magnesium light making the rings snow-bright.",
+        "rope_worn": "The same aerial rings with frayed worn hemp rope, rings tilted, tension slack so they sway.",
+        "rope_replaced": "The aerial rings with new hemp rope restored to tautness, fresh rope knots on the rings, distinct from the original intact state."
+      },
+      "initial_state": "intact_taut"
+    },
+    "E4": {
+      "name": "show rehearsal book",
+      "kind": "prop",
+      "states": {
+        "intact": "A hardcover show rehearsal book, circus emblem on the cover, pages marked in red pen with beats and blocking.",
+        "paint_stained": "The same show rehearsal book stained when paint was knocked over, cover sticky, writing blurred into color patches."
+      },
+      "initial_state": "intact"
+    },
+    "E5": {
+      "name": "Spark Star",
+      "kind": "prop",
+      "states": {
+        "intact": "A vermilion circus carriage, doors spray-painted with gold letters 'Spark Star', triangular pennant on the roof, prop crates inside.",
+        "shaft_broken": "The vermilion carriage with broken shaft overturned, pennant snapped, an un-tourable wreck."
+      },
+      "initial_state": "intact"
+    },
+    "E6": {
+      "name": "Anchuan",
+      "kind": "character",
+      "states": {
+        "young_cameo": "Young Anchuan: face extremely similar to Annuan's, but indigo hair ribbon, silver bell ankle guard on right ankle, more playful expression.",
+        "adult_clown": "Adult Anchuan: face extremely similar to adult Annuan's, still indigo ribbon and bell ankle guard, half the face painted white."
+      },
+      "initial_state": "young_cameo"
+    },
+    "E7": {
+      "name": "circus big top",
+      "kind": "location",
+      "appearance": "Inside the red-and-white striped circus big top, rings and safety net hang from the dome, a performance circle drawn on the sand floor."
+    },
+    "E8": {
+      "name": "outdoor practice yard",
+      "kind": "location",
+      "appearance": "The packed-earth practice yard outside the tent, old mats laid out, a portable high-low bar standing to one side."
+    },
+    "E9": {
+      "name": "props alley",
+      "kind": "location",
+      "appearance": "A narrow alley behind the tent leading to the prop store, fake flowers and fire hoops stacked on both sides, pine-resin smell in the air."
+    },
+    "E10": {
+      "name": "old camp ruins",
+      "kind": "location",
+      "appearance": "An old camp ruin in weedy ground, half-collapsed wooden stakes and rusted iron hooks standing empty."
+    },
+    "E11": {
+      "name": "founding plaque",
+      "kind": "prop",
+      "appearance": "A founding plaque nailed to the tent doorpost, carved with Pei Lie's name and the year the troupe was founded, edges green with patina."
+    },
+    "E12": {
+      "name": "balance balls",
+      "kind": "prop",
+      "appearance": "Three red-and-blue balance balls, arranged by size at the edge of the practice-yard mats."
+    },
+    "E13": {
+      "name": "Luminous Stream parade cart",
+      "kind": "prop",
+      "appearance": "A brand-new silver-gray parade electric cart spray-painted 'Luminous Stream', no carriage shaft, utterly unlike Spark Star."
+    },
+    "E14": {
+      "name": "Supervisor Chao",
+      "kind": "character",
+      "appearance": "Supervisor Chao the touring inspector in his fifties, gray buzz cut and deep-red tailcoat like Pei Lie's build, but silver supervisor embroidery on the cuffs."
+    },
+    "E15": {
+      "name": "magnesium floodlights",
+      "kind": "prop",
+      "appearance": "A row of five magnesium floodlights hung from the big-top steel beams, shades polished clear."
+    },
+    "E16": {
+      "name": "opening gongs",
+      "kind": "prop",
+      "appearance": "Two opening gongs hanging at the circus big-top entrance, faces chased with the character for 'star', trembling lightly when the wind rises."
+    },
+    "E17": {
+      "name": "Tangtang the acrobatics school girl",
+      "kind": "character",
+      "appearance": "Tangtang the acrobatics school girl, fifteen or sixteen, coral-red hair ribbon; at a glance somewhat like young Annuan, but no cyan ankle guard on the left and shy timid eyes."
+    },
+    "E18": {
+      "name": "practice rings",
+      "kind": "prop",
+      "appearance": "A waist-high pair of practice rings shaped much like the aerial rings but with shorter rope and plastic rings."
+    },
+    "E19": {
+      "name": "ochre props truck",
+      "kind": "prop",
+      "appearance": "An unfamiliar ochre props pickup with mats in the bed, no Spark Star lettering on the body, definitely not Spark Star."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_ringmaster",
+      "injured_with_cane",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_lead"
+    ],
+    "E3": [
+      "intact_taut",
+      "rope_worn",
+      "rope_replaced"
+    ],
+    "E4": [
+      "intact",
+      "paint_stained"
+    ],
+    "E5": [
+      "intact",
+      "shaft_broken"
+    ],
+    "E6": [
+      "young_cameo",
+      "adult_clown"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+        "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+      },
+      "note": "Hard confusion sample: Annuan and Anchuan look alike; tell them apart only by ribbon color and ankle guard."
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dusk, Pei Lie lifts the flap and enters the circus big top; the aerial rings hang taut and gleaming under dome magnesium light.",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A row of five magnesium floodlights hangs from the big-top steel beams; Pei Lie polishes each lamp shade one by one.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two opening gongs hang at the tent entrance; Pei Lie reaches up and lets the gong faces tremble softly.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie walks the shadow of the aerial rings, checking hemp-rope tension and safety clasps.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie gazes out the tent door at the sky over the practice yard.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The intact aerial rings hang quietly from the circus big-top dome.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie sits at the sand's edge and dozes in the magnesium light.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Night wind pours through the tent door; Pei Lie pulls his tailcoat collar tight.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Pei Lie opens the show rehearsal book and marks the evening's beats in red pen.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie draws a blocking arc on the show rehearsal book.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie closes the show rehearsal book and puts it in the director's desk drawer.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Magnesium light from the aerial rings sweeps across Pei Lie's profile.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie wipes fingerprints from the gilt whistle with a soft cloth.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dawn in the outdoor practice yard, Pei Lie welcomes young Annuan arriving on the vermilion Spark Star.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan hops down from Spark Star and reties her coral-red hair ribbon.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie points at the three balance balls by the mats and teaches Annuan to read center of gravity and landing points.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan crouches on the old mat, curiously tracing the wear marks on the high-low bar.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie points at the circus big-top dome and explains the aerial rings opening to Annuan.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan looks back at Spark Star parked nearby, eyes full of longing.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The two stand shoulder to shoulder by the portable high-low bar, listening to the canvas snap in the wind.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the props alley, indigo-ribboned Anchuan glances back from behind the fake flowers.",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Anchuan fiddles with a fire hoop in the alley, bell ankle guard chiming softly.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Anchuan snaps a photo of an old poster on the wall with his phone and laughs playfully.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Anchuan carries a white-face paint box through the shadows of the props alley.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pine-resin smell fills the air; Anchuan stops to listen to the creak of rings overhead.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On the outdoor practice yard, Annuan and Anchuan stand side by side, one coral-red ribbon, one indigo ribbon.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan hands a balance ball to Anchuan; they smile at each other.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Anchuan straightens Annuan's hair ribbon; the two walk slowly along the mat edge.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan and Anchuan part at the west end of the practice yard, each heading the opposite way.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Dust rises; their retreating backs, one red ribbon, one blue, pull farther apart.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Months later at night, Pei Lie keeps watch alone in the circus big top; the aerial rings hang quietly.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie opens the show rehearsal book and finds the cover stained by spilled paint, writing blurred into color patches.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "paint_stained",
+            "appearance": "The same show rehearsal book stained when paint was knocked over, cover sticky, writing blurred into color patches."
+          },
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie wipes magnesium powder from the aerial rings hemp rope.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "paint_stained",
+            "appearance": "The same show rehearsal book stained when paint was knocked over, cover sticky, writing blurred into color patches."
+          },
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie stands by the tent door, gazing at the dark practice yard.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "paint_stained",
+            "appearance": "The same show rehearsal book stained when paint was knocked over, cover sticky, writing blurred into color patches."
+          },
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The outline of the aerial rings slowly emerges in the magnesium light.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie slips the stained show rehearsal book into a leather sleeve and sighs.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "paint_stained",
+            "appearance": "The same show rehearsal book stained when paint was knocked over, cover sticky, writing blurred into color patches."
+          },
+          "gap": 1,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Seasons turn; day after day Pei Lie lifts the flap and enters the circus big top.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On another snow night, Pei Lie wraps his tailcoat tight under the aerial rings.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Spring tour opens; Pei Lie calibrates the safety net at center sand.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Midsummer noon, Pei Lie wipes the sun-scorched iron stakes outside the tent.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Autumn rains linger; the aerial rings hemp rope turns stiff in the damp.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On another New Year's Eve, Pei Lie keeps the circus big top alone until dawn.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On the extra-show eve, Pei Lie checks safety clasps two hours early.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On a full-moon night, Pei Lie test-lights every magnesium floodlight.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Three showless nights in a row, Pei Lie revises the blocking chart again and again.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "One windy night, Pei Lie has to tie down the tent ropes extra tight.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Rope creaks; Pei Lie looks up quickly to check the aerial rings.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At three in the morning, Pei Lie sips cold tea from a thermos.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He sorts balance ball numbers at the director's desk.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Opening gongs tremble softly in the wind; Pei Lie lifts his head to listen.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "As the horizon pales, Pei Lie notes the last beat group of the night.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Before lowering the canvas, he takes one last look at the intact hemp rope on the aerial rings.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At daybreak, Pei Lie patrols the outdoor practice yard; vermilion Spark Star is parked by the high-low bar.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 22,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E5",
+          "op": "recall_after_gap",
+          "gap": 32,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie crouches to inspect Spark Star's shaft and pennant.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie walks to the mat edge; the same three balance balls still stand in neat order.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 38,
+          "last_seen": "seg_016",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "An unfamiliar ochre props truck drives along the camp road, mats in the bed, not Spark Star.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie stands on the packed-earth yard, recording last night's peak wind speed.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie realigns the edges of the old mats.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Morning mist recedes in the distance, revealing deeper riverbank shadows.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A storm bursts; the circus big top billows in gale wind; the aerial rings swing violently.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Magnesium light flickers wildly; Pei Lie rushes to the emergency winch.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A dull crack—the aerial rings hemp rope frays and wears, rings tilting and swaying.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "rope_worn",
+            "appearance": "The same aerial rings with frayed worn hemp rope, rings tilted, tension slack so they sway."
+          },
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On the camp road, vermilion Spark Star shakes violently in the jolts.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A side roll breaks Spark Star's shaft and overturns it; the pennant snaps.",
+      "memory_probes": [
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "shaft_broken",
+            "appearance": "The vermilion carriage with broken shaft overturned, pennant snapped, an un-tourable wreck."
+          },
+          "gap": 0,
+          "last_seen": "seg_063"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Inside the big top, Pei Lie lunges for the aerial rings safety clasp and steadies the swaying rings.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rope_worn",
+            "appearance": "The same aerial rings with frayed worn hemp rope, rings tilted, tension slack so they sway."
+          },
+          "gap": 2,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The day after the storm, Pei Lie stands in the circus big top, staring at the worn aerial rings.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rope_worn",
+            "appearance": "The same aerial rings with frayed worn hemp rope, rings tilted, tension slack so they sway."
+          },
+          "gap": 0,
+          "last_seen": "seg_065"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie runs a finger over the frayed hemp rope, face downcast.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rope_worn",
+            "appearance": "The same aerial rings with frayed worn hemp rope, rings tilted, tension slack so they sway."
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie notes the date of Spark Star's broken shaft on a slip beside the show rehearsal book.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "An old photo of Spark Star hangs on the tent wall; Pei Lie gazes at it for a long time.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie takes one of the five magnesium floodlights from the dome and sits alone in its dim glow.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 67,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The damaged aerial rings still hang tilted from the circus big-top dome.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rope_worn",
+            "appearance": "The same aerial rings with frayed worn hemp rope, rings tilted, tension slack so they sway."
+          },
+          "gap": 3,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Weeks later, Pei Lie brings new hemp rope and a splicing knife to repair the aerial rings.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rope_worn",
+            "appearance": "The same aerial rings with frayed worn hemp rope, rings tilted, tension slack so they sway."
+          },
+          "gap": 0,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie takes a pair of practice rings from a wooden crate—they look like the aerial rings but with shorter rope.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie carefully replaces the rope, splices knots, and retensions the line.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rope_worn",
+            "appearance": "The same aerial rings with frayed worn hemp rope, rings tilted, tension slack so they sway."
+          },
+          "gap": 1,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The last knot tightens; the aerial rings reach the rope-replaced state.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "rope_replaced",
+            "appearance": "The aerial rings with new hemp rope restored to tautness, fresh rope knots on the rings, distinct from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_074"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The repaired aerial rings hang steady again; Pei Lie watches them with relief.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rope_replaced",
+            "appearance": "The aerial rings with new hemp rope restored to tautness, fresh rope knots on the rings, distinct from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A silver-gray Luminous Stream parade cart rolls onto the outdoor practice yard, nothing like the broken-shaft Spark Star.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Supervisor Chao walks onto the practice yard and talks beside Pei Lie; the two builds are much alike.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Supervisor Chao points at the Luminous Stream parade cart and explains the new touring schedule to Pei Lie.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E13",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_077",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The Luminous Stream parade cart drives away; Pei Lie stays alone on the practice yard watching it go.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Wind flaps the schedule sheet Supervisor Chao left behind.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Outside camp arrives Tangtang the acrobatics school girl with a coral-red ribbon; at a glance she somewhat resembles young Annuan.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Tangtang the acrobatics school girl tries a stretch; Pei Lie shakes his head—she is not Annuan after all.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Tangtang the acrobatics school girl carries her practice shoes away from the outdoor practice yard, back fading down the camp road.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Years later at dusk, Pei Lie with a splinted right leg stands at the circus big-top entrance leaning on a black lacquer cane.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "injured_with_cane",
+            "appearance": "The same Pei Lie injured: right leg in a splint, leaning on a black lacquer cane as he walks slowly, still wearing that faded deep-red tailcoat."
+          },
+          "gap": 1,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cane in hand, Pei Lie looks up at the red-and-white striped dome, gaze far away.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "injured_with_cane",
+            "appearance": "The same Pei Lie injured: right leg in a splint, leaning on a black lacquer cane as he walks slowly, still wearing that faded deep-red tailcoat."
+          },
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The two opening gongs at the entrance tremble softly in the wind; Pei Lie pauses on his cane to listen.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "injured_with_cane",
+            "appearance": "The same Pei Lie injured: right leg in a splint, leaning on a black lacquer cane as he walks slowly, still wearing that faded deep-red tailcoat."
+          },
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 83,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cane in hand, Pei Lie presses his palm beside the cool founding plaque on the doorpost, as if saying goodbye.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "injured_with_cane",
+            "appearance": "The same Pei Lie injured: right leg in a splint, leaning on a black lacquer cane as he walks slowly, still wearing that faded deep-red tailcoat."
+          },
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_089",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He slowly sits on a wooden crate on the practice yard, splinted leg stretched straight.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "injured_with_cane",
+            "appearance": "The same Pei Lie injured: right leg in a splint, leaning on a black lacquer cane as he walks slowly, still wearing that faded deep-red tailcoat."
+          },
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_090",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "By day, adult Annuan comes back along the camp road, hurrying toward the circus big top.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 59,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_091",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan reunites with cane-leaning Pei Lie outside the tent; they embrace.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "injured_with_cane",
+            "appearance": "The same Pei Lie injured: right leg in a splint, leaning on a black lacquer cane as he walks slowly, still wearing that faded deep-red tailcoat."
+          },
+          "gap": 1,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_092",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the narrow couch in the dressing room, Annuan holds Pei Lie's calloused yet cold hand.",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "injured_with_cane",
+            "appearance": "The same Pei Lie injured: right leg in a splint, leaning on a black lacquer cane as he walks slowly, still wearing that faded deep-red tailcoat."
+          },
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_091"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_093",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pei Lie's breath fades; at last he closes his eyes and passes away.",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "deceased",
+            "appearance": "Pei Lie has closed his eyes and passed away, lying quietly on the narrow couch in the dressing room behind the tent, face peaceful, breath gone."
+          },
+          "gap": 0,
+          "last_seen": "seg_092"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_094",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan gently sets Pei Lie's gilt whistle back on the pillow.",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_093"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_095",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Pei Lie's deep-red tailcoat still hangs behind the tent door; Annuan reaches out and touches it lightly.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_091"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_096",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "By the doorpost, adult Annuan stands before a newly nailed founding plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_097",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan's fingertips trace Pei Lie's name carved on the founding plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_098",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Wind rises; opening gongs tremble faintly in the distance; Annuan lifts her head.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_099",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Adult Anchuan arrives from a neighboring troupe and embraces Annuan tightly under the circus big-top door.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "adult_clown",
+            "appearance": "Adult Anchuan: face extremely similar to adult Annuan's, still indigo ribbon and bell ankle guard, half the face painted white."
+          },
+          "gap": 68,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_100",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan and Anchuan stand side by side by the doorpost, one steady, one playful.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "adult_clown",
+            "appearance": "Adult Anchuan: face extremely similar to adult Annuan's, still indigo ribbon and bell ankle guard, half the face painted white."
+          },
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_101",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The two look at each other in silence, studying faces alike yet different.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "adult_clown",
+            "appearance": "Adult Anchuan: face extremely similar to adult Annuan's, still indigo ribbon and bell ankle guard, half the face painted white."
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_102",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Anchuan lifts a white-face brush but sets it down again, simply standing with Annuan.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "adult_clown",
+            "appearance": "Adult Anchuan: face extremely similar to adult Annuan's, still indigo ribbon and bell ankle guard, half the face painted white."
+          },
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Annuan: coral-red hair ribbon, cyan ankle guard on left ankle.",
+            "E6": "Anchuan: face extremely similar to Annuan, but indigo hair ribbon, silver bell ankle guard on right ankle."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_103",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The camera returns to years ago—the youth on the old mat tracing wear marks on the high-low bar appears again.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "young_apprentice",
+            "appearance": "Young Annuan: a fifteen-year-old lean aerial apprentice, coral-red hair ribbon, cream practice leotard, cyan ankle guard on her left ankle, bright stubborn eyes.",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_102",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the youth on the old mat tracing wear marks on the high-low bar",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_104",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The opening moment returns—in the big top, a chrome-steel ring pair is tensioned for the first time.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "intact_taut",
+            "appearance": "A pair of aerial rings suspended from the big-top dome, chrome steel rings intact, hemp rope taut and gleaming, magnesium light making the rings snow-bright.",
+            "flashback": true
+          },
+          "gap": 27,
+          "last_seen": "seg_076",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the chrome-steel ring pair tensioned for the first time at opening",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_105",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Flash back to the props alley of that year—a figure with indigo ribbon and bell ankle guard flashes past.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "young_cameo",
+            "appearance": "Young Anchuan: face extremely similar to Annuan's, but indigo hair ribbon, silver bell ankle guard on right ankle, more playful expression.",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_102",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the indigo-ribbon figure in the alley that year",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_106",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Before the eyes rises again that row of five old magnesium floodlights on the dome.",
+      "memory_probes": [
+        "count_memory",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 35,
+          "last_seen": "seg_070",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "that row of five old magnesium floodlights on the dome",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_107",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Return to the packed-earth practice yard at first meeting, old mats spread as they once were.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 22,
+          "last_seen": "seg_084",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the packed-earth practice yard at first meeting",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_108",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Annuan opens the paint-stained show rehearsal book again and walks into the circus big top.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 4,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "paint_stained",
+            "appearance": "The same show rehearsal book stained when paint was knocked over, cover sticky, writing blurred into color patches."
+          },
+          "gap": 71,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_109",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "By the mats, the same three balance balls still stand in neat order.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 53,
+          "last_seen": "seg_055",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_110",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Annuan takes up the watch over the aerial rings; magnesium light brightens the ring faces again.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 1,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rope_replaced",
+            "appearance": "The aerial rings with new hemp rope restored to tautness, fresh rope knots on the rings, distinct from the original intact state."
+          },
+          "gap": 5,
+          "last_seen": "seg_104"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_111",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Outside the tent, red-and-white stripes snap in the morning wind.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_lead",
+            "appearance": "Adult Annuan: a supple aerial lead in her twenties, still with coral-red hair ribbon and cyan left ankle guard, expression steady."
+          },
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "rope_replaced",
+            "appearance": "The aerial rings with new hemp rope restored to tautness, fresh rope knots on the rings, distinct from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_110"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_064"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_093"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 111,
+    "n_scenes": 20,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 18,
+      "recall": 229,
+      "transform": 8,
+      "persist": 37,
+      "recall_after_gap": 6
+    },
+    "probe_counts": {
+      "first_appearance": 13,
+      "continuity": 104,
+      "lookalike_disambiguation": 14,
+      "state_change": 8,
+      "persist_state": 29,
+      "long_gap_reappearance": 9,
+      "count_memory": 5,
+      "false_friend": 5,
+      "deprecation_avoidance": 10,
+      "reference_indirect": 6,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 9,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 14,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 6,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 256,
+      "5-29": 15,
+      ">=30": 9
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 83,
+      "at": "seg_087"
+    }
+  },
+  "warnings": [
+    "seg_106: temporal-anchored E15 name『magnesium floodlights』appears in action; a temporal reference should be name-free"
+  ]
+}

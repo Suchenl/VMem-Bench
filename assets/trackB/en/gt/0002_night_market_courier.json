@@ -1,0 +1,4623 @@
+{
+  "story_id": "0002_night_market_courier",
+  "gt_version": "trackB-gt-2.0",
+  "title": "Neon Night-Market Courier",
+  "premise": "A long urban drama on a neon rainy night. Red-raincoat courier Lin and rival Abao are easily confused; the wax-sealed wooden box goes intact→pried open→empty; the old motorcycle is wrecked in a crash and must be avoided; apprentice Aning returns after a long absence to take over; count memory (wax seals / lanterns / brass padlocks), false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "built_from": "gt_source/0002_night_market_courier.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "Lin",
+      "kind": "character",
+      "states": {
+        "alert_youth": "A woman courier in her twenties, short hair, bright-red hooded raincoat, a black waterproof mail bag on her left shoulder, alert eyes.",
+        "weary_injured": "The same woman courier looking weary: short hair plastered wet to her forehead, a tear in the red raincoat, left arm wrapped in a makeshift bandage, still carrying the black mail bag.",
+        "retired_away": "Courier Lin has withdrawn and left; only an empty red raincoat hangs on a chair back—she herself no longer appears."
+      },
+      "initial_state": "alert_youth"
+    },
+    "E2": {
+      "name": "Aning",
+      "kind": "character",
+      "states": {
+        "young_runner": "Young Aning: a lean night-market runner girl of fifteen or sixteen, dark-blue rain cape, brim pulled low, stubborn eyes.",
+        "adult_successor": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+      },
+      "initial_state": "young_runner"
+    },
+    "E3": {
+      "name": "wax-sealed wooden box",
+      "kind": "prop",
+      "states": {
+        "sealed_intact": "A palm-sized dark wooden box, lid pressed with a dark-red wax seal, copper corners on all four edges.",
+        "pried_open": "The wax-sealed wooden box has been pried open; the dark-red wax seal is cracked and peeling, the lid forced up, copper corners askew.",
+        "empty_sealed": "The wooden box lid was flung open then hastily bound with cord; the inside is empty, wax crumbs stuck to the rim; thereafter shown only as an empty box."
+      },
+      "initial_state": "sealed_intact"
+    },
+    "E4": {
+      "name": "delivery ledger",
+      "kind": "prop",
+      "states": {
+        "intact": "An oilcloth-covered delivery ledger, carbon paper clipped inside, filled with neon alley names and signature columns.",
+        "rain_blurred": "The same delivery ledger soaked by rain: cover wrinkled, ink bled into purple-black stains."
+      },
+      "initial_state": "intact"
+    },
+    "E5": {
+      "name": "old motorcycle",
+      "kind": "prop",
+      "states": {
+        "intact": "A dark-red old motorcycle, faded 'Lin' sticker on the tank, a waterproof mail-bag rack strapped to the rear seat.",
+        "wrecked": "The dark-red old motorcycle has been sideswiped and toppled by a truck; tank dented, wheels twisted—an unridable wreck."
+      },
+      "initial_state": "intact"
+    },
+    "E6": {
+      "name": "Abao",
+      "kind": "character",
+      "states": {
+        "young_rival": "A male courier rival of build close to Lin's, same bright-red hooded raincoat, a scar on his chin, a silver ring on his right hand, defiant look.",
+        "remade_return": "Adult Abao still wears the red raincoat; the chin scar deeper, the silver ring swapped for a black iron ring, expression dark."
+      },
+      "initial_state": "young_rival"
+    },
+    "E7": {
+      "name": "night-market stall",
+      "kind": "location",
+      "appearance": "A wet night-market food stall under neon signs: red lanterns, steam, and plastic awning dripping rain."
+    },
+    "E8": {
+      "name": "rooftop",
+      "kind": "location",
+      "appearance": "An old-building rooftop crowded with AC units and water tanks; distant neon skyline, puddles mirroring the lights."
+    },
+    "E9": {
+      "name": "subway corridor",
+      "kind": "location",
+      "appearance": "An underground corridor under pale fluorescent tubes, tile walls plastered with faded ads, turnstiles at the far end."
+    },
+    "E10": {
+      "name": "rain-alley courier station",
+      "kind": "location",
+      "appearance": "A courier station at the end of a narrow rain alley: tin roof, yellow-lit window, key tags hanging on the wall."
+    },
+    "E11": {
+      "name": "brass name mailbox",
+      "kind": "prop",
+      "appearance": "A brass mailbox nailed to the station wall, courier name and year engraved on the face, edges already verdigris."
+    },
+    "E12": {
+      "name": "spare wax seals",
+      "kind": "prop",
+      "appearance": "Three deep-red spare wax seals strung on hemp cord and hung from a night-market stall beam, star patterns carved on the faces."
+    },
+    "E13": {
+      "name": "shared e-bike",
+      "kind": "prop",
+      "appearance": "A brand-new teal shared e-bike with an ad board in the basket, nothing like the dark-red old motorcycle."
+    },
+    "E14": {
+      "name": "Officer Zhou",
+      "kind": "character",
+      "appearance": "A lean city inspector with a full beard, dark-blue uniform raincoat, and peaked cap; build somewhat like Lin's but stockier."
+    },
+    "E15": {
+      "name": "string of red lanterns",
+      "kind": "prop",
+      "appearance": "A row of five wet red lanterns hanging along the night-market stall awning, tassels dripping rain."
+    },
+    "E16": {
+      "name": "brass padlocks",
+      "kind": "prop",
+      "appearance": "Two brass padlocks hanging on the station iron gate, shanks faintly glowing, keyholes plugged with rainproof wax."
+    },
+    "E17": {
+      "name": "Xiaotao",
+      "kind": "character",
+      "appearance": "A runner girl from the far side of the night market, light-brown hairband and gray-blue rain cape; at a glance somewhat like young Aning, but rounder chin and shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "replica wooden box",
+      "kind": "prop",
+      "appearance": "A half-palm replica wooden box shaped much like the wax-sealed wooden box, but without copper corners, sealed with cheap bright-red wax."
+    },
+    "E19": {
+      "name": "Buyer Zhou",
+      "kind": "character",
+      "appearance": "A middle-aged man in gold-rimmed glasses and a beige trench coat, left hand carrying a crocodile-pattern case, mild smile with an edge."
+    },
+    "E20": {
+      "name": "yellow-plate moped",
+      "kind": "prop",
+      "appearance": "An old moped with a yellow plate, raincoats stuffed in the basket; shape near the old motorcycle but definitely not the same one."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "alert_youth",
+      "weary_injured",
+      "retired_away"
+    ],
+    "E2": [
+      "young_runner",
+      "adult_successor"
+    ],
+    "E3": [
+      "sealed_intact",
+      "pried_open",
+      "empty_sealed"
+    ],
+    "E4": [
+      "intact",
+      "rain_blurred"
+    ],
+    "E5": [
+      "intact",
+      "wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_return"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E1",
+        "E6"
+      ],
+      "features": {
+        "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+        "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+      },
+      "note": "Red-raincoat confuse: when alone, do not draw the other; when co-present, bind scar / ring / mail bag."
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On a rainy night, red-coated courier Lin steps onto the rooftop; puddles mirror the distant neon.",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A string of red lanterns—five in a row—hangs along the night-market stall awning; Lin looks up and counts them to confirm she has not taken the wrong alley.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two brass padlocks hang on the rain-alley courier station iron gate; Lin unlocks one with a key.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin shakes rain from her hood brim on the rooftop and guards the black mail bag on her left shoulder.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin checks the mail-bag liner and confirms the wax-sealed wooden box is still there.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The wax-sealed wooden box rests quietly beside the rooftop puddles, its dark-red wax seal intact.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin dozes against a water tank; the red raincoat flutters lightly in the wind.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Lin opens the delivery ledger and logs this rooftop job on carbon paper.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin writes the buyer's code name and handoff time in the delivery ledger.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Buyer Zhou in gold-rimmed glasses briefly appears at the rooftop edge, only nods, then vanishes into the rain.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin closes the delivery ledger and tucks it into the mail-bag side pocket.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Neon flashes on the copper corners of the wax-sealed wooden box.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At the dawn night-market stall, Lin greets young Aning arriving on the dark-red old motorcycle.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Aning jumps off the old motorcycle and hangs her helmet on the handlebar.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin points to the three spare wax seals strung on the beam and teaches Aning to read the star patterns.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Aning crouches by a puddle at the night-market stall, watching steam rise with curious eyes.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin explains to Aning which alley signs are coded signals.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Aning looks back at the parked old motorcycle, eyes full of longing.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the pale subway corridor, red-raincoat Abao glances back from behind the ad wall; the chin scar flashes.",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E1",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Abao stops before the turnstiles at the corridor end; the silver ring on his right hand taps the rail.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E1",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Abao brushes past a street singer in the corridor, defiant look.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E1",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Abao carries an empty mail bag through the crowd in the subway corridor.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E1",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the subway corridor, Lin and Abao pass side by side—one with a black mail bag, one with a silver ring.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin guards her mail bag on instinct; Abao scoffs lightly and keeps walking.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Abao looks back at Lin; under the tubes their red raincoats are almost the same color.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin and Abao split at the corridor fork, each heading the opposite way.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Weeks later on a stormy night, Lin keeps watch alone on the rooftop, the wax-sealed wooden box on her knees.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 15,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin opens the delivery ledger; rain has wrinkled the cover and blurred the writing into stains.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "rain_blurred",
+            "appearance": "The same delivery ledger soaked by rain: cover wrinkled, ink bled into purple-black stains."
+          },
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin wipes water beads from the copper corners of the wax-sealed wooden box.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "rain_blurred",
+            "appearance": "The same delivery ledger soaked by rain: cover wrinkled, ink bled into purple-black stains."
+          },
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin leans on the rooftop rail, staring at neon swallowed by the rain curtain.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "rain_blurred",
+            "appearance": "The same delivery ledger soaked by rain: cover wrinkled, ink bled into purple-black stains."
+          },
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The wax-sealed wooden box mirrors broken lantern light in the puddles.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The rainy season stretches on; day after day Lin climbs the rooftop for handoffs.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another typhoon night, Lin wraps her red raincoat tight and keeps watch by the water tank.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At Qingming, Lin stands on the rooftop gazing at distant neon still lit.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At high summer noon, Lin wipes AC units baked hot by the sun.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Through autumn rain, the wax seal on the wax-sealed wooden box turns faintly tacky in the damp.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another New Year's Eve, Lin keeps watch alone on the rooftop until dawn.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dawn, Lin patrols along the night-market stall; the dark-red old motorcycle is parked beside it.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 19,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 19,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin crouches to check the chain tension on the old motorcycle.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin walks under the beam; those three spare wax seals still hang in place.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 24,
+          "last_seen": "seg_015",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A teal shared e-bike sits before the stall, ad board in the basket—not Lin's old motorcycle.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin stands at the night-market stall logging unsigned job numbers from last night.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin hangs a soaked rain cape on a bamboo pole at the night-market stall.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A sudden downpour; rooftop puddles rise past the ankles and the wax-sealed wooden box nearly floats.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 12,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A truck horn screams in the distance; metal scraping echoes from the alley mouth.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Abao climbs onto the rooftop and pries open the wax-sealed wooden box with a small knife; the dark-red wax cracks.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 19,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "pried_open",
+            "appearance": "The wax-sealed wooden box has been pried open; the dark-red wax seal is cracked and peeling, the lid forced up, copper corners askew."
+          },
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E1",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At the alley mouth, the dark-red old motorcycle jolts hard through the rain curtain.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A sideswipe topples the old motorcycle; tank dented, wheels twisted.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "wrecked",
+            "appearance": "The dark-red old motorcycle has been sideswiped and toppled by a truck; tank dented, wheels twisted—an unridable wreck."
+          },
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On the rooftop, Lin lunges at the pried-open wax-sealed wooden box and clamps the lid shut.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "pried_open",
+            "appearance": "The wax-sealed wooden box has been pried open; the dark-red wax seal is cracked and peeling, the lid forced up, copper corners askew."
+          },
+          "gap": 2,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The day after the storm, Lin stands on the rooftop staring at the pried-open wax-sealed wooden box.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "pried_open",
+            "appearance": "The wax-sealed wooden box has been pried open; the dark-red wax seal is cracked and peeling, the lid forced up, copper corners askew."
+          },
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin brushes cracked wax crumbs on the wax-sealed wooden box with her fingers, face dark.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "pried_open",
+            "appearance": "The wax-sealed wooden box has been pried open; the dark-red wax seal is cracked and peeling, the lid forced up, copper corners askew."
+          },
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the rooftop dispatch wall, Lin notes the date of the old motorcycle wreck.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "lookalike_disambiguation",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A photo of the old motorcycle hangs on the station wall; Lin gazes at it a long time.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E10",
+          "op": "recall_after_gap",
+          "gap": 49,
+          "last_seen": "seg_003"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin takes one of the five red lanterns from the awning edge and sits alone in the faint glow.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 51,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The pried-open wax-sealed wooden box still gapes empty.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "pried_open",
+            "appearance": "The wax-sealed wooden box has been pried open; the dark-red wax seal is cracked and peeling, the lid forced up, copper corners askew."
+          },
+          "gap": 3,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Weeks later, Lin binds the empty wooden box with cord, ready to seal it as evidence.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "pried_open",
+            "appearance": "The wax-sealed wooden box has been pried open; the dark-red wax seal is cracked and peeling, the lid forced up, copper corners askew."
+          },
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin lifts a replica wooden box from a carton; it looks like the wax-sealed wooden box but has no copper corners.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin carefully sweeps wax crumbs into a paper bag and sticks on a seal label.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "pried_open",
+            "appearance": "The wax-sealed wooden box has been pried open; the dark-red wax seal is cracked and peeling, the lid forced up, copper corners askew."
+          },
+          "gap": 1,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Cord pulled tight, the wax-sealed wooden box becomes empty-sealed, hollow inside.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "empty_sealed",
+            "appearance": "The wooden box lid was flung open then hastily bound with cord; the inside is empty, wax crumbs stuck to the rim; thereafter shown only as an empty box."
+          },
+          "gap": 0,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin locks the empty-sealed wax-sealed wooden box into the rooftop iron cabinet and lets out a long breath.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "empty_sealed",
+            "appearance": "The wooden box lid was flung open then hastily bound with cord; the inside is empty, wax crumbs stuck to the rim; thereafter shown only as an empty box."
+          },
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "A yellow-plate moped rolls into the night-market stall—nothing like the wrecked old motorcycle.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "lookalike_disambiguation",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E20",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Bearded Officer Zhou walks into the night-market stall and talks beside Lin; their builds are alike.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Officer Zhou points at the yellow-plate moped and explains the new parking rules to Lin.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E20",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_061",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The yellow-plate moped is wheeled away; Lin alone at the night-market stall watches it go.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "From the far side of the night market comes runner girl Xiaotao with a light-brown hairband; at a glance she looks a bit like young Aning.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiaotao practices tying a cable-style mail-bag strap before the stall; Lin shakes her head—she is not Aning after all.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dusk half a year later, Lin with a bandaged left arm stands weary at the rain-alley courier station door.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same woman courier looking weary: short hair plastered wet to her forehead, a tear in the red raincoat, left arm wrapped in a makeshift bandage, still carrying the black mail bag."
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin looks up at the station's yellow-lit window, gaze distant.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same woman courier looking weary: short hair plastered wet to her forehead, a tear in the red raincoat, left arm wrapped in a makeshift bandage, still carrying the black mail bag."
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Those two brass padlocks on the station iron gate clink lightly in the rain; Lin pauses to listen.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same woman courier looking weary: short hair plastered wet to her forehead, a tear in the red raincoat, left arm wrapped in a makeshift bandage, still carrying the black mail bag."
+          },
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 65,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin presses her palm to the station's cold tin wall, as if saying goodbye.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same woman courier looking weary: short hair plastered wet to her forehead, a tear in the red raincoat, left arm wrapped in a makeshift bandage, still carrying the black mail bag."
+          },
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "By day, adult Aning returns along the rain alley and strides toward the station.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 52,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Aning reunites with injured Lin at the station door; they share a brief embrace.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same woman courier looking weary: short hair plastered wet to her forehead, a tear in the red raincoat, left arm wrapped in a makeshift bandage, still carrying the black mail bag."
+          },
+          "gap": 1,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Inside the station, Aning takes the empty-sealed box key Lin hands over.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same woman courier looking weary: short hair plastered wet to her forehead, a tear in the red raincoat, left arm wrapped in a makeshift bandage, still carrying the black mail bag."
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lin takes off the red raincoat, hangs it on a chair back, and turns into the rain alley—never to appear again.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "retired_away",
+            "appearance": "Courier Lin has withdrawn and left; only an empty red raincoat hangs on a chair back—she herself no longer appears."
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E1"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Lin's red raincoat still hangs on the station chair back; Aning brushes it lightly with her hand.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "By the station wall, adult Aning stands before a newly nailed brass name mailbox.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Aning's fingertips trace Lin's name engraved on the brass name mailbox.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Remade Abao arrives from the subway direction; the black iron ring flashes in the rain.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "remade_return",
+            "appearance": "Adult Abao still wears the red raincoat; the chin scar deeper, the silver ring swapped for a black iron ring, expression dark."
+          },
+          "gap": 31,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Aning blocks Abao—one in a dark-blue rain cape, one in a red raincoat—facing off at the station door.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 1,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "remade_return",
+            "appearance": "Adult Abao still wears the red raincoat; the chin scar deeper, the silver ring swapped for a black iron ring, expression dark."
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Abao leaves with a cold smile; Aning grips the empty-sealed box key.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "remade_return",
+            "appearance": "Adult Abao still wears the red raincoat; the chin scar deeper, the silver ring swapped for a black iron ring, expression dark."
+          },
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E1/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E1",
+            "E6"
+          ],
+          "features": {
+            "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+            "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The shot returns to years ago—the youth learning wax seals at the night-market stall appears again.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "young_runner",
+            "appearance": "Young Aning: a lean night-market runner girl of fifteen or sixteen, dark-blue rain cape, brim pulled low, stubborn eyes.",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_080",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the youth learning wax seals at the night-market stall",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The opening moment returns—on the rooftop, a still-sealed wooden box is taken out for the first time.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 21,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "sealed_intact",
+            "appearance": "A palm-sized dark wooden box, lid pressed with a dark-red wax seal, copper corners on all four edges.",
+            "flashback": true
+          },
+          "gap": 21,
+          "last_seen": "seg_060",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the still-sealed wooden box first taken out at the opening",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Flash back to the subway corridor of that year—a red-raincoat figure with a chin scar and silver ring on the right hand flashes past.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "young_rival",
+            "appearance": "A male courier rival of build close to Lin's, same bright-red hooded raincoat, a scar on his chin, a silver ring on his right hand, defiant look.",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_080",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the red-raincoat figure with a silver ring in that year's corridor",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Again the row of five wet red lanterns along the night-market awning rises before the eyes.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 29,
+          "last_seen": "seg_054",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "that row of five red lanterns along the night-market awning",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Back to the puddled high platform of first meeting; neon mirrors as before.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_082",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the puddled rooftop of first meeting",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Aning reopens the rain-blurred delivery ledger and climbs onto the rooftop.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 4,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "rain_blurred",
+            "appearance": "The same delivery ledger soaked by rain: cover wrinkled, ink bled into purple-black stains."
+          },
+          "gap": 55,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "By the night-market beam, those three spare wax seals still hang in place.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 46,
+          "last_seen": "seg_040",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Buyer Zhou finally appears on the rooftop; Aning sets the empty-sealed wax-sealed wooden box on a crate beside the puddles.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+          },
+          "gap": 1,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "empty_sealed",
+            "appearance": "The wooden box lid was flung open then hastily bound with cord; the inside is empty, wax crumbs stuck to the rim; thereafter shown only as an empty box."
+          },
+          "gap": 5,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E19",
+          "op": "recall_after_gap",
+          "gap": 77,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 88,
+    "n_scenes": 19,
+    "n_entities": 20,
+    "kind_counts": {
+      "character": 6,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 20,
+      "recall": 166,
+      "transform": 8,
+      "persist": 28,
+      "recall_after_gap": 5
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 86,
+      "lookalike_disambiguation": 61,
+      "state_change": 8,
+      "persist_state": 22,
+      "count_memory": 5,
+      "false_friend": 5,
+      "deprecation_avoidance": 10,
+      "reference_indirect": 5,
+      "long_gap_reappearance": 8,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 61,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 178,
+      "5-29": 21,
+      ">=30": 8
+    },
+    "longest_gap": {
+      "eid": "E19",
+      "gap": 77,
+      "at": "seg_088"
+    }
+  },
+  "warnings": []
+}

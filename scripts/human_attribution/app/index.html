@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>视频记忆标注</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --line:#d9dde3; --ink:#1d2330; --muted:#667085; --acc:#2563eb; --ok:#16a34a; --no:#dc2626; --unk:#a16207; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.45 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:var(--bg); color:var(--ink); }
+  header { position:sticky; top:0; z-index:5; background:#fff; border-bottom:1px solid var(--line); padding:8px 16px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  header .grow { flex:1; }
+  button { font:inherit; border:1px solid var(--line); background:#fff; border-radius:6px; padding:5px 10px; cursor:pointer; }
+  button.primary { background:var(--acc); color:#fff; border-color:var(--acc); }
+  main { max-width:1500px; margin:0 auto; padding:12px 16px 80px; }
+  .target { background:var(--card); border:2px solid var(--acc); border-radius:10px; padding:10px 14px; margin-bottom:10px; }
+  .target.absent { border-color:var(--no); }
+  .target h2 { margin:0 0 4px; font-size:18px; }
+  .target .rule { font-weight:600; }
+  .target .desc { color:#344054; }
+  .target .la { margin-top:4px; color:#7a2e0e; }
+  .grid { display:grid; grid-template-columns: 1fr 1.5fr 1fr 1fr; gap:10px; }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:8px; display:flex; flex-direction:column; gap:6px; }
+  .panel.active { outline:3px solid var(--acc); }
+  .panel h3 { margin:0; font-size:14px; }
+  .panel .hint { color:var(--muted); font-size:12px; }
+  video, img { width:100%; border-radius:6px; background:#000; }
+  .refs { display:grid; grid-template-columns:1fr; gap:4px; }
+  .refs img { cursor:zoom-in; }
+  .q { display:flex; gap:6px; }
+  .q button { flex:1; }
+  .q button.sel[data-v="yes"] { background:var(--ok); color:#fff; border-color:var(--ok); }
+  .q button.sel[data-v="no"] { background:var(--no); color:#fff; border-color:var(--no); }
+  .q button.sel[data-v="unsure"] { background:var(--unk); color:#fff; border-color:var(--unk); }
+  .intent { color:var(--muted); font-size:12px; }
+  .footer { display:flex; gap:10px; align-items:center; margin-top:10px; }
+  .footer input { flex:1; padding:6px; border:1px solid var(--line); border-radius:6px; }
+  .badge { padding:2px 8px; border-radius:10px; background:#eef2ff; color:#3730a3; font-size:12px; }
+  .badge.practice { background:#fef3c7; color:#92400e; }
+  #zoom { position:fixed; inset:0; background:rgba(0,0,0,.85); display:none; align-items:center; justify-content:center; z-index:10; }
+  #zoom img { max-width:92vw; max-height:92vh; width:auto; }
+  .keys { color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <strong>视频记忆标注</strong>
+  <span id="progress" class="badge"></span>
+  <span id="mode" class="badge"></span>
+  <span class="grow"></span>
+  <span class="keys">快捷键：1=有　2=没有　3=不确定（自动跳到下一问）｜Enter=下一题｜←=上一题｜R=重播</span>
+  <button id="prev">← 上一题</button>
+  <button id="next" class="primary">下一题 →</button>
+  <button id="export">导出结果</button>
+  <button id="help">说明</button>
+</header>
+<main id="app"></main>
+<div id="zoom"><img alt=""></div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "metric_version": "trackB-identity-1.0",
+  "gt_version": "trackB-gt-2.0",
+  "unit_seed": 20260926,
+  "gap0_sample_rate": 0.2,
+  "unit_ops": ["recall", "recall_after_gap", "persist"],
+  "unit_kinds": ["character", "prop"],
+  "transform_min_gap": 30,
+  "n_controls": {"ctl_pos": 200, "ctl_neg": 200},
+  "control_condition": "no_memory",
+  "strip": {
+    "height": 256,
+    "jpeg_quality": 90,
+    "variants": {"main": [0.15, 0.50, 0.85], "posA": [0.10, 0.30, 0.50], "posB": [0.55, 0.75, 0.95]}
+  },
+  "judge": {
+    "model": "qwen3-vl-32b",
+    "weights": "Qwen/Qwen3-VL-32B-Instruct",
+    "temperature": 0.0,
+    "max_tokens": 120,
+    "calls_per_task": 1
+  },
+  "bootstrap": {"n_boot": 2000, "seed": 20260925, "cluster": "story", "paired": true, "ci": 0.95},
+  "gap_bins": ["0", "1-4", "5-29", ">=30"]
+}

@@ -1,0 +1,34 @@
+{
+  "_doc": "Clip layout for identity_consistency / embedding_consistency. clip_template fields: {story}, {idx} (= GT segment number + file_index_offset; 'auto' = -1 if seg_000.mp4 exists else 0) and any --var name=value. details_template = the frozen presence judge's details.json (only needed for the control condition). Offsets: runs whose review/segments are gold-numbered use 0; MemStrata-runner outputs scored with the +1 view (GT seg_k -> production seg_{k-1}) use -1.",
+  "no_memory": {
+    "label": "no memory (K=0)",
+    "clip_template": "{nomem_root}/retr_none/{story}/name_anchored/prod_retr_nomem_20260925/review/segments/seg_{idx:03d}.mp4",
+    "file_index_offset": -1,
+    "details_template": "{nomem_root}/_trackB_score_shifted1/{story}/details.json"
+  },
+  "text_frame": {
+    "label": "text-frame",
+    "clip_template": "{results}/trackB/shared_generator_testbed/text_frame/{story}/name_anchored/prod_retr_20260831/review/segments/seg_{idx:03d}.mp4",
+    "file_index_offset": 0
+  },
+  "seg_uniform": {
+    "label": "seg-uniform",
+    "clip_template": "{results}/trackB/shared_generator_testbed/seg_uniform/{story}/name_anchored/prod_retr_20260831/review/segments/seg_{idx:03d}.mp4",
+    "file_index_offset": 0
+  },
+  "seg_dinokey": {
+    "label": "seg-DINO-key",
+    "clip_template": "{results}/trackB/shared_generator_testbed/seg_dinokey/{story}/name_anchored/prod_retr_20260831/review/segments/seg_{idx:03d}.mp4",
+    "file_index_offset": 0
+  },
+  "seg_frame_clean": {
+    "label": "seg-frame",
+    "clip_template": "{results}/trackB/shared_generator_testbed/seg_frame_clean/{story}/name_anchored/prod_retr_segframe_clean_20260921/review/segments/seg_{idx:03d}.mp4",
+    "file_index_offset": -1
+  },
+  "retr_oracle": {
+    "label": "last-seen oracle",
+    "clip_template": "{oracle_root}/retr_oracle/{story}/name_anchored/prod_retr_oracle_20260925/review/segments/seg_{idx:03d}.mp4",
+    "file_index_offset": -1
+  }
+}

@@ -1,0 +1,3545 @@
+{
+  "story_id": "0017_reef_diver",
+  "gt_version": "trackB-gt-2.0",
+  "title": "Shallow-Reef Sampling Log",
+  "premise": "A long reef-diving drama spanning years. Langlang and Achao are easily confused; the coral sample case goes intact→seal ruptured→resealed repair; the fiberglass skiff is wrecked and sunk and must be avoided; count memory (ship lanterns / dive buoy flags / fog-navigation brass bells), false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "built_from": "gt_source/0017_reef_diver.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "Haisheng",
+      "kind": "character",
+      "states": {
+        "prime_diver": "A reef diver in his forties named Haisheng, buzz-cut hair, navy wetsuit, silver tank on his shoulder, sharp eyes.",
+        "ear_injury": "The same diver after injury: right ear wrapped in gauze, limping, wetsuit shoulder strap broken and tied with rope.",
+        "deceased": "Haisheng has passed peacefully, eyes closed on the dock planks, face serene, breath gone."
+      },
+      "initial_state": "prime_diver"
+    },
+    "E2": {
+      "name": "Langlang",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Langlang: a lean diving apprentice of fifteen or sixteen, orange-yellow headscarf, light-blue short-sleeve wetsuit, bright clear eyes.",
+        "adult_successor": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+      },
+      "initial_state": "young_apprentice"
+    },
+    "E3": {
+      "name": "coral sample case",
+      "kind": "prop",
+      "states": {
+        "intact": "A transparent acrylic sample case with intact internal compartments, fresh gasket seal on the lid, brass handle.",
+        "seal_ruptured": "The same sample case with a torn gasket letting in seawater, compartments askew, brass handle bent.",
+        "resealed_repair": "The sample case fitted with a new gasket, handle straightened, compartments reset—ready for diving again."
+      },
+      "initial_state": "intact"
+    },
+    "E4": {
+      "name": "dive log",
+      "kind": "prop",
+      "states": {
+        "intact": "A waterproof-cover dive log with a tide table clipped inside, neat handwriting.",
+        "seawater_blurred": "The same log soaked by seawater: cover bleached and wrinkled, ink blurred into blue patches."
+      },
+      "initial_state": "intact"
+    },
+    "E5": {
+      "name": "fiberglass skiff",
+      "kind": "prop",
+      "states": {
+        "intact": "An off-white fiberglass skiff with blue 'Hai' lettering on the bow and an orange life ring on the gunwale.",
+        "wrecked_sunk": "The off-white skiff holed on the reef, bow taking water and sinking—half-submerged wreckage."
+      },
+      "initial_state": "intact"
+    },
+    "E6": {
+      "name": "Achao",
+      "kind": "character",
+      "states": {
+        "young_rival": "Achao, face very like young Langlang's, green headscarf, bold expression, dive computer on his wrist.",
+        "adult_rival": "Adult Achao still in green headscarf and dive computer, expression deeper and heavier."
+      },
+      "initial_state": "young_rival"
+    },
+    "E7": {
+      "name": "shallow reef coral zone",
+      "kind": "location",
+      "appearance": "A clear shallow reef coral zone, staghorn coral and sea anemones dense, sunlight refracting into columns underwater."
+    },
+    "E8": {
+      "name": "dock supply hut",
+      "kind": "location",
+      "appearance": "A supply hut beside the wooden dock, wetsuits and tanks hanging on the wall, air smelling of salt and diesel."
+    },
+    "E9": {
+      "name": "fishing village dock market",
+      "kind": "location",
+      "appearance": "A fishing village dock market, fish baskets and dried-goods stalls along the wooden walkway, gulls circling."
+    },
+    "E10": {
+      "name": "abandoned lighthouse reef",
+      "kind": "location",
+      "appearance": "A half-collapsed abandoned lighthouse reef, rusted iron frame, reef flat exposed at low tide, waves breaking on black rock edges."
+    },
+    "E11": {
+      "name": "diver bronze plaque",
+      "kind": "prop",
+      "appearance": "A brass plaque nailed to the supply hut doorframe, carved with Haisheng's name and year, salt-crusted edges."
+    },
+    "E12": {
+      "name": "dive buoy flags",
+      "kind": "prop",
+      "appearance": "Three dive buoy flags stuck in shallow reef floats, red-and-white flag faces."
+    },
+    "E13": {
+      "name": "rented rubber dinghy",
+      "kind": "prop",
+      "appearance": "A brand-new orange-black rented rubber dinghy, no 'Hai' lettering and no orange life ring, carrying only empty crates."
+    },
+    "E14": {
+      "name": "coast guard patrol officer",
+      "kind": "character",
+      "appearance": "A lean coast guard patrol officer in dark-blue uniform and peaked cap, build close to Haisheng's but with gold shoulder boards."
+    },
+    "E15": {
+      "name": "ship lanterns",
+      "kind": "prop",
+      "appearance": "A row of five ship lanterns hanging on the supply hut wall, glass shades polished, brass lamp trays."
+    },
+    "E16": {
+      "name": "fog-navigation brass bells",
+      "kind": "prop",
+      "appearance": "Two fog-navigation brass bells hanging under the dock eaves, murmuring low when the wind rises."
+    },
+    "E17": {
+      "name": "traveling diver girl",
+      "kind": "character",
+      "appearance": "A traveling diver girl at the market, light-brown headscarf and small tank on her back; at a glance somewhat like young Langlang, but with shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "toy dive case",
+      "kind": "prop",
+      "appearance": "A semi-transparent toy dive case shaped like the sample case but without a gasket seal, plastic handle."
+    },
+    "E19": {
+      "name": "unfamiliar gray motorboat",
+      "kind": "prop",
+      "appearance": "An unfamiliar gray motorboat, wider hull, no 'Hai' lettering—not the fiberglass skiff."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_diver",
+      "ear_injury",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "seal_ruptured",
+      "resealed_repair"
+    ],
+    "E4": [
+      "intact",
+      "seawater_blurred"
+    ],
+    "E5": [
+      "intact",
+      "wrecked_sunk"
+    ],
+    "E6": [
+      "young_rival",
+      "adult_rival"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+        "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+      },
+      "note": "Confusion: Langlang and Achao are told apart by headscarf and dive computer."
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dusk, Haisheng dives from the dock into the shallow reef coral zone and checks tank pressure.",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A row of five ship lanterns hangs on the dock supply hut wall; Haisheng comes ashore and polishes them one by one.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two fog-navigation brass bells hang under the dock eaves; Haisheng reaches up and lets them ring softly.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng sets the coral sample case on a surface float and checks the gasket seal.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng surfaces and gazes at the darkening reef line.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The coral sample case gleams transparent in clear seawater, compartments sharp.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng sits on the dock planks, listening to waves on the reef.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the dock supply hut, Haisheng opens the dive log and records depth and visibility.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng sketches today's sampling points on a blank page.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng closes the dive log and slips it into a waterproof bag.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Brass handle light from the coral sample case sweeps across Haisheng's cheek.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dawn on the dock, Haisheng greets young Langlang arriving in the fiberglass skiff.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Langlang jumps off the fiberglass skiff and hangs the orange life ring back on the gunwale.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng points to three dive buoy flags stuck in the floats and teaches Langlang flag signals.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Langlang crouches by the wooden walkway, curious, touching wet mooring rope.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng explains shallow reef currents and no-dive zones to Langlang.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Langlang looks back at the intact fiberglass skiff, eyes full of longing.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Behind a fish stall at the fishing village dock market, green-headscarfed Achao glances back.",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao strides along the wooden walkway, bold expression.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao haggles with a vendor; the dive computer on his wrist flashes.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao carries a fish basket through the market crowd.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On the dock walkway, Langlang and Achao stand side by side—one orange-yellow headscarf, one green.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Langlang hands a dive buoy flag to Achao; the two share a brief look.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao straightens Langlang's orange-yellow headscarf, then turns away.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At the walkway end they part, walking opposite ways.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Months later at night, Haisheng keeps watch alone in the dock supply hut, coral sample case on the table.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 15,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng opens the dive log; the cover is soaked, ink blurred into blue patches.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "seawater_blurred",
+            "appearance": "The same log soaked by seawater: cover bleached and wrinkled, ink blurred into blue patches."
+          },
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng wipes salt crust from the coral sample case.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "seawater_blurred",
+            "appearance": "The same log soaked by seawater: cover bleached and wrinkled, ink blurred into blue patches."
+          },
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng pushes open the wooden window and gazes at the black reef line.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "seawater_blurred",
+            "appearance": "The same log soaked by seawater: cover bleached and wrinkled, ink blurred into blue patches."
+          },
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The coral sample case stands transparent under the ship lanterns.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Dry season clarity—day after day Haisheng dives the shallow reef coral zone.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 23,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another pre-typhoon night, Haisheng checks tank valves.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Rainy season murk—Haisheng sorts buoys at the dock.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Midsummer noon, Haisheng wipes sun-hot brass handles.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Autumn swell—Haisheng keeps lone watch until dawn.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another new-year dive—Haisheng recalibrates his dive computer.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Clear sunny day—Haisheng photographs new staghorn coral shoots.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dawn, Haisheng patrols the dock; the fiberglass skiff moored at the pier.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng crouches to inspect the fiberglass skiff's keel guard strip.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng walks to the floats—those three dive buoy flags still in place.",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 25,
+          "last_seen": "seg_014",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "An unfamiliar gray motorboat passes the harbor, wider hull—not the fiberglass skiff.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng stands on the walkway, recording exposed reef after low tide.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng hangs wetsuits on the dock supply hut wooden rack.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Storm rises; shallow reef walls of water surge; the coral sample case jolts violently.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Lightning lights the reef line; seawater turns gray-white.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A huge wave hits; the coral sample case gasket tears and seawater floods in, brass handle bent.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "seal_ruptured",
+            "appearance": "The same sample case with a torn gasket letting in seawater, compartments askew, brass handle bent."
+          },
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In the harbor, the fiberglass skiff is pushed onto hidden reef by the swell.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The hull splits and takes water; the fiberglass skiff sinks half-submerged as wreckage.",
+      "memory_probes": [
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "wrecked_sunk",
+            "appearance": "The off-white skiff holed on the reef, bow taking water and sinking—half-submerged wreckage."
+          },
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng lunges for the float, gripping the ruptured coral sample case.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seal_ruptured",
+            "appearance": "The same sample case with a torn gasket letting in seawater, compartments askew, brass handle bent."
+          },
+          "gap": 2,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Next day in the dock supply hut, Haisheng stares at the seal-ruptured coral sample case.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seal_ruptured",
+            "appearance": "The same sample case with a torn gasket letting in seawater, compartments askew, brass handle bent."
+          },
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng runs a fingertip over the bent brass handle, face dark.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seal_ruptured",
+            "appearance": "The same sample case with a torn gasket letting in seawater, compartments askew, brass handle bent."
+          },
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng marks the date of the fiberglass skiff reef strike on the wall board.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "An old photo of the fiberglass skiff still pinned on the dock supply hut wall; Haisheng gazes a long while.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng takes one of five ship lanterns from the wall and sits alone in the dim light.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 51,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The ruptured coral sample case still on the table, compartments pooled with seawater.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seal_ruptured",
+            "appearance": "The same sample case with a torn gasket letting in seawater, compartments askew, brass handle bent."
+          },
+          "gap": 3,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Weeks later, Haisheng brings a new gasket and begins repairing the coral sample case.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seal_ruptured",
+            "appearance": "The same sample case with a torn gasket letting in seawater, compartments askew, brass handle bent."
+          },
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "From a wooden crate he takes a toy dive case—shaped like the sample case but without a gasket.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng carefully replaces the gasket and straightens the brass handle.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seal_ruptured",
+            "appearance": "The same sample case with a torn gasket letting in seawater, compartments askew, brass handle bent."
+          },
+          "gap": 1,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The coral sample case is resealed, compartments reset—ready to dive again.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "resealed_repair",
+            "appearance": "The sample case fitted with a new gasket, handle straightened, compartments reset—ready for diving again."
+          },
+          "gap": 0,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The repaired coral sample case gleams intact and transparent; Haisheng exhales in relief.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed_repair",
+            "appearance": "The sample case fitted with a new gasket, handle straightened, compartments reset—ready for diving again."
+          },
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "An orange-black rented rubber dinghy enters the harbor—nothing like the long-wrecked fiberglass skiff.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A coast guard patrol officer jumps onto the dock and talks beside Haisheng, builds alike.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The coast guard patrol officer points at the rented rubber dinghy, explaining temporary closure orders.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E13",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_061",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The rented rubber dinghy departs; Haisheng alone on the dock watching it go.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At the fishing village dock market, a light-brown-headscarfed traveling diver girl arrives—at a glance somewhat like young Langlang.",
+      "memory_probes": [
+        "false_friend",
+        "first_appearance",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall_after_gap",
+          "gap": 43,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The traveling diver girl tries shouldering a small tank; Haisheng shakes his head—she is not Langlang after all.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Years later at dusk, Haisheng stands limping on the abandoned lighthouse reef, right ear wrapped in gauze.",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "ear_injury",
+            "appearance": "The same diver after injury: right ear wrapped in gauze, limping, wetsuit shoulder strap broken and tied with rope."
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng looks up at the rusted lamp frame, gaze far away.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "ear_injury",
+            "appearance": "The same diver after injury: right ear wrapped in gauze, limping, wetsuit shoulder strap broken and tied with rope."
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two fog-navigation brass bells on the abandoned lighthouse reef iron frame murmur in the wind; Haisheng pauses to listen.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "ear_injury",
+            "appearance": "The same diver after injury: right ear wrapped in gauze, limping, wetsuit shoulder strap broken and tied with rope."
+          },
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 65,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng presses his palm to the cold black rock edge, as if saying goodbye.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "ear_injury",
+            "appearance": "The same diver after injury: right ear wrapped in gauze, limping, wetsuit shoulder strap broken and tied with rope."
+          },
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "By day, adult Langlang returns along the reef line, hurrying toward the abandoned lighthouse reef.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 45,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Langlang reunites with injured Haisheng on the reef flat; they embrace.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "ear_injury",
+            "appearance": "The same diver after injury: right ear wrapped in gauze, limping, wetsuit shoulder strap broken and tied with rope."
+          },
+          "gap": 1,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the dock planks, Langlang holds Haisheng's rough hand.",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "ear_injury",
+            "appearance": "The same diver after injury: right ear wrapped in gauze, limping, wetsuit shoulder strap broken and tied with rope."
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Haisheng's breath fades; he closes his eyes and passes away.",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "deceased",
+            "appearance": "Haisheng has passed peacefully, eyes closed on the dock planks, face serene, breath gone."
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Haisheng's navy wetsuit still hangs behind the dock supply hut door; Langlang reaches out and touches it lightly.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the dock supply hut doorframe, adult Langlang stands before the diver bronze plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Langlang's fingertip traces Haisheng's name carved on the diver bronze plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Adult Achao comes from the market and meets Langlang's gaze on the abandoned lighthouse reef.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "adult_rival",
+            "appearance": "Adult Achao still in green headscarf and dive computer, expression deeper and heavier."
+          },
+          "gap": 52,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Langlang and Achao stand side by side on the reef flat—one calm-eyed, one heavy-browed.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "adult_rival",
+            "appearance": "Adult Achao still in green headscarf and dive computer, expression deeper and heavier."
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The two look at each other in silence, studying faces alike yet different.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "adult_rival",
+            "appearance": "Adult Achao still in green headscarf and dive computer, expression deeper and heavier."
+          },
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Langlang: orange-yellow headscarf, light-blue wetsuit, calm steady eyes.",
+            "E6": "Achao: face very like Langlang's, but green headscarf, dive computer on wrist, bold expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The lens returns to years ago—the boy who hung the life ring at the dock appears again.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "young_apprentice",
+            "appearance": "Young Langlang: a lean diving apprentice of fifteen or sixteen, orange-yellow headscarf, light-blue short-sleeve wetsuit, bright clear eyes.",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_080",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the boy who hung the life ring at the dock",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "That opening moment returns—shallow reef water, a transparent coral sample case set on a float for the first time.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall_after_gap",
+          "gap": 32,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "intact",
+            "appearance": "A transparent acrylic sample case with intact internal compartments, fresh gasket seal on the lid, brass handle.",
+            "flashback": true
+          },
+          "gap": 21,
+          "last_seen": "seg_060",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the transparent coral sample case first placed on a float at the opening",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Flashback to the market that year—a green-headscarfed Achao with a dive computer on his wrist flickers past.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "young_rival",
+            "appearance": "Achao, face very like young Langlang's, green headscarf, bold expression, dive computer on his wrist.",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_080",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the green-headscarfed figure at the market that year",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Again that row of five old ship lanterns on the dock supply hut wall.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 29,
+          "last_seen": "seg_054",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "that row of five old ship lanterns on the dock supply hut wall",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Back to the clear shallow reef coral zone of first meeting; sunlight refracts into columns underwater, unchanged.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_082",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the clear shallow reef of first meeting",
+            "resolves_to": "E7"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Langlang opens the seawater-blurred dive log again and walks into the dock supply hut.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 4,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "seawater_blurred",
+            "appearance": "The same log soaked by seawater: cover bleached and wrinkled, ink blurred into blue patches."
+          },
+          "gap": 56,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "By the floats, those three dive buoy flags still stuck in place.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 46,
+          "last_seen": "seg_040",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Langlang takes the coral sample case and dives the shallow reef coral zone once more.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Langlang: a broad-shouldered steady young diver in his twenties, still in orange-yellow headscarf, now carrying twin tanks."
+          },
+          "gap": 1,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed_repair",
+            "appearance": "The sample case fitted with a new gasket, handle straightened, compartments reset—ready for diving again."
+          },
+          "gap": 5,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_048"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_074"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 88,
+    "n_scenes": 19,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 167,
+      "transform": 8,
+      "persist": 29,
+      "recall_after_gap": 5
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 81,
+      "lookalike_disambiguation": 11,
+      "state_change": 8,
+      "persist_state": 23,
+      "count_memory": 5,
+      "false_friend": 5,
+      "deprecation_avoidance": 10,
+      "reference_indirect": 5,
+      "long_gap_reappearance": 8,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 11,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 183,
+      "5-29": 18,
+      ">=30": 8
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 65,
+      "at": "seg_069"
+    }
+  },
+  "warnings": [
+    "seg_082: temporal-anchored E3 name『coral sample case』appears in action; a temporal reference should be name-free",
+    "seg_083: temporal-anchored E6 name『Achao』appears in action; a temporal reference should be name-free",
+    "seg_084: temporal-anchored E15 name『ship lanterns』appears in action; a temporal reference should be name-free",
+    "seg_085: temporal-anchored E7 name『shallow reef coral zone』appears in action; a temporal reference should be name-free"
+  ]
+}
