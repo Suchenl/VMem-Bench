@@ -1,0 +1,1055 @@
+{
+  "story_id": "0039_sushi_counter_apprentice",
+  "title": "Shige Sushi Counter",
+  "premise": "A long itamae drama at the hinoki counter. Xiaolin and Xiaoshuang are easily confused by looks; the bluefin tuna yanagiba goes intact_edge→chipped_edge→resharpened; after the delivery bicycle is wrecked it must be avoided; soba cups / tea cups / wind chimes count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Amao",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Itamae Amao around fifty, white jacket, navy apron, adhesive bandage on the wrist, steady knife work.",
+        "weary_injured": "The same Amao: apron torn, fingers wrapped in thick gauze, still insisting on walking, eyes heavier.",
+        "retired_exit": "Amao has left the counter; only his navy apron and white jacket remain—he himself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Xiaolin",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Apprentice Xiaolin of fourteen or fifteen, indigo headscarf, short white jacket, bright stubborn eyes.",
+        "adult_successor": "Xiaolin in his twenties, still in indigo headscarf, upright and steady."
+      }
+    },
+    "E3": {
+      "name": "bluefin tuna yanagiba",
+      "kind": "prop",
+      "states": {
+        "intact_edge": "A willow-blade bluefin tuna yanagiba, long bright blade, hackberry wood handle carved with the character Shige.",
+        "chipped_edge": "The same willow blade with a nick missing a small chip; fish fibers tug when cutting.",
+        "resharpened": "After resharpening the willow-blade nick is filled, edge keen again, old Shige still on the handle."
+      }
+    },
+    "E4": {
+      "name": "prep ledger",
+      "kind": "prop",
+      "states": {
+        "intact": "A waterproof-covered prep ledger recording fish species, purchase price, and yield rate.",
+        "soy_stained": "The same prep ledger soaked through with soy sauce, cover sticky, writing bled."
+      }
+    },
+    "E5": {
+      "name": "delivery bicycle",
+      "kind": "prop",
+      "states": {
+        "intact": "A dark-green delivery bicycle with a warmer box strapped to the basket, white Shige Sushi lettering on the frame.",
+        "rear_ended_wrecked": "After a truck rear-ends it, the delivery bicycle wheels twist and the frame snaps—wreckage."
+      }
+    },
+    "E6": {
+      "name": "Xiaoshuang",
+      "kind": "character",
+      "states": {
+        "young_rival": "Youth Xiaoshuang whose face closely matches Xiaolin's, cream neckerchief, same short white jacket, swaggering look.",
+        "disguised_return": "After a change of look Xiaoshuang still wears the cream neckerchief; expression deeper."
+      }
+    },
+    "E7": {
+      "name": "sushi counter",
+      "kind": "location",
+      "appearance": "Sushi counter: hinoki wood top, tuna and sea bream in the glass cold case, noren half-rolled."
+    },
+    "E8": {
+      "name": "walk-in fridge aisle",
+      "kind": "location",
+      "appearance": "Walk-in fridge aisle: a narrow cold passage, fish boxes hung on both sides, condensate dripping from pipes."
+    },
+    "E9": {
+      "name": "market middleman aisle",
+      "kind": "location",
+      "appearance": "Market middleman aisle: dawn fish-market passage, foam boxes and crushed ice piled high, noisy voices."
+    },
+    "E10": {
+      "name": "old shop noren entrance",
+      "kind": "location",
+      "appearance": "Old shop noren entrance: gray-tile shopfront, noren reading Shige Sushi, moss on the stone steps."
+    },
+    "E11": {
+      "name": "wooden name plaque",
+      "kind": "prop",
+      "appearance": "A wooden name plaque nailed to the doorpost, carved with Amao's name and founding year."
+    },
+    "E12": {
+      "name": "soba cups",
+      "kind": "prop",
+      "appearance": "Three soba cups stacked at the counter corner, blue patterns on the glaze."
+    },
+    "E13": {
+      "name": "white delivery scooter",
+      "kind": "prop",
+      "appearance": "A white delivery scooter, slim body with no Shige Sushi lettering—unlike the dark-green bicycle."
+    },
+    "E14": {
+      "name": "health inspector",
+      "kind": "character",
+      "appearance": "A lean health inspector in a mask and white coat, build like Amao's but more rigid."
+    },
+    "E15": {
+      "name": "tea cups",
+      "kind": "prop",
+      "appearance": "A row of five tea cups hung on wooden pegs above the counter, blue-and-white porcelain shining."
+    },
+    "E16": {
+      "name": "wind chimes",
+      "kind": "prop",
+      "appearance": "Two wind chimes hung beside the noren, clear ring when the wind rises."
+    },
+    "E17": {
+      "name": "Xiao Xing",
+      "kind": "character",
+      "appearance": "Market girl Xiao Xing, light-brown headscarf; at a glance like young Xiaolin, shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "deba knife sample",
+      "kind": "prop",
+      "appearance": "A deba knife sample, shorter thicker blade, no Shige character—looks like a willow blade but different use."
+    },
+    "E19": {
+      "name": "Fishmonger Ken",
+      "kind": "character",
+      "appearance": "Fishmonger Ken, full beard, rubber boots dusted with scales, build like Amao's but stockier."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_injured",
+      "retired_exit"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact_edge",
+      "chipped_edge",
+      "resharpened"
+    ],
+    "E4": [
+      "intact",
+      "soy_stained"
+    ],
+    "E5": [
+      "intact",
+      "rear_ended_wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised_return"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Xiaolin: indigo headscarf, short white jacket.",
+        "E6": "Xiaoshuang: face nearly identical to Xiaolin, but cream neckerchief, swaggering look."
+      },
+      "note": "Apprentice confuse: indigo headscarf vs cream neckerchief."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Counter at dusk (introduce five tea cups · two wind chimes)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk Amao lifts the noren into the sushi counter and first wipes the bluefin tuna yanagiba.",
+        {
+          "action": "A row of five tea cups hangs on wooden pegs above the counter; Amao polishes each one.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two wind chimes hang beside the noren; Amao reaches out and lets them chime lightly.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Amao circles the hinoki top checking the cold-case temperature.",
+        "Amao looks through the glass toward street lamps dimming toward the market.",
+        {
+          "action": "The willow blade catches lamplight; Amao gently tests the edge.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Amao sits on the small stool inside the counter for a brief rest."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the prep ledger",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Amao opens the prep ledger and notes today's tuna yield rate.",
+        "Amao sketches a fat-line distribution chart in the prep ledger.",
+        "Amao closes the prep ledger and returns it to the counter drawer.",
+        {
+          "action": "The willow blade flashes by the cutting board; Amao nods.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Amao wipes water beads from the ledger cover with a dry cloth."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Cold aisle greets the apprentice (introduce three soba cups)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "In the walk-in fridge aisle at dawn, Amao greets young Xiaolin pushing the delivery bicycle.",
+        {
+          "action": "Xiaolin steadies the bicycle and snaps the warmer box shut.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Amao points to three soba cups at the counter corner and teaches Xiaolin guest cup positions.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaolin crouches in the cold aisle watching condensate drip from the pipes.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Amao explains hand warmth for nigiri; Xiaolin nods earnestly.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Xiaolin looks back at the dark-green delivery bicycle, eyes full of tension.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Amao has Xiaolin first practice rolling vinegar-rice balls."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Market middleman aisle (Xiaoshuang alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the noisy market middleman aisle, Xiaoshuang in a cream neckerchief looks up from behind foam boxes.",
+        "Xiaoshuang picks sea bream before the ice pile; the neckerchief sways lightly.",
+        "Xiaoshuang haggles with a middleman, swaggering look.",
+        "Xiaoshuang carries a fish box through the market crowd.",
+        "Xiaoshuang glances back at the aisle end; crushed ice flashes."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Apprentices co-present",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "At the cold-aisle mouth, Xiaolin and Xiaoshuang stand side by side—one indigo headscarf, one cream neckerchief.",
+        "Xiaolin hands Xiaoshuang a soba cup; they check cup positions.",
+        "Xiaoshuang smooths Xiaolin's indigo headscarf; they walk slowly along the aisle.",
+        "Xiaolin and Xiaoshuang part at the aisle end—one to the counter, one to the market.",
+        "Cold air sweeps past; their similar short white jackets cross in the lamp glow then split."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Prep ledger soy-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Amao alone at the counter sorts tomorrow's prep.",
+        {
+          "action": "Amao opens the prep ledger and finds spilled soy sauce has soaked the cover sticky.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "soy_stained"
+            }
+          ]
+        },
+        "Amao wipes soy spots from the willow-blade handle.",
+        "Amao looks toward the black market direction.",
+        {
+          "action": "The willow blade shines cold under the lamp; Amao slowly sheaths it.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Amao slips blotting paper into the stained ledger and presses it under the cutting board."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Four-season itamae days (filler · stretch the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In rainy season Amao stands damp cutting boards upright to dry at the sushi counter.",
+        "Amao pushes the willow-blade edge on a whetstone.",
+        "At dawn Amao checks tuna price sheets at the market.",
+        "Amao hangs a raincoat on the back door and listens to the crushed-ice truck pass.",
+        "In high summer Amao lowers the cold-case temperature one degree.",
+        "Amao checks vinegar-rice acidity, tasting with the tip of his tongue.",
+        "When autumn wind rises Amao takes in the sidewalk menu board.",
+        "Amao trials new fish-species codes on a blank prep-ledger page.",
+        "On a frost night Amao lights a small lamp and checks flashlight charge.",
+        "Amao wraps rice sacks in a blanket against night damp.",
+        "On a heavy-snow day Amao sweeps thin snow from the noren-entrance stone steps.",
+        "Amao blows on his hands and tightens the warmer-box latch.",
+        "At spring start Amao clears fish scales from the back-door drain.",
+        "Amao scalds and washes the five tea cups one by one.",
+        "Amao posts a new today's specials sheet on the counter wall.",
+        "Around Dragon Boat Festival Amao smokes the rice store with mugwort against insects.",
+        "Amao retraces the blue patterns on the soba cups.",
+        "Amao paces the cold aisle alone, silently memorizing guest allergies.",
+        "After rain Amao opens the back door and listens to eave water drip into an iron bucket.",
+        "Amao swaps worn towels for new ones.",
+        "Another dusk Amao sits by the willow blade listening to the radio.",
+        "Amao rises at night to defrost the cold case.",
+        "Amao seals newly arrived nori jars for storage.",
+        "Amao wipes the Shige Sushi lettering at the noren entrance.",
+        "Amao checks the delivery bicycle basket binding rope.",
+        "Amao crosses out out-of-season fish on the menu.",
+        "Amao wrings soy-stained rags dry and hangs them.",
+        "On a full-moon night Amao looks out toward the market; crushed ice flashes.",
+        "Amao arranges the wooden pegs so tea-cup mouths face the same way.",
+        "Amao writes the new season's prep notes on the ledger flyleaf.",
+        "Amao polishes the two wind chimes bright.",
+        "Amao listens to market unloading and keeps chopping scallions.",
+        "Amao glues a cracked rice paddle.",
+        "Amao piles dishes to wash in the counter corner.",
+        "Amao latches the back door tight so night cats cannot enter.",
+        "Another Qingming Amao sets a nandina sprig at the noren entrance.",
+        "Amao rolls the price list into a tube and binds it with a rubber band.",
+        "Amao tests the wind chimes' clear ring.",
+        "Amao sits mute at the counter listening long to the fridge compressor hum.",
+        "Amao cuts worn indigo cloth into rag stock.",
+        "Amao wets the whetstone surface, ready to sharpen at dawn.",
+        "Amao shreds ginger into fine strands and portions them into small dishes."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Cold-aisle patrol (recall soba cups · scooter false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak Amao patrols the walk-in fridge aisle; the delivery bicycle sits by the back door.",
+        {
+          "action": "Amao crouches to check the bicycle tires.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Amao walks to the counter corner; those three soba cups still stack in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A white delivery scooter passes the back door, slim body—not the Shige Sushi bicycle.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Amao stands in the cold aisle logging the cold-case temperature curve.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Amao hangs a wet apron on the aisle wooden rack.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Amao pats ice crumbs from his sleeve and looks back at the counter lights."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Nigiri daily continuation (filler · keep stretching the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "After Grain Rain Amao teaches a new apprentice to judge fish-eye freshness in the cold aisle.",
+        "Amao re-starches the sun-dried apron.",
+        "In summer heat Amao lays a wet cloth on the rice tub to cool it.",
+        "Amao checks the bicycle rear basket and swaps a damp warmer pad for a new one.",
+        "On an autumn night Amao mends loose prep-ledger pages under a small lamp.",
+        "Amao rotates the five tea cups through disinfection.",
+        "At first snow Amao sweeps a narrow path at the noren entrance.",
+        "Amao reseals spare nori.",
+        "Amao listens to the wind chimes and keeps correcting orders.",
+        "Amao opens the back door so a draft carries fish-damp air away.",
+        "Amao hangs a rain canvas in the doorway.",
+        "Amao stores a chipped old blade in a tin box.",
+        "At night Amao dreams of fish gone bad and wakes to note it in the ledger.",
+        "Amao rinses the soba cups with clear water.",
+        "Amao wipes and reposts today's specials.",
+        "Amao pulls weeds from the back-door stone seams.",
+        "Amao hangs the tea cups back on pegs; number slips have faded a little.",
+        "Before lights-out Amao takes one last look at the willow-blade edge.",
+        "Amao folds an indigo headscarf an apprentice left on the counter.",
+        "Amao hears the market closing horn and rises to lock up.",
+        "Amao dries gloves by charcoal fire.",
+        "Amao shifts the wind chimes aside to show the freshly washed noren.",
+        "Amao air-dries the temperature probe.",
+        "Amao draws a yield-rate comparison at the ledger end.",
+        "Amao silently recites tomorrow's fish list and steps out the noren entrance.",
+        "Amao pushes the bicycle to the wall foot, freeing the back-door passage.",
+        "Amao hears a distant tram and blows out the small lamp.",
+        "Another rainy night Amao alone keeps the counter until dawn.",
+        "Amao grinds newly arrived wasabi root into paste.",
+        "Amao writes guests' usual nigiri styles on a small blackboard."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Night of rear-end (chipped edge · bicycle wrecked)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "On a storm night a truck loses control in the back alley; the crash reaches the counter.",
+        "In the jolt the cutting board leaps hard.",
+        {
+          "action": "A crisp crack—a nick bursts from the bluefin tuna yanagiba edge.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "chipped_edge"
+            }
+          ]
+        },
+        {
+          "action": "Outside the back door, the dark-green delivery bicycle is rear-ended by the truck.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "The delivery bicycle wheels twist and the frame snaps—totally wrecked.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "rear_ended_wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Amao lunges at the cutting board and fiercely guards the nicked willow blade.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Neighbors arrive with lanterns; the back alley is full of shattered glass."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (bicycle indirect reference · tea-cup recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day Amao stands at the sushi counter staring at the nicked willow blade.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Amao traces the edge nick with a finger, face dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "In a blank spot of the prep ledger Amao notes the date the delivery bicycle was hit.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo of the delivery bicycle still hangs on the wall; Amao gazes long.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Amao takes down one of the five tea cups from the wooden pegs and pours hot water to warm it.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The nicked willow blade still rests on the cutting board; cold light now has a break.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Amao sets muddy water boots by the back door to drain."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Resharpening (third state · deba sample false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Amao brings a sharpening master to resharpen the bluefin tuna yanagiba.",
+        {
+          "action": "Amao takes a deba knife sample from a case for comparison—shorter, thicker, no Shige character.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "The master slowly pushes the whetstone along the nick.",
+        {
+          "action": "bluefin tuna yanagiba: the nick is filled, willow blade keen again, Shige still on the handle.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "resharpened"
+            }
+          ]
+        },
+        "The repaired willow blade cuts tuna like mud; Amao nods with relief.",
+        "Amao takes up nigiri again and trials the first piece."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: scooter and inspector",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Fishmonger Ken arrives at the back door, rubber boots dusted with scales, build like Amao's.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The health inspector also arrives in white coat and mask, talking shoulder to shoulder with Amao.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The inspector points at the white delivery scooter asking if it belongs to Shige Sushi.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The inspector leaves; Amao alone remains in the cold aisle.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Ken unloads a box of ice-fresh fish, bows farewell."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Xiao Xing who resembles Xiaolin",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "A girl Xiao Xing in a light-brown headscarf arrives at the market; at a glance she looks somewhat like young Xiaolin.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiao Xing tries carrying foam boxes, but Amao shakes his head—she is not Xiaolin after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiao Xing shyly looks down and tightens her headscarf."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Weary injured (wind-chime long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Amao with gauze-wrapped fingers stands at the old shop noren entrance.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_injured"
+            }
+          ]
+        },
+        "Amao looks up at the Shige Sushi noren, gaze far away.",
+        {
+          "action": "Those two wind chimes beside the noren are rehung and tested; Amao stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Amao presses his palm to the cold wooden plaque by the doorpost, as if saying goodbye.",
+        "Evening wind lifts a corner of his torn apron."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Xiaolin takes over · Amao retires",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Xiaolin returns along the alley and hurries toward the old shop noren entrance.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Xiaolin reunites with injured Amao at the noren entrance; they embrace.",
+        {
+          "action": "By the inner-room tatami, Xiaolin holds Amao's hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Amao's breath fades; at last he closes his eyes and retires from the counter.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "retired_exit",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Xiaolin folds Amao's navy apron and sets it by the pillow.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · wooden name plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Amao's white jacket still hangs behind the counter; Xiaolin reaches out and gently strokes it.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "On the doorpost Xiaolin stands before the newly nailed wooden name plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Xiaolin's fingertip traces Amao's name carved on the wooden plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        "Xiaolin sets a nandina sprig under the plaque."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (long-range + co-present)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Disguised Xiaoshuang arrives from the market and embraces Xiaolin tightly at the noren entrance.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "disguised_return"
+            }
+          ]
+        },
+        "Xiaolin and Xiaoshuang stand side by side at the noren entrance—one quiet-eyed, one deep-faced.",
+        "They look at each other in silence, similar faces.",
+        "Xiaoshuang tightens the cream neckerchief; Xiaolin still wears the indigo headscarf."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns years—that youth rolling vinegar rice in the cold aisle appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth rolling vinegar rice in the cold aisle",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—on the counter, a willow blade first catches lamplight for an edge test.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact_edge",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the willow blade that first caught lamplight for an edge test at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the market that year—a short-white-jacket figure in a cream neckerchief flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the short-white-jacket figure in a cream neckerchief in the market that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five blue-and-white small cups above the counter.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five blue-and-white tea cups above the counter",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to that icy narrow aisle of first meeting; condensate drips as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that walk-in fridge aisle of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again the picture of two small bells chiming lightly beside the noren.",
+          "present": [
+            {
+              "eid": "E16",
+              "count": 2,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "those two wind chimes beside the noren",
+                "resolves_to": "E16"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrase reference; no names."
+    },
+    {
+      "id": "S18",
+      "setting": "Close (ledger long-range · soba-cup long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Xiaolin reopens the soy-stained prep ledger and walks into the sushi counter.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "At the counter corner, those three soba cups still stack.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaolin takes the resharpened bluefin tuna yanagiba and opens the edge to cut fish again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "Outside the noren, new green sprouts from the stone-step seams.",
+        "Xiaolin tightens the indigo headscarf; counter lights rise again."
+      ]
+    }
+  ]
+}

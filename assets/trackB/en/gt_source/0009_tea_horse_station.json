@@ -1,0 +1,896 @@
+{
+  "story_id": "0009_tea_horse_station",
+  "title": "Tea-Horse Station",
+  "premise": "A long drama at a Sichuan-Tibet Tea-Horse Road station. Caravan boss Cheng Yuan and tea worker Xiaoman guard the official tea brand; Xiaoman and A-Du look nearly identical but wear different wrist guards; tea packhorse Qiuli falls to its death and must be avoided; the tea-horse tax ledger, count memory, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Cheng Yuan",
+      "kind": "character",
+      "states": {
+        "prime_boss": "A forty-year-old tea-caravan boss, dark-red headwrap, sheepskin jacket, copper scale-weight and horsewhip at the waist, booming voice, hands calloused by tea ropes.",
+        "lame_from_kick": "The same Cheng Yuan: left leg kicked by a horse, limping on a broken whip, sheepskin jacket mud-spotted, copper scale-weight still at the waist.",
+        "died_at_office": "Cheng Yuan has closed his eyes in death, lying still on the tea-office earthen kang, sheepskin jacket covering his chest, broken whip leaning by the bed."
+      }
+    },
+    "E2": {
+      "name": "Xiaoman",
+      "kind": "character",
+      "states": {
+        "young_worker": "A fifteen-year-old tea-worker girl, indigo waist sash, coral stud in the left ear, tea rope often wound on her wrist, bright clear eyes.",
+        "adult_boss": "A woman caravan boss in her early twenties, still in indigo waist sash and coral stud, tall and upright, palm marked by brand burns."
+      }
+    },
+    "E3": {
+      "name": "official tea brand",
+      "kind": "prop",
+      "states": {
+        "intact": "A copper official tea brand issued by the government, the two characters 'Border Tea' clear on the face, long handle wrapped in deep-brown leather strip.",
+        "cracked_seal": "The same official tea brand, face cracked, the 'Border' character incomplete, deep-brown leather on the handle loose and curled.",
+        "recast": "After recasting, the official tea brand's inscription is complete again, new copper a shade brighter, long handle rewrapped tight in deep-brown leather."
+      }
+    },
+    "E4": {
+      "name": "tea-horse tax ledger",
+      "kind": "prop",
+      "states": {
+        "intact": "A cowhide-covered tea-horse tax ledger recording tea-brick counts, fodder accounts, porter silver, and mountain-pass clearance dates.",
+        "tea_stained": "The same tea-horse tax ledger soaked through with strong tea, cowhide cover sticky, vermilion numbers blurred into brown clumps."
+      }
+    },
+    "E5": {
+      "name": "tea packhorse Qiuli",
+      "kind": "prop",
+      "states": {
+        "intact": "A date-red tea packhorse named Qiuli, border-tea brand burned into the saddle flaps, symmetric tea-brick packs on both sides.",
+        "fallen_dead": "Tea packhorse Qiuli has fallen dead on a steep slope, saddle flaps torn, tea-brick packs scattered, border-tea brand mark still clear."
+      }
+    },
+    "E6": {
+      "name": "A-Du",
+      "kind": "character",
+      "states": {
+        "young_rival": "A young caravan bookkeeper nearly identical in face to Xiaoman, but wearing silver-gray wrist guards and an ochre waist sash, cold hard eyes.",
+        "disguised": "Disguised A-Du still wears silver-gray wrist guards, a knife scar now at the brow, ochre sash replaced by an old leather belt."
+      }
+    },
+    "E7": {
+      "name": "tea warehouse hall",
+      "kind": "location",
+      "appearance": "The tea warehouse hall of the tea-horse station, compressed tea bricks stacked along the walls, tack, tax plaques, and a branding furnace hanging from the beams."
+    },
+    "E8": {
+      "name": "hitching yard",
+      "kind": "location",
+      "appearance": "The hitching yard outside the station, wooden stakes in rows, hay and hoofprints on the ground, mountain trail visible at the far end."
+    },
+    "E9": {
+      "name": "tea-inn alley",
+      "kind": "location",
+      "appearance": "A narrow alley between the tea inn's wings, empty back-baskets and saddle pads stacked by the walls, courtyard light falling on blue stone slabs."
+    },
+    "E10": {
+      "name": "abandoned tea-horse office",
+      "kind": "location",
+      "appearance": "An abandoned tea-horse office yamen, empty main hall, flagpole snapped, grass on the stone steps, mountain wind through the broken door."
+    },
+    "E11": {
+      "name": "Cheng tea plaque",
+      "kind": "prop",
+      "appearance": "A wooden tea plaque nailed to a hall pillar, carved with 'Cheng Caravan Boss' and the year, edges blackened by tea smoke."
+    },
+    "E12": {
+      "name": "tea-brick samples",
+      "kind": "prop",
+      "appearance": "Three corner-cut tea-brick samples bound with hemp rope, set on the tea-warehouse desk for checking grade and press marks."
+    },
+    "E13": {
+      "name": "gray mule",
+      "kind": "prop",
+      "appearance": "A blue-gray pack mule, saddle flaps without a border-tea brand, salt bags on its back instead of tea-brick packs."
+    },
+    "E14": {
+      "name": "tea-tax clerk",
+      "kind": "character",
+      "appearance": "A lean tea-tax clerk, also in a dark-red headwrap, but with an official plaque on his chest and bamboo tallies in hand, build close to Cheng Yuan's."
+    },
+    "E15": {
+      "name": "butter lamps",
+      "kind": "prop",
+      "appearance": "A row of five butter copper lamps hanging under the tea-warehouse hall beams, flames steady, tea-smoke black marks on the bowl rims."
+    },
+    "E16": {
+      "name": "horse bells",
+      "kind": "prop",
+      "appearance": "Two copper horse bells hung inside the hall door beam, tongues polished bright, ringing clear when mountain wind passes the door."
+    },
+    "E17": {
+      "name": "tea girl",
+      "kind": "character",
+      "appearance": "A kitchen helper girl at the station, light-brown waist sash; at a glance like young Xiaoman, but green glass earrings and a shy gaze."
+    },
+    "E18": {
+      "name": "forged brand",
+      "kind": "prop",
+      "appearance": "A forged brand shaped much like the official tea brand, but shallow inscription, no official plaque number, handle leather grayish."
+    },
+    "E19": {
+      "name": "back-basket frame",
+      "kind": "prop",
+      "appearance": "A wooden back-basket frame bound with clay jars and straw rope, neither saddle flaps nor tea-brick packs."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_boss",
+      "lame_from_kick",
+      "died_at_office"
+    ],
+    "E2": [
+      "young_worker",
+      "adult_boss"
+    ],
+    "E3": [
+      "intact",
+      "cracked_seal",
+      "recast"
+    ],
+    "E4": [
+      "intact",
+      "tea_stained"
+    ],
+    "E5": [
+      "intact",
+      "fallen_dead"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Xiaoman: indigo waist sash, coral stud, tea rope on the wrist.",
+        "E6": "A-Du: face nearly identical to Xiaoman, but silver-gray wrist guards and ochre waist sash."
+      },
+      "note": "Tea worker and caravan bookkeeper confuse."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Tea warehouse hall at dusk (introduce five butter lamps · two horse bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, tea-caravan boss Cheng Yuan lifts the thick cotton door curtain into the tea warehouse hall and sets the official tea brand by a small stove to preheat.",
+        {
+          "action": "Five butter lamps hang under the tea-warehouse hall beams; Cheng Yuan trims each wick in turn, light falling on stacked tea bricks.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two copper horse bells hang inside the door beam; Cheng Yuan taps them with a knuckle, and the ring carries through the hall.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Cheng Yuan presses the official tea brand onto damp cotton to test the heat; the characters 'Border Tea' rise clear in white steam."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Entering the tea-horse tax ledger",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Cheng Yuan unties a leather cord, opens the cowhide-covered tea-horse tax ledger, and checks tomorrow's tea-brick count for the mountain pass.",
+        {
+          "action": "He looks up and counts the five butter lamps under the beams, confirming enough light before sealing the tea for the night.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        "Cheng Yuan sets the official tea brand beside the tea-horse tax ledger, ready to brand each pack after the mouths are sealed."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Hitching yard meets the apprentice (introduce tea-brick samples)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2"
+        ]
+      },
+      "actions": [
+        "In the morning hitching yard, Cheng Yuan greets young Xiaoman leading tea packhorse Qiuli, tea-brick packs hanging full on both sides of the saddle.",
+        {
+          "action": "Xiaoman retightens Qiuli's girth, fingertips working through the saddle buckle and tea-rope knots.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Cheng Yuan lays out three tea-brick samples on the tea-warehouse desk, teaching Xiaoman to read press marks, cut corners, and stem thickness.",
+          "present": [
+            "E1",
+            "E7",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaoman crouches beside Qiuli, studying the border-tea brand mark burned into the saddle flaps.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Tea-inn alley (A-Du alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the tea-inn alley, A-Du in silver-gray wrist guards turns from behind empty back-baskets, face almost like Xiaoman's.",
+        "A-Du looks down through a hidden caravan bill; the ochre waist sash hangs by the blue stone slabs.",
+        "A-Du avoids the courtyard light and carries an empty tea pack through the end of the alley."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Hitching-yard confuse co-present",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the hitching yard, Xiaoman and A-Du brush past—one in an indigo waist sash, one showing silver-gray wrist guards.",
+        "Xiaoman tucks the coral stud into her hair; A-Du cinches the ochre waist sash tighter.",
+        "Both turn at once toward the horse train; nearly identical faces briefly overlap in the dusty light."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Tax ledger tea-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later on a mountain-rain night, Cheng Yuan keeps the fire alone in the tea warehouse hall; the official tea brand by the stove glows faintly red.",
+        {
+          "action": "A bowl of strong tea is knocked over by the wind; the tea-horse tax ledger is soaked through, vermilion numbers blurred into brown clumps.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "tea_stained"
+            }
+          ]
+        },
+        "Cheng Yuan spreads the tea-horse tax ledger under a lamp to dry, then clears tea dust from the official tea brand's seams with a fine needle."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Spring tea season turns (stretch the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "The spring tea season stretches long; every day Cheng Yuan weighs newly pressed tea bricks in the tea warehouse hall.",
+        "Before the Start of Summer, Cheng Yuan beats dust from saddle pads at the doorway; mountain-pass fog clings to the stone steps.",
+        "At autumn harvest, the caravan sorts damp tea packs in the hall; Cheng Yuan never takes his eyes off the branding furnace.",
+        "On a snowy night, Cheng Yuan wraps his sheepskin jacket tight and listens to distant horse-train bells drawing near.",
+        "Another New Year's Eve, only furnace fire and rows of tea bricks remain in the warehouse; Cheng Yuan locks the brand into an iron box."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Hitching-yard patrol (gray-mule false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn, Cheng Yuan patrols the hitching yard; tea packhorse Qiuli grazes with head down, paired tea packs still hanging at the saddle.",
+        {
+          "action": "Cheng Yuan bends to check Qiuli's shoes, girth, and saddle-flap brand mark.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "He returns to the tea-warehouse desk and confirms those three tea-brick samples are still ranked by shade.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A gray mule is led in by a porter, salt bags on its back, saddle flaps without a border-tea brand.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Mountain-pass disaster (brand cracks · Qiuli falls dead)",
+      "present": [
+        "E1",
+        "E3",
+        "E8"
+      ],
+      "actions": [
+        "Afternoon storm pins the mountain pass; mud floods the hitching yard; the caravan hurries tea packs into the warehouse.",
+        {
+          "action": "Cheng Yuan rushes over the threshold clutching the official tea brand; the copper seal strikes a stone step and a crack bursts across the face.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "cracked_seal"
+            }
+          ]
+        },
+        {
+          "action": "Toward the pass, tea packhorse Qiuli charges with the last two tea-brick packs; the stone underfoot suddenly loosens.",
+          "present": [
+            "E5",
+            "E8"
+          ]
+        },
+        {
+          "action": "Down the steep slope, tea packhorse Qiuli tumbles and falls dead; saddle flaps tear, tea-brick packs roll into the rain ditch.",
+          "present": [
+            "E5",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "fallen_dead",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Cheng Yuan stands in the rain gripping the cracked official tea brand, forbidding anyone to mix up the tack again.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (Qiuli indirect cue · butter-lamp long-range)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after the mountain rain, Cheng Yuan writes on a blank page of the tea-horse tax ledger the hour tea packhorse Qiuli fell dead.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "Qiuli's torn girth is hung on the tea-warehouse wall; Cheng Yuan stares a long time at that scrap of old leather.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Cheng Yuan packs Qiuli's saddle-flap shards into a wooden box, leaving only the brand mark face-up.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "The five butter lamps under the beams remain; Cheng Yuan takes one to light Qiuli's old nameplate.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The cracked official tea brand lies on the desk; Cheng Yuan adds another line to the ledger for Qiuli's loss.",
+          "present": [
+            "E1",
+            "E7",
+            "E3",
+            "E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Recasting the brand (third state · forged-brand false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Cheng Yuan brings a tea-office coppersmith and sets a small furnace in the tea warehouse hall to recast the official tea brand.",
+        {
+          "action": "The smith first holds up a forged brand for comparison—shape close, but shallow inscription and no official plaque number.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Cheng Yuan watches the furnace mouth as copper fills the crack and the deep-brown leather is rewrapped tight.",
+        {
+          "action": "After the new copper cools, the official tea brand inscription is complete; Cheng Yuan brands clear 'Border Tea' characters onto a scrap brick.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "recast"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: back-basket frame and tea-tax clerk",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A porter carries a back-basket frame into the hitching yard, clay jars and straw rope bound on top—no saddle, no tea-brick packs.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "A tea-tax clerk walks in, also in a dark-red headwrap, but the official plaque on his chest swings plainly.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The tea-tax clerk points at the back-basket frame to check bamboo tallies; Cheng Yuan only tucks the recast official tea brand back to his waist.",
+          "present": [
+            "E1",
+            "E8",
+            "E3",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: tea girl who resembles Xiaoman",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "From the kitchen comes a tea girl in a light-brown waist sash; her profile at a glance looks like young Xiaoman, but she wears green glass earrings.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "The tea girl practices coiling tea rope; Cheng Yuan reads her shy eyes and shakes his head, sending her to add firewood.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Lame from a kick (horse-bell long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, after a startled horse kicks him, Cheng Yuan limps on a broken whip to the abandoned tea-horse office door.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "lame_from_kick"
+            }
+          ]
+        },
+        {
+          "action": "Two old horse bells still hang in the abandoned tea-horse office door beam; Cheng Yuan stops to hear them ring softly in the mountain wind.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Cheng Yuan lays a palm on the grassy stone steps, as if saying goodbye to the whole mountain trail."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Xiaoman returns · Cheng Yuan dies at the office",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Xiaoman returns along the mountain trail; the indigo waist sash clings to her short jacket in the wind.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_boss"
+            }
+          ]
+        },
+        "Under the abandoned tea-horse office gate Xiaoman steadies limping Cheng Yuan and takes the copper scale-weight from his waist.",
+        {
+          "action": "Beside the tea-office earthen kang, Xiaoman holds Cheng Yuan's gaunt hand and hears him explain the branding furnace's heat.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Cheng Yuan's breath fades; at last he closes his eyes and dies at the tea office.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "died_at_office",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · Cheng tea plaque (indirect cue)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Cheng Yuan's dark-red old headwrap still hangs behind the tea-office door; Xiaoman reaches out and gently brushes the dust away.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Adult Xiaoman nails the Cheng tea plaque back onto the tea-warehouse pillar; Cheng Yuan's year is still carved on it.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Xiaoman strokes Cheng Yuan's name on the Cheng tea plaque with a fingertip, then sets the recast official tea brand beneath it.",
+          "present": [
+            "E2",
+            "E7",
+            "E11",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (long-range return + co-present)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Disguised A-Du arrives from outside the tea-horse office, silver-gray wrist guards still showing at the cuffs, locking eyes with Xiaoman under the doorway.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "disguised"
+            }
+          ]
+        },
+        "Xiaoman and A-Du stand side by side in the empty hall—one steady in an indigo waist sash, one dull in an old leather belt."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal grounding · name-free)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—the girl in an indigo waist sash learning tea-rope knots by a saddle appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_worker",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the girl learning tea-rope knots by a saddle",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—by the stove, that copper seal stamped 'Border Tea' first raises white steam.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the copper seal that first raised white steam by the stove",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the early tea-inn alley—a figure in silver-gray wrist guards and ochre waist sash slips past empty back-baskets.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in silver-gray wrist guards in the early tea-inn alley",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Before the eyes again: an old night when five oil lamps under the beams lit a wall of tea bricks.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "an old night when five oil lamps under the beams lit a wall of tea bricks",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the yard of first meeting—wooden stakes in rows, the far end leading to the mountain pass; the smell of hay remains.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the yard of first meeting with wooden stakes in rows leading to the mountain pass",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Close (ledger long-range · tea-brick samples long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Xiaoman opens that tea-stained tea-horse tax ledger and stands in the tea warehouse hall resetting the caravan's departure day.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "The five butter lamps under the beams still burn; Xiaoman looks up, finishes counting, then dims the flames.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Those three tea-brick samples on the desk are still ranked by shade; Xiaoman sets the recast official tea brand beside them.",
+          "present": [
+            "E2",
+            "E7",
+            "E3",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

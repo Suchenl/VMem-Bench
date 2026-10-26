@@ -1,0 +1,1191 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "0051_Men_in_black",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "7267e4f4ac966908",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "黑衣探员K",
+      "description": "身穿黑色西装、白衬衫黑领带的中年白人男性，手持银色神经消除器。",
+      "first_chunk": 4,
+      "presence_spans": [
+        [
+          24,
+          68
+        ],
+        [
+          75,
+          137
+        ],
+        [
+          224,
+          279
+        ],
+        [
+          300,
+          391
+        ],
+        [
+          412,
+          512
+        ],
+        [
+          526,
+          540
+        ],
+        [
+          547,
+          568
+        ],
+        [
+          596,
+          622
+        ],
+        [
+          685,
+          727
+        ],
+        [
+          749,
+          1002
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 24.0,
+      "last_frame": null,
+      "last_seconds": 1002.0,
+      "screen_time_seconds": 708.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 87.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c004",
+          "chunk_id": 4,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "黑衣探员J",
+      "description": "年轻黑人男性，穿白色T恤和橙色囚裤。",
+      "first_chunk": 20,
+      "presence_spans": [
+        [
+          137,
+          205
+        ],
+        [
+          218,
+          391
+        ],
+        [
+          412,
+          512
+        ],
+        [
+          526,
+          540
+        ],
+        [
+          547,
+          568
+        ],
+        [
+          596,
+          622
+        ],
+        [
+          685,
+          1002
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 137.0,
+      "last_frame": null,
+      "last_seconds": 1002.0,
+      "screen_time_seconds": 719.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 63.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c020",
+          "chunk_id": 20,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c060_char_002",
+          "chunk_id": 60,
+          "description": "appearance_changed: 从便装/囚服换上标准的黑色西装制服",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 433.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "外星伪装者Edgar",
+      "description": "穿着破旧工装背带裤的邋遢白人男性，面部有污渍，眼神呆滞。",
+      "first_chunk": 31,
+      "presence_spans": [
+        [
+          205,
+          218
+        ],
+        [
+          398,
+          405
+        ],
+        [
+          512,
+          526
+        ],
+        [
+          540,
+          561
+        ],
+        [
+          582,
+          596
+        ],
+        [
+          657,
+          685
+        ],
+        [
+          699,
+          727
+        ],
+        [
+          840,
+          854
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 205.0,
+      "last_frame": null,
+      "last_seconds": 854.0,
+      "screen_time_seconds": 139.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 180.0,
+      "representations": [
+        {
+          "representation_id": "char_003@c031",
+          "chunk_id": 31,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c139_char_003",
+          "chunk_id": 139,
+          "description": "appearance_changed: 撕开腹部伪装皮肤，露出内部巨大的蟑螂状外星生物本体",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 985.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_004",
+      "kind": "character",
+      "name": "Zed主管",
+      "description": "留着山羊胡的中年白人男性，穿黑色西装。",
+      "first_chunk": 40,
+      "presence_spans": [
+        [
+          279,
+          307
+        ],
+        [
+          526,
+          540
+        ],
+        [
+          568,
+          582
+        ],
+        [
+          749,
+          770
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 279.0,
+      "last_frame": null,
+      "last_seconds": 770.0,
+      "screen_time_seconds": 77.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 219.0,
+      "representations": [
+        {
+          "representation_id": "char_004@c040",
+          "chunk_id": 40,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_005",
+      "kind": "character",
+      "name": "女法医Laurel",
+      "description": "短发女性，穿灰色职业套装或绿色手术服。",
+      "first_chunk": 33,
+      "presence_spans": [
+        [
+          218,
+          224
+        ],
+        [
+          469,
+          512
+        ],
+        [
+          622,
+          657
+        ],
+        [
+          671,
+          727
+        ],
+        [
+          1002,
+          1078
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 218.0,
+      "last_frame": null,
+      "last_seconds": 1078.0,
+      "screen_time_seconds": 216.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 275.0,
+      "representations": [
+        {
+          "representation_id": "char_005@c033",
+          "chunk_id": 33,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_006",
+      "kind": "character",
+      "name": "Rosenberg珠宝商",
+      "description": "秃顶戴眼镜的老年男子，穿米色西装，携带一只橘白相间的猫。",
+      "first_chunk": 55,
+      "presence_spans": [
+        [
+          391,
+          412
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 391.0,
+      "last_frame": null,
+      "last_seconds": 412.0,
+      "screen_time_seconds": 21.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_006@c055",
+          "chunk_id": 55,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_007",
+      "kind": "character",
+      "name": "Edgar昆虫本体",
+      "description": "体型巨大、皮肤呈褐色甲壳状的外星生物，拥有复眼和口器。",
+      "first_chunk": 121,
+      "presence_spans": [
+        [
+          854,
+          925
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 854.0,
+      "last_frame": null,
+      "last_seconds": 925.0,
+      "screen_time_seconds": 71.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_007@c121",
+          "chunk_id": 121,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_008",
+      "kind": "character",
+      "name": "Frank哈巴狗",
+      "description": "穿着印有红心'I NY'白色卫衣的哈巴狗。",
+      "first_chunk": 84,
+      "presence_spans": [
+        [
+          596,
+          622
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 596.0,
+      "last_frame": null,
+      "last_seconds": 622.0,
+      "screen_time_seconds": 26.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_008@c084",
+          "chunk_id": 84,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_009",
+      "kind": "character",
+      "name": "Orion猫",
+      "description": "橘白相间的家猫，脖子上戴着特殊的金属项圈吊坠。",
+      "first_chunk": 55,
+      "presence_spans": [
+        [
+          391,
+          405
+        ],
+        [
+          469,
+          483
+        ],
+        [
+          622,
+          657
+        ],
+        [
+          671,
+          685
+        ],
+        [
+          1009,
+          1078
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 391.0,
+      "last_frame": null,
+      "last_seconds": 1078.0,
+      "screen_time_seconds": 146.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 324.0,
+      "representations": [
+        {
+          "representation_id": "char_009@c055",
+          "chunk_id": 55,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_010",
+      "kind": "character",
+      "name": "边境警长",
+      "description": "戴牛仔帽穿卡其色制服的执法人员，脸上被溅满蓝色粘液。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          11,
+          30
+        ],
+        [
+          62,
+          75
+        ],
+        [
+          83,
+          96
+        ],
+        [
+          102,
+          114
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 11.0,
+      "last_frame": null,
+      "last_seconds": 114.0,
+      "screen_time_seconds": 57.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 32.0,
+      "representations": [
+        {
+          "representation_id": "char_010@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c014_char_010",
+          "chunk_id": 14,
+          "description": "appearance_changed: 面部和制服被外星生物的蓝色血液覆盖",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 88.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_015",
+      "kind": "character",
+      "name": "绿衣店主",
+      "description": "穿绿色运动衫的男性，深色卷发。",
+      "first_chunk": 37,
+      "presence_spans": [
+        [
+          247,
+          279
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 247.0,
+      "last_frame": null,
+      "last_seconds": 279.0,
+      "screen_time_seconds": 32.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_015@c037",
+          "chunk_id": 37,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c038_char_015",
+          "chunk_id": 38,
+          "description": "appearance_changed: 头部开始变形，皮肤变绿，面部特征变为外星人模样",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 260.0
+        },
+        {
+          "event_id": "evt_c038_char_015.1",
+          "chunk_id": 38,
+          "description": "appearance_changed: 头部完全变形为外星人，面部扭曲，皮肤呈绿色",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 268.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "神经消除器",
+      "description": "银色圆柱形金属装置，顶端有红色发光点，侧面有刻度滑块。",
+      "first_chunk": 15,
+      "presence_spans": [
+        [
+          96,
+          114
+        ],
+        [
+          247,
+          279
+        ],
+        [
+          925,
+          1002
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 96.0,
+      "last_frame": null,
+      "last_seconds": 1002.0,
+      "screen_time_seconds": 127.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 646.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c015",
+          "chunk_id": 15,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "MIB制式手枪",
+      "description": "银色futuristic造型的手枪，枪身有复杂机械结构。",
+      "first_chunk": 99,
+      "presence_spans": [
+        [
+          699,
+          727
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 699.0,
+      "last_frame": null,
+      "last_seconds": 727.0,
+      "screen_time_seconds": 28.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c099",
+          "chunk_id": 99,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "银河系吊坠",
+      "description": "挂在猫项圈上的金属球形饰品，内部包含微缩银河系全息影像。",
+      "first_chunk": 89,
+      "presence_spans": [
+        [
+          629,
+          657
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 629.0,
+      "last_frame": null,
+      "last_seconds": 657.0,
+      "screen_time_seconds": 28.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c089",
+          "chunk_id": 89,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "黑色轿车",
+      "description": "老式黑色福特皇冠维多利亚轿车，车牌号SZV-766。",
+      "first_chunk": 111,
+      "presence_spans": [
+        [
+          784,
+          798
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 784.0,
+      "last_frame": null,
+      "last_seconds": 798.0,
+      "screen_time_seconds": 14.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_004@c111",
+          "chunk_id": 111,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c152_prop_004",
+          "chunk_id": 152,
+          "description": "appearance_changed: 车身展开机翼和推进器，变为飞行器形态",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 1078.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_005",
+      "kind": "prop",
+      "name": "巨型能量炮",
+      "description": "大型银色管状武器。",
+      "first_chunk": 113,
+      "presence_spans": [
+        [
+          798,
+          840
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 798.0,
+      "last_frame": null,
+      "last_seconds": 840.0,
+      "screen_time_seconds": 42.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_005@c113",
+          "chunk_id": 113,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_012",
+      "kind": "prop",
+      "name": "珠宝展示柜",
+      "description": "玻璃展示柜，里面陈列着各种珠宝首饰",
+      "first_chunk": 37,
+      "presence_spans": [
+        [
+          247,
+          279
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 247.0,
+      "last_frame": null,
+      "last_seconds": 279.0,
+      "screen_time_seconds": 32.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_012@c037",
+          "chunk_id": 37,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "沙漠公路检查站",
+      "description": "夜间沙漠环境，有仙人掌和灌木，停有执法车辆。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          137
+        ],
+        [
+          434,
+          512
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 512.0,
+      "screen_time_seconds": 215.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 297.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "纽约城市街道",
+      "description": "夜间繁华都市街道，有桥梁、建筑和车流。",
+      "first_chunk": 20,
+      "presence_spans": [
+        [
+          137,
+          205
+        ],
+        [
+          561,
+          568
+        ],
+        [
+          582,
+          622
+        ],
+        [
+          727,
+          749
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 137.0,
+      "last_frame": null,
+      "last_seconds": 749.0,
+      "screen_time_seconds": 137.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 356.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c020",
+          "chunk_id": 20,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "MIB总部大厅",
+      "description": "极具未来感的白色圆形空间，天花板有圆形灯孔，设有蛋形座椅。",
+      "first_chunk": 40,
+      "presence_spans": [
+        [
+          279,
+          370
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 279.0,
+      "last_frame": null,
+      "last_seconds": 370.0,
+      "screen_time_seconds": 91.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c040",
+          "chunk_id": 40,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "MIB办公区",
+      "description": "多层开放式办公空间，充满高科技设备和外星展品。",
+      "first_chunk": 47,
+      "presence_spans": [
+        [
+          330,
+          434
+        ],
+        [
+          749,
+          876
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 330.0,
+      "last_frame": null,
+      "last_seconds": 876.0,
+      "screen_time_seconds": 231.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 315.0,
+      "representations": [
+        {
+          "representation_id": "loc_004@c047",
+          "chunk_id": 47,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_005",
+      "kind": "location",
+      "name": "Rosenberg珠宝店",
+      "description": "街边传统珠宝店，橱窗陈列首饰，店内挂有吉他。",
+      "first_chunk": 31,
+      "presence_spans": [
+        [
+          205,
+          247
+        ],
+        [
+          391,
+          412
+        ],
+        [
+          540,
+          561
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 205.0,
+      "last_frame": null,
+      "last_seconds": 561.0,
+      "screen_time_seconds": 84.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 144.0,
+      "representations": [
+        {
+          "representation_id": "loc_005@c031",
+          "chunk_id": 31,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_006",
+      "kind": "location",
+      "name": "县立停尸房",
+      "description": "铺有绿色方格瓷砖的冷色调房间，设有不锈钢冷藏柜和解剖台。",
+      "first_chunk": 66,
+      "presence_spans": [
+        [
+          469,
+          749
+        ],
+        [
+          1002,
+          1078
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 469.0,
+      "last_frame": null,
+      "last_seconds": 1078.0,
+      "screen_time_seconds": 356.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 253.0,
+      "representations": [
+        {
+          "representation_id": "loc_006@c066",
+          "chunk_id": 66,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_007",
+      "kind": "location",
+      "name": "法拉盛草原公园",
+      "description": "夜间开阔草坪，中央矗立巨大的Unisphere地球仪雕塑。",
+      "first_chunk": 109,
+      "presence_spans": [
+        [
+          770,
+          784
+        ],
+        [
+          798,
+          1078
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 770.0,
+      "last_frame": null,
+      "last_seconds": 1078.0,
+      "screen_time_seconds": 294.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 14.0,
+      "representations": [
+        {
+          "representation_id": "loc_007@c109",
+          "chunk_id": 109,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c152_loc_007",
+          "chunk_id": 152,
+          "description": "destroyed: Unisphere地球仪被飞船撞击并发生剧烈爆炸",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 1078.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_010",
+      "kind": "location",
+      "name": "珠宝店内部",
+      "description": "小型珠宝店/当铺内部，绿色墙壁，有玻璃展示柜、台灯、各种杂物和装饰品",
+      "first_chunk": 37,
+      "presence_spans": [
+        [
+          247,
+          279
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 247.0,
+      "last_frame": null,
+      "last_seconds": 279.0,
+      "screen_time_seconds": 32.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_010@c037",
+          "chunk_id": 37,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

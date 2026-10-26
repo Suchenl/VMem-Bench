@@ -1,0 +1,3063 @@
+{
+  "story_id": "0010_subway_violinist",
+  "gt_version": "trackB-gt-2.0",
+  "title": "地铁琴声",
+  "premise": "地下铁站厅的琴声长剧。琴手苏晚与学徒霜儿守护旧琴『夜莺』；霜儿与阿溪面容极似却袖标不同；折叠琴盒车碾毁后须规避；曲目手札、数量记忆与时序闪回贯穿。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0010_subway_violinist.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "苏晚",
+      "kind": "character",
+      "states": {
+        "壮年演奏": "三十多岁的女琴手，黑色贝雷帽，黑色演出大衣，左手持琴、右手持弓，神情专注。",
+        "腕伤停弓": "同一位苏晚：右腕缠着护腕绷带，琴弓夹在肘弯，大衣袖口磨破，仍戴黑色贝雷帽。",
+        "静默离世": "苏晚阖眼长逝，静静躺在废弃站台长椅上，演出大衣盖住胸口，琴弓放在身侧。"
+      },
+      "initial_state": "壮年演奏"
+    },
+    "E2": {
+      "name": "霜儿",
+      "kind": "character",
+      "states": {
+        "少年学徒": "十五岁的学徒女孩，靛蓝围巾，左耳银耳钉，背着几乎有她半身高的琴盒。",
+        "成年琴手": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+      },
+      "initial_state": "少年学徒"
+    },
+    "E3": {
+      "name": "旧琴『夜莺』",
+      "kind": "prop",
+      "states": {
+        "完好": "一把琥珀色旧小提琴，琴头刻着小小夜莺纹，琴弦明亮，漆面有细密年轮纹。",
+        "琴板裂": "同一把旧琴『夜莺』，面板出现长裂纹，夜莺纹旁漆面剥落，音色发虚。",
+        "贴补修复": "旧琴『夜莺』经贴补修复，裂纹处嵌着新木片，夜莺纹仍在，音色略闷。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "曲目手札",
+      "kind": "prop",
+      "states": {
+        "完好": "一本硬皮封面的曲目手札，夹着地铁线路图、演出许可复印件和曲目顺序。",
+        "潮渍糊字": "同一本曲目手札被地下潮气洇透，封面发皱，线路图边角卷起，曲目字迹晕开。"
+      },
+      "initial_state": "完好"
+    },
+    "E5": {
+      "name": "折叠琴盒车",
+      "kind": "prop",
+      "states": {
+        "完好": "一辆黑色折叠琴盒车，箱面贴着夜莺贴纸，拉杆完好，轮子灵活。",
+        "碾毁": "折叠琴盒车被车站抢修牵引车碾毁，箱面崩裂，拉杆折弯，夜莺贴纸撕碎。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "阿溪",
+      "kind": "character",
+      "states": {
+        "青年对手": "与霜儿面容极相似的年轻女琴手，却戴银灰袖标、围炭黑围巾，神情张扬。",
+        "改头换面": "改头换面后的阿溪仍戴银灰袖标，眉弓多了一道琴弦勒痕，炭黑围巾换成短披肩。"
+      },
+      "initial_state": "青年对手"
+    },
+    "E7": {
+      "name": "地铁站厅",
+      "kind": "location",
+      "appearance": "灯火通明的地铁站厅，圆柱贴满广告，回声里混着报站声、脚步声与琴声。"
+    },
+    "E8": {
+      "name": "月台边缘",
+      "kind": "location",
+      "appearance": "月台黄线旁，风从隧道涌出，屏蔽门上方的指示牌闪着下一班车时刻。"
+    },
+    "E9": {
+      "name": "换乘通道",
+      "kind": "location",
+      "appearance": "漫长的换乘通道，扶梯嗡鸣，墙砖反光，人群如潮，地面贴着换乘箭头。"
+    },
+    "E10": {
+      "name": "废弃站台",
+      "kind": "location",
+      "appearance": "封禁的废弃站台，灯管损坏，铁轨生锈，旧海报褪色卷边，长椅蒙灰。"
+    },
+    "E11": {
+      "name": "演出许可牌",
+      "kind": "prop",
+      "appearance": "一块挂在站厅柱上的小铜牌，刻着『苏记琴位』、演出许可编号和地铁站名。"
+    },
+    "E12": {
+      "name": "松香块",
+      "kind": "prop",
+      "appearance": "三块琥珀色松香块，用纸盒装着，摆在琴盒盖上，边角被琴弓磨白。"
+    },
+    "E13": {
+      "name": "黄牌行李车",
+      "kind": "prop",
+      "appearance": "一辆黄色编号的站内行李车，无夜莺贴纸，车斗敞开，与折叠琴盒车截然不同。"
+    },
+    "E14": {
+      "name": "站务长",
+      "kind": "character",
+      "appearance": "一名精瘦站务长，也穿深色外套，但臂章是地铁公司的，胸前挂对讲机，与苏晚身形相近。"
+    },
+    "E15": {
+      "name": "应急灯",
+      "kind": "prop",
+      "appearance": "一排五盏绿色应急灯，挂在地铁站厅梁下，灯罩透亮，停电时会自动亮起。"
+    },
+    "E16": {
+      "name": "信号铃",
+      "kind": "prop",
+      "appearance": "两只悬在闸机旁的发车信号铃，金属外壳磨亮，列车进站前短促鸣响。"
+    },
+    "E17": {
+      "name": "小羽",
+      "kind": "character",
+      "appearance": "换乘通道里卖花的女孩，围浅褐围巾，乍看与少年霜儿神似，却戴无线耳返、目光怯生。"
+    },
+    "E18": {
+      "name": "仿制小提琴",
+      "kind": "prop",
+      "appearance": "一把亮漆仿制小提琴，外形近似旧琴『夜莺』，但无夜莺纹、琴码是塑料的。"
+    },
+    "E19": {
+      "name": "清洁推车",
+      "kind": "prop",
+      "appearance": "一辆灰色清洁推车，挂着拖把和垃圾袋，既没有琴盒拉杆也没有夜莺贴纸。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "壮年演奏",
+      "腕伤停弓",
+      "静默离世"
+    ],
+    "E2": [
+      "少年学徒",
+      "成年琴手"
+    ],
+    "E3": [
+      "完好",
+      "琴板裂",
+      "贴补修复"
+    ],
+    "E4": [
+      "完好",
+      "潮渍糊字"
+    ],
+    "E5": [
+      "完好",
+      "碾毁"
+    ],
+    "E6": [
+      "青年对手",
+      "改头换面"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+        "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+      },
+      "note": "地铁琴手错认。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，女琴手苏晚走进地铁站厅，把旧琴『夜莺』从绒布袋里取出调弦。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "站厅梁下亮着五盏应急灯，苏晚抬头确认灯光不会直射琴面。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闸机旁悬着两只信号铃，列车进站前短促一响，苏晚停弓让铃声过去。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚把旧琴『夜莺』架在肩上，第一段旋律沿着广告圆柱回荡。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "苏晚解开丝带，翻开曲目手札，在地铁线路图旁写下晚高峰曲目。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "她看了看梁下五盏应急灯，又把演出许可复印件夹回曲目手札。",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_002",
+          "count": 5
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚合上曲目手札，把旧琴『夜莺』放回琴垫上，等待下一班车的噪声过去。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的月台边缘，苏晚迎向推着折叠琴盒车到来的少年霜儿，屏蔽门映出两人的影子。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "霜儿把折叠琴盒车停在黄线外，按下轮锁，夜莺贴纸正对站台指示牌。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚在琴盒盖上摆出三块松香块，教霜儿分辨新松香、旧松香和碎松香。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "霜儿蹲下检查折叠琴盒车的拉杆铰链，确认过人潮时不会松开。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "换乘通道里，戴银灰袖标的阿溪从墙砖反光里回头，侧脸几乎像霜儿。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿溪把炭黑围巾绕紧，低头调试自己的便携拾音器。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿溪提着轻便琴袋穿过换乘箭头尽头，避开早班人潮。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "月台黄线旁，霜儿与阿溪擦肩而过，一个围靛蓝围巾，一个戴银灰袖标。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "霜儿扶住自己的银耳钉，阿溪抬手按住炭黑围巾，两张相似的脸同时转向列车灯。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "列车驶离后，两人在不同楼梯口分开，背影被站台指示牌切成两段。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的漏水夜，苏晚独自在地铁站厅收拾琴位，旧琴『夜莺』靠在圆柱旁。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "顶棚冷凝水滴进曲目手札，线路图边角卷起，曲目字迹被潮气晕开。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "潮渍糊字",
+            "appearance": "同一本曲目手札被地下潮气洇透，封面发皱，线路图边角卷起，曲目字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚把曲目手札夹到广告板后晾干，又擦去旧琴『夜莺』琴弦上的水雾。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "潮渍糊字",
+            "appearance": "同一本曲目手札被地下潮气洇透，封面发皱，线路图边角卷起，曲目字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "演出季漫长，苏晚每天在地铁站厅找准报站声之间的空隙拉琴。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "早高峰里，她把琴声压低，让赶车的人群从身旁掠过。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "盛夏正午，站厅空调滴水，苏晚擦去琴板上的细雾。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "秋雨连绵，圆柱广告换了三轮，旧琴『夜莺』仍挂在她肩上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "除夕夜末班车后，苏晚独自对着空站厅练完最后一支曲子。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，苏晚沿月台边缘巡查，折叠琴盒车停在黄线外，轮锁扣得很紧。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 14,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "她蹲下检查折叠琴盒车的拉杆、铰链和小轮，避开一阵进站风。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚回到站厅琴位，确认先前那三块松香块仍在纸盒里。",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_010",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一辆黄牌行李车被工作人员推过月台，车斗敞开，完全没有夜莺贴纸。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "晚高峰突然停电，月台边缘人群拥挤，屏蔽门上方的指示牌一闪一灭。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚护着旧琴『夜莺』后退，琴角撞上金属长椅，面板裂出细长裂纹。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "琴板裂",
+            "appearance": "同一把旧琴『夜莺』，面板出现长裂纹，夜莺纹旁漆面剥落，音色发虚。"
+          },
+          "gap": 0,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "折叠琴盒车被人潮推向黄线，轮锁弹开，箱面贴纸擦过地砖。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "折叠琴盒车滑进抢修区，被车站抢修牵引车碾毁，拉杆折弯，夜莺贴纸碎裂。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "碾毁",
+            "appearance": "折叠琴盒车被车站抢修牵引车碾毁，箱面崩裂，拉杆折弯，夜莺贴纸撕碎。"
+          },
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚抱着琴板开裂的旧琴『夜莺』退回圆柱旁，示意霜儿不要追那辆车。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "琴板裂",
+            "appearance": "同一把旧琴『夜莺』，面板出现长裂纹，夜莺纹旁漆面剥落，音色发虚。"
+          },
+          "gap": 2,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "停电次日，苏晚在曲目手札空白页写下折叠琴盒车碾毁的时间。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "潮渍糊字",
+            "appearance": "同一本曲目手札被地下潮气洇透，封面发皱，线路图边角卷起，曲目字迹晕开。"
+          },
+          "gap": 14,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "站厅柱边贴着折叠琴盒车残留的夜莺贴纸，苏晚把碎片收进信封。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚把折叠琴盒车的断拉杆照片夹进曲目手札，提醒霜儿以后远离黄线。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "潮渍糊字",
+            "appearance": "同一本曲目手札被地下潮气洇透，封面发皱，线路图边角卷起，曲目字迹晕开。"
+          },
+          "gap": 1,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "梁下五盏应急灯仍亮着，苏晚借绿光查看折叠琴盒车事故记录。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 31,
+          "last_seen": "seg_006",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "旧琴『夜莺』的裂纹贴着胶带，苏晚在手札边写下折叠琴盒车最后所在的月台号。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "琴板裂",
+            "appearance": "同一把旧琴『夜莺』，面板出现长裂纹，夜莺纹旁漆面剥落，音色发虚。"
+          },
+          "gap": 4,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "潮渍糊字",
+            "appearance": "同一本曲目手札被地下潮气洇透，封面发皱，线路图边角卷起，曲目字迹晕开。"
+          },
+          "gap": 1,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，苏晚请来制琴师，在站厅休息角铺开毛毡，准备贴补旧琴『夜莺』。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "琴板裂",
+            "appearance": "同一把旧琴『夜莺』，面板出现长裂纹，夜莺纹旁漆面剥落，音色发虚。"
+          },
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "制琴师先摆出仿制小提琴对照，亮漆相似，却没有夜莺纹，琴码也是塑料的。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚看着制琴师把新木片压进裂缝，琴弦暂时松开挂在一侧。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "琴板裂",
+            "appearance": "同一把旧琴『夜莺』，面板出现长裂纹，夜莺纹旁漆面剥落，音色发虚。"
+          },
+          "gap": 1,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "贴补完成后，旧琴『夜莺』裂缝被新木片稳住，苏晚轻轻试出略闷的音色。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "贴补修复",
+            "appearance": "旧琴『夜莺』经贴补修复，裂纹处嵌着新木片，夜莺纹仍在，音色略闷。"
+          },
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清洁推车被保洁员推到月台边缘，车上只有拖把和垃圾袋，没有琴盒拉杆。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "站务长走到苏晚身旁，同样穿深色外套，胸前对讲机却不断闪灯。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "站务长指着清洁推车提醒避让，苏晚把贴补修复后的旧琴『夜莺』抱得更稳。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "贴补修复",
+            "appearance": "旧琴『夜莺』经贴补修复，裂纹处嵌着新木片，夜莺纹仍在，音色略闷。"
+          },
+          "gap": 2,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_044",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "换乘通道来了卖花的小羽，浅褐围巾下的侧脸乍看像少年霜儿。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小羽递花时露出无线耳返，苏晚看清后只让她避开琴位旁的人潮。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，苏晚右腕缠着护腕绷带，独自走进封禁的废弃站台。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "腕伤停弓",
+            "appearance": "同一位苏晚：右腕缠着护腕绷带，琴弓夹在肘弯，大衣袖口磨破，仍戴黑色贝雷帽。"
+          },
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "废弃站台闸机旁还挂着两只旧信号铃，苏晚停下听它们被穿堂风轻轻碰响。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "腕伤停弓",
+            "appearance": "同一位苏晚：右腕缠着护腕绷带，琴弓夹在肘弯，大衣袖口磨破，仍戴黑色贝雷帽。"
+          },
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 46,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚把没有握弓的右手贴在冰冷长椅上，像在向这座站厅告别。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "腕伤停弓",
+            "appearance": "同一位苏晚：右腕缠着护腕绷带，琴弓夹在肘弯，大衣袖口磨破，仍戴黑色贝雷帽。"
+          },
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年的霜儿沿换乘通道归来，靛蓝围巾在空站台风里轻轻摆动。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 34,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "霜儿在废弃站台长椅旁扶住腕伤停弓的苏晚，接过她的旧乐谱包。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "腕伤停弓",
+            "appearance": "同一位苏晚：右腕缠着护腕绷带，琴弓夹在肘弯，大衣袖口磨破，仍戴黑色贝雷帽。"
+          },
+          "gap": 1,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "长椅旁，霜儿握着苏晚发冷的手，听她交代演出许可牌的位置。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "腕伤停弓",
+            "appearance": "同一位苏晚：右腕缠着护腕绷带，琴弓夹在肘弯，大衣袖口磨破，仍戴黑色贝雷帽。"
+          },
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "苏晚气息渐弱，最终阖上双眼，静默离世。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "静默离世",
+            "appearance": "苏晚阖眼长逝，静静躺在废弃站台长椅上，演出大衣盖住胸口，琴弓放在身侧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "废弃站台储物柜里仍挂着苏晚的黑色贝雷帽，霜儿伸手把灰尘拂去。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "成年霜儿把演出许可牌重新挂回站厅圆柱，牌上仍刻着苏晚的许可编号。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "霜儿抚过演出许可牌上苏晚的名字，再把贴补修复后的旧琴『夜莺』放到琴位中央。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "贴补修复",
+            "appearance": "旧琴『夜莺』经贴补修复，裂纹处嵌着新木片，夜莺纹仍在，音色略闷。"
+          },
+          "gap": 11,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "改头换面的阿溪从废弃站台外走来，银灰袖标仍扣在左臂，与霜儿隔着黄线对视。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿溪仍戴银灰袖标，眉弓多了一道琴弦勒痕，炭黑围巾换成短披肩。"
+          },
+          "gap": 41,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "霜儿与阿溪并肩站在长椅前，一个靛蓝围巾沉静，一个短披肩压着暗色琴袋。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿溪仍戴银灰袖标，眉弓多了一道琴弦勒痕，炭黑围巾换成短披肩。"
+          },
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "霜儿：靛蓝围巾、银耳钉、旧乐谱包。",
+            "E6": "阿溪：面容极似霜儿，但戴银灰袖标、围炭黑围巾。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前，那个围靛蓝围巾、在琴盒旁学习上松香的女孩身影浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年学徒",
+            "appearance": "十五岁的学徒女孩，靛蓝围巾，左耳银耳钉，背着几乎有她半身高的琴盒。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_060",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "在琴盒旁学习上松香的女孩",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场那一刻，那把琴头刻夜莺纹的琥珀色小提琴第一次贴上肩窝。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "完好",
+            "appearance": "一把琥珀色旧小提琴，琴头刻着小小夜莺纹，琴弦明亮，漆面有细密年轮纹。",
+            "flashback": true
+          },
+          "gap": 3,
+          "last_seen": "seg_058",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次贴上肩窝的琥珀色小提琴",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到早年的换乘通道，戴银灰袖标、围炭黑围巾的身影从墙砖反光里掠过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "青年对手",
+            "appearance": "与霜儿面容极相似的年轻女琴手，却戴银灰袖标、围炭黑围巾，神情张扬。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_060",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "早年换乘通道里戴银灰袖标的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现梁下五盏绿色灯照着空站厅的旧夜色。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 25,
+          "last_seen": "seg_038",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "梁下五盏绿色灯照着空站厅的旧夜色",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那条黄线旁，隧道风吹动指示牌，一切仍像刚发生。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 16,
+          "last_seen": "seg_048",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时那条黄线旁",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "霜儿翻开那本潮渍糊字的曲目手札，站在地铁站厅重新排定晚高峰曲目。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 4,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "潮渍糊字",
+            "appearance": "同一本曲目手札被地下潮气洇透，封面发皱，线路图边角卷起，曲目字迹晕开。"
+          },
+          "gap": 26,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "梁下五盏应急灯仍亮着，霜儿抬头数完，才把琴位灯箱调暗。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_064",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "琴盒盖上先前那三块松香块仍在纸盒里，霜儿用贴补修复后的旧琴『夜莺』拉起第一句。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年琴手",
+            "appearance": "二十出头的女琴手，仍围靛蓝围巾、戴银耳钉，身形挺拔，肩上背着旧乐谱包。"
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "贴补修复",
+            "appearance": "旧琴『夜莺』经贴补修复，裂纹处嵌着新木片，夜莺纹仍在，音色略闷。"
+          },
+          "gap": 5,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 39,
+          "last_seen": "seg_028",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_033"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_055"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 68,
+    "n_scenes": 19,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 134,
+      "transform": 8,
+      "persist": 28,
+      "recall_after_gap": 3
+    },
+    "probe_counts": {
+      "first_appearance": 14,
+      "continuity": 63,
+      "count_memory": 7,
+      "lookalike_disambiguation": 12,
+      "state_change": 8,
+      "persist_state": 21,
+      "false_friend": 5,
+      "deprecation_avoidance": 10,
+      "reference_indirect": 8,
+      "long_gap_reappearance": 5,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 12,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 7,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 152,
+      "5-29": 16,
+      ">=30": 5
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 46,
+      "at": "seg_050"
+    }
+  },
+  "warnings": []
+}

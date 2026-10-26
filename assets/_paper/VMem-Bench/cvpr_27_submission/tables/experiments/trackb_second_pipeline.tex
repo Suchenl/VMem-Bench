@@ -1,0 +1,36 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Track-B memory effects on two MiniMax-H3 realizations} (the same 8 stories, 767 segments per condition, seed 2026, same judge). Differences to no memory with paired story-bootstrap 95\% CI, gray subscripts show full CI widths (upper minus lower); bold when it excludes zero. Near-dup: adjacent segments whose middle frames nearly coincide (a symptom of the video model copying its references instead of following the instruction).}
+\label{tab:second-pipeline}
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}l *{3}{c} c@{}}
+\toprule
+Condition & Recall & Precision & Avoid-OK & Near-dup \\
+\midrule
+\multicolumn{5}{@{}l}{\itshape FLUX.2\,$\rightarrow$\,Wan2.2 (main pipeline)}\\
+\textit{No memory} (level) & \textit{0.563} & \textit{0.979} & \textit{0.969} & 0/759 \\[2pt]
+Text-frame & \ci{\textbf{+0.084}}{0.05} & \ci{\textbf{-0.034}}{0.03} & \ci{\textbf{-0.067}}{0.06} & 0/759 \\[2pt]
+Seg+uniform & \ci{\textbf{+0.153}}{0.06} & \ci{\textbf{-0.061}}{0.04} & \ci{\textbf{-0.130}}{0.08} & 0/759 \\[2pt]
+Seg+DINO-key & \ci{\textbf{+0.150}}{0.04} & \ci{\textbf{-0.061}}{0.03} & \ci{\textbf{-0.130}}{0.07} & 0/759 \\[2pt]
+Seg+frame & \ci{\textbf{+0.115}}{0.11} & \ci{\textbf{-0.067}}{0.03} & \ci{\textbf{-0.136}}{0.05} & 0/759 \\[2pt]
+\textit{Last-seen refs} & \ci{\textbf{+0.071}}{0.05} & \ci{\textbf{-0.014}}{0.03} & \ci{\textbf{-0.029}}{0.04} & 0/759 \\[2pt]
+\midrule
+\multicolumn{5}{@{}l}{\itshape FLUX.2\,$\rightarrow$\,H3 FL2VA}\\
+\textit{No memory} (level) & \textit{0.576} & \textit{0.977} & \textit{0.965} & 0/759 \\[2pt]
+Text-frame & \ci{\textbf{+0.078}}{0.07} & \ci{\textbf{-0.047}}{0.03} & \ci{\textbf{-0.085}}{0.05} & 0/759 \\[2pt]
+Seg+uniform & \ci{\textbf{+0.148}}{0.07} & \ci{\textbf{-0.062}}{0.03} & \ci{\textbf{-0.134}}{0.06} & 0/759 \\[2pt]
+Seg+DINO-key & \ci{\textbf{+0.152}}{0.08} & \ci{\textbf{-0.046}}{0.03} & \ci{\textbf{-0.102}}{0.06} & 0/759 \\[2pt]
+Seg+frame & \ci{\textbf{+0.128}}{0.09} & \ci{\textbf{-0.049}}{0.04} & \ci{\textbf{-0.100}}{0.07} & 0/759 \\[2pt]
+\textit{Last-seen refs} & \ci{\textbf{+0.069}}{0.08} & \ci{-0.006}{0.03} & \ci{-0.016}{0.03} & 0/759 \\[2pt]
+\midrule
+\multicolumn{5}{@{}l}{\itshape H3 Ref2VA, subject crops (no keyframe)}\\
+\textit{No memory} (level) & \textit{0.549} & \textit{0.988} & \textit{0.982} & 6/759 \\[2pt]
+Text-frame & \ci{\textbf{+0.051}}{0.08} & \ci{\textbf{-0.064}}{0.04} & \ci{\textbf{-0.106}}{0.09} & 25/759 \\[2pt]
+Seg+uniform & \ci{\textbf{+0.117}}{0.10} & \ci{\textbf{-0.076}}{0.05} & \ci{\textbf{-0.140}}{0.10} & 46/759 \\[2pt]
+Seg+DINO-key & \ci{\textbf{+0.101}}{0.09} & \ci{\textbf{-0.073}}{0.06} & \ci{\textbf{-0.130}}{0.10} & 22/759 \\[2pt]
+Seg+frame & \ci{\textbf{+0.095}}{0.06} & \ci{\textbf{-0.067}}{0.03} & \ci{\textbf{-0.122}}{0.06} & 53/759 \\[2pt]
+\textit{Last-seen refs} & \ci{-0.037}{0.08} & \ci{\textbf{-0.016}}{0.01} & \ci{\textbf{-0.022}}{0.03} & 63/759 \\[2pt]
+\bottomrule
+\end{tabular}
+\end{table}

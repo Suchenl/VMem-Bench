@@ -1,0 +1,1052 @@
+{
+  "story_id": "0038_balloon_festival",
+  "title": "Cloud-Vessel Balloon Festival",
+  "premise": "A long festival drama on the inflation lawn. Ground crew Afan and rival Ayi are easily confused; the main envelope goes intact inflated→burned breach→patched repair; the ground-crew pickup must be avoided after it crashes; sandbag/signal-flag/fog-bell count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Lu Chuan",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Lu Chuan, a forty-year-old hot-air-balloon captain: goggles on, khaki flight jacket, walkie-talkie at his belt, focused expression.",
+        "weary_injured": "The same Lu Chuan: jacket torn, forehead wounded, leaning on a trekking pole as he walks slowly, goggles still hanging on his chest.",
+        "retired_away": "Lu Chuan has stepped down; only his old flight jacket and goggles remain on the inflation lawn—he himself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Afan",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young ground-crew apprentice Afan, fourteen or fifteen, indigo headscarf, orange vest, bright stubborn eyes.",
+        "adult_successor": "Afan in his twenties, still in an indigo headscarf and orange vest, tall and steady."
+      }
+    },
+    "E3": {
+      "name": "main envelope",
+      "kind": "prop",
+      "states": {
+        "intact_inflated": "A red-and-white striped main envelope, swollen like a giant egg; wicker basket below, burner nozzle gleaming.",
+        "burned_breach": "The same main envelope burned through by flame: striped fabric collapsed and leaking, basket tilted.",
+        "patched_repaired": "The main envelope patched with heavy-duty thread and reinflated; the repair patch clearly visible."
+      }
+    },
+    "E4": {
+      "name": "flight logbook",
+      "kind": "prop",
+      "states": {
+        "intact": "A leather-bound flight logbook recording wind direction, temperature, and passenger names.",
+        "rain_stained": "The same flight logbook soaked by a downpour: cover wrinkled, ink blurred."
+      }
+    },
+    "E5": {
+      "name": "ground-crew pickup",
+      "kind": "prop",
+      "states": {
+        "intact": "A tan ground-crew pickup with gas cylinders and sandbags in the bed, doors stenciled 'Cloud-Vessel-07'.",
+        "cliff_wrecked": "The ground-crew pickup has plunged off the viewing berm: hood crumpled, bed twisted—an unmovable wreck."
+      }
+    },
+    "E6": {
+      "name": "Ayi",
+      "kind": "character",
+      "states": {
+        "young_rival": "Youth Ayi, face extremely like Afan's, ivory silk scarf, same orange vest, bold expression.",
+        "remade_return": "Remade Ayi still wears the ivory silk scarf, expression deeper and quieter."
+      }
+    },
+    "E7": {
+      "name": "inflation lawn",
+      "kind": "location",
+      "appearance": "Inflation lawn: open green turf, wear-resistant canvas at center, colorful balloons rising in the distance."
+    },
+    "E8": {
+      "name": "viewing berm",
+      "kind": "location",
+      "appearance": "Viewing berm: a tan slope overlooking the whole lawn, windsock planted on top."
+    },
+    "E9": {
+      "name": "market tent quarter",
+      "kind": "location",
+      "appearance": "Market tent quarter: colored canopies in a row, hot drinks and postcards for sale, noisy crowd."
+    },
+    "E10": {
+      "name": "old airport portico",
+      "kind": "location",
+      "appearance": "Old airport portico: gray-brick arcade, lintel carved 'Cloud-Vessel Flight', moss on the steps."
+    },
+    "E11": {
+      "name": "memorial brass plaque",
+      "kind": "prop",
+      "appearance": "A brass memorial plaque nailed to a portico pillar, engraved with Lu Chuan's name and first-flight year."
+    },
+    "E12": {
+      "name": "sandbags",
+      "kind": "prop",
+      "appearance": "Three hemp sandbags strung on blue cord and pressed to the basket rim, cloud patterns on the bags."
+    },
+    "E13": {
+      "name": "white camper van",
+      "kind": "prop",
+      "appearance": "A white camper van, long-bodied, no 'Cloud-Vessel-07' marking—unlike the tan pickup."
+    },
+    "E14": {
+      "name": "ATC coordinator",
+      "kind": "character",
+      "appearance": "A lean air-traffic coordinator, headset on, hi-vis vest, build somewhat like Lu Chuan's but stiffer."
+    },
+    "E15": {
+      "name": "signal flags",
+      "kind": "prop",
+      "appearance": "A row of five signal flags in bases along the lawn edge, red, yellow, and blue alternating."
+    },
+    "E16": {
+      "name": "fog bells",
+      "kind": "prop",
+      "appearance": "Two fog bells hanging under the control-tower eaves, low-toned when fog rolls in."
+    },
+    "E17": {
+      "name": "Xiaohe",
+      "kind": "character",
+      "appearance": "Market girl Xiaohe, light-brown headscarf, at a glance somewhat like young Afan, shy eyes."
+    },
+    "E18": {
+      "name": "spare auxiliary envelope",
+      "kind": "prop",
+      "appearance": "A spare auxiliary envelope, smaller, solid blue without stripes—looks like the main envelope but cannot carry passengers."
+    },
+    "E19": {
+      "name": "Photographer Lao Jin",
+      "kind": "character",
+      "appearance": "Photographer Lao Jin, long telephoto lens, wide-brim hat, build near Lu Chuan's but taller and thinner."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_injured",
+      "retired_away"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact_inflated",
+      "burned_breach",
+      "patched_repaired"
+    ],
+    "E4": [
+      "intact",
+      "rain_stained"
+    ],
+    "E5": [
+      "intact",
+      "cliff_wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_return"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Afan: indigo headscarf, orange vest.",
+        "E6": "Ayi: face extremely like Afan's, but ivory silk scarf, bold expression."
+      },
+      "note": "Ground-crew confusion: indigo headscarf vs ivory silk scarf."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Inflation lawn at dusk (introduce five signal flags · two fog bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, Lu Chuan walks onto the inflation lawn and first checks the seams of the red-and-white striped main envelope.",
+        {
+          "action": "Along the lawn edge stands a row of five signal flags; Lu Chuan turns each one to face the wind.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two fog bells hang under the control-tower eaves; Lu Chuan reaches up and lets them ring softly.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Lu Chuan circles the basket, checking the wicker for cracks.",
+        "Lu Chuan climbs the viewing berm and gazes at the darkening sky.",
+        {
+          "action": "The main envelope billows gently in the evening breeze; Lu Chuan feels the fabric's temperature.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Lu Chuan sits on a folding chair at the lawn edge for a brief rest."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the flight logbook",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Lu Chuan opens the flight logbook and notes the day's wind speed and dew point.",
+        "Lu Chuan draws a wind-direction arrow in the flight logbook.",
+        "Lu Chuan closes the flight logbook and tucks it into the basket side pocket.",
+        {
+          "action": "The main envelope's top vent valve opens and closes slightly; Lu Chuan nods.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Lu Chuan wipes dew from the flight logbook cover with a dry cloth."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Berm greets apprentice (introduce three sandbags)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "At dawn on the viewing berm, Lu Chuan greets young apprentice Afan arriving in the ground-crew pickup.",
+        {
+          "action": "Afan jumps down from the pickup and tightens the gas-cylinder valve cap.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Lu Chuan points to three hemp sandbags at the basket rim and teaches Afan to read the ballast marks.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Afan crouches in the berm grass, watching the windsock swing with curiosity.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Lu Chuan explains emergency deflation steps; Afan nods earnestly.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Afan looks back at the tan ground-crew pickup, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Lu Chuan has Afan practice holding the basket rope steady."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Market tent quarter (Ayi only)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the bustling market tent quarter, Ayi with an ivory silk scarf looks up from behind a hot-drink stall.",
+        "Ayi picks balloon-pattern postcards at a stall, scarf fluttering.",
+        "Ayi haggles with the vendor, expression bold.",
+        "Ayi carries a paper bag through the tent crowd.",
+        "Ayi pauses under colored awnings and glances back at the inflation lawn."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Ground crew on screen together",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "On the viewing berm, Afan and Ayi stand side by side—one with an indigo headscarf, one with an ivory silk scarf.",
+        "Afan hands sandbags to Ayi; the two check the weight together.",
+        "Ayi straightens Afan's indigo headscarf; the two walk slowly along the berm.",
+        "Afan and Ayi part at the berm crest, one heading for the lawn, one for the market.",
+        "Evening wind passes; their similar orange vests cross and separate in the berm shadows."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Rain-stained flight logbook",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Lu Chuan keeps watch alone on the inflation lawn.",
+        {
+          "action": "Lu Chuan opens the flight logbook and finds a storm has soaked the cover wrinkled.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "rain_stained"
+            }
+          ]
+        },
+        "Lu Chuan wipes condensation from the main envelope fabric.",
+        "Lu Chuan looks toward the dark viewing berm.",
+        {
+          "action": "The main envelope sways gently in the night wind; Lu Chuan grips the basket rope.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Lu Chuan slips blotting paper into the rain-stained flight logbook and presses it under an atlas."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Festival routine (filler · stretch gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "During the rainy season, Lu Chuan wipes and oils damp gas-cylinder valves on the inflation lawn.",
+        "Lu Chuan brushes carbon buildup from the burner nozzle.",
+        "At dawn, Lu Chuan checks the competition balloon roster on the viewing berm.",
+        "Lu Chuan hangs a rain poncho on the flagpole and listens to the windsock snap.",
+        "In midsummer, Lu Chuan stretches shade netting over the inflation lawn to protect the main envelope.",
+        "Lu Chuan checks whether the basket floor screws are loose.",
+        "As autumn wind rises, Lu Chuan furls extra signal flags so they won't blow over.",
+        "Lu Chuan tries a new route code on a blank page of the flight logbook.",
+        "On a frosty night, Lu Chuan lights camp lanterns and checks flashlight batteries.",
+        "Lu Chuan wraps gas cylinders in blankets to prevent overnight condensation.",
+        "On a snowy day, Lu Chuan sweeps thin snow from the old airport portico steps.",
+        "Lu Chuan breathes on his hands and retightens the sandbags' blue cords.",
+        "In early spring, Lu Chuan trims shrubs along the berm to expose the windsock.",
+        "Lu Chuan mends each corner of the five signal flags.",
+        "Lu Chuan posts a new launch-order sheet on the control-tower wall.",
+        "Around the Dragon Boat festival, Lu Chuan smokes out mosquitoes in the tent quarter with mugwort.",
+        "Lu Chuan retraces the cloud patterns printed on the sandbags.",
+        "Lu Chuan paces the berm alone, silently reciting emergency commands.",
+        "After the rain stops, Lu Chuan pushes aside a tent flap and listens to water dripping into a tin bucket.",
+        "Lu Chuan swaps out worn gloves for new ones.",
+        "Another dusk, Lu Chuan sits beside the main envelope listening to the campfire crackle.",
+        "Lu Chuan gets up at night to refuel the camp heater.",
+        "Lu Chuan waxes newly arrived basket ropes against wear.",
+        "Lu Chuan polishes the 'Cloud-Vessel Flight' lintel on the old airport portico.",
+        "Lu Chuan checks the pickup bed for cracks.",
+        "Lu Chuan marks no-fly zones on the aviation chart.",
+        "Lu Chuan wrings out a mud-stained rag and hangs it on the flagpole.",
+        "On a full-moon night, Lu Chuan looks down from the berm; the main envelope gleams silver.",
+        "Lu Chuan aligns the flag bases so the signal flags face the same way.",
+        "Lu Chuan writes a new season's festival notes on the flight logbook flyleaf.",
+        "Lu Chuan polishes the two fog bells.",
+        "Lu Chuan keeps registering passengers while market hand-drums sound in the distance.",
+        "Lu Chuan glues a cracked folding chair back together.",
+        "Lu Chuan stacks old envelope fabric awaiting repair in a lawn corner.",
+        "Lu Chuan latches the toolbox shut against overnight damp.",
+        "Another Qingming, Lu Chuan places a bunch of wildflowers on the old airport portico.",
+        "Lu Chuan rolls the aviation chart into a tube and binds it with a rubber band.",
+        "Lu Chuan tests the fog bells' low tone; the sound carries long.",
+        "Lu Chuan sits silently on the inflation lawn, listening to wind over the main envelope for a long while.",
+        "Lu Chuan cuts worn indigo cloth into rag stock.",
+        "Lu Chuan sharpens the burner ignition needle."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Berm patrol (sandbag recall · camper false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak, Lu Chuan patrols the viewing berm; the tan ground-crew pickup is parked below.",
+        {
+          "action": "Lu Chuan crouches to check how deep mud is on the pickup tires.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Lu Chuan walks to the basket rim; the same three hemp sandbags still hang on blue cord.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A white camper van passes the berm—long-bodied, not a Cloud-Vessel pickup.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Lu Chuan stands on the berm and records the windsock angle.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Lu Chuan hangs wet canvas on a wooden rack on the berm.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Lu Chuan brushes grass from his jacket and looks back at the lawn lights."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Flight routine continued (filler · stretch gap further)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "After Grain Rain, Lu Chuan teaches new ground crew to read windsock angles on the berm.",
+        "Lu Chuan folds the dried rain poncho back into the pickup toolbox.",
+        "In summer heat, Lu Chuan presses a damp cloth to gas-cylinder shells to cool them.",
+        "Lu Chuan checks the pickup bed and moves damp sandbags to the upper layer.",
+        "On an autumn night, Lu Chuan mends loose pages of the flight logbook under camp lights.",
+        "Lu Chuan rotates the five signal flags through the wash.",
+        "At first snow, Lu Chuan clears a narrow path across the old airport portico threshold.",
+        "Lu Chuan refolds the spare auxiliary envelope and packs it into a crate.",
+        "Lu Chuan keeps revising the flight plan as fog bells ring softly.",
+        "Lu Chuan opens the tent door and lets a cross-breeze carry damp away.",
+        "Lu Chuan hangs rain canvas under the old airport portico.",
+        "Lu Chuan stows a burned ignition needle in a tin box.",
+        "Lu Chuan dreams the envelope is leaking, wakes, and writes it in the flight logbook.",
+        "Lu Chuan rinses mud spots from the flag bases with clean water.",
+        "Lu Chuan wipes and re-nails the launch-order sheet.",
+        "Lu Chuan pulls weeds from cracks in the berm stone.",
+        "Lu Chuan reseats signal flags in their bases; numbered tabs somewhat faded.",
+        "Before lights-out, Lu Chuan takes one last look at main envelope seams.",
+        "Lu Chuan folds an indigo headscarf an apprentice left on the lawn.",
+        "Lu Chuan hears the market closing horn and gets up to lock the gate.",
+        "Lu Chuan dries gloves by the campfire.",
+        "Lu Chuan moves the fog bells aside to show the freshly repaired tower eaves.",
+        "Lu Chuan hangs wind-test streamers on the flagpole.",
+        "Lu Chuan sketches a wind-speed comparison on the last page of the flight logbook.",
+        "Lu Chuan murmurs tomorrow's launch window and steps out of the old airport portico.",
+        "Lu Chuan pushes the pickup against the wall to clear inflation space.",
+        "Lu Chuan hears distant roosters and blows out the camp lanterns.",
+        "Another rainy night, Lu Chuan keeps watch over the main envelope until dawn."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Storm night (envelope burned · pickup cliff wreck)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "A storm bursts; on the inflation lawn the main envelope shakes violently.",
+        "Lightning lights the burner nozzle; the basket lurches hard.",
+        {
+          "action": "A burst of uncontrolled flame burns through the main envelope; the breach leaks and the fabric collapses.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "burned_breach"
+            }
+          ]
+        },
+        {
+          "action": "On the viewing berm, the tan ground-crew pickup skids in a mudslide.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "The ground-crew pickup plunges off the berm; hood crumpled, bed twisted, utterly wrecked.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "cliff_wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Lu Chuan lunges for the basket and presses hard on the cracking main envelope patch.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Ground crew arrive with lanterns; the lawn is mud and water."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (pickup indirect reference · signal-flag recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The next day, Lu Chuan stands on the inflation lawn, staring at the breached main envelope.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Lu Chuan runs a finger along the scorched fabric edge, expression dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Lu Chuan notes the date the ground-crew pickup fell off the berm in a blank page of the flight logbook.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "A dispatch photo of the ground-crew pickup still hangs on the control-tower wall; Lu Chuan stares a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Lu Chuan takes one of the row of five signal flags from its base and realigns it to the wind.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The damaged main envelope still lies half-deflated on the canvas.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Lu Chuan sets muddy boots at the lawn edge to drain."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Patch repair (third state · auxiliary envelope false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Lu Chuan brings in a patch specialist to repair the main envelope.",
+        {
+          "action": "Lu Chuan drags a spare auxiliary envelope from storage to compare—it is smaller, solid blue, no stripes.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "The patch specialist sews the breach tight with heavy-duty thread.",
+        {
+          "action": "The last tear is sewn shut; the main envelope reinflates and swells again.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "patched_repaired"
+            }
+          ]
+        },
+        "The repaired main envelope gleams in morning light; Lu Chuan looks at the patch with relief.",
+        "Lu Chuan relights the burner nozzle and test-lifts one meter."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: camper van and ATC",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Photographer Lao Jin arrives on the berm, wide-brim hat and long lens, build near Lu Chuan's.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The ATC coordinator arrives too, hi-vis vest and headset, standing beside Lu Chuan to talk.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The coordinator points at the white camper van and asks whether it belongs to the Cloud-Vessel team.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The coordinator leaves; Lu Chuan remains alone on the viewing berm.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Lao Jin folds his tripod and bows farewell."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Xiaohe who looks like Afan",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "At the market comes Xiaohe with a light-brown headscarf—a glance makes her look like young Afan.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaohe tries arranging postcards; Lu Chuan shakes his head—she is not Afan after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaohe lowers her eyes shyly and reties her ribbon."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Weary and injured (long-range fog-bell recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, wounded Lu Chuan stands on his trekking pole at the old airport portico.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_injured"
+            }
+          ]
+        },
+        "Lu Chuan looks up at the 'Cloud-Vessel Flight' lintel, gaze far away.",
+        {
+          "action": "The two fog bells from the tower have been moved to the portico for a test ring; Lu Chuan stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Lu Chuan presses his palm to the cool gray-brick arch, as if saying goodbye.",
+        "Evening wind lifts the hem of his torn jacket."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Afan succeeds · Lu Chuan steps down",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Afan returns along the ramp and hurries toward the old airport portico.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Afan reunites with Lu Chuan on his trekking pole under the portico; the two embrace.",
+        {
+          "action": "Beside a bamboo couch in the lounge, Afan holds Lu Chuan's hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Lu Chuan's breath fades; he finally closes his eyes and steps down from duty.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "retired_away",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Afan folds Lu Chuan's flight jacket and sets it by the pillow.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · memorial brass plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Lu Chuan's goggles still hang behind the portico; Afan reaches out and touches them gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "On a portico pillar, Afan stands before the newly nailed memorial brass plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Afan's fingertips trace Lu Chuan's name engraved on the memorial brass plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        "Afan places a bunch of wildflowers below the memorial brass plaque."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (long-range + on screen together)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Remade Ayi hurries from the market and embraces Afan tightly under the portico.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_return"
+            }
+          ]
+        },
+        "Afan and Ayi stand side by side under the portico—one calm-eyed, one deep in expression.",
+        "The two look at each other in silence, studying similar faces.",
+        "Ayi tightens her ivory silk scarf; Afan still wears the indigo headscarf."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Temporal flashback (timeline anchoring)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The frame returns to years ago—the boy holding the basket rope steady on the berm appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the boy holding the basket rope steady on the berm",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—on the lawn, a red-and-white striped main envelope swells and rises for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact_inflated",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the red-and-white striped main envelope swelling and rising for the first time at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the market that year—the orange-vest figure with an ivory silk scarf flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the orange-vest figure with an ivory silk scarf at the market that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Before the eyes rises again the row of five colored flags along the lawn edge.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the row of five signal flags along the lawn edge",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The tan slope from first sight returns, windsock swinging as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the viewing berm from first sight",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The image returns of the two old bells ringing softly under the control-tower eaves.",
+          "present": [
+            {
+              "eid": "E16",
+              "count": 2,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the two fog bells under the control-tower eaves",
+                "resolves_to": "E16"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrases for reference; no names appear."
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (long-range logbook · long-range sandbags)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Afan opens the rain-stained flight logbook again and walks onto the inflation lawn.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "At the basket rim, the same three hemp sandbags still hang on blue cord.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Afan takes over the patched main envelope and relights the burner nozzle.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "Fresh green pushes through cracks in the berm grass.",
+        "Afan tightens his indigo headscarf; the balloon rises again."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5232 @@
+{
+  "story_id": "0032_beekeeper_meadow",
+  "gt_version": "trackB-gt-2.0",
+  "title": "Ranch Beekeeper",
+  "premise": "A long master-apprentice drama on the alfalfa apiary and creek-side extracting flat. Adeng and Azhou are easily confused by looks; the oak smoker goes intact→bellows_burst→reskinned; after the bee truck overturns it must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "built_from": "gt_source/0032_beekeeper_meadow.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "Chen Xing",
+      "kind": "character",
+      "states": {
+        "prime_hivekeep": "Ranch beekeeper Chen Xing around fifty, long lean face, cream protective suit and straw hat, veil flipped onto the brim, hands callused from stings.",
+        "sting_weary": "The same Chen Xing: protective-suit cuff torn, red swollen sting on the neck side, walking slowly propped on the smoker, eyes heavy.",
+        "deceased": "Chen Xing lies still on the apiary cabin plank bed with eyes closed, face peaceful, no breath left."
+      },
+      "initial_state": "prime_hivekeep"
+    },
+    "E2": {
+      "name": "Adeng",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Adeng: a lean beekeeping apprentice of fourteen or fifteen, amber beeswax button on the hat brim, oversized cream protective suit, bright stubborn eyes.",
+        "adult_successor": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+      },
+      "initial_state": "young_apprentice"
+    },
+    "E3": {
+      "name": "oak smoker",
+      "kind": "prop",
+      "states": {
+        "intact": "An oak smoker with intact bellows leather cup, pale-blue pine smoke from the nozzle, bee patterns carved on the pot.",
+        "bellows_burst": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black.",
+        "reskinned": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+      },
+      "initial_state": "intact"
+    },
+    "E4": {
+      "name": "honey extract daybook",
+      "kind": "prop",
+      "states": {
+        "intact": "A cowhide honey extract daybook recording each hive's strength and extract yield, handwriting neat.",
+        "honey_stained": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+      },
+      "initial_state": "intact"
+    },
+    "E5": {
+      "name": "bee truck",
+      "kind": "prop",
+      "states": {
+        "intact": "A dark-green migratory bee truck with twelve standard hives fixed in the bed, white bee patterns sprayed on the door.",
+        "overturned_wrecked": "The bee truck overturned on a mud slope; hives scattered and broken, bed twisted, bee patterns buried in mud."
+      },
+      "initial_state": "intact"
+    },
+    "E6": {
+      "name": "Azhou",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young beekeeping hand Azhou whose face closely matches Adeng's, but wearing vermilion rubber gloves and a dark-green vest over the suit, swaggering look.",
+        "disguised_return": "After a change of look Azhou still wears vermilion rubber gloves; vest swapped for matte black, expression deeper."
+      },
+      "initial_state": "young_rival"
+    },
+    "E7": {
+      "name": "alfalfa apiary",
+      "kind": "location",
+      "appearance": "An apiary in ranch alfalfa, hives in three rows, purple blossoms all around, air thick with honey scent and bee hum."
+    },
+    "E8": {
+      "name": "creek extracting flat",
+      "kind": "location",
+      "appearance": "An extracting flat by the ranch creek, wooden table with extractor and strainer, shallow clear water, laundry stone on the bank."
+    },
+    "E9": {
+      "name": "tool-shed narrow lane",
+      "kind": "location",
+      "appearance": "A narrow lane between bee-tool sheds, veils and queen excluders hung on both sides, damp-proof sacks on the ground, heavy shadow."
+    },
+    "E10": {
+      "name": "old migration camp",
+      "kind": "location",
+      "appearance": "Ruins of the old migration camp, leftover concrete piers and rusted hooks, weeds drowning the tire tracks."
+    },
+    "E11": {
+      "name": "apiary memorial wood plaque",
+      "kind": "prop",
+      "appearance": "A cypress plaque nailed to the cabin doorpost, carved with Chen Xing and the founding year, corners polished bright by beeswax."
+    },
+    "E12": {
+      "name": "frame number tags",
+      "kind": "prop",
+      "appearance": "Three aluminum frame number tags hung on the front-row hives, carved A1, A2, and A3."
+    },
+    "E13": {
+      "name": "orange-red pickup",
+      "kind": "prop",
+      "appearance": "A brand-new orange-red pickup with a toolbox in the bed, no bee patterns and no hive rack—nothing like the bee truck."
+    },
+    "E14": {
+      "name": "ranch veterinarian",
+      "kind": "character",
+      "appearance": "A lean ranch veterinarian in a khaki hat and gray-green work clothes, build somewhat like Chen Xing's, but with a veterinary badge on the sleeve."
+    },
+    "E15": {
+      "name": "apiary lanterns",
+      "kind": "prop",
+      "appearance": "A row of five apiary lanterns hung on iron hooks under the alfalfa apiary cabin beam, glass shades polished bright."
+    },
+    "E16": {
+      "name": "hive-opening bronze bells",
+      "kind": "prop",
+      "appearance": "Two hive-opening bronze bells hung under the cabin eaves, tongues nicked from striking, chimed twice lightly before opening."
+    },
+    "E17": {
+      "name": "Xiao He",
+      "kind": "character",
+      "appearance": "New intern beekeeper Xiao He, light-yellow headscarf and brand-new protective suit; at a glance much like young Adeng, but sharper chin and shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "tin smoke can",
+      "kind": "prop",
+      "appearance": "A tin smoke can shaped somewhat like a smoker but without the oak pot body and without carved bee patterns."
+    },
+    "E19": {
+      "name": "ash-gray trailer",
+      "kind": "prop",
+      "appearance": "An ash-gray feed trailer, body wide and flat, no hive rack—nothing like the bee truck."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_hivekeep",
+      "sting_weary",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "bellows_burst",
+      "reskinned"
+    ],
+    "E4": [
+      "intact",
+      "honey_stained"
+    ],
+    "E5": [
+      "intact",
+      "overturned_wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised_return"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+        "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+      },
+      "note": "Hard confuse sample: amber beeswax button vs vermilion rubber gloves."
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dusk Chen Xing lifts his veil and walks into the alfalfa apiary, testing a puff from the oak smoker.",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A row of five apiary lanterns hangs on the cabin beam; Chen Xing wipes each glass shade clean.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two hive-opening bronze bells hang under the cabin eaves; Chen Xing taps them lightly, the ring clear.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing checks the oak smoker leather cup and bee patterns for leaks.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing looks through the alfalfa sea toward dusk at the ranch edge.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The intact oak smoker rests on a hive lid, nozzle catching lantern warm light.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing sits on the cabin steps and drinks a sip of cold tea.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Distant cattle bells chime lightly; he puts the veil back on.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Chen Xing opens the cowhide honey extract daybook and records today's colony-strength scores.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He sketches a bar chart of each hive's extract yield in the book.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing closes the honey extract daybook and tucks it back into the cabin drawer.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pale-blue pine smoke from the oak smoker sweeps his profile.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He tears a scrap of wax paper and wipes sticky honey from his gloves.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On the creek extracting flat at dawn, Chen Xing greets the approaching dark-green bee truck.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Young Adeng jumps down from the bee truck; the amber beeswax button on his hat brim shines in morning light.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing points to the three frame number tags on the front row and teaches Adeng to read A1 through A3.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Adeng crouches by the creek and curiously touches the extractor crank.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing tells Adeng the hive-opening bronze bells must ring twice before lids come off.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Adeng looks back at the intact bee truck, eyes full of longing.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Purple alfalfa sways; they walk toward the alfalfa apiary.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the tool-shed narrow lane, Azhou in vermilion rubber gloves glances back from veil shadows.",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Azhou steps slowly on the sacks; the dark-green vest stands out.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He brushes past a mate carrying a queen excluder; the vermilion gloves flash in the reflection.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Azhou knocks a hook to confirm the veil hangs firm.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He passes the lane end toward the honey-wash room.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On the creek extracting flat, Adeng and Azhou stand side by side: one with an amber beeswax button, one in vermilion rubber gloves.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Adeng hands Azhou a honey-test wooden spoon; they meet eyes briefly.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Azhou smooths Adeng's oversized protective-suit collar, then turns his face away.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "They walk opposite ways along the creek, figures crossing among the reeds.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A surge of bee hum rises; only the strainer sways lightly on the flat.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Months later at night, Chen Xing keeps watch alone at the alfalfa apiary.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He opens the honey extract daybook; the cover is soaked sticky with honey, writing bled.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing wipes tar from the oak smoker nozzle with a rag.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He leans in the cabin doorway looking toward fireflies on the black ranch.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The oak smoker rests on a hive lid; the leather cup has gone a little hard.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A hive-opening bronze bell is bumped by night wind for half a chime, then falls silent.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 1,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "When spring flowers first open, Chen Xing patrols hives in the alfalfa day after day.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another rainy night, he wraps his protective suit tight beside the oak smoker.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At high summer noon colonies grow restless; he rotates cooling sprays.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In autumn fog, lantern light struggles through the honey scent.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On New Year's Eve Chen Xing alone fills the honey extract daybook to the last page.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At spring start he rechecks queen excluders and keeps rearing queens.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Before rainy season Chen Xing reinforces ant-proof hive stands.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "After Frost's Descent he adds a small bag of white sugar in a cabin corner.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another year before migration he checks colony strength hive by hive.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On a snow night with work stopped, Chen Xing keeps only one lantern until dawn.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "After Awakening of Insects he resets dried foundation sheets.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Around Qingming he clears weeds at the old migration camp entrance.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Chen Xing changes the veil and shakes off stuck bee wings.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He checks the extractor gears and drips edible oil.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He lifts the intact oak smoker again and gives three short puffs.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Water sounds rise from the creek; he looks up to listen.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing drops waste wax scrap into an iron bucket and lids it.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At noon rest he drinks tea in the cabin; tea smoke curls past the straw hat.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In the afternoon he goes out again to sugar-feed weak colonies.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At sunset he seals hives and locks the tool shed.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At daybreak Chen Xing patrols the creek extracting flat; the bee truck still sits by the concrete pier.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 26,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E5",
+          "op": "recall_after_gap",
+          "gap": 36,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He crouches to check whether the bee truck bed hive straps are loose.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On the front row, those three frame number tags still hang in place.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 42,
+          "last_seen": "seg_016",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "An ash-gray trailer drives along the ranch road, body wide and flat, no bee patterns.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing stands on the extracting flat and logs foundation sheets dampened overnight.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He retightens the bee truck hooks.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A ranch dog barks once afar; morning fog begins to lift.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At nightfall Chen Xing returns to the alfalfa apiary and opens the honey-stained honey extract daybook.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 12,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 27,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He compares old scores and adds today's colony strength.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He briefly puffs the oak smoker; pine smoke lights the sticky daybook cover.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_065"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He wipes wax crumbs from the veil.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Ranch wind rises; cabin planks creak lightly.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing puts out half the lanterns, leaving only the one by the bed.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 0,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the storm a mud slope suddenly collapses; the alfalfa apiary falls into chaos.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Floodwater rushes toward the cabin; lanterns swing hard.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "While Chen Xing rescues, the oak smoker bellows leather cup bursts and leaks.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "bellows_burst",
+            "appearance": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black."
+          },
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On the slope road the bee truck tires skid and jolt hard.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_063"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Another dull crash—the bee truck overturns; hives scatter and break.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "overturned_wrecked",
+            "appearance": "The bee truck overturned on a mud slope; hives scattered and broken, bed twisted, bee patterns buried in mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing clutches the burst oak smoker and will not let go.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "bellows_burst",
+            "appearance": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black."
+          },
+          "gap": 2,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Colonies explode from the hives; hum drowns the rain.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "bellows_burst",
+            "appearance": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black."
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Next day when rain stops, Chen Xing stands in the apiary staring at the bellows-burst oak smoker.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "bellows_burst",
+            "appearance": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black."
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He traces the burst leather cup with a finger, face dark.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "bellows_burst",
+            "appearance": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black."
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On a blank page of the honey extract daybook he writes the date the bee truck overturned.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 9,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A bee truck migration route map is still taped to the wall; Chen Xing gazes long.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He takes down one of the five apiary lanterns from the beam and sits alone in the faint light.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 78,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The burst oak smoker rests on a hive lid like a deflated lung.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "bellows_burst",
+            "appearance": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black."
+          },
+          "gap": 3,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Afar a mud-clearing tractor roar sweeps the ranch.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "bellows_burst",
+            "appearance": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black."
+          },
+          "gap": 0,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Weeks later Chen Xing brings leather stock and prepares to repair the oak smoker.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "bellows_burst",
+            "appearance": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black."
+          },
+          "gap": 0,
+          "last_seen": "seg_083"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He takes a tin smoke can from the toolbox—somewhat like a smoker but without bee patterns.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing fits a new leather cup and cleans tar from the nozzle.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "bellows_burst",
+            "appearance": "The same oak smoker with burst leaking bellows leather cup, nozzle caked with tar, bee patterns smoked black."
+          },
+          "gap": 1,
+          "last_seen": "seg_084"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Bee patterns return; the oak smoker can smoke again.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "reskinned",
+            "appearance": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+          },
+          "gap": 0,
+          "last_seen": "seg_086"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He tests short puffs; pale-blue pine smoke steadies again.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "reskinned",
+            "appearance": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+          },
+          "gap": 0,
+          "last_seen": "seg_087"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_089",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing puts the tin smoke can back in the toolbox so they will not be mixed.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "reskinned",
+            "appearance": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+          },
+          "gap": 0,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_090",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "An orange-red pickup rolls onto the creek extracting flat—nothing like the already-overturned bee truck.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 15,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_091",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A ranch veterinarian in a khaki hat and gray-green work clothes walks onto the extracting flat and talks shoulder to shoulder with Chen Xing; their builds are alike.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_092",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The veterinarian points at the orange-red pickup and explains the temporary hive-haul plan.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E13",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_090",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_093",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The pickup drives off; Chen Xing alone watches it leave the extracting flat.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_094",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He rehangs the frame number tags straight and walks back to the apiary.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_095",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Intern beekeeper Xiao He in a light-yellow headscarf arrives in the tool-shed narrow lane; at a glance she looks somewhat like young Adeng.",
+      "memory_probes": [
+        "false_friend",
+        "first_appearance",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall_after_gap",
+          "gap": 69,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_096",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiao He tries tying a veil, but Chen Xing shakes his head—she is not Adeng after all.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_097",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiao He bows her head and steps back; only queen-excluder shadows remain in the lane.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_098",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Years later at dusk, Chen Xing with torn cuff and swollen neck leans on the smoker under the old migration camp.",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "sting_weary",
+            "appearance": "The same Chen Xing: protective-suit cuff torn, red swollen sting on the neck side, walking slowly propped on the smoker, eyes heavy."
+          },
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_099",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He looks up at rusted hooks, gaze far away.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "sting_weary",
+            "appearance": "The same Chen Xing: protective-suit cuff torn, red swollen sting on the neck side, walking slowly propped on the smoker, eyes heavy."
+          },
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_100",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Those two hive-opening bronze bells under the distant cabin eaves chime lightly in the wind; Chen Xing stops to listen.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "sting_weary",
+            "appearance": "The same Chen Xing: protective-suit cuff torn, red swollen sting on the neck side, walking slowly propped on the smoker, eyes heavy."
+          },
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 96,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_101",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He presses his palm to a concrete pier, as if saying goodbye.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "sting_weary",
+            "appearance": "The same Chen Xing: protective-suit cuff torn, red swollen sting on the neck side, walking slowly propped on the smoker, eyes heavy."
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_102",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Weeds sway; the camp grows quieter.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "sting_weary",
+            "appearance": "The same Chen Xing: protective-suit cuff torn, red swollen sting on the neck side, walking slowly propped on the smoker, eyes heavy."
+          },
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_103",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "By day, adult Adeng returns along the ranch road and hurries toward the old migration camp.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 72,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_104",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Adeng reunites with sting-weary Chen Xing under the camp; they steady each other.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "sting_weary",
+            "appearance": "The same Chen Xing: protective-suit cuff torn, red swollen sting on the neck side, walking slowly propped on the smoker, eyes heavy."
+          },
+          "gap": 1,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_105",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "By the apiary cabin plank bed, Adeng holds Chen Xing's withered hand.",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "sting_weary",
+            "appearance": "The same Chen Xing: protective-suit cuff torn, red swollen sting on the neck side, walking slowly propped on the smoker, eyes heavy."
+          },
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_104"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_106",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Chen Xing's breath fades; at last he closes his eyes and dies.",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "deceased",
+            "appearance": "Chen Xing lies still on the apiary cabin plank bed with eyes closed, face peaceful, no breath left."
+          },
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_105"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_107",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Bee hum outside the window falls still; ranch wind goes quiet for an instant.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_104"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_108",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Chen Xing's cream protective suit still hangs behind the cabin door; Adeng reaches out and gently strokes it.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 18,
+          "last_seen": "seg_089"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_109",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "By the doorpost, adult Adeng stands before the newly nailed apiary memorial wood plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_110",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Adeng's fingertip traces Chen Xing's name carved on the plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_109"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_111",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He softly speaks the page number of the daybook entry on the bee truck overturn, as if answering.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 31,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_112",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "After mud is cleared from the creek extracting flat, Adeng writes the words bee truck in the empty bay then erases them.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_094"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_113",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Passing the cabin corridor, he sees Chen Xing's old straw hat on a hook.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_111"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_114",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In night, Adeng softly repeats the hive-opening password Chen Xing taught before the empty hive rows.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_113"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_115",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In the alfalfa scent Adeng grips the amber beeswax button tight in his palm.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_112"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_116",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Disguised Azhou arrives from the tool shed and briefly locks eyes with Adeng under the old migration camp.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "disguised_return",
+            "appearance": "After a change of look Azhou still wears vermilion rubber gloves; vest swapped for matte black, expression deeper."
+          },
+          "gap": 85,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_107"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_117",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Adeng and Azhou stand side by side by the concrete pier: one quiet-eyed, one deep-faced.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "disguised_return",
+            "appearance": "After a change of look Azhou still wears vermilion rubber gloves; vest swapped for matte black, expression deeper."
+          },
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_118",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Azhou still wears vermilion rubber gloves; Adeng still wears the amber beeswax button.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "disguised_return",
+            "appearance": "After a change of look Azhou still wears vermilion rubber gloves; vest swapped for matte black, expression deeper."
+          },
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_119",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "They stand mute a moment, then each turn and leave the camp.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "disguised_return",
+            "appearance": "After a change of look Azhou still wears vermilion rubber gloves; vest swapped for matte black, expression deeper."
+          },
+          "gap": 0,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_118"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Adeng: amber beeswax button on hat brim, cream protective suit.",
+            "E6": "Azhou: face nearly identical to Adeng, but vermilion rubber gloves and dark-green vest."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_120",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The shot returns years—that youth jumping from a dark-green migratory truck with an amber button on the hat brim appears again.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "young_apprentice",
+            "appearance": "Young Adeng: a lean beekeeping apprentice of fourteen or fifteen, amber beeswax button on the hat brim, oversized cream protective suit, bright stubborn eyes.",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_119",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the youth jumping from a dark-green migratory truck with an amber button on the hat brim",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_121",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The opening moment returns—in the apiary, an oak smoke pot carved with bee patterns first exhales pale-blue pine smoke.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E3",
+          "op": "recall_after_gap",
+          "state": {
+            "label": "intact",
+            "appearance": "An oak smoker with intact bellows leather cup, pale-blue pine smoke from the nozzle, bee patterns carved on the pot.",
+            "flashback": true
+          },
+          "gap": 31,
+          "last_seen": "seg_089",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the oak pot carved with bee patterns that first smoked at the opening",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_122",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Flash back to the tool narrow lane—a figure in vermilion rubber gloves and dark-green vest flashes past.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "young_rival",
+            "appearance": "Young beekeeping hand Azhou whose face closely matches Adeng's, but wearing vermilion rubber gloves and a dark-green vest over the suit, swaggering look.",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_119",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "the figure in vermilion rubber gloves and dark-green vest in the narrow lane",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_123",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Again that row of five old covered hand lamps on the cabin beam.",
+      "memory_probes": [
+        "count_memory",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 41,
+          "last_seen": "seg_081",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "that row of five old covered hand lamps on the cabin beam",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_124",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Back to that creek-side extracting wooden-table flat of first meeting; the reeds as before.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_115",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "that creek-side extracting wooden-table flat of first meeting",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_125",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Adeng reopens the honey-stained honey extract daybook and walks into the alfalfa apiary.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 4,
+          "last_seen": "seg_120"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "honey_stained",
+            "appearance": "The same honey extract daybook soaked through with honey, cover sticky, writing bled."
+          },
+          "gap": 13,
+          "last_seen": "seg_111"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_126",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On the front-row hives, those three frame number tags still hang.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 66,
+          "last_seen": "seg_059",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_127",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Adeng lifts the already-reskinned oak smoker; pine smoke rises again.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 1,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "reskinned",
+            "appearance": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+          },
+          "gap": 5,
+          "last_seen": "seg_121"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_128",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "He rolls his protective-suit cuffs tight and nods confirmation as Chen Xing once did.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "reskinned",
+            "appearance": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+          },
+          "gap": 0,
+          "last_seen": "seg_127"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_129",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In ranch dusk the new shift's hive-opening bronze bells chime twice lightly.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "reskinned",
+            "appearance": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_130",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Adeng lays today's first thread of smoke before the hive lid.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "reskinned",
+            "appearance": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_131",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Alfalfa blossoms bow lightly in the night wind.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Adeng: a broader-shouldered beekeeper in his twenties, still with the amber beeswax button, suit fitting, steady eyes."
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "reskinned",
+            "appearance": "The oak smoker fitted with a new leather cup, nozzle cleaned, bee patterns visible again, ready to smoke."
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_074"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_106"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 131,
+    "n_scenes": 22,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 262,
+      "transform": 8,
+      "persist": 58,
+      "recall_after_gap": 8
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 124,
+      "lookalike_disambiguation": 14,
+      "state_change": 8,
+      "persist_state": 46,
+      "long_gap_reappearance": 11,
+      "count_memory": 5,
+      "false_friend": 5,
+      "deprecation_avoidance": 16,
+      "reference_indirect": 10,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 11,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 14,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 16,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 303,
+      "5-29": 22,
+      ">=30": 11
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 96,
+      "at": "seg_100"
+    }
+  },
+  "warnings": []
+}

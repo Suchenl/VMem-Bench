@@ -1,0 +1,21 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Judge and backend sensitivity of Seg+DINO-key.} Deltas from no memory; gray subscripts give full paired story-bootstrap 95\% CI widths, conditional on one rollout per story. Cross-judge support counts policies with same-sign CIs excluding zero. Backend rows retain FLUX.2 keyframes. Limits: Sec.~\ref{sec:exp-sensitivity}.}
+\label{tab:main-sensitivity}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Judge / backend & $\Delta R$ & $\Delta P$ & $\Delta A$ \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Judge check: Wan2.2, 30 stories}}\\
+Qwen3-VL & \ci{+0.133}{0.044} & \ci{-0.057}{0.018} & \ci{-0.114}{0.034} \\
+InternVL3.5 & \ci{+0.123}{0.049} & \ci{-0.028}{0.023} & \ci{-0.050}{0.032} \\
+Cross-judge support & $4/4\ \uparrow$ & $3/4\ \downarrow$ & $4/4\ \downarrow$ \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Backend check: Qwen3-VL, 8 matched stories}}\\
+Wan2.2 & \ci{+0.150}{0.036} & \ci{-0.061}{0.032} & \ci{-0.130}{0.068} \\
+MiniMax-H3 & \ci{+0.152}{0.080} & \ci{-0.046}{0.032} & \ci{-0.102}{0.065} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,30 @@
+\begin{table}[!t]
+\centering
+\caption{{\normalfont Different internal memories, one common interface.}
+The families expose different internal states and native diagnostics, so those quantities are not directly comparable and do not by themselves establish what reaches or survives generation. \bench{} maps them to common observables: boundary context $\widehat{\mathcal{C}}_n$ before synthesis (Track-A) and generated outcome $x_n$ after synthesis (Track-B).}
+\label{tab:memory-interfaces}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}
+  >{\raggedright\arraybackslash}p{0.13\linewidth}
+  >{\raggedright\arraybackslash}p{0.33\linewidth}
+  >{\raggedright\arraybackslash}p{0.44\linewidth}
+  @{} }
+\toprule
+{\normalfont\bfseries Memory family}
+  & {\normalfont\bfseries Internal interface / native diagnostic}
+  & {\normalfont\bfseries What internal-only evaluation cannot establish} \\
+\midrule
+Window / KV
+  & frames, latents, or KV; recency / native attention; cache reach
+  & Retention does not imply that intent-relevant evidence crosses the finite conditioning boundary; stale history may remain active. \\
+Retrieval
+  & indexed frames / clips; search $+$ rank; Recall@$K$ / similarity
+  & Larger $K$ can buy recall while increasing context spend or contamination; a good retrieval decision may still fail in synthesis. \\
+Entity / state memory
+  & persistent identity / state records; address, update, filter; record validity
+  & Correct records do not guarantee that the right visual evidence is materialized under budget or realized correctly by the generator. \\
+\bottomrule
+\end{tabular}
+\end{table}

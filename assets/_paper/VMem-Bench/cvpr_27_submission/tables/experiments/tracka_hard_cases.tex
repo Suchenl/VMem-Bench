@@ -1,0 +1,21 @@
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.05}
+\captionsetup{hypcap=false, skip=3pt, belowskip=0pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}l cccc@{}}
+\toprule
+System & Re-app. & Multi-inst. & Scene-ret. & State-chg. \\
+\midrule
+Text-frame       & 0.782 & 0.789 & 0.800 & 0.787 \\
+Seg+uniform      & $0.744$ & $0.770$ & $0.751$ & $0.733$ \\
+Seg+DINO-key     & $\underline{0.836}$ & $\underline{0.847}$ & $\underline{0.843}$ & $\underline{0.800}$ \\
+Seg+frame        & $0.748$ & $0.767$ & $0.760$ & $0.785$ \\
+LongLive-RAG     & $0.444$ & $0.516$ & $0.376$ & $0.523$ \\
+MemFlow          & $0.519$ & $0.535$ & $0.563$ & $0.471$ \\
+\bottomrule
+\end{tabular}%
+}
+\captionof{table}{\textbf{Track-A hard-case recall} on \dlsmdc{}. DINO-key has the highest recall in each displayed bucket; underlines mark column maxima.}
+\label{tab:hard-cases}

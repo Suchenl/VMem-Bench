@@ -1,0 +1,902 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "glass_half",
+  "human_reviewed": true,
+  "chunks": [
+    {
+      "chunk_id": 0,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        0.0,
+        6.5
+      ],
+      "prompt": "美术馆展厅内，文字依次显示‘BLENDER INSTITUTE PRESENTS’与‘GLASS HALF’，背景为蓝灰色调，墙上挂有多个空白画框与人形剪影，其中左侧人形戴帽、右侧人形发髻，中间人形手托下巴，轮廓分明。",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [
+        "loc_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 1,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        6.5,
+        13.0
+      ],
+      "prompt": "黄衣紫发女在美术馆展厅的华丽金色画框内，手持红酒杯从左向右走过，随后转身面向观众，愉悦举起酒杯。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "prop_003",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_001",
+        "prop_001",
+        "prop_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        13.0,
+        27.0
+      ],
+      "prompt": "黄衣紫发女与黑衣高个男在美术馆展厅中举着红酒杯交谈，女主兴奋地比划，男主光头、头顶黑色莫霍克发型、下巴留山羊胡，身穿黑色高领毛衣和黑色西装外套，冷淡配合，背景有华丽金色画框。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "prop_003",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        27.0,
+        37.5
+      ],
+      "prompt": "黄衣紫发女在美术馆展厅中旋转舞动，彩色丝带与鲜花环绕飞舞，黑衣高个男手持红酒杯静立旁观，华丽金色画框在背景中静置。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "prop_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        37.5,
+        48.0
+      ],
+      "prompt": "在美术馆展厅中，黑衣高个男手持红酒杯向后仰倒，黄衣紫发女双手合十面露惊愕，生锈深色画框在旁。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        48.0,
+        56.0
+      ],
+      "prompt": "黄衣紫发女与黑衣高个男在美术馆展厅中，背景骤变狂风暴雨的黑白素描风格，闪电划破天际，破船在巨浪中沉没起火，两人在风雨中惊愕无助，生锈深色画框悬于墙侧。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        56.0,
+        63.0
+      ],
+      "prompt": "黑衣高个男在美术馆展厅中指向一侧的生锈深色画框，黄衣紫发女站在他对面，表情困惑。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        63.0,
+        71.0
+      ],
+      "prompt": "黄衣紫发女在美术馆展厅的华丽金色画框与生锈深色画框前挥手，黑衣高个男在满月与嚎叫狼的悬崖废墟前站立。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        71.0,
+        84.0
+      ],
+      "prompt": "在美术馆展厅中，黑衣高个男背景变为漂浮的粉色独角兽和气泡，他显得惊讶；黄衣紫发女背景变为深紫色鱼骨图案，一只黑白相间的小鸟在哭泣，她显得悲伤，两人皆身处华丽金色画框与生锈深色画框之间。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        84.0,
+        92.0
+      ],
+      "prompt": "在美术馆展厅中，黄衣紫发女抱臂生气，黑衣高个男双臂交叉愤怒，戴帽摄影师举着银灰色便携式数码相机拍照。一只戴墨镜白鹅出现在右侧画框中。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "prop_004",
+        "prop_005",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_003",
+        "prop_004",
+        "prop_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        92.0,
+        101.0
+      ],
+      "prompt": "在美术馆展厅中，戴墨镜白鹅飞至左侧画框中黑衣高个男身旁，黄衣紫发女、黑衣高个男、戴帽摄影师与相机同时惊恐崩溃，双手抓头或挥舞，戴帽摄影师茫然无措。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "prop_004",
+        "prop_005",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        101.0,
+        112.0
+      ],
+      "prompt": "黄衣紫发女与黑衣高个男在美术馆展厅的多个画框中交替出现，表情各异。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        112.0,
+        123.0
+      ],
+      "prompt": "黄衣紫发女与黑衣高个男在美术馆展厅中，画框内图像快速变换，最终所有小画框消失，仅剩蓝灰色背景与空画框轮廓。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        123.0,
+        134.0
+      ],
+      "prompt": "在美术馆展厅中，黄衣紫发女向黑衣高个男解释，对方倾听。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        134.0,
+        142.0
+      ],
+      "prompt": "黄衣紫发女与黑衣高个男在美术馆展厅中，背景自然景象旋转变化，戴帽摄影师剪影在漩涡中短暂出现。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        142.0,
+        151.0
+      ],
+      "prompt": "在美术馆展厅中，戴墨镜白鹅悬浮于戴帽摄影师头顶，黄衣紫发女与黑衣高个男同时指向对方似在争论，戴帽摄影师摘下帽子显出尴尬，相机在旁。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "prop_004",
+        "prop_005",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        151.0,
+        161.0
+      ],
+      "prompt": "黄衣紫发女与黑衣高个男在美术馆展厅中互相指责，随后大笑并拥抱。戴墨镜白鹅从两人身体穿过，化为半透明幽灵状，留下橙色痕迹。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_004",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        161.0,
+        171.0
+      ],
+      "prompt": "黄衣紫发女与黑衣高个男站在建筑外草坪，左侧摩天轮旁彩虹横跨，右侧冷却塔浓烟升腾，城市剪影隐约可见，树叶随风飘落。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "loc_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        171.0,
+        185.0
+      ],
+      "prompt": "蓝灰色背景上依次显示导演、配音、音乐、制作团队等演职员名单。文字为白色衬线体。",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        185.0,
+        189.0
+      ],
+      "prompt": "戴帽摄影师跪在建筑外草坪上，面前是一堆破碎的白色物体，他懊恼地捂脸。",
+      "present": [
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        189.0,
+        192.0
+      ],
+      "prompt": "屏幕中央显示文字“THE EEND”。随后显示Blender Cloud、Blender Institute等Logo及授权信息。",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    }
+  ]
+}

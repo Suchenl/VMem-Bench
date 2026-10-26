@@ -1,0 +1,1053 @@
+{
+  "story_id": "0041_border_customs",
+  "title": "Frontier Checkpoint",
+  "premise": "A long drama of passenger and cargo inspection at the port. Ashu and Agang are easily confused by looks; the clearance terminal goes intact→shattered screen→replaced; after the border-check pickup is wrecked it must be avoided; lead-seal/radio/bell count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Zhou Li",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Border officer Zhou Li around forty, peaked cap, deep-blue uniform, badge on the chest, gaze sharp.",
+        "weary_injured": "The same Zhou Li: uniform torn, temple bandaged, walking slowly on a cane, peaked cap still straight.",
+        "retired_exit": "Zhou Li has left the post; only his old uniform and peaked cap remain in the hall—he himself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Ashu",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Trainee Ashu of fifteen or sixteen, indigo armband, light-gray trainee uniform, eyes bright and stubborn.",
+        "adult_successor": "Ashu in his early twenties, still in indigo armband, tall upright and steady."
+      }
+    },
+    "E3": {
+      "name": "clearance terminal",
+      "kind": "prop",
+      "states": {
+        "online_intact": "A desktop clearance terminal, black case green screen, customs emblem sticker on the side, card slot intact.",
+        "screen_shattered": "The same clearance terminal with a shattered screen, green text garbled, card slot jammed with paper.",
+        "screen_replaced": "Clearance terminal online again after a new screen; a service sticker on the case."
+      }
+    },
+    "E4": {
+      "name": "inspection ledger",
+      "kind": "prop",
+      "states": {
+        "intact": "A hardback inspection ledger noting plates, cargo names, and release stamps.",
+        "rain_ruined": "The same inspection ledger soaked by a downpour; cover wrinkled, stamps bled."
+      }
+    },
+    "E5": {
+      "name": "border-check pickup",
+      "kind": "prop",
+      "states": {
+        "intact": "A deep-blue border-check pickup, roof warning lights, white 'Border-12' sprayed on the door.",
+        "ram_wrecked": "Border-check pickup rammed by a gate-runner truck; nose crumpled, lights shattered—a wreck."
+      }
+    },
+    "E6": {
+      "name": "Agang",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young Agang of build close to Ashu's, milky-white armband, same light-gray trainee uniform, manner bold.",
+        "remade_scarred": "Remade Agang still wears the milky-white armband, manner deeper."
+      }
+    },
+    "E7": {
+      "name": "passenger hall",
+      "kind": "location",
+      "appearance": "Passenger hall: high windows, blue queue rails, clearance desks in a row, soft PA announcements."
+    },
+    "E8": {
+      "name": "cargo lane",
+      "kind": "location",
+      "appearance": "Cargo lane: truck lane under a rain canopy, weighbridge and lead-seal table side by side, diesel smell thick."
+    },
+    "E9": {
+      "name": "border trade market",
+      "kind": "location",
+      "appearance": "Border trade market: open-air market outside the port, stalls selling local goods, noisy crowds."
+    },
+    "E10": {
+      "name": "old sentry porch",
+      "kind": "location",
+      "appearance": "Old sentry porch: gray-brick former sentry post, lintel carved 'Frontier Guard', mossy stone steps."
+    },
+    "E11": {
+      "name": "memorial brass plaque",
+      "kind": "prop",
+      "appearance": "A brass memorial plaque nailed to the porch pillar, engraved with Zhou Li's name and enlistment year."
+    },
+    "E12": {
+      "name": "lead seals",
+      "kind": "prop",
+      "appearance": "Three red lead seals on iron wire on the seal table, faces stamped with the customs emblem."
+    },
+    "E13": {
+      "name": "green postal van",
+      "kind": "prop",
+      "appearance": "A green postal van, rounded body without 'Border-12' lettering—unlike the deep-blue pickup."
+    },
+    "E14": {
+      "name": "customs supervisor",
+      "kind": "character",
+      "appearance": "A lean customs supervisor in white gloves with a supervisor badge, build like Zhou Li's but more stiff."
+    },
+    "E15": {
+      "name": "handheld radios",
+      "kind": "prop",
+      "appearance": "A row of five handheld radios on a charging rack, green lights all on, numbered shells."
+    },
+    "E16": {
+      "name": "warning copper bells",
+      "kind": "prop",
+      "appearance": "Two warning copper bells hung under the lane canopy, struck when something is wrong."
+    },
+    "E17": {
+      "name": "Xiaolan",
+      "kind": "character",
+      "appearance": "Market girl Xiaolan, light-brown headscarf, at a glance like young Ashu, shy eyes."
+    },
+    "E18": {
+      "name": "training dummy terminal",
+      "kind": "prop",
+      "appearance": "A training dummy terminal, smaller, gray screen without emblem—resembles the clearance terminal but cannot go online."
+    },
+    "E19": {
+      "name": "freight driver Lao Jin",
+      "kind": "character",
+      "appearance": "Freight driver Lao Jin, full beard, camo jacket, build like Zhou Li's but stockier."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_injured",
+      "retired_exit"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "online_intact",
+      "screen_shattered",
+      "screen_replaced"
+    ],
+    "E4": [
+      "intact",
+      "rain_ruined"
+    ],
+    "E5": [
+      "intact",
+      "ram_wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_scarred"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Ashu: indigo armband, light-gray trainee uniform.",
+        "E6": "Agang: face nearly identical to Ashu's, but milky-white armband and bold manner."
+      },
+      "note": "Trainee misID: indigo armband vs milky-white armband."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Passenger hall dusk (introduce five radios · two copper bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk Zhou Li enters the passenger hall and first checks the clearance terminal on the desk.",
+        {
+          "action": "A row of five handheld radios on the charging rack shows green lights all on; Zhou Li test-calls each one.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two warning copper bells hang under the cargo canopy; Zhou Li taps lightly to test the ring.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Zhou Li circles the clearance desk checking whether the card slot is clean.",
+        "Through high windows Zhou Li looks toward the darkening cargo-lane canopy.",
+        {
+          "action": "The clearance terminal green screen is steady; Zhou Li nods confirmation.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Zhou Li sits in the duty chair in a hall corner and dozes."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Logging the inspection ledger",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Zhou Li opens the inspection ledger and notes that day's released runs.",
+        "Zhou Li stamps a release chop in the inspection ledger.",
+        "Zhou Li closes the inspection ledger and returns it to the clearance-desk drawer.",
+        {
+          "action": "The clearance terminal beeps briefly; Zhou Li nods.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Zhou Li dry-cloths fingerprints from the ledger cover."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Cargo lane greets the trainee (introduce three lead seals)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "At dawn on the cargo lane Zhou Li greets young Ashu driving the border-check pickup up.",
+        {
+          "action": "Ashu jumps down from the pickup and flips the warning lights to steady flash.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Zhou Li points to the three red lead seals on the seal table, teaching Ashu to read the emblem face.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ashu crouches by the weighbridge, curiously watching the digits jump.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Zhou Li explains ram-response procedure; Ashu nods earnestly.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Ashu looks back at the deep-blue border-check pickup, eyes full of tension.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Zhou Li has Ashu practice radio call signs first."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Border trade market (Agang alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the noisy border trade market, Agang in a milky-white armband looks up from behind a stall.",
+        "Agang checks invoices at a local-goods stall; the armband stands out.",
+        "Agang argues with a stallholder, manner bold.",
+        "Agang carries a bodycam through the market crowd.",
+        "Agang stops at the market mouth and looks back toward the port."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Trainees shared frame",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "At the cargo-lane mouth Ashu and Agang stand side by side—one indigo armband, one milky-white.",
+        "Ashu hands a lead seal to Agang; they check the number.",
+        "Agang tightens Ashu's armband; the two walk slowly under the canopy.",
+        "Ashu and Agang part at the lane end—one to the hall, one to the market.",
+        "Diesel wind skims past; their similar light-gray trainee uniforms cross between rails then split."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Inspection ledger rain-ruined",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night Zhou Li alone stands night watch in the passenger hall.",
+        {
+          "action": "Zhou Li opens the inspection ledger and finds rain through the window has soaked and wrinkled the cover.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "rain_ruined"
+            }
+          ]
+        },
+        "Zhou Li wipes water beads from the clearance terminal screen.",
+        "Zhou Li looks toward the black cargo canopy.",
+        {
+          "action": "The clearance terminal green screen glows faintly; Zhou Li stares at empty queue numbers.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Zhou Li clips blotting paper into the ruined ledger and weights it under an iron rule."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Port seasons of daily work (filler · stretch the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In rainy season Zhou Li wipes damp passport trays dry in the passenger hall.",
+        "Zhou Li brushes dust from the card slot with a soft brush.",
+        "At dawn Zhou Li checks the duty roster on the cargo lane.",
+        "Zhou Li hangs a raincoat on a canopy post and listens to weighbridge hydraulics.",
+        "In midsummer Zhou Li turns on the hall AC to drive out the heat.",
+        "Zhou Li calibrates the clearance terminal clock.",
+        "When autumn wind rises Zhou Li checks reflective strips on the lane rails.",
+        "Zhou Li trial-writes new cargo-class codes on a blank ledger page.",
+        "On a frost night Zhou Li lights an emergency lamp and checks flashlight charge.",
+        "Zhou Li wraps the lead-seal box in a blanket against night dew.",
+        "On a heavy snow day Zhou Li sweeps thin snow from the old sentry porch steps.",
+        "Zhou Li blows on his hands and tightens lead-seal iron wire.",
+        "In early spring Zhou Li clears weeds from the wind-shaft vents.",
+        "Zhou Li charges and tests the five handheld radios one by one.",
+        "Zhou Li posts new clearance notices on the hall wall.",
+        "Around Dragon Boat Festival Zhou Li fumigates the archive cabinet with mugwort smoke.",
+        "Zhou Li redraws the lead-seal faces clear.",
+        "Zhou Li alone paces the cargo lane, silently reciting ram-response call signs.",
+        "After rain Zhou Li opens the side door and listens to eaves drip into an iron bucket.",
+        "Zhou Li swaps worn gloves for new ones.",
+        "Another dusk Zhou Li sits by the terminal listening to the PA.",
+        "At night Zhou Li rises to charge the hall emergency lamps.",
+        "Zhou Li numbers newly arrived passport trays.",
+        "Zhou Li polishes the 'Frontier Guard' lintel on the porch.",
+        "Zhou Li checks the pickup warning-light bulbs.",
+        "Zhou Li marks priority runs on the duty sheet.",
+        "Zhou Li wrings mud-stained rags and hangs them up.",
+        "On a full-moon night Zhou Li looks out at the lane; canopy silver light.",
+        "Zhou Li tidies the charging rack so radio numbers face out.",
+        "Zhou Li writes a new season's inspection notes on the ledger flyleaf.",
+        "Zhou Li polishes the two warning copper bells bright.",
+        "Zhou Li hears market noise and keeps logging releases.",
+        "Zhou Li glues a cracked rail sleeve back.",
+        "Zhou Li stacks obsolete forms for destruction in a hall corner.",
+        "Zhou Li latches the side door against night cold wind into the hall.",
+        "Another Qingming Zhou Li sets a bunch of wildflowers on the porch.",
+        "Zhou Li rolls the duty sheet into a tube and binds it with a rubber band.",
+        "Zhou Li tests a low copper-bell tone; the sound is clear.",
+        "Zhou Li sits silent in the hall, listening to the PA loop for a long time.",
+        "Zhou Li cuts worn indigo armband cloth into rag stock.",
+        "Zhou Li tightens the dust cap on the weighbridge sensor port."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Cargo patrol (recall lead seals · postal-van false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak Zhou Li patrols the cargo lane; the border-check pickup sits under the canopy.",
+        {
+          "action": "Zhou Li crouches to check the pickup tire pressure.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Zhou Li walks to the seal table; those three red lead seals are still on iron wire.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A green postal van drives the lane, rounded body—not the border-check pickup.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Zhou Li stands on the cargo lane and logs the weighbridge calibration.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Zhou Li hangs a wet raincoat on a canopy wooden rack.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Zhou Li pats mud dots from his sleeve and looks back at hall lights."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Inspection daily addenda (filler · keep stretching the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "After Grain Rain Zhou Li teaches a new trainee on the cargo lane to tell real lead seals from fake.",
+        "Zhou Li refolds the dried raincoat into the pickup toolbox.",
+        "In summer heat Zhou Li lays a wet cloth on the terminal shell to cool it.",
+        "Zhou Li checks the pickup bed and moves the damp lead-seal box to the upper tier.",
+        "On an autumn night Zhou Li mends loose ledger pages under an emergency lamp.",
+        "Zhou Li rotates the five handheld radios out for inspection.",
+        "At first snow Zhou Li sweeps a narrow path on the porch threshold.",
+        "Zhou Li crates the training dummy terminal again.",
+        "Zhou Li hears copper bells chime lightly and keeps approving shift handovers.",
+        "Zhou Li opens the side door to let draft blow diesel smell away.",
+        "Zhou Li hangs rain canvas on the porch.",
+        "Zhou Li stows a blown fuse in an iron box.",
+        "At night Zhou Li dreams of a failed ram stop and writes it into the ledger on waking.",
+        "Zhou Li rinses the lead-seal table with clean water.",
+        "Zhou Li wipes and reposts the clearance notices.",
+        "Zhou Li pulls weeds from lane stone seams.",
+        "Zhou Li returns radios to the charging rack; number stickers somewhat faded.",
+        "Before lights-out Zhou Li looks once more at the terminal green light.",
+        "Zhou Li folds an indigo armband a trainee left in the hall.",
+        "Zhou Li hears the market closing horn and rises to lock up.",
+        "Zhou Li dries gloves by the heater.",
+        "Zhou Li moves the copper bells aside to show the repaired canopy beam.",
+        "Zhou Li dries temperature-check stickers.",
+        "Zhou Li charts release-volume comparisons on the ledger last page.",
+        "Zhou Li silently recites tomorrow's priority runs and steps from the porch.",
+        "Zhou Li pushes the pickup to the wall to clear the lane.",
+        "Zhou Li hears a distant whistle and blows out the emergency lamp.",
+        "Another rain night Zhou Li alone watches the terminal until dawn.",
+        "Zhou Li bags newly issued reflective vests into paper sacks."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Ram night (terminal shattered · pickup wrecked)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "On a storm night a truck suddenly rams the gate; alarms scream.",
+        "In the shock the clearance desk sways hard.",
+        {
+          "action": "A sharp crack—the clearance terminal screen shatters into garbled green.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "screen_shattered"
+            }
+          ]
+        },
+        {
+          "action": "Under the canopy the deep-blue border-check pickup intercepts head-on.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "The border-check pickup is flipped; nose crumpled, lights shattered—totally wrecked.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "ram_wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Zhou Li lunges to the clearance desk and clutches the shattered-screen terminal.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Reinforcements arrive with lamps; glass shards litter the lane."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (pickup indirect · radio recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day Zhou Li stands in the passenger hall, staring at the shattered-screen clearance terminal.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Zhou Li fingertips the cracked glass, expression dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "In a blank of the inspection ledger Zhou Li notes the date the border-check pickup was hit.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "On the wall still hangs a dispatch photo of the border-check pickup; Zhou Li gazes a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Zhou Li takes one of the five handheld radios from the charging rack and test-calls the duty room.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The shattered-screen clearance terminal still flickers garbled green on the rails.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Zhou Li sets muddy boots by the door to drain."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Screen replaced (third state · dummy-terminal false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Zhou Li calls a technician to replace the clearance terminal screen.",
+        {
+          "action": "Zhou Li takes a training dummy terminal from the training room for comparison—smaller, gray screen without emblem.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "The technician fits a new screen and retests the network.",
+        {
+          "action": "Replacement done; the clearance terminal is online again with a service sticker on the case.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "screen_replaced"
+            }
+          ]
+        },
+        "The repaired terminal beeps clear; Zhou Li exhales.",
+        "Zhou Li swipes a card for a trial release; the green light comes on."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: postal van and supervisor",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "freight driver Lao Jin arrives on the lane in a camo jacket, build like Zhou Li's.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "customs supervisor also arrives in white gloves with a badge and talks beside Zhou Li.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The supervisor points at the green postal van, asking if it belongs to the border mobile unit.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The supervisor leaves; Zhou Li alone remains on the cargo lane.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Lao Jin hands over a waybill and bows farewell."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Xiaolan who resembles Ashu",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "A girl named Xiaolan in a light-brown headscarf arrives at the market; at a glance she somewhat resembles young Ashu.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaolan practices sorting stall invoices; Zhou Li shakes his head—she is never Ashu.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaolan shyly lowers her head and tightens the headscarf."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Weary injured (bell long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "At dusk years later, Zhou Li with a bandaged temple leans on a cane on the old sentry porch.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_injured"
+            }
+          ]
+        },
+        "Zhou Li looks up at the 'Frontier Guard' lintel, gaze far away.",
+        {
+          "action": "Those two warning copper bells from the canopy are moved to the porch for a test ring; Zhou Li stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Zhou Li presses a palm to the porch's cold brick wall, as if saying goodbye.",
+        "Evening wind lifts the torn corner of his uniform."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Ashu takes over · Zhou Li retires",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day adult Ashu returns along the side road and hurries toward the old sentry porch.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Ashu reunites with cane-leaning Zhou Li under the porch; they embrace.",
+        {
+          "action": "Beside the duty-room couch Ashu holds Zhou Li's hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Zhou Li's breath fades; he finally closes his eyes and exits the post.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "retired_exit",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Ashu folds Zhou Li's old uniform neat and sets it by the pillow.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · memorial brass plaque (indirect mention)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Zhou Li's peaked cap still hangs behind the hall door; Ashu reaches to stroke it lightly.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "On the porch pillar Ashu stands before a newly nailed memorial brass plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Ashu's fingertip traces Zhou Li's name engraved on the plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        "Ashu sets a bunch of wildflowers under the plaque."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (long-range + shared frame)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Remade Agang arrives from the market and embraces Ashu tightly under the porch.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_scarred"
+            }
+          ]
+        },
+        "Ashu and Agang stand side by side on the porch—one calm-eyed, one deep-mannered.",
+        "They look at each other in silence, facing similar faces.",
+        "Agang tightens his milky-white armband; Ashu still wears the indigo armband."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth practicing radio call signs on the cargo lane appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth practicing radio call signs on the cargo lane",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the hall, a black-case green-screen terminal lights steady for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "online_intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the black-case green-screen terminal that first lit steady at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash to the market years ago—that light-gray figure in a milky-white armband slips past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the light-gray figure in a milky-white armband in the market years ago",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five radios on the charging rack.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five handheld radios on the charging rack",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the canopy truck lane of first meeting, canopy dripping as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the cargo lane of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again the image of those two old bells under the canopy chiming lightly.",
+          "present": [
+            {
+              "eid": "E16",
+              "count": 2,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "those two warning copper bells under the canopy",
+                "resolves_to": "E16"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrases only; no names."
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (ledger long range · lead-seal long range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Ashu reopens that rain-ruined inspection ledger and walks into the passenger hall.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "On the seal table those three red lead seals are still on iron wire.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ashu takes over the screen-replaced clearance terminal and swipes cards for release again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "New green sprouts from porch stone seams.",
+        "Ashu tightens his indigo armband; hall lights come on again."
+      ]
+    }
+  ]
+}

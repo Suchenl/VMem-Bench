@@ -1,0 +1,3142 @@
+{
+  "story_id": "0007_bamboo_paper_mill",
+  "gt_version": "trackB-gt-2.0",
+  "title": "竹纸水碓",
+  "premise": "皖南竹纸作坊的师徒接力。师傅白鹭与学徒米粒守护竹帘抄纸帘；米粒与阿野面容极似却袖套不同；青箬浆槽车散架后须规避；纸浆配方册、数量记忆与时序闪回贯穿。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0007_bamboo_paper_mill.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "白鹭",
+      "kind": "character",
+      "states": {
+        "壮年抄纸": "四十岁的抄纸师傅，青布包头，麻布围裙沾满纸浆，双手泡得发白，手腕动作稳准。",
+        "烫伤扶杖": "同一位白鹭：小臂被沸浆烫伤缠着草药布，拄断竹杖，麻布围裙焦了一角。",
+        "病逝碓房": "白鹭阖眼长逝，静静躺在水碓房木榻上，麻布围裙盖住胸口。"
+      },
+      "initial_state": "壮年抄纸"
+    },
+    "E2": {
+      "name": "米粒",
+      "kind": "character",
+      "states": {
+        "少年学徒": "十五岁的学徒女孩，围草木染围腰，腕上戴竹篾环，指尖常留纸浆白痕。",
+        "成年师傅": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+      },
+      "initial_state": "少年学徒"
+    },
+    "E3": {
+      "name": "竹帘抄纸帘",
+      "kind": "prop",
+      "states": {
+        "完好": "一床细密的竹帘抄纸帘，帘丝匀直，老竹边框磨得发亮，表面沾着均匀白浆。",
+        "帘丝撕裂": "同一床竹帘抄纸帘崩断数根帘丝，边框被水流撞裂，干结浆斑卡在缝里。",
+        "重绷修复": "竹帘抄纸帘被重新绷紧，缺失帘丝补齐，老竹边框箍上新竹钉，浆面恢复平整。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "纸浆配方册",
+      "kind": "prop",
+      "states": {
+        "完好": "一本油纸封面的纸浆配方册，记着竹料浸泡天数、蒸煮时辰和石灰比例。",
+        "浆渍糊字": "同一本纸浆配方册被湿浆浸透，油纸封面起皱，墨字糊成灰白团。"
+      },
+      "initial_state": "完好"
+    },
+    "E5": {
+      "name": "青箬浆槽车",
+      "kind": "prop",
+      "states": {
+        "完好": "一辆窄长的青箬浆槽车，木槽内盛着泡软竹丝，车帮贴青箬叶，底下是四只小木轮。",
+        "散架报废": "青箬浆槽车被洪水冲散，木槽裂开，青箬叶漂落，只剩一只小木轮卡在石阶边。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "阿野",
+      "kind": "character",
+      "states": {
+        "青年对手": "与米粒面容极相似的青年，却戴炭黑袖套、围深褐围腰，神情张扬。",
+        "改头换面": "改头换面后的阿野仍戴炭黑袖套，额上多一道蒸汽烫伤疤，深褐围腰换成皮扣款。"
+      },
+      "initial_state": "青年对手"
+    },
+    "E7": {
+      "name": "抄纸车间",
+      "kind": "location",
+      "appearance": "敞亮的抄纸车间，竹浆水槽成排，墙边立着模框和帘床，空气里有竹腥与石灰味。"
+    },
+    "E8": {
+      "name": "浸竹水塘",
+      "kind": "location",
+      "appearance": "村外浸竹水塘，水面漂着青竹筒，塘边堆石灰、竹篾和刚剥下的笋壳。"
+    },
+    "E9": {
+      "name": "晒纸长廊",
+      "kind": "location",
+      "appearance": "纸坊晒纸长廊，两侧木架挂满半干白纸，热气、纸香和水汽混在一起。"
+    },
+    "E10": {
+      "name": "废弃水碓房",
+      "kind": "location",
+      "appearance": "半塌的水碓房，水轮停转，木槌悬在石槽上方，墙角长满青苔。"
+    },
+    "E11": {
+      "name": "白记木匾",
+      "kind": "prop",
+      "appearance": "一块挂在车间门楣的木匾，刻着『白记纸坊』，边角被潮气涨开。"
+    },
+    "E12": {
+      "name": "水印筛",
+      "kind": "prop",
+      "appearance": "三面细竹水印筛，筛面嵌着浅浅纹样，靠在抄纸车间的水槽边。"
+    },
+    "E13": {
+      "name": "杉木晒纸车",
+      "kind": "prop",
+      "appearance": "一辆杉木晒纸车，车上夹着半干纸页，没有青箬叶，也不盛竹丝。"
+    },
+    "E14": {
+      "name": "纸号账房",
+      "kind": "character",
+      "appearance": "一名精瘦账房，也青布包头，但袖口别着算盘珠，与白鹭身形相近。"
+    },
+    "E15": {
+      "name": "晾纸夹杆",
+      "kind": "prop",
+      "appearance": "五排木质晾纸夹杆，整齐挂在车间梁下，用来夹起刚揭下的湿纸。"
+    },
+    "E16": {
+      "name": "水轮木槌",
+      "kind": "prop",
+      "appearance": "两只连着水轮的木槌，轮转时轮流落下，敲打石槽里的熟竹料。"
+    },
+    "E17": {
+      "name": "笋儿",
+      "kind": "character",
+      "appearance": "邻村剥笋女孩，围浅褐围腰，乍看与少年米粒神似，却别竹簪、目光怯生。"
+    },
+    "E18": {
+      "name": "粗帘模框",
+      "kind": "prop",
+      "appearance": "一副粗竹模框，外形像抄纸帘，但帘丝稀疏、边框没有老竹磨痕。"
+    },
+    "E19": {
+      "name": "陶缸手推车",
+      "kind": "prop",
+      "appearance": "一辆推着陶缸的矮车，缸里装清水和石灰，不盛竹丝，绝非青箬浆槽车。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "壮年抄纸",
+      "烫伤扶杖",
+      "病逝碓房"
+    ],
+    "E2": [
+      "少年学徒",
+      "成年师傅"
+    ],
+    "E3": [
+      "完好",
+      "帘丝撕裂",
+      "重绷修复"
+    ],
+    "E4": [
+      "完好",
+      "浆渍糊字"
+    ],
+    "E5": [
+      "完好",
+      "散架报废"
+    ],
+    "E6": [
+      "青年对手",
+      "改头换面"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "米粒：草木染围腰、腕上竹篾环。",
+        "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+      },
+      "note": "纸坊学徒错认。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，白鹭卷起竹帘门，走进潮湿的抄纸车间，把竹帘抄纸帘平放在帘床上。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "车间梁下挂着五排木质晾纸夹杆，白鹭逐排检查夹口是否夹得住湿纸。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "水轮旁两只水轮木槌轮流落下，白鹭侧耳听它们敲打熟竹料的节奏。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭把抄纸帘沉入竹浆水槽，轻轻一摇，帘面铺开薄薄白浆。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把第一张湿纸揭上墙板，指尖留下细小水珠。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白鹭解开笋壳绳，翻开油纸封面的纸浆配方册。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他用松烟墨记下今日竹料浸泡天数、石灰比例和出纸批号。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭合上配方册，把湿润的竹帘抄纸帘靠在水槽边晾水。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的浸竹水塘，白鹭迎向推着青箬浆槽车来的少年米粒。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "米粒停稳浆槽车，木槽里泡软的竹丝随水面轻轻晃动。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭把三面水印筛靠在塘边石阶上，教米粒看筛面纹样是否断线。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "米粒掀起浆槽车边的青箬叶，检查车轮是否被湿竹丝缠住。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "晒纸长廊里，戴炭黑袖套的阿野从半干白纸后回头。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿野用指尖弹了弹深褐围腰，故意让袖套上的黑灰显出来。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他抽走一支竹夹，白纸在热气中轻轻颤动。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "长廊尽头的水汽遮住阿野的脸，只剩深褐围腰在纸影间移动。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "浸竹水塘边，米粒与阿野同时搬竹筒，一个草木染围腰，一个炭黑袖套。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "米粒护住腕上的竹篾环，阿野把深褐围腰系得更紧。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人隔着水塘对视片刻，各自把竹筒送往不同水槽。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的山雨夜，白鹭独自在抄纸车间守槽，竹帘抄纸帘靠在膝边。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 11,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 11,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他翻开纸浆配方册，发现湿浆从桌角漫过，油纸封面起皱，墨字糊成灰白团。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "浆渍糊字",
+            "appearance": "同一本纸浆配方册被湿浆浸透，油纸封面起皱，墨字糊成灰白团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭用竹片刮去册页边的浆渍，凭记忆补写还能辨认的配比。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "浆渍糊字",
+            "appearance": "同一本纸浆配方册被湿浆浸透，油纸封面起皱，墨字糊成灰白团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "抄纸季漫长，白鹭日日在车间捞帘、揭纸、压榨水分。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "梅雨来临，他把晾纸夹杆挪远，免得湿纸返潮起皱。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "新竹上市，白鹭站在门口，看一捆捆青竹被送进水塘。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "盛夏正午，他用蒲扇给刚揭下的纸面散热。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "秋雨绵绵，竹浆水槽边弥漫石灰味和青竹腥。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一个除夕，白鹭独自在车间守到水轮停声。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，白鹭沿浸竹水塘巡查，青箬浆槽车停在石阶旁。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 16,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他蹲下检查浆槽车四只小木轮，确认没有被竹丝卡住。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭把塘边散落的竹篾束重新码齐，留出推车通道。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一辆杉木晒纸车从长廊方向推来，车上夹着半干纸页，却没有青箬叶也不盛竹丝。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "山洪突然漫过水塘石阶，竹筒和笋壳被浑水卷起。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭在车间门口抢出竹帘抄纸帘，却看见边框被水流撞裂，帘丝崩断。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "帘丝撕裂",
+            "appearance": "同一床竹帘抄纸帘崩断数根帘丝，边框被水流撞裂，干结浆斑卡在缝里。"
+          },
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "青箬浆槽车被洪水推离石阶，木槽里的竹丝翻涌洒出。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "青箬浆槽车撞上水轮基座后散成木条，青箬叶和一只小木轮漂进浑水。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "散架报废",
+            "appearance": "青箬浆槽车被洪水冲散，木槽裂开，青箬叶漂落，只剩一只小木轮卡在石阶边。"
+          },
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭抱住撕裂的抄纸帘退回车间，湿浆顺着围裙往下滴。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "帘丝撕裂",
+            "appearance": "同一床竹帘抄纸帘崩断数根帘丝，边框被水流撞裂，干结浆斑卡在缝里。"
+          },
+          "gap": 2,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "山洪次日，白鹭站在车间里，凝视帘丝撕裂的竹帘抄纸帘。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "帘丝撕裂",
+            "appearance": "同一床竹帘抄纸帘崩断数根帘丝，边框被水流撞裂，干结浆斑卡在缝里。"
+          },
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他在纸浆配方册空白页记下青箬浆槽车散架报废的时刻，墨迹压过浆渍。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "浆渍糊字",
+            "appearance": "同一本纸浆配方册被湿浆浸透，油纸封面起皱，墨字糊成灰白团。"
+          },
+          "gap": 16,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "墙边挂着青箬浆槽车掉下来的青箬叶束，白鹭久久没有丢弃。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭从梁下五排晾纸夹杆中取下一排，夹住抢救出的半湿纸样。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 38,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把青箬浆槽车剩下的小木轮放进木匣，盖上旧布。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，白鹭请来老篾匠，在车间水槽旁重新量帘丝。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "帘丝撕裂",
+            "appearance": "同一床竹帘抄纸帘崩断数根帘丝，边框被水流撞裂，干结浆斑卡在缝里。"
+          },
+          "gap": 4,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "篾匠先递上一副粗帘模框试比，外形相似，却帘丝稀疏、没有老竹边框磨痕。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "细竹丝一根根补入裂口，竹帘抄纸帘被重新绷紧，帘面恢复平整。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "重绷修复",
+            "appearance": "竹帘抄纸帘被重新绷紧，缺失帘丝补齐，老竹边框箍上新竹钉，浆面恢复平整。"
+          },
+          "gap": 1,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭用修复后的抄纸帘入槽轻摇，捞起一张边缘齐整的湿纸。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重绷修复",
+            "appearance": "竹帘抄纸帘被重新绷紧，缺失帘丝补齐，老竹边框箍上新竹钉，浆面恢复平整。"
+          },
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "一辆陶缸手推车驶到水塘边，缸里只有清水和石灰，并不是已散架报废的青箬浆槽车。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "纸号账房走到白鹭身旁核对纸批，两人都青布包头，背影一时相像。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "账房指着陶缸手推车安排石灰入库，白鹭继续检查水塘里的竹料。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_047",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "邻村笋儿挑着笋壳来水塘，浅褐围腰远看像少年米粒的草木染围腰。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "笋儿试着把竹筒推入水中，白鹭却摇头提醒她别着竹簪，终究不是米粒。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，白鹭拄着断竹杖，缓慢走进半塌的废弃水碓房。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "烫伤扶杖",
+            "appearance": "同一位白鹭：小臂被沸浆烫伤缠着草药布，拄断竹杖，麻布围裙焦了一角。"
+          },
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "停转的水轮旁，那两只木槌仍悬在石槽上方，风一吹便轻轻晃动。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "烫伤扶杖",
+            "appearance": "同一位白鹭：小臂被沸浆烫伤缠着草药布，拄断竹杖，麻布围裙焦了一角。"
+          },
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 49,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭把缠草药布的小臂靠在石槽边，听见远处水声像旧日敲浆。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "烫伤扶杖",
+            "appearance": "同一位白鹭：小臂被沸浆烫伤缠着草药布，拄断竹杖，麻布围裙焦了一角。"
+          },
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年的米粒背着新帘床回到村口，快步走向废弃水碓房。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 35,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "米粒在碓房门下与拄杖的白鹭重逢，两人隔着水汽相拥。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "烫伤扶杖",
+            "appearance": "同一位白鹭：小臂被沸浆烫伤缠着草药布，拄断竹杖，麻布围裙焦了一角。"
+          },
+          "gap": 1,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "木榻旁，米粒握着白鹭缠草药布的小臂，听水轮外的雨声。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "烫伤扶杖",
+            "appearance": "同一位白鹭：小臂被沸浆烫伤缠着草药布，拄断竹杖，麻布围裙焦了一角。"
+          },
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "白鹭气息渐弱，最终阖上双眼，静静病逝在水碓房。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "病逝碓房",
+            "appearance": "白鹭阖眼长逝，静静躺在水碓房木榻上，麻布围裙盖住胸口。"
+          },
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "抄纸车间门后仍挂着白鹭的旧麻布围裙，米粒抚过焦黑的一角。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 12,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "米粒站在白记木匾前，匾上白鹭亲手刻下的年份被潮气涨开。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "她把白鹭留下的木匾擦净，再把边角用竹钉固定回门楣。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "改头换面的阿野从水碓房外走来，额上蒸汽烫伤疤在阴影里发亮。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿野仍戴炭黑袖套，额上多一道蒸汽烫伤疤，深褐围腰换成皮扣款。"
+          },
+          "gap": 42,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "米粒与阿野并肩立在旧水轮前，一个竹篾环在腕，一个炭黑袖套在臂。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿野仍戴炭黑袖套，额上多一道蒸汽烫伤疤，深褐围腰换成皮扣款。"
+          },
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "米粒：草木染围腰、腕上竹篾环。",
+            "E6": "阿野：面容极似米粒，但炭黑袖套、深褐围腰。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前——那个检查青箬叶车轮的学徒女孩，身影再度浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年学徒",
+            "appearance": "十五岁的学徒女孩，围草木染围腰，腕上戴竹篾环，指尖常留纸浆白痕。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_063",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "检查青箬叶车轮的学徒女孩",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场的那一刻——车间里，一床竹帘第一次沉入白浆水槽。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "完好",
+            "appearance": "一床细密的竹帘抄纸帘，帘丝匀直，老竹边框磨得发亮，表面沾着均匀白浆。",
+            "flashback": true
+          },
+          "gap": 18,
+          "last_seen": "seg_046",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次沉入白浆水槽的竹帘",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到晒纸长廊——那个戴炭黑袖套的相似身影在白纸后掠过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "青年对手",
+            "appearance": "与米粒面容极相似的青年，却戴炭黑袖套、围深褐围腰，神情张扬。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_063",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "当年晒纸长廊里戴炭黑袖套的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现车间梁下那五排夹着湿纸的木杆。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 25,
+          "last_seen": "seg_041",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "车间梁下那五排夹纸木杆",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那片泡竹浅塘，青竹筒漂在水面，一如往昔。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 16,
+          "last_seen": "seg_051",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时那片泡竹浅塘",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "米粒翻开那本浆渍糊字的纸浆配方册，在干净新页写下新的纸批号。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 4,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "浆渍糊字",
+            "appearance": "同一本纸浆配方册被湿浆浸透，油纸封面起皱，墨字糊成灰白团。"
+          },
+          "gap": 29,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "梁下五排晾纸夹杆仍整齐垂着，新揭下的湿纸在夹口间发亮。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_067",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "水槽边，先前那三面水印筛依旧靠在原处，筛纹没有断线。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 59,
+          "last_seen": "seg_011",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "米粒握着重绷修复后的竹帘抄纸帘，俯身抄起一张薄而匀的湿纸。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年师傅",
+            "appearance": "二十出头的女师傅，仍围草木染围腰、戴竹篾环，身形挺拔，能一把抄起整张湿纸。"
+          },
+          "gap": 1,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "重绷修复",
+            "appearance": "竹帘抄纸帘被重新绷紧，缺失帘丝补齐，老竹边框箍上新竹钉，浆面恢复平整。"
+          },
+          "gap": 6,
+          "last_seen": "seg_065"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_036"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_058"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 72,
+    "n_scenes": 19,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 141,
+      "transform": 8,
+      "persist": 24,
+      "recall_after_gap": 3
+    },
+    "probe_counts": {
+      "first_appearance": 14,
+      "continuity": 67,
+      "lookalike_disambiguation": 13,
+      "state_change": 8,
+      "persist_state": 19,
+      "false_friend": 5,
+      "deprecation_avoidance": 10,
+      "reference_indirect": 7,
+      "long_gap_reappearance": 5,
+      "count_memory": 5,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 13,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 7,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 155,
+      "5-29": 16,
+      ">=30": 5
+    },
+    "longest_gap": {
+      "eid": "E12",
+      "gap": 59,
+      "at": "seg_071"
+    }
+  },
+  "warnings": []
+}

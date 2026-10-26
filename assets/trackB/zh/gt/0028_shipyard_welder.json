@@ -1,0 +1,5054 @@
+{
+  "story_id": "0028_shipyard_welder",
+  "gt_version": "trackB-gt-2.0",
+  "title": "船坞焊工",
+  "premise": "干船坞焊棚与舾装码头上的师徒长剧。星子与阿岚外形极易错认；氩弧焊枪完好→喷嘴烧损→更换喷嘴；锈港号倾覆后须规避；数量记忆与假朋友、时序闪回贯穿。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0028_shipyard_welder.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "周临",
+      "kind": "character",
+      "states": {
+        "壮年在岗": "三十多岁的船坞焊工周临，短寸头、颧骨有焊疤，穿焦褐防火服与钢头靴，肩挎墨绿色氩弧焊面罩，双手粗糙沾着铁屑。",
+        "疲惫负伤": "同一位周临：防火服袖口烧穿、左眉绷着纱布，拄着焊枪箱缓行，眼神发沉却仍盯着焊缝。",
+        "离世": "周临阖眼长逝，静静躺在船坞医务室的铁床上，面容安详、气息全无。"
+      },
+      "initial_state": "壮年在岗"
+    },
+    "E2": {
+      "name": "星子",
+      "kind": "character",
+      "states": {
+        "少年学徒": "少年星子：十五岁上下、身形清瘦的焊工学徒，胸前别铜扣工牌，穿偏大的帆布工装，眉眼清亮倔强。",
+        "成年接班": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+      },
+      "initial_state": "少年学徒"
+    },
+    "E3": {
+      "name": "氩弧焊枪",
+      "kind": "prop",
+      "states": {
+        "完好": "一把深蓝手柄的氩弧焊枪，钨极尖亮，气管盘成圈，枪嘴无烧损。",
+        "喷嘴烧损": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。",
+        "更换喷嘴": "氩弧焊枪换上新的乳白陶瓷喷嘴，钨极重新磨尖，气管擦净，可再起弧。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "焊缝检验簿",
+      "kind": "prop",
+      "states": {
+        "完好": "一本蓝皮硬壳焊缝检验簿，夹着测厚仪读数单，字迹工整、封面无污。",
+        "油污浸渍": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+      },
+      "initial_state": "完好"
+    },
+    "E5": {
+      "name": "锈港号",
+      "kind": "prop",
+      "states": {
+        "完好": "一艘锈红色铆钉驳船「锈港号」，船舷刷着白漆船名，甲板上堆着角钢与气瓶笼。",
+        "倾覆沉没": "锈港号被吊机钢丝崩断后侧翻，船底朝天半沉进船坞泥水，桅灯熄灭。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "阿岚",
+      "kind": "character",
+      "states": {
+        "青年对手": "与星子面容极相似的青年焊工阿岚，却戴炭黑长筒焊手套，工装外罩鲜红肩章背心，神情张扬。",
+        "改头换面": "改头换面后的阿岚仍戴炭黑长筒焊手套，肩章背心换成哑光黑，神情更深沉。"
+      },
+      "initial_state": "青年对手"
+    },
+    "E7": {
+      "name": "干船坞焊棚",
+      "kind": "location",
+      "appearance": "船坞西侧的铁皮焊棚，顶棚挂着防爆灯与排烟罩，地面散落焊渣与角磨片，空气里有臭氧味。"
+    },
+    "E8": {
+      "name": "舾装码头",
+      "kind": "location",
+      "appearance": "伸入港池的舾装码头，水泥岸壁上拴着缆桩，吊机悬臂掠过，远处是锈红船体。"
+    },
+    "E9": {
+      "name": "钢板堆场窄道",
+      "kind": "location",
+      "appearance": "钢板立架之间的窄道，两侧钢板竖立如墙，地上有白粉划的安全线，阴影浓重。"
+    },
+    "E10": {
+      "name": "废弃船台",
+      "kind": "location",
+      "appearance": "旧船台遗址，枕木腐朽、轨槽积水，残存半截龙骨支架与生锈龙门。"
+    },
+    "E11": {
+      "name": "船坞纪念铜牌",
+      "kind": "prop",
+      "appearance": "一块钉在焊棚砖柱上的黄铜纪念牌，刻着「周临」与入职年份，边缘已生铜绿。"
+    },
+    "E12": {
+      "name": "焊条规格牌",
+      "kind": "prop",
+      "appearance": "三枚挂在气瓶笼上的搪瓷焊条规格牌，分别写着 J422、J506、不锈钢焊丝字样。"
+    },
+    "E13": {
+      "name": "橙红机动焊车",
+      "kind": "prop",
+      "appearance": "一辆崭新的橙红色机动焊车，车斗装逆变焊机，车身喷白字「临时支援」，与锈港号绝不相同。"
+    },
+    "E14": {
+      "name": "船厂安全员",
+      "kind": "character",
+      "appearance": "一名精瘦的船厂安全员，络腮胡、黄反光背心、白安全帽，身形与周临有几分相似，肩章却是安全科徽。"
+    },
+    "E15": {
+      "name": "防爆工作灯",
+      "kind": "prop",
+      "appearance": "一排五盏黄铜罩防爆工作灯，挂在焊棚横梁铁钩上，玻璃罩擦得锃亮。"
+    },
+    "E16": {
+      "name": "换班铜钟",
+      "kind": "prop",
+      "appearance": "两只悬在焊棚檐下的换班铜钟，钟体有敲痕，换班时低鸣两声。"
+    },
+    "E17": {
+      "name": "小满",
+      "kind": "character",
+      "appearance": "新来的实习生小满，系浅灰头巾、穿崭新工装，乍看与少年星子神似，却下巴更尖、目光怯生。"
+    },
+    "E18": {
+      "name": "备用焊枪头",
+      "kind": "prop",
+      "appearance": "一只半人长的备用焊枪头，外形酷似主焊枪，但手柄是黑胶、缺气管接头。"
+    },
+    "E19": {
+      "name": "潮声号",
+      "kind": "prop",
+      "appearance": "一艘青灰色港作拖船「潮声号」，船身宽扁、无铆钉驳船的锈红船名，与锈港号并不相同。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "壮年在岗",
+      "疲惫负伤",
+      "离世"
+    ],
+    "E2": [
+      "少年学徒",
+      "成年接班"
+    ],
+    "E3": [
+      "完好",
+      "喷嘴烧损",
+      "更换喷嘴"
+    ],
+    "E4": [
+      "完好",
+      "油污浸渍"
+    ],
+    "E5": [
+      "完好",
+      "倾覆沉没"
+    ],
+    "E6": [
+      "青年对手",
+      "改头换面"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "星子：胸前别铜扣工牌，帆布工装。",
+        "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+      },
+      "note": "错认硬样本：铜扣工牌 vs 炭黑焊手套。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，周临提着墨绿色焊面罩走进干船坞焊棚，扳开氩弧焊枪试弧。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "焊棚横梁上挂着一排五盏黄铜罩防爆工作灯，周临逐一擦净玻璃罩。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "焊棚檐下悬着两只换班铜钟，周临伸手轻敲，钟声沉闷回荡。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临检查氩弧焊枪的钨极与气管接口，确认无漏气。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临透过焊棚开口，望向港池里锈红的船体轮廓。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "完好的氩弧焊枪搁在焊接台上，枪嘴映着防爆灯的暖光。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临在焊渣箱旁坐下，拧开水壶喝了几口。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处吊机鸣笛，周临重新戴上面罩。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他用角磨轻轻打磨待焊的坡口，火花短暂溅起。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "周临翻开蓝皮焊缝检验簿，蘸圆珠笔记下当日的焊缝编号。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他在检验簿上画出坡口角度示意，并标注测厚读数。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临合上焊缝检验簿，塞回工具柜第二层。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "氩弧焊枪起弧的蓝白光扫过他的侧脸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他撕下一张废砂纸，擦去手套上的铁粉。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的舾装码头，周临迎向泊靠的锈红色驳船锈港号。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "少年星子从锈港号跳上码头，把缆绳套上水泥缆桩。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临指着气瓶笼上三枚搪瓷焊条规格牌，教星子辨认 J422 与 J506。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "星子蹲在码头边，好奇地摸过锈港号船舷的铆钉。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临向星子讲解船坞换班钟响两声就得停弧。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "星子回望完好的锈港号，铜扣工牌在胸前轻轻晃。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "潮水拍岸，两人沿码头走向干船坞焊棚。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "钢板堆场窄道里，戴炭黑长筒焊手套的阿岚从立板阴影中回头。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿岚踩着白粉安全线缓步前行，鲜红肩章背心格外显眼。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他与推料车擦肩，炭黑手套在钢板反光里一闪。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿岚敲了敲立架，确认钢板卡销锁死。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他穿过窄道尽头的人影，走向舾装区。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "舾装码头上，星子与阿岚并肩而立：一个别铜扣工牌，一个戴炭黑焊手套。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "星子把捡来的焊渣敲块递给阿岚，两人短暂相视。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿岚替星子理了理偏大的工装领口，随即别开脸。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人沿码头反向走开，身影在吊机阴影里交错。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一阵砂轮声起，码头只剩缆绳轻晃。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的夜里，周临独自在干船坞焊棚值守。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他翻开焊缝检验簿，封面已被液压油浸透、发黏卷边。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临用破布擦拭氩弧焊枪枪身的油垢。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他凭着焊棚开口，望向漆黑港池里的警示浮标。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "氩弧焊枪在焊接台上静置，气管盘成圈。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "换班铜钟被夜风碰响半声，随即沉寂。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 1,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "春汛时节，周临日复一日在焊棚起弧补焊。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一个雨夜，他裹紧防火服守在氩弧焊枪旁。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "盛夏正午，焊棚铁皮被晒得发烫，他轮换降温。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "秋雾弥漫，防爆灯的光在烟尘里艰难穿行。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "除夕夜，周临独自把焊缝检验记录补齐到最后一页。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "开春，他重新校准测厚仪，继续在船坞巡检。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "台风季前，周临加固气瓶笼的绑带。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "霜降后，他在焊棚角落添了一小桶干沙备用。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一年船检季，他逐段敲击听焊缝回声。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "雪夜停工，周临只留一盏防爆灯，守到天明。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "周临更换砂轮片，打磨一段新到的肋板坡口。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他检查排烟罩滤网，抖落积存的焊烟灰。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "完好的氩弧焊枪再次被他提起，短弧试焊一道。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "码头传来铆钉枪的节奏，他抬头听了听。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临把废焊条头丢进铁桶，盖上盖子。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "午休时他在焊棚外抽烟，烟灰弹进铁罐。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "下午他又回到焊接台，继续补焊人孔围板。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "日落时分，他关掉气阀，锁上工具柜。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，周临沿舾装码头巡查，锈港号仍泊在浅湾。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 24,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E5",
+          "op": "recall_after_gap",
+          "gap": 34,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他蹲下检查锈港号船舷铆钉是否松动。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "气瓶笼上，先前那三枚焊条规格牌仍挂在原处。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 40,
+          "last_seen": "seg_017",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一艘青灰色拖船潮声号驶过港池，船身宽扁、并非锈港号。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临站在码头，记录退潮后裸露的碰垫磨损。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把缆绳重新盘好，压在锈港号甲板边。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处吊机缓缓回转，晨雾开始散开。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "入夜，周临回到干船坞焊棚，翻开油污浸渍的焊缝检验簿。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 12,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 25,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他对照旧编号，补记今日巡检结果。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_063"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "氩弧焊枪被他短暂起弧，光亮映出检验簿黏腻的封面。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他擦去面罩镜片上的飞溅点。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_065"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "港池风起，焊棚铁皮轻响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临熄灭半排防爆灯，只留工作位那一盏。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "暴雨中吊机钢丝突然崩响，干船坞焊棚剧烈震颤。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "积水灌进焊接台，防爆灯剧烈摇晃。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临扑救时氩弧焊枪陶瓷喷嘴崩裂发黑，钨极偏斜。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "喷嘴烧损",
+            "appearance": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。"
+          },
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "港池里，锈港号被失控吊钩扫中，剧烈颠簸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一声崩裂，锈港号侧翻，船底朝天半沉进泥水。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "倾覆沉没",
+            "appearance": "锈港号被吊机钢丝崩断后侧翻，船底朝天半沉进船坞泥水，桅灯熄灭。"
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临冲出焊棚，死死抓住烧损的氩弧焊枪不放。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "喷嘴烧损",
+            "appearance": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。"
+          },
+          "gap": 2,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "警报拉响，安全员的哨声在雨里碎成一片。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "喷嘴烧损",
+            "appearance": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。"
+          },
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "次日雨歇，周临站在焊棚里凝视喷嘴烧损的氩弧焊枪。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "喷嘴烧损",
+            "appearance": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。"
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他用手指抚过崩裂的陶瓷喷嘴，神情黯然。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "喷嘴烧损",
+            "appearance": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。"
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他在焊缝检验簿空白页写下锈港号失事的日期。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 9,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "焊棚墙上仍贴着锈港号的泊位示意图，周临久久凝望。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他取下横梁上五盏防爆工作灯中的一盏，就着微光独坐。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 77,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "烧损的氩弧焊枪搁在台上，气管像受伤的蛇一样垂着。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "喷嘴烧损",
+            "appearance": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。"
+          },
+          "gap": 3,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处清淤船轰鸣，港池泛起浑浊水花。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "喷嘴烧损",
+            "appearance": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。"
+          },
+          "gap": 0,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，周临搬来工具，准备修复氩弧焊枪。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "喷嘴烧损",
+            "appearance": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。"
+          },
+          "gap": 0,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他从木箱取出一只备用焊枪头，酷似主枪却是黑胶手柄。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临卸下崩裂喷嘴，换上新的乳白陶瓷嘴。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "喷嘴烧损",
+            "appearance": "同一把氩弧焊枪的陶瓷喷嘴崩裂发黑，钨极偏斜，气管沾满油垢。"
+          },
+          "gap": 1,
+          "last_seen": "seg_083"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "钨极重新磨尖，氩弧焊枪恢复可用，气管擦净。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "更换喷嘴",
+            "appearance": "氩弧焊枪换上新的乳白陶瓷喷嘴，钨极重新磨尖，气管擦净，可再起弧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_085"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他短弧试焊，弧光再度平稳尖锐。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换喷嘴",
+            "appearance": "氩弧焊枪换上新的乳白陶瓷喷嘴，钨极重新磨尖，气管擦净，可再起弧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_086"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临把备用焊枪头放回木箱，不再混淆。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换喷嘴",
+            "appearance": "氩弧焊枪换上新的乳白陶瓷喷嘴，钨极重新磨尖，气管擦净，可再起弧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_087"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_089",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "一辆橙红机动焊车驶入舾装码头，与已倾覆的锈港号毫不相同。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 15,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_090",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一名黄背心白帽的船厂安全员跳上码头，与周临并肩交谈，两人身形相仿。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_091",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "安全员指着橙红机动焊车，说明临时支援编组。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E13",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_089",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_092",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "焊车鸣笛驶离，周临独自留在码头目送。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_093",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把安全锥重新摆正，沿着缆桩走回焊棚。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_094",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "钢板堆场窄道来了系浅灰头巾的实习生小满，乍看竟有几分像少年星子。",
+      "memory_probes": [
+        "false_friend",
+        "first_appearance",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall_after_gap",
+          "gap": 67,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_095",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小满学着系缆绳，周临却摇摇头——她终究不是星子。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_096",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小满低头退开，窄道只剩钢板立架的阴影。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_097",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，袖口烧穿、眉角纱布的周临拄着焊枪箱，立在废弃船台下。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周临：防火服袖口烧穿、左眉绷着纱布，拄着焊枪箱缓行，眼神发沉却仍盯着焊缝。"
+          },
+          "gap": 0,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_098",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他仰望生锈龙门，目光悠远。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周临：防火服袖口烧穿、左眉绷着纱布，拄着焊枪箱缓行，眼神发沉却仍盯着焊缝。"
+          },
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_099",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处焊棚檐下那两只换班铜钟在风里轻响，周临驻足倾听。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周临：防火服袖口烧穿、左眉绷着纱布，拄着焊枪箱缓行，眼神发沉却仍盯着焊缝。"
+          },
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 95,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_100",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把掌心贴在腐朽枕木上，似在告别。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周临：防火服袖口烧穿、左眉绷着纱布，拄着焊枪箱缓行，眼神发沉却仍盯着焊缝。"
+          },
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_101",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "潮水声远，船台积水映出他的身影。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周临：防火服袖口烧穿、左眉绷着纱布，拄着焊枪箱缓行，眼神发沉却仍盯着焊缝。"
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_102",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年星子沿码头归来，快步走向废弃船台。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 70,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_103",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "星子在船台下与负伤的周临重逢，两人相扶。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周临：防火服袖口烧穿、左眉绷着纱布，拄着焊枪箱缓行，眼神发沉却仍盯着焊缝。"
+          },
+          "gap": 1,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_104",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "船坞医务室铁床旁，星子握着周临枯瘦的手。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周临：防火服袖口烧穿、左眉绷着纱布，拄着焊枪箱缓行，眼神发沉却仍盯着焊缝。"
+          },
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_103"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_105",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周临气息渐弱，最终阖上双眼，溘然长逝。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "离世",
+            "appearance": "周临阖眼长逝，静静躺在船坞医务室的铁床上，面容安详、气息全无。"
+          },
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_104"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_106",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "窗外吊机静止，港池风忽然静了一瞬。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_103"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_107",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "焊棚门后仍挂着周临的焦褐防火服，星子伸手轻轻抚过。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 18,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_108",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "砖柱旁，成年星子伫立在新钉上的船坞纪念铜牌前。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_109",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "星子指尖抚过铜牌上刻着的周临之名。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_110",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他低声念出锈港号失事那页检验记录的页码，像在应答。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 31,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_111",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "舾装码头清淤后，星子在空泊位写下锈港号三个字又擦去。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_093"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_112",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他路过医务室走廊，看见周临的旧工牌搁在玻璃柜里。",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_111"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_113",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "潮声拍岸，星子把铜扣工牌握紧在掌心。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_111"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_114",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "改头换面的阿岚从钢板堆场赶来，与星子在废弃船台下短暂对视。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿岚仍戴炭黑长筒焊手套，肩章背心换成哑光黑，神情更深沉。"
+          },
+          "gap": 82,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_106"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_115",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "星子与阿岚并肩立于龙骨支架旁：一个眉眼沉静，一个神情深沉。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿岚仍戴炭黑长筒焊手套，肩章背心换成哑光黑，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_114"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_116",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿岚仍戴炭黑长筒焊手套，星子仍别铜扣工牌。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿岚仍戴炭黑长筒焊手套，肩章背心换成哑光黑，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_115"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_117",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人无言片刻，各自转身离开船台。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿岚仍戴炭黑长筒焊手套，肩章背心换成哑光黑，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "星子：胸前别铜扣工牌，帆布工装。",
+            "E6": "阿岚：面容极似星子，但戴炭黑长筒焊手套、罩鲜红肩章背心。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_118",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前——那个在码头跳下驳船、别着铜扣工牌的少年，身影再度浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年学徒",
+            "appearance": "少年星子：十五岁上下、身形清瘦的焊工学徒，胸前别铜扣工牌，穿偏大的帆布工装，眉眼清亮倔强。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_117",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "在码头跳下驳船别着铜扣工牌的少年",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_119",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场那一刻——焊棚里，一把深蓝手柄的焊枪第一次试弧。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E3",
+          "op": "recall_after_gap",
+          "state": {
+            "label": "完好",
+            "appearance": "一把深蓝手柄的氩弧焊枪，钨极尖亮，气管盘成圈，枪嘴无烧损。",
+            "flashback": true
+          },
+          "gap": 30,
+          "last_seen": "seg_088",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次试弧的深蓝手柄的焊枪",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_120",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到钢板窄道——那个戴炭黑长筒焊手套、罩鲜红肩章背心的身影一闪而过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "青年对手",
+            "appearance": "与星子面容极相似的青年焊工阿岚，却戴炭黑长筒焊手套，工装外罩鲜红肩章背心，神情张扬。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_117",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "窄道里戴炭黑焊手套罩红肩章的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_121",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现焊棚横梁上那一排五盏黄铜罩防爆灯。",
+      "memory_probes": [
+        "count_memory",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 40,
+          "last_seen": "seg_080",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "焊棚横梁上一排五盏黄铜罩防爆灯",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_122",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那片伸入港池的码头，缆桩与吊机一如往昔。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_113",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时那片伸入港池的码头",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_123",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "星子重新翻开那本油污浸渍的焊缝检验簿，走进干船坞焊棚。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 4,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "油污浸渍",
+            "appearance": "同一本焊缝检验簿被液压油浸透，封面发黏卷边，字迹晕成一团。"
+          },
+          "gap": 12,
+          "last_seen": "seg_110"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_124",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "气瓶笼边，先前那三枚焊条规格牌依旧挂着。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_123"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 65,
+          "last_seen": "seg_058",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_125",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "星子提起已更换喷嘴的氩弧焊枪，弧光再度照亮焊棚。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 1,
+          "last_seen": "seg_123"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换喷嘴",
+            "appearance": "氩弧焊枪换上新的乳白陶瓷喷嘴，钨极重新磨尖，气管擦净，可再起弧。"
+          },
+          "gap": 5,
+          "last_seen": "seg_119"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_126",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把防火服袖口挽紧，像周临从前那样点头确认。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换喷嘴",
+            "appearance": "氩弧焊枪换上新的乳白陶瓷喷嘴，钨极重新磨尖，气管擦净，可再起弧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_125"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_127",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "港池暮色里，新的一班换班铜钟轻响两声。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年星子：二十余岁、肩背更宽的焊工，仍别那枚铜扣工牌，穿合身帆布工装，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换喷嘴",
+            "appearance": "氩弧焊枪换上新的乳白陶瓷喷嘴，钨极重新磨尖，气管擦净，可再起弧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_126"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_073"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_105"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 127,
+    "n_scenes": 22,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 256,
+      "transform": 8,
+      "persist": 53,
+      "recall_after_gap": 8
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 119,
+      "lookalike_disambiguation": 14,
+      "state_change": 8,
+      "persist_state": 43,
+      "long_gap_reappearance": 11,
+      "count_memory": 5,
+      "false_friend": 5,
+      "deprecation_avoidance": 15,
+      "reference_indirect": 9,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 11,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 14,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 9,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 15,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 292,
+      "5-29": 22,
+      ">=30": 11
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 95,
+      "at": "seg_099"
+    }
+  },
+  "warnings": []
+}

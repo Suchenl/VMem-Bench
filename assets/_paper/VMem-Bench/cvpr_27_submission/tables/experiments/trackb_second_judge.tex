@@ -1,0 +1,28 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Track-B memory effects under a second judge} (the same videos, 30 stories, same roster, prompts, and clips). Differences to no memory with paired story-bootstrap 95\% CI, gray subscripts show full CI widths (upper minus lower); bold when it excludes zero. Agreement / $\kappa$ is shown for the full roster and required-present entities.}
+\label{tab:second-judge}
+\scriptsize
+\setlength{\tabcolsep}{1pt}
+\begin{tabular}{@{}l *{3}{c} cc@{}}
+\toprule
+Condition & Recall & Precision & Avoid-OK & \shortstack{All\\A/$\kappa$} & \shortstack{Present\\A/$\kappa$} \\
+\midrule
+\multicolumn{6}{@{}l}{\itshape Qwen3-VL-32B (pinned judge)}\\
+\textit{No memory} & \textit{0.559} & \textit{0.977} & \textit{0.968} & 0.908/0.64 & 0.754/0.52 \\[2pt]
+Text-frame & \ci{\textbf{+0.068}}{0.04} & \ci{\textbf{-0.039}}{0.02} & \ci{\textbf{-0.070}}{0.02} & 0.882/0.64 & 0.723/0.46 \\[2pt]
+Seg+uniform & \ci{\textbf{+0.130}}{0.05} & \ci{\textbf{-0.062}}{0.02} & \ci{\textbf{-0.123}}{0.05} & 0.882/0.67 & 0.727/0.45 \\[2pt]
+Seg+DINO-key & \ci{\textbf{+0.133}}{0.04} & \ci{\textbf{-0.057}}{0.02} & \ci{\textbf{-0.114}}{0.03} & 0.880/0.66 & 0.713/0.43 \\[2pt]
+Seg+frame & \ci{\textbf{+0.115}}{0.06} & \ci{\textbf{-0.057}}{0.02} & \ci{\textbf{-0.110}}{0.04} & 0.881/0.66 & 0.721/0.44 \\[2pt]
+\textit{Last-seen refs} & \ci{\textbf{+0.080}}{0.04} & \ci{\textbf{-0.013}}{0.01} & \ci{\textbf{-0.027}}{0.02} & 0.881/0.62 & 0.700/0.43 \\[2pt]
+\midrule
+\multicolumn{6}{@{}l}{\itshape InternVL3.5-30B-A3B}\\
+\textit{No memory} & \textit{0.361} & \textit{0.962} & \textit{0.966} &  &  \\[2pt]
+Text-frame & \ci{\textbf{+0.075}}{0.03} & \ci{-0.008}{0.02} & \ci{\textbf{-0.015}}{0.02} &  &  \\[2pt]
+Seg+uniform & \ci{\textbf{+0.128}}{0.05} & \ci{\textbf{-0.032}}{0.03} & \ci{\textbf{-0.054}}{0.03} &  &  \\[2pt]
+Seg+DINO-key & \ci{\textbf{+0.123}}{0.05} & \ci{\textbf{-0.028}}{0.02} & \ci{\textbf{-0.050}}{0.04} &  &  \\[2pt]
+Seg+frame & \ci{\textbf{+0.119}}{0.04} & \ci{\textbf{-0.024}}{0.03} & \ci{\textbf{-0.041}}{0.03} &  &  \\[2pt]
+\textit{Last-seen refs} & \ci{\textbf{+0.060}}{0.04} & \ci{+0.003}{0.02} & \ci{-0.003}{0.02} &  &  \\[2pt]
+\bottomrule
+\end{tabular}
+\end{table}

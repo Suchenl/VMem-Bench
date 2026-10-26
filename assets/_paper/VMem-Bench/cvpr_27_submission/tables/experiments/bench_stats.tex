@@ -1,0 +1,25 @@
+\begin{table*}[!t]
+\centering
+\caption{\textbf{\bench{} Track-A corpus statistics} (per dataset). Entities =
+characters $+$ props $+$ locations; hard-case columns count segments per bucket.
+\dblender is stylized animation, \dlsmdc live-action film clips; the two are analyzed
+separately throughout.}
+\label{tab:bench-stats}
+\small
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{0.90\textwidth}{!}{%
+\begin{tabular}{@{}l rrr rrr r rrrr@{}}
+\toprule
+& \multicolumn{7}{c}{\textbf{Corpus}} & \multicolumn{4}{c}{\textbf{Hard-case segments}} \\
+\cmidrule(lr){2-8}\cmidrule(l){9-12}
+Dataset & Movies & Segments & Entities & Char. & Prop. & Loc. & Dur.\,(h)
+        & Re-app. & Multi-inst. & Scene-ret. & State-chg. \\
+\midrule
+\dblender & $23$ & $1{,}364$ & $369$ & $106$ & $149$ & $114$ & $3.84$ & $415$ & $674$ & $106$ & $86$ \\
+\dlsmdc   & $69$ & $15{,}184$ & $2{,}434$ & $881$ & $690$ & $863$ & $41.07$ & $5{,}425$ & $8{,}596$ & $1{,}582$ & $179$ \\
+\midrule
+Total     & $92$ & $16{,}548$ & $2{,}803$ & $987$ & $839$ & $977$ & $44.91$ & $5{,}840$ & $9{,}270$ & $1{,}688$ & $265$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}

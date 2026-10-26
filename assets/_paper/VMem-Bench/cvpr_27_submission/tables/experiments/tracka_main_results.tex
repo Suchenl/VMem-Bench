@@ -1,0 +1,29 @@
+\begin{table*}[!t]
+\centering
+\caption{\textbf{Track-A reference evidence at each memory's own budget} (Refs per segment). Precision/Recall/F1: correctness and entity coverage; $R_V/R_S$: repetition (App.~\ref{app:tracka-more}). SelEff $=\mathrm{Prec}(1-R_V)$. Underline: highest score/lowest repetition. Refs is not ranked.}
+\label{tab:main-results}
+\small
+\setlength{\tabcolsep}{2.7pt}
+\renewcommand{\arraystretch}{1.04}
+\begin{tabular}{@{}l *{7}{c} @ {\hspace{7pt}} *{7}{c}@{}}
+\toprule
+\multirow{3}{*}{System}
+& \multicolumn{7}{c}{\textbf{BlenderOpenMovies}} & \multicolumn{7}{c}{\textbf{LSMDC}} \\
+\cmidrule(lr){2-8}\cmidrule(l){9-15}
+& \multicolumn{3}{c}{Correctness / coverage} & \multicolumn{3}{c}{Efficiency / redundancy} & Budget
+& \multicolumn{3}{c}{Correctness / coverage} & \multicolumn{3}{c}{Efficiency / redundancy} & Budget \\
+& Prec$\uparrow$ & Rec$\uparrow$ & F1$\uparrow$ & SelEff$\uparrow$ & $R_V\downarrow$ & $R_S\downarrow$ & Refs
+& Prec$\uparrow$ & Rec$\uparrow$ & F1$\uparrow$ & SelEff$\uparrow$ & $R_V\downarrow$ & $R_S\downarrow$ & Refs \\
+\midrule
+\multicolumn{15}{@{}l}{\itshape Retrieval memories (testbed)}\\
+Text-frame ret.     & \underline{0.692} & 0.887 & \underline{0.817} & 0.323 & 0.492 & 0.634 & 15.47 & \underline{0.630} & 0.802 & \underline{0.670} & 0.330 & 0.404 & 0.543 & 15.94 \\
+Seg+uniform ret.    & 0.662 & 0.883 & 0.796 & 0.297 & 0.515 & 0.650 & 15.47 & 0.566 & 0.769 & 0.622 & 0.264 & 0.454 & 0.605 & 15.92 \\
+Seg+DINO-key ret.   & 0.579 & \underline{0.923} & 0.752 & \underline{0.431} & \underline{0.225} & \underline{0.488} & 13.80 & 0.484 & \underline{0.849} & 0.591 & \underline{0.393} & 0.143 & \underline{0.393} & 14.82 \\
+Seg+frame ret.      & 0.667 & 0.869 & 0.792 & 0.294 & 0.525 & 0.637 & 15.47 & 0.580 & 0.772 & 0.630 & 0.285 & 0.433 & 0.573 & 15.93 \\
+\cmidrule(lr){1-15}
+\multicolumn{15}{@{}l}{\itshape Released memories}\\
+LongLive-RAG        & 0.619 & 0.648 & 0.647 & 0.325 & 0.433 & 0.773 & 5.98 & 0.447 & 0.506 & 0.441 & 0.267 & 0.283 & 0.665 & 6.00 \\
+MemFlow             & 0.321 & 0.597 & 0.422 & 0.194 & 0.294 & 0.625 & 15.94 & 0.240 & 0.530 & 0.302 & 0.185 & \underline{0.133} & 0.424 & 16.00 \\
+\bottomrule
+\end{tabular}
+\end{table*}

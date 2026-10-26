@@ -1,0 +1,1051 @@
+{
+  "story_id": "0036_calligraphy_school",
+  "title": "Ink-Scent Private School",
+  "premise": "A long private-school calligraphy drama. Aqin and Aqing look nearly alike and are easily mistaken; the Duan inkstone goes intact→cracked→repaired; the bamboo book chest burns and must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Shen Chuan",
+      "kind": "character",
+      "states": {
+        "prime_teacher": "Calligraphy teacher Shen Chuan around fifty, lean face, indigo jacket over a gray cloth long robe, always a soft ink smell on the cuffs, quiet look.",
+        "weary_wounded": "The same Shen Chuan: gauze on the temple, leaning on a bamboo cane, indigo jacket torn at the shoulder, eyes tired.",
+        "deceased": "Shen Chuan has closed his eyes and passed away, lying quietly on a bamboo couch in the study, face peaceful, no breath left."
+      }
+    },
+    "E2": {
+      "name": "Aqin",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Aqin: a lean calligraphy apprentice of fourteen or fifteen, indigo headscarf, gray short jacket, bright stubborn eyes.",
+        "adult_successor": "Adult Aqin: a steady young calligrapher in the twenties, still the indigo headscarf, short jacket swapped for a deep-cyan long robe."
+      }
+    },
+    "E3": {
+      "name": "Duan inkstone",
+      "kind": "prop",
+      "states": {
+        "intact": "An old purple-black Duan inkstone with cloud-and-bat patterns on the side, ink pool deep and even, stone body warm and fine.",
+        "cracked": "The same Duan inkstone with a fine crack across the pool; ink seeps into the fissure, uneven color.",
+        "repaired": "After kintsugi repair the Duan inkstone can be used again; fine gold lines fill the crack; the pool holds clear ink once more."
+      }
+    },
+    "E4": {
+      "name": "copybook",
+      "kind": "prop",
+      "states": {
+        "intact": "A thread-bound copybook with a cloth cover, pages of student faults and stroke demos in neat small kai.",
+        "ink_stained": "The same copybook soaked through by spilled ink, cover wrinkled, notes bled into blotches."
+      }
+    },
+    "E5": {
+      "name": "bamboo book chest",
+      "kind": "prop",
+      "states": {
+        "intact": "A bamboo book chest branded with the character Shen on the lid, holding xuan paper and copy slips, tight mortise joints.",
+        "burned": "The bamboo book chest has collapsed into a charred wreck; only a remnant of the Shen brand remains."
+      }
+    },
+    "E6": {
+      "name": "Aqing",
+      "kind": "character",
+      "states": {
+        "young_peer": "Young peer Aqing whose face closely resembles Aqin's, but a cream silk scarf and a bamboo-leaf jade hairpin at the temple, flamboyant look.",
+        "remade_face": "After remaking the look, Aqing still wears the cream silk scarf; the bamboo-leaf jade hairpin remains, expression deeper."
+      }
+    },
+    "E7": {
+      "name": "Ink-Scent study",
+      "kind": "location",
+      "appearance": "Bamboo-blind half-rolled private-school study; a writing desk on blue brick at center; scrolls on the wall; air rich with pine-soot ink."
+    },
+    "E8": {
+      "name": "stele-corridor outer court",
+      "kind": "location",
+      "appearance": "The bluestone stele corridor outside the study; old stele rubbings stand on both sides; ivy on the pillars; mottled afternoon light."
+    },
+    "E9": {
+      "name": "alley-mouth brush shop",
+      "kind": "location",
+      "appearance": "A brush-and-ink shop at the narrow alley mouth; brush racks and inkstones on a wooden counter; signboard reading Drunken Ink Studio; busy with people."
+    },
+    "E10": {
+      "name": "old school porch",
+      "kind": "location",
+      "appearance": "The private school's old porch; gray tiles drip; the lintel plaque Yang Zheng is mottled; moss on the stone steps."
+    },
+    "E11": {
+      "name": "memorial wood plaque",
+      "kind": "prop",
+      "appearance": "A cypress plaque nailed to the porch pillar, carved with Shen Chuan's name and teaching years, edges worm-eaten."
+    },
+    "E12": {
+      "name": "leisure seals",
+      "kind": "prop",
+      "appearance": "Three Shoushan-stone leisure seals carved Yang Zheng, Ink Affinity, and Quiet Mind, strung on a red cord at the desk corner."
+    },
+    "E13": {
+      "name": "paulownia painting box",
+      "kind": "prop",
+      "appearance": "A paulownia painting box with gold cloud patterns on the face, no Shen brand, flatter and wider than the bamboo book chest."
+    },
+    "E14": {
+      "name": "county-school prefect",
+      "kind": "character",
+      "appearance": "A lean county-school prefect in gray robe and blue cap, copper badge on the shoulder, build somewhat like Shen Chuan's but more rigid."
+    },
+    "E15": {
+      "name": "weasel-hair brushes",
+      "kind": "prop",
+      "appearance": "A row of five weasel-hair brushes hung on the study brush rack, red-paper numbers on the shafts, tips neat."
+    },
+    "E16": {
+      "name": "bronze paperweights",
+      "kind": "prop",
+      "appearance": "Two crouching-lion bronze paperweights pressing both ends of the desk, lion bodies with a quiet patina glow."
+    },
+    "E17": {
+      "name": "Xiaotao",
+      "kind": "character",
+      "appearance": "Alley-mouth brush-shop girl Xiaotao in a light-brown headscarf and gray cloth clothes; at a glance like young Aqin, but a sharper chin and shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "imitation Duan inkstone",
+      "kind": "prop",
+      "appearance": "A smaller imitation Duan inkstone with no cloud-and-bat side pattern, black pottery base."
+    },
+    "E19": {
+      "name": "paper merchant Lao Gu",
+      "kind": "character",
+      "appearance": "Paper merchant Lao Gu delivering xuan, bamboo hat and bamboo basket on the back, full beard, build like Shen Chuan's but sturdier."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_teacher",
+      "weary_wounded",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "cracked",
+      "repaired"
+    ],
+    "E4": [
+      "intact",
+      "ink_stained"
+    ],
+    "E5": [
+      "intact",
+      "burned"
+    ],
+    "E6": [
+      "young_peer",
+      "remade_face"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Aqin: indigo headscarf, gray/deep-cyan clothes.",
+        "E6": "Aqing: face nearly identical to Aqin's, but cream silk scarf, bamboo-leaf jade hairpin at the temple."
+      },
+      "note": "Hard misidentification sample: indigo headscarf vs cream silk scarf and bamboo-leaf jade hairpin."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Ink-Scent study at dusk (introduce five weasel-hair brushes · two paperweights)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, Shen Chuan lifts the bamboo blind and enters the Ink-Scent study, first checking the Duan inkstone on the desk.",
+        {
+          "action": "A row of five weasel-hair brushes hangs on the study brush rack; Shen Chuan neatens each tip.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two crouching-lion bronze paperweights press both ends of the desk; Shen Chuan lifts one to feel its weight.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Shen Chuan circles the desk checking whether the xuan is damp and wrinkled.",
+        "From the window Shen Chuan watches the bluestone of the stele-corridor outer court darken.",
+        {
+          "action": "Lamp light mirrors in the Duan inkstone pool; Shen Chuan gently blows away the foam.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Shen Chuan sits on a bamboo chair in the study corner for a brief rest."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the copybook",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Shen Chuan opens the copybook, dips ink, and notes the students' common faults of the day.",
+        "Shen Chuan draws a na-stroke demo curve in the copybook.",
+        "Shen Chuan closes the copybook and returns it to the wooden box beside the desk.",
+        {
+          "action": "Residual ink by the Duan inkstone dries; Shen Chuan adds a spoon of clear water.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Shen Chuan blows dry the fresh notes so the page edges will not stick."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Stele corridor greets apprentice (introduce three leisure seals)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "In the morning stele-corridor outer court, Shen Chuan greets young Aqin arriving with the bamboo book chest on the back.",
+        {
+          "action": "Aqin sets down the bamboo book chest and brushes mud flecks from the lid.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Shen Chuan points to the three leisure seals strung on a red cord at the desk corner and teaches Aqin to read the seal texts.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Aqin crouches under the stele corridor, tracing broken strokes on the stele with a finger.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Shen Chuan explains hidden-tip starts; Aqin nods carefully.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Aqin glances back at the bamboo book chest, eyes full of care.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Shen Chuan has Aqin grind half a pool of pale ink, then copy three lines of large characters."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Alley-mouth brush shop (only Aqing)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the noisy alley-mouth brush shop, Aqing in a cream silk scarf looks up from behind the counter.",
+        "Aqing picks weasel hair before the brush rack; the bamboo-leaf jade hairpin at the temple sways lightly.",
+        "Aqing haggles with the shopkeeper, flamboyant.",
+        "Aqing carries a paper package through the shop crowd.",
+        "Aqing pauses under the Drunken Ink Studio sign and looks back down the alley."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Peers co-presence",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "In the stele-corridor outer court, Aqin and Aqing stand side by side—one indigo headscarf, one cream scarf.",
+        "Aqin hands a rubbing to Aqing; they argue over the same broken character.",
+        "Aqing smooths Aqin's indigo headscarf; they walk slowly along the stele corridor.",
+        "Aqin and Aqing part at the corridor end, each going the opposite way.",
+        "Evening wind passes; their similar profiles cross between stone pillars and separate."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Copybook ink-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Shen Chuan alone marks student work in the Ink-Scent study.",
+        {
+          "action": "Shen Chuan opens the copybook and finds last night's spilled ink has already soaked and wrinkled the cover.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "ink_stained"
+            }
+          ]
+        },
+        "Shen Chuan wipes ink flecks splashed beside the Duan inkstone.",
+        "From the window Shen Chuan looks at the pitch-dark stele-corridor outer court.",
+        {
+          "action": "Ink in the Duan inkstone runs deeper; Shen Chuan slowly stirs the pool.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Shen Chuan slips blotting paper into the stained copybook and presses it under a paperweight."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years turn · study days (filler · stretch the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In plum-rain season, Shen Chuan spreads damp xuan sheet by sheet to dry in the Ink-Scent study.",
+        "Shen Chuan pads wool felt under the desk so blue brick damp will not bleed the ink.",
+        "At dawn, Shen Chuan takes a rubbing of broken characters from an old stele in the stele-corridor outer court.",
+        "Shen Chuan clamps the new rubbing between boards, pressed by the two bronze paperweights to air-dry.",
+        "At high summer noon, Shen Chuan lowers the bamboo blind, leaving only a slit of light on the Duan inkstone.",
+        "Shen Chuan washes overnight ink dregs from the brush washer into the soak pit behind the study.",
+        "When autumn wind rises, Shen Chuan stores scrolls in the wall cupboard so they will not be blown down.",
+        "On a blank copybook page Shen Chuan tries a few lines of slender-gold script, then tears them and rewrites.",
+        "On a Frost's Descent night, Shen Chuan lights an oil lamp and checks stroke starts and finishes against the stele copy.",
+        "Shen Chuan wraps the bamboo book chest in a blanket, fearing night dew will harm the paper.",
+        "On a heavy-snow day, Shen Chuan sweeps thin snow from the old school porch stone steps.",
+        "Shen Chuan warms hands with breath and grinds ink; scent slowly fills the cold study.",
+        "In early spring, Shen Chuan trims ivy on the stele corridor, uncovering hidden inscriptions.",
+        "Shen Chuan dips each of the five weasel-hair brushes in water to open the tip and checks belly spring.",
+        "Shen Chuan hangs a newly written Yang Zheng horizontal scroll in a study corner.",
+        "Around the Dragon Boat Festival, Shen Chuan smokes the bookcase with mugwort to drive bookworms.",
+        "Shen Chuan tightens the leisure-seal paste-box lid so the oil will not dry.",
+        "Shen Chuan alone paces the stele-corridor outer court, silently recalling Nine-Completion Palace stroke energy.",
+        "After rain, Shen Chuan opens the study window and listens to eave water drip into the stone trough.",
+        "Shen Chuan trims a worn brush tip even, saving it for students to practice na strokes.",
+        "Another dusk, Shen Chuan sits by the Duan inkstone to rest, hearing alley-mouth cries far off.",
+        "At night Shen Chuan rises and adds a lump of charcoal to the study brazier.",
+        "Shen Chuan breaks a newly arrived Hui ink stick to test grind and notes the shade.",
+        "Shen Chuan wipes dust from the Yang Zheng characters on the old school porch plaque.",
+        "Shen Chuan carries the bamboo book chest to a dry spot and checks the bottom for worm holes.",
+        "Against bamboo shadows outside the window, Shen Chuan copies a few draft lines of the Orchid Pavilion Preface.",
+        "Shen Chuan wrings the ink-stained rag dry and hangs it under the study's rear eaves.",
+        "On a full-moon night, Shen Chuan looks from the window at the stele corridor; stone steles glow cold white.",
+        "Shen Chuan tidies the brush rack so weasel-hair tips hang downward to dry.",
+        "On the copybook flyleaf Shen Chuan writes the new year's teaching notes.",
+        "Shen Chuan polishes the two crouching-lion paperweights and presses the xuan rolls again.",
+        "Hearing abacus clicks from the alley-mouth brush shop, Shen Chuan keeps grinding ink in the Duan inkstone.",
+        "Shen Chuan glues a cracked brush washer and returns it beside the desk.",
+        "In a study corner Shen Chuan stacks a pile of student practice sheets waiting for marks.",
+        "Shen Chuan closes the bamboo blind tight against cold night wind into the Ink-Scent study.",
+        "Another Qingming, Shen Chuan sets a bunch of wildflowers on the old school porch.",
+        "Shen Chuan rolls rubbings into tubes, ties them with hemp cord, and stores them in the wall cupboard.",
+        "Shen Chuan tries a new inkstone dropper; water beads roll into a line across the Duan inkstone pool.",
+        "Shen Chuan sits silent in the study, listening to rain on bamboo leaves, long unmoving.",
+        "Shen Chuan cuts worn indigo headscarf cloth into rags—stock saved for Aqin's replacement."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Stele-corridor patrol (recall leisure seals · paulownia-box false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn, Shen Chuan patrols the stele-corridor outer court; the bamboo book chest leans by a pillar.",
+        {
+          "action": "Shen Chuan crouches to check whether the bamboo book chest mortise joints are loose.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Shen Chuan walks to the desk corner; those earlier three leisure seals still sit strung on the red cord.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A paulownia painting box has been left under the stele corridor; gold cloud patterns flash—not Shen Chuan's bamboo book chest.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Standing in the stele corridor, Shen Chuan notes which old steles need new rubbings.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Shen Chuan hangs wet rubbing paper on the corridor wood rack.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Shen Chuan brushes stone dust from the sleeve and glances back at the study lamp."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Teaching days continued (filler · keep stretching the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "After Grain Rain, Shen Chuan teaches passing schoolchildren to read broken characters on steles in the stele-corridor outer court.",
+        "Shen Chuan recuts sun-dried xuan into eight-line grids.",
+        "In summer heat, Shen Chuan lays a wet cloth on the Duan inkstone to cool it so ink will not cake.",
+        "Shen Chuan checks the bamboo book chest shelves and moves damp paper to the upper tier.",
+        "On an autumn night, Shen Chuan mends the copybook's loose thread binding under the oil lamp.",
+        "Shen Chuan rotates the five weasel-hair brushes so none wears too fast.",
+        "At first snow, Shen Chuan sweeps a narrow path across the study threshold.",
+        "Shen Chuan redips the leisure seals in paste and test-prints all three texts on scrap paper.",
+        "Hearing a paperweight tap the desk lightly, Shen Chuan keeps marking practice sheets.",
+        "Shen Chuan opens the stele-corridor door so a draft can carry damp from the study.",
+        "Shen Chuan hangs a rain bamboo blind on the old school porch.",
+        "Shen Chuan stores scorched ink sticks in an iron box with a dated slip.",
+        "At night Shen Chuan dreams of stele text and, waking, notes it on a blank copybook place.",
+        "Shen Chuan rinses the brush rack with clear water; pale ink threads float.",
+        "Shen Chuan wipes scroll knobs clean and rehangs them on the study's north wall.",
+        "Shen Chuan pulls new weeds from stele-corridor stone seams.",
+        "Shen Chuan hangs the weasel-hair brushes back on the rack; the numbered red papers have faded some.",
+        "Before putting out the lamp, Shen Chuan glances once more at residual ink in the Duan inkstone.",
+        "Shen Chuan folds an indigo headscarf a schoolchild left in the study and sets it at the desk corner.",
+        "Hearing the alley-mouth brush shop's closing shutters, Shen Chuan rises and locks the study.",
+        "By the charcoal fire Shen Chuan dries gloves, ready to grind ink at dawn.",
+        "Shen Chuan moves the bronze paperweights aside to show a just-written square piece.",
+        "Shen Chuan washes the palm rubbing brush and hangs it on a stele-corridor pillar.",
+        "On the last copybook page Shen Chuan draws an ink-shade comparison scale.",
+        "Silently recalling tomorrow's Eight Principles of Yong, Shen Chuan steps out of the old school porch.",
+        "Shen Chuan pushes the bamboo book chest to the wall foot, clearing floor space for practice.",
+        "Hearing a distant night drum, Shen Chuan blows out the study oil lamp.",
+        "Another rainy night, Shen Chuan alone keeps watch by the Duan inkstone, listening to eave drips until dawn."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Kitchen fire night (Duan inkstone crack · bamboo book chest burned)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "Late at night the kitchen next to the study suddenly catches fire; thick smoke pours into the Ink-Scent study.",
+        "Firelight reddens the window paper; the Duan inkstone heats in the blast.",
+        {
+          "action": "A crisp crack—a fine fissure splits the Duan inkstone; ink seeps into the crack.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "cracked"
+            }
+          ]
+        },
+        {
+          "action": "In the corner the bamboo book chest is licked by leaping flame; the lid chars fast.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "The bamboo book chest collapses into a charred wreck; only a remnant of the Shen brand remains.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "burned",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Shen Chuan rushes into the study and clutches the cracked Duan inkstone.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Neighbors douse the embers with water; the study is a mess."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (bamboo-chest indirect reference · weasel-hair recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next morning, Shen Chuan stands in the Ink-Scent study staring at the cracked Duan inkstone.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Shen Chuan brushes the crack on the Duan inkstone with a finger, face dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a blank place in the copybook Shen Chuan notes the date the bamboo book chest was burned.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "On the wall's charred spot the remnant outline of the bamboo book chest remains; Shen Chuan gazes a long while.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Shen Chuan takes one of the five weasel-hair brushes from the rack and tries a stroke in the faint light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The cracked Duan inkstone still holds half a pool of cloudy ink, uneven from the fissure.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Shen Chuan sweeps char into a dustpan; a burnt smell still hangs in the study air."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Kintsugi repair (third state · imitation-Duan false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Shen Chuan brings in a craftsman to begin kintsugi repair of the Duan inkstone.",
+        {
+          "action": "From a wood box Shen Chuan takes out an imitation Duan inkstone for comparison—smaller, no cloud-and-bat pattern.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "The craftsman sets fine gold lines along the crack.",
+        {
+          "action": "The last crack is filled with kintsugi; the Duan inkstone is usable again; the pool holds clear ink once more.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "repaired"
+            }
+          ]
+        },
+        "The repaired Duan inkstone mirrors lamp light; Shen Chuan looks gladly at the fine gold seam.",
+        "Shen Chuan grinds ink again and writes one character; the ink color steadies."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: paulownia painting box and prefect",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Outside the stele corridor comes paper merchant Lao Gu, build like Shen Chuan's, bamboo basket on the back.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The county-school prefect also arrives in gray robe and blue cap, talking beside Shen Chuan.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The prefect points at the left paulownia painting box, asking whether it belongs to the private school.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The prefect leaves; Shen Chuan alone remains in the stele-corridor outer court.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Paper merchant Lao Gu unloads a bundle of xuan, bows, and departs."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Xiaotao who resembles Aqin",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "To the alley-mouth brush shop comes girl Xiaotao in a light-brown headscarf; at a glance she somewhat resembles young Aqin.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaotao practices arranging the brush rack; Shen Chuan shakes his head—she is not Aqin after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaotao shyly bows her head and returns a weasel-hair brush to its place."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Weary wounded (paperweight long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Shen Chuan with gauze on the temple leans on a bamboo cane under the old school porch.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_wounded"
+            }
+          ]
+        },
+        "Cane in hand, Shen Chuan looks up at the Yang Zheng plaque, gaze far away.",
+        {
+          "action": "Those two crouching-lion bronze paperweights from the desk have been carried to the porch for display; cane-leaning Shen Chuan stops to stare.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Cane in hand, Shen Chuan sets a palm on the porch's cold stone pillar, as if saying goodbye.",
+        "Evening wind lifts a torn corner of his indigo jacket."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Aqin returns · Shen Chuan passes",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Aqin returns along the alley and hurries toward the old school porch.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Under the porch Aqin reunites with cane-leaning Shen Chuan; they embrace.",
+        {
+          "action": "Beside the study bamboo couch, Aqin holds Shen Chuan's thin hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Shen Chuan's breath fades; he finally closes his eyes and quietly passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Aqin folds Shen Chuan's gray cloth long robe and sets it by the pillow.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · memorial wood plaque (indirect avoidance)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the study door Shen Chuan's indigo jacket still hangs; Aqin reaches to stroke it gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "On the old school porch pillar, Aqin stands before a newly nailed memorial wood plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Aqin's fingertip traces Shen Chuan's name carved on the plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        "Aqin sets a bunch of wildflowers under the plaque."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Peers reunite (adult · long-range + co-presence)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Remade-face Aqing arrives from the alley mouth and tightly embraces Aqin under the old school porch.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_face"
+            }
+          ]
+        },
+        "Aqin and Aqing stand side by side on the porch—one quiet-eyed, one deep-faced.",
+        "They look at each other in silence, at faces alike and yet unlike.",
+        "Aqing tightens the cream silk scarf; Aqin still wears that indigo headscarf."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate · name-free)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth tracing broken characters under the stele corridor appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth tracing broken characters under the stele corridor",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the study, a purple-black old inkstone first fills with clear ink.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the purple-black old inkstone that first filled with clear ink at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flashback to the brush shop that year—the figure in a cream silk scarf with a bamboo-leaf jade hairpin at the temple flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_peer",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in a cream silk scarf with a bamboo-leaf jade hairpin at the temple that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old weasel-hair brushes on the study brush rack.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old weasel-hair brushes on the study brush rack",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to that bluestone stele corridor of first meeting; ivy climbs the pillars as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that bluestone stele corridor of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again the image of those two crouching-lion paperweights pressing xuan at both ends of the desk.",
+          "present": [
+            {
+              "eid": "E16",
+              "count": 2,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "those two crouching-lion paperweights pressing xuan at both ends of the desk",
+                "resolves_to": "E16"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrases as referents; no names; avoid referring to deceased/destroyed entities."
+    },
+    {
+      "id": "S18",
+      "setting": "Close (copybook long-range · leisure-seal long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Aqin reopens that ink-stained copybook and walks into the Ink-Scent study.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "At the desk corner, those earlier three Shoushan-stone leisure seals still hang on the red cord.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Aqin takes over the kintsugi-repaired Duan inkstone and grinds ink to begin writing again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "Outside the bamboo blind, new green sprouts from stele-corridor stone seams.",
+        "Aqin smiles lightly under the indigo headscarf; study lamps light again."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1300 @@
+{
+  "story_id": "0049_volcano_geologist",
+  "title": "Volcano Core Log",
+  "premise": "A core-sample inheritance at a volcano observatory. Ayan and Alan are easily mistaken for each other; the core display column goes intact→heat-cracked→repackaged; the tracked sampling vehicle must be avoided after it is wrecked; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_state_note": "Entities with state machines use states; entities without use appearance. On transition only the current-state appearance is injected.",
+  "entities": {
+    "E1": {
+      "name": "Huo Cen",
+      "kind": "character",
+      "states": {
+        "on_duty_prime": "Huo Cen, a volcano geologist in his forties, short mustache, heatproof khaki jacket, helmet hooked at the elbow, black sand on the boot soles, gaze sharp.",
+        "exhausted_injured": "The same Huo Cen exhausted and injured: jacket shoulder scorched, burn gauze on the cheek, still with the helmet, step heavy.",
+        "retired_exit": "Huo Cen has left the post; only his old khaki jacket and work badge remain in the lab—he himself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Ayan",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Ayan: a lean geology apprentice around fifteen, turmeric armband on the left arm, oversized goggles, eyes clear and stubborn.",
+        "adult_successor": "Adult Ayan: a solid-shouldered successor observer in his twenties, still wearing the turmeric armband, eyes steady."
+      }
+    },
+    "E3": {
+      "name": "core display column",
+      "kind": "prop",
+      "states": {
+        "intact": "A vertical core display column, transparent casing intact, black-red layered core clearly visible, scale complete.",
+        "heat_cracked": "The same core display column heat-cracked by a heat wave, cracks in the casing, core bedding pasted over with ash slag.",
+        "repackaged": "The core display column after repackaging shows bedding clearly again, but a shallow weld scar remains on the casing—distinct from the first intact state."
+      }
+    },
+    "E4": {
+      "name": "ground-temperature notebook",
+      "kind": "prop",
+      "states": {
+        "intact": "A fireproof-cloth-covered ground-temperature notebook with fumarole temperature curves inside, cover clean.",
+        "ash_stained": "The same ground-temperature notebook stained by volcanic ash, cover gray and rough, writing blurred, a crumpled filter paper clipped in."
+      }
+    },
+    "E5": {
+      "name": "tracked sampling vehicle",
+      "kind": "prop",
+      "states": {
+        "intact": "A yellow-and-black tracked sampling vehicle, tracks intact, drill rods stowed, able to crawl slowly over sand flats to sample.",
+        "wrecked": "The tracked sampling vehicle smashed by falling rock, tracks broken, drill rods twisted—only smoking wreckage left."
+      }
+    },
+    "E6": {
+      "name": "Alan",
+      "kind": "character",
+      "states": {
+        "young_rival": "Alan whose face and build closely resemble Ayan's, but with an amber goggle lanyard, manner bold and eager to push first toward fumaroles.",
+        "remade_look": "Alan after remaking his look still wears the amber goggle lanyard, plus a filter mask perched on the brow, manner deeper."
+      }
+    },
+    "E7": {
+      "name": "observatory laboratory",
+      "kind": "location",
+      "appearance": "Mountain-slope observatory laboratory, explosion-proof lamps lighting the core display column, thermal images on the walls, smoking crater outside the window."
+    },
+    "E8": {
+      "name": "crater overlook",
+      "kind": "location",
+      "appearance": "Crater overlook, railing hot to the touch, fine black sand underfoot, distant fumaroles intermittently jetting white steam."
+    },
+    "E9": {
+      "name": "sulfur-vent boardwalk",
+      "kind": "location",
+      "appearance": "Sulfur-vent boardwalk, planks yellowed by sulfur, pungent smell, emergency lamps dim yellow."
+    },
+    "E10": {
+      "name": "abandoned station pier",
+      "kind": "location",
+      "appearance": "Abandoned station pier, cracked concrete, rusted anchor bolts, windblown sand half-covering the steps."
+    },
+    "E11": {
+      "name": "basalt nameplate",
+      "kind": "prop",
+      "appearance": "A basalt nameplate nailed to the pier, carved with 'Huo Cen' and the year, surface crusted with sulfur crystals."
+    },
+    "E12": {
+      "name": "orientation flagpoles",
+      "kind": "prop",
+      "appearance": "Three red-and-white orientation flagpoles planted inside the overlook warning line, marking safe sampling bearings."
+    },
+    "E13": {
+      "name": "tourist electric sightseeing cart",
+      "kind": "prop",
+      "appearance": "A tourist electric sightseeing cart, vaguely like a work vehicle but with no tracks or drill rods, body printed 'Sightseeing'."
+    },
+    "E14": {
+      "name": "reserve ranger Old Yue",
+      "kind": "character",
+      "appearance": "Reserve ranger Old Yue, build somewhat like Huo Cen's, green uniform, oak-leaf epaulettes, cap badge not a helmet mark."
+    },
+    "E15": {
+      "name": "lab-bench halogen lamps",
+      "kind": "prop",
+      "appearance": "A row of five halogen lamps screwed above the lab bench, milky hoods, glass polished."
+    },
+    "E16": {
+      "name": "gas alarm bells",
+      "kind": "prop",
+      "appearance": "Two gas alarm bells mounted at the doorway, shrilling when levels exceed limits."
+    },
+    "E17": {
+      "name": "intern Xiaofeng",
+      "kind": "character",
+      "appearance": "Intern Xiaofeng who at a glance resembles young Ayan, light-gray sleeve mark instead of turmeric armband, shy-eyed."
+    },
+    "E18": {
+      "name": "pocket core model",
+      "kind": "prop",
+      "appearance": "A pocket core model with bedding much like the display column but shorter and without a real scale."
+    },
+    "E19": {
+      "name": "crimson fire command vehicle",
+      "kind": "prop",
+      "appearance": "A crimson fire command vehicle, broad flat body, no tracked sampling gear, side lettered 'Emergency'."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "on_duty_prime",
+      "exhausted_injured",
+      "retired_exit"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "heat_cracked",
+      "repackaged"
+    ],
+    "E4": [
+      "intact",
+      "ash_stained"
+    ],
+    "E5": [
+      "intact",
+      "wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_look"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Ayan: turmeric armband, eyes quiet/stubborn.",
+        "E6": "Alan: face nearly identical to Ayan's, but amber goggle lanyard, manner bold or deep."
+      },
+      "note": "Hard misidentification sample: Ayan and Alan look alike; told apart only by turmeric armband / amber goggle lanyard."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Observatory lab daily (introducing five lab-bench halogen lamps · two gas alarm bells)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "At dusk Huo Cen pushes open the observatory laboratory explosion-proof door and hooks the helmet at his elbow.",
+        {
+          "action": "Inside the observatory laboratory a row of five lab-bench halogen lamps hangs; Huo Cen polishes each one.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two gas alarm bells hang by the door; Huo Cen reaches to make them ring lightly.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Huo Cen circles the core display column checking black-red layers against scale readings.",
+        "From the window Huo Cen watches fading fumarole steam beyond the crater overlook.",
+        {
+          "action": "The intact core display column stands by the lab bench; halogen light passes through the transparent casing.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "On the wall Huo Cen adds today's fumarole temperature and wind direction.",
+        "Huo Cen takes the helmet off and hangs it again, confirming the chin strap is firm.",
+        "Huo Cen sorts scattered sample bags and restacks them by horizon number.",
+        "Huo Cen sits on the lab stool and rubs his sore neck and shoulders."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the ground-temperature notebook",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Huo Cen opens the ground-temperature notebook and writes temperature peaks and sulfur-gas concentrations by fumarole number.",
+        "Beside the No. 3 fumarole curve Huo Cen draws a small red volcano triangle marking abnormal heat rise.",
+        "Huo Cen closes the fireproof-cloth notebook and tucks it into the heatproof sleeve by the sample bags.",
+        {
+          "action": "Reflection from the core display column sweeps across Huo Cen's cheek.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Matching the core display column Huo Cen circles with a red pen the black-red horizon boundary masked by ash slag.",
+        "Huo Cen puts the temperature probe and sample bags back into the heatproof box so hot wind will not knock them down."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Crater overlook greets the apprentice (introducing three orientation flagpoles)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "At the crater overlook in the morning Huo Cen greets young Ayan arriving with the tracked sampling vehicle.",
+        {
+          "action": "Ayan parks the tracked sampling vehicle outside the warning line and tightens the rear drill rods.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Huo Cen points to the three orientation flagpoles and teaches Ayan to read safe sampling bearings by upwind direction.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ayan squats on the crater overlook observing black-sand grain size and fumarole white steam.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Huo Cen explains to Ayan the rules: stand upwind, measure far then near, evacuate on alarm.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Ayan looks back at the intact tracked sampling vehicle, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Huo Cen has Ayan push the tracked sampling vehicle at low speed, practicing a stop outside the flagpoles.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Ayan tightens the turmeric armband and silently recites Huo Cen's spoken safe distance at the goggle rim.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Sulfur-vent boardwalk (Alan alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "On the sulfur-vent boardwalk Alan with an amber goggle lanyard looks back from the shadows.",
+        "Alan walks slowly along the sulfur-vent boardwalk, manner bold.",
+        "Alan brushes past a passerby; the amber goggle lanyard sways lightly.",
+        "Alan stops at the passage mouth and pickily notes the sulfur warning sign hangs too low.",
+        "Alan kicks a sulfur crystal into a boardwalk seam.",
+        "Alan leaves along the yellow-fog edge of the boardwalk."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Crater overlook: Ayan and Alan shared screen in the same segment",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "On the crater overlook Ayan and Alan stand side by side—one with a turmeric armband, one with an amber goggle lanyard.",
+        "Ayan hands Alan a picked-up black pumice; they meet eyes but with different expressions.",
+        "Alan straightens Ayan's turmeric armband, then deliberately clicks his own amber goggle lanyard.",
+        "Ayan and Alan walk slowly along the crater-overlook rim; shadows overlap then part.",
+        "Ayan looks down checking fumarole numbers; Alan looks about everywhere.",
+        "Ayan and Alan part at the crater-overlook mouth and walk opposite ways."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Observatory laboratory (ground-temperature notebook ash-stained)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On a night months later Huo Cen alone keeps watch in the observatory laboratory; bedding of the core display column is clear under the lamps.",
+        {
+          "action": "Huo Cen opens the ground-temperature notebook and finds it already ash-stained, temperature curves pasted over with ash powder.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "ash_stained"
+            }
+          ]
+        },
+        "Huo Cen brushes volcanic ash from the transparent casing of the core display column.",
+        "From the window Huo Cen watches night beyond the crater overlook.",
+        {
+          "action": "Lamplt slowly moves across the core display column.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Huo Cen clips blotter paper into the stained ground-temperature notebook, sighs, and turns off the light."
+      ]
+    },
+    {
+      "id": "F1",
+      "setting": "Volcano Core Log steady ten-day block A (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Huo Cen wipes the edge of the core display column in the observatory laboratory.",
+        "Huo Cen updates today's notes on the wall.",
+        "Huo Cen restacks tools by number.",
+        "Huo Cen matches yesterday's entries against the ground-temperature notebook.",
+        "In the afternoon Huo Cen takes an outside call, brow faintly furrowed.",
+        "Huo Cen writes deferred items on a sticky note and posts it where visible.",
+        "Huo Cen pulls spare materials out separately and sorts them.",
+        "At dusk Huo Cen turns off extra lamps, leaving only the central one on the core display column."
+      ]
+    },
+    {
+      "id": "F2",
+      "setting": "Volcano Core Log steady ten-day block B (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In the observatory laboratory Huo Cen spreads tracing paper or a comparison chart.",
+        "Huo Cen marks spots needing reinforcement with color dots.",
+        "Huo Cen fixes the paper edges to stop curling.",
+        "Matching the already stained ground-temperature notebook Huo Cen struggles to read old numbers.",
+        "Huo Cen sets drinks far away, fearing another splash on the ground-temperature notebook.",
+        "On the wall Huo Cen lists three items to adjust.",
+        "Something stirs outside; Huo Cen looks up and listens a moment.",
+        "Huo Cen restring labels with fine cord."
+      ]
+    },
+    {
+      "id": "F3",
+      "setting": "Crater-overlook patrol day (filler · no count props)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "On patrol day Huo Cen enters the crater overlook.",
+        "Huo Cen carefully tests whether ground or railing is secure.",
+        "Huo Cen notes spots that need repair.",
+        "Huo Cen shines a flashlight into a dark corner.",
+        "Huo Cen briefly talks with a passing staffer.",
+        "Huo Cen avoids stacked clutter and circles to the other side.",
+        "Huo Cen records size changes with a tape or by eye.",
+        "Huo Cen writes results on a cuff sticky note."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Crater-overlook patrol (recall orientation flagpoles · tourist cart false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn Huo Cen patrols the crater overlook; the tracked sampling vehicle rests in place.",
+        {
+          "action": "Huo Cen crouches to check track tension, drill-rod locks, and sample-box seals on the tracked sampling vehicle.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Huo Cen walks inside the warning line; those three orientation flagpoles still point to the upwind safe sampling angle.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A tourist electric sightseeing cart rolls slowly along the overlook, body printed Sightseeing and without tracks or drill rods—definitely not the tracked sampling vehicle.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Huo Cen stands on the crater overlook and writes fumarole intervals and new black-sand cracks on a field board.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Huo Cen refixes the tracked sampling vehicle with wheel chocks and cable.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Huo Cen again confirms none of the three orientation flagpoles is missing; streamers still blow downwind.",
+          "present": [
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Huo Cen writes the patrol date on the back of the warning sign.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "setting": "Eve-of-disaster standby (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On the eve of disaster Huo Cen stores all materials by the window into cabinets.",
+        "Huo Cen covers the core display column with protective cloth.",
+        "Huo Cen checks that the ground-temperature notebook is in a dry drawer.",
+        "Huo Cen tightens bottle caps and valves and moves them higher.",
+        "A strange noise rises afar; observatory laboratory lights flicker once.",
+        "Huo Cen straightens the cables of the five lab-bench halogen lamps.",
+        "Huo Cen drafts a 'suspend work tomorrow' notice.",
+        "Huo Cen listens whether the two gas alarm bells are ringing in the wind."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Eruption night (display column heat-cracks · sampling vehicle wrecked)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "Eruption erupts suddenly; lab glass shudders; heat wave pours in.",
+        "A rain of ash hits the window; the display-column casing grows hot.",
+        {
+          "action": "The core display column is heat-cracked by the wave; casing cracks spread; bedding pasted over with ash slag.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "heat_cracked"
+            }
+          ]
+        },
+        {
+          "action": "Below the overlook the tracked sampling vehicle still sits on the black-sand slope.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "Falling rock smashes the tracked sampling vehicle; tracks break, drill rods twist—only smoking wreckage left.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "In the lab Huo Cen lunges at the display column, bare hands steadying the heat-cracking casing.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Huo Cen's cheek is burned by flying ash slag; blood and fluid seep into gauze; he still clamps hard on the core.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The heat-cracked core display column slowly seeps fine ash in the hot air.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (tracked vehicle indirect reference · halogen-lamp recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after the disaster Huo Cen stands in the observatory laboratory staring at the already heat-cracked core display column.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Huo Cen traces the damage on the core display column with a finger, expression dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On the eruption debrief board Huo Cen records the date the tracked sampling vehicle was wrecked.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo of the tracked sampling vehicle coring on the black-sand slope is still nailed to the wall; Huo Cen gazes at it a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Huo Cen switches on one of the five lab-bench halogen lamps and sits alone in the light patch.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The heat-cracked core display column still stands by the lab bench; ash-pasted bedding is shocking.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Huo Cen changes the burn gauze for fresh and keeps sweeping ash slag and casing shards.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Huo Cen resets the heatproof cover, fearing hot ash will scorch the casing again.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "setting": "Cleanup and requisition (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In cleanup week Huo Cen packs casing shards and ash-slag filter paper into cardboard boxes.",
+        "Huo Cen submits a requisition for transparent casing, heatproof glue, and scale strips.",
+        "Every day Huo Cen still comes to the observatory laboratory and stares at the damaged core display column.",
+        "Huo Cen pencils the still-readable bedding boundaries.",
+        "Huo Cen turns the stained ground-temperature notebook to a blank page and switches to logging requisition progress.",
+        "Ayan is on leave; the observatory laboratory holds only Huo Cen's footsteps.",
+        "Out of habit Huo Cen looks toward the empty track prints on the black-sand slope.",
+        "On the wall Huo Cen lists a repackaging checklist."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Repackage (third state · pocket core-model false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Huo Cen lays out new transparent casing, heatproof glue, and scale strips and begins repackaging the core display column.",
+        {
+          "action": "Huo Cen takes out a pocket core model—bedding like the display column but shorter, and without a real scale.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Huo Cen blows ash slag clean, transfers the core into the new casing, and resticks horizon scales.",
+        {
+          "action": "The last heatproof glue cures; the core display column finishes repackaging, leaving a shallow weld scar on the casing.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "repackaged"
+            }
+          ]
+        },
+        "After repackaging the core display column shows bedding clearly again; Huo Cen looks on with relief.",
+        {
+          "action": "Huo Cen pushes the pocket core model aside and lets only the true core display column stand again by the lab bench.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The observatory laboratory falls quiet; the repackaged core display column alone holds center.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: crimson fire command vehicle and reserve ranger Old Yue",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "The emergency team brings a crimson fire command vehicle—broad flat body without tracks or drill rods, nothing like the already wrecked tracked sampling vehicle.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "The reserve ranger Old Yue enters the crater overlook and talks beside Huo Cen; the two look similar in build.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The reserve ranger Old Yue points at the crimson fire command vehicle and tells Huo Cen the command vehicle stays outside the warning line and will not enter the sampling path.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The crimson fire command vehicle leaves; Huo Cen alone watches from the crater overlook.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "The crimson fire command vehicle pauses briefly far off, then moves on.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Before leaving the reserve ranger Old Yue pats Huo Cen's shoulder; the oak-leaf epaulette flashes under the light.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: intern Xiaofeng who resembles Ayan",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "To the crater overlook comes intern Xiaofeng—at a glance somewhat like young Ayan.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Intern Xiaofeng tries adjusting a sampling-vehicle remote stick; Huo Cen shakes his head—he is not Ayan after all.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Intern Xiaofeng shyly asks whether one may approach when fumaroles jet white steam; after a brief answer Huo Cen sends him for spare filter masks.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Huo Cen alone stands on the crater overlook staring at the empty tracked-sampling-vehicle parking spot.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "setting": "Steady ten days after repackaging (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In the first ten days after repackaging Huo Cen first checks the core display column every morning.",
+        "Huo Cen writes new records on blank pages of the stained ground-temperature notebook.",
+        "Huo Cen refuses to place dangerous items at edges again.",
+        "Huo Cen checks public-notice copy with outside contacts.",
+        "In the observatory laboratory Huo Cen practices steadier handling.",
+        "Afternoon light falls on the repackaged core display column.",
+        "Huo Cen polishes the gas alarm bells bright but does not strike them yet.",
+        "Huo Cen receives Ayan's postcard and presses it under a lamp base unopened.",
+        "In the observatory laboratory Huo Cen calibrates the temperature probe.",
+        "Huo Cen wipes the core-display-column casing with a soft cloth.",
+        "Huo Cen turns the ground-temperature notebook to this week's curve page.",
+        "Huo Cen checks whether all lab-bench halogen lamps can light.",
+        "On the crater overlook Huo Cen records fumarole intervals.",
+        "Huo Cen nudges an orientation flagpole upright by an inch.",
+        "Huo Cen replaces sample-bag label strips.",
+        "Huo Cen listens whether the gas alarm bells' self-test short ring is normal.",
+        "Beside the thermal image Huo Cen marks a new hot spot.",
+        "Huo Cen retightens the helmet chin strap.",
+        "Huo Cen clears black sand from boot soles.",
+        "Huo Cen presses the explosion-proof door seal tight.",
+        "At the log's end Huo Cen writes wind speed and visibility.",
+        "Huo Cen shuts extra instruments, leaving only needed monitoring."
+      ]
+    },
+    {
+      "id": "F7",
+      "setting": "Year-end closing (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At year-end closing Huo Cen binds the year's files by month.",
+        "Huo Cen alone bags the stained ground-temperature notebook into an archive sleeve.",
+        "Huo Cen prints before-and-after repair photos and clips them into the archive.",
+        "Huo Cen clears the bench, leaving only needed tools and one lamp.",
+        "Huo Cen oils key tools against rust.",
+        "Huo Cen signs a date beside the core display column's repair scar.",
+        "Weather turns cold outside; observatory laboratory heat or stove ticks lightly.",
+        "Huo Cen finishes the annual summary; the cover carries only a short theme."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Twilight (Huo Cen injured · gas alarm bells long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "At dusk years later Huo Cen, scars still there and step heavy, leans on a hiking stick at the abandoned station pier.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "exhausted_injured"
+            }
+          ]
+        },
+        "Huo Cen looks up at the ruins of the abandoned station pier, gaze distant.",
+        {
+          "action": "Beside the abandoned station pier those two gas alarm bells are brought back and hung; they ring lightly in the wind.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Huo Cen presses a palm to the cold cracked concrete as if saying goodbye.",
+        {
+          "action": "Huo Cen slowly sits to catch his breath a moment.",
+          "present": [
+            "E1",
+            "E10"
+          ]
+        },
+        {
+          "action": "The two gas alarm bells ring lightly again; Huo Cen closes his eyes to listen, as if hearing the old over-limit gas alarms.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F8",
+      "setting": "Old-site lingering ten days (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Huo Cen still returns to the observatory laboratory each day, but spends more time sitting watching the core display column.",
+        "Huo Cen leans the hiking stick by the door; he moves slower than before.",
+        "Huo Cen lets a young assistant write notes; he only checks.",
+        "Huo Cen photographs the repackaged core display column for distant Ayan.",
+        "On the last page of the stained ground-temperature notebook Huo Cen writes 'handover' without signing.",
+        "Huo Cen refuses hospital and insists on sitting weekly at the abandoned station pier.",
+        "Huo Cen wipes a draft of the basalt nameplate.",
+        "At night the observatory laboratory keeps only one lamp; Huo Cen dozes in the light circle."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Ayan returns · Huo Cen exits",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day adult Ayan returns along the abandoned station pier and hurries toward the ruins.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "At the abandoned station pier Ayan reunites with heavy-stepping Huo Cen; they embrace.",
+        {
+          "action": "By the observatory-laboratory cot Ayan holds Huo Cen's wasted hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Huo Cen's breath grows weak; at last he closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "retired_exit",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Ayan stands long at the abandoned station pier; tears fall to the ground.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Ayan hooks Huo Cen's old helmet at his own elbow.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · basalt nameplate (indirect reference to the deceased)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the observatory laboratory door Huo Cen's old jacket still hangs; Ayan reaches to stroke it gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "Beside the abandoned station pier adult Ayan stands before the newly nailed basalt nameplate.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Ayan's fingertip traces Huo Cen's name carved on the basalt nameplate.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Ayan sets a white chrysanthemum at the lower edge of the basalt nameplate.",
+          "present": [
+            "E2",
+            "E11"
+          ]
+        },
+        {
+          "action": "Wind passes the abandoned station pier; Ayan softly speaks the year on the plate.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Ayan and Alan reunite (adult misidentification + same-segment shared screen)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Adult Alan with his remade look arrives and tightly embraces Ayan at the abandoned station pier.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_look"
+            }
+          ]
+        },
+        "Ayan and Alan stand side by side by the basalt nameplate—one quiet-eyed, one deep-mannered.",
+        "Alan touches his amber goggle lanyard, then looks at the old helmet in Ayan's arm crook.",
+        "They look at each other in silence, watching faces alike yet different.",
+        "Ayan and Alan walk together toward the end; shadows merge into one."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate · no names throughout)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth on the overlook with a turmeric armband wearing goggles for the first time appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth on the overlook with a turmeric armband wearing goggles for the first time",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the lab a transparent core column with clear black-red layers is first stood upright.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the transparent core column with clear black-red layers first stood upright at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flashback to that year's sulfur-vent boardwalk—the amber-lanyard figure leaning first into the vent slips past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the amber-lanyard figure leaning first into the vent on that year's sulfur-vent boardwalk",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five milky-hooded old lights above the lab bench appears.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five milky-hooded old lights above the lab bench",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to that hot-railing crater platform of first meeting, black sand as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that hot-railing crater platform of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Pages open—that fireproof-cloth notebook still free of ash and full of ground-temperature curves appears again.",
+          "present": [
+            {
+              "eid": "E4",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that fireproof-cloth notebook still free of ash and full of ground-temperature curves",
+                "resolves_to": "E4"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal flashback uses no entity names throughout; anchor.resolves_to is for scoring."
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (stained notebook long-range · orientation flagpoles long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Ayan opens again that already ash-stained ground-temperature notebook and walks into the observatory laboratory.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "By the observatory laboratory door those three orientation flagpoles are still bound in a bundle.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ayan takes over watch of the core display column; the repair scar is clear under the lamps.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Ayan switches on the five lab-bench halogen lamps; light again fills the space.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Ayan stands straight before the repackaged core display column and checks horizons and fumarole temperature curves as Huo Cen once did.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    }
+  ]
+}

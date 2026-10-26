@@ -1,0 +1,18 @@
+\begin{center}
+\begin{minipage}{0.99\linewidth}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.0pt}
+\renewcommand{\arraystretch}{1.06}
+\begin{tabular}{@{}l r c c c c c@{}}
+\toprule
+Track & Units & $\alpha$ & Judge agr. & FPR & FNR & Rank $\rho$ \\
+\midrule
+A & --- & --- & --- & --- & --- & --- \\
+B & 450 & 0.75 & \ci{0.74}{0.08} & 0.31 & 0.20 & 0.26 \\
+\bottomrule
+\end{tabular}
+\captionof{table}{\textbf{Protocol-imitating judge audit (not biological humans).} Three independent LLM annotators followed the frozen human-audit instructions on Track-B only. Track-A per-reference scoring artifacts were unavailable. Rank $\rho$ is Spearman correlation of inverse-probability-weighted system scores on the audited subset; gray subscripts denote full 95\% CI width (upper minus lower); story-clustered bootstrap 95\% CI $-0.54$ to $0.94$ does not support ranking stability.}
+\label{tab:human-audit-protocol}
+\end{minipage}
+\end{center}

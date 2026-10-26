@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{Track-B recall by entity kind and absence gap.} No-memory recall and each condition minus no memory (paired story-bootstrap 95\% CI; gray subscripts show full CI widths (upper minus lower); bold when it excludes zero). Just seen means the entity was on screen in the previous segment. Characters are named only by name after their first appearance; 61 of the 62 character returns after 30 or more segments come back changed, with the new look in the instruction. Props often carry their look in the name. Text, Uniform, DINO-key, and Frame are the four retrieval memories.}
+\label{tab:kind-gap}
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}l l r r *{5}{c}@{}}
+\toprule
+Kind & Gap (segments) & $n$ & \shortstack{No\\memory} & Text & Uniform & DINO-key & Frame & Last-seen \\
+\midrule
+Character & just seen & 2173 & 0.493 & \ci{\textbf{+0.106}}{0.07} & \ci{\textbf{+0.198}}{0.06} & \ci{\textbf{+0.201}}{0.06} & \ci{\textbf{+0.191}}{0.08} & \ci{\textbf{+0.143}}{0.07} \\[2pt]
+ & 1--4 & 430 & 0.553 & \ci{\textbf{+0.144}}{0.13} & \ci{\textbf{+0.186}}{0.12} & \ci{\textbf{+0.195}}{0.12} & \ci{\textbf{+0.170}}{0.12} & \ci{+0.040}{0.12} \\[2pt]
+ & 5--29 & 63 & 0.714 & \ci{-0.048}{0.24} & \ci{\textbf{+0.143}}{0.23} & \ci{+0.111}{0.25} & \ci{+0.064}{0.28} & \ci{-0.016}{0.22} \\[2pt]
+ & $\geq$30 (returns changed) & 62 & 0.984 & \ci{\textbf{-0.177}}{0.21} & \ci{\textbf{-0.129}}{0.18} & \ci{-0.032}{0.13} & \ci{-0.081}{0.16} & \ci{-0.032}{0.08} \\[2pt]
+\midrule
+Prop & just seen & 1087 & 0.399 & \ci{\textbf{+0.070}}{0.06} & \ci{\textbf{+0.118}}{0.09} & \ci{\textbf{+0.111}}{0.08} & \ci{\textbf{+0.085}}{0.09} & \ci{\textbf{+0.049}}{0.06} \\[2pt]
+ & 1--4 & 271 & 0.635 & \ci{+0.015}{0.09} & \ci{+0.044}{0.11} & \ci{+0.041}{0.11} & \ci{+0.044}{0.09} & \ci{\textbf{+0.096}}{0.11} \\[2pt]
+ & 5--29 & 230 & 0.717 & \ci{+0.013}{0.10} & \ci{+0.013}{0.10} & \ci{+0.022}{0.09} & \ci{+0.000}{0.10} & \ci{-0.004}{0.09} \\[2pt]
+ & $\geq$30 & 148 & 0.851 & \ci{-0.027}{0.18} & \ci{+0.027}{0.18} & \ci{+0.034}{0.19} & \ci{+0.007}{0.15} & \ci{+0.000}{0.15} \\[2pt]
+\bottomrule
+\end{tabular}
+\end{table*}

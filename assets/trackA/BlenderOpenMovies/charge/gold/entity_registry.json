@@ -1,0 +1,705 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "charge",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "d1c291114c1fc6f0",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "独臂老人",
+      "description": "白发白须的老年男性，头戴深色针织帽，身穿破旧夹克和毛衣，左臂为生锈的机械义肢，右手戴露指手套。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          7,
+          23
+        ],
+        [
+          24,
+          36
+        ],
+        [
+          37,
+          43
+        ],
+        [
+          44,
+          61
+        ],
+        [
+          62,
+          77
+        ],
+        [
+          78,
+          92
+        ],
+        [
+          93,
+          108
+        ],
+        [
+          109,
+          129
+        ],
+        [
+          130,
+          148
+        ],
+        [
+          149,
+          187
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 7.0,
+      "last_frame": null,
+      "last_seconds": 187.0,
+      "screen_time_seconds": 171.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 1.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c013_char_001",
+          "chunk_id": 13,
+          "description": "appearance_changed: 面部出现明显血迹和伤痕，表情痛苦疲惫。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 107.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "安保机器人",
+      "description": "白色与黑色相间的人形机器人，头部有红色发光传感器。",
+      "first_chunk": 8,
+      "presence_spans": [
+        [
+          62,
+          77
+        ],
+        [
+          78,
+          92
+        ],
+        [
+          93,
+          108
+        ],
+        [
+          109,
+          129
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 62.0,
+      "last_frame": null,
+      "last_seconds": 129.0,
+      "screen_time_seconds": 64.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 1.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c008",
+          "chunk_id": 8,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c026_char_002",
+          "chunk_id": 26,
+          "description": "appearance_changed: 被粉色喷漆覆盖全身，随后在战斗中被拆解损坏。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 77.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "警卫",
+      "description": "身穿浅灰色制服、佩戴工牌的男性人类，短发。",
+      "first_chunk": 5,
+      "presence_spans": [
+        [
+          37,
+          43
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 37.0,
+      "last_frame": null,
+      "last_seconds": 43.0,
+      "screen_time_seconds": 6.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_003@c005",
+          "chunk_id": 5,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_004",
+      "kind": "character",
+      "name": "脑缸机器人",
+      "description": "坐在扶手椅上的机器人，头部为透明容器包裹的大脑，佩戴防毒面具式面罩，胸腔有绿色发光管。",
+      "first_chunk": 18,
+      "presence_spans": [
+        [
+          149,
+          187
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 149.0,
+      "last_frame": null,
+      "last_seconds": 187.0,
+      "screen_time_seconds": 38.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_004@c018",
+          "chunk_id": 18,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "能量电池",
+      "description": "长方体装置，内部有发光的青绿色液体/光柱，侧面有电量显示屏幕。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          7,
+          13
+        ],
+        [
+          44,
+          61
+        ],
+        [
+          130,
+          148
+        ],
+        [
+          160,
+          175
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 7.0,
+      "last_frame": null,
+      "last_seconds": 175.0,
+      "screen_time_seconds": 56.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 69.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c006_prop_001",
+          "chunk_id": 6,
+          "description": "acquired: 被老人从机器上取下并带走。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 50.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "折叠金属架",
+      "description": "由多根金属杆铰接而成的三角形折叠工具，表面锈迹斑斑。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          13,
+          23
+        ],
+        [
+          28,
+          36
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 13.0,
+      "last_frame": null,
+      "last_seconds": 36.0,
+      "screen_time_seconds": 18.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 5.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "红色管钳",
+      "description": "大型红色管钳，手柄处有磨损痕迹。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          13,
+          23
+        ],
+        [
+          28,
+          36
+        ],
+        [
+          78,
+          92
+        ],
+        [
+          101,
+          108
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 13.0,
+      "last_frame": null,
+      "last_seconds": 108.0,
+      "screen_time_seconds": 39.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 42.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c026_prop_003",
+          "chunk_id": 26,
+          "description": "acquired: 被安保机器人夺走并用作武器。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 108.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "粉色喷漆罐",
+      "description": "圆柱形金属罐，罐身印有'PINK'字样。",
+      "first_chunk": 8,
+      "presence_spans": [
+        [
+          62,
+          77
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 62.0,
+      "last_frame": null,
+      "last_seconds": 77.0,
+      "screen_time_seconds": 15.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_004@c008",
+          "chunk_id": 8,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c009_prop_004",
+          "chunk_id": 9,
+          "description": "consumed: 在空中爆炸，油漆泼洒在机器人身上。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 76.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_005",
+      "kind": "prop",
+      "name": "警卫工牌",
+      "description": "挂在制服胸前的证件卡，印有照片和文字'VÖRÐUR'。",
+      "first_chunk": 5,
+      "presence_spans": [
+        [
+          37,
+          43
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 37.0,
+      "last_frame": null,
+      "last_seconds": 43.0,
+      "screen_time_seconds": 6.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_005@c005",
+          "chunk_id": 5,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c005_prop_005",
+          "chunk_id": 5,
+          "description": "acquired: 被老人的机械手取下。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 40.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_006",
+      "kind": "prop",
+      "name": "设计图纸",
+      "description": "铺在木桌上的泛黄纸张，绘有机械结构草图和圆圈标记。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          13,
+          23
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 13.0,
+      "last_frame": null,
+      "last_seconds": 23.0,
+      "screen_time_seconds": 10.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_006@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "烛光工坊",
+      "description": "昏暗的木质房间，桌上点满蜡烛，摆放着工具和图纸，充满暖色调光线。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          7,
+          23
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 7.0,
+      "last_frame": null,
+      "last_seconds": 23.0,
+      "screen_time_seconds": 16.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "荒野营地",
+      "description": "雾气弥漫的山坡，前景有简陋棚屋，远景矗立着巨大的未来派堡垒建筑。",
+      "first_chunk": 3,
+      "presence_spans": [
+        [
+          24,
+          36
+        ],
+        [
+          139,
+          148
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 24.0,
+      "last_frame": null,
+      "last_seconds": 148.0,
+      "screen_time_seconds": 21.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 103.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c003",
+          "chunk_id": 3,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "堡垒内部设施",
+      "description": "冷色调的高科技室内空间，包含监控室、装配车间和走廊，地面有金属格栅。",
+      "first_chunk": 4,
+      "presence_spans": [
+        [
+          28,
+          36
+        ],
+        [
+          37,
+          43
+        ],
+        [
+          44,
+          61
+        ],
+        [
+          62,
+          77
+        ],
+        [
+          78,
+          92
+        ],
+        [
+          93,
+          108
+        ],
+        [
+          109,
+          129
+        ],
+        [
+          130,
+          148
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 28.0,
+      "last_frame": null,
+      "last_seconds": 148.0,
+      "screen_time_seconds": 113.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 1.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c004",
+          "chunk_id": 4,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c016_loc_003",
+          "chunk_id": 16,
+          "description": "appearance_changed: 背景区域起火燃烧，散落着机器人残骸。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 136.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "壁炉起居室",
+      "description": "温暖的室内空间，中央有燃烧的壁炉，摆放着皮质扶手椅和地毯。",
+      "first_chunk": 18,
+      "presence_spans": [
+        [
+          149,
+          187
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 149.0,
+      "last_frame": null,
+      "last_seconds": 187.0,
+      "screen_time_seconds": 38.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_004@c018",
+          "chunk_id": 18,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

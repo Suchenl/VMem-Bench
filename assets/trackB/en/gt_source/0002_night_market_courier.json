@@ -1,0 +1,1073 @@
+{
+  "story_id": "0002_night_market_courier",
+  "title": "Neon Night-Market Courier",
+  "premise": "A long urban drama on a neon rainy night. Red-raincoat courier Lin and rival Abao are easily confused; the wax-sealed wooden box goes intact→pried open→empty; the old motorcycle is wrecked in a crash and must be avoided; apprentice Aning returns after a long absence to take over; count memory (wax seals / lanterns / brass padlocks), false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Lin",
+      "kind": "character",
+      "states": {
+        "alert_youth": "A woman courier in her twenties, short hair, bright-red hooded raincoat, a black waterproof mail bag on her left shoulder, alert eyes.",
+        "weary_injured": "The same woman courier looking weary: short hair plastered wet to her forehead, a tear in the red raincoat, left arm wrapped in a makeshift bandage, still carrying the black mail bag.",
+        "retired_away": "Courier Lin has withdrawn and left; only an empty red raincoat hangs on a chair back—she herself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Aning",
+      "kind": "character",
+      "states": {
+        "young_runner": "Young Aning: a lean night-market runner girl of fifteen or sixteen, dark-blue rain cape, brim pulled low, stubborn eyes.",
+        "adult_successor": "Adult Aning: a tall upright woman courier in her early twenties, still in a dark-blue rain cape, eyes steady and firm."
+      }
+    },
+    "E3": {
+      "name": "wax-sealed wooden box",
+      "kind": "prop",
+      "states": {
+        "sealed_intact": "A palm-sized dark wooden box, lid pressed with a dark-red wax seal, copper corners on all four edges.",
+        "pried_open": "The wax-sealed wooden box has been pried open; the dark-red wax seal is cracked and peeling, the lid forced up, copper corners askew.",
+        "empty_sealed": "The wooden box lid was flung open then hastily bound with cord; the inside is empty, wax crumbs stuck to the rim; thereafter shown only as an empty box."
+      }
+    },
+    "E4": {
+      "name": "delivery ledger",
+      "kind": "prop",
+      "states": {
+        "intact": "An oilcloth-covered delivery ledger, carbon paper clipped inside, filled with neon alley names and signature columns.",
+        "rain_blurred": "The same delivery ledger soaked by rain: cover wrinkled, ink bled into purple-black stains."
+      }
+    },
+    "E5": {
+      "name": "old motorcycle",
+      "kind": "prop",
+      "states": {
+        "intact": "A dark-red old motorcycle, faded 'Lin' sticker on the tank, a waterproof mail-bag rack strapped to the rear seat.",
+        "wrecked": "The dark-red old motorcycle has been sideswiped and toppled by a truck; tank dented, wheels twisted—an unridable wreck."
+      }
+    },
+    "E6": {
+      "name": "Abao",
+      "kind": "character",
+      "states": {
+        "young_rival": "A male courier rival of build close to Lin's, same bright-red hooded raincoat, a scar on his chin, a silver ring on his right hand, defiant look.",
+        "remade_return": "Adult Abao still wears the red raincoat; the chin scar deeper, the silver ring swapped for a black iron ring, expression dark."
+      }
+    },
+    "E7": {
+      "name": "night-market stall",
+      "kind": "location",
+      "appearance": "A wet night-market food stall under neon signs: red lanterns, steam, and plastic awning dripping rain."
+    },
+    "E8": {
+      "name": "rooftop",
+      "kind": "location",
+      "appearance": "An old-building rooftop crowded with AC units and water tanks; distant neon skyline, puddles mirroring the lights."
+    },
+    "E9": {
+      "name": "subway corridor",
+      "kind": "location",
+      "appearance": "An underground corridor under pale fluorescent tubes, tile walls plastered with faded ads, turnstiles at the far end."
+    },
+    "E10": {
+      "name": "rain-alley courier station",
+      "kind": "location",
+      "appearance": "A courier station at the end of a narrow rain alley: tin roof, yellow-lit window, key tags hanging on the wall."
+    },
+    "E11": {
+      "name": "brass name mailbox",
+      "kind": "prop",
+      "appearance": "A brass mailbox nailed to the station wall, courier name and year engraved on the face, edges already verdigris."
+    },
+    "E12": {
+      "name": "spare wax seals",
+      "kind": "prop",
+      "appearance": "Three deep-red spare wax seals strung on hemp cord and hung from a night-market stall beam, star patterns carved on the faces."
+    },
+    "E13": {
+      "name": "shared e-bike",
+      "kind": "prop",
+      "appearance": "A brand-new teal shared e-bike with an ad board in the basket, nothing like the dark-red old motorcycle."
+    },
+    "E14": {
+      "name": "Officer Zhou",
+      "kind": "character",
+      "appearance": "A lean city inspector with a full beard, dark-blue uniform raincoat, and peaked cap; build somewhat like Lin's but stockier."
+    },
+    "E15": {
+      "name": "string of red lanterns",
+      "kind": "prop",
+      "appearance": "A row of five wet red lanterns hanging along the night-market stall awning, tassels dripping rain."
+    },
+    "E16": {
+      "name": "brass padlocks",
+      "kind": "prop",
+      "appearance": "Two brass padlocks hanging on the station iron gate, shanks faintly glowing, keyholes plugged with rainproof wax."
+    },
+    "E17": {
+      "name": "Xiaotao",
+      "kind": "character",
+      "appearance": "A runner girl from the far side of the night market, light-brown hairband and gray-blue rain cape; at a glance somewhat like young Aning, but rounder chin and shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "replica wooden box",
+      "kind": "prop",
+      "appearance": "A half-palm replica wooden box shaped much like the wax-sealed wooden box, but without copper corners, sealed with cheap bright-red wax."
+    },
+    "E19": {
+      "name": "Buyer Zhou",
+      "kind": "character",
+      "appearance": "A middle-aged man in gold-rimmed glasses and a beige trench coat, left hand carrying a crocodile-pattern case, mild smile with an edge."
+    },
+    "E20": {
+      "name": "yellow-plate moped",
+      "kind": "prop",
+      "appearance": "An old moped with a yellow plate, raincoats stuffed in the basket; shape near the old motorcycle but definitely not the same one."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "alert_youth",
+      "weary_injured",
+      "retired_away"
+    ],
+    "E2": [
+      "young_runner",
+      "adult_successor"
+    ],
+    "E3": [
+      "sealed_intact",
+      "pried_open",
+      "empty_sealed"
+    ],
+    "E4": [
+      "intact",
+      "rain_blurred"
+    ],
+    "E5": [
+      "intact",
+      "wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_return"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E1",
+        "E6"
+      ],
+      "features": {
+        "E1": "Lin: woman courier, bright-red hooded raincoat, black mail bag on left shoulder; no chin scar, no ring on right hand.",
+        "E6": "Abao: male rival, same bright-red hooded raincoat, similar build, chin scar, silver ring on right hand."
+      },
+      "note": "Red-raincoat confuse: when alone, do not draw the other; when co-present, bind scar / ring / mail bag."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Rooftop pickup (introduce five lanterns · two brass padlocks)",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        "On a rainy night, red-coated courier Lin steps onto the rooftop; puddles mirror the distant neon.",
+        {
+          "action": "A string of red lanterns—five in a row—hangs along the night-market stall awning; Lin looks up and counts them to confirm she has not taken the wrong alley.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two brass padlocks hang on the rain-alley courier station iron gate; Lin unlocks one with a key.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Lin shakes rain from her hood brim on the rooftop and guards the black mail bag on her left shoulder.",
+        "Lin checks the mail-bag liner and confirms the wax-sealed wooden box is still there.",
+        {
+          "action": "The wax-sealed wooden box rests quietly beside the rooftop puddles, its dark-red wax seal intact.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        },
+        "Lin dozes against a water tank; the red raincoat flutters lightly in the wind."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Logging the delivery ledger",
+      "present": [
+        "E1",
+        "E8",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Lin opens the delivery ledger and logs this rooftop job on carbon paper.",
+        "Lin writes the buyer's code name and handoff time in the delivery ledger.",
+        {
+          "action": "Buyer Zhou in gold-rimmed glasses briefly appears at the rooftop edge, only nods, then vanishes into the rain.",
+          "present": [
+            "E1",
+            "E8",
+            "E19"
+          ]
+        },
+        "Lin closes the delivery ledger and tucks it into the mail-bag side pocket.",
+        {
+          "action": "Neon flashes on the copper corners of the wax-sealed wooden box.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Night market greets the apprentice (introduce three wax seals)",
+      "present": [
+        "E1",
+        "E7",
+        "E2",
+        "E5"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        "At the dawn night-market stall, Lin greets young Aning arriving on the dark-red old motorcycle.",
+        {
+          "action": "Aning jumps off the old motorcycle and hangs her helmet on the handlebar.",
+          "present": [
+            "E7",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Lin points to the three spare wax seals strung on the beam and teaches Aning to read the star patterns.",
+          "present": [
+            "E1",
+            "E7",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Aning crouches by a puddle at the night-market stall, watching steam rise with curious eyes.",
+          "present": [
+            "E7",
+            "E2"
+          ]
+        },
+        {
+          "action": "Lin explains to Aning which alley signs are coded signals.",
+          "present": [
+            "E1",
+            "E7",
+            "E2"
+          ]
+        },
+        {
+          "action": "Aning looks back at the parked old motorcycle, eyes full of longing.",
+          "present": [
+            "E7",
+            "E2",
+            "E5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Subway corridor (Abao alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the pale subway corridor, red-raincoat Abao glances back from behind the ad wall; the chin scar flashes.",
+        "Abao stops before the turnstiles at the corridor end; the silver ring on his right hand taps the rail.",
+        "Abao brushes past a street singer in the corridor, defiant look.",
+        "Abao carries an empty mail bag through the crowd in the subway corridor."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Red raincoats brush past, co-present",
+      "present": [
+        "E1",
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1",
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the subway corridor, Lin and Abao pass side by side—one with a black mail bag, one with a silver ring.",
+        "Lin guards her mail bag on instinct; Abao scoffs lightly and keeps walking.",
+        "Abao looks back at Lin; under the tubes their red raincoats are almost the same color.",
+        "Lin and Abao split at the corridor fork, each heading the opposite way."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Delivery ledger rain-stained",
+      "present": [
+        "E1",
+        "E8",
+        "E3",
+        "E4"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        "Weeks later on a stormy night, Lin keeps watch alone on the rooftop, the wax-sealed wooden box on her knees.",
+        {
+          "action": "Lin opens the delivery ledger; rain has wrinkled the cover and blurred the writing into stains.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "rain_blurred"
+            }
+          ]
+        },
+        "Lin wipes water beads from the copper corners of the wax-sealed wooden box.",
+        "Lin leans on the rooftop rail, staring at neon swallowed by the rain curtain.",
+        {
+          "action": "The wax-sealed wooden box mirrors broken lantern light in the puddles.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Rain-season drift (filler · stretch the gap)",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        "The rainy season stretches on; day after day Lin climbs the rooftop for handoffs.",
+        "Another typhoon night, Lin wraps her red raincoat tight and keeps watch by the water tank.",
+        "At Qingming, Lin stands on the rooftop gazing at distant neon still lit.",
+        "At high summer noon, Lin wipes AC units baked hot by the sun.",
+        "Through autumn rain, the wax seal on the wax-sealed wooden box turns faintly tacky in the damp.",
+        "Another New Year's Eve, Lin keeps watch alone on the rooftop until dawn."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Night-market patrol (recall wax seals · shared e-bike false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E5"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        "At dawn, Lin patrols along the night-market stall; the dark-red old motorcycle is parked beside it.",
+        {
+          "action": "Lin crouches to check the chain tension on the old motorcycle.",
+          "present": [
+            "E7",
+            "E5"
+          ]
+        },
+        {
+          "action": "Lin walks under the beam; those three spare wax seals still hang in place.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A teal shared e-bike sits before the stall, ad board in the basket—not Lin's old motorcycle.",
+          "present": [
+            "E7",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Lin stands at the night-market stall logging unsigned job numbers from last night.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Lin hangs a soaked rain cape on a bamboo pole at the night-market stall.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Rainy-night crash (box pried · old motorcycle wrecked)",
+      "present": [
+        "E3",
+        "E8"
+      ],
+      "actions": [
+        "A sudden downpour; rooftop puddles rise past the ankles and the wax-sealed wooden box nearly floats.",
+        "A truck horn screams in the distance; metal scraping echoes from the alley mouth.",
+        {
+          "action": "Abao climbs onto the rooftop and pries open the wax-sealed wooden box with a small knife; the dark-red wax cracks.",
+          "present": [
+            "E6",
+            "E3",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "pried_open"
+            }
+          ],
+          "lookalike_present": {
+            "pair": [
+              "E1",
+              "E6"
+            ],
+            "members": [
+              "E6"
+            ]
+          }
+        },
+        {
+          "action": "At the alley mouth, the dark-red old motorcycle jolts hard through the rain curtain.",
+          "present": [
+            "E5",
+            "E7"
+          ]
+        },
+        {
+          "action": "A sideswipe topples the old motorcycle; tank dented, wheels twisted.",
+          "present": [
+            "E5",
+            "E7"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "On the rooftop, Lin lunges at the pried-open wax-sealed wooden box and clamps the lid shut.",
+          "present": [
+            "E1",
+            "E8",
+            "E3"
+          ],
+          "lookalike_present": {
+            "pair": [
+              "E1",
+              "E6"
+            ],
+            "members": [
+              "E1"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (old motorcycle indirect mention · lantern recall)",
+      "present": [
+        "E1",
+        "E8",
+        "E3"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        {
+          "action": "The day after the storm, Lin stands on the rooftop staring at the pried-open wax-sealed wooden box.",
+          "present": [
+            "E1",
+            "E8",
+            "E3"
+          ]
+        },
+        {
+          "action": "Lin brushes cracked wax crumbs on the wax-sealed wooden box with her fingers, face dark.",
+          "present": [
+            "E1",
+            "E8",
+            "E3"
+          ]
+        },
+        {
+          "action": "Beside the rooftop dispatch wall, Lin notes the date of the old motorcycle wreck.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "A photo of the old motorcycle hangs on the station wall; Lin gazes at it a long time.",
+          "present": [
+            "E1",
+            "E10"
+          ]
+        },
+        {
+          "action": "Lin takes one of the five red lanterns from the awning edge and sits alone in the faint glow.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The pried-open wax-sealed wooden box still gapes empty.",
+          "present": [
+            "E8",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Empty box sealed (third state · replica wooden box false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E3"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        "Weeks later, Lin binds the empty wooden box with cord, ready to seal it as evidence.",
+        {
+          "action": "Lin lifts a replica wooden box from a carton; it looks like the wax-sealed wooden box but has no copper corners.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Lin carefully sweeps wax crumbs into a paper bag and sticks on a seal label.",
+        {
+          "action": "Cord pulled tight, the wax-sealed wooden box becomes empty-sealed, hollow inside.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "empty_sealed"
+            }
+          ]
+        },
+        "Lin locks the empty-sealed wax-sealed wooden box into the rooftop iron cabinet and lets out a long breath."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: yellow-plate moped and city inspector",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        {
+          "action": "A yellow-plate moped rolls into the night-market stall—nothing like the wrecked old motorcycle.",
+          "present": [
+            "E7",
+            {
+              "eid": "E20",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Bearded Officer Zhou walks into the night-market stall and talks beside Lin; their builds are alike.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "Officer Zhou points at the yellow-plate moped and explains the new parking rules to Lin.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E20",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The yellow-plate moped is wheeled away; Lin alone at the night-market stall watches it go.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Xiaotao who resembles Aning",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        {
+          "action": "From the far side of the night market comes runner girl Xiaotao with a light-brown hairband; at a glance she looks a bit like young Aning.",
+          "present": [
+            "E7",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaotao practices tying a cable-style mail-bag strap before the stall; Lin shakes her head—she is not Aning after all.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Weary and injured (long-range brass padlock recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        {
+          "action": "At dusk half a year later, Lin with a bandaged left arm stands weary at the rain-alley courier station door.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_injured"
+            }
+          ]
+        },
+        "Lin looks up at the station's yellow-lit window, gaze distant.",
+        {
+          "action": "Those two brass padlocks on the station iron gate clink lightly in the rain; Lin pauses to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Lin presses her palm to the station's cold tin wall, as if saying goodbye."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Aning takes over · Lin retires",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E1"
+        ]
+      },
+      "actions": [
+        {
+          "action": "By day, adult Aning returns along the rain alley and strides toward the station.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "Aning reunites with injured Lin at the station door; they share a brief embrace.",
+        {
+          "action": "Inside the station, Aning takes the empty-sealed box key Lin hands over.",
+          "present": [
+            "E1",
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Lin takes off the red raincoat, hangs it on a chair back, and turns into the rain alley—never to appear again.",
+          "present": [
+            "E1",
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "retired_away",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · brass name mailbox (indirect mention)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Lin's red raincoat still hangs on the station chair back; Aning brushes it lightly with her hand.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "By the station wall, adult Aning stands before a newly nailed brass name mailbox.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Aning's fingertips trace Lin's name engraved on the brass name mailbox.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Abao remade return reunion (long-range + co-present)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E1",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Remade Abao arrives from the subway direction; the black iron ring flashes in the rain.",
+          "present": [
+            "E6",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_return"
+            }
+          ]
+        },
+        "Aning blocks Abao—one in a dark-blue rain cape, one in a red raincoat—facing off at the station door.",
+        "Abao leaves with a cold smile; Aning grips the empty-sealed box key."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashbacks (temporal anchors)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—the youth learning wax seals at the night-market stall appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_runner",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth learning wax seals at the night-market stall",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—on the rooftop, a still-sealed wooden box is taken out for the first time.",
+          "present": [
+            "E8",
+            {
+              "eid": "E3",
+              "state": "sealed_intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the still-sealed wooden box first taken out at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the subway corridor of that year—a red-raincoat figure with a chin scar and silver ring on the right hand flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the red-raincoat figure with a silver ring in that year's corridor",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again the row of five wet red lanterns along the night-market awning rises before the eyes.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five red lanterns along the night-market awning",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the puddled high platform of first meeting; neon mirrors as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the puddled rooftop of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Close (long-range ledger · long-range wax seals · buyer returns)",
+      "present": [
+        "E2",
+        "E8",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Aning reopens the rain-blurred delivery ledger and climbs onto the rooftop.",
+          "present": [
+            "E2",
+            "E8",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "By the night-market beam, those three spare wax seals still hang in place.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Buyer Zhou finally appears on the rooftop; Aning sets the empty-sealed wax-sealed wooden box on a crate beside the puddles.",
+          "present": [
+            "E2",
+            "E8",
+            "E3",
+            "E19"
+          ]
+        }
+      ]
+    }
+  ]
+}

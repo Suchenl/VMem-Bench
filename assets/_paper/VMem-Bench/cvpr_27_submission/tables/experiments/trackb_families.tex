@@ -1,0 +1,23 @@
+\begin{table*}[!t]
+\centering
+\caption{Track-B memory-stress families. Each rate is a micro-average over that family's opportunities.}
+\label{tab:trackb-families}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.02}
+\begin{tabular}{@{}l l p{0.58\textwidth}@{}}
+\toprule
+Family & Metric & Satisfied when \\
+\midrule
+Long-gap reappearance & recall & A character or prop returns after at least 30 segments. \\
+Look-alike & accuracy & The identity matches the intended member of a confusable pair. \\
+State change & accuracy & A transformed entity appears in its new state. \\
+Count / multi-instance & accuracy & The rendered count matches the authored count. \\
+Avoidance & avoidance-OK & A removed, destroyed, or deceased entity is absent. \\
+False friend & accuracy & A new look-alike is not collapsed into an existing identity. \\
+State persistence & accuracy & A later segment keeps an earlier transformed state. \\
+Indirect reference & avoidance-OK & A deprecated entity stays absent even if named in the prose. \\
+Temporal reference & recall & A name-free time reference recovers the intended entity. \\
+\bottomrule
+\end{tabular}
+\end{table*}

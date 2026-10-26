@@ -1,0 +1,543 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "cosmos_laundromat_first_cycle",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "565b94acb5aca8cc",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "黑羊",
+      "description": "一只体型圆润、毛发蓬松卷曲的深黑色绵羊，面部皮肤呈深灰色，眼睛一大一小（异色瞳）。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          17,
+          32
+        ],
+        [
+          58,
+          315
+        ],
+        [
+          345,
+          360
+        ],
+        [
+          390,
+          473
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 17.0,
+      "last_frame": null,
+      "last_seconds": 473.0,
+      "screen_time_seconds": 370.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 30.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c020_char_001",
+          "chunk_id": 20,
+          "description": "attached: 脸颊右侧被安装了一个带有旋钮的黑色方形装置",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 293.0
+        },
+        {
+          "event_id": "evt_c035_char_001.1",
+          "chunk_id": 35,
+          "description": "appearance_changed: 在彩色漩涡中身体颜色变为青绿色并发生形变",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 506.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "红发男子",
+      "description": "身材瘦高的男性，拥有鲜艳的橙红色头发和胡须，身穿棕色西装外套、白色衬衫和深色长裤，手腕戴有手表。",
+      "first_chunk": 10,
+      "presence_spans": [
+        [
+          142,
+          390
+        ],
+        [
+          398,
+          413
+        ],
+        [
+          473,
+          489
+        ],
+        [
+          574,
+          601
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 142.0,
+      "last_frame": null,
+      "last_seconds": 601.0,
+      "screen_time_seconds": 306.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 85.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c010",
+          "chunk_id": 10,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "蓝色毛毛虫",
+      "description": "一条蓝绿色的多节毛毛虫状生物，头部有黄色触角，颈部佩戴棕色项圈及小型方形装置，有多对紫色小脚。",
+      "first_chunk": 35,
+      "presence_spans": [
+        [
+          504,
+          559
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 504.0,
+      "last_frame": null,
+      "last_seconds": 559.0,
+      "screen_time_seconds": 55.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_003@c035",
+          "chunk_id": 35,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "绳索",
+      "description": "一根粗麻绳，一端绑在地面的枯木/树桩上。",
+      "first_chunk": 4,
+      "presence_spans": [
+        [
+          58,
+          73
+        ],
+        [
+          88,
+          157
+        ],
+        [
+          233,
+          263
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 58.0,
+      "last_frame": null,
+      "last_seconds": 263.0,
+      "screen_time_seconds": 114.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 76.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c004",
+          "chunk_id": 4,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c018_prop_001",
+          "chunk_id": 18,
+          "description": "detached: 绳索从枯木上被解开，与固定点分离",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 276.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "方形控制装置",
+      "description": "一个黑色的正方形设备，正面有一个大旋钮，侧面有开关拨杆，带有皮带或卡扣。",
+      "first_chunk": 18,
+      "presence_spans": [
+        [
+          263,
+          315
+        ],
+        [
+          345,
+          360
+        ],
+        [
+          390,
+          398
+        ],
+        [
+          428,
+          458
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 263.0,
+      "last_frame": null,
+      "last_seconds": 458.0,
+      "screen_time_seconds": 105.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 30.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c018",
+          "chunk_id": 18,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c020_prop_002",
+          "chunk_id": 20,
+          "description": "attached: 被红发男子安装在黑羊的脸颊上",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 293.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "复古随身听",
+      "description": "一个橙黄色的便携式磁带播放器，配有米色耳机，背面有金色翅膀刺绣图案。",
+      "first_chunk": 22,
+      "presence_spans": [
+        [
+          315,
+          345
+        ],
+        [
+          360,
+          375
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 315.0,
+      "last_frame": null,
+      "last_seconds": 375.0,
+      "screen_time_seconds": 45.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 15.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c022",
+          "chunk_id": 22,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "磁带",
+      "description": "一盘米白色的音频磁带，标签上手写着'Tom & Franck'字样。",
+      "first_chunk": 22,
+      "presence_spans": [
+        [
+          315,
+          330
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 315.0,
+      "last_frame": null,
+      "last_seconds": 330.0,
+      "screen_time_seconds": 15.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_004@c022",
+          "chunk_id": 22,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_005",
+      "kind": "prop",
+      "name": "香烟",
+      "description": "一支白色的细长香烟。",
+      "first_chunk": 41,
+      "presence_spans": [
+        [
+          589,
+          601
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 589.0,
+      "last_frame": null,
+      "last_seconds": 601.0,
+      "screen_time_seconds": 12.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_005@c041",
+          "chunk_id": 41,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_006",
+      "kind": "prop",
+      "name": "打火机",
+      "description": "一个金属质感的防风打火机。",
+      "first_chunk": 41,
+      "presence_spans": [
+        [
+          589,
+          601
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 589.0,
+      "last_frame": null,
+      "last_seconds": 601.0,
+      "screen_time_seconds": 12.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_006@c041",
+          "chunk_id": 41,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "海岛草地悬崖",
+      "description": "一座四周环海的孤立小岛，顶部覆盖着绿色草地，边缘是陡峭的岩石悬崖，背景可见日落或阴沉的天空。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          17,
+          489
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 17.0,
+      "last_frame": null,
+      "last_seconds": 489.0,
+      "screen_time_seconds": 472.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "粉色异星森林",
+      "description": "一个充满超现实色彩的奇幻空间，遍布巨大的粉红色花朵、紫色叶片和悬浮的气泡，光线明亮且迷幻。",
+      "first_chunk": 34,
+      "presence_spans": [
+        [
+          489,
+          559
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 489.0,
+      "last_frame": null,
+      "last_seconds": 559.0,
+      "screen_time_seconds": 70.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c034",
+          "chunk_id": 34,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "自助洗衣店",
+      "description": "室内长廊式空间，两侧排列着多台工业洗衣机，尽头墙壁绘有棕榈树和火烈鸟的海滩壁画，地面铺设瓷砖。",
+      "first_chunk": 39,
+      "presence_spans": [
+        [
+          559,
+          601
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 559.0,
+      "last_frame": null,
+      "last_seconds": 601.0,
+      "screen_time_seconds": 42.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c039",
+          "chunk_id": 39,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

@@ -1,0 +1,1477 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "1001_Flight",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "8d4e2b41efc41b94",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "黑人机长",
+      "description": "身穿飞行员制服的黑人男性，左眼下方有伤痕或贴有创可贴。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          10,
+          187
+        ],
+        [
+          232,
+          277
+        ],
+        [
+          311,
+          334
+        ],
+        [
+          398,
+          413
+        ],
+        [
+          428,
+          443
+        ],
+        [
+          473,
+          523
+        ],
+        [
+          538,
+          688
+        ],
+        [
+          703,
+          1026
+        ],
+        [
+          1060,
+          1348
+        ],
+        [
+          1360,
+          1473
+        ],
+        [
+          1488,
+          1700
+        ],
+        [
+          1719,
+          2322
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 10.0,
+      "last_frame": null,
+      "last_seconds": 2322.0,
+      "screen_time_seconds": 2014.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 64.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c000_char_001",
+          "chunk_id": 0,
+          "description": "appearance_changed: 从裸体状态变为穿着飞行员制服。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 8.5
+        },
+        {
+          "event_id": "evt_c041_char_001.1",
+          "chunk_id": 41,
+          "description": "appearance_changed: 头部和眼部出现白色绷带包扎。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 603.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "红发女子",
+      "description": "留着红色长发的女性，穿吊带裙，手臂有纹身。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          10,
+          25
+        ],
+        [
+          40,
+          100
+        ],
+        [
+          187,
+          232
+        ],
+        [
+          281,
+          311
+        ],
+        [
+          334,
+          398
+        ],
+        [
+          740,
+          804
+        ],
+        [
+          1142,
+          1313
+        ],
+        [
+          1360,
+          1473
+        ],
+        [
+          1529,
+          1565
+        ],
+        [
+          1640,
+          1719
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 10.0,
+      "last_frame": null,
+      "last_seconds": 1719.0,
+      "screen_time_seconds": 677.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 342.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "副驾驶",
+      "description": "白人男性，留有小胡子，身穿飞行员制服。",
+      "first_chunk": 11,
+      "presence_spans": [
+        [
+          156,
+          187
+        ],
+        [
+          232,
+          277
+        ],
+        [
+          398,
+          413
+        ],
+        [
+          428,
+          443
+        ],
+        [
+          473,
+          488
+        ],
+        [
+          1597,
+          1627
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 156.0,
+      "last_frame": null,
+      "last_seconds": 1627.0,
+      "screen_time_seconds": 151.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 1109.0,
+      "representations": [
+        {
+          "representation_id": "char_003@c011",
+          "chunk_id": 11,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_004",
+      "kind": "character",
+      "name": "空乘员A",
+      "description": "卷发女性，身穿深色制服上衣。",
+      "first_chunk": 16,
+      "presence_spans": [
+        [
+          232,
+          247
+        ],
+        [
+          326,
+          334
+        ],
+        [
+          413,
+          428
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 232.0,
+      "last_frame": null,
+      "last_seconds": 428.0,
+      "screen_time_seconds": 38.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 79.0,
+      "representations": [
+        {
+          "representation_id": "char_004@c016",
+          "chunk_id": 16,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_005",
+      "kind": "character",
+      "name": "空乘员B",
+      "description": "扎马尾女性，身穿白色制服上衣配领结。",
+      "first_chunk": 16,
+      "presence_spans": [
+        [
+          232,
+          247
+        ],
+        [
+          277,
+          281
+        ],
+        [
+          413,
+          428
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 232.0,
+      "last_frame": null,
+      "last_seconds": 428.0,
+      "screen_time_seconds": 34.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 132.0,
+      "representations": [
+        {
+          "representation_id": "char_005@c016",
+          "chunk_id": 16,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_006",
+      "kind": "character",
+      "name": "律师/西装男",
+      "description": "中年白人男性，身穿深色西装。",
+      "first_chunk": 41,
+      "presence_spans": [
+        [
+          603,
+          663
+        ],
+        [
+          688,
+          703
+        ],
+        [
+          1026,
+          1060
+        ],
+        [
+          1313,
+          1360
+        ],
+        [
+          1777,
+          1790
+        ],
+        [
+          1848,
+          1863
+        ],
+        [
+          1980,
+          2005
+        ],
+        [
+          2020,
+          2042
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 603.0,
+      "last_frame": null,
+      "last_seconds": 2042.0,
+      "screen_time_seconds": 231.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 417.0,
+      "representations": [
+        {
+          "representation_id": "char_006@c041",
+          "chunk_id": 41,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_007",
+      "kind": "character",
+      "name": "胖朋友",
+      "description": "体型较胖的白人男性，留胡须，穿花衬衫或夹克。",
+      "first_chunk": 46,
+      "presence_spans": [
+        [
+          688,
+          718
+        ],
+        [
+          804,
+          838
+        ],
+        [
+          1848,
+          1878
+        ],
+        [
+          1980,
+          2042
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 688.0,
+      "last_frame": null,
+      "last_seconds": 2042.0,
+      "screen_time_seconds": 156.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 1010.0,
+      "representations": [
+        {
+          "representation_id": "char_007@c046",
+          "chunk_id": 46,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_008",
+      "kind": "character",
+      "name": "儿子",
+      "description": "黑人青少年男孩，穿校服或便装。",
+      "first_chunk": 96,
+      "presence_spans": [
+        [
+          1488,
+          1503
+        ],
+        [
+          1835,
+          1848
+        ],
+        [
+          2210,
+          2255
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 1488.0,
+      "last_frame": null,
+      "last_seconds": 2255.0,
+      "screen_time_seconds": 73.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 362.0,
+      "representations": [
+        {
+          "representation_id": "char_008@c096",
+          "chunk_id": 96,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_009",
+      "kind": "character",
+      "name": "前妻",
+      "description": "黑人女性，短发卷发，穿深色套装。",
+      "first_chunk": 96,
+      "presence_spans": [
+        [
+          1488,
+          1529
+        ],
+        [
+          1820,
+          1835
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 1488.0,
+      "last_frame": null,
+      "last_seconds": 1835.0,
+      "screen_time_seconds": 56.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 291.0,
+      "representations": [
+        {
+          "representation_id": "char_009@c096",
+          "chunk_id": 96,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_010",
+      "kind": "character",
+      "name": "调查女主管",
+      "description": "戴眼镜的中年白人女性，穿红色西装外套。",
+      "first_chunk": 135,
+      "presence_spans": [
+        [
+          2042,
+          2132
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 2042.0,
+      "last_frame": null,
+      "last_seconds": 2132.0,
+      "screen_time_seconds": 90.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_010@c135",
+          "chunk_id": 135,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_011",
+      "kind": "character",
+      "name": "狱友",
+      "description": "年轻黑人男性，穿红黑格子衬衫。",
+      "first_chunk": 152,
+      "presence_spans": [
+        [
+          2292,
+          2307
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 2292.0,
+      "last_frame": null,
+      "last_seconds": 2307.0,
+      "screen_time_seconds": 15.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_011@c152",
+          "chunk_id": 152,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "酒瓶",
+      "description": "各种品牌的烈酒和啤酒瓶，如威士忌、伏特加、百威等。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          25,
+          55
+        ],
+        [
+          311,
+          334
+        ],
+        [
+          853,
+          868
+        ],
+        [
+          898,
+          928
+        ],
+        [
+          1090,
+          1142
+        ],
+        [
+          1177,
+          1192
+        ],
+        [
+          1226,
+          1241
+        ],
+        [
+          1655,
+          1670
+        ],
+        [
+          1863,
+          1878
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 25.0,
+      "last_frame": null,
+      "last_seconds": 1878.0,
+      "screen_time_seconds": 210.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 519.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c099_prop_001",
+          "chunk_id": 99,
+          "description": "consumed: 大量酒瓶被倒入水槽或马桶冲走。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 1530.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "香烟",
+      "description": "普通香烟及烟盒。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          25,
+          115
+        ],
+        [
+          217,
+          232
+        ],
+        [
+          755,
+          770
+        ],
+        [
+          1192,
+          1207
+        ],
+        [
+          1458,
+          1473
+        ],
+        [
+          1544,
+          1550
+        ],
+        [
+          1700,
+          1734
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 25.0,
+      "last_frame": null,
+      "last_seconds": 1734.0,
+      "screen_time_seconds": 190.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 523.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "注射器",
+      "description": "医用注射器。",
+      "first_chunk": 24,
+      "presence_spans": [
+        [
+          334,
+          379
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 334.0,
+      "last_frame": null,
+      "last_seconds": 379.0,
+      "screen_time_seconds": 45.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c024",
+          "chunk_id": 24,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "小型飞机",
+      "description": "单引擎螺旋桨小型飞机。",
+      "first_chunk": 64,
+      "presence_spans": [
+        [
+          962,
+          977
+        ],
+        [
+          1640,
+          1655
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 962.0,
+      "last_frame": null,
+      "last_seconds": 1655.0,
+      "screen_time_seconds": 30.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 663.0,
+      "representations": [
+        {
+          "representation_id": "prop_004@c064",
+          "chunk_id": 64,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_005",
+      "kind": "prop",
+      "name": "拐杖",
+      "description": "金属手杖/拐杖。",
+      "first_chunk": 56,
+      "presence_spans": [
+        [
+          838,
+          853
+        ],
+        [
+          1060,
+          1075
+        ],
+        [
+          1157,
+          1177
+        ],
+        [
+          1805,
+          1820
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 838.0,
+      "last_frame": null,
+      "last_seconds": 1820.0,
+      "screen_time_seconds": 65.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 628.0,
+      "representations": [
+        {
+          "representation_id": "prop_005@c056",
+          "chunk_id": 56,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_006",
+      "kind": "prop",
+      "name": "迷你酒瓶",
+      "description": "小瓶装烈酒。",
+      "first_chunk": 124,
+      "presence_spans": [
+        [
+          1878,
+          1893
+        ],
+        [
+          1930,
+          1950
+        ],
+        [
+          1990,
+          2005
+        ],
+        [
+          2072,
+          2087
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 1878.0,
+      "last_frame": null,
+      "last_seconds": 2087.0,
+      "screen_time_seconds": 65.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 67.0,
+      "representations": [
+        {
+          "representation_id": "prop_006@c124",
+          "chunk_id": 124,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_007",
+      "kind": "prop",
+      "name": "药丸",
+      "description": "白色小药片。",
+      "first_chunk": 123,
+      "presence_spans": [
+        [
+          1863,
+          1878
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 1863.0,
+      "last_frame": null,
+      "last_seconds": 1878.0,
+      "screen_time_seconds": 15.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_007@c123",
+          "chunk_id": 123,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "机场停机坪",
+      "description": "夜间或雨天的机场外部，可见飞机和控制塔。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          10
+        ],
+        [
+          126,
+          187
+        ],
+        [
+          1762,
+          1790
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 1790.0,
+      "screen_time_seconds": 99.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 1575.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "酒店客房",
+      "description": "光线昏暗的酒店房间，有大床和床头柜。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          10,
+          126
+        ],
+        [
+          187,
+          232
+        ],
+        [
+          281,
+          311
+        ],
+        [
+          334,
+          398
+        ],
+        [
+          1127,
+          1226
+        ],
+        [
+          1529,
+          1550
+        ],
+        [
+          1572,
+          1597
+        ],
+        [
+          1790,
+          1848
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 10.0,
+      "last_frame": null,
+      "last_seconds": 1848.0,
+      "screen_time_seconds": 458.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 729.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "飞机驾驶舱",
+      "description": "商用客机驾驶舱内部，布满仪表盘。",
+      "first_chunk": 11,
+      "presence_spans": [
+        [
+          156,
+          187
+        ],
+        [
+          232,
+          281
+        ],
+        [
+          398,
+          523
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 156.0,
+      "last_frame": null,
+      "last_seconds": 523.0,
+      "screen_time_seconds": 205.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 117.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c011",
+          "chunk_id": 11,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c044_loc_003",
+          "chunk_id": 44,
+          "description": "destroyed: 驾驶舱在坠机中严重受损，挡风玻璃破裂。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 660.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "飞机客舱",
+      "description": "客机内部乘客座位区。",
+      "first_chunk": 16,
+      "presence_spans": [
+        [
+          232,
+          247
+        ],
+        [
+          277,
+          281
+        ],
+        [
+          311,
+          334
+        ],
+        [
+          413,
+          443
+        ],
+        [
+          458,
+          473
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 232.0,
+      "last_frame": null,
+      "last_seconds": 473.0,
+      "screen_time_seconds": 87.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 79.0,
+      "representations": [
+        {
+          "representation_id": "loc_004@c016",
+          "chunk_id": 16,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c044_loc_004",
+          "chunk_id": 44,
+          "description": "destroyed: 客舱在坠机中翻转、破损，物品散落。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 660.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_005",
+      "kind": "location",
+      "name": "坠机现场",
+      "description": "田野中的飞机残骸，冒着黑烟。",
+      "first_chunk": 35,
+      "presence_spans": [
+        [
+          503,
+          603
+        ],
+        [
+          1313,
+          1348
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 503.0,
+      "last_frame": null,
+      "last_seconds": 1348.0,
+      "screen_time_seconds": 135.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 710.0,
+      "representations": [
+        {
+          "representation_id": "loc_005@c035",
+          "chunk_id": 35,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_006",
+      "kind": "location",
+      "name": "医院病房",
+      "description": "医院病房，有病床、医疗设备和电视。",
+      "first_chunk": 39,
+      "presence_spans": [
+        [
+          568,
+          804
+        ],
+        [
+          1597,
+          1640
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 568.0,
+      "last_frame": null,
+      "last_seconds": 1640.0,
+      "screen_time_seconds": 279.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 793.0,
+      "representations": [
+        {
+          "representation_id": "loc_006@c039",
+          "chunk_id": 39,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_007",
+      "kind": "location",
+      "name": "乡村小屋",
+      "description": "位于乡间的老旧白色木屋，内有木质墙壁和旧家具。",
+      "first_chunk": 54,
+      "presence_spans": [
+        [
+          804,
+          1026
+        ],
+        [
+          1226,
+          1313
+        ],
+        [
+          1360,
+          1473
+        ],
+        [
+          1640,
+          1762
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 804.0,
+      "last_frame": null,
+      "last_seconds": 1762.0,
+      "screen_time_seconds": 544.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 200.0,
+      "representations": [
+        {
+          "representation_id": "loc_007@c054",
+          "chunk_id": 54,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_008",
+      "kind": "location",
+      "name": "教堂",
+      "description": "教堂内部，有彩色玻璃窗和棺木。",
+      "first_chunk": 95,
+      "presence_spans": [
+        [
+          1473,
+          1529
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 1473.0,
+      "last_frame": null,
+      "last_seconds": 1529.0,
+      "screen_time_seconds": 56.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_008@c095",
+          "chunk_id": 95,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_009",
+      "kind": "location",
+      "name": "听证会大厅",
+      "description": "大型会议室，设有主席台、投影屏幕和观众席。",
+      "first_chunk": 68,
+      "presence_spans": [
+        [
+          1026,
+          1127
+        ],
+        [
+          1348,
+          1360
+        ],
+        [
+          1550,
+          1572
+        ],
+        [
+          2042,
+          2150
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 1026.0,
+      "last_frame": null,
+      "last_seconds": 2150.0,
+      "screen_time_seconds": 243.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 470.0,
+      "representations": [
+        {
+          "representation_id": "loc_009@c068",
+          "chunk_id": 68,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_010",
+      "kind": "location",
+      "name": "监狱",
+      "description": "监狱内部，有牢房、公共活动区和探视区。",
+      "first_chunk": 142,
+      "presence_spans": [
+        [
+          2150,
+          2334
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 2150.0,
+      "last_frame": null,
+      "last_seconds": 2334.0,
+      "screen_time_seconds": 184.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_010@c142",
+          "chunk_id": 142,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_011",
+      "kind": "location",
+      "name": "豪华酒店套房",
+      "description": "装修现代的高档酒店房间，有迷你吧和客厅。",
+      "first_chunk": 122,
+      "presence_spans": [
+        [
+          1848,
+          2042
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 1848.0,
+      "last_frame": null,
+      "last_seconds": 2042.0,
+      "screen_time_seconds": 194.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_011@c122",
+          "chunk_id": 122,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

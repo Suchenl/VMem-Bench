@@ -1,0 +1,93 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{How causal video memories read and forget.}
+Every read matches the current instruction, latest frame, camera pose, or attention query by similarity or relevance, and forgetting is either absent, a budget eviction ranked by that same relevance, or age-based compression; no causal system evicts or withholds an entry because the story changed its state. Only IAMFlow and the non-causal VideoMemory keep explicit entity records, and both address them by the entities named in the current instruction or shot.}
+\label{tab:memory-read-forget}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabular}{@{}
+  >{\raggedright\arraybackslash}p{0.16\linewidth}
+  >{\raggedright\arraybackslash}p{0.21\linewidth}
+  >{\raggedright\arraybackslash}p{0.24\linewidth}
+  >{\raggedright\arraybackslash}p{0.21\linewidth}
+  >{\raggedright\arraybackslash}p{0.08\linewidth}
+  @{} }
+\toprule
+{\normalfont\bfseries System}
+  & {\normalfont\bfseries Stored as}
+  & {\normalfont\bfseries Read by}
+  & {\normalfont\bfseries Forgets by}
+  & {\normalfont\bfseries Causal} \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Released / published memories}} \\
+FramePack \citep{zhang2025framepack}
+  & Frame latents, compressed by importance rank
+  & All history, ordered by recency or similarity
+  & Geometric compression; tail deleted or pooled
+  & Partly (endpoint plans) \\
+MemFlow \citep{ji2025memflow}
+  & Local KV window $+$ KV bank
+  & Prompt-to-frame attention, top-$k$
+  & Budget; keeps top-$k$ by prompt relevance
+  & Yes \\
+IAMFlow \citep{liu2026iamflow}
+  & Entity-ID registry $+$ archived frame KV
+  & Set cover of IDs named in prompt
+  & None; archive grows, read capped
+  & Yes \\
+LongLive-RAG \citep{hu2026longliverag}
+  & Evicted latent KV $+$ AE embedding
+  & Cosine to latest latent, top-$K$
+  & None; every evicted frame kept
+  & Yes \\
+Context-as-Memory \citep{yu2025contextmemory}
+  & Raw generated frames
+  & Camera FOV overlap with target view
+  & None; read capped at $k$
+  & Yes \\
+WorldKV \citep{yi2026worldkv}
+  & Evicted KV chunks, pose-indexed
+  & Camera/action pose distance, top-$k$
+  & No chunk eviction; redundant tokens pruned
+  & Yes \\
+OmniMem \citep{zhao2026omnimem}
+  & Full-history KV blocks, GPU/CPU
+  & Per-head attention top-$K$, local excluded
+  & None; LRU only offloads to CPU
+  & Yes \\
+SlotMemory \citep{dou2026slotmemory}
+  & Slot-indexed KV tokens, fixed bank
+  & Prompt-text $+$ visual relevance, top-$k$
+  & Budget; evicts least prompt/visual relevance
+  & Yes \\
+VideoMemory \citep{zhou2026videomemory}
+  & Entity ID, attribute text, reference image
+  & LLM attribute match per planned shot
+  & None; new states appended
+  & No (full script) \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Our testbed probes (App.~\ref{app:retrieval-probes})}} \\
+Text-frame
+  & Segment text $+$ timestamped frames
+  & Instruction-to-frame cross-modal similarity
+  & None; append-only, read capped
+  & Yes \\
+Seg+uniform
+  & Segment text $+$ timestamped frames
+  & Segment text similarity; uniform frames
+  & None; append-only, read capped
+  & Yes \\
+Seg+DINO-key
+  & Segment text $+$ timestamped frames
+  & Segment text similarity; DINOv3 diverse frames
+  & None; append-only, read capped
+  & Yes \\
+Seg+frame
+  & Segment text $+$ timestamped frames
+  & Segment text, then frame rerank (RRF)
+  & None; append-only, read capped
+  & Yes \\
+\bottomrule
+\end{tabular}
+\end{table*}

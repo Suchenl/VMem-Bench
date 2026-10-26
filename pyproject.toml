@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vmem-bench"
+version = "0.1.0"
+description = "Memory-aware benchmark for causal long-video generation"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+dependencies = [
+  "numpy",
+  "pillow",
+]
+
+[project.optional-dependencies]
+# Test-time dependencies. The base install stays light (numpy + pillow); the
+# shipped unit suite exercises mask-quality (scipy), crop routes (OpenCV) and
+# auto-review embeddings (safetensors), so `pip install -e ".[dev]"` pulls
+# those in to run the full suite.
+dev = [
+  "pytest>=8",
+  "opencv-python-headless",
+  "scipy",
+  "safetensors",
+]
+# Scoring models (Track-B identity/embedding scorers, embedder providers). Judges additionally need
+# a vLLM serving Qwen3-VL-32B-Instruct (see docs/benchmark/trackB_scoring.md).
+scoring = [
+  "torch",
+  "torchvision",
+  "transformers>=4.56",
+  "safetensors",
+  "huggingface_hub",
+  "opencv-python-headless",
+  "insightface",
+  "onnxruntime-gpu",
+]
+
+[project.scripts]
+vmem-bench-install-models = "vmem_bench.install_models:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"vmem_bench.scoring" = ["configs/*.json"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

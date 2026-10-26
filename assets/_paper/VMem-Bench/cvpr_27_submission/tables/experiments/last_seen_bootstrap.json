@@ -1,0 +1,473 @@
+{
+ "n_stories": 30,
+ "n_boot": 2000,
+ "seed": 20260925,
+ "parse_errors": {
+  "retr_frame_text": 91,
+  "retr_seg_uniform": 101,
+  "retr_seg_dinokey": 112,
+  "retr_seg_framererank": 115,
+  "no_memory": 55,
+  "oracle": 79
+ },
+ "point": {
+  "retr_frame_text": {
+   "recall": 0.627543,
+   "precision": 0.93826,
+   "avoid_ok": 0.897907,
+   "gap_1_4": 0.67903,
+   "gap_5_29": 0.716724,
+   "gap_ge30": 0.819048,
+   "persist": 0.80202,
+   "count": 0.802817,
+   "lookalike": 0.964286,
+   "temporal": 0.826667,
+   "false_friend": 0.96,
+   "state_change": 0.995495,
+   "deprecation": 0.889335,
+   "indirect": 0.693989
+  },
+  "retr_seg_uniform": {
+   "recall": 0.689382,
+   "precision": 0.915204,
+   "avoid_ok": 0.844819,
+   "gap_1_4": 0.71612,
+   "gap_5_29": 0.757679,
+   "gap_ge30": 0.871429,
+   "persist": 0.782609,
+   "count": 0.793722,
+   "lookalike": 0.958637,
+   "temporal": 0.86,
+   "false_friend": 0.9,
+   "state_change": 0.991111,
+   "deprecation": 0.828555,
+   "indirect": 0.704918
+  },
+  "retr_seg_dinokey": {
+   "recall": 0.692636,
+   "precision": 0.920519,
+   "avoid_ok": 0.853497,
+   "gap_1_4": 0.720399,
+   "gap_5_29": 0.757679,
+   "gap_ge30": 0.904762,
+   "persist": 0.772059,
+   "count": 0.819383,
+   "lookalike": 0.979684,
+   "temporal": 0.893333,
+   "false_friend": 0.893333,
+   "state_change": 0.99115,
+   "deprecation": 0.83945,
+   "indirect": 0.693989
+  },
+  "retr_seg_framererank": {
+   "recall": 0.673718,
+   "precision": 0.920256,
+   "avoid_ok": 0.85758,
+   "gap_1_4": 0.706134,
+   "gap_5_29": 0.730375,
+   "gap_ge30": 0.871429,
+   "persist": 0.79702,
+   "count": 0.820755,
+   "lookalike": 0.982843,
+   "temporal": 0.886667,
+   "false_friend": 0.92,
+   "state_change": 0.986364,
+   "deprecation": 0.84289,
+   "indirect": 0.628415
+  },
+  "no_memory": {
+   "recall": 0.559194,
+   "precision": 0.977248,
+   "avoid_ok": 0.967841,
+   "gap_1_4": 0.584879,
+   "gap_5_29": 0.716724,
+   "gap_ge30": 0.890476,
+   "persist": 0.688845,
+   "count": 0.778723,
+   "lookalike": 0.952077,
+   "temporal": 0.866667,
+   "false_friend": 0.98,
+   "state_change": 0.991489,
+   "deprecation": 0.963876,
+   "indirect": 0.852459
+  },
+  "oracle": {
+   "recall": 0.639341,
+   "precision": 0.964406,
+   "avoid_ok": 0.940786,
+   "gap_1_4": 0.64622,
+   "gap_5_29": 0.709898,
+   "gap_ge30": 0.880952,
+   "persist": 0.777583,
+   "count": 0.782805,
+   "lookalike": 0.965937,
+   "temporal": 0.74,
+   "false_friend": 0.966667,
+   "state_change": 0.995556,
+   "deprecation": 0.938647,
+   "indirect": 0.808743
+  }
+ },
+ "oracle_minus_no_memory": {
+  "recall": {
+   "diff": 0.0801,
+   "lo": 0.0613,
+   "hi": 0.1007
+  },
+  "precision": {
+   "diff": -0.0128,
+   "lo": -0.0199,
+   "hi": -0.0066
+  },
+  "avoid_ok": {
+   "diff": -0.0271,
+   "lo": -0.0375,
+   "hi": -0.0172
+  },
+  "gap_1_4": {
+   "diff": 0.0613,
+   "lo": 0.019,
+   "hi": 0.1017
+  },
+  "gap_5_29": {
+   "diff": -0.0068,
+   "lo": -0.0541,
+   "hi": 0.0408
+  },
+  "gap_ge30": {
+   "diff": -0.0095,
+   "lo": -0.0619,
+   "hi": 0.0446
+  },
+  "persist": {
+   "diff": 0.0887,
+   "lo": 0.044,
+   "hi": 0.1348
+  },
+  "count": {
+   "diff": 0.0041,
+   "lo": -0.0555,
+   "hi": 0.0627
+  },
+  "lookalike": {
+   "diff": 0.0139,
+   "lo": -0.0147,
+   "hi": 0.043
+  },
+  "temporal": {
+   "diff": -0.1267,
+   "lo": -0.1867,
+   "hi": -0.0733
+  },
+  "false_friend": {
+   "diff": -0.0133,
+   "lo": -0.0533,
+   "hi": 0.0267
+  },
+  "state_change": {
+   "diff": 0.0041,
+   "lo": -0.0005,
+   "hi": 0.0129
+  },
+  "deprecation": {
+   "diff": -0.0252,
+   "lo": -0.0358,
+   "hi": -0.0155
+  },
+  "indirect": {
+   "diff": -0.0437,
+   "lo": -0.0962,
+   "hi": 0.006
+  }
+ },
+ "retrieval_minus_oracle": {
+  "retr_frame_text": {
+   "recall": {
+    "diff": -0.0118,
+    "lo": -0.0326,
+    "hi": 0.0074
+   },
+   "precision": {
+    "diff": -0.0261,
+    "lo": -0.0326,
+    "hi": -0.0192
+   },
+   "avoid_ok": {
+    "diff": -0.0429,
+    "lo": -0.0552,
+    "hi": -0.0301
+   },
+   "gap_1_4": {
+    "diff": 0.0328,
+    "lo": -0.0042,
+    "hi": 0.0689
+   },
+   "gap_5_29": {
+    "diff": 0.0068,
+    "lo": -0.055,
+    "hi": 0.0743
+   },
+   "gap_ge30": {
+    "diff": -0.0619,
+    "lo": -0.1188,
+    "hi": -0.01
+   },
+   "persist": {
+    "diff": 0.0244,
+    "lo": -0.0194,
+    "hi": 0.0692
+   },
+   "count": {
+    "diff": 0.02,
+    "lo": -0.0718,
+    "hi": 0.1072
+   },
+   "lookalike": {
+    "diff": -0.0017,
+    "lo": -0.0223,
+    "hi": 0.0183
+   },
+   "temporal": {
+    "diff": 0.0867,
+    "lo": 0.0067,
+    "hi": 0.16
+   },
+   "false_friend": {
+    "diff": -0.0067,
+    "lo": -0.04,
+    "hi": 0.02
+   },
+   "state_change": {
+    "diff": -0.0001,
+    "lo": -0.0135,
+    "hi": 0.0132
+   },
+   "deprecation": {
+    "diff": -0.0493,
+    "lo": -0.0622,
+    "hi": -0.0366
+   },
+   "indirect": {
+    "diff": -0.1148,
+    "lo": -0.1711,
+    "hi": -0.0598
+   }
+  },
+  "retr_seg_uniform": {
+   "recall": {
+    "diff": 0.05,
+    "lo": 0.029,
+    "hi": 0.0693
+   },
+   "precision": {
+    "diff": -0.0492,
+    "lo": -0.0604,
+    "hi": -0.0385
+   },
+   "avoid_ok": {
+    "diff": -0.096,
+    "lo": -0.1189,
+    "hi": -0.0746
+   },
+   "gap_1_4": {
+    "diff": 0.0699,
+    "lo": 0.0317,
+    "hi": 0.1075
+   },
+   "gap_5_29": {
+    "diff": 0.0478,
+    "lo": 0.0032,
+    "hi": 0.0962
+   },
+   "gap_ge30": {
+    "diff": -0.0095,
+    "lo": -0.0625,
+    "hi": 0.0459
+   },
+   "persist": {
+    "diff": 0.005,
+    "lo": -0.031,
+    "hi": 0.0424
+   },
+   "count": {
+    "diff": 0.0109,
+    "lo": -0.0853,
+    "hi": 0.1018
+   },
+   "lookalike": {
+    "diff": -0.0073,
+    "lo": -0.0338,
+    "hi": 0.0177
+   },
+   "temporal": {
+    "diff": 0.12,
+    "lo": 0.0467,
+    "hi": 0.1867
+   },
+   "false_friend": {
+    "diff": -0.0667,
+    "lo": -0.12,
+    "hi": -0.0133
+   },
+   "state_change": {
+    "diff": -0.0044,
+    "lo": -0.0136,
+    "hi": 0.0002
+   },
+   "deprecation": {
+    "diff": -0.1101,
+    "lo": -0.1345,
+    "hi": -0.0874
+   },
+   "indirect": {
+    "diff": -0.1038,
+    "lo": -0.1803,
+    "hi": -0.0306
+   }
+  },
+  "retr_seg_dinokey": {
+   "recall": {
+    "diff": 0.0533,
+    "lo": 0.0351,
+    "hi": 0.0712
+   },
+   "precision": {
+    "diff": -0.0439,
+    "lo": -0.0526,
+    "hi": -0.0354
+   },
+   "avoid_ok": {
+    "diff": -0.0873,
+    "lo": -0.1043,
+    "hi": -0.0698
+   },
+   "gap_1_4": {
+    "diff": 0.0742,
+    "lo": 0.0387,
+    "hi": 0.11
+   },
+   "gap_5_29": {
+    "diff": 0.0478,
+    "lo": 0.0,
+    "hi": 0.098
+   },
+   "gap_ge30": {
+    "diff": 0.0238,
+    "lo": -0.0202,
+    "hi": 0.0682
+   },
+   "persist": {
+    "diff": -0.0055,
+    "lo": -0.0408,
+    "hi": 0.031
+   },
+   "count": {
+    "diff": 0.0366,
+    "lo": -0.0427,
+    "hi": 0.118
+   },
+   "lookalike": {
+    "diff": 0.0137,
+    "lo": -0.0056,
+    "hi": 0.0337
+   },
+   "temporal": {
+    "diff": 0.1533,
+    "lo": 0.0933,
+    "hi": 0.2067
+   },
+   "false_friend": {
+    "diff": -0.0733,
+    "lo": -0.1267,
+    "hi": -0.02
+   },
+   "state_change": {
+    "diff": -0.0044,
+    "lo": -0.018,
+    "hi": 0.009
+   },
+   "deprecation": {
+    "diff": -0.0992,
+    "lo": -0.1162,
+    "hi": -0.0826
+   },
+   "indirect": {
+    "diff": -0.1148,
+    "lo": -0.1878,
+    "hi": -0.0484
+   }
+  },
+  "retr_seg_framererank": {
+   "recall": {
+    "diff": 0.0344,
+    "lo": 0.0099,
+    "hi": 0.0586
+   },
+   "precision": {
+    "diff": -0.0442,
+    "lo": -0.0558,
+    "hi": -0.032
+   },
+   "avoid_ok": {
+    "diff": -0.0832,
+    "lo": -0.1057,
+    "hi": -0.0605
+   },
+   "gap_1_4": {
+    "diff": 0.0599,
+    "lo": 0.0189,
+    "hi": 0.1003
+   },
+   "gap_5_29": {
+    "diff": 0.0205,
+    "lo": -0.0233,
+    "hi": 0.0687
+   },
+   "gap_ge30": {
+    "diff": -0.0095,
+    "lo": -0.0548,
+    "hi": 0.0377
+   },
+   "persist": {
+    "diff": 0.0194,
+    "lo": -0.0248,
+    "hi": 0.0637
+   },
+   "count": {
+    "diff": 0.0379,
+    "lo": -0.0659,
+    "hi": 0.1277
+   },
+   "lookalike": {
+    "diff": 0.0169,
+    "lo": -0.0014,
+    "hi": 0.0362
+   },
+   "temporal": {
+    "diff": 0.1467,
+    "lo": 0.0733,
+    "hi": 0.22
+   },
+   "false_friend": {
+    "diff": -0.0467,
+    "lo": -0.0933,
+    "hi": -0.0067
+   },
+   "state_change": {
+    "diff": -0.0092,
+    "lo": -0.0228,
+    "hi": 0.0
+   },
+   "deprecation": {
+    "diff": -0.0958,
+    "lo": -0.1191,
+    "hi": -0.0735
+   },
+   "indirect": {
+    "diff": -0.1803,
+    "lo": -0.2698,
+    "hi": -0.086
+   }
+  }
+ }
+}

@@ -1,0 +1,898 @@
+{
+  "story_id": "0011_greenhouse_botanist",
+  "title": "Greenhouse Flora Codex",
+  "premise": "A long breeding drama in the central greenhouse. Breeder Fang Zhou and apprentice Ayou guard the glass grafting knife; Ayou and Abai look nearly alike but wear different armbands; after the rail watering cart overturns and is scrapped it must be avoided; phenology log, count memory, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Fang Zhou",
+      "kind": "character",
+      "states": {
+        "prime_breeder": "A forty-year-old greenhouse breeder in a straw sun hat and linen work coat, pruning shears at the waist, careful eyes.",
+        "allergy_limp": "The same Fang Zhou: eyes swollen red after a pollen allergy, limping on a broken bamboo pole, linen work coat dusted with medicinal powder.",
+        "dead_on_cold_bed": "Fang Zhou lies still on the cold-bed duty cot with eyes closed, linen work coat covering his chest, pruning shears set beside the bed."
+      }
+    },
+    "E2": {
+      "name": "Ayou",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "A fifteen-year-old apprentice girl in an indigo apron, turquoise stud in the left ear, chlorophyll stains on her fingertips.",
+        "adult_gardener": "A woman gardener in her early twenties, still in indigo apron and turquoise stud, upright bearing, cultivar tags pinned at the cuff."
+      }
+    },
+    "E3": {
+      "name": "glass grafting knife",
+      "kind": "prop",
+      "states": {
+        "intact": "A grafting knife with glass set in the handle, blade snow-bright, fine leaf-vein etching on the grip.",
+        "nicked_blade": "The same glass grafting knife with a nick in the blade, a crack in the glass handle, leaf-vein etching dusty.",
+        "resharpened": "The glass grafting knife has been resharpened; the nick filled, handle crack glued, edge a little shorter."
+      }
+    },
+    "E4": {
+      "name": "phenology log",
+      "kind": "prop",
+      "states": {
+        "intact": "A waterproof-covered phenology log recording bloom dates, temperature-humidity curves, cutting batches, and survival rates.",
+        "dew_stained_blurred": "The same phenology log soaked through by roof dew, cover wrinkled, temperature-humidity curves blurred into one smear."
+      }
+    },
+    "E5": {
+      "name": "rail watering cart",
+      "kind": "prop",
+      "states": {
+        "intact": "A watering cart that runs along greenhouse rails, tank painted with the greenhouse number, rotatable nozzle, rail wheels seated on the steel track.",
+        "overturned_scrapped": "The rail watering cart has overturned and been scrapped; tank dented, nozzle twisted, number paint peeling, rail wheels fallen off."
+      }
+    },
+    "E6": {
+      "name": "Abai",
+      "kind": "character",
+      "states": {
+        "young_rival": "A young nursery worker whose face closely matches Ayou's, but wearing a silver-gray armband and rice-white apron, expression cool.",
+        "disguised_return": "After a change of look Abai still wears the silver-gray armband; a twig scratch on the cheekbone, rice-white apron swapped for a gray-green smock."
+      }
+    },
+    "E7": {
+      "name": "central greenhouse",
+      "kind": "location",
+      "appearance": "An arched central greenhouse, glass beaded with fine mist, tall tropical plants and seedling racks lining both sides of the aisle."
+    },
+    "E8": {
+      "name": "seedbed zone",
+      "kind": "location",
+      "appearance": "A seedbed zone under shade netting, trays in neat rows, soil damp, white cultivar tags standing in dense lines."
+    },
+    "E9": {
+      "name": "shade corridor",
+      "kind": "location",
+      "appearance": "A shade corridor linking the greenhouse, vines hanging down, moss in the brick seams, cart tracks clear on the floor."
+    },
+    "E10": {
+      "name": "abandoned cold bed",
+      "kind": "location",
+      "appearance": "An abandoned brick cold bed, one corner of the roof collapsed, water pooled in the bed frame, weeds and old seedling pots crowded together."
+    },
+    "E11": {
+      "name": "Fang brass plaque",
+      "kind": "prop",
+      "appearance": "A copper plaque nailed to the greenhouse doorpost, carved with Fang Breeding and the year, edges smeared with dry mud."
+    },
+    "E12": {
+      "name": "label clips",
+      "kind": "prop",
+      "appearance": "Three colored plastic label clips holding cultivar-name cards, hung on a seedbed bamboo pole."
+    },
+    "E13": {
+      "name": "hand spray cart",
+      "kind": "prop",
+      "appearance": "A hand-pushed spray cart with no rail wheels, spray tank strapped to the frame—nothing like the rail watering cart."
+    },
+    "E14": {
+      "name": "garden director's aide",
+      "kind": "character",
+      "appearance": "A lean garden director's aide also in a straw sun hat, but with a park badge on the chest and a tablet checklist in hand, build close to Fang Zhou's."
+    },
+    "E15": {
+      "name": "grow lights",
+      "kind": "prop",
+      "appearance": "A row of five purple grow lights hung under the central-greenhouse beams, shades clear, lighting the seedling racks."
+    },
+    "E16": {
+      "name": "temp-control bells",
+      "kind": "prop",
+      "appearance": "Two temperature-control alarm bells hung inside the greenhouse door beam, metal shells chalky white, shrill when overheated."
+    },
+    "E17": {
+      "name": "Qingqing",
+      "kind": "character",
+      "appearance": "A flower-selling girl from the nursery, light-brown apron; at a glance much like young Ayou, but wearing anti-fog goggles and shy unfamiliar eyes."
+    },
+    "E18": {
+      "name": "fake grafting knife",
+      "kind": "prop",
+      "appearance": "A fake grafting knife shaped like the glass grafting knife, but with an ordinary wooden handle and no leaf-vein etching."
+    },
+    "E19": {
+      "name": "substrate-bag cart",
+      "kind": "prop",
+      "appearance": "A flat cart piled with substrate bags, no rail wheels and no rotatable nozzle—definitely not the rail watering cart."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_breeder",
+      "allergy_limp",
+      "dead_on_cold_bed"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_gardener"
+    ],
+    "E3": [
+      "intact",
+      "nicked_blade",
+      "resharpened"
+    ],
+    "E4": [
+      "intact",
+      "dew_stained_blurred"
+    ],
+    "E5": [
+      "intact",
+      "overturned_scrapped"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised_return"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Ayou: indigo apron, turquoise ear stud, chlorophyll stains on fingertips.",
+        "E6": "Abai: face nearly identical to Ayou, but silver-gray armband and rice-white apron."
+      },
+      "note": "Nursery-apprentice confuse."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Central greenhouse at dusk (introduce five grow lights · two temp-control bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, greenhouse breeder Fang Zhou pushes open the glass door into the central greenhouse and sets the glass grafting knife on the sterilization tray.",
+        {
+          "action": "Five grow lights shine under the central-greenhouse beams; Fang Zhou checks each lamp distance in turn so tender leaves are not scorched.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two temp-control bells hang inside the door beam; Fang Zhou lightly taps the shells to confirm the alarm wires are not loose.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Fang Zhou takes up the glass grafting knife and cuts a smooth slanted wound at the rootstock bench."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Registering the phenology log",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Fang Zhou opens the waterproof-covered phenology log and records today's temperature and humidity, cutting batch, and bloom nodes.",
+        {
+          "action": "He looks up, counts the five grow lights under the beams, and writes the seedling-rack height into the phenology log.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            },
+            "E4"
+          ]
+        },
+        "Fang Zhou closes the phenology log and sets the glass grafting knife beside the sterile gauze for the next rootstock."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Seedbed greets the apprentice (introduce label clips)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2"
+        ]
+      },
+      "actions": [
+        "In the seedbed zone at dawn, Fang Zhou greets young Ayou pushing the rail watering cart; mist drifts slowly along the steel rails.",
+        {
+          "action": "Ayou parks the rail watering cart beside the trays and checks nozzle angle and rail-wheel position.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Fang Zhou clips three label clips onto the bamboo pole and teaches Ayou to tell cuttings, seedlings, and grafts apart.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ayou crouches to clear mud flecks from the rail watering cart nozzle; fine substrate sticks to her cuff.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Shade corridor (Abai alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the shade corridor, Abai in a silver-gray armband glances back from behind the vines; the profile almost like Ayou.",
+        "Abai holds a tray of unregistered seedlings; the rice-white apron brushes damp wall bricks.",
+        "Abai leaves along the corridor cart tracks, avoiding the glass glare of the central greenhouse."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Seedbed misrecognition co-present",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the seedbed zone, Ayou and Abai brush past—one in an indigo apron, one in a silver-gray armband.",
+        "Ayou steadies the turquoise stud; Abai looks down and smooths the rice-white apron; two similar faces turn toward the tag row at once.",
+        "They walk to different seedling racks; white tags between the trays split their backs."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Log dew-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later on a muggy night, Fang Zhou patrols the central greenhouse alone; the glass grafting knife lies on the sterilization tray.",
+        {
+          "action": "Condensed dew from the roof drips into the phenology log; the temperature-humidity curves blur into one smear.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "dew_stained_blurred"
+            }
+          ]
+        },
+        "Fang Zhou spreads the phenology log before a fan to dry and wipes water beads from the glass grafting knife handle."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Bloom seasons turn (stretch the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Through the long bloom season, Fang Zhou cuts rootstock wounds and aligns cambium every day in the central greenhouse.",
+        "In the plum-rain season, glass panels fog over; Fang Zhou moves trays row by row to ventilated spots.",
+        "At high summer noon he opens the skylight to cool tropical plants; the grow lights go dark for a while.",
+        "At autumn potting, Fang Zhou marks seedlings with whitened roots for the next grafting round.",
+        "On New Year's Eve only the pump hums low; Fang Zhou alone records the last surviving batch."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Seedbed patrol (hand spray cart false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak Fang Zhou patrols the seedbed zone; the rail watering cart sits on the steel rails, nozzle aimed at tray centers.",
+        {
+          "action": "He crouches to check the rail watering cart's rail wheels, nozzle, and tank number.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Fang Zhou returns to the bamboo pole and confirms those three label clips still hold cultivar cards.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A hand spray cart is pushed through the seedbed zone; it has no rail wheels, only a round spray tank on its back.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Hail smashes the house (knife nicked · watering cart overturns)",
+      "present": [
+        "E1",
+        "E3",
+        "E8"
+      ],
+      "actions": [
+        "Afternoon hail pounds the glass roof; the central greenhouse panels ring with dense brittle cracks.",
+        {
+          "action": "Fang Zhou clutches the glass grafting knife and rushes toward the seedbeds; the blade hits a fallen iron rack and a clear nick bursts out.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "nicked_blade"
+            }
+          ]
+        },
+        {
+          "action": "The rail watering cart slides along the rails under broken glass panels; hail makes the nozzle swing wild.",
+          "present": [
+            "E5",
+            "E8"
+          ]
+        },
+        {
+          "action": "The rail watering cart hits a lifted rail, overturns, and is scrapped; tank dented, nozzle twisted.",
+          "present": [
+            "E5",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "overturned_scrapped",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Fang Zhou grips the nicked glass grafting knife and first moves seedling trays away from the shattered glass one by one.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (rail watering cart indirect reference · grow-light long-range)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after the hail, Fang Zhou writes the time the rail watering cart overturned and was scrapped on a blank phenology-log page.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "The fallen nozzle of the rail watering cart hangs by the greenhouse wall; Fang Zhou tags it with the accident batch on label paper.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Fang Zhou rubs the rail watering cart tank number into the phenology log, reminding Ayou to check the rails first later.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "The five grow lights under the beams still burn; Fang Zhou reads the rail watering cart accident record by purple light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The nick of the glass grafting knife is wrapped in gauze; Fang Zhou adds another line of rail watering cart loss to the log margin.",
+          "present": [
+            "E1",
+            "E7",
+            "E3",
+            "E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Resharpening (third state · fake grafting knife false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Fang Zhou brings the park knife smith to resharpen the glass grafting knife on the central-greenhouse workbench.",
+        {
+          "action": "The smith first sets out a fake grafting knife for comparison—similar shape, but no leaf-vein etching on the wooden handle.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Fang Zhou watches the grindstone slowly eat away the nick; the crack in the glass handle is filled with clear adhesive.",
+        {
+          "action": "After resharpening, the glass grafting knife edge is a little shorter but keen again; Fang Zhou tests a flat cut on scrap wood.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "resharpened"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: substrate-bag cart and garden director's aide",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A substrate-bag cart is pushed into the seedbed zone, piled with coir bags, no rail wheels and no rotatable nozzle.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "The garden director's aide steps beside Fang Zhou, also in a straw sun hat, but the park badge and tablet in hand are unmistakable.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The garden director's aide points at the substrate-bag cart to check replant counts; Fang Zhou slips the resharpened glass grafting knife back into its sheath.",
+          "present": [
+            "E1",
+            "E8",
+            "E3",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Qingqing who resembles Ayou",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Flower-selling Qingqing pushes a basket past; under the light-brown apron her profile at a glance looks like young Ayou.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Qingqing takes off her anti-fog goggles to wipe them; once Fang Zhou sees clearly he only tells her to skirt the trays being transplanted.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Allergy limp (temp-control bell long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Fang Zhou's eyes swollen red from pollen allergy, he limps on a broken bamboo pole to the abandoned cold bed.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "allergy_limp"
+            }
+          ]
+        },
+        {
+          "action": "Two old temp-control bells still hang in the abandoned cold-bed door beam; Fang Zhou stops to hear them chime in the wind.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Fang Zhou presses his palm to the water-pooled cold-bed frame, as if saying goodbye to this greenhouse."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Ayou returns · Fang Zhou dies",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Ayou returns along the shade corridor, new cultivar tags pinned to the indigo apron.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_gardener"
+            }
+          ]
+        },
+        "Ayou steadies allergy-limping Fang Zhou by the abandoned cold bed and takes his pruning shears.",
+        {
+          "action": "By the cold-bed duty cot, Ayou holds Fang Zhou's withered hand and hears him pass on the grow-light timer.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Fang Zhou's breath fades; at last he closes his eyes and dies on the cold bed.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "dead_on_cold_bed",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · Fang brass plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Fang Zhou's straw sun hat still hangs behind the cold-bed door; Ayou pats dry pollen from it.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Adult Ayou re-nails the Fang brass plaque to the central-greenhouse doorpost; Fang Zhou's year is still carved on it.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Ayou traces Fang Zhou's name on the Fang brass plaque, then sets the resharpened glass grafting knife at the center of the workbench.",
+          "present": [
+            "E2",
+            "E7",
+            "E11",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (long-range return + co-present)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Disguised Abai walks in from outside the cold bed, silver-gray armband still on the cuff, and locks eyes with Ayou across the tray rack.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "disguised_return"
+            }
+          ]
+        },
+        "Ayou and Abai stand side by side before the cold bed—one steady in indigo apron, one in a worn gray-green smock."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate · name-free)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns years—that girl in an indigo apron learning to clip cultivar cards beside the trays appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the girl learning to clip cultivar cards beside the trays",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—that small clear-handled knife first cuts a flat slanted wound on a rootstock.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the clear-handled knife that first cut a flat slanted wound at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the early shade corridor; a figure in a silver-gray armband and rice-white apron skims past behind the vines.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in a silver-gray armband in the early shade corridor",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again the old night of five purple lamps under the beams lighting the seedling racks.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the old night of five purple lamps under the beams lighting the seedling racks",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the tray zone under shade netting at first meeting; the wet-soil smell remains.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the tray zone under shade netting at first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Close (log long-range · label-clip long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Ayou opens the dew-stained blurred phenology log and stands in the central greenhouse to re-schedule cutting batches.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "The five grow lights under the beams still burn; Ayou looks up and finishes counting before pushing the seedling rack back.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Those three label clips on the bamboo pole still hold cultivar cards; Ayou begins a new grafting round with the resharpened glass grafting knife.",
+          "present": [
+            "E2",
+            "E7",
+            "E3",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

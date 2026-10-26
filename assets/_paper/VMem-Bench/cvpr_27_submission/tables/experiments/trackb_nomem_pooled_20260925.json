@@ -1,0 +1,206 @@
+{
+  "written_at_beijing": "2026-09-25 15:03:49（北京时间）",
+  "run_tag": "prod_retr_nomem_20260925",
+  "system": "retr_none",
+  "variant": "retrieval-variant none (K=0 no-memory control)",
+  "metric_version": "trackB-end2end-1.0",
+  "gt_version": "trackB-gt-2.0",
+  "model": "qwen3-vl-32b",
+  "k_votes": 1,
+  "vote_temp": 0.0,
+  "vmem_bench_scorer_sha": "930e9be648a1624b6338b26efd2a5223953fcfa0",
+  "mapping_rule": "GT seg_k -> production seg_{k-1}",
+  "pooling": "micro-pool over score.json per_segment.acc",
+  "score_root": "/m2v_intern_v3/chenyuzhuo03/MODELS/Montage/experiments/results/benchmarks/vmem-bench/trackb_nomem_20260925/_trackB_score_shifted1",
+  "gate": {
+    "n_stories_present": 30,
+    "n_segments_scored": 2824,
+    "n_segments_expected": 2824,
+    "gate_2824": true
+  },
+  "partial": false,
+  "stories_present": [
+    "0001_lighthouse_keeper",
+    "0002_night_market_courier",
+    "0003_desert_archaeologist",
+    "0004_silk_road_caravan",
+    "0005_opera_mask_atelier",
+    "0006_harbor_ice_cutter",
+    "0007_bamboo_paper_mill",
+    "0008_clocktower_horologist",
+    "0009_tea_horse_station",
+    "0010_subway_violinist",
+    "0011_greenhouse_botanist",
+    "0012_puppet_shadow_troupe",
+    "0013_salt_flat_photographer",
+    "0014_forge_swordsmith",
+    "0015_library_night_archivist",
+    "0016_hot_spring_innkeeper",
+    "0017_reef_diver",
+    "0018_train_porter",
+    "0019_lantern_festival_maker",
+    "0020_observatory_intern",
+    "0021_pottery_kiln_master",
+    "0022_vineyard_cellarer",
+    "0023_firefighter_rookies",
+    "0024_circus_acrobat",
+    "0025_museum_night_guard",
+    "0026_rice_terrace_farmer",
+    "0027_radio_station_dj",
+    "0028_shipyard_welder",
+    "0029_ink_wash_painter",
+    "0030_ski_patrol"
+  ],
+  "n_segments_scored": 2824,
+  "n_parse_errors": 58,
+  "headline": {
+    "recall": 0.563,
+    "precision": 0.978,
+    "f1": 0.715,
+    "avoidance_ok": 0.968,
+    "raw": {
+      "recall": [
+        2768,
+        4916
+      ],
+      "precision": [
+        2768,
+        2830
+      ],
+      "avoidance": [
+        1897,
+        1959
+      ]
+    }
+  },
+  "families": {
+    "long_gap": {
+      "label": "long-gap rec.",
+      "value": 0.895,
+      "raw": [
+        188,
+        210
+      ]
+    },
+    "lookalike": {
+      "label": "look-alike acc.",
+      "value": 0.955,
+      "raw": [
+        295,
+        309
+      ]
+    },
+    "state_change": {
+      "label": "state-chg acc.",
+      "value": 0.987,
+      "raw": [
+        235,
+        238
+      ]
+    },
+    "count": {
+      "label": "count acc.",
+      "value": 0.758,
+      "raw": [
+        179,
+        236
+      ]
+    },
+    "deprecation": {
+      "label": "avoid avoidance-OK",
+      "value": 0.964,
+      "raw": [
+        1682,
+        1744
+      ]
+    },
+    "false_friend": {
+      "label": "false-friend acc.",
+      "value": 0.96,
+      "raw": [
+        144,
+        150
+      ]
+    },
+    "persistence": {
+      "label": "persist acc.",
+      "value": 0.681,
+      "raw": [
+        359,
+        527
+      ]
+    },
+    "indirect": {
+      "label": "indirect avoidance-OK",
+      "value": 0.863,
+      "raw": [
+        158,
+        183
+      ]
+    },
+    "temporal": {
+      "label": "temporal rec.",
+      "value": 0.873,
+      "raw": [
+        131,
+        150
+      ]
+    }
+  },
+  "horizon": {
+    "near": {
+      "gap": "1-4",
+      "recall": 0.573,
+      "raw": [
+        402,
+        701
+      ]
+    },
+    "mid": {
+      "gap": "5-29",
+      "recall": 0.727,
+      "raw": [
+        213,
+        293
+      ]
+    },
+    "far": {
+      "gap": ">=30",
+      "recall": 0.895,
+      "raw": [
+        188,
+        210
+      ]
+    },
+    "all_buckets": {
+      "0": {
+        "recall": 0.471,
+        "raw": [
+          1535,
+          3260
+        ]
+      },
+      "1-4": {
+        "recall": 0.573,
+        "raw": [
+          402,
+          701
+        ]
+      },
+      "5-29": {
+        "recall": 0.727,
+        "raw": [
+          213,
+          293
+        ]
+      },
+      ">=30": {
+        "recall": 0.895,
+        "raw": [
+          188,
+          210
+        ]
+      }
+    }
+  }
+}

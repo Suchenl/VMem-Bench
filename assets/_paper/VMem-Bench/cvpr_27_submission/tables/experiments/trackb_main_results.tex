@@ -1,0 +1,30 @@
+\begin{table*}[!t]
+\definecolor{memup}{HTML}{E0ECF4}\definecolor{memdown}{HTML}{F6DDD5}
+\centering
+\caption{\textbf{Track-B: generated-video outcomes by stress} (30 stories/system; higher is better). Cells are absolute rates. In shared-generator policy rows, blue/+ and red/$-$ mark paired story-bootstrap 95\% CIs above/below the first-row no-memory baseline; unmarked cells have no supported direction. Long-gap pools characters and props; Table~\ref{tab:main-kind-gap} separates them. Overall is pooled character/prop recall. The separate released-system block uses different generators and is not a memory-only comparison. Stress-level judge sensitivity: Sec.~\ref{sec:exp-sensitivity}.}
+\label{tab:trackb-results}
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.06}
+\begin{tabular}{@{}l cccccccccc@{}}
+\toprule
+& \multicolumn{5}{c}{\textbf{Presence, identity, and count}} & \multicolumn{2}{c}{\textbf{State correctness}} & \multicolumn{2}{c}{\textbf{Entity exclusion}} & \textbf{All} \\
+\cmidrule(lr){2-6}\cmidrule(lr){7-8}\cmidrule(lr){9-10}\cmidrule(lr){11-11}
+System & Long-gap & Look-alike & False-fr. & Count & Temporal & State-chg & Persist & Avoid & Indirect & Overall$\uparrow$ \\
+ & {rec.} & {acc.} & {acc.} & {acc.} & {rec.} & {acc.} & {acc.} & {avoid.} & {avoid.} & {rec.} \\
+\midrule
+\multicolumn{11}{@{}l}{\itshape Shared generator: no-memory baseline, four retrieval policies, Last-seen control}\\
+No memory ($K{=}0$) & 0.890 & 0.952 & 0.980 & 0.779 & 0.867 & 0.991 & 0.689 & 0.964 & 0.852 & 0.559 \\
+Text-frame ret. & 0.819 & 0.964 & 0.960 & 0.803 & 0.827 & 0.995 & \cellcolor{memup}0.802\textsuperscript{+} & \cellcolor{memdown}0.889\textsuperscript{$-$} & \cellcolor{memdown}0.694\textsuperscript{$-$} & \cellcolor{memup}0.628\textsuperscript{+} \\
+Seg+uniform ret. & 0.871 & 0.959 & \cellcolor{memdown}0.900\textsuperscript{$-$} & 0.794 & 0.860 & 0.991 & \cellcolor{memup}0.783\textsuperscript{+} & \cellcolor{memdown}0.829\textsuperscript{$-$} & \cellcolor{memdown}0.705\textsuperscript{$-$} & \cellcolor{memup}0.689\textsuperscript{+} \\
+Seg+DINO-key ret. & 0.905 & 0.980 & \cellcolor{memdown}0.893\textsuperscript{$-$} & 0.819 & 0.893 & 0.991 & \cellcolor{memup}0.772\textsuperscript{+} & \cellcolor{memdown}0.839\textsuperscript{$-$} & \cellcolor{memdown}0.694\textsuperscript{$-$} & \cellcolor{memup}0.693\textsuperscript{+} \\
+Seg+frame ret. & 0.871 & \cellcolor{memup}0.983\textsuperscript{+} & \cellcolor{memdown}0.920\textsuperscript{$-$} & 0.821 & 0.887 & 0.986 & \cellcolor{memup}0.797\textsuperscript{+} & \cellcolor{memdown}0.843\textsuperscript{$-$} & \cellcolor{memdown}0.628\textsuperscript{$-$} & \cellcolor{memup}0.674\textsuperscript{+} \\
+Last-seen refs & 0.881 & 0.966 & 0.967 & 0.783 & \cellcolor{memdown}0.740\textsuperscript{$-$} & 0.996 & \cellcolor{memup}0.778\textsuperscript{+} & \cellcolor{memdown}0.939\textsuperscript{$-$} & 0.809 & \cellcolor{memup}0.639\textsuperscript{+} \\
+\cmidrule(lr){1-11}
+\rowcolor{black!5}\multicolumn{11}{@{}l}{\itshape Separate setting: released systems with their own generators}\\
+MemFlow & 0.238 & 0.957 & 0.440 & 0.615 & 0.300 & 0.991 & 0.758 & 0.921 & 0.754 & 0.360 \\
+LongLive-RAG & 0.386 & 0.981 & 0.740 & 0.718 & 0.327 & 0.994 & 0.712 & 0.983 & 0.929 & 0.284 \\
+IAMFlow & 0.186 & 0.949 & 0.393 & 0.659 & 0.253 & 1.000 & 0.751 & 0.916 & 0.781 & 0.356 \\
+\bottomrule
+\end{tabular}
+\end{table*}

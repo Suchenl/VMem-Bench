@@ -1,0 +1,106 @@
+{
+  "metric_version": "trackB-embed-1.0",
+  "gt_version": "trackB-gt-2.0",
+  "identity_config": "trackb_identity.json",
+  "location_unit_seed": 20260928,
+  "location_control_seed": 20260929,
+  "character_control_seed": 20260930,
+  "frames": {
+    "main": [
+      0.15,
+      0.5,
+      0.85
+    ],
+    "posA": [
+      0.1,
+      0.3,
+      0.5
+    ],
+    "posB": [
+      0.55,
+      0.75,
+      0.95
+    ]
+  },
+  "grounding": {
+    "model": "IDEA-Research/grounding-dino-base",
+    "query": "{name}, {short_desc}.",
+    "short_desc_words": 12,
+    "box_score": "max over text tokens of sigmoid(logit), top box per frame",
+    "box_threshold": 0.35,
+    "crop_pad": 0.05,
+    "min_crop_px": 16
+  },
+  "appearance": {
+    "provider": "vmem_bench.scoring.embedder dinov3 (DinoV3ScoringEmbedder)",
+    "model": "facebook/dinov3-vitb16-pretrain-lvd1689m",
+    "pooling": "CLS token (last_hidden_state[:,0])",
+    "l2_normalize": true
+  },
+  "face": {
+    "provider": "vmem_bench.scoring.embedder arcface (ArcFaceScoringEmbedder)",
+    "pack": "buffalo_l",
+    "det_size": 640,
+    "min_det_score": 0.5,
+    "assignment": "largest face detected inside the character's padded crop (per frame)"
+  },
+  "location": {
+    "primary": {
+      "modality": "location_megaloc",
+      "provider": "vmem_bench.scoring.embedder megaloc (MegaLocScoringEmbedder, VPR)",
+      "input": "whole frame resized to 322x322"
+    },
+    "secondary": {
+      "modality": "location_dino",
+      "provider": "dinov3",
+      "input": "whole frame"
+    }
+  },
+  "similarity": "max over (frame in A, frame in B) pairs where both frames have the modality, cosine of L2-normalized embeddings",
+  "modalities": {
+    "dino_crop": {
+      "kinds": [
+        "character",
+        "prop"
+      ]
+    },
+    "face": {
+      "kinds": [
+        "character"
+      ]
+    },
+    "location_megaloc": {
+      "kinds": [
+        "location"
+      ]
+    },
+    "location_dino": {
+      "kinds": [
+        "location"
+      ]
+    }
+  },
+  "thresholds": {
+    "dino_crop": 0.66886,
+    "face": 0.354996,
+    "location_megaloc": 0.65855,
+    "location_dino": 0.841817
+  },
+  "calibration": {
+    "controls_sha256": "b0c44bb5435fc761990c529dc9f2d2c847d3c768141f818597f637666e89fbe5",
+    "rule": "Youden-optimal sim >= t",
+    "auc": {
+      "dino_crop": 0.9996,
+      "face": 0.997,
+      "location_megaloc": 1.0,
+      "location_dino": 1.0
+    }
+  },
+  "bootstrap": {
+    "n_boot": 2000,
+    "seed": 20260925,
+    "cluster": "story",
+    "paired": true,
+    "ci": 0.95
+  }
+}

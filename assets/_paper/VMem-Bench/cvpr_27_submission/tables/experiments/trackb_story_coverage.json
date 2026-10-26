@@ -1,0 +1,867 @@
+{
+  "cohort": {
+    "run_tag": "testbed_rerun_20260927",
+    "seed": 2026,
+    "source": "All six seed-2026 pooled story rosters agree; Montage experiments/benchmarks/vmem-bench/trackb_testbed_rerun/results/pooled/*.json",
+    "stories": [
+      "0001_lighthouse_keeper",
+      "0002_night_market_courier",
+      "0003_desert_archaeologist",
+      "0004_silk_road_caravan",
+      "0005_opera_mask_atelier",
+      "0006_harbor_ice_cutter",
+      "0007_bamboo_paper_mill",
+      "0008_clocktower_horologist",
+      "0009_tea_horse_station",
+      "0010_subway_violinist",
+      "0011_greenhouse_botanist",
+      "0012_puppet_shadow_troupe",
+      "0013_salt_flat_photographer",
+      "0014_forge_swordsmith",
+      "0015_library_night_archivist",
+      "0016_hot_spring_innkeeper",
+      "0017_reef_diver",
+      "0018_train_porter",
+      "0019_lantern_festival_maker",
+      "0020_observatory_intern",
+      "0021_pottery_kiln_master",
+      "0022_vineyard_cellarer",
+      "0023_firefighter_rookies",
+      "0024_circus_acrobat",
+      "0025_museum_night_guard",
+      "0026_rice_terrace_farmer",
+      "0027_radio_station_dj",
+      "0028_shipyard_welder",
+      "0029_ink_wash_painter",
+      "0030_ski_patrol"
+    ]
+  },
+  "summary": {
+    "n_stories": 30,
+    "segments": 2824,
+    "mean_segments": 94.13333333333334,
+    "median_segments": 87.5,
+    "min_segments": 68,
+    "max_segments": 131,
+    "entity_kinds": {
+      "character": 152,
+      "prop": 300,
+      "location": 120
+    },
+    "stateful_entities": 181,
+    "duration_sec": 14120.0,
+    "probe_segments": {
+      "lookalike_disambiguation": {
+        "segments": 425,
+        "stories": 30,
+        "min_per_story": 11,
+        "max_per_story": 61
+      },
+      "state_change": {
+        "segments": 241,
+        "stories": 30,
+        "min_per_story": 8,
+        "max_per_story": 9
+      },
+      "persist_state": {
+        "segments": 774,
+        "stories": 30,
+        "min_per_story": 19,
+        "max_per_story": 46
+      },
+      "count_memory": {
+        "segments": 156,
+        "stories": 30,
+        "min_per_story": 5,
+        "max_per_story": 7
+      },
+      "false_friend": {
+        "segments": 150,
+        "stories": 30,
+        "min_per_story": 5,
+        "max_per_story": 5
+      },
+      "deprecation_avoidance": {
+        "segments": 314,
+        "stories": 30,
+        "min_per_story": 8,
+        "max_per_story": 16
+      },
+      "reference_indirect": {
+        "segments": 183,
+        "stories": 30,
+        "min_per_story": 4,
+        "max_per_story": 10
+      },
+      "long_gap_reappearance": {
+        "segments": 224,
+        "stories": 30,
+        "min_per_story": 5,
+        "max_per_story": 11
+      },
+      "temporal_reference": {
+        "segments": 150,
+        "stories": 30,
+        "min_per_story": 5,
+        "max_per_story": 5
+      }
+    }
+  },
+  "stories": [
+    {
+      "story_id": "0001_lighthouse_keeper",
+      "title": "Lighthouse Watch Chronicle",
+      "segments": 87,
+      "duration_sec": 435.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 11,
+        "state_change": 8,
+        "persist_state": 23,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 6,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "1e61664acf18a0535c3072768f116a0d6a1b95a326b0fbce611cb980e4156114",
+      "prompts_sha256": "8d00e75bdb1192c313699ed25276afa70cf62f5e27f1552b114063e2818dc9f6"
+    },
+    {
+      "story_id": "0002_night_market_courier",
+      "title": "Neon Night-Market Courier",
+      "segments": 88,
+      "duration_sec": 440.0,
+      "entity_kinds": {
+        "character": 6,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 61,
+        "state_change": 8,
+        "persist_state": 22,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 8,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "f6d7e14ff4b3ee6f3e0cf4a63c399cccf4540d5cb345956725f5c3d15b69e846",
+      "prompts_sha256": "508e50527a521897a32fada6595eb183bdf311dbef18c977c7868e6060549cf2"
+    },
+    {
+      "story_id": "0003_desert_archaeologist",
+      "title": "Broken Stele of the Sand Sea",
+      "segments": 87,
+      "duration_sec": 435.0,
+      "entity_kinds": {
+        "character": 6,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 7,
+      "probe_segments": {
+        "lookalike_disambiguation": 12,
+        "state_change": 9,
+        "persist_state": 21,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 8,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "aa4f5106172d4bfb2d0fa7c0aad28b972fdd241ecda249aff3ee9e39b4b8d512",
+      "prompts_sha256": "45b824228d40b6e335d1537a462ffb0667f928559669bd928472ed24fba417a2"
+    },
+    {
+      "story_id": "0004_silk_road_caravan",
+      "title": "Silk Road Camel Bells",
+      "segments": 71,
+      "duration_sec": 355.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 12,
+        "state_change": 8,
+        "persist_state": 20,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 6,
+        "long_gap_reappearance": 5,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "10777c5fd43ff6ccceaf785b31ee1b22168c9b7bc1f153f51f9e6c78acc56200",
+      "prompts_sha256": "a2d1da4443d4807dbcf8d129738c9b5fb4b7a26d1dc4462896bb23ede7ca70ad"
+    },
+    {
+      "story_id": "0005_opera_mask_atelier",
+      "title": "Mask Atelier",
+      "segments": 71,
+      "duration_sec": 355.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 12,
+        "state_change": 8,
+        "persist_state": 20,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 5,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "14ea43a0983cf211babfda236bee546265aa6c7ce765232ff06fcd20d92fdf27",
+      "prompts_sha256": "dafe7f03349768b0a0700b072c01f8163e159e5ca3bfb8cc02b2ece183d6a888"
+    },
+    {
+      "story_id": "0006_harbor_ice_cutter",
+      "title": "Ice-Choked Harbor",
+      "segments": 71,
+      "duration_sec": 355.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 13,
+        "state_change": 8,
+        "persist_state": 19,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 7,
+        "long_gap_reappearance": 5,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "10617e5177a03056b84bf32e4a201ead23d30ca8ea621b174ee2880464d12ede",
+      "prompts_sha256": "73ace38de1a1b1c22879b6f3d8f571be28ea707aa5be554a68214364b97dab52"
+    },
+    {
+      "story_id": "0007_bamboo_paper_mill",
+      "title": "Bamboo Paper Stamp Mill",
+      "segments": 72,
+      "duration_sec": 360.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 13,
+        "state_change": 8,
+        "persist_state": 19,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 7,
+        "long_gap_reappearance": 5,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "093ba8036f10dede0c226b33125d4098de543f296d6cc6e4d304f24dab02f529",
+      "prompts_sha256": "bbc34250c814b8dc7f59310b18bb2c6651ab1ae277a70e41149e5f4771a6edb3"
+    },
+    {
+      "story_id": "0008_clocktower_horologist",
+      "title": "Clocktower Horologist",
+      "segments": 71,
+      "duration_sec": 355.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 13,
+        "state_change": 8,
+        "persist_state": 19,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 7,
+        "long_gap_reappearance": 5,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "a3e6a66cc6713524258becdb22df1d3485b2a307514c94a9d08b75abdbe1a55e",
+      "prompts_sha256": "dd8a093ad35ebba0ab1c807216eb62f796b9613240f8c23d4c84fd21dfbdc958"
+    },
+    {
+      "story_id": "0009_tea_horse_station",
+      "title": "Tea-Horse Station",
+      "segments": 68,
+      "duration_sec": 340.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 12,
+        "state_change": 8,
+        "persist_state": 20,
+        "count_memory": 7,
+        "false_friend": 5,
+        "deprecation_avoidance": 8,
+        "reference_indirect": 4,
+        "long_gap_reappearance": 5,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "9aeb12dc8b4b5932b084e74adb69baa456a4e13e6b4b565f7078d88adf494304",
+      "prompts_sha256": "7578a6de69faca5448fe906c5d071d2d0bfab2cf55c180d7354a7445a6764f54"
+    },
+    {
+      "story_id": "0010_subway_violinist",
+      "title": "Subway Violin",
+      "segments": 68,
+      "duration_sec": 340.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 12,
+        "state_change": 8,
+        "persist_state": 21,
+        "count_memory": 7,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 8,
+        "long_gap_reappearance": 5,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "0e5fbe4ccc254280b56092f5979cf77d658db1451a948e1e4d3a27a59e340e45",
+      "prompts_sha256": "39c1f39d7b5fed593b8f9e119fd05884825c56fea43958436cd52865b612d7f4"
+    },
+    {
+      "story_id": "0011_greenhouse_botanist",
+      "title": "Greenhouse Flora Codex",
+      "segments": 68,
+      "duration_sec": 340.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 12,
+        "state_change": 8,
+        "persist_state": 21,
+        "count_memory": 7,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 8,
+        "long_gap_reappearance": 5,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "9b51f2567b3c083056b59a98e651970c8d5518b9668d1d3415e91986b83d40b7",
+      "prompts_sha256": "bf3bf4a39736abd6edcd7e837cf527a6e22bd11ea7505c494768a6353de294e3"
+    },
+    {
+      "story_id": "0012_puppet_shadow_troupe",
+      "title": "Night Talks in the Shadow-Play Hall",
+      "segments": 85,
+      "duration_sec": 425.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 11,
+        "state_change": 8,
+        "persist_state": 23,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 7,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "68ed4aee87ff5bb1c8c4ac30f1316c29451bce81ae7c35c62387fe3a75734216",
+      "prompts_sha256": "2ca9af4d2e21d13651c73a9a9635ce8e668f23db011cfd44e3de7827fc356ea9"
+    },
+    {
+      "story_id": "0013_salt_flat_photographer",
+      "title": "Salt-Marsh Exposure Log",
+      "segments": 88,
+      "duration_sec": 440.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 11,
+        "state_change": 8,
+        "persist_state": 23,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 7,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "9d9e6fbb96a5c73bf9aa5e5f6490ab88c1ecd209b350798704c12ab22eb3222d",
+      "prompts_sha256": "d20f4ceccd8f13e1a3dc3a8c20ddae77da5d7b6cb5916101b88c3356abcfa1b6"
+    },
+    {
+      "story_id": "0014_forge_swordsmith",
+      "title": "On the Frost-Pattern Anvil",
+      "segments": 84,
+      "duration_sec": 420.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 11,
+        "state_change": 8,
+        "persist_state": 23,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 7,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "3d1bd1943d581f52efc5b58922ec5dc04d48a49f9aee454598abb4984e53a2af",
+      "prompts_sha256": "55ed81fbb765bc3b7119e11db26439cd56ca77e50d470969f533e2f27480bfaf"
+    },
+    {
+      "story_id": "0015_library_night_archivist",
+      "title": "Night Cataloguing under the Dome",
+      "segments": 90,
+      "duration_sec": 450.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 11,
+        "state_change": 8,
+        "persist_state": 23,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 7,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "d9e302b4a1404d89e923c4a1597d901c0d9e6a856a80322d3fb03c3c601df69b",
+      "prompts_sha256": "45f793988ac37eba175ca11ae71d4e53b4b55f770f5ae44fe36fec3531ee2cc4"
+    },
+    {
+      "story_id": "0016_hot_spring_innkeeper",
+      "title": "Hinoki Steam",
+      "segments": 86,
+      "duration_sec": 430.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 11,
+        "state_change": 8,
+        "persist_state": 23,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 7,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "eab1f4f8b0051085554f2e7a74fbe3b7fe9c4064a08ecc88d51a4371a34e0d40",
+      "prompts_sha256": "a50fe28b1fd0b02d2a58ebf141075a99324600707ecee672018747ac9ba19dbc"
+    },
+    {
+      "story_id": "0017_reef_diver",
+      "title": "Shallow-Reef Sampling Log",
+      "segments": 88,
+      "duration_sec": 440.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 11,
+        "state_change": 8,
+        "persist_state": 23,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 8,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "586bab3356e59f6f4e3e221db4b9c70e953d78a61d412764e7ffcd3d0336218a",
+      "prompts_sha256": "20a9fe6a6d3320b35d54495da90058ebf74e7d2bbaaa469b72d4ce05103e99f8"
+    },
+    {
+      "story_id": "0018_train_porter",
+      "title": "Platform Tag Plates",
+      "segments": 85,
+      "duration_sec": 425.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 11,
+        "state_change": 8,
+        "persist_state": 23,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 7,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "10ccfab78c9ccbbd95e5be64a42087801b8f6c191436479b626c7d37ad264f10",
+      "prompts_sha256": "0c3fa794f10c9b2797e2958bc3f4fa46ea863dc548f86c0e461681bc86d07336"
+    },
+    {
+      "story_id": "0019_lantern_festival_maker",
+      "title": "Night of the Golden Carp Lantern",
+      "segments": 86,
+      "duration_sec": 430.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 11,
+        "state_change": 8,
+        "persist_state": 23,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 5,
+        "long_gap_reappearance": 7,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "d1a194231ac70132608067e3d243f3432805360315a6bbc7b0001ca80b950956",
+      "prompts_sha256": "a62b8fe1857b96ddeaed994fe67e478a8e625f41d0f059a66941d086c8b9732c"
+    },
+    {
+      "story_id": "0020_observatory_intern",
+      "title": "Purple Mountain Night Watch",
+      "segments": 115,
+      "duration_sec": 575.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 29,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 6,
+        "long_gap_reappearance": 9,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "2ba917104e2afe29fbea3ea606493f0148a7eb923fb988145c35108a655b8700",
+      "prompts_sha256": "4df9f74d9a723c6af59c3c86064261848abe5d105f872cf02e170d65290902e1"
+    },
+    {
+      "story_id": "0021_pottery_kiln_master",
+      "title": "Dragon-Kiln Fire Keeper",
+      "segments": 115,
+      "duration_sec": 575.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 29,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 6,
+        "long_gap_reappearance": 9,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "6d47796df0798c1976c1a6a8b24be953880b003ec4e829b18da4a4b6fe67a9ea",
+      "prompts_sha256": "4c9ab8f0a3d9663ace5396dd9eb754d9fceea5de468841f9bc958691cff4b5e2"
+    },
+    {
+      "story_id": "0022_vineyard_cellarer",
+      "title": "Oak Cellar Wine Man",
+      "segments": 113,
+      "duration_sec": 565.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 29,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 6,
+        "long_gap_reappearance": 9,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "34ae13d404c297cd5129ad930e31dba9219e2360bbcebfba95373924d0f91d1e",
+      "prompts_sha256": "53ef35e4aec8d21d94dbdd62a52438f6c92f35bd3abac8f1aed93563d3f3af2b"
+    },
+    {
+      "story_id": "0023_firefighter_rookies",
+      "title": "Rookie Drill on Wet Asphalt",
+      "segments": 118,
+      "duration_sec": 590.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 29,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 6,
+        "long_gap_reappearance": 9,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "6e3f4e8d270a21ce6d056c181b7436d0d575201715862610f6fc479389da2374",
+      "prompts_sha256": "0b8f9194c6f867f1c1c6a2213d6ae99f3593d34d9b23642bbd32bf7501c4d8de"
+    },
+    {
+      "story_id": "0024_circus_acrobat",
+      "title": "Wire Under the Big Top",
+      "segments": 111,
+      "duration_sec": 555.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 29,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 6,
+        "long_gap_reappearance": 9,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "07110dc353407e0bf708ff3c3fb70fd83f9d341bf31d8719da4494318fa94897",
+      "prompts_sha256": "0d6842e84fe11d9023c5806a0915b18d0c7f7d42197c91d832843dfb26b33c40"
+    },
+    {
+      "story_id": "0025_museum_night_guard",
+      "title": "Night Patrol of the Stone Hall",
+      "segments": 119,
+      "duration_sec": 595.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 29,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 6,
+        "long_gap_reappearance": 9,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "25a1b364a7532076a88e5fe9fbfab4eaa678f50e1872e7858770dca4addb9900",
+      "prompts_sha256": "b45261a7cc5902d37a4e0b0d9f0908e027600bac3e633188dce603bba20b13e8"
+    },
+    {
+      "story_id": "0026_rice_terrace_farmer",
+      "title": "Terrace Water Line",
+      "segments": 114,
+      "duration_sec": 570.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 29,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 6,
+        "long_gap_reappearance": 9,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "4832f60030b51fb0852e271153c436021e61313a929a3eef1d09126e9ae2ca85",
+      "prompts_sha256": "49b8b530457d033798427ea7a5e452b5dea8a47a0459aa3545d913abb93dd870"
+    },
+    {
+      "story_id": "0027_radio_station_dj",
+      "title": "Red-Lamp Night Shift",
+      "segments": 116,
+      "duration_sec": 580.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 29,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 10,
+        "reference_indirect": 6,
+        "long_gap_reappearance": 9,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "9c3c95e7719838e565e7884550a98f8958fc4f456a139f7ebc03aef5e3279df7",
+      "prompts_sha256": "a86845154dd327b7f0e95a4ba1cba8a4407def1b0904ec9fb6367c4984f727bf"
+    },
+    {
+      "story_id": "0028_shipyard_welder",
+      "title": "Shipyard Welder",
+      "segments": 127,
+      "duration_sec": 635.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 43,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 15,
+        "reference_indirect": 9,
+        "long_gap_reappearance": 11,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "e6265f8a4c44e52ba99a450ccf6cf1f81d0eee157dbbc87fb8db8ff010e14488",
+      "prompts_sha256": "c4183090fcb459ee4e4e0961b1ebe6da51665e76199c8d54c015b1903aa8ca0f"
+    },
+    {
+      "story_id": "0029_ink_wash_painter",
+      "title": "Ink-Wash Studio",
+      "segments": 131,
+      "duration_sec": 655.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 44,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 15,
+        "reference_indirect": 9,
+        "long_gap_reappearance": 11,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "2ef70309b6be5cd4121b613c5bee72d03de0f0d01c60265b21385cecc6ad256d",
+      "prompts_sha256": "86ac85970132a2fe3ef41810dea5772e2f348985a47b2df74e2c2afa7a4ca34f"
+    },
+    {
+      "story_id": "0030_ski_patrol",
+      "title": "Snow Mountain Ski Patrol",
+      "segments": 131,
+      "duration_sec": 655.0,
+      "entity_kinds": {
+        "character": 5,
+        "prop": 10,
+        "location": 4
+      },
+      "stateful_entities": 6,
+      "probe_segments": {
+        "lookalike_disambiguation": 14,
+        "state_change": 8,
+        "persist_state": 46,
+        "count_memory": 5,
+        "false_friend": 5,
+        "deprecation_avoidance": 16,
+        "reference_indirect": 10,
+        "long_gap_reappearance": 11,
+        "temporal_reference": 5
+      },
+      "gold_sha256": "3957c0c19e939668c98ca6248edf7359ca2b86b76266a13a744f78d12c4d1fde",
+      "prompts_sha256": "7b64c81e7cdaac5dc34a6d85e3e2cf905bdb341a4862294ec2a8946887dc7ce5"
+    }
+  ],
+  "definitions": {
+    "probe_segments": "Segment-level tags, counted once per family per segment; families can overlap. Not scored opportunities or observed successes.",
+    "stateful_entities": "Story-local entity records with more than one defined appearance state.",
+    "genre": "No genre labels or representativeness claims are inferred from story titles."
+  }
+}

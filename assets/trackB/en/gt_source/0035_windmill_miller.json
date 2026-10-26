@@ -1,0 +1,1087 @@
+{
+  "story_id": "0035_windmill_miller",
+  "title": "Windmill Miller",
+  "premise": "A long master-apprentice drama in the windmill grinding cabin and on the wheat-drying yard. Xiaomo and Awu are easily mistaken for each other; the granite upper millstone goes intact→rim-chipped→inlaid-recarved; Wheat Wave must be avoided after it overturns; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "_state_note": "Entities with state machines use states; entities without use appearance. On transition only the current-state appearance is injected.",
+  "entities": {
+    "E1": {
+      "name": "Jiang Qiao",
+      "kind": "character",
+      "states": {
+        "prime_miller": "Jiang Qiao, a windmill miller around fifty, graying short beard, earth-yellow hemp apron and wooden clogs, flour sack over the shoulder, hands roughened by bran.",
+        "waist_injured_weary": "The same Jiang Qiao: apron bloodstained, cloth sash around the waist, walking slowly on a wooden cane, gaze heavy.",
+        "deceased": "Jiang Qiao lies still with eyes closed on a plank bed in the mill loft, face peaceful, breath gone."
+      }
+    },
+    "E2": {
+      "name": "Xiaomo",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Xiaomo: a lean mill apprentice of fourteen or fifteen, wheat-ear copper pin on the hat brim, oversized earth-yellow apron, eyes clear and stubborn.",
+        "adult_successor": "Adult Xiaomo: a miller in his twenties with broader shoulders, still wearing the wheat-ear copper pin, fitted apron, eyes steady."
+      }
+    },
+    "E3": {
+      "name": "granite upper millstone",
+      "kind": "prop",
+      "states": {
+        "intact": "A two-meter granite upper millstone, face cut with radiating furrows, center-axle copper sleeve shining, rim unbroken.",
+        "rim_chipped": "The same granite upper millstone with a chipped rim, radiating furrows clogged with bran, copper sleeve blackened and loose.",
+        "inlaid_recarved": "The granite upper millstone's chip inlaid with a stone wedge, radiating furrows recarved, copper sleeve tightened—ready to grind again."
+      }
+    },
+    "E4": {
+      "name": "wind-and-grind ledger",
+      "kind": "prop",
+      "states": {
+        "intact": "A hemp-covered wind-and-grind ledger recording wind force and flour yield, writing neat.",
+        "bran_stained": "The same wind-and-grind ledger soaked through with bran flour, cover gray, writing blurred into a blot."
+      }
+    },
+    "E5": {
+      "name": "Wheat Wave",
+      "kind": "prop",
+      "states": {
+        "intact": "A two-wheel wheat cart painted with wheat-wave patterns named Wheat Wave, bed piled with hemp sacks, shafts wrapped in grass rope.",
+        "axle_broken_overturned": "Wheat Wave tips after its axle snaps, sacks spilled, wheat-wave patterns buried in mud."
+      }
+    },
+    "E6": {
+      "name": "Awu",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young mill hand Awu whose face closely resembles Xiaomo's, but with a charcoal dust mask hung at the neck and crimson straps over the apron, manner bold.",
+        "remade_look": "Awu after remaking his look still wears the charcoal dust mask at the neck; straps now matte black, manner deeper."
+      }
+    },
+    "E7": {
+      "name": "windmill grinding cabin",
+      "kind": "location",
+      "appearance": "The grinding cabin at the windmill base, center axle running through floors, millstones rumbling, air thick with flour dust."
+    },
+    "E8": {
+      "name": "wheat-drying yard",
+      "kind": "location",
+      "appearance": "The wheat-drying yard outside the mill, bamboo mats spread with golden grain, bamboo fence around, distant windmill sails turning slowly."
+    },
+    "E9": {
+      "name": "bran-store narrow aisle",
+      "kind": "location",
+      "appearance": "A narrow aisle between bran storerooms, hemp sacks stacked high on both sides, moisture mats on the floor, heavy shadows."
+    },
+    "E10": {
+      "name": "old windmill foundation",
+      "kind": "location",
+      "appearance": "An old windmill foundation ruin—only a circular stone base and a broken sail axle remain, weeds rising from the seams."
+    },
+    "E11": {
+      "name": "mill memorial stone tablet",
+      "kind": "prop",
+      "appearance": "A blue-stone tablet nailed to the grinding-cabin doorpost, carved with 'Jiang Qiao' and the mill founding year, corners worn white by flour."
+    },
+    "E12": {
+      "name": "flour-chute tags",
+      "kind": "prop",
+      "appearance": "Three wooden tags hung on the flour chute, labeled 'Fine Flour', 'Straight Flour', and 'Bran'."
+    },
+    "E13": {
+      "name": "crimson tractor",
+      "kind": "prop",
+      "appearance": "A brand-new small crimson tractor with tools in the bed, no wheat-wave patterns—utterly unlike Wheat Wave."
+    },
+    "E14": {
+      "name": "grain-station inspector",
+      "kind": "character",
+      "appearance": "A lean grain-station inspector in a white cap and gray smock, build somewhat like Jiang Qiao's, but with a grain-station badge on the chest."
+    },
+    "E15": {
+      "name": "grinding-cabin oil lamps",
+      "kind": "prop",
+      "appearance": "A row of five grinding-cabin oil lamps hung on iron hooks on the cabin crossbeam, glass chimneys polished bright."
+    },
+    "E16": {
+      "name": "mill-start bronze bells",
+      "kind": "prop",
+      "appearance": "Two mill-start bronze bells hung under the cabin eaves, clappers scarred by strikes, sounding two light notes before milling starts."
+    },
+    "E17": {
+      "name": "Xiaomai",
+      "kind": "character",
+      "appearance": "New drying-yard apprentice Xiaomai in a light-gold headscarf and brand-new apron, at a glance like young Xiaomo, but with a sharper chin and shy eyes."
+    },
+    "E18": {
+      "name": "spare lower millstone",
+      "kind": "prop",
+      "appearance": "A spare lower millstone shaped much like the upper stone but with no radiating furrow cuts, center sleeve black iron."
+    },
+    "E19": {
+      "name": "blue-gray grain cart",
+      "kind": "prop",
+      "appearance": "A blue-gray grain plank cart, broad flat body, no wheat-wave patterns—not the same as Wheat Wave."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_miller",
+      "waist_injured_weary",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "rim_chipped",
+      "inlaid_recarved"
+    ],
+    "E4": [
+      "intact",
+      "bran_stained"
+    ],
+    "E5": [
+      "intact",
+      "axle_broken_overturned"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_look"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Xiaomo: wheat-ear copper pin on the hat brim, earth-yellow apron.",
+        "E6": "Awu: face nearly identical to Xiaomo's, but charcoal dust mask at the neck and crimson straps."
+      },
+      "note": "Hard misidentification sample: wheat-ear copper pin vs charcoal dust mask."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Grinding cabin at dusk (five oil lamps · two mill-start bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk Jiang Qiao enters the windmill grinding cabin with a flour sack over his shoulder and pushes the granite upper millstone for a test grind.",
+        {
+          "action": "A row of five grinding-cabin oil lamps hangs on the cabin crossbeam; Jiang Qiao wipes each glass chimney clean.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two mill-start bronze bells hang under the cabin eaves; Jiang Qiao taps them lightly and the dull notes sound.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Jiang Qiao checks the granite upper millstone's radiating furrows and copper sleeve, confirming no chips.",
+        "Through the cabin wood window Jiang Qiao watches the slowly turning windmill sails.",
+        {
+          "action": "The intact granite upper millstone sits steady on the center axle, face reflecting the oil lamps' warm light.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Jiang Qiao sits by a bran sack and drinks a sip of cold tea.",
+        "Distant winnowing rises; he retightens his apron.",
+        "He measures the stone gap with a wooden rule and nods as he notes it."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Filling the wind-and-grind ledger",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Jiang Qiao opens the hemp wind-and-grind ledger and records the day's wind force.",
+        "He sketches a flour-yield curve in the ledger.",
+        "Jiang Qiao closes the wind-and-grind ledger and tucks it back into the wooden cabinet.",
+        {
+          "action": "Flour dust from the turning granite upper millstone sweeps across his cheek.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "He tears a scrap of hemp paper and wipes bran from the wooden rule."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Wheat-drying yard greets the apprentice (three flour-chute tags)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        {
+          "action": "In the morning wheat-drying yard Jiang Qiao greets the approaching Wheat Wave plank cart.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Young Xiaomo jumps down from Wheat Wave; the wheat-ear copper pin on his hat brim gleams in morning light.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Jiang Qiao points to the three flour-chute tags and teaches Xiaomo to tell fine flour from bran.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaomo squats by the bamboo mat and curiously scoops a handful of golden grain.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Jiang Qiao explains to Xiaomo that the mill-start bronze bells must sound twice before the gate can close.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Xiaomo looks back at intact Wheat Wave, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Bamboo fence sways; the two walk toward the windmill grinding cabin."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Bran-store narrow aisle (Awu alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the bran-store narrow aisle Awu with a charcoal dust mask at his neck looks back from the sack shadows.",
+        "Awu walks slowly on the moisture mat; the crimson straps stand out.",
+        "He brushes past a sack porter; the mask flashes in the reflection.",
+        "Awu knocks the rack to confirm the stack is steady.",
+        "He passes the aisle end and walks toward the sifting room."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Wheat-drying yard misidentification shared screen",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "On the wheat-drying yard Xiaomo and Awu stand side by side: one with a wheat-ear copper pin, one with a charcoal dust mask at the neck.",
+        "Xiaomo hands Awu a test-grind wheat sample; they meet eyes briefly.",
+        "Awu straightens Xiaomo's oversized apron ties, then turns his face away.",
+        "They walk opposite ways along the bamboo fence; figures cross in the sail shadows.",
+        "A burst of winnowing rises; only bamboo mats sway lightly on the yard."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Ledger bran-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On a night months later Jiang Qiao alone keeps watch in the windmill grinding cabin.",
+        {
+          "action": "He opens the wind-and-grind ledger; the cover is already soaked with bran flour, gray and blurred.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "bran_stained"
+            }
+          ]
+        },
+        "Jiang Qiao wipes bran crust from the granite upper millstone rim with a rag.",
+        "Through the wood window he watches a single village lamp in the pitch-black fields.",
+        {
+          "action": "The granite upper millstone rests quiet on the center axle, copper sleeve faintly dark.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "A mill-start bronze bell is bumped half a note by night wind, then falls silent."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years turn (filler · stretching the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "When spring wheat arrives Jiang Qiao day after day adjusts the stone gap in the cabin.",
+        "On another rain night he wraps his apron tight and keeps watch by the granite upper millstone.",
+        "At high summer noon the cabin is stifling; he rotates opening windows to vent flour dust.",
+        "In autumn fog the oil lamps' light struggles through bran mist.",
+        "On New Year's Eve Jiang Qiao alone fills the wind-and-grind ledger to the last page.",
+        "In early spring he recalibrates sail angle and resumes test grinding.",
+        "Before rainy season Jiang Qiao reinforces the wheat-drying yard's bamboo fence.",
+        "After Frost's Descent he adds a small bag of lime in the cabin corner against damp.",
+        "Before another milling season he checks drive belts section by section.",
+        "On a snow-night shutdown Jiang Qiao leaves only one grinding-cabin oil lamp and keeps watch until dawn.",
+        "After Awakening of Insects he restitches sun-dried hemp sacks.",
+        "Around Qingming he clears weeds from the old windmill foundation entrance.",
+        "At Grain Rain he teaches the apprentice to tell newly arrived hard wheat from soft.",
+        "On Beginning of Summer night he watches the slow sails until the wind steadies.",
+        "Around Grain Buds he touch-ups wheat-wave paint worn white on the cart shafts.",
+        "At Grain in Ear he keeps mill watch all night until the first sack of fine flour exits the chute."
+      ]
+    },
+    {
+      "id": "S6c",
+      "setting": "Daily milling (further stretching the interval)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "Jiang Qiao changes the drive belt and checks tension.",
+        "He checks the flour-chute screen and shakes out bran.",
+        {
+          "action": "He pushes the intact granite upper millstone again for three short test turns.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Winnowing rises from the drying yard; he looks up to listen.",
+        "Jiang Qiao sweeps spent bran into a hemp sack and ties the mouth.",
+        "At noon break he smokes outside the cabin, tapping ash into a tin can.",
+        "In the afternoon he returns to the cabin and continues adjusting the stone gap.",
+        "At sunset he brakes the sails and locks the grinding cabin.",
+        "Before nightfall he patrols the bran store once more, confirming no rats.",
+        "When evening wind rises he listens again to the sail-bearing sound."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Wheat-drying yard patrol (recall tags · blue-gray grain-cart false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn Jiang Qiao patrols the wheat-drying yard; Wheat Wave still rests by the bamboo fence.",
+        {
+          "action": "He crouches to check whether Wheat Wave's axle is seeping oil.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "By the flour chute those three flour-chute tags still hang in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A blue-gray grain cart rolls past the yard edge—broad flat body, no wheat-wave patterns.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Jiang Qiao stands on the wheat-drying yard recording grain dampened overnight.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "He retightens Wheat Wave's grass rope.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        "Distant roosters crow; morning fog begins to thin."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Grinding cabin watch again",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At nightfall Jiang Qiao returns to the windmill grinding cabin and opens the bran-stained wind-and-grind ledger.",
+        "He matches old wind force and adds today's flour yield.",
+        {
+          "action": "He briefly pushes the granite upper millstone; dust shows the ledger's gray cover.",
+          "present": [
+            "E1",
+            "E7",
+            "E3",
+            "E4"
+          ]
+        },
+        "He wipes fresh bran from his brows.",
+        "Sail wind rises; the cabin plank walls rattle lightly.",
+        "Jiang Qiao extinguishes half the row of grinding-cabin oil lamps, leaving only the mill-station one."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Storm accident (millstone chips · Wheat Wave overturns)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "In a storm the sails suddenly run wild; the windmill grinding cabin falls into chaos.",
+        "Flour dust erupts; oil lamps swing violently.",
+        {
+          "action": "When Jiang Qiao brakes, the granite upper millstone rim chips and the copper sleeve loosens.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "rim_chipped"
+            }
+          ]
+        },
+        {
+          "action": "At the yard edge Wheat Wave is tipped by the gale and jolts hard.",
+          "present": [
+            "E5",
+            "E8"
+          ]
+        },
+        {
+          "action": "A sharp crack—Wheat Wave's axle snaps and overturns; sacks spill into mud.",
+          "present": [
+            "E5",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "axle_broken_overturned",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Jiang Qiao clamps hard on the chipped rim of the granite upper millstone.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "A warning-like sail howl covers everything."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (Wheat Wave indirect reference · oil-lamp recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day when wind eases Jiang Qiao stands in the cabin staring at the rim-chipped granite upper millstone.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "He traces the chipped stone edge with a finger, expression dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a blank page of the wind-and-grind ledger he writes the date Wheat Wave overturned.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "A loading diagram of Wheat Wave is still taped to the wall; Jiang Qiao gazes at it a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "He takes one of the five grinding-cabin oil lamps from the crossbeam and sits alone in the faint light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The chipped granite upper millstone rests on the center axle like a moon missing a corner.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Distant sweeping rises; spilled grain is gathered into a pile."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Inlay and recarve (third state · spare lower-millstone false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Jiang Qiao brings in a stonemason to repair the granite upper millstone.",
+        {
+          "action": "From the storehouse he rolls out a spare lower millstone—much like the upper but with no radiating furrows and a black-iron sleeve.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "The mason inlays the chip and recarves the radiating furrows.",
+        {
+          "action": "With the copper sleeve tightened the granite upper millstone can grind again.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "inlaid_recarved"
+            }
+          ]
+        },
+        "He short-tests a few turns; flour flow steadies again.",
+        "Jiang Qiao rolls the spare lower millstone back to the storehouse, no longer confused."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: tractor and inspector",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A crimson tractor rolls into the wheat-drying yard—nothing like the already overturned Wheat Wave.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "A white-cap gray-smock grain-station inspector steps onto the wheat-drying yard and talks beside Jiang Qiao; the two look similar in build.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The inspector points at the crimson tractor and explains the temporary wheat haul.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The tractor drives off; Jiang Qiao alone watches from the wheat-drying yard.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "He rehangs the flour-chute tags straight and walks back to the grinding cabin."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: drying-yard apprentice Xiaomai",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "Into the bran-store narrow aisle comes drying-yard apprentice Xiaomai in a light-gold headscarf—at a glance somewhat like young Xiaomo.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaomai tries stitching a hemp sack; Jiang Qiao shakes his head—she is not Xiaomo after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaomai bows and withdraws; only sack shadows remain in the aisle."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Waist-injured weary (bronze bells long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "At dusk years later Jiang Qiao, apron bloodstained and waist wrapped in cloth, leans on a wooden cane under the old windmill foundation.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "waist_injured_weary"
+            }
+          ]
+        },
+        "He looks up at the broken sail axle, gaze distant.",
+        {
+          "action": "In the distance those two mill-start bronze bells under the cabin eaves ring lightly in the wind; Jiang Qiao stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "He presses a palm to the circular stone base as if saying goodbye.",
+        "Weeds sway; the foundation grows quieter."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Xiaomo returns · Jiang Qiao passes",
+      "present": [
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day adult Xiaomo returns along the field path and hurries toward the old windmill foundation.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        {
+          "action": "Under the foundation Xiaomo reunites with waist-injured weary Jiang Qiao; they support each other.",
+          "present": [
+            "E1",
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "By the mill-loft plank bed Xiaomo holds Jiang Qiao's wasted hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Jiang Qiao's breath grows weak; at last he closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Outside the window the sails are still; field wind falls quiet for an instant.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · stone tablet (indirect reference)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the cabin door Jiang Qiao's earth-yellow apron still hangs; Xiaomo reaches to stroke it gently.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By the doorpost adult Xiaomo stands before the newly nailed mill memorial stone tablet.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Xiaomo's fingertip traces Jiang Qiao's name carved on the stone tablet.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "He softly speaks the page number of the ledger entry for Wheat Wave's overturn, as if answering.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15b",
+      "setting": "Mention again the deceased and destroyed (indirect avoidance)",
+      "present": [
+        "E2",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "After mud is cleared from the wheat-drying yard Xiaomo writes the three characters of Wheat Wave on the empty parking spot and then erases them.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "Passing the mill-loft corridor he sees Jiang Qiao's old flour sack on a hook.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "In the night Xiaomo softly repeats to the empty center axle the mill-start call Jiang Qiao taught.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        "In the bran scent Xiaomo grips the wheat-ear copper pin tight in his palm."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Both reunite (long-range + shared screen)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Awu with his remade look arrives from the bran store and briefly meets Xiaomo's eyes under the old windmill foundation.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_look"
+            }
+          ]
+        },
+        "Xiaomo and Awu stand side by side by the circular stone base: one quiet-eyed, one deep-mannered.",
+        "Awu still wears the charcoal dust mask at his neck; Xiaomo still wears the wheat-ear copper pin.",
+        "They are silent a moment, then each turns and leaves the foundation."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth jumping from the wheat-wave cart with a wheat-ear copper pin on the hat brim appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth jumping from the wheat-wave cart with a wheat-ear copper pin on the hat brim",
+                "resolves_to": "E2"
+              },
+              "state": "young_apprentice"
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the cabin a granite stone cut with radiating furrows is first pushed for a test grind.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the granite stone with radiating furrows first pushed for a test grind at the opening",
+                "resolves_to": "E3"
+              },
+              "state": "intact"
+            }
+          ]
+        },
+        {
+          "action": "Flashback to the bran aisle—that neck-masked figure in crimson straps slips past.",
+          "present": [
+            {
+              "eid": "E6",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the neck-masked crimson-strapped figure in the bran aisle",
+                "resolves_to": "E6"
+              },
+              "state": "young_rival"
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five hooded old oil lamps on the cabin crossbeam appears.",
+          "present": [
+            {
+              "eid": "E15",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five hooded old oil lamps on the cabin crossbeam",
+                "resolves_to": "E15"
+              },
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Back to that bamboo-mat wheat-drying yard of first meeting, bamboo fence as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that bamboo-mat wheat-drying yard of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrases for reference; no formal entity names; avoid deceased/destroyed."
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (ledger long-range · tags long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Xiaomo opens again that bran-stained wind-and-grind ledger and walks into the windmill grinding cabin.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "By the flour chute those three flour-chute tags still hang.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaomo pushes the inlaid-recarved granite upper millstone; flour flow surges again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "He tightens the apron ties and nods to confirm as Jiang Qiao once did.",
+        "In field dusk the new shift's mill-start bronze bells sound two light notes.",
+        "Xiaomo drops today's first turn before the center axle.",
+        "The sails slowly turn in the evening wind as if answering.",
+        "A distant village dog barks once; the cabin lamplight steadies."
+      ]
+    }
+  ]
+}

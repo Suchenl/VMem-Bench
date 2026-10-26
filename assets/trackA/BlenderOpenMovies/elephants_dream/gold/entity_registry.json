@@ -1,0 +1,624 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "elephants_dream",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "19d1e1c45ac71f32",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "光头老者",
+      "description": "秃顶，面部有白色鬓角胡须，身穿深绿色外套、红色菱形格纹毛衣和深色长裤，戴黑色露指手套。体型佝偻。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          15,
+          142
+        ],
+        [
+          165,
+          178
+        ],
+        [
+          186,
+          194
+        ],
+        [
+          203,
+          385
+        ],
+        [
+          400,
+          551
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 15.0,
+      "last_frame": null,
+      "last_seconds": 551.0,
+      "screen_time_seconds": 481.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 23.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "瘦削青年",
+      "description": "短发，面容消瘦苍白，身穿浅灰绿色紧身连体衣裤，颈部有金属扣件装饰。身形单薄。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          26,
+          142
+        ],
+        [
+          165,
+          178
+        ],
+        [
+          186,
+          194
+        ],
+        [
+          213,
+          551
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 26.0,
+      "last_frame": null,
+      "last_seconds": 551.0,
+      "screen_time_seconds": 475.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 23.0,
+      "representations": [
+        {
+          "representation_id": "char_002@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c047_char_002",
+          "chunk_id": 47,
+          "description": "destroyed: 被巨大机械触手缠绕并吞噬后倒地不起，失去意识或生命体征。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 536.0
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "复古电话装置",
+      "description": "放置在圆形台座上的老式电话听筒与底座组合，连接着线缆，陈旧锈蚀。",
+      "first_chunk": 13,
+      "presence_spans": [
+        [
+          150,
+          213
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 150.0,
+      "last_frame": null,
+      "last_seconds": 213.0,
+      "screen_time_seconds": 63.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_001@c013",
+          "chunk_id": 13,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "带灯拐杖",
+      "description": "长杖，顶端装有发光圆盘灯，杖身有金属质感。",
+      "first_chunk": 20,
+      "presence_spans": [
+        [
+          223,
+          262
+        ],
+        [
+          352,
+          385
+        ],
+        [
+          410,
+          420
+        ],
+        [
+          496,
+          520
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 223.0,
+      "last_frame": null,
+      "last_seconds": 520.0,
+      "screen_time_seconds": 106.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 90.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c020",
+          "chunk_id": 20,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "悬浮平台",
+      "description": "各种形状的金属板或机械结构组成的悬空路径，表面有磨损痕迹。",
+      "first_chunk": 7,
+      "presence_spans": [
+        [
+          80,
+          142
+        ],
+        [
+          223,
+          292
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 80.0,
+      "last_frame": null,
+      "last_seconds": 292.0,
+      "screen_time_seconds": 131.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 81.0,
+      "representations": [
+        {
+          "representation_id": "prop_003@c007",
+          "chunk_id": 7,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "机械鸟群",
+      "description": "大量银灰色金属质感的鸟类生物。",
+      "first_chunk": 9,
+      "presence_spans": [
+        [
+          98,
+          142
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 98.0,
+      "last_frame": null,
+      "last_seconds": 142.0,
+      "screen_time_seconds": 44.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_004@c009",
+          "chunk_id": 9,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_005",
+      "kind": "prop",
+      "name": "巨型机械触手",
+      "description": "从墙壁或地面伸出的粗大管状/蛇状机械结构，表面有鳞片或节段纹理，颜色偏暗红或金属色。",
+      "first_chunk": 38,
+      "presence_spans": [
+        [
+          420,
+          565
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 420.0,
+      "last_frame": null,
+      "last_seconds": 565.0,
+      "screen_time_seconds": 145.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_005@c038",
+          "chunk_id": 38,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "黄绿调拼贴墙空间",
+      "description": "由不规则矩形板块拼接而成的墙面，色调呈黄绿色，表面有污渍和破损痕迹。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          26
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 26.0,
+      "screen_time_seconds": 26.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_001@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "蓝白调工业长廊",
+      "description": "充满垂直管线、阀门和发光节点的狭长通道，整体呈冷蓝白色调，光线明亮刺眼，雾气弥漫。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          26,
+          80
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 26.0,
+      "last_frame": null,
+      "last_seconds": 80.0,
+      "screen_time_seconds": 54.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_002@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "暗黑线缆深渊",
+      "description": "极度黑暗的空间，布满纵横交错的细线缆和零星光点，有狭窄的金属平台。",
+      "first_chunk": 7,
+      "presence_spans": [
+        [
+          80,
+          150
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 80.0,
+      "last_frame": null,
+      "last_seconds": 150.0,
+      "screen_time_seconds": 70.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c007",
+          "chunk_id": 7,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "红光密室",
+      "description": "昏暗房间，中央有一块鲜红色地毯，上方悬挂锥形灯投射红光。背景墙上有复杂管线和圆形窗格结构。",
+      "first_chunk": 13,
+      "presence_spans": [
+        [
+          150,
+          223
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 150.0,
+      "last_frame": null,
+      "last_seconds": 223.0,
+      "screen_time_seconds": 73.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_004@c013",
+          "chunk_id": 13,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_005",
+      "kind": "location",
+      "name": "虚空悬浮区",
+      "description": "纯黑背景下的虚无空间，仅有几束聚光灯照亮脚下的孤立悬浮平台或机械臂末端。",
+      "first_chunk": 20,
+      "presence_spans": [
+        [
+          223,
+          292
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 223.0,
+      "last_frame": null,
+      "last_seconds": 292.0,
+      "screen_time_seconds": 69.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_005@c020",
+          "chunk_id": 20,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_006",
+      "kind": "location",
+      "name": "金属电梯舱",
+      "description": "封闭的金属箱体内部，墙壁有锈迹和管道，顶部有圆形观察窗或机械结构。光线昏暗偏绿。",
+      "first_chunk": 26,
+      "presence_spans": [
+        [
+          292,
+          352
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 292.0,
+      "last_frame": null,
+      "last_seconds": 352.0,
+      "screen_time_seconds": 60.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_006@c026",
+          "chunk_id": 26,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_007",
+      "kind": "location",
+      "name": "金色触手巢穴",
+      "description": "充满暖金色光芒的巨大空间，背景和地面布满扭曲盘绕的粗大机械触手/管线，光影流动感强。",
+      "first_chunk": 43,
+      "presence_spans": [
+        [
+          487,
+          565
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 487.0,
+      "last_frame": null,
+      "last_seconds": 565.0,
+      "screen_time_seconds": 78.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_007@c043",
+          "chunk_id": 43,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_008",
+      "kind": "location",
+      "name": "绿调瓷砖走廊",
+      "description": "铺满方形瓷砖的狭长通道，色调偏绿灰，天花板低矮有管道，尽头有门或通风口。",
+      "first_chunk": 32,
+      "presence_spans": [
+        [
+          352,
+          487
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 352.0,
+      "last_frame": null,
+      "last_seconds": 487.0,
+      "screen_time_seconds": 135.0,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_008@c032",
+          "chunk_id": 32,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

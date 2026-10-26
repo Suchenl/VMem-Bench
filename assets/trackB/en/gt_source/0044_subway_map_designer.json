@@ -1,0 +1,1287 @@
+{
+  "story_id": "0044_subway_map_designer",
+  "title": "Night of the Network Map",
+  "premise": "A long drama of subway network map design. A-He and A-Wei are easily confused; the network master map goes intact→ink-bled→redrawn; the folding measuring wheel is crushed and must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_state_note": "Stateful entities use states; stateless use appearance. On transition inject only the current state's appearance.",
+  "entities": {
+    "E1": {
+      "name": "Lu Heng",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Subway network designer Lu Heng around thirty-five, neat short hair, deep-blue work shirt with a scale pin on the cuff, fingertips often stained with highlighter ink, sharp gaze.",
+        "weary_injured": "The same Lu Heng weary and injured: work shirt torn at a corner, gauze on the brow, still wearing the scale pin, heavy steps.",
+        "left_post": "Lu Heng has left his post; only his deep-blue old work clothes and badge remain in the drafting room—he himself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "A-He",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young A-He: a lean drafting apprentice around fifteen, turmeric armband on the left arm, knuckles white when gripping a pen, bright stubborn eyes.",
+        "adult_successor": "Adult A-He: a tall upright successor drafter in his twenties, still in turmeric armband, calm eyes."
+      }
+    },
+    "E3": {
+      "name": "network master map",
+      "kind": "prop",
+      "states": {
+        "intact": "A full-wall city subway network master map, colored lines crossing, transfer nodes marked with magnets, surface flat unmarked.",
+        "ink_bled": "The same network master map stained by a spilled inkbottle in purple-black blooms; many colored lines smear together, transfer nodes hard to read.",
+        "redrawn": "After redrawing, the network master map's colored lines are clear again, but a shallow patch mark remains at the lower right, apart from the first intact state."
+      }
+    },
+    "E4": {
+      "name": "transfer notebook",
+      "kind": "prop",
+      "states": {
+        "intact": "A deep-blue leather transfer notebook, pages packed with station-spacing sketches and ridership curves, clean corners.",
+        "coffee_stained": "The same transfer notebook soaked by spilled coffee, cover warped, page writing bled, a crumpled blotter sheet tucked inside."
+      }
+    },
+    "E5": {
+      "name": "folding measuring wheel",
+      "kind": "prop",
+      "states": {
+        "intact": "A foldable yellow-and-black measuring wheel, centimeter marks on the rim, handle wrapped in nonslip tape.",
+        "crushed": "The folding measuring wheel crushed by a construction truck, rim split, marks twisted—only a skewed wreck remains."
+      }
+    },
+    "E6": {
+      "name": "A-Wei",
+      "kind": "character",
+      "states": {
+        "young_rival": "A-Wei nearly identical in face and build to A-He, but an amber brooch at the collar, bold and quick to interrupt.",
+        "disguised": "Disguised A-Wei still wears the amber brooch, plus thin-frame glasses, expression deeper."
+      }
+    },
+    "E7": {
+      "name": "transfer-center drafting room",
+      "kind": "location",
+      "appearance": "The second-floor drafting room of the transfer center, four whiteboard walls packed with network drafts, highlighters and T-squares on the long table, station-hall glass dome beyond the window."
+    },
+    "E8": {
+      "name": "station-hall mockup zone",
+      "kind": "location",
+      "appearance": "An unopened station-hall mockup zone, floor tiles unfinished, temporary station-name stickers on columns, cement smell in the air."
+    },
+    "E9": {
+      "name": "construction corridor",
+      "kind": "location",
+      "appearance": "A narrow construction corridor to the shield shaft, cable reels and hard hats stacked on both sides, emergency lights stretching long shadows."
+    },
+    "E10": {
+      "name": "abandoned platform site",
+      "kind": "location",
+      "appearance": "An abandoned platform site unused for years, moss on the platform edge, rusted ticket gates half open."
+    },
+    "E11": {
+      "name": "brass station-name plaque",
+      "kind": "prop",
+      "appearance": "A brass station-name plaque nailed to an abandoned-platform column, engraved with 'Lu Heng' and the year, edges already verdigrised."
+    },
+    "E12": {
+      "name": "transfer-node magnets",
+      "kind": "prop",
+      "appearance": "Three red-and-white transfer-node magnets with magnetic backs, used to mark key transfer stations on the network master map."
+    },
+    "E13": {
+      "name": "plastic demo cart",
+      "kind": "prop",
+      "appearance": "A plastic demo cart somewhat like a measuring tool but without a marked rim, body printed 'For Display'."
+    },
+    "E14": {
+      "name": "network supervisor Lao Jin",
+      "kind": "character",
+      "appearance": "Network supervisor Lao Jin somewhat resembling Lu Heng in build, gray uniform, silver stars on the shoulder, gear badge on the cap instead of a scale."
+    },
+    "E15": {
+      "name": "drafting desk lamps",
+      "kind": "prop",
+      "appearance": "A row of five drafting desk lamps with flexible arms, milky shades, screwed to the drafting-room long-table edge, numbers written inside the shades."
+    },
+    "E16": {
+      "name": "platform announce bells",
+      "kind": "prop",
+      "appearance": "Two copper platform announce bells taken from an old station, hung by the drafting-room window frame, giving a clear short tone when tapped."
+    },
+    "E17": {
+      "name": "intern Xiaoqiao",
+      "kind": "character",
+      "appearance": "Intern Xiaoqiao who at a glance resembles young A-He, light-gray hair ribbon instead of turmeric armband, shy gaze, soft voice."
+    },
+    "E18": {
+      "name": "pocket schematic puzzle",
+      "kind": "prop",
+      "appearance": "A desktop-sized pocket schematic puzzle whose colored-line layout closely resembles the network master map, but no real station names, cardboard edges."
+    },
+    "E19": {
+      "name": "blue-gray inspection cart",
+      "kind": "prop",
+      "appearance": "A strange blue-gray inspection battery cart, broad flat bed, no measuring wheel, 'Equipment Section' sprayed on the side door."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_injured",
+      "left_post"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "ink_bled",
+      "redrawn"
+    ],
+    "E4": [
+      "intact",
+      "coffee_stained"
+    ],
+    "E5": [
+      "intact",
+      "crushed"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "A-He: turmeric armband, calm or stubborn eyes.",
+        "E6": "A-Wei: face nearly identical to A-He, but amber brooch at the collar, bold or deep expression."
+      },
+      "note": "Hard confuse sample: A-He and A-Wei look alike; distinguished only by turmeric armband / amber brooch."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Drafting room at dusk (introduce five drafting desk lamps · two announce bells)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "At dusk, Lu Heng opens the transfer-center drafting room door and sets a T-square on the long table.",
+        {
+          "action": "A row of five drafting desk lamps is screwed along the long table; Lu Heng lights each and wipes dust inside the shades.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "By the window frame hang two copper platform announce bells; Lu Heng taps them with a knuckle, short tones echoing off the whiteboard walls.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Lu Heng rises on tiptoe to check the line width of every transfer color on the network master map.",
+        "By the window Lu Heng watches dimming sky light beyond the station-hall glass dome.",
+        {
+          "action": "The intact network master map covers the whole wall; colored lines gleam faintly under the drafting desk lamps.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "With a highlighter Lu Heng adds an unopened branch line on the whiteboard.",
+        "Lu Heng unpins and re-pins the scale pin on his cuff, habitually checking the marks.",
+        "Lu Heng sorts scattered color cards and reorders them by line number.",
+        "Lu Heng sits on a drafting-room tall stool and rubs his aching neck."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the transfer notebook",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Lu Heng opens the deep-blue leather transfer notebook and records today's ridership spot-checks.",
+        "In the transfer notebook Lu Heng draws a walking-minutes curve between two stations.",
+        "Lu Heng closes the transfer notebook and tucks it into the long-table drawer.",
+        {
+          "action": "Colored-line gleam from the network master map sweeps Lu Heng's profile.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Against the network master map Lu Heng circles congested transfer points in red.",
+        "Lu Heng caps spare highlighters tight so the tips will not dry."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Mockup zone meets the apprentice (introduce three magnets)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "In the morning station-hall mockup zone, Lu Heng greets young A-He pushing the folding measuring wheel in.",
+        {
+          "action": "A-He steadies the folding measuring wheel and pats cement dust from the rim.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Lu Heng points to three red-and-white transfer-node magnets, teaching A-He which transfer stations each marks.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A-He crouches by unfinished floor tiles, curiously touching temporary station-name stickers on a column.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Lu Heng explains to A-He the scale difference between the mockup zone and a real station hall.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "A-He looks back at the intact folding measuring wheel, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Lu Heng has A-He push the folding measuring wheel once around the mockup zone and record wheel turns.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "A-He cinches the turmeric armband and carefully notes the station spacings Lu Heng dictates.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Construction corridor (A-Wei alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the construction corridor, A-Wei with an amber brooch at the collar turns to look from behind a cable reel.",
+        "A-Wei strides the construction corridor, boldly swinging a hard hat.",
+        "A-Wei brushes past a materials cart; the amber brooch sways under emergency light.",
+        "A-Wei stops at the shield-shaft mouth, pickily criticizing fonts on temporary guide signs.",
+        "A-Wei peels an extra station-name sticker and sticks it crooked again.",
+        "A-Wei passes through the construction-corridor crowd and vanishes around a corner."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Mockup zone: A-He and A-Wei co-present",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the station-hall mockup zone, A-He and A-Wei stand side by side—one turmeric armband, one amber brooch.",
+        "A-He hands A-Wei a found color card; they look at each other with different expressions.",
+        "A-Wei straightens A-He's turmeric armband, then deliberately clicks her amber brooch.",
+        "A-He and A-Wei walk slowly along the unfinished platform edge; shadows overlap then part.",
+        "A-He looks down to check a sketch; A-Wei snaps photos everywhere.",
+        "A-He and A-Wei part at the mockup-zone mouth, each walking opposite ways."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Drafting-room night shift (notebook coffee-stained)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Lu Heng keeps watch alone in the drafting room; the network master map hangs quiet on the wall.",
+        {
+          "action": "Lu Heng opens the transfer notebook and finds spilled coffee has warped the cover and bled the writing.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "coffee_stained"
+            }
+          ]
+        },
+        "Lu Heng wipes a thin chalk dust from the network master map surface.",
+        "By the drafting-room window Lu Heng gazes at the empty station-hall dome.",
+        {
+          "action": "Light spots from the drafting desk lamps drift slowly across the network master map.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Lu Heng slips blotter paper into the stained transfer notebook, sighs, and turns out the light."
+      ]
+    },
+    {
+      "id": "F1",
+      "setting": "Network reroute week (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "On a reroute-week morning, Lu Heng erases old branch-line drafts from the whiteboard.",
+        "With cyan-green highlighter Lu Heng redraws a parallel express-line sketch.",
+        "Lu Heng presses a T-square along the whiteboard's lower edge to keep the baseline level.",
+        "Against the network master map Lu Heng checks crossings of the new express line with the existing loop.",
+        "In the afternoon Lu Heng takes a dispatch call in the drafting room, brows slightly furrowed.",
+        "On a sticky note Lu Heng writes 'delay opening' and sticks it to a whiteboard corner.",
+        "Lu Heng rearranges color cards and pulls the express-line color aside alone.",
+        "At dusk Lu Heng switches off spare lamps, leaving only the center one on the network master map."
+      ]
+    },
+    {
+      "id": "F2",
+      "setting": "Ridership-marking ten-day stretch (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In the ridership-marking stretch, Lu Heng hangs transparent tracing paper beside the network master map.",
+        "With orange dots Lu Heng marks congested morning-peak transfer nodes.",
+        "Lu Heng fixes tracing-paper edges with magnetic strips against curling.",
+        "Against stained pages in the transfer notebook Lu Heng struggles to read old numbers.",
+        "Lu Heng sets a fresh cup of tea farther away, afraid of spilling on the notebook again.",
+        "On the whiteboard Lu Heng lists three proposed last-train time adjustments.",
+        "Outside the drafting-room window a trial train rumbles; Lu Heng looks up and listens a moment.",
+        "With thin cord Lu Heng restrings color cards by line number."
+      ]
+    },
+    {
+      "id": "F3",
+      "setting": "Station-hall patrol day (filler · no magnets)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "On station-hall patrol day, Lu Heng puts on a hard hat and walks into the station-hall mockup zone.",
+        "Lu Heng tests unset tile adhesive with a toe.",
+        "Lu Heng notes where column stickers have peeled.",
+        "With a flashlight Lu Heng shines into an unpowered sign lightbox.",
+        "At the mockup-zone entrance Lu Heng talks briefly with the construction foreman.",
+        "Lu Heng skirts stacked cable reels and rounds to the other platform.",
+        "With a tape Lu Heng measures reserved fare-gate width.",
+        "Lu Heng writes the measurements on a cuff sticky note."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Mockup patrol (recall magnets · plastic-demo-cart false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn, Lu Heng patrols the station-hall mockup zone; the folding measuring wheel leans by a column.",
+        {
+          "action": "Lu Heng crouches to check whether the folding measuring wheel rim marks are worn.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Lu Heng walks to a temporary bench; those three transfer-node magnets are still lined up neat.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A plastic demo cart printed 'For Display' is pushed through the mockup zone—no marked rim, never a folding measuring wheel.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Lu Heng stands in the mockup zone, logging unfinished tile gaps.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Lu Heng pushes the folding measuring wheel to a drier corner and stands it upright.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Lu Heng confirms again that none of the three transfer-node magnets is missing.",
+          "present": [
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "On a whiteboard at the mockup-zone exit Lu Heng writes the patrol date.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F4",
+      "setting": "Eve of storm standby (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "On the eve of a storm, Lu Heng shelves all drafts near the drafting-room window.",
+        "Lu Heng covers the lower edge of the network master map with waterproof cloth against damp climbing the wall.",
+        "Lu Heng checks that the transfer notebook is in a dry drawer.",
+        "Lu Heng tightens the inkbottle cap and moves it to a high shelf.",
+        "Distant thunder rolls; drafting-room fluorescents flicker once.",
+        "Lu Heng neats the cords of five drafting desk lamps to avoid trips.",
+        "On the whiteboard Lu Heng drafts a 'stop work tomorrow' notice.",
+        "Lu Heng listens whether the announce bells by the window frame ring in the wind."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Storm night (map ink · measuring wheel crushed)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "A storm rises suddenly; the drafting-room roof leaks; drops smash onto the desk.",
+        "A draft through the room lifts tracing paper; the inkbottle rocks toward a tip.",
+        {
+          "action": "The inkbottle finally tips; purple-black ink blooms; large stretches of colored lines on the network master map smear into one blot.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "ink_bled"
+            }
+          ]
+        },
+        {
+          "action": "In the station-hall mockup zone the folding measuring wheel still stands by an unfinished roadway.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "A runaway construction truck rolls over it; the folding measuring wheel rim splits—only a skewed wreck remains.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "crushed",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "In the drafting room Lu Heng lunges to the wall and presses bare hands on the blooming network master map.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "A falling lamp shade splits Lu Heng's brow; blood soaks gauze, yet he still shields the map face.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The ink-bled network master map slowly sags at one corner in the damp air.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (wheel indirect cue · lamp recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The day after the storm, Lu Heng stands in the drafting room staring at the ink-bled network master map.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Lu Heng runs a finger over purple-black blooms on the network master map, face dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On the drafting-room progress board Lu Heng records the date the folding measuring wheel was crushed.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo of the folding measuring wheel still nails the drafting-room wall; Lu Heng gazes a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Lu Heng lights one of the five drafting desk lamps on the wall and sits alone in its spot.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The damaged network master map still hangs on the wall; gaps in the colored lines shock the eye.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Lu Heng changes the bloodied gauze and keeps clearing desk glass shards.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Lu Heng resets the waterproof cloth, fearing damp will invade the network master map again.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "setting": "Cleanup and requisition (filler · damaged map still present)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In cleanup week, Lu Heng packs shattered shade shards into a paper box.",
+        "Lu Heng submits a requisition to Equipment for redraw materials.",
+        "Every day Lu Heng still comes to the drafting room, staring blankly at the ink-bled network master map.",
+        "On transparent paper Lu Heng pencils still-readable line segments.",
+        "Lu Heng turns the stained transfer notebook to a blank page and switches to logging requisition progress.",
+        "A-He is on leave; only Lu Heng's footsteps remain in the drafting room.",
+        "Lu Heng hangs his hard hat back by the door and habitually touches the empty measuring-wheel bay.",
+        "On the whiteboard Lu Heng lists color numbers needed for redrawing."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Redrawing the master map (third state · pocket-puzzle false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Lu Heng brings paints and new tracing paper and begins redrawing the network master map.",
+        {
+          "action": "From a carton Lu Heng takes a pocket schematic puzzle; it closely resembles the network master map, yet is smaller and has no real station names.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Lu Heng carefully patches along bloom edges and redraws colored lines.",
+        {
+          "action": "The last colored line joins; the network master map is clear again, a shallow patch mark at the lower right.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "redrawn"
+            }
+          ]
+        },
+        "The redrawn network master map is readable again under the lights; Lu Heng watches it with relief.",
+        {
+          "action": "Lu Heng pushes the pocket schematic puzzle aside and pins only the true network master map back in place.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "The drafting room grows quiet; the redrawn network master map alone owns the whole wall.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: inspection cart and network supervisor",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A blue-gray inspection cart enters the station-hall mockup zone, nothing like the long-crushed folding measuring wheel.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Silver-starred network supervisor Lao Jin walks into the mockup zone and talks beside Lu Heng; the two are similar in build.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "Lao Jin points at the blue-gray inspection cart, explaining the new patrol-section plan to Lu Heng.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The cart sounds its horn and leaves; Lu Heng alone in the mockup zone watches it go.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "The blue-gray inspection cart pauses briefly at a far platform, then continues on.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Before leaving, Lao Jin pats Lu Heng's shoulder; the gear badge on his cap flashes under the light.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: intern Xiaoqiao who resembles A-He",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Into the mockup zone comes intern Xiaoqiao in a light-gray hair ribbon; at a glance she somewhat resembles young A-He.",
+          "present": [
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaoqiao practices pushing a demo cart; Lu Heng shakes his head—she is not A-He after all.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaoqiao shyly asks about station-name spelling; Lu Heng answers briefly and sends her to the materials store.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Lu Heng stands alone in the mockup zone, staring blankly at the empty measuring-wheel bay.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F6",
+      "setting": "Quiet ten days after redraw (filler · stretch the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In the first ten days after redraw, each morning Lu Heng first wipes the network master map's patch edges.",
+        "Lu Heng registers new color numbers on blank pages of the stained transfer notebook.",
+        "Lu Heng refuses to set ink on the desk edge again.",
+        "Lu Heng checks express-line delay-opening notice copy with the construction crew.",
+        "In the drafting room Lu Heng practices drawing arcs with a steadier hand.",
+        "Afternoon sun through the dome falls on the redrawn network master map.",
+        "Lu Heng polishes the announce bells but does not ring them yet, afraid of startling his thoughts.",
+        "Lu Heng receives a postcard from A-He but leaves it unopened under a lamp base."
+      ]
+    },
+    {
+      "id": "F7",
+      "setting": "Year-end closing (filler)",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At year-end closing, Lu Heng binds a year's tracing paper by month.",
+        "Lu Heng bags the coffee-stained transfer notebook alone into an archive pouch.",
+        "Lu Heng prints before-and-after redraw photos and clips them into the archive.",
+        "Lu Heng clears the long table, leaving only a T-square and one drafting lamp.",
+        "Lu Heng oils the scale pin lightly against rust.",
+        "Beside the network master map's lower-right patch Lu Heng signs a date.",
+        "Fine snow drifts outside; drafting-room heat ticks softly.",
+        "Lu Heng finishes the annual summary; the cover says only 'Network'.",
+        "Lu Heng replaces the hard-hat liner with a new one."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Twilight years (Lu Heng injured · announce-bell long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Lu Heng with a brow scar and heavy steps leans on a measuring rod at the abandoned platform site.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_injured"
+            }
+          ]
+        },
+        "Lu Heng looks up at rusted ticket gates, gaze far away.",
+        {
+          "action": "By the abandoned platform he has brought those two copper platform announce bells and hung them on a post; they ring softly in the wind.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Lu Heng lays a palm on the mossy platform edge, as if saying goodbye.",
+        {
+          "action": "Lu Heng slowly sits on stone steps by the rusted gates and catches his breath.",
+          "present": [
+            "E1",
+            "E10"
+          ]
+        },
+        {
+          "action": "The two platform announce bells ring softly again; Lu Heng closes his eyes to listen, as if hearing old departure cues.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F8",
+      "setting": "Old-site lingering stretch (filler · injured state continues)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Every day Lu Heng still returns to the drafting room, but spends more time sitting and watching the network master map.",
+        "Lu Heng leans the measuring rod by the door; he moves slower than before.",
+        "Lu Heng lets a young assistant write the whiteboard and only checks.",
+        "Lu Heng photographs the redrawn network master map for distant A-He.",
+        "On the stained notebook's last page Lu Heng writes 'handover' without signing.",
+        "Lu Heng refuses hospital stays and insists on sitting weekly at the abandoned platform site.",
+        "Lu Heng wipes a draft of the brass station-name plaque, still undecided where to nail it.",
+        "At night only one lamp remains in the drafting room; Lu Heng dozes in its circle.",
+        "Lu Heng packs a spare turmeric armband strip for whoever returns."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "A-He returns · Lu Heng exits",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult A-He returns along the abandoned platform site and hurries toward the rusted gates.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "At the old site A-He reunites with heavy-stepping Lu Heng; the two embrace.",
+        {
+          "action": "Beside a camp cot in the drafting room, A-He holds Lu Heng's gaunt hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Lu Heng's breath fades; at last he closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "left_post",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "A-He stands long at the abandoned platform site; tears fall on the moss.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "A-He pins Lu Heng's scale pin to his own cuff.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · plaque (indirect cue for the deceased)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Lu Heng's deep-blue old work clothes still hang behind the drafting-room door; A-He reaches out and gently strokes them.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By an abandoned-platform column, adult A-He stands before a newly nailed brass station-name plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "A-He's fingertips brush Lu Heng's name engraved on the plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "A-He sets a white chrysanthemum at the lower edge of the brass station-name plaque.",
+          "present": [
+            "E2",
+            "E11"
+          ]
+        },
+        {
+          "action": "Wind crosses the old site; A-He softly speaks the year on the plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "A-He and A-Wei reunite (adult confuse + co-present)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Adult A-Wei in thin-frame glasses arrives from the station and embraces A-He tightly at the abandoned platform site.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "disguised"
+            }
+          ]
+        },
+        "A-He and A-Wei stand side by side by the plaque—one calm-eyed, one deep in expression.",
+        "A-Wei touches her amber brooch, then looks at the scale pin on A-He's cuff.",
+        "Sister-like, the two look at each other without words, at faces alike yet different.",
+        "A-He and A-Wei walk together to the old platform's end; shadows merge into one."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal grounding · no names throughout)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—the youth in a turmeric armband pushing a measuring wheel in the mockup zone appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth in a turmeric armband in the mockup zone",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the drafting room, a wall of crossing colored lines is nailed up for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the network wall map first nailed up at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to that year's construction corridor—a figure with an amber brooch at the collar swinging a hard hat flashes by.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure with an amber brooch in that year's construction corridor",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Before the eyes again: that row of five old milky-shade work lamps along the drafting-room long table.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old work lamps along the drafting-room long table",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the unfinished-tile mockup hall of first meeting; the cement smell is as it always was.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the unfinished-tile mockup hall of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "A page turns—that deep-blue leather notebook still without coffee stains, packed with station-spacing sketches, appears again.",
+          "present": [
+            {
+              "eid": "E4",
+              "state": "intact",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the deep-blue leather notebook still without coffee stains",
+                "resolves_to": "E4"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Close (stained notebook long-range · magnets long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "A-He opens that coffee-stained transfer notebook again and walks into the drafting room.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "On the drafting-room bench, those three red-and-white transfer-node magnets are still neat.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A-He takes up the watch of the network master map; the patch mark is clear under the lights.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "A-He lights five drafting desk lamps; light again covers the long table.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "A-He stands straight before the redrawn network master map and begins checking colored lines as Lu Heng once did.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        }
+      ]
+    }
+  ]
+}

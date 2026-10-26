@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\caption{IAMFlow host-memory growth observed during our Track-A scalability test. The limiting
+quantity is the number of archived KV frames, which scales with total observed video duration rather
+than simply with the number of benchmark segments. The predicted GiB column is the archived-KV tensor
+payload from shape alone; OOM rows exceed the fixed host-memory budget before a full-movie scored
+output can be produced.}
+\label{tab:iamflow-host-memory}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrrrrl@{}}
+\toprule
+Movie & Segs. & Mean seg. & KV frames & Pred. GiB & Outcome \\
+\midrule
+\texttt{0053\_Rendezvous\_mit\_Joe\_Black} & 221 & 7.3\,s  & 2071 & 555  & completed \\
+\texttt{sita\_sings\_the\_blues\_part1}    & 164 & 14.9\,s & 3259 & 873  & OOM \\
+\texttt{0013\_Halloween}                   & 128 & 14.9\,s & 2442 & 654  & completed \\
+\texttt{1005\_Signs}                       & 296 & 9.8\,s  & 3763 & 1008 & OOM \\
+\texttt{0017\_Pianist}                     & 235 & 13.8\,s & 4287 & 1148 & OOM \\
+\bottomrule
+\end{tabular}
+\end{table*}

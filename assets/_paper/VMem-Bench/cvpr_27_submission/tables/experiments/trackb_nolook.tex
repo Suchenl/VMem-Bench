@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Prompt-description sensitivity.} Presence on 62 long-gap character returns ($\geq$30 segments; 30 stories). $\Delta R$: Seg+DINO-key minus no memory; gray subscripts give full paired story-bootstrap 95\% CI widths. Both CIs include zero; stripping appearance descriptions establishes no reliable retrieval gain.}
+\label{tab:nolook}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Prompt & None & DINO-key & Last-seen & $\Delta R$ \\
+\midrule
+Described & 0.984 & 0.952 & 0.952 & \ci{-0.032}{0.130} \\
+Stripped & 0.565 & 0.581 & 0.565 & \ci{+0.016}{0.307} \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,30 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Return recall and prompt information} (30 stories). No memory: absolute recall; DINO-key $\Delta R$: difference from it. Gray subscripts: full paired story-bootstrap 95\% CI width; bold: CI excludes zero. $+/-/?$: counts of four retrieval policies with CIs above/below/including zero. Gaps: segments; prompts describe changed looks in 61/62 long-gap character returns. Only (b) changes prompts; see Supplementary Table~\ref{tab:kind-gap}.}
+\label{tab:main-kind-gap}
+\label{tab:nolook}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrrcc@{}}
+\toprule
+\multicolumn{6}{@{}l}{\textit{(a) Original prompts: observational groups}}\\
+Entity & Gap & $n$ & \shortstack{No\\memory} & \shortstack{DINO-key\\$\Delta R$} & \shortstack{Policies\\$+ / - / ?$} \\
+\midrule
+Character & 1--4 & 430 & 0.553 & \ci{\textbf{+0.195}}{0.120} & 4/0/0 \\
+ & $\geq$30 & 62 & 0.984 & \ci{-0.032}{0.130} & 0/2/2 \\
+\midrule
+Prop & 1--4 & 271 & 0.635 & \ci{+0.041}{0.110} & 0/0/4 \\
+ & $\geq$30 & 148 & 0.851 & \ci{+0.034}{0.190} & 0/0/4 \\
+\bottomrule
+\end{tabular}
+\par\smallskip
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\multicolumn{5}{@{}l}{\textit{(b) Appearance intervention: same 62 character returns}}\\
+Prompt & \shortstack{No\\memory} & \shortstack{DINO-key\\$R$} & \shortstack{Last-seen\\$R$} & \shortstack{DINO-key\\$\Delta R$} \\
+\midrule
+Described & 0.984 & 0.952 & 0.952 & \ci{-0.032}{0.130} \\
+Stripped & 0.565 & 0.581 & 0.565 & \ci{+0.016}{0.307} \\
+\bottomrule
+\end{tabular}
+\end{table}

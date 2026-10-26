@@ -1,0 +1,7969 @@
+{
+ "metric_version": "trackB-embed-1.0",
+ "vmem_bench_commit": "83e298fcabc2c3c1565a7d80bb2b88240db1123e",
+ "labels": {
+  "no_memory": "no memory",
+  "text_frame": "text-frame",
+  "seg_uniform": "seg-uniform",
+  "seg_dinokey": "seg-DINO-key",
+  "seg_frame_clean": "seg-frame",
+  "retr_oracle": "last-seen oracle"
+ },
+ "models": {
+  "grounding": {
+   "model": "IDEA-Research/grounding-dino-base",
+   "query": "{name}, {short_desc}.",
+   "short_desc_words": 12,
+   "box_score": "max over text tokens of sigmoid(logit), top box per frame",
+   "box_threshold": 0.35,
+   "crop_pad": 0.05,
+   "min_crop_px": 16
+  },
+  "appearance": {
+   "provider": "vmem_bench.scoring.embedder dinov3 (DinoV3ScoringEmbedder)",
+   "model": "facebook/dinov3-vitb16-pretrain-lvd1689m",
+   "pooling": "CLS token (last_hidden_state[:,0])",
+   "l2_normalize": true
+  },
+  "face": {
+   "provider": "vmem_bench.scoring.embedder arcface (ArcFaceScoringEmbedder)",
+   "pack": "buffalo_l",
+   "det_size": 640,
+   "min_det_score": 0.5,
+   "assignment": "largest face detected inside the character's padded crop (per frame)"
+  },
+  "location": {
+   "primary": {
+    "modality": "location_megaloc",
+    "provider": "vmem_bench.scoring.embedder megaloc (MegaLocScoringEmbedder, VPR)",
+    "input": "whole frame resized to 322x322"
+   },
+   "secondary": {
+    "modality": "location_dino",
+    "provider": "dinov3",
+    "input": "whole frame"
+   }
+  }
+ },
+ "similarity": "max over (frame in A, frame in B) pairs where both frames have the modality, cosine of L2-normalized embeddings",
+ "thresholds": {
+  "dino_crop": 0.66886,
+  "face": 0.354996,
+  "location_megaloc": 0.65855,
+  "location_dino": 0.841817
+ },
+ "threshold_rule": {
+  "controls_sha256": "b0c44bb5435fc761990c529dc9f2d2c847d3c768141f818597f637666e89fbe5",
+  "rule": "Youden-optimal sim >= t",
+  "auc": {
+   "dino_crop": 0.9996,
+   "face": 0.997,
+   "location_megaloc": 1.0,
+   "location_dino": 1.0
+  }
+ },
+ "bootstrap": {
+  "n_boot": 2000,
+  "seed": 20260925,
+  "cluster": "story",
+  "paired": true,
+  "ci": 0.95
+ },
+ "units": {
+  "n_units": 2583,
+  "strata": {
+   "gap0|character|0": 403,
+   "gap0|location|0": 384,
+   "gap0|prop|0": 180,
+   "main|character|1-4": 422,
+   "main|character|5-29": 63,
+   "main|character|>=30": 1,
+   "main|location|1-4": 187,
+   "main|location|5-29": 223,
+   "main|location|>=30": 15,
+   "main|prop|1-4": 266,
+   "main|prop|5-29": 230,
+   "main|prop|>=30": 148,
+   "transform_ge30|character|>=30": 61
+  },
+  "n_controls": {
+   "ctl_neg|character": 244,
+   "ctl_neg|location": 200,
+   "ctl_neg|prop": 156,
+   "ctl_pos|character": 302,
+   "ctl_pos|location": 200,
+   "ctl_pos|prop": 98
+  },
+  "units_sha256": "5ab4333e1f2c297eff036390155a49d0aa8ffea17ea03b060b41d5a2142183ad",
+  "controls_sha256": "b0c44bb5435fc761990c529dc9f2d2c847d3c768141f818597f637666e89fbe5"
+ },
+ "calibration": {
+  "dino_crop": {
+   "counts": {
+    "ctl_pos_n": 400,
+    "ctl_pos_both": 385,
+    "ctl_neg_n": 400,
+    "ctl_neg_both": 389
+   },
+   "auc": 0.9996,
+   "youden": {
+    "threshold": 0.66886,
+    "tpr": 0.9896,
+    "fpr": 0.0026,
+    "youden_j": 0.987
+   },
+   "pos": {
+    "n": 385,
+    "mean": 0.9393,
+    "p10": 0.8666,
+    "p25": 0.9268,
+    "p50": 0.9617,
+    "p75": 0.9787,
+    "p90": 0.9884
+   },
+   "neg": {
+    "n": 389,
+    "mean": 0.2173,
+    "p10": 0.0671,
+    "p25": 0.126,
+    "p50": 0.1917,
+    "p75": 0.2851,
+    "p90": 0.387
+   },
+   "neg_below_threshold": 0.9974
+  },
+  "face": {
+   "counts": {
+    "ctl_pos_n": 302,
+    "ctl_pos_both": 201,
+    "ctl_neg_n": 244,
+    "ctl_neg_both": 157
+   },
+   "auc": 0.997,
+   "youden": {
+    "threshold": 0.354996,
+    "tpr": 0.9751,
+    "fpr": 0.0064,
+    "youden_j": 0.9688
+   },
+   "pos": {
+    "n": 201,
+    "mean": 0.7794,
+    "p10": 0.5364,
+    "p25": 0.7157,
+    "p50": 0.8358,
+    "p75": 0.9077,
+    "p90": 0.9371
+   },
+   "neg": {
+    "n": 157,
+    "mean": 0.113,
+    "p10": 0.034,
+    "p25": 0.0647,
+    "p50": 0.1098,
+    "p75": 0.1494,
+    "p90": 0.2017
+   },
+   "neg_below_threshold": 0.9936
+  },
+  "location_megaloc": {
+   "counts": {
+    "ctl_pos_n": 200,
+    "ctl_pos_both": 200,
+    "ctl_neg_n": 200,
+    "ctl_neg_both": 200
+   },
+   "auc": 1.0,
+   "youden": {
+    "threshold": 0.65855,
+    "tpr": 1.0,
+    "fpr": 0.0,
+    "youden_j": 1.0
+   },
+   "pos": {
+    "n": 200,
+    "mean": 0.8824,
+    "p10": 0.8119,
+    "p25": 0.859,
+    "p50": 0.8934,
+    "p75": 0.919,
+    "p90": 0.9377
+   },
+   "neg": {
+    "n": 200,
+    "mean": 0.0797,
+    "p10": 0.0368,
+    "p25": 0.0553,
+    "p50": 0.0738,
+    "p75": 0.0985,
+    "p90": 0.132
+   },
+   "neg_below_threshold": 1.0
+  },
+  "location_dino": {
+   "counts": {
+    "ctl_pos_n": 200,
+    "ctl_pos_both": 200,
+    "ctl_neg_n": 200,
+    "ctl_neg_both": 200
+   },
+   "auc": 1.0,
+   "youden": {
+    "threshold": 0.841817,
+    "tpr": 1.0,
+    "fpr": 0.0,
+    "youden_j": 1.0
+   },
+   "pos": {
+    "n": 200,
+    "mean": 0.9708,
+    "p10": 0.9505,
+    "p25": 0.9647,
+    "p50": 0.9774,
+    "p75": 0.9835,
+    "p90": 0.9879
+   },
+   "neg": {
+    "n": 200,
+    "mean": 0.1942,
+    "p10": 0.0556,
+    "p25": 0.1059,
+    "p50": 0.1683,
+    "p75": 0.2459,
+    "p90": 0.3687
+   },
+   "neg_below_threshold": 1.0
+  }
+ },
+ "diff_format": "[diff, ci_lo, ci_hi]",
+ "modalities": {
+  "dino_crop": {
+   "threshold": 0.66886,
+   "cells": {
+    "gap0|all": {
+     "n": 583,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0137,
+       "mean_similarity": 0.278,
+       "consistent_given_both": 0.0153,
+       "detected_A_rate": 0.9537,
+       "detected_B_rate": 0.9211,
+       "both_detected_rate": 0.8971
+      },
+      "text_frame": {
+       "consistent_rate": 0.1715,
+       "mean_similarity": 0.4445,
+       "consistent_given_both": 0.1876,
+       "detected_A_rate": 0.9554,
+       "detected_B_rate": 0.9503,
+       "both_detected_rate": 0.9142,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1578,
+         0.121,
+         0.1961
+        ],
+        "mean_similarity": [
+         0.1665,
+         0.1449,
+         0.1874
+        ],
+        "consistent_given_both": [
+         0.1723,
+         0.1329,
+         0.2125
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2813,
+       "mean_similarity": 0.5129,
+       "consistent_given_both": 0.3031,
+       "detected_A_rate": 0.9674,
+       "detected_B_rate": 0.952,
+       "both_detected_rate": 0.928,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2676,
+         0.2152,
+         0.3199
+        ],
+        "mean_similarity": [
+         0.2349,
+         0.2014,
+         0.2677
+        ],
+        "consistent_given_both": [
+         0.2878,
+         0.2294,
+         0.346
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.2504,
+       "mean_similarity": 0.4962,
+       "consistent_given_both": 0.2739,
+       "detected_A_rate": 0.9571,
+       "detected_B_rate": 0.9485,
+       "both_detected_rate": 0.9142,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2367,
+         0.1881,
+         0.2833
+        ],
+        "mean_similarity": [
+         0.2182,
+         0.1898,
+         0.2447
+        ],
+        "consistent_given_both": [
+         0.2586,
+         0.205,
+         0.3109
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.2316,
+       "mean_similarity": 0.4973,
+       "consistent_given_both": 0.2542,
+       "detected_A_rate": 0.9571,
+       "detected_B_rate": 0.9451,
+       "both_detected_rate": 0.9108,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2179,
+         0.1715,
+         0.2666
+        ],
+        "mean_similarity": [
+         0.2193,
+         0.1917,
+         0.2475
+        ],
+        "consistent_given_both": [
+         0.2389,
+         0.1883,
+         0.2899
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.3842,
+       "mean_similarity": 0.5797,
+       "consistent_given_both": 0.4234,
+       "detected_A_rate": 0.9537,
+       "detected_B_rate": 0.9383,
+       "both_detected_rate": 0.9074,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3705,
+         0.3301,
+         0.4099
+        ],
+        "mean_similarity": [
+         0.3017,
+         0.2816,
+         0.3203
+        ],
+        "consistent_given_both": [
+         0.4081,
+         0.3645,
+         0.4484
+        ]
+       }
+      }
+     }
+    },
+    "gap0|character": {
+     "n": 403,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0099,
+       "mean_similarity": 0.2846,
+       "consistent_given_both": 0.0108,
+       "detected_A_rate": 0.9628,
+       "detected_B_rate": 0.9404,
+       "both_detected_rate": 0.9231
+      },
+      "text_frame": {
+       "consistent_rate": 0.1687,
+       "mean_similarity": 0.4464,
+       "consistent_given_both": 0.1775,
+       "detected_A_rate": 0.9702,
+       "detected_B_rate": 0.9752,
+       "both_detected_rate": 0.9504,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1588,
+         0.1199,
+         0.2005
+        ],
+        "mean_similarity": [
+         0.1618,
+         0.1394,
+         0.1843
+        ],
+        "consistent_given_both": [
+         0.1667,
+         0.1272,
+         0.2087
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2705,
+       "mean_similarity": 0.5121,
+       "consistent_given_both": 0.2795,
+       "detected_A_rate": 0.9851,
+       "detected_B_rate": 0.9777,
+       "both_detected_rate": 0.9677,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2606,
+         0.2018,
+         0.3228
+        ],
+        "mean_similarity": [
+         0.2275,
+         0.1907,
+         0.2651
+        ],
+        "consistent_given_both": [
+         0.2687,
+         0.2084,
+         0.333
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.2531,
+       "mean_similarity": 0.5034,
+       "consistent_given_both": 0.2663,
+       "detected_A_rate": 0.9752,
+       "detected_B_rate": 0.9727,
+       "both_detected_rate": 0.9504,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2432,
+         0.1855,
+         0.3052
+        ],
+        "mean_similarity": [
+         0.2188,
+         0.1858,
+         0.2525
+        ],
+        "consistent_given_both": [
+         0.2555,
+         0.1941,
+         0.3202
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.2506,
+       "mean_similarity": 0.5021,
+       "consistent_given_both": 0.2623,
+       "detected_A_rate": 0.9826,
+       "detected_B_rate": 0.9677,
+       "both_detected_rate": 0.9553,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2407,
+         0.1869,
+         0.2972
+        ],
+        "mean_similarity": [
+         0.2175,
+         0.1857,
+         0.2515
+        ],
+        "consistent_given_both": [
+         0.2515,
+         0.1971,
+         0.3075
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.3921,
+       "mean_similarity": 0.5769,
+       "consistent_given_both": 0.4115,
+       "detected_A_rate": 0.9677,
+       "detected_B_rate": 0.9727,
+       "both_detected_rate": 0.9529,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3822,
+         0.3421,
+         0.423
+        ],
+        "mean_similarity": [
+         0.2923,
+         0.269,
+         0.3147
+        ],
+        "consistent_given_both": [
+         0.4007,
+         0.3576,
+         0.442
+        ]
+       }
+      }
+     }
+    },
+    "gap0|character|0": {
+     "n": 403,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0099,
+       "mean_similarity": 0.2846,
+       "consistent_given_both": 0.0108,
+       "detected_A_rate": 0.9628,
+       "detected_B_rate": 0.9404,
+       "both_detected_rate": 0.9231
+      },
+      "text_frame": {
+       "consistent_rate": 0.1687,
+       "mean_similarity": 0.4464,
+       "consistent_given_both": 0.1775,
+       "detected_A_rate": 0.9702,
+       "detected_B_rate": 0.9752,
+       "both_detected_rate": 0.9504,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1588,
+         0.1199,
+         0.2005
+        ],
+        "mean_similarity": [
+         0.1618,
+         0.1394,
+         0.1843
+        ],
+        "consistent_given_both": [
+         0.1667,
+         0.1272,
+         0.2087
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2705,
+       "mean_similarity": 0.5121,
+       "consistent_given_both": 0.2795,
+       "detected_A_rate": 0.9851,
+       "detected_B_rate": 0.9777,
+       "both_detected_rate": 0.9677,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2606,
+         0.2018,
+         0.3228
+        ],
+        "mean_similarity": [
+         0.2275,
+         0.1907,
+         0.2651
+        ],
+        "consistent_given_both": [
+         0.2687,
+         0.2084,
+         0.333
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.2531,
+       "mean_similarity": 0.5034,
+       "consistent_given_both": 0.2663,
+       "detected_A_rate": 0.9752,
+       "detected_B_rate": 0.9727,
+       "both_detected_rate": 0.9504,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2432,
+         0.1855,
+         0.3052
+        ],
+        "mean_similarity": [
+         0.2188,
+         0.1858,
+         0.2525
+        ],
+        "consistent_given_both": [
+         0.2555,
+         0.1941,
+         0.3202
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.2506,
+       "mean_similarity": 0.5021,
+       "consistent_given_both": 0.2623,
+       "detected_A_rate": 0.9826,
+       "detected_B_rate": 0.9677,
+       "both_detected_rate": 0.9553,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2407,
+         0.1869,
+         0.2972
+        ],
+        "mean_similarity": [
+         0.2175,
+         0.1857,
+         0.2515
+        ],
+        "consistent_given_both": [
+         0.2515,
+         0.1971,
+         0.3075
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.3921,
+       "mean_similarity": 0.5769,
+       "consistent_given_both": 0.4115,
+       "detected_A_rate": 0.9677,
+       "detected_B_rate": 0.9727,
+       "both_detected_rate": 0.9529,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3822,
+         0.3421,
+         0.423
+        ],
+        "mean_similarity": [
+         0.2923,
+         0.269,
+         0.3147
+        ],
+        "consistent_given_both": [
+         0.4007,
+         0.3576,
+         0.442
+        ]
+       }
+      }
+     }
+    },
+    "gap0|prop": {
+     "n": 180,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0222,
+       "mean_similarity": 0.2619,
+       "consistent_given_both": 0.0265,
+       "detected_A_rate": 0.9333,
+       "detected_B_rate": 0.8778,
+       "both_detected_rate": 0.8389
+      },
+      "text_frame": {
+       "consistent_rate": 0.1778,
+       "mean_similarity": 0.4399,
+       "consistent_given_both": 0.2133,
+       "detected_A_rate": 0.9222,
+       "detected_B_rate": 0.8944,
+       "both_detected_rate": 0.8333,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1556,
+         0.0961,
+         0.2174
+        ],
+        "mean_similarity": [
+         0.178,
+         0.1389,
+         0.2126
+        ],
+        "consistent_given_both": [
+         0.1868,
+         0.1151,
+         0.2614
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.3056,
+       "mean_similarity": 0.5149,
+       "consistent_given_both": 0.3642,
+       "detected_A_rate": 0.9278,
+       "detected_B_rate": 0.8944,
+       "both_detected_rate": 0.8389,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2834,
+         0.2,
+         0.3665
+        ],
+        "mean_similarity": [
+         0.253,
+         0.1971,
+         0.306
+        ],
+        "consistent_given_both": [
+         0.3377,
+         0.2381,
+         0.4333
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.2444,
+       "mean_similarity": 0.4778,
+       "consistent_given_both": 0.2933,
+       "detected_A_rate": 0.9167,
+       "detected_B_rate": 0.8944,
+       "both_detected_rate": 0.8333,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2222,
+         0.157,
+         0.2925
+        ],
+        "mean_similarity": [
+         0.2159,
+         0.1709,
+         0.2614
+        ],
+        "consistent_given_both": [
+         0.2668,
+         0.1954,
+         0.3433
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1889,
+       "mean_similarity": 0.4848,
+       "consistent_given_both": 0.2329,
+       "detected_A_rate": 0.9,
+       "detected_B_rate": 0.8944,
+       "both_detected_rate": 0.8111,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1667,
+         0.1045,
+         0.2353
+        ],
+        "mean_similarity": [
+         0.2229,
+         0.1851,
+         0.2581
+        ],
+        "consistent_given_both": [
+         0.2064,
+         0.1321,
+         0.2806
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.3667,
+       "mean_similarity": 0.5871,
+       "consistent_given_both": 0.4552,
+       "detected_A_rate": 0.9222,
+       "detected_B_rate": 0.8611,
+       "both_detected_rate": 0.8056,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3445,
+         0.2573,
+         0.4316
+        ],
+        "mean_similarity": [
+         0.3252,
+         0.2877,
+         0.3595
+        ],
+        "consistent_given_both": [
+         0.4287,
+         0.3392,
+         0.5095
+        ]
+       }
+      }
+     }
+    },
+    "gap0|prop|0": {
+     "n": 180,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0222,
+       "mean_similarity": 0.2619,
+       "consistent_given_both": 0.0265,
+       "detected_A_rate": 0.9333,
+       "detected_B_rate": 0.8778,
+       "both_detected_rate": 0.8389
+      },
+      "text_frame": {
+       "consistent_rate": 0.1778,
+       "mean_similarity": 0.4399,
+       "consistent_given_both": 0.2133,
+       "detected_A_rate": 0.9222,
+       "detected_B_rate": 0.8944,
+       "both_detected_rate": 0.8333,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1556,
+         0.0961,
+         0.2174
+        ],
+        "mean_similarity": [
+         0.178,
+         0.1389,
+         0.2126
+        ],
+        "consistent_given_both": [
+         0.1868,
+         0.1151,
+         0.2614
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.3056,
+       "mean_similarity": 0.5149,
+       "consistent_given_both": 0.3642,
+       "detected_A_rate": 0.9278,
+       "detected_B_rate": 0.8944,
+       "both_detected_rate": 0.8389,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2834,
+         0.2,
+         0.3665
+        ],
+        "mean_similarity": [
+         0.253,
+         0.1971,
+         0.306
+        ],
+        "consistent_given_both": [
+         0.3377,
+         0.2381,
+         0.4333
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.2444,
+       "mean_similarity": 0.4778,
+       "consistent_given_both": 0.2933,
+       "detected_A_rate": 0.9167,
+       "detected_B_rate": 0.8944,
+       "both_detected_rate": 0.8333,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2222,
+         0.157,
+         0.2925
+        ],
+        "mean_similarity": [
+         0.2159,
+         0.1709,
+         0.2614
+        ],
+        "consistent_given_both": [
+         0.2668,
+         0.1954,
+         0.3433
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1889,
+       "mean_similarity": 0.4848,
+       "consistent_given_both": 0.2329,
+       "detected_A_rate": 0.9,
+       "detected_B_rate": 0.8944,
+       "both_detected_rate": 0.8111,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1667,
+         0.1045,
+         0.2353
+        ],
+        "mean_similarity": [
+         0.2229,
+         0.1851,
+         0.2581
+        ],
+        "consistent_given_both": [
+         0.2064,
+         0.1321,
+         0.2806
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.3667,
+       "mean_similarity": 0.5871,
+       "consistent_given_both": 0.4552,
+       "detected_A_rate": 0.9222,
+       "detected_B_rate": 0.8611,
+       "both_detected_rate": 0.8056,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3445,
+         0.2573,
+         0.4316
+        ],
+        "mean_similarity": [
+         0.3252,
+         0.2877,
+         0.3595
+        ],
+        "consistent_given_both": [
+         0.4287,
+         0.3392,
+         0.5095
+        ]
+       }
+      }
+     }
+    },
+    "main|all": {
+     "n": 1130,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0575,
+       "mean_similarity": 0.346,
+       "consistent_given_both": 0.0653,
+       "detected_A_rate": 0.9274,
+       "detected_B_rate": 0.946,
+       "both_detected_rate": 0.8805
+      },
+      "text_frame": {
+       "consistent_rate": 0.2345,
+       "mean_similarity": 0.4911,
+       "consistent_given_both": 0.2661,
+       "detected_A_rate": 0.9327,
+       "detected_B_rate": 0.9283,
+       "both_detected_rate": 0.8814,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.177,
+         0.1485,
+         0.2066
+        ],
+        "mean_similarity": [
+         0.1451,
+         0.1332,
+         0.1572
+        ],
+        "consistent_given_both": [
+         0.2008,
+         0.1705,
+         0.2323
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.3478,
+       "mean_similarity": 0.5538,
+       "consistent_given_both": 0.3842,
+       "detected_A_rate": 0.9319,
+       "detected_B_rate": 0.9522,
+       "both_detected_rate": 0.9053,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2903,
+         0.2635,
+         0.3151
+        ],
+        "mean_similarity": [
+         0.2078,
+         0.195,
+         0.2211
+        ],
+        "consistent_given_both": [
+         0.3189,
+         0.2893,
+         0.3467
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.3142,
+       "mean_similarity": 0.5464,
+       "consistent_given_both": 0.3529,
+       "detected_A_rate": 0.931,
+       "detected_B_rate": 0.9398,
+       "both_detected_rate": 0.8903,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2567,
+         0.2288,
+         0.286
+        ],
+        "mean_similarity": [
+         0.2004,
+         0.1859,
+         0.216
+        ],
+        "consistent_given_both": [
+         0.2876,
+         0.2575,
+         0.3204
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.323,
+       "mean_similarity": 0.5528,
+       "consistent_given_both": 0.3614,
+       "detected_A_rate": 0.9274,
+       "detected_B_rate": 0.9487,
+       "both_detected_rate": 0.8938,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2655,
+         0.2388,
+         0.2918
+        ],
+        "mean_similarity": [
+         0.2068,
+         0.1921,
+         0.2218
+        ],
+        "consistent_given_both": [
+         0.2961,
+         0.2658,
+         0.3255
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.3664,
+       "mean_similarity": 0.5713,
+       "consistent_given_both": 0.4075,
+       "detected_A_rate": 0.9319,
+       "detected_B_rate": 0.9496,
+       "both_detected_rate": 0.8991,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3089,
+         0.2777,
+         0.3405
+        ],
+        "mean_similarity": [
+         0.2253,
+         0.2134,
+         0.2382
+        ],
+        "consistent_given_both": [
+         0.3422,
+         0.3075,
+         0.3783
+        ]
+       }
+      }
+     }
+    },
+    "main|all|1-4": {
+     "n": 688,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0174,
+       "mean_similarity": 0.3033,
+       "consistent_given_both": 0.0195,
+       "detected_A_rate": 0.9331,
+       "detected_B_rate": 0.9491,
+       "both_detected_rate": 0.8924
+      },
+      "text_frame": {
+       "consistent_rate": 0.1744,
+       "mean_similarity": 0.4493,
+       "consistent_given_both": 0.1923,
+       "detected_A_rate": 0.9477,
+       "detected_B_rate": 0.9404,
+       "both_detected_rate": 0.907,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.157,
+         0.1303,
+         0.1858
+        ],
+        "mean_similarity": [
+         0.146,
+         0.1297,
+         0.1621
+        ],
+        "consistent_given_both": [
+         0.1728,
+         0.1433,
+         0.2045
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2994,
+       "mean_similarity": 0.5268,
+       "consistent_given_both": 0.3219,
+       "detected_A_rate": 0.952,
+       "detected_B_rate": 0.9608,
+       "both_detected_rate": 0.9302,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.282,
+         0.2504,
+         0.3099
+        ],
+        "mean_similarity": [
+         0.2235,
+         0.2059,
+         0.2412
+        ],
+        "consistent_given_both": [
+         0.3024,
+         0.2674,
+         0.3345
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.266,
+       "mean_similarity": 0.5165,
+       "consistent_given_both": 0.2905,
+       "detected_A_rate": 0.9491,
+       "detected_B_rate": 0.9506,
+       "both_detected_rate": 0.9157,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2486,
+         0.2157,
+         0.2821
+        ],
+        "mean_similarity": [
+         0.2132,
+         0.1943,
+         0.2328
+        ],
+        "consistent_given_both": [
+         0.271,
+         0.2359,
+         0.3049
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.2703,
+       "mean_similarity": 0.5162,
+       "consistent_given_both": 0.3005,
+       "detected_A_rate": 0.9331,
+       "detected_B_rate": 0.9491,
+       "both_detected_rate": 0.8997,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2529,
+         0.2183,
+         0.2866
+        ],
+        "mean_similarity": [
+         0.2129,
+         0.191,
+         0.2339
+        ],
+        "consistent_given_both": [
+         0.281,
+         0.2433,
+         0.3177
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.3532,
+       "mean_similarity": 0.5569,
+       "consistent_given_both": 0.3869,
+       "detected_A_rate": 0.9419,
+       "detected_B_rate": 0.9477,
+       "both_detected_rate": 0.9128,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3358,
+         0.2943,
+         0.3781
+        ],
+        "mean_similarity": [
+         0.2536,
+         0.2365,
+         0.2708
+        ],
+        "consistent_given_both": [
+         0.3674,
+         0.3215,
+         0.4116
+        ]
+       }
+      }
+     }
+    },
+    "main|all|5-29": {
+     "n": 293,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0512,
+       "mean_similarity": 0.3561,
+       "consistent_given_both": 0.0598,
+       "detected_A_rate": 0.9147,
+       "detected_B_rate": 0.942,
+       "both_detected_rate": 0.8567
+      },
+      "text_frame": {
+       "consistent_rate": 0.2389,
+       "mean_similarity": 0.5167,
+       "consistent_given_both": 0.2834,
+       "detected_A_rate": 0.9113,
+       "detected_B_rate": 0.9147,
+       "both_detected_rate": 0.843,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1877,
+         0.1237,
+         0.2517
+        ],
+        "mean_similarity": [
+         0.1606,
+         0.1308,
+         0.1916
+        ],
+        "consistent_given_both": [
+         0.2236,
+         0.1503,
+         0.2958
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.3311,
+       "mean_similarity": 0.5432,
+       "consistent_given_both": 0.388,
+       "detected_A_rate": 0.901,
+       "detected_B_rate": 0.9317,
+       "both_detected_rate": 0.8532,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2799,
+         0.2264,
+         0.3298
+        ],
+        "mean_similarity": [
+         0.1871,
+         0.1534,
+         0.2223
+        ],
+        "consistent_given_both": [
+         0.3282,
+         0.27,
+         0.3835
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.2935,
+       "mean_similarity": 0.5445,
+       "consistent_given_both": 0.3426,
+       "detected_A_rate": 0.9147,
+       "detected_B_rate": 0.9181,
+       "both_detected_rate": 0.8567,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2423,
+         0.1862,
+         0.2976
+        ],
+        "mean_similarity": [
+         0.1884,
+         0.158,
+         0.2174
+        ],
+        "consistent_given_both": [
+         0.2828,
+         0.2251,
+         0.339
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.2867,
+       "mean_similarity": 0.5477,
+       "consistent_given_both": 0.3281,
+       "detected_A_rate": 0.9181,
+       "detected_B_rate": 0.9386,
+       "both_detected_rate": 0.8737,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2355,
+         0.1761,
+         0.3
+        ],
+        "mean_similarity": [
+         0.1916,
+         0.1699,
+         0.2144
+        ],
+        "consistent_given_both": [
+         0.2683,
+         0.2018,
+         0.3359
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2867,
+       "mean_similarity": 0.53,
+       "consistent_given_both": 0.3281,
+       "detected_A_rate": 0.9113,
+       "detected_B_rate": 0.9556,
+       "both_detected_rate": 0.8737,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2355,
+         0.189,
+         0.2847
+        ],
+        "mean_similarity": [
+         0.1739,
+         0.1504,
+         0.1967
+        ],
+        "consistent_given_both": [
+         0.2683,
+         0.2145,
+         0.3217
+        ]
+       }
+      }
+     }
+    },
+    "main|all|>=30": {
+     "n": 149,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.255,
+       "mean_similarity": 0.5283,
+       "consistent_given_both": 0.2923,
+       "detected_A_rate": 0.9262,
+       "detected_B_rate": 0.9396,
+       "both_detected_rate": 0.8725
+      },
+      "text_frame": {
+       "consistent_rate": 0.5034,
+       "mean_similarity": 0.6488,
+       "consistent_given_both": 0.6,
+       "detected_A_rate": 0.906,
+       "detected_B_rate": 0.8993,
+       "both_detected_rate": 0.8389,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2484,
+         0.1677,
+         0.3313
+        ],
+        "mean_similarity": [
+         0.1205,
+         0.093,
+         0.1484
+        ],
+        "consistent_given_both": [
+         0.3077,
+         0.2272,
+         0.3898
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.604,
+       "mean_similarity": 0.704,
+       "consistent_given_both": 0.6767,
+       "detected_A_rate": 0.8993,
+       "detected_B_rate": 0.953,
+       "both_detected_rate": 0.8926,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.349,
+         0.2582,
+         0.4354
+        ],
+        "mean_similarity": [
+         0.1757,
+         0.1358,
+         0.2146
+        ],
+        "consistent_given_both": [
+         0.3844,
+         0.2928,
+         0.4761
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.5772,
+       "mean_similarity": 0.7006,
+       "consistent_given_both": 0.688,
+       "detected_A_rate": 0.8792,
+       "detected_B_rate": 0.9329,
+       "both_detected_rate": 0.8389,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3222,
+         0.2321,
+         0.4191
+        ],
+        "mean_similarity": [
+         0.1723,
+         0.1321,
+         0.2154
+        ],
+        "consistent_given_both": [
+         0.3957,
+         0.3003,
+         0.4987
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.6376,
+       "mean_similarity": 0.73,
+       "consistent_given_both": 0.7037,
+       "detected_A_rate": 0.9195,
+       "detected_B_rate": 0.9664,
+       "both_detected_rate": 0.906,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3826,
+         0.3056,
+         0.4646
+        ],
+        "mean_similarity": [
+         0.2017,
+         0.1633,
+         0.2397
+        ],
+        "consistent_given_both": [
+         0.4114,
+         0.3284,
+         0.5026
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.5839,
+       "mean_similarity": 0.7197,
+       "consistent_given_both": 0.6591,
+       "detected_A_rate": 0.9262,
+       "detected_B_rate": 0.9463,
+       "both_detected_rate": 0.8859,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3289,
+         0.2544,
+         0.4069
+        ],
+        "mean_similarity": [
+         0.1914,
+         0.1592,
+         0.226
+        ],
+        "consistent_given_both": [
+         0.3668,
+         0.28,
+         0.46
+        ]
+       }
+      }
+     }
+    },
+    "main|character": {
+     "n": 486,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0062,
+       "mean_similarity": 0.2682,
+       "consistent_given_both": 0.0067,
+       "detected_A_rate": 0.9506,
+       "detected_B_rate": 0.9774,
+       "both_detected_rate": 0.928
+      },
+      "text_frame": {
+       "consistent_rate": 0.0844,
+       "mean_similarity": 0.3962,
+       "consistent_given_both": 0.0891,
+       "detected_A_rate": 0.965,
+       "detected_B_rate": 0.9774,
+       "both_detected_rate": 0.9465,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0782,
+         0.0514,
+         0.1088
+        ],
+        "mean_similarity": [
+         0.128,
+         0.1095,
+         0.1468
+        ],
+        "consistent_given_both": [
+         0.0824,
+         0.0547,
+         0.114
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2016,
+       "mean_similarity": 0.4684,
+       "consistent_given_both": 0.2117,
+       "detected_A_rate": 0.963,
+       "detected_B_rate": 0.9856,
+       "both_detected_rate": 0.9527,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1954,
+         0.1663,
+         0.2248
+        ],
+        "mean_similarity": [
+         0.2002,
+         0.1769,
+         0.2246
+        ],
+        "consistent_given_both": [
+         0.205,
+         0.1743,
+         0.2356
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1811,
+       "mean_similarity": 0.463,
+       "consistent_given_both": 0.1897,
+       "detected_A_rate": 0.965,
+       "detected_B_rate": 0.9877,
+       "both_detected_rate": 0.9547,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1749,
+         0.1455,
+         0.206
+        ],
+        "mean_similarity": [
+         0.1948,
+         0.1727,
+         0.2186
+        ],
+        "consistent_given_both": [
+         0.183,
+         0.1531,
+         0.2146
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1502,
+       "mean_similarity": 0.4528,
+       "consistent_given_both": 0.1577,
+       "detected_A_rate": 0.963,
+       "detected_B_rate": 0.9877,
+       "both_detected_rate": 0.9527,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.144,
+         0.1093,
+         0.18
+        ],
+        "mean_similarity": [
+         0.1846,
+         0.1582,
+         0.2108
+        ],
+        "consistent_given_both": [
+         0.151,
+         0.1144,
+         0.188
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2634,
+       "mean_similarity": 0.4981,
+       "consistent_given_both": 0.2747,
+       "detected_A_rate": 0.9712,
+       "detected_B_rate": 0.9877,
+       "both_detected_rate": 0.9588,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2572,
+         0.2187,
+         0.2988
+        ],
+        "mean_similarity": [
+         0.2299,
+         0.2065,
+         0.254
+        ],
+        "consistent_given_both": [
+         0.268,
+         0.2264,
+         0.3098
+        ]
+       }
+      }
+     }
+    },
+    "main|character|1-4": {
+     "n": 422,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0071,
+       "mean_similarity": 0.2676,
+       "consistent_given_both": 0.0076,
+       "detected_A_rate": 0.9597,
+       "detected_B_rate": 0.9739,
+       "both_detected_rate": 0.9336
+      },
+      "text_frame": {
+       "consistent_rate": 0.0877,
+       "mean_similarity": 0.3968,
+       "consistent_given_both": 0.0925,
+       "detected_A_rate": 0.9692,
+       "detected_B_rate": 0.9739,
+       "both_detected_rate": 0.9479,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0806,
+         0.0539,
+         0.1114
+        ],
+        "mean_similarity": [
+         0.1292,
+         0.1094,
+         0.149
+        ],
+        "consistent_given_both": [
+         0.0849,
+         0.0578,
+         0.1163
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2133,
+       "mean_similarity": 0.4775,
+       "consistent_given_both": 0.2217,
+       "detected_A_rate": 0.9739,
+       "detected_B_rate": 0.9834,
+       "both_detected_rate": 0.9621,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2062,
+         0.1759,
+         0.2396
+        ],
+        "mean_similarity": [
+         0.2099,
+         0.1864,
+         0.2338
+        ],
+        "consistent_given_both": [
+         0.2141,
+         0.1826,
+         0.2479
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1919,
+       "mean_similarity": 0.4702,
+       "consistent_given_both": 0.201,
+       "detected_A_rate": 0.9668,
+       "detected_B_rate": 0.9858,
+       "both_detected_rate": 0.955,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1848,
+         0.1492,
+         0.2215
+        ],
+        "mean_similarity": [
+         0.2026,
+         0.1797,
+         0.2264
+        ],
+        "consistent_given_both": [
+         0.1934,
+         0.1571,
+         0.2294
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1635,
+       "mean_similarity": 0.4592,
+       "consistent_given_both": 0.1721,
+       "detected_A_rate": 0.9621,
+       "detected_B_rate": 0.9858,
+       "both_detected_rate": 0.9502,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1564,
+         0.117,
+         0.1962
+        ],
+        "mean_similarity": [
+         0.1916,
+         0.1626,
+         0.2189
+        ],
+        "consistent_given_both": [
+         0.1645,
+         0.1226,
+         0.2069
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2867,
+       "mean_similarity": 0.5083,
+       "consistent_given_both": 0.2966,
+       "detected_A_rate": 0.9787,
+       "detected_B_rate": 0.9882,
+       "both_detected_rate": 0.9668,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2796,
+         0.2366,
+         0.3269
+        ],
+        "mean_similarity": [
+         0.2407,
+         0.2166,
+         0.2647
+        ],
+        "consistent_given_both": [
+         0.289,
+         0.2432,
+         0.3365
+        ]
+       }
+      }
+     }
+    },
+    "main|character|5-29": {
+     "n": 63,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.2689,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.8889,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 0.8889
+      },
+      "text_frame": {
+       "consistent_rate": 0.0635,
+       "mean_similarity": 0.3921,
+       "consistent_given_both": 0.0678,
+       "detected_A_rate": 0.9365,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 0.9365,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0635,
+         0.0143,
+         0.1346
+        ],
+        "mean_similarity": [
+         0.1232,
+         0.085,
+         0.1675
+        ],
+        "consistent_given_both": [
+         0.0678,
+         0.0152,
+         0.1455
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.127,
+       "mean_similarity": 0.4017,
+       "consistent_given_both": 0.1429,
+       "detected_A_rate": 0.8889,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 0.8889,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.127,
+         0.0556,
+         0.2105
+        ],
+        "mean_similarity": [
+         0.1328,
+         0.0851,
+         0.1851
+        ],
+        "consistent_given_both": [
+         0.1429,
+         0.0635,
+         0.24
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1111,
+       "mean_similarity": 0.419,
+       "consistent_given_both": 0.1167,
+       "detected_A_rate": 0.9524,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 0.9524,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1111,
+         0.0435,
+         0.1961
+        ],
+        "mean_similarity": [
+         0.1501,
+         0.0986,
+         0.2054
+        ],
+        "consistent_given_both": [
+         0.1167,
+         0.0455,
+         0.2063
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0635,
+       "mean_similarity": 0.4115,
+       "consistent_given_both": 0.0656,
+       "detected_A_rate": 0.9683,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 0.9683,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0635,
+         0.0149,
+         0.1286
+        ],
+        "mean_similarity": [
+         0.1426,
+         0.0963,
+         0.1905
+        ],
+        "consistent_given_both": [
+         0.0656,
+         0.0156,
+         0.1311
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.1111,
+       "mean_similarity": 0.4221,
+       "consistent_given_both": 0.1228,
+       "detected_A_rate": 0.9206,
+       "detected_B_rate": 0.9841,
+       "both_detected_rate": 0.9048,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1111,
+         0.0476,
+         0.1791
+        ],
+        "mean_similarity": [
+         0.1532,
+         0.1059,
+         0.2002
+        ],
+        "consistent_given_both": [
+         0.1228,
+         0.0517,
+         0.2
+        ]
+       }
+      }
+     }
+    },
+    "main|character|>=30": {
+     "n": 1,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.4571,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.3981,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.059,
+         -0.059,
+         -0.059
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.5437,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0866,
+         0.0866,
+         0.0866
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.2285,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.2286,
+         -0.2286,
+         -0.2286
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.4,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.0571,
+         -0.0571,
+         -0.0571
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.6677,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.2106,
+         0.2106,
+         0.2106
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    },
+    "main|prop": {
+     "n": 644,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0963,
+       "mean_similarity": 0.4105,
+       "consistent_given_both": 0.114,
+       "detected_A_rate": 0.9099,
+       "detected_B_rate": 0.9224,
+       "both_detected_rate": 0.8447
+      },
+      "text_frame": {
+       "consistent_rate": 0.3478,
+       "mean_similarity": 0.5725,
+       "consistent_given_both": 0.4179,
+       "detected_A_rate": 0.9084,
+       "detected_B_rate": 0.8913,
+       "both_detected_rate": 0.8323,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2515,
+         0.21,
+         0.2946
+        ],
+        "mean_similarity": [
+         0.162,
+         0.1443,
+         0.179
+        ],
+        "consistent_given_both": [
+         0.3039,
+         0.2597,
+         0.3484
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.4581,
+       "mean_similarity": 0.6244,
+       "consistent_given_both": 0.5268,
+       "detected_A_rate": 0.9084,
+       "detected_B_rate": 0.927,
+       "both_detected_rate": 0.8696,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3618,
+         0.3235,
+         0.401
+        ],
+        "mean_similarity": [
+         0.2139,
+         0.1959,
+         0.2344
+        ],
+        "consistent_given_both": [
+         0.4128,
+         0.3695,
+         0.456
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.4146,
+       "mean_similarity": 0.6177,
+       "consistent_given_both": 0.4926,
+       "detected_A_rate": 0.9053,
+       "detected_B_rate": 0.9037,
+       "both_detected_rate": 0.8416,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3183,
+         0.2771,
+         0.3635
+        ],
+        "mean_similarity": [
+         0.2072,
+         0.1881,
+         0.2274
+        ],
+        "consistent_given_both": [
+         0.3786,
+         0.331,
+         0.4285
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.4534,
+       "mean_similarity": 0.6374,
+       "consistent_given_both": 0.5338,
+       "detected_A_rate": 0.9006,
+       "detected_B_rate": 0.9193,
+       "both_detected_rate": 0.8494,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3571,
+         0.319,
+         0.3964
+        ],
+        "mean_similarity": [
+         0.2269,
+         0.2083,
+         0.2454
+        ],
+        "consistent_given_both": [
+         0.4198,
+         0.3802,
+         0.4641
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.4441,
+       "mean_similarity": 0.6333,
+       "consistent_given_both": 0.52,
+       "detected_A_rate": 0.9022,
+       "detected_B_rate": 0.9208,
+       "both_detected_rate": 0.854,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3478,
+         0.3039,
+         0.3946
+        ],
+        "mean_similarity": [
+         0.2228,
+         0.2024,
+         0.2428
+        ],
+        "consistent_given_both": [
+         0.406,
+         0.3528,
+         0.4666
+        ]
+       }
+      }
+     }
+    },
+    "main|prop|1-4": {
+     "n": 266,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0338,
+       "mean_similarity": 0.3672,
+       "consistent_given_both": 0.0409,
+       "detected_A_rate": 0.891,
+       "detected_B_rate": 0.9098,
+       "both_detected_rate": 0.8271
+      },
+      "text_frame": {
+       "consistent_rate": 0.312,
+       "mean_similarity": 0.5431,
+       "consistent_given_both": 0.3705,
+       "detected_A_rate": 0.9135,
+       "detected_B_rate": 0.8872,
+       "both_detected_rate": 0.8421,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2782,
+         0.23,
+         0.3347
+        ],
+        "mean_similarity": [
+         0.1759,
+         0.1436,
+         0.2126
+        ],
+        "consistent_given_both": [
+         0.3296,
+         0.2732,
+         0.3934
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.4361,
+       "mean_similarity": 0.6124,
+       "consistent_given_both": 0.4957,
+       "detected_A_rate": 0.9173,
+       "detected_B_rate": 0.9248,
+       "both_detected_rate": 0.8797,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.4023,
+         0.3556,
+         0.45
+        ],
+        "mean_similarity": [
+         0.2452,
+         0.218,
+         0.274
+        ],
+        "consistent_given_both": [
+         0.4548,
+         0.4035,
+         0.5098
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.3835,
+       "mean_similarity": 0.5989,
+       "consistent_given_both": 0.4493,
+       "detected_A_rate": 0.9211,
+       "detected_B_rate": 0.8947,
+       "both_detected_rate": 0.8534,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3497,
+         0.2955,
+         0.4062
+        ],
+        "mean_similarity": [
+         0.2317,
+         0.2038,
+         0.2618
+        ],
+        "consistent_given_both": [
+         0.4084,
+         0.3514,
+         0.4671
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.4398,
+       "mean_similarity": 0.6211,
+       "consistent_given_both": 0.5367,
+       "detected_A_rate": 0.8872,
+       "detected_B_rate": 0.891,
+       "both_detected_rate": 0.8195,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.406,
+         0.3566,
+         0.4594
+        ],
+        "mean_similarity": [
+         0.2539,
+         0.2207,
+         0.2897
+        ],
+        "consistent_given_both": [
+         0.4958,
+         0.4329,
+         0.565
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.4586,
+       "mean_similarity": 0.6471,
+       "consistent_given_both": 0.5545,
+       "detected_A_rate": 0.8835,
+       "detected_B_rate": 0.8835,
+       "both_detected_rate": 0.8271,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.4248,
+         0.3582,
+         0.4936
+        ],
+        "mean_similarity": [
+         0.2799,
+         0.2471,
+         0.3128
+        ],
+        "consistent_given_both": [
+         0.5136,
+         0.4321,
+         0.5884
+        ]
+       }
+      }
+     }
+    },
+    "main|prop|5-29": {
+     "n": 230,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0652,
+       "mean_similarity": 0.3811,
+       "consistent_given_both": 0.0769,
+       "detected_A_rate": 0.9217,
+       "detected_B_rate": 0.9261,
+       "both_detected_rate": 0.8478
+      },
+      "text_frame": {
+       "consistent_rate": 0.287,
+       "mean_similarity": 0.5559,
+       "consistent_given_both": 0.3511,
+       "detected_A_rate": 0.9043,
+       "detected_B_rate": 0.8913,
+       "both_detected_rate": 0.8174,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2218,
+         0.146,
+         0.2939
+        ],
+        "mean_similarity": [
+         0.1748,
+         0.1427,
+         0.2071
+        ],
+        "consistent_given_both": [
+         0.2742,
+         0.1879,
+         0.3572
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.387,
+       "mean_similarity": 0.584,
+       "consistent_given_both": 0.4588,
+       "detected_A_rate": 0.9043,
+       "detected_B_rate": 0.913,
+       "both_detected_rate": 0.8435,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3218,
+         0.2555,
+         0.3871
+        ],
+        "mean_similarity": [
+         0.2029,
+         0.1649,
+         0.2458
+        ],
+        "consistent_given_both": [
+         0.3819,
+         0.3107,
+         0.4545
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.3435,
+       "mean_similarity": 0.5839,
+       "consistent_given_both": 0.4136,
+       "detected_A_rate": 0.9043,
+       "detected_B_rate": 0.8957,
+       "both_detected_rate": 0.8304,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2783,
+         0.2109,
+         0.3457
+        ],
+        "mean_similarity": [
+         0.2028,
+         0.1678,
+         0.2408
+        ],
+        "consistent_given_both": [
+         0.3367,
+         0.2661,
+         0.406
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.3478,
+       "mean_similarity": 0.5904,
+       "consistent_given_both": 0.4103,
+       "detected_A_rate": 0.9043,
+       "detected_B_rate": 0.9217,
+       "both_detected_rate": 0.8478,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2826,
+         0.2089,
+         0.359
+        ],
+        "mean_similarity": [
+         0.2093,
+         0.181,
+         0.2381
+        ],
+        "consistent_given_both": [
+         0.3334,
+         0.2505,
+         0.4156
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.3348,
+       "mean_similarity": 0.5609,
+       "consistent_given_both": 0.3869,
+       "detected_A_rate": 0.9087,
+       "detected_B_rate": 0.9478,
+       "both_detected_rate": 0.8652,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2696,
+         0.2009,
+         0.3348
+        ],
+        "mean_similarity": [
+         0.1798,
+         0.1491,
+         0.2085
+        ],
+        "consistent_given_both": [
+         0.31,
+         0.2327,
+         0.3805
+        ]
+       }
+      }
+     }
+    },
+    "main|prop|>=30": {
+     "n": 148,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.2568,
+       "mean_similarity": 0.5288,
+       "consistent_given_both": 0.2946,
+       "detected_A_rate": 0.9257,
+       "detected_B_rate": 0.9392,
+       "both_detected_rate": 0.8716
+      },
+      "text_frame": {
+       "consistent_rate": 0.5068,
+       "mean_similarity": 0.6509,
+       "consistent_given_both": 0.6048,
+       "detected_A_rate": 0.9054,
+       "detected_B_rate": 0.8986,
+       "both_detected_rate": 0.8378,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.25,
+         0.1679,
+         0.3356
+        ],
+        "mean_similarity": [
+         0.1221,
+         0.0941,
+         0.1493
+        ],
+        "consistent_given_both": [
+         0.3102,
+         0.2295,
+         0.3946
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.6081,
+       "mean_similarity": 0.7052,
+       "consistent_given_both": 0.6818,
+       "detected_A_rate": 0.8986,
+       "detected_B_rate": 0.9527,
+       "both_detected_rate": 0.8919,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3513,
+         0.2595,
+         0.437
+        ],
+        "mean_similarity": [
+         0.1764,
+         0.136,
+         0.2149
+        ],
+        "consistent_given_both": [
+         0.3872,
+         0.2957,
+         0.4783
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.5811,
+       "mean_similarity": 0.7044,
+       "consistent_given_both": 0.6935,
+       "detected_A_rate": 0.8784,
+       "detected_B_rate": 0.9324,
+       "both_detected_rate": 0.8378,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3243,
+         0.2333,
+         0.4214
+        ],
+        "mean_similarity": [
+         0.1756,
+         0.1342,
+         0.2199
+        ],
+        "consistent_given_both": [
+         0.3989,
+         0.3023,
+         0.504
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.6419,
+       "mean_similarity": 0.7325,
+       "consistent_given_both": 0.709,
+       "detected_A_rate": 0.9189,
+       "detected_B_rate": 0.9662,
+       "both_detected_rate": 0.9054,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3851,
+         0.3097,
+         0.4675
+        ],
+        "mean_similarity": [
+         0.2037,
+         0.1642,
+         0.2421
+        ],
+        "consistent_given_both": [
+         0.4144,
+         0.3304,
+         0.5044
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.5878,
+       "mean_similarity": 0.7201,
+       "consistent_given_both": 0.6641,
+       "detected_A_rate": 0.9257,
+       "detected_B_rate": 0.9459,
+       "both_detected_rate": 0.8851,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.331,
+         0.2558,
+         0.4097
+        ],
+        "mean_similarity": [
+         0.1913,
+         0.1588,
+         0.2262
+        ],
+        "consistent_given_both": [
+         0.3695,
+         0.2807,
+         0.4649
+        ]
+       }
+      }
+     }
+    },
+    "transform_ge30|all": {
+     "n": 61,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1908,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.9016,
+       "detected_B_rate": 0.9672,
+       "both_detected_rate": 0.8852
+      },
+      "text_frame": {
+       "consistent_rate": 0.0328,
+       "mean_similarity": 0.3738,
+       "consistent_given_both": 0.0339,
+       "detected_A_rate": 0.9836,
+       "detected_B_rate": 0.9836,
+       "both_detected_rate": 0.9672,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0328,
+         0.0,
+         0.0833
+        ],
+        "mean_similarity": [
+         0.183,
+         0.1468,
+         0.2199
+        ],
+        "consistent_given_both": [
+         0.0339,
+         0.0,
+         0.0877
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1148,
+       "mean_similarity": 0.3933,
+       "consistent_given_both": 0.1186,
+       "detected_A_rate": 0.9836,
+       "detected_B_rate": 0.9836,
+       "both_detected_rate": 0.9672,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1148,
+         0.0328,
+         0.2131
+        ],
+        "mean_similarity": [
+         0.2025,
+         0.1523,
+         0.2562
+        ],
+        "consistent_given_both": [
+         0.1186,
+         0.0339,
+         0.2203
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.082,
+       "mean_similarity": 0.3889,
+       "consistent_given_both": 0.0862,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 0.9508,
+       "both_detected_rate": 0.9508,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.082,
+         0.0164,
+         0.15
+        ],
+        "mean_similarity": [
+         0.1981,
+         0.1482,
+         0.2508
+        ],
+        "consistent_given_both": [
+         0.0862,
+         0.0169,
+         0.1636
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0492,
+       "mean_similarity": 0.3453,
+       "consistent_given_both": 0.0508,
+       "detected_A_rate": 0.9672,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 0.9672,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0492,
+         0.0,
+         0.1094
+        ],
+        "mean_similarity": [
+         0.1545,
+         0.1155,
+         0.1953
+        ],
+        "consistent_given_both": [
+         0.0508,
+         0.0,
+         0.1129
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0984,
+       "mean_similarity": 0.4183,
+       "consistent_given_both": 0.1053,
+       "detected_A_rate": 0.9836,
+       "detected_B_rate": 0.9508,
+       "both_detected_rate": 0.9344,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0984,
+         0.0164,
+         0.2097
+        ],
+        "mean_similarity": [
+         0.2275,
+         0.1788,
+         0.2776
+        ],
+        "consistent_given_both": [
+         0.1053,
+         0.0172,
+         0.2222
+        ]
+       }
+      }
+     }
+    },
+    "transform_ge30|character": {
+     "n": 61,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1908,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.9016,
+       "detected_B_rate": 0.9672,
+       "both_detected_rate": 0.8852
+      },
+      "text_frame": {
+       "consistent_rate": 0.0328,
+       "mean_similarity": 0.3738,
+       "consistent_given_both": 0.0339,
+       "detected_A_rate": 0.9836,
+       "detected_B_rate": 0.9836,
+       "both_detected_rate": 0.9672,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0328,
+         0.0,
+         0.0833
+        ],
+        "mean_similarity": [
+         0.183,
+         0.1468,
+         0.2199
+        ],
+        "consistent_given_both": [
+         0.0339,
+         0.0,
+         0.0877
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1148,
+       "mean_similarity": 0.3933,
+       "consistent_given_both": 0.1186,
+       "detected_A_rate": 0.9836,
+       "detected_B_rate": 0.9836,
+       "both_detected_rate": 0.9672,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1148,
+         0.0328,
+         0.2131
+        ],
+        "mean_similarity": [
+         0.2025,
+         0.1523,
+         0.2562
+        ],
+        "consistent_given_both": [
+         0.1186,
+         0.0339,
+         0.2203
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.082,
+       "mean_similarity": 0.3889,
+       "consistent_given_both": 0.0862,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 0.9508,
+       "both_detected_rate": 0.9508,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.082,
+         0.0164,
+         0.15
+        ],
+        "mean_similarity": [
+         0.1981,
+         0.1482,
+         0.2508
+        ],
+        "consistent_given_both": [
+         0.0862,
+         0.0169,
+         0.1636
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0492,
+       "mean_similarity": 0.3453,
+       "consistent_given_both": 0.0508,
+       "detected_A_rate": 0.9672,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 0.9672,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0492,
+         0.0,
+         0.1094
+        ],
+        "mean_similarity": [
+         0.1545,
+         0.1155,
+         0.1953
+        ],
+        "consistent_given_both": [
+         0.0508,
+         0.0,
+         0.1129
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0984,
+       "mean_similarity": 0.4183,
+       "consistent_given_both": 0.1053,
+       "detected_A_rate": 0.9836,
+       "detected_B_rate": 0.9508,
+       "both_detected_rate": 0.9344,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0984,
+         0.0164,
+         0.2097
+        ],
+        "mean_similarity": [
+         0.2275,
+         0.1788,
+         0.2776
+        ],
+        "consistent_given_both": [
+         0.1053,
+         0.0172,
+         0.2222
+        ]
+       }
+      }
+     }
+    },
+    "transform_ge30|character|>=30": {
+     "n": 61,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1908,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.9016,
+       "detected_B_rate": 0.9672,
+       "both_detected_rate": 0.8852
+      },
+      "text_frame": {
+       "consistent_rate": 0.0328,
+       "mean_similarity": 0.3738,
+       "consistent_given_both": 0.0339,
+       "detected_A_rate": 0.9836,
+       "detected_B_rate": 0.9836,
+       "both_detected_rate": 0.9672,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0328,
+         0.0,
+         0.0833
+        ],
+        "mean_similarity": [
+         0.183,
+         0.1468,
+         0.2199
+        ],
+        "consistent_given_both": [
+         0.0339,
+         0.0,
+         0.0877
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1148,
+       "mean_similarity": 0.3933,
+       "consistent_given_both": 0.1186,
+       "detected_A_rate": 0.9836,
+       "detected_B_rate": 0.9836,
+       "both_detected_rate": 0.9672,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1148,
+         0.0328,
+         0.2131
+        ],
+        "mean_similarity": [
+         0.2025,
+         0.1523,
+         0.2562
+        ],
+        "consistent_given_both": [
+         0.1186,
+         0.0339,
+         0.2203
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.082,
+       "mean_similarity": 0.3889,
+       "consistent_given_both": 0.0862,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 0.9508,
+       "both_detected_rate": 0.9508,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.082,
+         0.0164,
+         0.15
+        ],
+        "mean_similarity": [
+         0.1981,
+         0.1482,
+         0.2508
+        ],
+        "consistent_given_both": [
+         0.0862,
+         0.0169,
+         0.1636
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0492,
+       "mean_similarity": 0.3453,
+       "consistent_given_both": 0.0508,
+       "detected_A_rate": 0.9672,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 0.9672,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0492,
+         0.0,
+         0.1094
+        ],
+        "mean_similarity": [
+         0.1545,
+         0.1155,
+         0.1953
+        ],
+        "consistent_given_both": [
+         0.0508,
+         0.0,
+         0.1129
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0984,
+       "mean_similarity": 0.4183,
+       "consistent_given_both": 0.1053,
+       "detected_A_rate": 0.9836,
+       "detected_B_rate": 0.9508,
+       "both_detected_rate": 0.9344,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0984,
+         0.0164,
+         0.2097
+        ],
+        "mean_similarity": [
+         0.2275,
+         0.1788,
+         0.2776
+        ],
+        "consistent_given_both": [
+         0.1053,
+         0.0172,
+         0.2222
+        ]
+       }
+      }
+     }
+    }
+   }
+  },
+  "face": {
+   "threshold": 0.354996,
+   "cells": {
+    "gap0|all": {
+     "n": 403,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0074,
+       "mean_similarity": 0.1464,
+       "consistent_given_both": 0.0144,
+       "detected_A_rate": 0.6998,
+       "detected_B_rate": 0.6725,
+       "both_detected_rate": 0.5161
+      },
+      "text_frame": {
+       "consistent_rate": 0.0769,
+       "mean_similarity": 0.1844,
+       "consistent_given_both": 0.1179,
+       "detected_A_rate": 0.7816,
+       "detected_B_rate": 0.7667,
+       "both_detected_rate": 0.6526,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0695,
+         0.0429,
+         0.101
+        ],
+        "mean_similarity": [
+         0.038,
+         0.0181,
+         0.0583
+        ],
+        "consistent_given_both": [
+         0.1035,
+         0.0651,
+         0.1443
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0993,
+       "mean_similarity": 0.2179,
+       "consistent_given_both": 0.1504,
+       "detected_A_rate": 0.7568,
+       "detected_B_rate": 0.7643,
+       "both_detected_rate": 0.66,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0919,
+         0.0591,
+         0.1311
+        ],
+        "mean_similarity": [
+         0.0715,
+         0.0441,
+         0.0988
+        ],
+        "consistent_given_both": [
+         0.136,
+         0.0919,
+         0.1843
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1117,
+       "mean_similarity": 0.2105,
+       "consistent_given_both": 0.1718,
+       "detected_A_rate": 0.7519,
+       "detected_B_rate": 0.7742,
+       "both_detected_rate": 0.6501,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1043,
+         0.0662,
+         0.1449
+        ],
+        "mean_similarity": [
+         0.0641,
+         0.0313,
+         0.0976
+        ],
+        "consistent_given_both": [
+         0.1574,
+         0.105,
+         0.2123
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0968,
+       "mean_similarity": 0.2249,
+       "consistent_given_both": 0.1472,
+       "detected_A_rate": 0.7767,
+       "detected_B_rate": 0.7667,
+       "both_detected_rate": 0.6576,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0894,
+         0.0627,
+         0.1199
+        ],
+        "mean_similarity": [
+         0.0785,
+         0.0491,
+         0.1079
+        ],
+        "consistent_given_both": [
+         0.1328,
+         0.0966,
+         0.1713
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2159,
+       "mean_similarity": 0.2946,
+       "consistent_given_both": 0.3246,
+       "detected_A_rate": 0.7792,
+       "detected_B_rate": 0.7643,
+       "both_detected_rate": 0.665,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2085,
+         0.1655,
+         0.2567
+        ],
+        "mean_similarity": [
+         0.1482,
+         0.1274,
+         0.1715
+        ],
+        "consistent_given_both": [
+         0.3102,
+         0.2523,
+         0.3747
+        ]
+       }
+      }
+     }
+    },
+    "gap0|character": {
+     "n": 403,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0074,
+       "mean_similarity": 0.1464,
+       "consistent_given_both": 0.0144,
+       "detected_A_rate": 0.6998,
+       "detected_B_rate": 0.6725,
+       "both_detected_rate": 0.5161
+      },
+      "text_frame": {
+       "consistent_rate": 0.0769,
+       "mean_similarity": 0.1844,
+       "consistent_given_both": 0.1179,
+       "detected_A_rate": 0.7816,
+       "detected_B_rate": 0.7667,
+       "both_detected_rate": 0.6526,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0695,
+         0.0429,
+         0.101
+        ],
+        "mean_similarity": [
+         0.038,
+         0.0181,
+         0.0583
+        ],
+        "consistent_given_both": [
+         0.1035,
+         0.0651,
+         0.1443
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0993,
+       "mean_similarity": 0.2179,
+       "consistent_given_both": 0.1504,
+       "detected_A_rate": 0.7568,
+       "detected_B_rate": 0.7643,
+       "both_detected_rate": 0.66,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0919,
+         0.0591,
+         0.1311
+        ],
+        "mean_similarity": [
+         0.0715,
+         0.0441,
+         0.0988
+        ],
+        "consistent_given_both": [
+         0.136,
+         0.0919,
+         0.1843
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1117,
+       "mean_similarity": 0.2105,
+       "consistent_given_both": 0.1718,
+       "detected_A_rate": 0.7519,
+       "detected_B_rate": 0.7742,
+       "both_detected_rate": 0.6501,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1043,
+         0.0662,
+         0.1449
+        ],
+        "mean_similarity": [
+         0.0641,
+         0.0313,
+         0.0976
+        ],
+        "consistent_given_both": [
+         0.1574,
+         0.105,
+         0.2123
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0968,
+       "mean_similarity": 0.2249,
+       "consistent_given_both": 0.1472,
+       "detected_A_rate": 0.7767,
+       "detected_B_rate": 0.7667,
+       "both_detected_rate": 0.6576,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0894,
+         0.0627,
+         0.1199
+        ],
+        "mean_similarity": [
+         0.0785,
+         0.0491,
+         0.1079
+        ],
+        "consistent_given_both": [
+         0.1328,
+         0.0966,
+         0.1713
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2159,
+       "mean_similarity": 0.2946,
+       "consistent_given_both": 0.3246,
+       "detected_A_rate": 0.7792,
+       "detected_B_rate": 0.7643,
+       "both_detected_rate": 0.665,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2085,
+         0.1655,
+         0.2567
+        ],
+        "mean_similarity": [
+         0.1482,
+         0.1274,
+         0.1715
+        ],
+        "consistent_given_both": [
+         0.3102,
+         0.2523,
+         0.3747
+        ]
+       }
+      }
+     }
+    },
+    "gap0|character|0": {
+     "n": 403,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0074,
+       "mean_similarity": 0.1464,
+       "consistent_given_both": 0.0144,
+       "detected_A_rate": 0.6998,
+       "detected_B_rate": 0.6725,
+       "both_detected_rate": 0.5161
+      },
+      "text_frame": {
+       "consistent_rate": 0.0769,
+       "mean_similarity": 0.1844,
+       "consistent_given_both": 0.1179,
+       "detected_A_rate": 0.7816,
+       "detected_B_rate": 0.7667,
+       "both_detected_rate": 0.6526,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0695,
+         0.0429,
+         0.101
+        ],
+        "mean_similarity": [
+         0.038,
+         0.0181,
+         0.0583
+        ],
+        "consistent_given_both": [
+         0.1035,
+         0.0651,
+         0.1443
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0993,
+       "mean_similarity": 0.2179,
+       "consistent_given_both": 0.1504,
+       "detected_A_rate": 0.7568,
+       "detected_B_rate": 0.7643,
+       "both_detected_rate": 0.66,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0919,
+         0.0591,
+         0.1311
+        ],
+        "mean_similarity": [
+         0.0715,
+         0.0441,
+         0.0988
+        ],
+        "consistent_given_both": [
+         0.136,
+         0.0919,
+         0.1843
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1117,
+       "mean_similarity": 0.2105,
+       "consistent_given_both": 0.1718,
+       "detected_A_rate": 0.7519,
+       "detected_B_rate": 0.7742,
+       "both_detected_rate": 0.6501,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1043,
+         0.0662,
+         0.1449
+        ],
+        "mean_similarity": [
+         0.0641,
+         0.0313,
+         0.0976
+        ],
+        "consistent_given_both": [
+         0.1574,
+         0.105,
+         0.2123
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0968,
+       "mean_similarity": 0.2249,
+       "consistent_given_both": 0.1472,
+       "detected_A_rate": 0.7767,
+       "detected_B_rate": 0.7667,
+       "both_detected_rate": 0.6576,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0894,
+         0.0627,
+         0.1199
+        ],
+        "mean_similarity": [
+         0.0785,
+         0.0491,
+         0.1079
+        ],
+        "consistent_given_both": [
+         0.1328,
+         0.0966,
+         0.1713
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2159,
+       "mean_similarity": 0.2946,
+       "consistent_given_both": 0.3246,
+       "detected_A_rate": 0.7792,
+       "detected_B_rate": 0.7643,
+       "both_detected_rate": 0.665,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2085,
+         0.1655,
+         0.2567
+        ],
+        "mean_similarity": [
+         0.1482,
+         0.1274,
+         0.1715
+        ],
+        "consistent_given_both": [
+         0.3102,
+         0.2523,
+         0.3747
+        ]
+       }
+      }
+     }
+    },
+    "main|all": {
+     "n": 486,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0185,
+       "mean_similarity": 0.1325,
+       "consistent_given_both": 0.0319,
+       "detected_A_rate": 0.6975,
+       "detected_B_rate": 0.7881,
+       "both_detected_rate": 0.5802
+      },
+      "text_frame": {
+       "consistent_rate": 0.0453,
+       "mean_similarity": 0.1465,
+       "consistent_given_both": 0.0661,
+       "detected_A_rate": 0.7798,
+       "detected_B_rate": 0.8107,
+       "both_detected_rate": 0.6852,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0268,
+         0.0,
+         0.0558
+        ],
+        "mean_similarity": [
+         0.014,
+         -0.0057,
+         0.0327
+        ],
+        "consistent_given_both": [
+         0.0342,
+         -0.0069,
+         0.0769
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0802,
+       "mean_similarity": 0.1909,
+       "consistent_given_both": 0.115,
+       "detected_A_rate": 0.7593,
+       "detected_B_rate": 0.8189,
+       "both_detected_rate": 0.6975,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0617,
+         0.0306,
+         0.0942
+        ],
+        "mean_similarity": [
+         0.0584,
+         0.0386,
+         0.078
+        ],
+        "consistent_given_both": [
+         0.0831,
+         0.0375,
+         0.1272
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0658,
+       "mean_similarity": 0.1829,
+       "consistent_given_both": 0.0976,
+       "detected_A_rate": 0.7551,
+       "detected_B_rate": 0.8025,
+       "both_detected_rate": 0.6749,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0473,
+         0.0165,
+         0.081
+        ],
+        "mean_similarity": [
+         0.0504,
+         0.029,
+         0.0714
+        ],
+        "consistent_given_both": [
+         0.0657,
+         0.0213,
+         0.1114
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0658,
+       "mean_similarity": 0.1715,
+       "consistent_given_both": 0.0947,
+       "detected_A_rate": 0.7716,
+       "detected_B_rate": 0.8045,
+       "both_detected_rate": 0.6955,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0473,
+         0.0172,
+         0.0772
+        ],
+        "mean_similarity": [
+         0.039,
+         0.0185,
+         0.059
+        ],
+        "consistent_given_both": [
+         0.0628,
+         0.0179,
+         0.1084
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.107,
+       "mean_similarity": 0.2247,
+       "consistent_given_both": 0.1571,
+       "detected_A_rate": 0.7716,
+       "detected_B_rate": 0.821,
+       "both_detected_rate": 0.6811,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0885,
+         0.0646,
+         0.1138
+        ],
+        "mean_similarity": [
+         0.0922,
+         0.0779,
+         0.1059
+        ],
+        "consistent_given_both": [
+         0.1252,
+         0.0913,
+         0.1577
+        ]
+       }
+      }
+     }
+    },
+    "main|all|1-4": {
+     "n": 422,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0213,
+       "mean_similarity": 0.1351,
+       "consistent_given_both": 0.0369,
+       "detected_A_rate": 0.6967,
+       "detected_B_rate": 0.7844,
+       "both_detected_rate": 0.5782
+      },
+      "text_frame": {
+       "consistent_rate": 0.0474,
+       "mean_similarity": 0.1479,
+       "consistent_given_both": 0.0687,
+       "detected_A_rate": 0.7796,
+       "detected_B_rate": 0.8128,
+       "both_detected_rate": 0.6896,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0261,
+         -0.0045,
+         0.059
+        ],
+        "mean_similarity": [
+         0.0128,
+         -0.0078,
+         0.0323
+        ],
+        "consistent_given_both": [
+         0.0318,
+         -0.0143,
+         0.0797
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0782,
+       "mean_similarity": 0.1888,
+       "consistent_given_both": 0.1104,
+       "detected_A_rate": 0.7654,
+       "detected_B_rate": 0.827,
+       "both_detected_rate": 0.7085,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0569,
+         0.0257,
+         0.0882
+        ],
+        "mean_similarity": [
+         0.0537,
+         0.0351,
+         0.0714
+        ],
+        "consistent_given_both": [
+         0.0735,
+         0.0294,
+         0.116
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.064,
+       "mean_similarity": 0.1837,
+       "consistent_given_both": 0.0934,
+       "detected_A_rate": 0.7654,
+       "detected_B_rate": 0.8104,
+       "both_detected_rate": 0.6848,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0427,
+         0.0116,
+         0.0762
+        ],
+        "mean_similarity": [
+         0.0486,
+         0.0275,
+         0.0679
+        ],
+        "consistent_given_both": [
+         0.0565,
+         0.01,
+         0.1024
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0664,
+       "mean_similarity": 0.1708,
+       "consistent_given_both": 0.0959,
+       "detected_A_rate": 0.7701,
+       "detected_B_rate": 0.7986,
+       "both_detected_rate": 0.6919,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0451,
+         0.0123,
+         0.0771
+        ],
+        "mean_similarity": [
+         0.0357,
+         0.0151,
+         0.0547
+        ],
+        "consistent_given_both": [
+         0.059,
+         0.0103,
+         0.1074
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.1209,
+       "mean_similarity": 0.23,
+       "consistent_given_both": 0.1765,
+       "detected_A_rate": 0.7725,
+       "detected_B_rate": 0.827,
+       "both_detected_rate": 0.6848,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0996,
+         0.0722,
+         0.1283
+        ],
+        "mean_similarity": [
+         0.0949,
+         0.08,
+         0.1085
+        ],
+        "consistent_given_both": [
+         0.1396,
+         0.1002,
+         0.178
+        ]
+       }
+      }
+     }
+    },
+    "main|all|5-29": {
+     "n": 63,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1127,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.6984,
+       "detected_B_rate": 0.8095,
+       "both_detected_rate": 0.5873
+      },
+      "text_frame": {
+       "consistent_rate": 0.0317,
+       "mean_similarity": 0.138,
+       "consistent_given_both": 0.0488,
+       "detected_A_rate": 0.7778,
+       "detected_B_rate": 0.7937,
+       "both_detected_rate": 0.6508,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0317,
+         0.0,
+         0.0816
+        ],
+        "mean_similarity": [
+         0.0253,
+         -0.0131,
+         0.0585
+        ],
+        "consistent_given_both": [
+         0.0488,
+         0.0,
+         0.1212
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0952,
+       "mean_similarity": 0.2093,
+       "consistent_given_both": 0.1538,
+       "detected_A_rate": 0.7143,
+       "detected_B_rate": 0.7619,
+       "both_detected_rate": 0.619,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0952,
+         0.0312,
+         0.1667
+        ],
+        "mean_similarity": [
+         0.0966,
+         0.0469,
+         0.1501
+        ],
+        "consistent_given_both": [
+         0.1538,
+         0.05,
+         0.2812
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0794,
+       "mean_similarity": 0.1773,
+       "consistent_given_both": 0.1282,
+       "detected_A_rate": 0.6984,
+       "detected_B_rate": 0.7619,
+       "both_detected_rate": 0.619,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0794,
+         0.0147,
+         0.1695
+        ],
+        "mean_similarity": [
+         0.0646,
+         0.0197,
+         0.1188
+        ],
+        "consistent_given_both": [
+         0.1282,
+         0.0244,
+         0.2632
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0635,
+       "mean_similarity": 0.1772,
+       "consistent_given_both": 0.0889,
+       "detected_A_rate": 0.7778,
+       "detected_B_rate": 0.8413,
+       "both_detected_rate": 0.7143,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0635,
+         0.0,
+         0.1493
+        ],
+        "mean_similarity": [
+         0.0645,
+         0.0262,
+         0.1047
+        ],
+        "consistent_given_both": [
+         0.0889,
+         0.0,
+         0.2045
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0159,
+       "mean_similarity": 0.1927,
+       "consistent_given_both": 0.0244,
+       "detected_A_rate": 0.7619,
+       "detected_B_rate": 0.7778,
+       "both_detected_rate": 0.6508,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0159,
+         0.0,
+         0.0517
+        ],
+        "mean_similarity": [
+         0.08,
+         0.0405,
+         0.116
+        ],
+        "consistent_given_both": [
+         0.0244,
+         0.0,
+         0.0789
+        ]
+       }
+      }
+     }
+    },
+    "main|all|>=30": {
+     "n": 1,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.2149,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.0734,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.1415,
+         -0.1415,
+         -0.1415
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.0883,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.1266,
+         -0.1266,
+         -0.1266
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0,
+       "mean_similarity": null,
+       "consistent_given_both": null,
+       "detected_A_rate": 0.0,
+       "detected_B_rate": 0.0,
+       "both_detected_rate": 0.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1232,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.0917,
+         -0.0917,
+         -0.0917
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.0136,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.2013,
+         -0.2013,
+         -0.2013
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    },
+    "main|character": {
+     "n": 486,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0185,
+       "mean_similarity": 0.1325,
+       "consistent_given_both": 0.0319,
+       "detected_A_rate": 0.6975,
+       "detected_B_rate": 0.7881,
+       "both_detected_rate": 0.5802
+      },
+      "text_frame": {
+       "consistent_rate": 0.0453,
+       "mean_similarity": 0.1465,
+       "consistent_given_both": 0.0661,
+       "detected_A_rate": 0.7798,
+       "detected_B_rate": 0.8107,
+       "both_detected_rate": 0.6852,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0268,
+         0.0,
+         0.0558
+        ],
+        "mean_similarity": [
+         0.014,
+         -0.0057,
+         0.0327
+        ],
+        "consistent_given_both": [
+         0.0342,
+         -0.0069,
+         0.0769
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0802,
+       "mean_similarity": 0.1909,
+       "consistent_given_both": 0.115,
+       "detected_A_rate": 0.7593,
+       "detected_B_rate": 0.8189,
+       "both_detected_rate": 0.6975,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0617,
+         0.0306,
+         0.0942
+        ],
+        "mean_similarity": [
+         0.0584,
+         0.0386,
+         0.078
+        ],
+        "consistent_given_both": [
+         0.0831,
+         0.0375,
+         0.1272
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0658,
+       "mean_similarity": 0.1829,
+       "consistent_given_both": 0.0976,
+       "detected_A_rate": 0.7551,
+       "detected_B_rate": 0.8025,
+       "both_detected_rate": 0.6749,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0473,
+         0.0165,
+         0.081
+        ],
+        "mean_similarity": [
+         0.0504,
+         0.029,
+         0.0714
+        ],
+        "consistent_given_both": [
+         0.0657,
+         0.0213,
+         0.1114
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0658,
+       "mean_similarity": 0.1715,
+       "consistent_given_both": 0.0947,
+       "detected_A_rate": 0.7716,
+       "detected_B_rate": 0.8045,
+       "both_detected_rate": 0.6955,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0473,
+         0.0172,
+         0.0772
+        ],
+        "mean_similarity": [
+         0.039,
+         0.0185,
+         0.059
+        ],
+        "consistent_given_both": [
+         0.0628,
+         0.0179,
+         0.1084
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.107,
+       "mean_similarity": 0.2247,
+       "consistent_given_both": 0.1571,
+       "detected_A_rate": 0.7716,
+       "detected_B_rate": 0.821,
+       "both_detected_rate": 0.6811,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0885,
+         0.0646,
+         0.1138
+        ],
+        "mean_similarity": [
+         0.0922,
+         0.0779,
+         0.1059
+        ],
+        "consistent_given_both": [
+         0.1252,
+         0.0913,
+         0.1577
+        ]
+       }
+      }
+     }
+    },
+    "main|character|1-4": {
+     "n": 422,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0213,
+       "mean_similarity": 0.1351,
+       "consistent_given_both": 0.0369,
+       "detected_A_rate": 0.6967,
+       "detected_B_rate": 0.7844,
+       "both_detected_rate": 0.5782
+      },
+      "text_frame": {
+       "consistent_rate": 0.0474,
+       "mean_similarity": 0.1479,
+       "consistent_given_both": 0.0687,
+       "detected_A_rate": 0.7796,
+       "detected_B_rate": 0.8128,
+       "both_detected_rate": 0.6896,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0261,
+         -0.0045,
+         0.059
+        ],
+        "mean_similarity": [
+         0.0128,
+         -0.0078,
+         0.0323
+        ],
+        "consistent_given_both": [
+         0.0318,
+         -0.0143,
+         0.0797
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0782,
+       "mean_similarity": 0.1888,
+       "consistent_given_both": 0.1104,
+       "detected_A_rate": 0.7654,
+       "detected_B_rate": 0.827,
+       "both_detected_rate": 0.7085,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0569,
+         0.0257,
+         0.0882
+        ],
+        "mean_similarity": [
+         0.0537,
+         0.0351,
+         0.0714
+        ],
+        "consistent_given_both": [
+         0.0735,
+         0.0294,
+         0.116
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.064,
+       "mean_similarity": 0.1837,
+       "consistent_given_both": 0.0934,
+       "detected_A_rate": 0.7654,
+       "detected_B_rate": 0.8104,
+       "both_detected_rate": 0.6848,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0427,
+         0.0116,
+         0.0762
+        ],
+        "mean_similarity": [
+         0.0486,
+         0.0275,
+         0.0679
+        ],
+        "consistent_given_both": [
+         0.0565,
+         0.01,
+         0.1024
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0664,
+       "mean_similarity": 0.1708,
+       "consistent_given_both": 0.0959,
+       "detected_A_rate": 0.7701,
+       "detected_B_rate": 0.7986,
+       "both_detected_rate": 0.6919,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0451,
+         0.0123,
+         0.0771
+        ],
+        "mean_similarity": [
+         0.0357,
+         0.0151,
+         0.0547
+        ],
+        "consistent_given_both": [
+         0.059,
+         0.0103,
+         0.1074
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.1209,
+       "mean_similarity": 0.23,
+       "consistent_given_both": 0.1765,
+       "detected_A_rate": 0.7725,
+       "detected_B_rate": 0.827,
+       "both_detected_rate": 0.6848,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0996,
+         0.0722,
+         0.1283
+        ],
+        "mean_similarity": [
+         0.0949,
+         0.08,
+         0.1085
+        ],
+        "consistent_given_both": [
+         0.1396,
+         0.1002,
+         0.178
+        ]
+       }
+      }
+     }
+    },
+    "main|character|5-29": {
+     "n": 63,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1127,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.6984,
+       "detected_B_rate": 0.8095,
+       "both_detected_rate": 0.5873
+      },
+      "text_frame": {
+       "consistent_rate": 0.0317,
+       "mean_similarity": 0.138,
+       "consistent_given_both": 0.0488,
+       "detected_A_rate": 0.7778,
+       "detected_B_rate": 0.7937,
+       "both_detected_rate": 0.6508,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0317,
+         0.0,
+         0.0816
+        ],
+        "mean_similarity": [
+         0.0253,
+         -0.0131,
+         0.0585
+        ],
+        "consistent_given_both": [
+         0.0488,
+         0.0,
+         0.1212
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0952,
+       "mean_similarity": 0.2093,
+       "consistent_given_both": 0.1538,
+       "detected_A_rate": 0.7143,
+       "detected_B_rate": 0.7619,
+       "both_detected_rate": 0.619,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0952,
+         0.0312,
+         0.1667
+        ],
+        "mean_similarity": [
+         0.0966,
+         0.0469,
+         0.1501
+        ],
+        "consistent_given_both": [
+         0.1538,
+         0.05,
+         0.2812
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0794,
+       "mean_similarity": 0.1773,
+       "consistent_given_both": 0.1282,
+       "detected_A_rate": 0.6984,
+       "detected_B_rate": 0.7619,
+       "both_detected_rate": 0.619,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0794,
+         0.0147,
+         0.1695
+        ],
+        "mean_similarity": [
+         0.0646,
+         0.0197,
+         0.1188
+        ],
+        "consistent_given_both": [
+         0.1282,
+         0.0244,
+         0.2632
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0635,
+       "mean_similarity": 0.1772,
+       "consistent_given_both": 0.0889,
+       "detected_A_rate": 0.7778,
+       "detected_B_rate": 0.8413,
+       "both_detected_rate": 0.7143,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0635,
+         0.0,
+         0.1493
+        ],
+        "mean_similarity": [
+         0.0645,
+         0.0262,
+         0.1047
+        ],
+        "consistent_given_both": [
+         0.0889,
+         0.0,
+         0.2045
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0159,
+       "mean_similarity": 0.1927,
+       "consistent_given_both": 0.0244,
+       "detected_A_rate": 0.7619,
+       "detected_B_rate": 0.7778,
+       "both_detected_rate": 0.6508,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0159,
+         0.0,
+         0.0517
+        ],
+        "mean_similarity": [
+         0.08,
+         0.0405,
+         0.116
+        ],
+        "consistent_given_both": [
+         0.0244,
+         0.0,
+         0.0789
+        ]
+       }
+      }
+     }
+    },
+    "main|character|>=30": {
+     "n": 1,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.2149,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.0734,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.1415,
+         -0.1415,
+         -0.1415
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.0883,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.1266,
+         -0.1266,
+         -0.1266
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0,
+       "mean_similarity": null,
+       "consistent_given_both": null,
+       "detected_A_rate": 0.0,
+       "detected_B_rate": 0.0,
+       "both_detected_rate": 0.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1232,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.0917,
+         -0.0917,
+         -0.0917
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.0136,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.2013,
+         -0.2013,
+         -0.2013
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    },
+    "transform_ge30|all": {
+     "n": 61,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.0588,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.4754,
+       "detected_B_rate": 0.8689,
+       "both_detected_rate": 0.4262
+      },
+      "text_frame": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1277,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.6885,
+       "detected_B_rate": 0.8689,
+       "both_detected_rate": 0.5902,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0689,
+         0.0396,
+         0.0986
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1414,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.7213,
+       "detected_B_rate": 0.8197,
+       "both_detected_rate": 0.5902,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0826,
+         0.0457,
+         0.1132
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1418,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.7049,
+       "detected_B_rate": 0.8197,
+       "both_detected_rate": 0.5574,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.083,
+         0.0412,
+         0.1175
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0164,
+       "mean_similarity": 0.1433,
+       "consistent_given_both": 0.0294,
+       "detected_A_rate": 0.7049,
+       "detected_B_rate": 0.8361,
+       "both_detected_rate": 0.5574,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0164,
+         0.0,
+         0.05
+        ],
+        "mean_similarity": [
+         0.0845,
+         0.0476,
+         0.1256
+        ],
+        "consistent_given_both": [
+         0.0294,
+         0.0,
+         0.0968
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.113,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.7213,
+       "detected_B_rate": 0.8525,
+       "both_detected_rate": 0.6066,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0542,
+         0.0273,
+         0.0813
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    },
+    "transform_ge30|character": {
+     "n": 61,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.0588,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.4754,
+       "detected_B_rate": 0.8689,
+       "both_detected_rate": 0.4262
+      },
+      "text_frame": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1277,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.6885,
+       "detected_B_rate": 0.8689,
+       "both_detected_rate": 0.5902,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0689,
+         0.0396,
+         0.0986
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1414,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.7213,
+       "detected_B_rate": 0.8197,
+       "both_detected_rate": 0.5902,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0826,
+         0.0457,
+         0.1132
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1418,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.7049,
+       "detected_B_rate": 0.8197,
+       "both_detected_rate": 0.5574,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.083,
+         0.0412,
+         0.1175
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0164,
+       "mean_similarity": 0.1433,
+       "consistent_given_both": 0.0294,
+       "detected_A_rate": 0.7049,
+       "detected_B_rate": 0.8361,
+       "both_detected_rate": 0.5574,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0164,
+         0.0,
+         0.05
+        ],
+        "mean_similarity": [
+         0.0845,
+         0.0476,
+         0.1256
+        ],
+        "consistent_given_both": [
+         0.0294,
+         0.0,
+         0.0968
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.113,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.7213,
+       "detected_B_rate": 0.8525,
+       "both_detected_rate": 0.6066,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0542,
+         0.0273,
+         0.0813
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    },
+    "transform_ge30|character|>=30": {
+     "n": 61,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.0588,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.4754,
+       "detected_B_rate": 0.8689,
+       "both_detected_rate": 0.4262
+      },
+      "text_frame": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1277,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.6885,
+       "detected_B_rate": 0.8689,
+       "both_detected_rate": 0.5902,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0689,
+         0.0396,
+         0.0986
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1414,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.7213,
+       "detected_B_rate": 0.8197,
+       "both_detected_rate": 0.5902,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0826,
+         0.0457,
+         0.1132
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1418,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.7049,
+       "detected_B_rate": 0.8197,
+       "both_detected_rate": 0.5574,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.083,
+         0.0412,
+         0.1175
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0164,
+       "mean_similarity": 0.1433,
+       "consistent_given_both": 0.0294,
+       "detected_A_rate": 0.7049,
+       "detected_B_rate": 0.8361,
+       "both_detected_rate": 0.5574,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0164,
+         0.0,
+         0.05
+        ],
+        "mean_similarity": [
+         0.0845,
+         0.0476,
+         0.1256
+        ],
+        "consistent_given_both": [
+         0.0294,
+         0.0,
+         0.0968
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.113,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 0.7213,
+       "detected_B_rate": 0.8525,
+       "both_detected_rate": 0.6066,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0542,
+         0.0273,
+         0.0813
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    }
+   }
+  },
+  "location_megaloc": {
+   "threshold": 0.65855,
+   "cells": {
+    "gap0|all": {
+     "n": 384,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1075,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0833,
+       "mean_similarity": 0.2791,
+       "consistent_given_both": 0.0833,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0833,
+         0.0641,
+         0.1027
+        ],
+        "mean_similarity": [
+         0.1716,
+         0.1507,
+         0.194
+        ],
+        "consistent_given_both": [
+         0.0833,
+         0.0641,
+         0.1027
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1562,
+       "mean_similarity": 0.3609,
+       "consistent_given_both": 0.1562,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1562,
+         0.1139,
+         0.2022
+        ],
+        "mean_similarity": [
+         0.2534,
+         0.2252,
+         0.2817
+        ],
+        "consistent_given_both": [
+         0.1562,
+         0.1139,
+         0.2022
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1224,
+       "mean_similarity": 0.3402,
+       "consistent_given_both": 0.1224,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1224,
+         0.0907,
+         0.1533
+        ],
+        "mean_similarity": [
+         0.2327,
+         0.2061,
+         0.2584
+        ],
+        "consistent_given_both": [
+         0.1224,
+         0.0907,
+         0.1533
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.125,
+       "mean_similarity": 0.3319,
+       "consistent_given_both": 0.125,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.125,
+         0.0904,
+         0.1641
+        ],
+        "mean_similarity": [
+         0.2244,
+         0.2005,
+         0.2504
+        ],
+        "consistent_given_both": [
+         0.125,
+         0.0904,
+         0.1641
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2734,
+       "mean_similarity": 0.4798,
+       "consistent_given_both": 0.2734,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2734,
+         0.2246,
+         0.3222
+        ],
+        "mean_similarity": [
+         0.3723,
+         0.3455,
+         0.394
+        ],
+        "consistent_given_both": [
+         0.2734,
+         0.2246,
+         0.3222
+        ]
+       }
+      }
+     }
+    },
+    "gap0|location": {
+     "n": 384,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1075,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0833,
+       "mean_similarity": 0.2791,
+       "consistent_given_both": 0.0833,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0833,
+         0.0641,
+         0.1027
+        ],
+        "mean_similarity": [
+         0.1716,
+         0.1507,
+         0.194
+        ],
+        "consistent_given_both": [
+         0.0833,
+         0.0641,
+         0.1027
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1562,
+       "mean_similarity": 0.3609,
+       "consistent_given_both": 0.1562,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1562,
+         0.1139,
+         0.2022
+        ],
+        "mean_similarity": [
+         0.2534,
+         0.2252,
+         0.2817
+        ],
+        "consistent_given_both": [
+         0.1562,
+         0.1139,
+         0.2022
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1224,
+       "mean_similarity": 0.3402,
+       "consistent_given_both": 0.1224,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1224,
+         0.0907,
+         0.1533
+        ],
+        "mean_similarity": [
+         0.2327,
+         0.2061,
+         0.2584
+        ],
+        "consistent_given_both": [
+         0.1224,
+         0.0907,
+         0.1533
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.125,
+       "mean_similarity": 0.3319,
+       "consistent_given_both": 0.125,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.125,
+         0.0904,
+         0.1641
+        ],
+        "mean_similarity": [
+         0.2244,
+         0.2005,
+         0.2504
+        ],
+        "consistent_given_both": [
+         0.125,
+         0.0904,
+         0.1641
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2734,
+       "mean_similarity": 0.4798,
+       "consistent_given_both": 0.2734,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2734,
+         0.2246,
+         0.3222
+        ],
+        "mean_similarity": [
+         0.3723,
+         0.3455,
+         0.394
+        ],
+        "consistent_given_both": [
+         0.2734,
+         0.2246,
+         0.3222
+        ]
+       }
+      }
+     }
+    },
+    "gap0|location|0": {
+     "n": 384,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1075,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0833,
+       "mean_similarity": 0.2791,
+       "consistent_given_both": 0.0833,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0833,
+         0.0641,
+         0.1027
+        ],
+        "mean_similarity": [
+         0.1716,
+         0.1507,
+         0.194
+        ],
+        "consistent_given_both": [
+         0.0833,
+         0.0641,
+         0.1027
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1562,
+       "mean_similarity": 0.3609,
+       "consistent_given_both": 0.1562,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1562,
+         0.1139,
+         0.2022
+        ],
+        "mean_similarity": [
+         0.2534,
+         0.2252,
+         0.2817
+        ],
+        "consistent_given_both": [
+         0.1562,
+         0.1139,
+         0.2022
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1224,
+       "mean_similarity": 0.3402,
+       "consistent_given_both": 0.1224,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1224,
+         0.0907,
+         0.1533
+        ],
+        "mean_similarity": [
+         0.2327,
+         0.2061,
+         0.2584
+        ],
+        "consistent_given_both": [
+         0.1224,
+         0.0907,
+         0.1533
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.125,
+       "mean_similarity": 0.3319,
+       "consistent_given_both": 0.125,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.125,
+         0.0904,
+         0.1641
+        ],
+        "mean_similarity": [
+         0.2244,
+         0.2005,
+         0.2504
+        ],
+        "consistent_given_both": [
+         0.125,
+         0.0904,
+         0.1641
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2734,
+       "mean_similarity": 0.4798,
+       "consistent_given_both": 0.2734,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2734,
+         0.2246,
+         0.3222
+        ],
+        "mean_similarity": [
+         0.3723,
+         0.3455,
+         0.394
+        ],
+        "consistent_given_both": [
+         0.2734,
+         0.2246,
+         0.3222
+        ]
+       }
+      }
+     }
+    },
+    "main|all": {
+     "n": 425,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1134,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0494,
+       "mean_similarity": 0.2632,
+       "consistent_given_both": 0.0494,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0494,
+         0.0259,
+         0.0746
+        ],
+        "mean_similarity": [
+         0.1498,
+         0.1285,
+         0.1722
+        ],
+        "consistent_given_both": [
+         0.0494,
+         0.0259,
+         0.0746
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0847,
+       "mean_similarity": 0.3188,
+       "consistent_given_both": 0.0847,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0847,
+         0.0558,
+         0.1164
+        ],
+        "mean_similarity": [
+         0.2054,
+         0.1821,
+         0.2302
+        ],
+        "consistent_given_both": [
+         0.0847,
+         0.0558,
+         0.1164
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0565,
+       "mean_similarity": 0.2968,
+       "consistent_given_both": 0.0565,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0565,
+         0.0335,
+         0.0823
+        ],
+        "mean_similarity": [
+         0.1834,
+         0.161,
+         0.207
+        ],
+        "consistent_given_both": [
+         0.0565,
+         0.0335,
+         0.0823
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.08,
+       "mean_similarity": 0.3023,
+       "consistent_given_both": 0.08,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.08,
+         0.056,
+         0.1053
+        ],
+        "mean_similarity": [
+         0.1889,
+         0.1718,
+         0.2076
+        ],
+        "consistent_given_both": [
+         0.08,
+         0.056,
+         0.1053
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0376,
+       "mean_similarity": 0.2023,
+       "consistent_given_both": 0.0376,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0376,
+         0.0205,
+         0.0578
+        ],
+        "mean_similarity": [
+         0.0889,
+         0.0762,
+         0.1031
+        ],
+        "consistent_given_both": [
+         0.0376,
+         0.0205,
+         0.0578
+        ]
+       }
+      }
+     }
+    },
+    "main|all|1-4": {
+     "n": 187,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1219,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0802,
+       "mean_similarity": 0.3062,
+       "consistent_given_both": 0.0802,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0802,
+         0.0366,
+         0.122
+        ],
+        "mean_similarity": [
+         0.1843,
+         0.1564,
+         0.2122
+        ],
+        "consistent_given_both": [
+         0.0802,
+         0.0366,
+         0.122
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1337,
+       "mean_similarity": 0.3606,
+       "consistent_given_both": 0.1337,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1337,
+         0.083,
+         0.1928
+        ],
+        "mean_similarity": [
+         0.2387,
+         0.2124,
+         0.2677
+        ],
+        "consistent_given_both": [
+         0.1337,
+         0.083,
+         0.1928
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1016,
+       "mean_similarity": 0.3385,
+       "consistent_given_both": 0.1016,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1016,
+         0.0568,
+         0.1518
+        ],
+        "mean_similarity": [
+         0.2166,
+         0.1905,
+         0.2432
+        ],
+        "consistent_given_both": [
+         0.1016,
+         0.0568,
+         0.1518
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1123,
+       "mean_similarity": 0.3342,
+       "consistent_given_both": 0.1123,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1123,
+         0.0761,
+         0.1476
+        ],
+        "mean_similarity": [
+         0.2123,
+         0.1873,
+         0.2375
+        ],
+        "consistent_given_both": [
+         0.1123,
+         0.0761,
+         0.1476
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0588,
+       "mean_similarity": 0.2478,
+       "consistent_given_both": 0.0588,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0588,
+         0.0247,
+         0.0989
+        ],
+        "mean_similarity": [
+         0.1259,
+         0.1005,
+         0.1511
+        ],
+        "consistent_given_both": [
+         0.0588,
+         0.0247,
+         0.0989
+        ]
+       }
+      }
+     }
+    },
+    "main|all|5-29": {
+     "n": 223,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1034,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0224,
+       "mean_similarity": 0.2277,
+       "consistent_given_both": 0.0224,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0224,
+         0.0043,
+         0.0482
+        ],
+        "mean_similarity": [
+         0.1243,
+         0.1027,
+         0.1471
+        ],
+        "consistent_given_both": [
+         0.0224,
+         0.0043,
+         0.0482
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0359,
+       "mean_similarity": 0.2821,
+       "consistent_given_both": 0.0359,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0359,
+         0.0137,
+         0.0613
+        ],
+        "mean_similarity": [
+         0.1787,
+         0.151,
+         0.2104
+        ],
+        "consistent_given_both": [
+         0.0359,
+         0.0137,
+         0.0613
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0179,
+       "mean_similarity": 0.2593,
+       "consistent_given_both": 0.0179,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0179,
+         0.0,
+         0.0407
+        ],
+        "mean_similarity": [
+         0.1559,
+         0.1309,
+         0.1828
+        ],
+        "consistent_given_both": [
+         0.0179,
+         0.0,
+         0.0407
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0493,
+       "mean_similarity": 0.2701,
+       "consistent_given_both": 0.0493,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0493,
+         0.0231,
+         0.0787
+        ],
+        "mean_similarity": [
+         0.1667,
+         0.1454,
+         0.1929
+        ],
+        "consistent_given_both": [
+         0.0493,
+         0.0231,
+         0.0787
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0224,
+       "mean_similarity": 0.1674,
+       "consistent_given_both": 0.0224,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0224,
+         0.0048,
+         0.0427
+        ],
+        "mean_similarity": [
+         0.064,
+         0.0527,
+         0.0757
+        ],
+        "consistent_given_both": [
+         0.0224,
+         0.0048,
+         0.0427
+        ]
+       }
+      }
+     }
+    },
+    "main|all|>=30": {
+     "n": 15,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1572,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0667,
+       "mean_similarity": 0.2551,
+       "consistent_given_both": 0.0667,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0667,
+         0.0,
+         0.2
+        ],
+        "mean_similarity": [
+         0.0979,
+         -0.0042,
+         0.2051
+        ],
+        "consistent_given_both": [
+         0.0667,
+         0.0,
+         0.2
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2,
+       "mean_similarity": 0.3439,
+       "consistent_given_both": 0.2,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2,
+         0.0,
+         0.4
+        ],
+        "mean_similarity": [
+         0.1867,
+         0.0604,
+         0.3092
+        ],
+        "consistent_given_both": [
+         0.2,
+         0.0,
+         0.4
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0667,
+       "mean_similarity": 0.3344,
+       "consistent_given_both": 0.0667,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0667,
+         0.0,
+         0.2
+        ],
+        "mean_similarity": [
+         0.1772,
+         0.0637,
+         0.286
+        ],
+        "consistent_given_both": [
+         0.0667,
+         0.0,
+         0.2
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1333,
+       "mean_similarity": 0.3836,
+       "consistent_given_both": 0.1333,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1333,
+         0.0,
+         0.3077
+        ],
+        "mean_similarity": [
+         0.2264,
+         0.1162,
+         0.3375
+        ],
+        "consistent_given_both": [
+         0.1333,
+         0.0,
+         0.3077
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1537,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.0035,
+         -0.0353,
+         0.0229
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    },
+    "main|location": {
+     "n": 425,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1134,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0494,
+       "mean_similarity": 0.2632,
+       "consistent_given_both": 0.0494,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0494,
+         0.0259,
+         0.0746
+        ],
+        "mean_similarity": [
+         0.1498,
+         0.1285,
+         0.1722
+        ],
+        "consistent_given_both": [
+         0.0494,
+         0.0259,
+         0.0746
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0847,
+       "mean_similarity": 0.3188,
+       "consistent_given_both": 0.0847,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0847,
+         0.0558,
+         0.1164
+        ],
+        "mean_similarity": [
+         0.2054,
+         0.1821,
+         0.2302
+        ],
+        "consistent_given_both": [
+         0.0847,
+         0.0558,
+         0.1164
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0565,
+       "mean_similarity": 0.2968,
+       "consistent_given_both": 0.0565,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0565,
+         0.0335,
+         0.0823
+        ],
+        "mean_similarity": [
+         0.1834,
+         0.161,
+         0.207
+        ],
+        "consistent_given_both": [
+         0.0565,
+         0.0335,
+         0.0823
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.08,
+       "mean_similarity": 0.3023,
+       "consistent_given_both": 0.08,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.08,
+         0.056,
+         0.1053
+        ],
+        "mean_similarity": [
+         0.1889,
+         0.1718,
+         0.2076
+        ],
+        "consistent_given_both": [
+         0.08,
+         0.056,
+         0.1053
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0376,
+       "mean_similarity": 0.2023,
+       "consistent_given_both": 0.0376,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0376,
+         0.0205,
+         0.0578
+        ],
+        "mean_similarity": [
+         0.0889,
+         0.0762,
+         0.1031
+        ],
+        "consistent_given_both": [
+         0.0376,
+         0.0205,
+         0.0578
+        ]
+       }
+      }
+     }
+    },
+    "main|location|1-4": {
+     "n": 187,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1219,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0802,
+       "mean_similarity": 0.3062,
+       "consistent_given_both": 0.0802,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0802,
+         0.0366,
+         0.122
+        ],
+        "mean_similarity": [
+         0.1843,
+         0.1564,
+         0.2122
+        ],
+        "consistent_given_both": [
+         0.0802,
+         0.0366,
+         0.122
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1337,
+       "mean_similarity": 0.3606,
+       "consistent_given_both": 0.1337,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1337,
+         0.083,
+         0.1928
+        ],
+        "mean_similarity": [
+         0.2387,
+         0.2124,
+         0.2677
+        ],
+        "consistent_given_both": [
+         0.1337,
+         0.083,
+         0.1928
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.1016,
+       "mean_similarity": 0.3385,
+       "consistent_given_both": 0.1016,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1016,
+         0.0568,
+         0.1518
+        ],
+        "mean_similarity": [
+         0.2166,
+         0.1905,
+         0.2432
+        ],
+        "consistent_given_both": [
+         0.1016,
+         0.0568,
+         0.1518
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1123,
+       "mean_similarity": 0.3342,
+       "consistent_given_both": 0.1123,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1123,
+         0.0761,
+         0.1476
+        ],
+        "mean_similarity": [
+         0.2123,
+         0.1873,
+         0.2375
+        ],
+        "consistent_given_both": [
+         0.1123,
+         0.0761,
+         0.1476
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0588,
+       "mean_similarity": 0.2478,
+       "consistent_given_both": 0.0588,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0588,
+         0.0247,
+         0.0989
+        ],
+        "mean_similarity": [
+         0.1259,
+         0.1005,
+         0.1511
+        ],
+        "consistent_given_both": [
+         0.0588,
+         0.0247,
+         0.0989
+        ]
+       }
+      }
+     }
+    },
+    "main|location|5-29": {
+     "n": 223,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1034,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0224,
+       "mean_similarity": 0.2277,
+       "consistent_given_both": 0.0224,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0224,
+         0.0043,
+         0.0482
+        ],
+        "mean_similarity": [
+         0.1243,
+         0.1027,
+         0.1471
+        ],
+        "consistent_given_both": [
+         0.0224,
+         0.0043,
+         0.0482
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0359,
+       "mean_similarity": 0.2821,
+       "consistent_given_both": 0.0359,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0359,
+         0.0137,
+         0.0613
+        ],
+        "mean_similarity": [
+         0.1787,
+         0.151,
+         0.2104
+        ],
+        "consistent_given_both": [
+         0.0359,
+         0.0137,
+         0.0613
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0179,
+       "mean_similarity": 0.2593,
+       "consistent_given_both": 0.0179,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0179,
+         0.0,
+         0.0407
+        ],
+        "mean_similarity": [
+         0.1559,
+         0.1309,
+         0.1828
+        ],
+        "consistent_given_both": [
+         0.0179,
+         0.0,
+         0.0407
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0493,
+       "mean_similarity": 0.2701,
+       "consistent_given_both": 0.0493,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0493,
+         0.0231,
+         0.0787
+        ],
+        "mean_similarity": [
+         0.1667,
+         0.1454,
+         0.1929
+        ],
+        "consistent_given_both": [
+         0.0493,
+         0.0231,
+         0.0787
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0224,
+       "mean_similarity": 0.1674,
+       "consistent_given_both": 0.0224,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0224,
+         0.0048,
+         0.0427
+        ],
+        "mean_similarity": [
+         0.064,
+         0.0527,
+         0.0757
+        ],
+        "consistent_given_both": [
+         0.0224,
+         0.0048,
+         0.0427
+        ]
+       }
+      }
+     }
+    },
+    "main|location|>=30": {
+     "n": 15,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1572,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0667,
+       "mean_similarity": 0.2551,
+       "consistent_given_both": 0.0667,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0667,
+         0.0,
+         0.2
+        ],
+        "mean_similarity": [
+         0.0979,
+         -0.0042,
+         0.2051
+        ],
+        "consistent_given_both": [
+         0.0667,
+         0.0,
+         0.2
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2,
+       "mean_similarity": 0.3439,
+       "consistent_given_both": 0.2,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2,
+         0.0,
+         0.4
+        ],
+        "mean_similarity": [
+         0.1867,
+         0.0604,
+         0.3092
+        ],
+        "consistent_given_both": [
+         0.2,
+         0.0,
+         0.4
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0667,
+       "mean_similarity": 0.3344,
+       "consistent_given_both": 0.0667,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0667,
+         0.0,
+         0.2
+        ],
+        "mean_similarity": [
+         0.1772,
+         0.0637,
+         0.286
+        ],
+        "consistent_given_both": [
+         0.0667,
+         0.0,
+         0.2
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1333,
+       "mean_similarity": 0.3836,
+       "consistent_given_both": 0.1333,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1333,
+         0.0,
+         0.3077
+        ],
+        "mean_similarity": [
+         0.2264,
+         0.1162,
+         0.3375
+        ],
+        "consistent_given_both": [
+         0.1333,
+         0.0,
+         0.3077
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.1537,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         -0.0035,
+         -0.0353,
+         0.0229
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    }
+   }
+  },
+  "location_dino": {
+   "threshold": 0.841817,
+   "cells": {
+    "gap0|all": {
+     "n": 384,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0052,
+       "mean_similarity": 0.2625,
+       "consistent_given_both": 0.0052,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0859,
+       "mean_similarity": 0.4873,
+       "consistent_given_both": 0.0859,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0807,
+         0.0559,
+         0.1062
+        ],
+        "mean_similarity": [
+         0.2248,
+         0.202,
+         0.2489
+        ],
+        "consistent_given_both": [
+         0.0807,
+         0.0559,
+         0.1062
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1797,
+       "mean_similarity": 0.5537,
+       "consistent_given_both": 0.1797,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1745,
+         0.1414,
+         0.2063
+        ],
+        "mean_similarity": [
+         0.2912,
+         0.2642,
+         0.3172
+        ],
+        "consistent_given_both": [
+         0.1745,
+         0.1414,
+         0.2063
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.138,
+       "mean_similarity": 0.5478,
+       "consistent_given_both": 0.138,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1328,
+         0.097,
+         0.1676
+        ],
+        "mean_similarity": [
+         0.2853,
+         0.2584,
+         0.3099
+        ],
+        "consistent_given_both": [
+         0.1328,
+         0.097,
+         0.1676
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1276,
+       "mean_similarity": 0.5351,
+       "consistent_given_both": 0.1276,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1224,
+         0.0873,
+         0.1648
+        ],
+        "mean_similarity": [
+         0.2726,
+         0.2459,
+         0.2973
+        ],
+        "consistent_given_both": [
+         0.1224,
+         0.0873,
+         0.1648
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2552,
+       "mean_similarity": 0.6417,
+       "consistent_given_both": 0.2552,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.25,
+         0.1983,
+         0.2985
+        ],
+        "mean_similarity": [
+         0.3792,
+         0.3484,
+         0.4067
+        ],
+        "consistent_given_both": [
+         0.25,
+         0.1983,
+         0.2985
+        ]
+       }
+      }
+     }
+    },
+    "gap0|location": {
+     "n": 384,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0052,
+       "mean_similarity": 0.2625,
+       "consistent_given_both": 0.0052,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0859,
+       "mean_similarity": 0.4873,
+       "consistent_given_both": 0.0859,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0807,
+         0.0559,
+         0.1062
+        ],
+        "mean_similarity": [
+         0.2248,
+         0.202,
+         0.2489
+        ],
+        "consistent_given_both": [
+         0.0807,
+         0.0559,
+         0.1062
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1797,
+       "mean_similarity": 0.5537,
+       "consistent_given_both": 0.1797,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1745,
+         0.1414,
+         0.2063
+        ],
+        "mean_similarity": [
+         0.2912,
+         0.2642,
+         0.3172
+        ],
+        "consistent_given_both": [
+         0.1745,
+         0.1414,
+         0.2063
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.138,
+       "mean_similarity": 0.5478,
+       "consistent_given_both": 0.138,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1328,
+         0.097,
+         0.1676
+        ],
+        "mean_similarity": [
+         0.2853,
+         0.2584,
+         0.3099
+        ],
+        "consistent_given_both": [
+         0.1328,
+         0.097,
+         0.1676
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1276,
+       "mean_similarity": 0.5351,
+       "consistent_given_both": 0.1276,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1224,
+         0.0873,
+         0.1648
+        ],
+        "mean_similarity": [
+         0.2726,
+         0.2459,
+         0.2973
+        ],
+        "consistent_given_both": [
+         0.1224,
+         0.0873,
+         0.1648
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2552,
+       "mean_similarity": 0.6417,
+       "consistent_given_both": 0.2552,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.25,
+         0.1983,
+         0.2985
+        ],
+        "mean_similarity": [
+         0.3792,
+         0.3484,
+         0.4067
+        ],
+        "consistent_given_both": [
+         0.25,
+         0.1983,
+         0.2985
+        ]
+       }
+      }
+     }
+    },
+    "gap0|location|0": {
+     "n": 384,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0052,
+       "mean_similarity": 0.2625,
+       "consistent_given_both": 0.0052,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0859,
+       "mean_similarity": 0.4873,
+       "consistent_given_both": 0.0859,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0807,
+         0.0559,
+         0.1062
+        ],
+        "mean_similarity": [
+         0.2248,
+         0.202,
+         0.2489
+        ],
+        "consistent_given_both": [
+         0.0807,
+         0.0559,
+         0.1062
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1797,
+       "mean_similarity": 0.5537,
+       "consistent_given_both": 0.1797,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1745,
+         0.1414,
+         0.2063
+        ],
+        "mean_similarity": [
+         0.2912,
+         0.2642,
+         0.3172
+        ],
+        "consistent_given_both": [
+         0.1745,
+         0.1414,
+         0.2063
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.138,
+       "mean_similarity": 0.5478,
+       "consistent_given_both": 0.138,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1328,
+         0.097,
+         0.1676
+        ],
+        "mean_similarity": [
+         0.2853,
+         0.2584,
+         0.3099
+        ],
+        "consistent_given_both": [
+         0.1328,
+         0.097,
+         0.1676
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1276,
+       "mean_similarity": 0.5351,
+       "consistent_given_both": 0.1276,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1224,
+         0.0873,
+         0.1648
+        ],
+        "mean_similarity": [
+         0.2726,
+         0.2459,
+         0.2973
+        ],
+        "consistent_given_both": [
+         0.1224,
+         0.0873,
+         0.1648
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.2552,
+       "mean_similarity": 0.6417,
+       "consistent_given_both": 0.2552,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.25,
+         0.1983,
+         0.2985
+        ],
+        "mean_similarity": [
+         0.3792,
+         0.3484,
+         0.4067
+        ],
+        "consistent_given_both": [
+         0.25,
+         0.1983,
+         0.2985
+        ]
+       }
+      }
+     }
+    },
+    "main|all": {
+     "n": 425,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.2778,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0612,
+       "mean_similarity": 0.4835,
+       "consistent_given_both": 0.0612,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0612,
+         0.0361,
+         0.0869
+        ],
+        "mean_similarity": [
+         0.2057,
+         0.1791,
+         0.236
+        ],
+        "consistent_given_both": [
+         0.0612,
+         0.0361,
+         0.0869
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1059,
+       "mean_similarity": 0.525,
+       "consistent_given_both": 0.1059,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1059,
+         0.074,
+         0.1419
+        ],
+        "mean_similarity": [
+         0.2472,
+         0.2186,
+         0.2763
+        ],
+        "consistent_given_both": [
+         0.1059,
+         0.074,
+         0.1419
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.08,
+       "mean_similarity": 0.5107,
+       "consistent_given_both": 0.08,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.08,
+         0.0556,
+         0.1042
+        ],
+        "mean_similarity": [
+         0.2329,
+         0.2004,
+         0.2678
+        ],
+        "consistent_given_both": [
+         0.08,
+         0.0556,
+         0.1042
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0941,
+       "mean_similarity": 0.5094,
+       "consistent_given_both": 0.0941,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0941,
+         0.0686,
+         0.1205
+        ],
+        "mean_similarity": [
+         0.2316,
+         0.2071,
+         0.2588
+        ],
+        "consistent_given_both": [
+         0.0941,
+         0.0686,
+         0.1205
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0424,
+       "mean_similarity": 0.4147,
+       "consistent_given_both": 0.0424,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0424,
+         0.0247,
+         0.0614
+        ],
+        "mean_similarity": [
+         0.1369,
+         0.1184,
+         0.1586
+        ],
+        "consistent_given_both": [
+         0.0424,
+         0.0247,
+         0.0614
+        ]
+       }
+      }
+     }
+    },
+    "main|all|1-4": {
+     "n": 187,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.3053,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0856,
+       "mean_similarity": 0.5298,
+       "consistent_given_both": 0.0856,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0856,
+         0.0428,
+         0.1294
+        ],
+        "mean_similarity": [
+         0.2245,
+         0.1905,
+         0.2607
+        ],
+        "consistent_given_both": [
+         0.0856,
+         0.0428,
+         0.1294
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1444,
+       "mean_similarity": 0.558,
+       "consistent_given_both": 0.1444,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1444,
+         0.0955,
+         0.1991
+        ],
+        "mean_similarity": [
+         0.2527,
+         0.2223,
+         0.2822
+        ],
+        "consistent_given_both": [
+         0.1444,
+         0.0955,
+         0.1991
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.107,
+       "mean_similarity": 0.5438,
+       "consistent_given_both": 0.107,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.107,
+         0.0721,
+         0.1446
+        ],
+        "mean_similarity": [
+         0.2385,
+         0.2051,
+         0.2714
+        ],
+        "consistent_given_both": [
+         0.107,
+         0.0721,
+         0.1446
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1016,
+       "mean_similarity": 0.542,
+       "consistent_given_both": 0.1016,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1016,
+         0.0576,
+         0.1492
+        ],
+        "mean_similarity": [
+         0.2367,
+         0.2058,
+         0.27
+        ],
+        "consistent_given_both": [
+         0.1016,
+         0.0576,
+         0.1492
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0642,
+       "mean_similarity": 0.4704,
+       "consistent_given_both": 0.0642,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0642,
+         0.0298,
+         0.1015
+        ],
+        "mean_similarity": [
+         0.1651,
+         0.1374,
+         0.1937
+        ],
+        "consistent_given_both": [
+         0.0642,
+         0.0298,
+         0.1015
+        ]
+       }
+      }
+     }
+    },
+    "main|all|5-29": {
+     "n": 223,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.2462,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0448,
+       "mean_similarity": 0.4392,
+       "consistent_given_both": 0.0448,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0448,
+         0.0229,
+         0.0673
+        ],
+        "mean_similarity": [
+         0.193,
+         0.165,
+         0.2239
+        ],
+        "consistent_given_both": [
+         0.0448,
+         0.0229,
+         0.0673
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0673,
+       "mean_similarity": 0.4909,
+       "consistent_given_both": 0.0673,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0673,
+         0.0383,
+         0.0995
+        ],
+        "mean_similarity": [
+         0.2447,
+         0.2096,
+         0.2812
+        ],
+        "consistent_given_both": [
+         0.0673,
+         0.0383,
+         0.0995
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0493,
+       "mean_similarity": 0.4768,
+       "consistent_given_both": 0.0493,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0493,
+         0.0185,
+         0.0833
+        ],
+        "mean_similarity": [
+         0.2306,
+         0.1949,
+         0.269
+        ],
+        "consistent_given_both": [
+         0.0493,
+         0.0185,
+         0.0833
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0717,
+       "mean_similarity": 0.4719,
+       "consistent_given_both": 0.0717,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0717,
+         0.0431,
+         0.1041
+        ],
+        "mean_similarity": [
+         0.2257,
+         0.1963,
+         0.2567
+        ],
+        "consistent_given_both": [
+         0.0717,
+         0.0431,
+         0.1041
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0269,
+       "mean_similarity": 0.3659,
+       "consistent_given_both": 0.0269,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0269,
+         0.0085,
+         0.0517
+        ],
+        "mean_similarity": [
+         0.1197,
+         0.0993,
+         0.1398
+        ],
+        "consistent_given_both": [
+         0.0269,
+         0.0085,
+         0.0517
+        ]
+       }
+      }
+     }
+    },
+    "main|all|>=30": {
+     "n": 15,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.4063,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.5657,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.1594,
+         0.0875,
+         0.2351
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2,
+       "mean_similarity": 0.6204,
+       "consistent_given_both": 0.2,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2,
+         0.0,
+         0.4
+        ],
+        "mean_similarity": [
+         0.2141,
+         0.1083,
+         0.3162
+        ],
+        "consistent_given_both": [
+         0.2,
+         0.0,
+         0.4
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.2,
+       "mean_similarity": 0.6025,
+       "consistent_given_both": 0.2,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2,
+         0.0,
+         0.4
+        ],
+        "mean_similarity": [
+         0.1962,
+         0.076,
+         0.3117
+        ],
+        "consistent_given_both": [
+         0.2,
+         0.0,
+         0.4
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.3333,
+       "mean_similarity": 0.6607,
+       "consistent_given_both": 0.3333,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3333,
+         0.1111,
+         0.5714
+        ],
+        "mean_similarity": [
+         0.2544,
+         0.159,
+         0.3603
+        ],
+        "consistent_given_both": [
+         0.3333,
+         0.1111,
+         0.5714
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.4467,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0404,
+         -0.0168,
+         0.1076
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    },
+    "main|location": {
+     "n": 425,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.2778,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0612,
+       "mean_similarity": 0.4835,
+       "consistent_given_both": 0.0612,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0612,
+         0.0361,
+         0.0869
+        ],
+        "mean_similarity": [
+         0.2057,
+         0.1791,
+         0.236
+        ],
+        "consistent_given_both": [
+         0.0612,
+         0.0361,
+         0.0869
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1059,
+       "mean_similarity": 0.525,
+       "consistent_given_both": 0.1059,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1059,
+         0.074,
+         0.1419
+        ],
+        "mean_similarity": [
+         0.2472,
+         0.2186,
+         0.2763
+        ],
+        "consistent_given_both": [
+         0.1059,
+         0.074,
+         0.1419
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.08,
+       "mean_similarity": 0.5107,
+       "consistent_given_both": 0.08,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.08,
+         0.0556,
+         0.1042
+        ],
+        "mean_similarity": [
+         0.2329,
+         0.2004,
+         0.2678
+        ],
+        "consistent_given_both": [
+         0.08,
+         0.0556,
+         0.1042
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0941,
+       "mean_similarity": 0.5094,
+       "consistent_given_both": 0.0941,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0941,
+         0.0686,
+         0.1205
+        ],
+        "mean_similarity": [
+         0.2316,
+         0.2071,
+         0.2588
+        ],
+        "consistent_given_both": [
+         0.0941,
+         0.0686,
+         0.1205
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0424,
+       "mean_similarity": 0.4147,
+       "consistent_given_both": 0.0424,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0424,
+         0.0247,
+         0.0614
+        ],
+        "mean_similarity": [
+         0.1369,
+         0.1184,
+         0.1586
+        ],
+        "consistent_given_both": [
+         0.0424,
+         0.0247,
+         0.0614
+        ]
+       }
+      }
+     }
+    },
+    "main|location|1-4": {
+     "n": 187,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.3053,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0856,
+       "mean_similarity": 0.5298,
+       "consistent_given_both": 0.0856,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0856,
+         0.0428,
+         0.1294
+        ],
+        "mean_similarity": [
+         0.2245,
+         0.1905,
+         0.2607
+        ],
+        "consistent_given_both": [
+         0.0856,
+         0.0428,
+         0.1294
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.1444,
+       "mean_similarity": 0.558,
+       "consistent_given_both": 0.1444,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1444,
+         0.0955,
+         0.1991
+        ],
+        "mean_similarity": [
+         0.2527,
+         0.2223,
+         0.2822
+        ],
+        "consistent_given_both": [
+         0.1444,
+         0.0955,
+         0.1991
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.107,
+       "mean_similarity": 0.5438,
+       "consistent_given_both": 0.107,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.107,
+         0.0721,
+         0.1446
+        ],
+        "mean_similarity": [
+         0.2385,
+         0.2051,
+         0.2714
+        ],
+        "consistent_given_both": [
+         0.107,
+         0.0721,
+         0.1446
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.1016,
+       "mean_similarity": 0.542,
+       "consistent_given_both": 0.1016,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.1016,
+         0.0576,
+         0.1492
+        ],
+        "mean_similarity": [
+         0.2367,
+         0.2058,
+         0.27
+        ],
+        "consistent_given_both": [
+         0.1016,
+         0.0576,
+         0.1492
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0642,
+       "mean_similarity": 0.4704,
+       "consistent_given_both": 0.0642,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0642,
+         0.0298,
+         0.1015
+        ],
+        "mean_similarity": [
+         0.1651,
+         0.1374,
+         0.1937
+        ],
+        "consistent_given_both": [
+         0.0642,
+         0.0298,
+         0.1015
+        ]
+       }
+      }
+     }
+    },
+    "main|location|5-29": {
+     "n": 223,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.2462,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0448,
+       "mean_similarity": 0.4392,
+       "consistent_given_both": 0.0448,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0448,
+         0.0229,
+         0.0673
+        ],
+        "mean_similarity": [
+         0.193,
+         0.165,
+         0.2239
+        ],
+        "consistent_given_both": [
+         0.0448,
+         0.0229,
+         0.0673
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.0673,
+       "mean_similarity": 0.4909,
+       "consistent_given_both": 0.0673,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0673,
+         0.0383,
+         0.0995
+        ],
+        "mean_similarity": [
+         0.2447,
+         0.2096,
+         0.2812
+        ],
+        "consistent_given_both": [
+         0.0673,
+         0.0383,
+         0.0995
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.0493,
+       "mean_similarity": 0.4768,
+       "consistent_given_both": 0.0493,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0493,
+         0.0185,
+         0.0833
+        ],
+        "mean_similarity": [
+         0.2306,
+         0.1949,
+         0.269
+        ],
+        "consistent_given_both": [
+         0.0493,
+         0.0185,
+         0.0833
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.0717,
+       "mean_similarity": 0.4719,
+       "consistent_given_both": 0.0717,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0717,
+         0.0431,
+         0.1041
+        ],
+        "mean_similarity": [
+         0.2257,
+         0.1963,
+         0.2567
+        ],
+        "consistent_given_both": [
+         0.0717,
+         0.0431,
+         0.1041
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0269,
+       "mean_similarity": 0.3659,
+       "consistent_given_both": 0.0269,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0269,
+         0.0085,
+         0.0517
+        ],
+        "mean_similarity": [
+         0.1197,
+         0.0993,
+         0.1398
+        ],
+        "consistent_given_both": [
+         0.0269,
+         0.0085,
+         0.0517
+        ]
+       }
+      }
+     }
+    },
+    "main|location|>=30": {
+     "n": 15,
+     "conditions": {
+      "no_memory": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.4063,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0
+      },
+      "text_frame": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.5657,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.1594,
+         0.0875,
+         0.2351
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      },
+      "seg_uniform": {
+       "consistent_rate": 0.2,
+       "mean_similarity": 0.6204,
+       "consistent_given_both": 0.2,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2,
+         0.0,
+         0.4
+        ],
+        "mean_similarity": [
+         0.2141,
+         0.1083,
+         0.3162
+        ],
+        "consistent_given_both": [
+         0.2,
+         0.0,
+         0.4
+        ]
+       }
+      },
+      "seg_dinokey": {
+       "consistent_rate": 0.2,
+       "mean_similarity": 0.6025,
+       "consistent_given_both": 0.2,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.2,
+         0.0,
+         0.4
+        ],
+        "mean_similarity": [
+         0.1962,
+         0.076,
+         0.3117
+        ],
+        "consistent_given_both": [
+         0.2,
+         0.0,
+         0.4
+        ]
+       }
+      },
+      "seg_frame_clean": {
+       "consistent_rate": 0.3333,
+       "mean_similarity": 0.6607,
+       "consistent_given_both": 0.3333,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.3333,
+         0.1111,
+         0.5714
+        ],
+        "mean_similarity": [
+         0.2544,
+         0.159,
+         0.3603
+        ],
+        "consistent_given_both": [
+         0.3333,
+         0.1111,
+         0.5714
+        ]
+       }
+      },
+      "retr_oracle": {
+       "consistent_rate": 0.0,
+       "mean_similarity": 0.4467,
+       "consistent_given_both": 0.0,
+       "detected_A_rate": 1.0,
+       "detected_B_rate": 1.0,
+       "both_detected_rate": 1.0,
+       "diff_vs_no_memory": {
+        "consistent_rate": [
+         0.0,
+         0.0,
+         0.0
+        ],
+        "mean_similarity": [
+         0.0404,
+         -0.0168,
+         0.1076
+        ],
+        "consistent_given_both": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

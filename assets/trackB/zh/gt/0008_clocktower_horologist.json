@@ -1,0 +1,3111 @@
+{
+  "story_id": "0008_clocktower_horologist",
+  "gt_version": "trackB-gt-2.0",
+  "title": "钟楼修表匠",
+  "premise": "城市钟楼的校时长剧。技师韩霜与学徒豆豆守护天文擒纵轮；豆豆与阿衡面容极似却领巾不同；黄铜检修摇篮坠毁后须规避；校时日志、数量记忆与时序闪回贯穿。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0008_clocktower_horologist.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "韩霜",
+      "kind": "character",
+      "states": {
+        "壮年修表": "四十岁的钟楼技师，戴灰呢报童帽，穿灰呢工装，胸前挂放大镜，手指修长而沾着机油。",
+        "扭伤拄杖": "同一位韩霜：右踝旧伤，拄一根断尺改成的手杖，灰呢工装膝部磨破，放大镜仍挂胸前。",
+        "静默离世": "韩霜阖眼长逝，静静躺在钟楼机房折叠床上，灰呢工装盖住胸口。"
+      },
+      "initial_state": "壮年修表"
+    },
+    "E2": {
+      "name": "豆豆",
+      "kind": "character",
+      "states": {
+        "少年学徒": "十五岁的学徒女孩，穿深蓝背带裤，腰间挂小怀表链，眼神机敏。",
+        "成年技师": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+      },
+      "initial_state": "少年学徒"
+    },
+    "E3": {
+      "name": "天文擒纵轮",
+      "kind": "prop",
+      "states": {
+        "完好": "一枚巴掌大的天文擒纵轮，轮缘刻星辰刻度，宝石轴承闪光，与擒纵叉咬合平稳。",
+        "断齿失稳": "同一枚天文擒纵轮崩缺两枚轮齿，轴承被机油熏黑，摆动时轻轻打颤。",
+        "换齿复位": "天文擒纵轮换上新轮齿后恢复平稳，新齿色泽略浅，星辰刻度仍清晰。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "校时日志",
+      "kind": "prop",
+      "states": {
+        "完好": "一本漆布封面的校时日志，记着每日走时误差、上弦时刻和塔钟检修记录。",
+        "机油污页": "同一本校时日志被机油浸透，封面发黏，误差数字糊成黑斑。"
+      },
+      "initial_state": "完好"
+    },
+    "E5": {
+      "name": "黄铜检修摇篮",
+      "kind": "prop",
+      "states": {
+        "完好": "一只黄铜检修摇篮，护栏刻着编号，吊索接在钟楼外廊滑轨上，可升到钟面旁。",
+        "坠毁": "黄铜检修摇篮从滑轨坠下后护栏扭曲，编号牌摔裂，吊索散成乱圈。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "阿衡",
+      "kind": "character",
+      "states": {
+        "青年对手": "与豆豆面容极相似的青年，却系银灰领巾、穿炭黑背带，神情傲慢。",
+        "改头换面": "改头换面后的阿衡仍系银灰领巾，眉骨多一道金属擦伤，炭黑背带换成皮扣款。"
+      },
+      "initial_state": "青年对手"
+    },
+    "E7": {
+      "name": "钟楼机房",
+      "kind": "location",
+      "appearance": "钟楼顶层机房，巨大齿轮组低鸣，钟锤牵索垂在墙边，窗边摆着校时台和油杯。"
+    },
+    "E8": {
+      "name": "钟楼外廊",
+      "kind": "location",
+      "appearance": "环绕钟面的窄外廊，风很大，脚下是城市屋顶，身旁就是巨大的白色钟面。"
+    },
+    "E9": {
+      "name": "齿轮暗道",
+      "kind": "location",
+      "appearance": "机房通往钟面的齿轮暗道，两侧是润滑过的齿排和传动轴，灯光忽明忽暗。"
+    },
+    "E10": {
+      "name": "停摆旧钟楼",
+      "kind": "location",
+      "appearance": "城南停摆的旧钟楼，指针冻在三点，裂纹爬过钟面，蛛网挂满齿轮。"
+    },
+    "E11": {
+      "name": "韩记铭牌",
+      "kind": "prop",
+      "appearance": "一块钉在机房门上的铜铭牌，刻着『韩记校时』与年份，边缘磨得发亮。"
+    },
+    "E12": {
+      "name": "油杯",
+      "kind": "prop",
+      "appearance": "三只带尖嘴的黄铜油杯，杯身刻不同齿轮编号，摆在校时台上。"
+    },
+    "E13": {
+      "name": "铁架升降台",
+      "kind": "prop",
+      "appearance": "一座临时铁架升降台，无黄铜护栏编号，只能停在外廊地面。"
+    },
+    "E14": {
+      "name": "市政钟官",
+      "kind": "character",
+      "appearance": "一名精瘦市政钟官，也戴灰呢报童帽，但肩章是市政局齿轮徽，与韩霜身形相近。"
+    },
+    "E15": {
+      "name": "检修汽灯",
+      "kind": "prop",
+      "appearance": "五盏黄铜检修汽灯，排挂在机房梁下，玻璃罩映着齿轮影。"
+    },
+    "E16": {
+      "name": "塔钟铜铃",
+      "kind": "prop",
+      "appearance": "两口悬在机房上方的塔钟铜铃，整点时由锤杆敲响，钟体泛着暗金光。"
+    },
+    "E17": {
+      "name": "铃铃",
+      "kind": "character",
+      "appearance": "钟楼广场卖报的女孩，穿浅褐背带裤，乍看与少年豆豆神似，却戴圆框眼镜、目光怯生。"
+    },
+    "E18": {
+      "name": "替换擒纵轮",
+      "kind": "prop",
+      "appearance": "一枚更小的替换擒纵轮，外形相近，但没有星辰刻度，轴承只是普通黄铜。"
+    },
+    "E19": {
+      "name": "木梯推车",
+      "kind": "prop",
+      "appearance": "一辆装折叠木梯和工具箱的推车，没有吊索和黄铜护栏，绝非检修摇篮。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "壮年修表",
+      "扭伤拄杖",
+      "静默离世"
+    ],
+    "E2": [
+      "少年学徒",
+      "成年技师"
+    ],
+    "E3": [
+      "完好",
+      "断齿失稳",
+      "换齿复位"
+    ],
+    "E4": [
+      "完好",
+      "机油污页"
+    ],
+    "E5": [
+      "完好",
+      "坠毁"
+    ],
+    "E6": [
+      "青年对手",
+      "改头换面"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "豆豆：深蓝背带裤、怀表链。",
+        "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+      },
+      "note": "钟楼学徒错认。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，韩霜推开钟楼机房铁门，把天文擒纵轮放在校时台中央。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "机房梁下排挂着五盏黄铜检修汽灯，韩霜逐一擦亮映着齿轮影的玻璃罩。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "机房上方悬着两口塔钟铜铃，韩霜轻推锤杆，让低沉钟声在齿轮间回荡。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜把天文擒纵轮嵌进擒纵叉，观察摆动是否卡在半齿。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他给校时台边的齿轮滴下一点表油，听整套轮系慢慢咬合。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "韩霜解开蜡绳，翻开漆布封面的校时日志。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他用碳素笔记下今日走时误差、发条张力和整点报刻偏差。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜合上日志，把天文擒纵轮放回绒布垫，避免压弯轮齿。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的钟楼外廊，韩霜迎向推着黄铜检修摇篮来的少年豆豆。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "豆豆扣好摇篮护栏，把吊索挂进外廊滑轨的安全钩。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜把三只黄铜油杯摆在校时台上，教豆豆对应不同齿轮编号。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "豆豆蹲在黄铜检修摇篮旁，用袖口擦亮护栏上的编号牌。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E6",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "齿轮暗道里，系银灰领巾的阿衡从传动轴阴影后回头。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿衡用指节敲了敲炭黑背带上的铜扣，故意避开机油滴落处。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他提起一卷细钢索，沿齿排旁的窄道走远。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "暗道里的小窗闪过阿衡的侧脸，银灰领巾被风掀起一角。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "钟楼外廊上，豆豆与阿衡在钟面旁擦肩，一个深蓝背带裤，一个银灰领巾。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "豆豆护住腰间怀表链，阿衡把炭黑背带往肩上提了提。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人同时听见塔钟试鸣，又沿外廊向相反方向走开。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的暴雨夜，韩霜独自在钟楼机房值守，天文擒纵轮躺在绒布垫上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 11,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 11,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他翻开校时日志，发现机油从齿轮盒漏下，漆布封面发黏，误差数字糊成黑斑。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "机油污页",
+            "appearance": "同一本校时日志被机油浸透，封面发黏，误差数字糊成黑斑。"
+          },
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜用吸油纸按住污页边缘，重新核对还能看清的上弦时刻。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污页",
+            "appearance": "同一本校时日志被机油浸透，封面发黏，误差数字糊成黑斑。"
+          },
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "校时季漫长，韩霜日日在机房上弦、听摆、校准整点。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一个雪夜，他裹紧灰呢工装，守在齿轮组旁听城市钟声。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "春雾弥漫，韩霜打开外廊小窗，确认钟面指针没有凝水。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "盛夏正午，他擦去齿轮齿根被热胀挤出的铜屑。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "秋风吹进机房，钟锤牵索轻轻撞着墙面。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，韩霜沿钟楼外廊巡查，黄铜检修摇篮停在钟面右侧。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 15,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他弯腰检查摇篮护栏和滑轨安全钩，确认吊索没有磨断。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜把外廊散落的小齿轮收进工具盒，免得滚进排水槽。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一座临时铁架升降台从楼梯口推来，铁架没有黄铜护栏编号，也不能悬到钟面旁。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "暴雨拍打巨大钟面，外廊滑轨在风里发出刺耳摩擦声。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜刚把天文擒纵轮装回机芯，两枚轮齿就在错位冲击中崩缺。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "断齿失稳",
+            "appearance": "同一枚天文擒纵轮崩缺两枚轮齿，轴承被机油熏黑，摆动时轻轻打颤。"
+          },
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "黄铜检修摇篮被狂风推离钟面，吊索在滑轨上猛烈抖动。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吊索终于断开，黄铜检修摇篮坠下外廊，护栏扭曲，编号牌摔裂。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "坠毁",
+            "appearance": "黄铜检修摇篮从滑轨坠下后护栏扭曲，编号牌摔裂，吊索散成乱圈。"
+          },
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜捧住断齿失稳的擒纵轮退回机房，雨水顺着帽檐滴到校时台。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断齿失稳",
+            "appearance": "同一枚天文擒纵轮崩缺两枚轮齿，轴承被机油熏黑，摆动时轻轻打颤。"
+          },
+          "gap": 2,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "暴雨次日，韩霜站在机房里，凝视断齿失稳的天文擒纵轮。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断齿失稳",
+            "appearance": "同一枚天文擒纵轮崩缺两枚轮齿，轴承被机油熏黑，摆动时轻轻打颤。"
+          },
+          "gap": 0,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他在校时日志空白页记下黄铜检修摇篮坠毁的时刻，黑色机油浸到字边。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污页",
+            "appearance": "同一本校时日志被机油浸透，封面发黏，误差数字糊成黑斑。"
+          },
+          "gap": 15,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "墙钩上挂着黄铜检修摇篮断下的吊索，韩霜久久没有取走。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜从梁下五盏检修汽灯里取下一盏，照亮日志上被油污遮住的误差表。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 37,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把黄铜检修摇篮裂开的编号牌放进零件盒，扣上绒布盖。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，韩霜请来老钟表匠，在校时台上拆下崩缺的两枚轮齿。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断齿失稳",
+            "appearance": "同一枚天文擒纵轮崩缺两枚轮齿，轴承被机油熏黑，摆动时轻轻打颤。"
+          },
+          "gap": 4,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "老钟表匠先拿出一枚替换擒纵轮试比，它大小相近，却没有星辰刻度。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "新轮齿铆入轮缘后，天文擒纵轮重新与擒纵叉平稳咬合。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "换齿复位",
+            "appearance": "天文擒纵轮换上新轮齿后恢复平稳，新齿色泽略浅，星辰刻度仍清晰。"
+          },
+          "gap": 1,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜给换齿复位后的擒纵轮点上薄油，看摆杆回到均匀节拍。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "换齿复位",
+            "appearance": "天文擒纵轮换上新轮齿后恢复平稳，新齿色泽略浅，星辰刻度仍清晰。"
+          },
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "一辆木梯推车被推上外廊，车上只有折叠木梯和工具箱，并不是已坠毁的黄铜检修摇篮。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "市政钟官走到韩霜身旁验收钟面，两人都戴灰呢报童帽，背影相近。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "钟官指着木梯推车安排明日擦洗钟面，韩霜继续听塔钟的回摆声。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_046",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "广场卖报女孩铃铃爬上外廊送报，浅褐背带裤远看像少年豆豆的深蓝背带。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "铃铃试着扶住安全绳，韩霜却摇头提醒她戴圆框眼镜，终究不是豆豆。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，韩霜拄着断尺杖，缓慢走进停摆旧钟楼。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "扭伤拄杖",
+            "appearance": "同一位韩霜：右踝旧伤，拄一根断尺改成的手杖，灰呢工装膝部磨破，放大镜仍挂胸前。"
+          },
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "旧机房上方，那两口塔钟铜铃仍悬着，灰尘落满锤杆。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "扭伤拄杖",
+            "appearance": "同一位韩霜：右踝旧伤，拄一根断尺改成的手杖，灰呢工装膝部磨破，放大镜仍挂胸前。"
+          },
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 48,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜把手杖靠在裂纹钟面下，听见空楼里回荡着很轻的钟音。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "扭伤拄杖",
+            "appearance": "同一位韩霜：右踝旧伤，拄一根断尺改成的手杖，灰呢工装膝部磨破，放大镜仍挂胸前。"
+          },
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年的豆豆背着校时工具箱回到城南，快步走进停摆旧钟楼。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 34,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "豆豆在旧机房门下与拄杖的韩霜重逢，两人隔着齿轮灰尘相拥。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "扭伤拄杖",
+            "appearance": "同一位韩霜：右踝旧伤，拄一根断尺改成的手杖，灰呢工装膝部磨破，放大镜仍挂胸前。"
+          },
+          "gap": 1,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "折叠床旁，豆豆握着韩霜沾机油的手，听窗外最后一次整点钟声。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "扭伤拄杖",
+            "appearance": "同一位韩霜：右踝旧伤，拄一根断尺改成的手杖，灰呢工装膝部磨破，放大镜仍挂胸前。"
+          },
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "韩霜气息渐弱，最终阖上双眼，静静离开钟楼机房。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "静默离世",
+            "appearance": "韩霜阖眼长逝，静静躺在钟楼机房折叠床上，灰呢工装盖住胸口。"
+          },
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "机房门后仍挂着韩霜的灰呢工装，豆豆抚过膝部磨破的布面。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 12,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "豆豆站在韩记铭牌前，牌上韩霜亲手刻下的年份被汽灯照亮。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "她把韩霜留下的铭牌擦净，再用小螺丝固定回机房门上。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "改头换面的阿衡从旧钟楼旋梯走上来，眉骨金属擦伤在窗光里发亮。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿衡仍系银灰领巾，眉骨多一道金属擦伤，炭黑背带换成皮扣款。"
+          },
+          "gap": 41,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "豆豆与阿衡并肩立在裂纹钟面前，一个怀表链轻响，一个银灰领巾垂落。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿衡仍系银灰领巾，眉骨多一道金属擦伤，炭黑背带换成皮扣款。"
+          },
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "豆豆：深蓝背带裤、怀表链。",
+            "E6": "阿衡：面容极似豆豆，但银灰领巾、炭黑背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前——那个擦亮检修摇篮编号牌的学徒女孩，身影再度浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年学徒",
+            "appearance": "十五岁的学徒女孩，穿深蓝背带裤，腰间挂小怀表链，眼神机敏。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_062",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "擦亮检修摇篮编号牌的学徒女孩",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场的那一刻——机房里，一枚星辰刻度擒纵轮第一次嵌入擒纵叉。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "完好",
+            "appearance": "一枚巴掌大的天文擒纵轮，轮缘刻星辰刻度，宝石轴承闪光，与擒纵叉咬合平稳。",
+            "flashback": true
+          },
+          "gap": 18,
+          "last_seen": "seg_045",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次嵌入擒纵叉的星辰刻度擒纵轮",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到齿轮暗道——那个系银灰领巾的相似身影从传动轴旁掠过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "青年对手",
+            "appearance": "与豆豆面容极相似的青年，却系银灰领巾、穿炭黑背带，神情傲慢。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_062",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "当年齿轮暗道里系银灰领巾的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现机房梁下那五盏映着齿轮影的黄铜小灯。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 25,
+          "last_seen": "seg_040",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "机房梁下那五盏黄铜小灯",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那道临风外廊，白色钟面和城市屋顶一如往昔。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 16,
+          "last_seen": "seg_050",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时那道临风外廊",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "豆豆翻开那本机油污页的校时日志，在新页写下第一条独立校时记录。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 4,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污页",
+            "appearance": "同一本校时日志被机油浸透，封面发黏，误差数字糊成黑斑。"
+          },
+          "gap": 29,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "梁下五盏检修汽灯仍亮着，齿轮影落在她的深蓝背带裤上。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_066",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "校时台上，先前那三只黄铜油杯依旧按齿轮编号摆齐。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 58,
+          "last_seen": "seg_011",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "豆豆把换齿复位后的天文擒纵轮装回机芯，塔钟准点敲响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年技师",
+            "appearance": "二十出头的女技师，仍挂怀表链、穿深蓝背带裤，身形挺拔，能独自校准整套钟机。"
+          },
+          "gap": 1,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "换齿复位",
+            "appearance": "天文擒纵轮换上新轮齿后恢复平稳，新齿色泽略浅，星辰刻度仍清晰。"
+          },
+          "gap": 6,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_035"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_057"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 71,
+    "n_scenes": 19,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 138,
+      "transform": 8,
+      "persist": 24,
+      "recall_after_gap": 3
+    },
+    "probe_counts": {
+      "first_appearance": 14,
+      "continuity": 66,
+      "lookalike_disambiguation": 13,
+      "state_change": 8,
+      "persist_state": 19,
+      "false_friend": 5,
+      "deprecation_avoidance": 10,
+      "reference_indirect": 7,
+      "long_gap_reappearance": 5,
+      "count_memory": 5,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 13,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 7,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 152,
+      "5-29": 16,
+      ">=30": 5
+    },
+    "longest_gap": {
+      "eid": "E12",
+      "gap": 58,
+      "at": "seg_070"
+    }
+  },
+  "warnings": []
+}

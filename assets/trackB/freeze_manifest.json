@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "track": "B",
+  "freeze_policy": {
+    "meaning": "Rows listed under frozen_samples are immutable official TrackB gold artifacts. Any change requires adding a new freeze_version rather than editing in place.",
+    "sut_contract": "SUTs read only assets/trackB/en/sut_prompts/*.json (or zh/). GT files are scoring-only.",
+    "regeneration": "GT must be regenerated from gt_source with complete_gt.py; SUT prompts must be regenerated from GT with get_sut_prompts.py and match the recorded hashes."
+  },
+  "frozen_samples": [
+    {
+      "story_id": "0001_lighthouse_keeper",
+      "freeze_version": "trackB-0001-v1",
+      "gt_version": "trackB-gt-2.0",
+      "status": "frozen",
+      "date_utc": "2026-07-26",
+      "files": {
+        "gt_source": {
+          "path": "assets/trackB/en/gt_source/0001_lighthouse_keeper.json",
+          "sha256": "3e40c8583ee3f537008571a4cba60d0a0ccadfd14cfd99bc47a13b4a2a582918"
+        },
+        "gt": {
+          "path": "assets/trackB/en/gt/0001_lighthouse_keeper.json",
+          "sha256": "1e61664acf18a0535c3072768f116a0d6a1b95a326b0fbce611cb980e4156114"
+        },
+        "sut_prompt_name_anchored": {
+          "path": "assets/trackB/en/sut_prompts/0001_lighthouse_keeper_name_anchored.json",
+          "sha256": "8d00e75bdb1192c313699ed25276afa70cf62f5e27f1552b114063e2818dc9f6"
+        },
+        "complete_gt_script": {
+          "path": "assets/trackB/scripts/complete_gt.py",
+          "sha256": "94cef117ec11037d78f714f3fa1784b99faca6a3d1713031861a4331eda5aa6c"
+        },
+        "get_sut_prompts_script": {
+          "path": "assets/trackB/scripts/get_sut_prompts.py",
+          "sha256": "9e8e85ee970e25b82e1276e910adc97fefd20f19364b4793a59b8bf1d14adeab"
+        }
+      },
+      "audit": {
+        "segments": 87,
+        "duration_sec_per_segment": 5.0,
+        "entities": 19,
+        "entity_kinds": {
+          "character": 5,
+          "prop": 10,
+          "location": 4
+        },
+        "sut_prompt_warnings": 0,
+        "hard_issues": 0,
+        "deterministic_regeneration": {
+          "gt_cmp": 0,
+          "sut_prompt_cmp": 0
+        },
+        "capability_coverage": {
+          "continuity": 81,
+          "lookalike_disambiguation": 11,
+          "state_change": 8,
+          "persist_state": 23,
+          "count_memory": 5,
+          "false_friend": 5,
+          "deprecation_avoidance": 10,
+          "reference_indirect": 5,
+          "long_gap_reappearance": 6,
+          "temporal_reference": 5
+        },
+        "notes": [
+          "Current scorer derives present/decoys from cast/forbidden at score time; present_required/decoys are not pre-baked in gt_version trackB-gt-2.0.",
+          "Only name_anchored SUT prompts are frozen for this sample."
+        ]
+      }
+    }
+  ]
+}

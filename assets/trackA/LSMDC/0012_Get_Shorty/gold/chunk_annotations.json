@@ -1,0 +1,4089 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "0012_Get_Shorty",
+  "human_reviewed": true,
+  "chunks": [
+    {
+      "chunk_id": 0,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        0.0,
+        15.0
+      ],
+      "prompt": "在餐厅中，穿黑西装男子坐在窗边，右手夹着一支白色香烟，烟雾袅袅；穿条纹衬衫男子坐在他对面说话并做手势。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_001",
+        "char_002",
+        "loc_001",
+        "prop_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 1,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        15.0,
+        23.0
+      ],
+      "prompt": "穿黑西装男子在餐厅内手持香烟凝视窗外街道，穿条纹衬衫男子在旁。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        23.0,
+        28.0
+      ],
+      "prompt": "穿黑西装男子站在餐厅木质柜台前，穿条纹衬衫男子从拱形门洞走出，两人交谈后穿条纹衬衫男子转身离开。 (环境音，轻微对话声。)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        28.0,
+        43.0
+      ],
+      "prompt": "穿黑西装男子坐在车内副驾驶，戴墨镜和帽子的穿白背心男子在开车并说话。 (男子交谈声，车辆行驶声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_003",
+        "loc_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        43.0,
+        54.0
+      ],
+      "prompt": "穿黑西装男子在车内听着，戴墨镜男子开车并说话，穿白背心男子在车内。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        54.0,
+        56.0
+      ],
+      "prompt": "穿黑西装男子从黑色轿车内起身，探身车外，随后走出车辆。 (环境音，车门声。)",
+      "present": [
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        56.0,
+        62.0
+      ],
+      "prompt": "穿黑西装男子戴手套敲门，穿灰色西装男子在卧室开门。 (敲门声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_005"
+      ],
+      "first_appearances": [
+        "char_004",
+        "loc_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        63.0,
+        78.0
+      ],
+      "prompt": "穿黑西装男子和穿白背心男子在理发店中各自阅读报纸。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_002",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "loc_003",
+        "prop_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        78.0,
+        93.0
+      ],
+      "prompt": "穿紫色衬衫的理发师走近穿黑西装男子，两人在理发店中交谈，穿白背心男子在旁。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_005",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "char_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        93.0,
+        108.0
+      ],
+      "prompt": "穿灰色西装男子手持剧本走进理发店，与穿黑西装男子交谈，穿白背心男子在旁。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_004",
+        "prop_003",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "prop_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        108.0,
+        118.0
+      ],
+      "prompt": "穿黑西装男子在理发店继续看剧本，穿白背心男子和理发师在旁，穿灰色西装男子离开，报纸留在桌上。 (环境声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_005",
+        "prop_002",
+        "prop_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        119.0,
+        134.0
+      ],
+      "prompt": "在后院中，穿黑西装男子与红发女子坐在椅子上，边喝酒边交谈。红发女子卷发蓬松，身着花裙子，手持金色杯子。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_004"
+      ],
+      "first_appearances": [
+        "char_006",
+        "loc_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        134.0,
+        151.0
+      ],
+      "prompt": "穿黑西装男子在后院手持紫色杯子与红发女子交谈，女子手持金色杯子，香烟在旁。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_006",
+        "prop_001",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        152.0,
+        161.0
+      ],
+      "prompt": "穿黑西装男子在办公室内查看一张照片。 (环境声)",
+      "present": [
+        "char_001",
+        "loc_006"
+      ],
+      "first_appearances": [
+        "loc_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        161.0,
+        171.0
+      ],
+      "prompt": "雨夜中，一辆标有'WELCOME TO LOS ANGELES'的大巴驶过理发店和后院，随后画面切到一栋亮着灯的房屋外景。 (雨声，车辆行驶声。)",
+      "present": [
+        "loc_003",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        171.0,
+        186.0
+      ],
+      "prompt": "穿白背心男子在卧室中从床上醒来，起身走向电视。 (环境声，电视声)",
+      "present": [
+        "char_003",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        186.0,
+        201.0
+      ],
+      "prompt": "穿黑西装男子坐在卧室椅子上，穿白背心男子站在他面前。 (电视声，男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        201.0,
+        216.0
+      ],
+      "prompt": "穿白背心男子在卧室接起绿色座机电话，通话后放下听筒，随后坐下，穿黑西装男子坐在一旁抽烟。 (电话铃声，男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_004",
+        "loc_005"
+      ],
+      "first_appearances": [
+        "prop_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        216.0,
+        231.0
+      ],
+      "prompt": "在卧室中，穿白背心男子坐下喝酒，穿黑西装男子吸烟交谈。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_001",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        231.0,
+        248.0
+      ],
+      "prompt": "在卧室中，穿黑西装男子与穿白背心男子在餐厅交谈，穿紫色T恤女子从楼梯走下。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_007",
+        "loc_005"
+      ],
+      "first_appearances": [
+        "char_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        249.0,
+        263.0
+      ],
+      "prompt": "穿条纹衬衫男子与穿黄色西装男子在飞机上，后者戴格纹帽、穿米色西装内搭黄色衬衫，随后机场酒吧窗外飞机爆炸。 (爆炸声，环境声)",
+      "present": [
+        "char_002",
+        "char_010",
+        "loc_007"
+      ],
+      "first_appearances": [
+        "char_010",
+        "loc_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        264.0,
+        277.0
+      ],
+      "prompt": "穿黑衣女子在停尸房俯身整理衣物，随后抱起一顶格纹帽子，情绪激动地哭泣。她头戴宽边黑帽，帽沿垂下薄纱，身着黑色短袖连衣裙，胸前别着金色星形胸针，双手戴黑色手套，手腕有金色手链。 (女子哭泣声)",
+      "present": [
+        "char_008",
+        "loc_008"
+      ],
+      "first_appearances": [
+        "char_008",
+        "loc_008"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_008",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_008",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        277.0,
+        281.0
+      ],
+      "prompt": "穿紫色T恤女子双臂交叉站在卧室，穿灰色西装男子在办公室。 (环境音，赌场嘈杂声。)",
+      "present": [
+        "char_004",
+        "loc_005",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        281.0,
+        296.0
+      ],
+      "prompt": "穿黑西装男子在卧室点燃香烟，与穿白背心男子在办公室桌边交谈。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_001",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        296.0,
+        311.0
+      ],
+      "prompt": "穿黑西装男子与穿白背心男子在卧室的餐桌旁交谈，穿白背心男子挠头。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        311.0,
+        314.0
+      ],
+      "prompt": "理发师在车内弯腰与穿着花裙子的小女孩说话。 (环境音，轻微对话声。)",
+      "present": [
+        "char_005",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        314.0,
+        330.0
+      ],
+      "prompt": "穿黑西装男子与戴帽子男子在车内交谈，穿白背心男子也在场。 (男子交谈声，车辆行驶声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        331.0,
+        346.0
+      ],
+      "prompt": "穿黑西装男子在办公室内观看墙上照片，穿白背心男子在桌边整理剧本。 (环境声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_003",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        346.0,
+        361.0
+      ],
+      "prompt": "在办公室中，穿白背心男子递剧本给穿黑西装男子，男子看窗外。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "prop_003",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        361.0,
+        378.0
+      ],
+      "prompt": "穿黑西装男子在办公室内整理物品，穿白背心男子关闭百叶窗，大胡子男子与穿黄色西装男子先后进入并握手。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_009",
+        "char_010",
+        "loc_006"
+      ],
+      "first_appearances": [
+        "char_009"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        379.0,
+        394.0
+      ],
+      "prompt": "穿黑西装男子坐在办公室书桌后，穿白背心男子、穿黄色西装男子与大胡子男子先后进入并坐下。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_009",
+        "char_010",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        394.0,
+        409.0
+      ],
+      "prompt": "在办公室中，穿黑西装男子吸烟，穿黄色西装男子说话。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_009",
+        "char_010",
+        "prop_001",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        409.0,
+        425.0
+      ],
+      "prompt": "穿白背心男子注视着大胡子男子与穿黄色西装男子离开办公室，穿黑西装男子在旁。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_009",
+        "char_010",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        425.0,
+        433.0
+      ],
+      "prompt": "在停尸房中，一辆黑色面包车停在白色房屋前的车道上，周围有植物和花盆。 (环境音，无对话。)",
+      "present": [
+        "loc_008"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_008",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        433.0,
+        448.0
+      ],
+      "prompt": "穿黑西装男子在卧室中，坐在椅子上打电话。 (电话交谈声)",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        448.0,
+        450.0
+      ],
+      "prompt": "穿黑西装男子在卧室挂断电话，金发女子身穿粉色套装出现在门口。 (环境声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "prop_004",
+        "loc_005"
+      ],
+      "first_appearances": [
+        "char_012"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        451.0,
+        466.0
+      ],
+      "prompt": "穿红西装男子与穿黑西装男子在豪宅客厅交谈，随后穿黑西装男子提包离开。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_011",
+        "loc_011"
+      ],
+      "first_appearances": [
+        "char_011",
+        "loc_011"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_011",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        466.0,
+        469.0
+      ],
+      "prompt": "在豪宅中，穿红西装男子在走廊看着穿黑西装男子离开。 (环境声)",
+      "present": [
+        "char_001",
+        "char_011",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_011",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        470.0,
+        485.0
+      ],
+      "prompt": "穿黑西装男子在办公室翻看剧本，穿黄色西装男子坐在桌后说话。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_003",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        486.0,
+        501.0
+      ],
+      "prompt": "金发女子走进电影院，穿黑西装男子坐在座位上观看电影。 (电影声，环境声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "loc_010"
+      ],
+      "first_appearances": [
+        "loc_010"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        501.0,
+        516.0
+      ],
+      "prompt": "穿黑西装男子在电影院内注视银幕。 (电影声)",
+      "present": [
+        "char_001",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        516.0,
+        531.0
+      ],
+      "prompt": "穿黑西装男子与金发女子在电影院内交谈。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        531.0,
+        548.0
+      ],
+      "prompt": "穿黑西装男子与金发女子起身离开电影院。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        548.0,
+        554.0
+      ],
+      "prompt": "穿黑西装男子叼着香烟，与穿灰色西装男子和金发女子从赌场走出，走向街道。 (街道环境音，轻微对话声。)",
+      "present": [
+        "char_001",
+        "char_004",
+        "prop_001",
+        "loc_009"
+      ],
+      "first_appearances": [
+        "loc_009"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        554.0,
+        563.0
+      ],
+      "prompt": "穿黑西装男子与金发女子在街道上交谈。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "loc_015"
+      ],
+      "first_appearances": [
+        "loc_015"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_015",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        563.0,
+        568.0
+      ],
+      "prompt": "机场控制塔矗立在暮色中，一架飞机从停机坪滑行经过。 (环境音，无对话。)",
+      "present": [
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        568.0,
+        583.0
+      ],
+      "prompt": "年轻男子在机场航站楼内凝视储物柜，他身穿灰色西装，短发，额前汗珠闪烁。 (环境声)",
+      "present": [
+        "char_013",
+        "loc_007"
+      ],
+      "first_appearances": [
+        "char_013"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_013",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        583.0,
+        585.0
+      ],
+      "prompt": "年轻男子在机场中抬头看向前方，金发女子站在他身旁微笑。 (环境声)",
+      "present": [
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        586.0,
+        597.0
+      ],
+      "prompt": "年轻男子在阳台吸烟，大胡子男子和穿黄色西装男子在阳台栏杆旁持枪对准下方。 (环境声)",
+      "present": [
+        "char_013",
+        "char_009",
+        "char_010",
+        "loc_013"
+      ],
+      "first_appearances": [
+        "loc_013"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_013",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_013",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        598.0,
+        613.0
+      ],
+      "prompt": "在豪宅门口，穿黑西装男子与金发女子交谈，短发女子从庭院跑出，黑色短发随跑动晃动，身穿印有图案的黑色背心和深色裤子，她笑着加入对话。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "char_014",
+        "loc_011"
+      ],
+      "first_appearances": [
+        "char_014"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_014",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        613.0,
+        628.0
+      ],
+      "prompt": "在豪宅大厅，穿黑西装男子、穿条纹衬衫男子、金发女子、短发女子与穿粉色套装女子互动，秃顶男子拥抱金发女子后与短发女子互动。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_012",
+        "char_014",
+        "char_015",
+        "loc_011"
+      ],
+      "first_appearances": [
+        "char_015"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_014",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_015",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        628.0,
+        648.0
+      ],
+      "prompt": "穿条纹衬衫男子在豪宅客厅说话，穿黑西装男子、金发女子和穿粉色套装女子围坐聆听。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_012",
+        "char_015",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_015",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        649.0,
+        664.0
+      ],
+      "prompt": "在豪宅中，穿条纹衬衫男子说话，金发女子和穿黑西装男子听着。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_012",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        664.0,
+        679.0
+      ],
+      "prompt": "穿黑西装男子与穿条纹衬衫男子在豪宅客厅对坐交谈，穿条纹衬衫男子双手合十低头倾听，金发女子在旁。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_012",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        679.0,
+        694.0
+      ],
+      "prompt": "在豪宅中，穿黑西装男子与金发女子交谈，穿条纹衬衫男子低头。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_012",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        694.0,
+        703.0
+      ],
+      "prompt": "在豪宅客厅，穿黑西装男子与金发女子交谈，穿条纹衬衫男子注视他们。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_012",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        704.0,
+        719.0
+      ],
+      "prompt": "穿白背心男子与大胡子男子在餐厅内，穿黄色西装男子走近。 (男子交谈声)",
+      "present": [
+        "char_003",
+        "char_009",
+        "char_010",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        719.0,
+        723.0
+      ],
+      "prompt": "大胡子男子与穿黄色西装男子在餐厅内交谈。 (男子交谈声)",
+      "present": [
+        "char_010",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        724.0,
+        739.0
+      ],
+      "prompt": "穿条纹衬衫男子、穿黑西装男子和金发女子沿砖石小径走向街道。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_012",
+        "loc_015"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_015",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        739.0,
+        754.0
+      ],
+      "prompt": "穿黑西装男子在街道上打开车门，穿条纹衬衫男子站在一旁观看。 (环境声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_015"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_015",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        755.0,
+        770.0
+      ],
+      "prompt": "穿黄色西装男子举杯大笑，穿白背心男子与大胡子男子在餐厅用餐。 (男子笑声，交谈声)",
+      "present": [
+        "char_003",
+        "char_009",
+        "char_010",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        771.0,
+        786.0
+      ],
+      "prompt": "穿黑西装男子与金发女子步入餐厅，周围宾客正用餐。 (环境声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        786.0,
+        801.0
+      ],
+      "prompt": "穿黑西装男子与穿黄色西装男子在餐厅交谈，金发女子走向穿白背心男子并拥抱他。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_010",
+        "char_012",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        801.0,
+        813.0
+      ],
+      "prompt": "在餐厅中，穿黑西装男子与穿白背心男子交谈，金发女子坐在旁倾听。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_012",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 64,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        814.0,
+        825.0
+      ],
+      "prompt": "穿白背心男子在客厅打电话，穿灰色西装男子在卧室打电话。 (电话交谈声)",
+      "present": [
+        "char_003",
+        "char_004",
+        "prop_004",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 65,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        826.0,
+        841.0
+      ],
+      "prompt": "穿黑西装男子在机场储物柜旁写字，随后走向储物柜。 (环境声)",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 66,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        841.0,
+        856.0
+      ],
+      "prompt": "穿黑西装男子与另一男子在机场交谈，穿灰色西装男子随后出现。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 67,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        856.0,
+        871.0
+      ],
+      "prompt": "穿黑西装男子与穿灰色西装男子在机场中行走，穿黄色西装男子在办公室被搜身。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "char_010",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 68,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        872.0,
+        887.0
+      ],
+      "prompt": "穿黑西装男子与大胡子男子在车内交谈。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 69,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        887.0,
+        898.0
+      ],
+      "prompt": "穿黑西装男子在车内与大胡子男子交谈，随后大胡子男子倒下。 (环境声)",
+      "present": [
+        "char_001",
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 70,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        899.0,
+        914.0
+      ],
+      "prompt": "穿白背心男子在办公室桌边起身，穿灰色西装男子进入房间。 (男子交谈声)",
+      "present": [
+        "char_003",
+        "char_004",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 71,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        914.0,
+        929.0
+      ],
+      "prompt": "穿白背心男子在办公室中关闭百叶窗，穿灰色西装男子坐在沙发上。 (男子交谈声)",
+      "present": [
+        "char_003",
+        "char_004",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 72,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        929.0,
+        944.0
+      ],
+      "prompt": "穿黄色西装男子在车库内打电话，目光注视窗外。 (电话交谈声)",
+      "present": [
+        "char_010",
+        "prop_004",
+        "loc_014",
+        "loc_006"
+      ],
+      "first_appearances": [
+        "loc_014"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_014",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 73,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        944.0,
+        959.0
+      ],
+      "prompt": "穿灰色西装男子与穿黄色西装男子在车库内，与他人一同注视一辆黑色豪华轿车。 (环境声)",
+      "present": [
+        "char_004",
+        "char_010",
+        "loc_014",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_014",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 74,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        959.0,
+        974.0
+      ],
+      "prompt": "穿灰色西装男子与穿黄色西装男子在车内交谈。 (男子交谈声)",
+      "present": [
+        "char_004",
+        "char_010",
+        "loc_002",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 75,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        974.0,
+        989.0
+      ],
+      "prompt": "穿灰色西装男子扑向穿白背心男子，二人在办公室激烈扭打。 (打斗声)",
+      "present": [
+        "char_003",
+        "char_004",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 76,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        989.0,
+        1004.0
+      ],
+      "prompt": "穿白背心男子被击倒于办公室地面，穿灰色西装男子俯身查看。 (打斗声)",
+      "present": [
+        "char_003",
+        "char_004",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 77,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1004.0,
+        1019.0
+      ],
+      "prompt": "在办公室中，穿灰色西装男子持枪站着，穿白背心男子在地上。 (男子交谈声)",
+      "present": [
+        "char_003",
+        "char_004",
+        "prop_005",
+        "loc_006"
+      ],
+      "first_appearances": [
+        "prop_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 78,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1019.0,
+        1039.0
+      ],
+      "prompt": "穿灰色西装男子持枪说话，穿白背心男子与大胡子男子进入办公室。 (男子交谈声)",
+      "present": [
+        "char_003",
+        "char_004",
+        "char_009",
+        "prop_005",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 79,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1040.0,
+        1055.0
+      ],
+      "prompt": "金发女子走向后院阳台，与穿黑西装男子并肩坐于躺椅，面朝大海看日落。 (环境声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 80,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1055.0,
+        1076.0
+      ],
+      "prompt": "穿黑西装男子与金发女子在卧室床上亲吻。 (环境声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "loc_005",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 81,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1077.0,
+        1092.0
+      ],
+      "prompt": "穿黄色外套女子、穿黑西装男子和金发女子走进医院。穿黄色外套女子金发卷曲，身着亮黄色外套与白色连衣裙，腰系金色链条，手提粉色手包，边走边说话，神情激动。 (环境声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "char_016",
+        "loc_012"
+      ],
+      "first_appearances": [
+        "char_016",
+        "loc_012"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_016",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_012",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 82,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1092.0,
+        1107.0
+      ],
+      "prompt": "穿黑西装男子、金发女子与穿黄色外套女子站在医院病床旁，医生正为穿白背心男子检查。 (医生交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_012",
+        "char_016",
+        "loc_012"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_016",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_012",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 83,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1107.0,
+        1110.0
+      ],
+      "prompt": "穿黑西装男子、穿白背心男子、金发女子与穿黄色外套女子跟随穿蓝色手术服的医生离开医院。 (环境声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_012",
+        "char_016",
+        "loc_012"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_016",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_012",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 84,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1111.0,
+        1124.0
+      ],
+      "prompt": "穿黄色西装男子抱着女孩坐在阳台，背景是绿树和房屋。 (环境声)",
+      "present": [
+        "char_010",
+        "loc_013"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_013",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 85,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1125.0,
+        1140.0
+      ],
+      "prompt": "穿黑西装男子、穿白背心男子、金发女子和戴米色医用颈托、左臂缠着绷带的男子沿街道前行。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_012",
+        "prop_007",
+        "loc_015"
+      ],
+      "first_appearances": [
+        "prop_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_015",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 86,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1140.0,
+        1155.0
+      ],
+      "prompt": "穿条纹衬衫男子与穿黑西装男子在餐厅内交谈，穿白背心男子坐在桌旁，金发女子在旁，颈托放在桌上。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "char_012",
+        "prop_007",
+        "loc_001",
+        "loc_015"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_015",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 87,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1155.0,
+        1164.0
+      ],
+      "prompt": "穿条纹衬衫男子与戴颈托的穿白背心男子在餐厅交谈。 (男子交谈声)",
+      "present": [
+        "char_002",
+        "char_003",
+        "prop_007",
+        "loc_001",
+        "loc_015"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_015",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 88,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1165.0,
+        1179.0
+      ],
+      "prompt": "在卧室中，金发女子与穿黑西装男子躺在床上交谈。 (男女交谈声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 89,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1180.0,
+        1195.0
+      ],
+      "prompt": "在卧室中，穿棕穿黄色西装男子持枪威胁金发穿紫色T恤女子，女子进入电梯。 (男子交谈声)",
+      "present": [
+        "char_007",
+        "char_010",
+        "prop_005",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 90,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1195.0,
+        1210.0
+      ],
+      "prompt": "穿黑西装男子被大胡子男子用枪指着，随后趴在地上，穿黄色西装男子在卧室里看着现金。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_009",
+        "char_010",
+        "prop_005",
+        "prop_006",
+        "loc_005"
+      ],
+      "first_appearances": [
+        "prop_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 91,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1210.0,
+        1222.0
+      ],
+      "prompt": "大胡子男子与穿黑西装男子在卧室中激烈打斗，穿黄色西装男子在一旁怒吼。 (打斗声)",
+      "present": [
+        "char_001",
+        "char_009",
+        "char_010",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 92,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1223.0,
+        1230.0
+      ],
+      "prompt": "穿黑西装男子从车中下车，走向街道旁。金发女子留在车内。 (环境声)",
+      "present": [
+        "char_001",
+        "char_012",
+        "loc_015"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_012",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_015",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 93,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1231.0,
+        1246.0
+      ],
+      "prompt": "在豪宅中，穿黑西装男子进入客厅，穿粉穿灰色西装男子持枪出现。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "prop_005",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 94,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1246.0,
+        1261.0
+      ],
+      "prompt": "在豪宅中，穿粉穿灰色西装男子持枪威胁穿黑西装男子。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "prop_005",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 95,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1261.0,
+        1277.0
+      ],
+      "prompt": "穿灰色西装男子持枪胁迫穿黑西装男子吞服药丸，随后穿灰色西装男子离开豪宅。 (男子交谈声)",
+      "present": [
+        "char_001",
+        "char_004",
+        "prop_005",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    }
+  ]
+}

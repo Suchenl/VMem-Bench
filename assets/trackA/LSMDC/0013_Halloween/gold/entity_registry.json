@@ -1,0 +1,1265 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "0013_Halloween",
+  "human_reviewed": true,
+  "annotation_provenance": {
+    "pipeline": "vlm_dominant_video_free",
+    "model": "s4-human-review",
+    "layout_hash": "5ff41d6bc1ae1136",
+    "chunk_source": "visual_segments",
+    "presence_time_unit": "seconds",
+    "review": "trust_mode_pilot",
+    "unknown_present_refs": []
+  },
+  "entities": [
+    {
+      "entity_id": "char_001",
+      "kind": "character",
+      "name": "小男孩Michael",
+      "description": "金发小男孩，穿着彩色小丑服装，戴着白色小丑面具，手持一把大厨房刀。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          29,
+          86
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 28.6,
+      "last_frame": null,
+      "last_seconds": 85.8,
+      "screen_time_seconds": 57.2,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_001@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_002",
+      "kind": "character",
+      "name": "Judith Myers",
+      "description": "年轻女性，金发，穿着粉色上衣。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          14
+        ],
+        [
+          29,
+          57
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 57.2,
+      "screen_time_seconds": 42.9,
+      "max_absence_frames": null,
+      "max_absence_seconds": 14.3,
+      "representations": [
+        {
+          "representation_id": "char_002@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c000_char_002",
+          "chunk_id": 0,
+          "description": "destroyed: 被小男孩Michael用刀刺死，倒在床上。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 1.98
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_003",
+      "kind": "character",
+      "name": "成年Michael Myers",
+      "description": "高大男性，穿着深蓝色工装服，戴着白色面具，手持厨房刀。",
+      "first_chunk": 14,
+      "presence_spans": [
+        [
+          201,
+          245
+        ],
+        [
+          333,
+          347
+        ],
+        [
+          362,
+          376
+        ],
+        [
+          406,
+          420
+        ],
+        [
+          554,
+          583
+        ],
+        [
+          613,
+          688
+        ],
+        [
+          777,
+          896
+        ],
+        [
+          911,
+          956
+        ],
+        [
+          971,
+          1016
+        ],
+        [
+          1180,
+          1225
+        ],
+        [
+          1240,
+          1329
+        ],
+        [
+          1552,
+          1612
+        ],
+        [
+          1836,
+          1880
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 201.2,
+      "last_frame": null,
+      "last_seconds": 1880.3,
+      "screen_time_seconds": 638.9,
+      "max_absence_frames": null,
+      "max_absence_seconds": 223.5,
+      "representations": [
+        {
+          "representation_id": "char_003@c014",
+          "chunk_id": 14,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_004",
+      "kind": "character",
+      "name": "Laurie Strode",
+      "description": "年轻女性，金发，穿着蓝色衬衫和牛仔裤。",
+      "first_chunk": 12,
+      "presence_spans": [
+        [
+          172,
+          260
+        ],
+        [
+          318,
+          333
+        ],
+        [
+          347,
+          494
+        ],
+        [
+          688,
+          941
+        ],
+        [
+          956,
+          1001
+        ],
+        [
+          1016,
+          1061
+        ],
+        [
+          1076,
+          1091
+        ],
+        [
+          1106,
+          1180
+        ],
+        [
+          1195,
+          1240
+        ],
+        [
+          1254,
+          1299
+        ],
+        [
+          1329,
+          1404
+        ],
+        [
+          1418,
+          1433
+        ],
+        [
+          1478,
+          1582
+        ],
+        [
+          1612,
+          1687
+        ],
+        [
+          1702,
+          1716
+        ],
+        [
+          1761,
+          1865
+        ],
+        [
+          1880,
+          1901
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 172.0,
+      "last_frame": null,
+      "last_seconds": 1901.0,
+      "screen_time_seconds": 1179.2,
+      "max_absence_frames": null,
+      "max_absence_seconds": 193.7,
+      "representations": [
+        {
+          "representation_id": "char_004@c012",
+          "chunk_id": 12,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_005",
+      "kind": "character",
+      "name": "Tommy Doyle",
+      "description": "小男孩，穿着宇航员服装，金发。",
+      "first_chunk": 12,
+      "presence_spans": [
+        [
+          172,
+          216
+        ],
+        [
+          688,
+          703
+        ],
+        [
+          718,
+          732
+        ],
+        [
+          762,
+          792
+        ],
+        [
+          822,
+          837
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 172.0,
+      "last_frame": null,
+      "last_seconds": 836.7,
+      "screen_time_seconds": 118.3,
+      "max_absence_frames": null,
+      "max_absence_seconds": 471.9,
+      "representations": [
+        {
+          "representation_id": "char_005@c012",
+          "chunk_id": 12,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_006",
+      "kind": "character",
+      "name": "Lindsey Wallace",
+      "description": "小女孩，穿着格子裙和红上衣，扎着辫子。",
+      "first_chunk": 47,
+      "presence_spans": [
+        [
+          688,
+          703
+        ],
+        [
+          718,
+          732
+        ],
+        [
+          762,
+          792
+        ],
+        [
+          822,
+          837
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 687.7,
+      "last_frame": null,
+      "last_seconds": 836.7,
+      "screen_time_seconds": 74.5,
+      "max_absence_frames": null,
+      "max_absence_seconds": 29.8,
+      "representations": [
+        {
+          "representation_id": "char_006@c047",
+          "chunk_id": 47,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_007",
+      "kind": "character",
+      "name": "Annie Brackett",
+      "description": "年轻女性，深色卷发，穿着白衬衫和格子裙。",
+      "first_chunk": 15,
+      "presence_spans": [
+        [
+          216,
+          260
+        ],
+        [
+          347,
+          391
+        ],
+        [
+          494,
+          583
+        ],
+        [
+          747,
+          762
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 215.8,
+      "last_frame": null,
+      "last_seconds": 762.2,
+      "screen_time_seconds": 191.9,
+      "max_absence_frames": null,
+      "max_absence_seconds": 163.9,
+      "representations": [
+        {
+          "representation_id": "char_007@c015",
+          "chunk_id": 15,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c001_char_007",
+          "chunk_id": 1,
+          "description": "destroyed: 在厨房被成年Michael Myers从背后勒死/刺死。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 28.13
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_008",
+      "kind": "character",
+      "name": "Dr. Sam Loomis",
+      "description": "中年男性，秃顶，留着胡子，穿着米色风衣和西装。",
+      "first_chunk": 6,
+      "presence_spans": [
+        [
+          86,
+          172
+        ],
+        [
+          260,
+          289
+        ],
+        [
+          303,
+          318
+        ],
+        [
+          926,
+          956
+        ],
+        [
+          986,
+          1061
+        ],
+        [
+          1091,
+          1195
+        ],
+        [
+          1284,
+          1314
+        ],
+        [
+          1344,
+          1404
+        ],
+        [
+          1433,
+          1448
+        ],
+        [
+          1478,
+          1597
+        ],
+        [
+          1627,
+          1687
+        ],
+        [
+          1716,
+          1731
+        ],
+        [
+          1761,
+          1901
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 85.8,
+      "last_frame": null,
+      "last_seconds": 1901.0,
+      "screen_time_seconds": 777.1,
+      "max_absence_frames": null,
+      "max_absence_seconds": 608.1,
+      "representations": [
+        {
+          "representation_id": "char_008@c006",
+          "chunk_id": 6,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_009",
+      "kind": "character",
+      "name": "Sheriff Brackett",
+      "description": "中年男性，穿着警服，深色头发。",
+      "first_chunk": 6,
+      "presence_spans": [
+        [
+          86,
+          129
+        ],
+        [
+          143,
+          172
+        ],
+        [
+          260,
+          318
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 85.8,
+      "last_frame": null,
+      "last_seconds": 318.0,
+      "screen_time_seconds": 130.3,
+      "max_absence_frames": null,
+      "max_absence_seconds": 87.6,
+      "representations": [
+        {
+          "representation_id": "char_009@c006",
+          "chunk_id": 6,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_010",
+      "kind": "character",
+      "name": "Bob Simms",
+      "description": "年轻男性，戴眼镜，穿着格子衬衫。",
+      "first_chunk": 40,
+      "presence_spans": [
+        [
+          583,
+          643
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 583.4,
+      "last_frame": null,
+      "last_seconds": 643.0,
+      "screen_time_seconds": 59.6,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "char_010@c040",
+          "chunk_id": 40,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c001_char_010",
+          "chunk_id": 1,
+          "description": "destroyed: 在卧室被成年Michael Myers刺死，钉在门上。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 22.12
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_011",
+      "kind": "character",
+      "name": "Lynda van der Klok",
+      "description": "年轻女性，金发，穿着白衬衫。",
+      "first_chunk": 40,
+      "presence_spans": [
+        [
+          583,
+          613
+        ],
+        [
+          643,
+          673
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 583.4,
+      "last_frame": null,
+      "last_seconds": 672.8,
+      "screen_time_seconds": 59.6,
+      "max_absence_frames": null,
+      "max_absence_seconds": 29.8,
+      "representations": [
+        {
+          "representation_id": "char_011@c040",
+          "chunk_id": 40,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [
+        {
+          "event_id": "evt_c001_char_011",
+          "chunk_id": 1,
+          "description": "destroyed: 在卧室被成年Michael Myers用电话线勒死。",
+          "deprecates": [],
+          "frame_index": null,
+          "seconds": 23.14
+        }
+      ],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "char_012",
+      "kind": "character",
+      "name": "Judith的男友",
+      "description": "年轻男性，穿着条纹衫。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          14
+        ],
+        [
+          29,
+          57
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 57.2,
+      "screen_time_seconds": 42.9,
+      "max_absence_frames": null,
+      "max_absence_seconds": 14.3,
+      "representations": [
+        {
+          "representation_id": "char_012@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_001",
+      "kind": "prop",
+      "name": "厨房刀",
+      "description": "一把大型厨房切肉刀，银色刀身，黑色手柄。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          14,
+          86
+        ],
+        [
+          568,
+          583
+        ],
+        [
+          628,
+          643
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 14.3,
+      "last_frame": null,
+      "last_seconds": 643.0,
+      "screen_time_seconds": 101.3,
+      "max_absence_frames": null,
+      "max_absence_seconds": 482.7,
+      "representations": [
+        {
+          "representation_id": "prop_001@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_002",
+      "kind": "prop",
+      "name": "望远镜",
+      "description": "双筒望远镜。",
+      "first_chunk": 2,
+      "presence_spans": [
+        [
+          29,
+          43
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 28.6,
+      "last_frame": null,
+      "last_seconds": 42.9,
+      "screen_time_seconds": 14.3,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_002@c002",
+          "chunk_id": 2,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_003",
+      "kind": "prop",
+      "name": "南瓜灯",
+      "description": "雕刻成鬼脸的南瓜，内部有烛光。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          14
+        ],
+        [
+          718,
+          732
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 732.4,
+      "screen_time_seconds": 29.2,
+      "max_absence_frames": null,
+      "max_absence_seconds": 703.2,
+      "representations": [
+        {
+          "representation_id": "prop_003@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_004",
+      "kind": "prop",
+      "name": "电话",
+      "description": "老式旋转拨号电话，米色或白色。",
+      "first_chunk": 35,
+      "presence_spans": [
+        [
+          509,
+          524
+        ],
+        [
+          658,
+          673
+        ],
+        [
+          762,
+          777
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 508.9,
+      "last_frame": null,
+      "last_seconds": 777.1,
+      "screen_time_seconds": 44.7,
+      "max_absence_frames": null,
+      "max_absence_seconds": 134.1,
+      "representations": [
+        {
+          "representation_id": "prop_004@c035",
+          "chunk_id": 35,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_005",
+      "kind": "prop",
+      "name": "衣架",
+      "description": "金属衣架。",
+      "first_chunk": 59,
+      "presence_spans": [
+        [
+          866,
+          881
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 866.5,
+      "last_frame": null,
+      "last_seconds": 881.4,
+      "screen_time_seconds": 14.9,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_005@c059",
+          "chunk_id": 59,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "prop_006",
+      "kind": "prop",
+      "name": "针织针",
+      "description": "细长的金属针织针。",
+      "first_chunk": 55,
+      "presence_spans": [
+        [
+          807,
+          822
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 806.9,
+      "last_frame": null,
+      "last_seconds": 821.8,
+      "screen_time_seconds": 14.9,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_006@c055",
+          "chunk_id": 55,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "category"
+      }
+    },
+    {
+      "entity_id": "prop_007",
+      "kind": "prop",
+      "name": "墓碑",
+      "description": "刻有'Judith Myers'字样的白色墓碑。",
+      "first_chunk": 1,
+      "presence_spans": [
+        [
+          14,
+          29
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 14.3,
+      "last_frame": null,
+      "last_seconds": 28.6,
+      "screen_time_seconds": 14.3,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "prop_007@c001",
+          "chunk_id": 1,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "individual"
+      }
+    },
+    {
+      "entity_id": "loc_001",
+      "kind": "location",
+      "name": "Myers老宅",
+      "description": "一栋两层楼的白色老房子，外观破旧，有门廊和楼梯。",
+      "first_chunk": 0,
+      "presence_spans": [
+        [
+          0,
+          172
+        ],
+        [
+          187,
+          216
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 0.0,
+      "last_frame": null,
+      "last_seconds": 215.8,
+      "screen_time_seconds": 201.2,
+      "max_absence_frames": null,
+      "max_absence_seconds": 14.6,
+      "representations": [
+        {
+          "representation_id": "loc_001@c000",
+          "chunk_id": 0,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_002",
+      "kind": "location",
+      "name": "Haddonfield街道",
+      "description": "安静的郊区街道，两旁有树木和房屋。",
+      "first_chunk": 12,
+      "presence_spans": [
+        [
+          172,
+          494
+        ],
+        [
+          1061,
+          1076
+        ],
+        [
+          1106,
+          1135
+        ],
+        [
+          1374,
+          1389
+        ],
+        [
+          1404,
+          1418
+        ],
+        [
+          1448,
+          1478
+        ],
+        [
+          1493,
+          1508
+        ],
+        [
+          1657,
+          1672
+        ],
+        [
+          1687,
+          1702
+        ],
+        [
+          1731,
+          1761
+        ],
+        [
+          1776,
+          1791
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 172.0,
+      "last_frame": null,
+      "last_seconds": 1790.9,
+      "screen_time_seconds": 515.7,
+      "max_absence_frames": null,
+      "max_absence_seconds": 566.8,
+      "representations": [
+        {
+          "representation_id": "loc_002@c012",
+          "chunk_id": 12,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_003",
+      "kind": "location",
+      "name": "墓地",
+      "description": "有树木和墓碑的墓地。",
+      "first_chunk": 18,
+      "presence_spans": [
+        [
+          260,
+          289
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 259.6,
+      "last_frame": null,
+      "last_seconds": 288.8,
+      "screen_time_seconds": 29.2,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_003@c018",
+          "chunk_id": 18,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_004",
+      "kind": "location",
+      "name": "Wallace家",
+      "description": "一栋两层楼的白色房子，内部有客厅、厨房、卧室和楼梯。",
+      "first_chunk": 27,
+      "presence_spans": [
+        [
+          391,
+          420
+        ],
+        [
+          449,
+          1901
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 391.0,
+      "last_frame": null,
+      "last_seconds": 1901.0,
+      "screen_time_seconds": 1480.8,
+      "max_absence_frames": null,
+      "max_absence_seconds": 29.2,
+      "representations": [
+        {
+          "representation_id": "loc_004@c027",
+          "chunk_id": 27,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_005",
+      "kind": "location",
+      "name": "学校/图书馆",
+      "description": "室内场景，有书架、课桌和百叶窗。",
+      "first_chunk": 22,
+      "presence_spans": [
+        [
+          318,
+          347
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 318.0,
+      "last_frame": null,
+      "last_seconds": 347.2,
+      "screen_time_seconds": 29.2,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_005@c022",
+          "chunk_id": 22,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    },
+    {
+      "entity_id": "loc_006",
+      "kind": "location",
+      "name": "商店街",
+      "description": "街道两旁的商店，有行人和车辆。",
+      "first_chunk": 20,
+      "presence_spans": [
+        [
+          289,
+          318
+        ]
+      ],
+      "first_frame": null,
+      "first_seconds": 288.8,
+      "last_frame": null,
+      "last_seconds": 318.0,
+      "screen_time_seconds": 29.2,
+      "max_absence_frames": null,
+      "max_absence_seconds": 0.0,
+      "representations": [
+        {
+          "representation_id": "loc_006@c020",
+          "chunk_id": 20,
+          "crop_path": "",
+          "bbox": [],
+          "bbox_source": "vlm_fallback",
+          "frame_index": -1,
+          "embedding_key": "",
+          "state": "default",
+          "qa": {}
+        }
+      ],
+      "state_events": [],
+      "static_attributes": {
+        "identity_scope": "scene"
+      }
+    }
+  ]
+}

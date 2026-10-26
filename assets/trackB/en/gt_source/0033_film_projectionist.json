@@ -1,0 +1,1081 @@
+{
+  "story_id": "0033_film_projectionist",
+  "title": "Film Projectionist",
+  "premise": "A long master-apprentice drama in Booth Two and on the film-vault platform. Yunduo and A-Yu are easily confused by looks; the carbon-arc lamphouse goes intact→carbon rods explode→window replaced and retuned; after the film trailer burns it must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "_state_note": "Entities with state machines use states; others use appearance. On transfer, only the current-state appearance is injected.",
+  "entities": {
+    "E1": {
+      "name": "Chu Heng",
+      "kind": "character",
+      "states": {
+        "prime_booth": "Film projectionist Chu Heng around fifty, square glasses, worn deep-blue coveralls, film splicer in the breast pocket, fingers blackened by carbon dust.",
+        "smoke_weary": "The same Chu Heng: scorched cuffs, glasses filmed with ash, walking slowly supporting himself on the projection port, eyes heavy.",
+        "deceased": "Chu Heng has closed his eyes in death, lying still on the booth folding cot, face peaceful, no breath left."
+      }
+    },
+    "E2": {
+      "name": "Yunduo",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Yunduo: a lean projection apprentice of fourteen or fifteen, hair clip holding a light-blue film sprocket scrap, oversized deep-blue coveralls, bright stubborn eyes.",
+        "adult_successor": "Adult Yunduo: a broader-shouldered projectionist in his twenties, still clipping the light-blue sprocket scrap, coveralls fitted, steady eyes."
+      }
+    },
+    "E3": {
+      "name": "carbon-arc lamphouse",
+      "kind": "prop",
+      "states": {
+        "intact": "A cast-iron carbon-arc lamphouse, observation window intact, carbon-rod gap precise, painted dark green.",
+        "carbon_exploded": "The same carbon-arc lamphouse: observation window shattered, carbon rods broken and blackened, scorched patches on the outer wall.",
+        "window_retuned": "The carbon-arc lamphouse fitted with a new observation window, rod gap recalibrated, scorched patches ground down so it can ignite again."
+      }
+    },
+    "E4": {
+      "name": "show logbook",
+      "kind": "prop",
+      "states": {
+        "intact": "A black-cover show logbook recording reel numbers and run times, neat handwriting.",
+        "carbon_dust_stained": "The same show logbook soaked through with carbon dust, cover gray, writing blurred into a paste."
+      }
+    },
+    "E5": {
+      "name": "film trailer",
+      "kind": "prop",
+      "states": {
+        "intact": "A vermilion film trailer with metal film cases fixed in the bed, white 'Print' lettering on the body.",
+        "fire_destroyed": "The film trailer ignited by carbon-arc sparks, cases melted, frame charred and twisted."
+      }
+    },
+    "E6": {
+      "name": "A-Yu",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young projection worker A-Yu whose face closely resembles Yunduo's, but an orange-red dust mask hung at the neck, ash-gray vest over coveralls, swaggering look.",
+        "disguised_anew": "A-Yu after a makeover still wears the orange-red dust mask at the neck; vest swapped for matte black, expression deeper."
+      }
+    },
+    "E7": {
+      "name": "Booth Two",
+      "kind": "location",
+      "appearance": "Theater Booth Two, twin projectors side by side, sound-damping felt on the walls, air smelling of ozone and film."
+    },
+    "E8": {
+      "name": "film-vault platform",
+      "kind": "location",
+      "appearance": "Back-alley film-vault platform, yellow unload lines on the concrete, iron door half open, empty film cases stacked."
+    },
+    "E9": {
+      "name": "print-vault narrow corridor",
+      "kind": "location",
+      "appearance": "A narrow corridor between print vaults, tall iron racks on both sides, fire-sand on the floor, heavy shadow."
+    },
+    "E10": {
+      "name": "old outdoor screen frame",
+      "kind": "location",
+      "appearance": "An old outdoor screen frame in the suburbs, white cloth tattered, supports rusted, weeds over the base."
+    },
+    "E11": {
+      "name": "projection memorial brass plaque",
+      "kind": "prop",
+      "appearance": "A brass memorial plaque nailed to the booth doorframe, engraved 'Chu Heng' and the hire year, verdigris on the edges."
+    },
+    "E12": {
+      "name": "reel labels",
+      "kind": "prop",
+      "appearance": "Three cardboard reel labels stuck on the first-run film case, lettered 'Reel 1', 'Reel 2', 'Reel 3'."
+    },
+    "E13": {
+      "name": "silver-gray cargo electric cart",
+      "kind": "prop",
+      "appearance": "A brand-new silver-gray cargo electric cart loaded with cardboard boxes, no 'Print' lettering—utterly unlike the film trailer."
+    },
+    "E14": {
+      "name": "Theater firefighter",
+      "kind": "character",
+      "appearance": "A lean theater firefighter in a red helmet and ochre fire jacket, build somewhat like Chu Heng's, but a fire crest on the arm patch."
+    },
+    "E15": {
+      "name": "booth wall lamps",
+      "kind": "prop",
+      "appearance": "A row of five booth wall lamps mounted above the sound-damping felt, shades polished bright."
+    },
+    "E16": {
+      "name": "changeover bells",
+      "kind": "prop",
+      "appearance": "Two changeover copper bells hung by the projection port, clappers scarred, ringing twice lightly at changeover."
+    },
+    "E17": {
+      "name": "Xiao Ni",
+      "kind": "character",
+      "appearance": "New intern print checker Xiao Ni, light-purple headscarf, brand-new coveralls; at a glance like young Yunduo, but sharper chin and shy eyes."
+    },
+    "E18": {
+      "name": "xenon spare housing",
+      "kind": "prop",
+      "appearance": "A xenon spare housing, vaguely like the carbon-arc lamphouse but shorter, silver-gray paint, no observation window."
+    },
+    "E19": {
+      "name": "blue-gray handcart",
+      "kind": "prop",
+      "appearance": "A blue-gray cleaning handcart, wide flat body, no film-case mounting frame—not the same as the film trailer."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_booth",
+      "smoke_weary",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "carbon_exploded",
+      "window_retuned"
+    ],
+    "E4": [
+      "intact",
+      "carbon_dust_stained"
+    ],
+    "E5": [
+      "intact",
+      "fire_destroyed"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised_anew"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Yunduo: hair clip with light-blue film sprocket scrap, deep-blue coveralls.",
+        "E6": "A-Yu: face nearly identical to Yunduo's, but orange-red dust mask hung at the neck, ash-gray vest over coveralls."
+      },
+      "note": "Hard misidentification sample: light-blue sprocket scrap vs orange-red dust mask."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Booth at dusk (five wall lamps · two changeover bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk Chu Heng pushes open the Booth Two door and lights the carbon-arc lamphouse for a test.",
+        {
+          "action": "A row of five booth wall lamps above the sound-damping felt; Chu Heng wipes each shade clean.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two changeover bells hang by the projection port; Chu Heng taps them lightly—clear bright rings.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Chu Heng checks the carbon-arc lamphouse rod gap and observation window, confirming no cracks.",
+        "Through the projection port Chu Heng watches the light patch on the empty screen.",
+        {
+          "action": "The intact carbon-arc lamphouse sits steady on its base; the observation window reflects warm wall-lamp light.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Chu Heng sits on a folding chair and drinks cold tea.",
+        "Far audience entry sounds rise; he puts his glasses back on.",
+        "He trims a sprocket fringe with the splicer."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Filling the show logbook",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Chu Heng opens the black-cover show logbook and notes today's reel numbers.",
+        "He sketches a changeover timeline on the page.",
+        "Chu Heng closes the show logbook and tucks it into the worktable drawer.",
+        {
+          "action": "White light from the carbon-arc lamphouse sweeps his cheek.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "He tears a corner of lens tissue and wipes carbon dust from his glasses."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Platform greets the apprentice (three reel labels)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        {
+          "action": "On the morning film-vault platform, Chu Heng greets the arriving vermilion film trailer.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Young Yunduo jumps down from the film trailer; the light-blue sprocket scrap on the hair clip sways lightly.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Chu Heng points to the first-run three reel labels and teaches Yunduo to tell Reel 1 through Reel 3.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Yunduo squats by the platform yellow line and curiously touches the copper corners of empty film cases.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Chu Heng explains to Yunduo that two rings of the changeover bells mean switch machines.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Yunduo looks back at the intact film trailer, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "The iron door creaks lightly; they walk toward Booth Two."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Print-vault narrow corridor (only A-Yu)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the print-vault narrow corridor, A-Yu with an orange-red dust mask at the neck turns from iron-rack shadow.",
+        "A-Yu walks slowly on the fire-sand; the ash-gray vest stands out.",
+        "He brushes past a mate carrying film cases; the mask flashes in the reflection.",
+        "A-Yu knocks the iron rack to confirm the case pins are locked.",
+        "He passes the corridor end toward the inspection table."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Platform misrecognition shared screen",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "On the film-vault platform Yunduo and A-Yu stand side by side: one clipping a light-blue sprocket scrap, one with an orange-red dust mask at the neck.",
+        "Yunduo hands a test scrap to A-Yu; they lock eyes briefly.",
+        "A-Yu tidies Yunduo's oversized coverall collar, then turns away.",
+        "They walk opposite ways along the yellow line; shadows cross in the iron-door gloom.",
+        "A rewind whir rises; only empty cases lightly knock on the platform."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Logbook carbon-dust stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Chu Heng keeps watch alone in Booth Two.",
+        {
+          "action": "He opens the show logbook; the cover is soaked through with carbon dust, gray and blurred.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "carbon_dust_stained"
+            }
+          ]
+        },
+        "Chu Heng wipes the carbon-arc lamphouse observation window with lens tissue.",
+        "From the projection port he watches one emergency light in the pitch-black auditorium.",
+        {
+          "action": "The carbon-arc lamphouse sits still on its base; the rods glow faintly dull.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "A changeover bell is bumped half a ring by vent draft, then falls silent."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years turning (filler · stretch the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At spring-slate open, Chu Heng day after day focuses and tests in the booth.",
+        "Another rainy night he wraps his coveralls tight and keeps watch by the carbon-arc lamphouse.",
+        "At high-summer noon the machine room stifles; he rotates opening windows to cool it.",
+        "Autumn fog thickens; wall-lamp light struggles through the dust.",
+        "On New Year's Eve Chu Heng alone fills the show logbook to the last page.",
+        "In early spring he recalibrates the gate and keeps testing prints.",
+        "Before rainy season Chu Heng reinforces the vault fire-sand layer.",
+        "After Frost's Descent he adds a small bucket of dry sand in the booth corner.",
+        "Before another Golden Rooster festival he checks sprockets reel by reel.",
+        "On a snowy night with no show Chu Heng leaves only one booth wall lamp and keeps vigil till dawn.",
+        "After Insects Awaken he wipes the dried splice table clean again.",
+        "Around Qingming he clears weeds at the old outdoor screen frame entrance.",
+        "At Grain Rain he teaches an apprentice to identify newly arrived color prints."
+      ]
+    },
+    {
+      "id": "S6c",
+      "setting": "Daily booth duty (keep stretching the interval)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "Chu Heng replaces carbon rods and adjusts the gap.",
+        "He checks the take-up gear and drips machine oil.",
+        {
+          "action": "The intact carbon-arc lamphouse is lit again by him; the observation window shows white light.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Unload sounds rise from the platform; he looks up to listen.",
+        "Chu Heng dumps spent carbon slag into an iron bucket and lids it.",
+        "At noon break he drinks tea by the projection port; tea smoke curls past his glasses.",
+        "In the afternoon he tests again, focusing all four screen corners.",
+        "At sunset he kills the main switch and locks the booth.",
+        "Before night he patrols the print vault once more, confirming no smoke smell."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Platform rounds (recall labels · blue-gray handcart false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn Chu Heng patrols the film-vault platform; the film trailer still sits inside the yellow line.",
+        {
+          "action": "He crouches to check whether the film trailer bed case straps have loosened.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "On the first run, those earlier three reel labels still stick in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A blue-gray handcart rolls across the platform—wide flat body, no 'Print' lettering.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Chu Heng stands on the platform noting last night's damp cores.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "He re-clips the film trailer hitch tight.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        "A sanitation truck passes far off; morning mist begins to thin."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Booth watch again",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At nightfall Chu Heng returns to Booth Two and opens the carbon-dust-stained show logbook.",
+        "Against old numbers he backfills today's changeover times.",
+        {
+          "action": "He briefly lights the carbon-arc lamphouse; white light shows the logbook's dusty gray cover.",
+          "present": [
+            "E1",
+            "E7",
+            "E3",
+            "E4"
+          ]
+        },
+        "He wipes fresh carbon dust from his glasses.",
+        "Vent draft rises; the sound-damping felt rustles lightly.",
+        "Chu Heng kills half the booth wall lamps, leaving only the one at the machine."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Carbon-arc accident (lamphouse shatters · trailer burns)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "In a storm the carbon arc overloads; Booth Two falls into scramble.",
+        "Sparks fly; wall lamps shake hard.",
+        {
+          "action": "As Chu Heng fights the blaze the carbon-arc lamphouse observation window shatters; the rods break.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "carbon_exploded"
+            }
+          ]
+        },
+        {
+          "action": "On the platform the film trailer is ignited by flying sparks and smokes hard.",
+          "present": [
+            "E5",
+            "E8"
+          ]
+        },
+        {
+          "action": "Flames lick the film cases; the film trailer burns in the fire, frame charred black.",
+          "present": [
+            "E5",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "fire_destroyed",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Chu Heng clutches the shattered carbon-arc lamphouse and will not let go.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Alarms blare; the corridor fills with footsteps."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (trailer indirect reference · wall-lamp recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day when rain eases, Chu Heng stands in the booth staring at the carbon-exploded carbon-arc lamphouse.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "He strokes the shattered observation-window frame with a finger, expression darkened.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a blank page of the show logbook he writes the date the film trailer burned.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "The film trailer's unload flowchart is still taped to the wall; Chu Heng gazes a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "He takes down one of the five booth wall lamps above the sound-damping felt and sits alone by its faint light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The shattered carbon-arc lamphouse rests on its base like an extinguished eye.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Far sweeping sounds rise; charred scraps are gathered into a heap."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Window replaced and retuned (third state · xenon spare housing false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Chu Heng brings glass and carbon rods, ready to repair the carbon-arc lamphouse.",
+        {
+          "action": "From the vault he rolls out a xenon spare housing—somewhat like the lamphouse but shorter and silver-gray.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Chu Heng fits a new observation window and recalibrates the carbon-rod gap.",
+        {
+          "action": "After grinding the scorched patches, the carbon-arc lamphouse can ignite again.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "window_retuned"
+            }
+          ]
+        },
+        "He briefly tests the light; white beam steady and sharp again.",
+        "Chu Heng rolls the xenon spare housing back to the vault, no longer confusing them."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: electric cart and firefighter",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "A silver-gray cargo electric cart rolls onto the film-vault platform—nothing like the burned film trailer.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "A Theater firefighter in red helmet and ochre jacket steps onto the platform and talks beside Chu Heng; the two builds are close.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The firefighter points at the silver-gray cargo electric cart and explains the temporary print haul.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The electric cart drives off; Chu Heng alone watches it leave the platform.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "He resticks the reel labels straight and walks back to the booth."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: intern print checker Xiao Ni",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "Into the print-vault narrow corridor comes intern print checker Xiao Ni in a light-purple headscarf; at a glance she somewhat resembles young Yunduo.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiao Ni tries winding film, but Chu Heng shakes his head—she is not Yunduo after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiao Ni bows her head and withdraws; only iron-rack shadow remains in the corridor."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Smoke-weary (changeover bells long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Chu Heng with scorched cuffs and ash-filmed glasses stands under the old outdoor screen frame as if supporting a projection port.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "smoke_weary"
+            }
+          ]
+        },
+        "He looks up at the tattered white cloth, gaze distant.",
+        {
+          "action": "Far off those two changeover bells by a projection port ring lightly in the wind; Chu Heng stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "He presses his palm to the rusted support, as if saying goodbye.",
+        "Weeds sway; the screen frame grows quieter."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Yunduo returns · Chu Heng dies",
+      "present": [
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Yunduo returns along the back alley and hurries toward the old outdoor screen frame.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        {
+          "action": "Under the screen frame Yunduo reunites with smoke-weary Chu Heng; they support each other.",
+          "present": [
+            "E1",
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Beside the booth folding cot, Yunduo holds Chu Heng's withered hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Chu Heng's breath fades; at last he closes his eyes and dies.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Outside, rewind sound stills; alley wind falls quiet for an instant.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · brass plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the booth door Chu Heng's deep-blue coveralls still hang; Yunduo reaches to stroke them lightly.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By the doorframe, adult Yunduo stands before the newly nailed projection memorial brass plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Yunduo's fingertip traces Chu Heng's name engraved on the plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "He softly speaks the page number of the logbook noting the film trailer burn, as if answering.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15b",
+      "setting": "Again naming the dead and destroyed (indirect avoidance)",
+      "present": [
+        "E2",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "After ash is cleared on the film-vault platform, Yunduo writes the words film trailer in the empty bay then erases them.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "Passing the booth corridor he sees Chu Heng's old splicer in a glass case.",
+          "present": [
+            "E2"
+          ]
+        },
+        {
+          "action": "In the night Yunduo softly repeats Chu Heng's changeover cues to the empty machine base.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        "In the film smell Yunduo grips the light-blue sprocket scrap tight in his palm."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Both sides reunite (long-range + shared screen)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "A-Yu after a makeover arrives from the print vault and briefly locks eyes with Yunduo under the old outdoor screen frame.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "disguised_anew"
+            }
+          ]
+        },
+        "Yunduo and A-Yu stand side by side by the rusted support—one calm-eyed, one deep-faced.",
+        "A-Yu still wears the orange-red dust mask at the neck; Yunduo still clips the light-blue sprocket scrap.",
+        "They are silent a moment, then each turns and leaves the screen frame."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal anchors)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—the youth who jumped from the vermilion trailer with a light-blue sprocket scrap clipped in the hair appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth who jumped from the vermilion trailer with a light-blue sprocket scrap clipped in the hair",
+                "resolves_to": "E2"
+              },
+              "state": "young_apprentice"
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the booth, a dark-green cast-iron lamphouse ignites white light for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the dark-green cast-iron lamphouse that first ignited white light at the opening",
+                "resolves_to": "E3"
+              },
+              "state": "intact"
+            }
+          ]
+        },
+        {
+          "action": "Flash to the print corridor—the figure with orange-red mask at the neck and ash-gray vest flickers past.",
+          "present": [
+            {
+              "eid": "E6",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in the narrow corridor with orange-red mask at the neck and ash-gray vest",
+                "resolves_to": "E6"
+              },
+              "state": "young_rival"
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old shaded wall lamps above the sound-damping felt appears.",
+          "present": [
+            {
+              "eid": "E15",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old shaded wall lamps above the sound-damping felt",
+                "resolves_to": "E15"
+              },
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Back to the concrete platform by the unload yellow line of first meeting; the iron door as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the concrete platform by the unload yellow line of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrase anchors; no formal entity names; avoid deceased/destroyed."
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (logbook long-range · labels long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Yunduo reopens that carbon-dust-stained show logbook and walks into Booth Two.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "On the first-run film case, those earlier three reel labels still stick.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Yunduo lights the window-retuned carbon-arc lamphouse; white light fills the screen again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "He rolls his coverall cuffs tight and nods confirmation the way Chu Heng once did.",
+        "In theater dusk the new shift's changeover bells ring twice lightly.",
+        "Before the projection port Yunduo drops today's first beam.",
+        "Far in the auditorium a seat flips up faintly."
+      ]
+    }
+  ]
+}

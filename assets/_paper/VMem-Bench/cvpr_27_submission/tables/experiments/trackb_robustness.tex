@@ -1,0 +1,26 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{Robustness of the Track-B memory effects.} Differences to no memory with paired story-bootstrap 95\% CIs; gray subscripts show full CI widths (upper minus lower); bold when the CI excludes zero. (a) Dropping every segment on which either arm's judge output failed to parse leaves all main effects in place; the three segment memories also gain significantly at 5--29 segments. (b) Last-seen effects are stratified by reference count; groups contain different segments, so this is not a count intervention.}
+\label{tab:robustness}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l r *{6}{c}@{}}
+\toprule
+\multicolumn{8}{@{}l}{\textit{(a) Minus no memory, segments with a parsable judge output in both arms}}\\
+Condition & dropped & Recall & Precision & Avoid-OK & 1--4 & 5--29 & $\geq$30 \\
+\midrule
+Text-frame & 129 & \ci{\textbf{+0.075}}{0.05} & \ci{\textbf{-0.041}}{0.02} & \ci{\textbf{-0.073}}{0.03} & \ci{\textbf{+0.105}}{0.09} & \ci{+0.015}{0.10} & \ci{-0.067}{0.13} \\[2pt]
+Seg+uniform & 138 & \ci{\textbf{+0.139}}{0.05} & \ci{\textbf{-0.064}}{0.03} & \ci{\textbf{-0.128}}{0.04} & \ci{\textbf{+0.154}}{0.10} & \ci{\textbf{+0.052}}{0.09} & \ci{-0.014}{0.14} \\[2pt]
+Seg+DINO-key & 143 & \ci{\textbf{+0.149}}{0.05} & \ci{\textbf{-0.057}}{0.02} & \ci{\textbf{-0.118}}{0.04} & \ci{\textbf{+0.152}}{0.10} & \ci{\textbf{+0.050}}{0.10} & \ci{+0.029}{0.11} \\[2pt]
+Seg+frame & 142 & \ci{\textbf{+0.131}}{0.06} & \ci{\textbf{-0.058}}{0.02} & \ci{\textbf{-0.114}}{0.05} & \ci{\textbf{+0.143}}{0.10} & \ci{\textbf{+0.054}}{0.09} & \ci{-0.014}{0.11} \\[2pt]
+Last-seen refs & 112 & \ci{\textbf{+0.087}}{0.04} & \ci{\textbf{-0.013}}{0.01} & \ci{\textbf{-0.028}}{0.02} & \ci{\textbf{+0.066}}{0.09} & \ci{-0.004}{0.09} & \ci{+0.000}{0.10} \\[2pt]
+\midrule
+\multicolumn{8}{@{}l}{\textit{(b) Last-seen refs minus no memory, by number of references used}}\\
+References & segments & Recall & Precision & Avoid-OK & & & \\
+\midrule
+1 & 1803 & \ci{\textbf{+0.087}}{0.04} & \ci{-0.002}{0.02} & \ci{-0.012}{0.03} & & & \\[2pt]
+2 & 842 & \ci{\textbf{+0.078}}{0.06} & \ci{\textbf{-0.027}}{0.02} & \ci{\textbf{-0.047}}{0.03} & & & \\[2pt]
+3 & 149 & \ci{+0.038}{0.09} & \ci{-0.031}{0.06} & \ci{-0.052}{0.10} & & & \\[2pt]
+\bottomrule
+\end{tabular}
+\end{table*}

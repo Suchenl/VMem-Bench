@@ -1,0 +1,1052 @@
+{
+  "story_id": "0040_luthier_workshop",
+  "title": "Hengsheng Luthier Workshop",
+  "premise": "A long luthier drama amid shavings and wood scent. A-Xian and A-Hui are easily confused; the spruce top plate goes intact_unjoined→cracked→butterfly_patched; the instrument cart must be avoided after destruction; soundpost/caliper/tuning-fork count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). Present entries may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Gu Heng",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Gu Heng the luthier in his fifties, half-frame glasses, linen apron, sawdust on his cuffs, focused expression.",
+        "weary_injured": "The same Gu Heng: apron torn, right hand bandaged, leaning on a wooden cane, glasses still on his nose.",
+        "retired_curtain": "Gu Heng has left the workshop; only his linen apron and glasses remain—he no longer appears."
+      }
+    },
+    "E2": {
+      "name": "A-Xian",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Apprentice A-Xian at fourteen or fifteen, indigo headscarf, gray cloth short jacket, bright stubborn eyes.",
+        "adult_successor": "A-Xian in his twenties, still in indigo headscarf, upright and steady."
+      }
+    },
+    "E3": {
+      "name": "spruce top plate",
+      "kind": "prop",
+      "states": {
+        "intact_unjoined": "A spruce top plate with tight grain, surface planed mirror-smooth, join lines marked at the edges.",
+        "cracked": "The same spruce top plate now cracked; fine splits along the grain, join lines misaligned.",
+        "butterfly_patched": "The spruce top plate crack closed with butterfly inlays; patch pieces clearly visible."
+      }
+    },
+    "E4": {
+      "name": "luthier notebook",
+      "kind": "prop",
+      "states": {
+        "intact": "A luthier notebook in cowhide cover, recording wood moisture and arch data.",
+        "glue_stained": "The same luthier notebook soaked through with fish glue; cover sticky, ink blurred."
+      }
+    },
+    "E5": {
+      "name": "instrument cart",
+      "kind": "prop",
+      "states": {
+        "intact": "A wooden instrument cart, bed lined with velvet, rail stamped with a small 'Gu' mark.",
+        "overturned_wrecked": "The instrument cart overturned on the slope; bed shattered, axle broken, reduced to wreckage."
+      }
+    },
+    "E6": {
+      "name": "A-Hui",
+      "kind": "character",
+      "states": {
+        "young_rival": "Youth A-Hui, face very like A-Xian's, cream-white neck scarf, ebony hairpin at the temple, bold expression.",
+        "disguised_anew": "Disguised anew, A-Hui still wears the cream-white neck scarf; hairpin swapped to black, expression deeper."
+      }
+    },
+    "E7": {
+      "name": "shavings workshop",
+      "kind": "location",
+      "appearance": "Shavings workshop: wood scent everywhere, long bench with planes and calipers, golden shavings on the floor."
+    },
+    "E8": {
+      "name": "instrument drying gallery",
+      "kind": "location",
+      "appearance": "Instrument drying gallery: glass-roofed corridor, half-finished bodies hanging, sunlight casting string shadows."
+    },
+    "E9": {
+      "name": "instrument-street shopfront",
+      "kind": "location",
+      "appearance": "Instrument-street shopfront: street-facing wooden counter, violins and bows on the wall, sign reading 'Hengsheng'."
+    },
+    "E10": {
+      "name": "old workshop porch",
+      "kind": "location",
+      "appearance": "Old workshop porch: gray-brick porch, lintel plaque 'Hengsheng' weathered, moss on the stone steps."
+    },
+    "E11": {
+      "name": "memorial wood plaque",
+      "kind": "prop",
+      "appearance": "A cypress memorial wood plaque nailed to a porch post, carved with Gu Heng's name and the workshop founding year."
+    },
+    "E12": {
+      "name": "soundpost blanks",
+      "kind": "prop",
+      "appearance": "Three soundpost blanks bound with red cord on the bench corner, wood pale cream."
+    },
+    "E13": {
+      "name": "red delivery tricycle",
+      "kind": "prop",
+      "appearance": "A red delivery tricycle, tin bed with no 'Gu' brand—unlike the wooden cart."
+    },
+    "E14": {
+      "name": "Association supervisor",
+      "kind": "character",
+      "appearance": "A lean Association supervisor, gray suit with chest badge, build somewhat like Gu Heng's but stiffer."
+    },
+    "E15": {
+      "name": "calipers",
+      "kind": "prop",
+      "appearance": "A row of five vernier calipers on the workshop tool board, metal gleaming."
+    },
+    "E16": {
+      "name": "tuning forks",
+      "kind": "prop",
+      "appearance": "Two brass tuning forks hanging under the drying-gallery eaves, ringing at a light tap."
+    },
+    "E17": {
+      "name": "Xiao Zheng",
+      "kind": "character",
+      "appearance": "Shopfront girl Xiao Zheng, light-brown headscarf, at a glance somewhat like young A-Xian, shy eyes."
+    },
+    "E18": {
+      "name": "pine practice board",
+      "kind": "prop",
+      "appearance": "A pine practice board, coarser grain, no join lines—looks like the spruce top plate but cannot serve as a soundboard."
+    },
+    "E19": {
+      "name": "String merchant Old Qiao",
+      "kind": "character",
+      "appearance": "String merchant Old Qiao, full beard, peg bag on his back, build like Gu Heng's but stockier."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_injured",
+      "retired_curtain"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact_unjoined",
+      "cracked",
+      "butterfly_patched"
+    ],
+    "E4": [
+      "intact",
+      "glue_stained"
+    ],
+    "E5": [
+      "intact",
+      "overturned_wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised_anew"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "A-Xian: indigo headscarf, gray cloth short jacket.",
+        "E6": "A-Hui: face extremely like A-Xian's, but cream-white neck scarf, ebony temple hairpin, bold expression."
+      },
+      "note": "Apprentice confusion: indigo headscarf vs cream-white neck scarf."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Shavings workshop at dusk (introduce five calipers · two tuning forks)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, Gu Heng enters the shavings workshop and runs his hand over the spruce top plate on the bench.",
+        {
+          "action": "Five vernier calipers hang on the tool board; Gu Heng zeroes each one.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two brass tuning forks hang under the drying-gallery eaves; Gu Heng taps them to let them ring.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Gu Heng circles the bench checking whether the plane irons are rolled.",
+        "Gu Heng gazes through the window at the fading string shadows in the instrument drying gallery.",
+        {
+          "action": "Under the lamp the spruce top plate shows tight grain; Gu Heng feels the moisture with his fingertip.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Gu Heng sits on a wooden stool in the workshop corner for a brief rest."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Recording the luthier notebook",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Gu Heng opens the luthier notebook and records the day's top-plate arch.",
+        "Gu Heng draws a thickness-distribution curve in the luthier notebook.",
+        "Gu Heng closes the luthier notebook and puts it back in the bench chest.",
+        {
+          "action": "The join lines at the spruce top plate edges are clear; Gu Heng nods.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Gu Heng wipes sawdust from the notebook cover with a dry cloth."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Instrument drying gallery greets apprentice (introduce three soundpost blanks)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "In the morning instrument drying gallery, Gu Heng greets young A-Xian arriving with the instrument cart.",
+        {
+          "action": "A-Xian steadies the cart and smooths the velvet lining flat again.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Gu Heng points to three soundpost blanks on the bench corner and teaches A-Xian to read the wood grain.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A-Xian crouches by a gallery post, curious about the hanging half-finished bodies.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Gu Heng explains the bass-bar line; A-Xian listens and nods seriously.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "A-Xian looks back at the wooden instrument cart, eyes full of care.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Gu Heng has A-Xian practice measuring plate thickness with calipers first."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Instrument-street shopfront (A-Hui only)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the bustling instrument-street shopfront, A-Hui in a cream-white neck scarf looks up from behind the counter.",
+        "A-Hui picks horsehair before the bow rack; her ebony hairpin sways slightly.",
+        "A-Hui haggles with a customer, expression bold.",
+        "A-Hui carries a violin case through the shopfront crowd.",
+        "A-Hui pauses under the 'Hengsheng' sign and looks back down the street."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Apprentices on screen together",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "On the instrument drying gallery, A-Xian and A-Hui stand side by side—one in indigo headscarf, one in cream-white neck scarf.",
+        "A-Xian hands soundpost blanks to A-Hui; the two compare the grain.",
+        "A-Hui straightens A-Xian's indigo headscarf; the two walk slowly along the gallery.",
+        "A-Xian and A-Hui part at the gallery end, one heading to the workshop and one to the shopfront.",
+        "A cross-breeze passes; their similar profiles cross and separate among the hanging bodies."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Luthier notebook glue-stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Gu Heng alone in the shavings workshop cooks fish glue.",
+        {
+          "action": "Gu Heng opens the luthier notebook and finds spilled fish glue has soaked the cover sticky.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "glue_stained"
+            }
+          ]
+        },
+        "Gu Heng wipes glue splashes from the spruce top plate.",
+        "Gu Heng looks out at the dark instrument drying gallery.",
+        {
+          "action": "Under the lamp the spruce top plate glows pale gold; Gu Heng slowly runs his hand over the grain.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Gu Heng slips blotting paper into the stained notebook and presses it under a paperweight."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Seasons of daily luthier work (filler · stretch interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In the rainy season, Gu Heng in the shavings workshop sweeps damp shavings to the stove to dry.",
+        "Gu Heng brushes sawdust from the caliper jaws.",
+        "At dawn, Gu Heng in the instrument drying gallery checks the hygrometer.",
+        "Gu Heng hangs his raincoat on a gallery post and listens to rain on the glass roof.",
+        "In midsummer, Gu Heng opens the workshop skylight to drive out glue fumes.",
+        "Gu Heng checks the fish-glue pot temperature so it does not thicken too much.",
+        "When autumn wind rises, Gu Heng pulls cover cloths off the outdoor half-finished bodies.",
+        "Gu Heng tries a new arch code on a blank page of the luthier notebook.",
+        "On a frosty night, Gu Heng lights an oil lamp and checks the flashlight battery.",
+        "Gu Heng wraps the top plate in a blanket to prevent night cracking.",
+        "On a heavy-snow day, Gu Heng sweeps thin snow from the old workshop porch steps.",
+        "Gu Heng breathes on his hands and tightens the red cord on the soundpost blanks.",
+        "In early spring, Gu Heng trims the ivy on the porch.",
+        "Gu Heng oils all five calipers one by one.",
+        "Gu Heng posts a new schedule on the workshop wall.",
+        "Around the Dragon Boat Festival, Gu Heng smokes the wood store with mugwort to repel insects.",
+        "Gu Heng re-planes the end faces of the soundpost blanks.",
+        "Gu Heng paces alone in the instrument drying gallery, memorizing bass-bar positions.",
+        "After the rain stops, Gu Heng pushes open the workshop door and listens to eaves drip into an iron bucket.",
+        "Gu Heng swaps worn sandpaper for fresh.",
+        "Another dusk, Gu Heng sits by the spruce top plate listening to the radio.",
+        "Gu Heng gets up at night to refill the humidifier.",
+        "Gu Heng hangs fresh horsehair strings to straighten.",
+        "Gu Heng wipes the 'Hengsheng' porch plaque.",
+        "Gu Heng checks the instrument cart velvet for holes.",
+        "Gu Heng marks the f-hole position on the drawing.",
+        "Gu Heng wrings out a glue-stained rag and hangs it up.",
+        "On a full-moon night, Gu Heng leans on the gallery railing at the bodies, varnish silver in the light.",
+        "Gu Heng organizes the tool board so all caliper jaws face the same way.",
+        "Gu Heng writes a new season's luthier notes on the notebook flyleaf.",
+        "Gu Heng polishes both tuning forks.",
+        "Gu Heng listens to trial playing from the shopfront and keeps planing the top plate thinner.",
+        "Gu Heng glues a split wooden wedge back together.",
+        "Gu Heng stacks spare ribs in the workshop corner.",
+        "Gu Heng shuts doors and windows against sudden night humidity swings.",
+        "Another Qingming, Gu Heng places a bunch of wildflowers on the porch.",
+        "Gu Heng rolls the drawing into a tube and binds it with a rubber band.",
+        "Gu Heng taps a tuning fork; the tone rings clear.",
+        "Gu Heng sits silently in the workshop, listening to shavings fall for a long while.",
+        "Gu Heng cuts worn indigo cloth into rags for later use."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Instrument drying gallery patrol (soundpost recall · red tricycle false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak, Gu Heng patrols the instrument drying gallery; the instrument cart stands at the gallery mouth.",
+        {
+          "action": "Gu Heng crouches to check lubrication on the instrument cart axle.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Gu Heng walks to the bench corner; the same three soundpost blanks are still bound with red cord.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A red delivery tricycle passes outside the gallery, tin bed—not the Gu family's wooden cart.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Gu Heng stands in the instrument drying gallery and records the hygrometer reading.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Gu Heng hangs the damp velvet cloth on a gallery rack.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Gu Heng brushes shavings from his sleeve and looks back toward the workshop lights."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Daily luthier work continued (filler · keep stretching interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "After Grain Rain, Gu Heng in the instrument drying gallery teaches a new apprentice to read tight vs loose grain.",
+        "Gu Heng drapes the dried cover cloths back over the bodies.",
+        "In summer heat, Gu Heng lays a damp cloth beside the fish-glue pot to cool it.",
+        "Gu Heng checks the instrument cart and moves the damp velvet to the upper layer.",
+        "On an autumn night, Gu Heng under the oil lamp mends loose pages of the luthier notebook.",
+        "Gu Heng sends all five calipers out for calibration in rotation.",
+        "At first snow, Gu Heng sweeps a narrow path at the old workshop porch threshold.",
+        "Gu Heng restacks spare pine boards neatly.",
+        "Gu Heng listens to a tuning fork's soft ring and keeps revising the schedule.",
+        "Gu Heng opens the gallery door to let a cross-breeze carry away glue smell.",
+        "Gu Heng hangs a rain awning on the porch.",
+        "Gu Heng puts chipped plane irons into an iron box.",
+        "Gu Heng dreams of the top plate cracking, wakes, and writes it in the notebook.",
+        "Gu Heng rinses calipers with clean water.",
+        "Gu Heng wipes the schedule clean and posts it again.",
+        "Gu Heng pulls weeds from mortar cracks in the gallery posts.",
+        "Gu Heng hangs calipers back on the tool board; the numbered tags have faded.",
+        "Gu Heng takes a last look at the spruce top plate crack before switching off the light.",
+        "Gu Heng folds the indigo headscarf the apprentice left in the workshop.",
+        "Gu Heng hears the shopfront lock at closing time and gets up to bolt the door.",
+        "Gu Heng dries gloves by the charcoal brazier.",
+        "Gu Heng moves the tuning forks aside to show the freshly repaired gallery eaves.",
+        "Gu Heng dries the humidity-test paper strips.",
+        "Gu Heng draws a thickness comparison on the notebook's last page.",
+        "Gu Heng murmurs tomorrow's top plate to join and steps out onto the porch.",
+        "Gu Heng pushes the instrument cart to the wall and clears shavings floor space.",
+        "Gu Heng hears a distant night watch drum and blows out the oil lamp.",
+        "Another rainy night, Gu Heng alone watches over the top plate until dawn.",
+        "Gu Heng trial-fits a newly arrived rosewood end block."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Humid rebound night (top plate crack · cart overturn)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "On a storm night, workshop humidity spikes; wood pops and creaks.",
+        "The bench trembles slightly in the shaking.",
+        {
+          "action": "A faint snap—the spruce top plate splits along the grain.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "cracked"
+            }
+          ]
+        },
+        {
+          "action": "On the slope outside the gallery, the instrument cart loses control on wet ground.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "The instrument cart overturns; bed shattered, axle broken, utterly wrecked.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "overturned_wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Gu Heng lunges to the bench and shields the cracking spruce top plate.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "A neighbor arrives with a lantern; splintered wood lies outside the gallery."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "After the disaster (indirect cart reference · caliper recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The next day, Gu Heng stands in the shavings workshop staring at the cracked spruce top plate.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Gu Heng runs a finger along the crack, expression dim.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Gu Heng writes the instrument cart overturn date on a blank page of the luthier notebook.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "An old photo of the instrument cart still hangs on the wall; Gu Heng stares a long while.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Gu Heng takes one of the five calipers from the tool board and recalibrates it.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The cracked spruce top plate still lies on the bench; join lines misaligned.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Gu Heng sets his wet boots by the door to drain."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Butterfly patch repair (third state · pine board false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Gu Heng brings in an inlay specialist to repair the spruce top plate.",
+        {
+          "action": "Gu Heng takes a pine practice board from the rack to compare—coarser grain, no join lines.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "The craftsman sets butterfly keys along the crack.",
+        {
+          "action": "The crack closes; the spruce top plate is usable again, patch pieces clearly visible.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "butterfly_patched"
+            }
+          ]
+        },
+        "The repaired plate gleams in morning light; Gu Heng looks pleased at the butterfly keys.",
+        "Gu Heng re-planes the edges and trial-fits the bass bar."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: red tricycle and supervisor",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "Outside the gallery comes String merchant Old Qiao, peg bag on his back, build like Gu Heng's.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The Association supervisor arrives too, gray suit and chest badge, standing beside Gu Heng to talk.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The supervisor points at the red delivery tricycle and asks whether it belongs to the Hengsheng workshop.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The supervisor leaves; Gu Heng alone remains in the instrument drying gallery.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Old Qiao unloads a crate of strings and bows farewell."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Xiao Zheng who resembles A-Xian",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "At the shopfront comes girl Xiao Zheng in a light-brown headscarf—at a glance somewhat like young A-Xian.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiao Zheng tries wiping a bow; Gu Heng shakes his head—she is not A-Xian after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiao Zheng lowers her head shyly and tightens her headscarf."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Weary and injured (long-range tuning-fork recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Gu Heng with bandaged right hand stands on his cane in the old workshop porch.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_injured"
+            }
+          ]
+        },
+        "Gu Heng looks up at the 'Hengsheng' plaque, gaze distant.",
+        {
+          "action": "The two brass tuning forks have been moved to the porch for a trial ring; Gu Heng stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Gu Heng presses his palm to the cool porch brick, as if saying goodbye.",
+        "Evening wind lifts a torn corner of his apron."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "A-Xian succeeds · Gu Heng retires",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult A-Xian returns along the street and hurries toward the old workshop porch.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "A-Xian reunites with cane-leaning Gu Heng under the porch; the two embrace.",
+        {
+          "action": "In the inner room beside the couch, A-Xian holds Gu Heng's hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Gu Heng's breath fades; he finally closes his eyes and retires from duty.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "retired_curtain",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "A-Xian folds Gu Heng's linen apron and sets it by the pillow.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · memorial wood plaque (indirect reference)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Behind the workshop door Gu Heng's half-frame glasses still hang; A-Xian reaches up to touch them lightly.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "On a porch post, A-Xian stands before the newly nailed memorial wood plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "A-Xian's fingertip traces Gu Heng's name carved on the memorial wood plaque.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        "A-Xian places a bunch of wildflowers beneath the plaque."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (long range + on screen together)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Disguised anew, A-Hui comes from the shopfront and embraces A-Xian tightly under the porch.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "disguised_anew"
+            }
+          ]
+        },
+        "A-Xian and A-Hui stand side by side on the porch—one calm-eyed, one deep in expression.",
+        "The two look at each other in silence, studying their similar faces.",
+        "A-Hui tightens her cream-white neck scarf; A-Xian still wears the indigo headscarf."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Temporal flashback (timeline anchoring)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The camera returns years earlier—the youth measuring plate thickness in the instrument drying gallery appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth measuring plate thickness in the instrument drying gallery",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the workshop, a tight-grain board shows its grain for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact_unjoined",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the spruce top plate showing tight grain for the first time at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to the shopfront that year—a figure in cream-white neck scarf and ebony temple hairpin flashes past.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in cream-white neck scarf in the shopfront that year",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Before the eyes rises that row of five vernier measures on the tool board again.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five vernier calipers on the tool board",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the long gallery at first meeting—half-finished bodies hanging as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the instrument drying gallery at first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The scene of two brass tuning forks ringing softly under the gallery eaves appears again.",
+          "present": [
+            {
+              "eid": "E16",
+              "count": 2,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the two brass tuning forks under the gallery eaves",
+                "resolves_to": "E16"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrase reference; no names appear."
+    },
+    {
+      "id": "S18",
+      "setting": "Closure (long-range notebook · long-range soundposts)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "A-Xian opens the glue-stained luthier notebook again and walks into the shavings workshop.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "On the bench corner, the same three soundpost blanks are still bound with red cord.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A-Xian takes the butterfly-patched spruce top plate and planes it open for cutting again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "Fresh green pushes through the porch stone cracks again.",
+        "A-Xian tightens his indigo headscarf; workshop lamps glow once more."
+      ]
+    }
+  ]
+}

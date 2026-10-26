@@ -1,0 +1,5193 @@
+{
+  "story_id": "0029_ink_wash_painter",
+  "gt_version": "trackB-gt-2.0",
+  "title": "水墨画室",
+  "premise": "听雨画室与竹廊洗笔池上的师徒长剧。阿月与阿默外形极易错认；羊毫斗笔完好→笔锋开叉→修锋重缠；松烟砚船摔裂后须规避；数量记忆与假朋友、时序闪回贯穿。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0029_ink_wash_painter.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "吴越",
+      "kind": "character",
+      "states": {
+        "壮年执笔": "五十上下的水墨画家吴越，清癯长脸，穿洗旧的月白长衫，袖口沾着淡墨，右手常年握羊毫，神情沉静。",
+        "病弱扶案": "同一位吴越：面色苍白、月白长衫松垮，需扶着画案边缘缓行，指节因久病微颤。",
+        "离世": "吴越阖眼长逝，静静躺在画室竹榻上，面容安详、气息全无。"
+      },
+      "initial_state": "壮年执笔"
+    },
+    "E2": {
+      "name": "阿月",
+      "kind": "character",
+      "states": {
+        "少年学徒": "少年阿月：十四五岁、身形清瘦的画室学徒，发间别一支竹青发簪，穿浅灰短褂，眉眼清亮倔强。",
+        "成年接班": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+      },
+      "initial_state": "少年学徒"
+    },
+    "E3": {
+      "name": "羊毫斗笔",
+      "kind": "prop",
+      "states": {
+        "完好": "一支特大号羊毫斗笔，竹管刻着『听雨』二字，笔锋齐整饱满，笔根缠着米黄色丝线。",
+        "笔锋开叉": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。",
+        "修锋重缠": "羊毫斗笔经修锋后笔尖重新聚拢，竹管裂纹以生漆填平，丝线重新缠紧。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "课徒画谱",
+      "kind": "prop",
+      "states": {
+        "完好": "一本线装课徒画谱，磁青封面，内页示范皴擦点染，纸白字清。",
+        "墨渍浸染": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+      },
+      "initial_state": "完好"
+    },
+    "E5": {
+      "name": "松烟砚船",
+      "kind": "prop",
+      "states": {
+        "完好": "一只榆木砚船，船形砚台上嵌端砚，旁有松烟墨锭与水盂，船舷刻浪纹。",
+        "摔裂倾覆": "榆木砚船从画案跌落摔裂，端砚碎成两半，墨汁倾洒一地。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "阿默",
+      "kind": "character",
+      "states": {
+        "青年对手": "与阿月面容极相似的青年画手阿默，却腕缠朱红丝绦，外罩玄色短褂，神情张扬。",
+        "改头换面": "改头换面后的阿默仍腕缠朱红丝绦，玄色短褂换成鸦青，神情更深沉。"
+      },
+      "initial_state": "青年对手"
+    },
+    "E7": {
+      "name": "听雨画室",
+      "kind": "location",
+      "appearance": "临水的听雨画室，北窗糊白宣，中央是宽大榆木画案，墙上挂未干的山水条幅，空气里有墨香。"
+    },
+    "E8": {
+      "name": "竹廊洗笔池",
+      "kind": "location",
+      "appearance": "画室外侧的竹廊，青石洗笔池蓄着清灰的墨水，竹影疏疏落在石沿。"
+    },
+    "E9": {
+      "name": "宣纸库窄巷",
+      "kind": "location",
+      "appearance": "宣纸库房之间的窄巷，两侧纸架高耸，地面铺着防潮竹席，光线被纸卷切碎。"
+    },
+    "E10": {
+      "name": "旧画廊废厅",
+      "kind": "location",
+      "appearance": "城南旧画廊废厅，剥落的白墙上留着挂钉痕迹，角落堆着空画轴与破绢。"
+    },
+    "E11": {
+      "name": "画室纪念木牌",
+      "kind": "prop",
+      "appearance": "一块钉在画室门柱上的楠木牌，刻着『吴越』与开馆年份，边角已被摩得发亮。"
+    },
+    "E12": {
+      "name": "石色小碟",
+      "kind": "prop",
+      "appearance": "三只青白瓷石色小碟，分别盛着石青、石绿与朱磦，摆在画案右上角。"
+    },
+    "E13": {
+      "name": "红木印箱车",
+      "kind": "prop",
+      "appearance": "一辆推着红木印箱的小推车，车身漆黑、铜角锃亮，与榆木砚船绝不相同。"
+    },
+    "E14": {
+      "name": "画院执事",
+      "kind": "character",
+      "appearance": "一名精瘦的画院执事，戴深褐瓜皮帽、穿青灰长衫，身形与吴越有几分相似，胸前却挂玉石腰牌。"
+    },
+    "E15": {
+      "name": "桐油罩灯",
+      "kind": "prop",
+      "appearance": "一排五盏桐油罩灯，挂在画室梁上铁钩，灯罩擦得透亮。"
+    },
+    "E16": {
+      "name": "唤徒铜磬",
+      "kind": "prop",
+      "appearance": "两只悬在竹廊檐下的唤徒铜磬，磬沿有敲痕，开课前轻叩两声。"
+    },
+    "E17": {
+      "name": "小荻",
+      "kind": "character",
+      "appearance": "新来的裱画学徒小荻，系浅褐发带、穿崭新短褂，乍看与少年阿月神似，却下巴更尖、目光怯生。"
+    },
+    "E18": {
+      "name": "狼毫小楷",
+      "kind": "prop",
+      "appearance": "一支狼毫小楷，外形略似斗笔却短小许多，笔管是黑漆、无『听雨』刻字。"
+    },
+    "E19": {
+      "name": "紫檀笔床",
+      "kind": "prop",
+      "appearance": "一座紫檀笔床，床面雕卷云，可搁多支笔，与船形砚台并非同一物。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "壮年执笔",
+      "病弱扶案",
+      "离世"
+    ],
+    "E2": [
+      "少年学徒",
+      "成年接班"
+    ],
+    "E3": [
+      "完好",
+      "笔锋开叉",
+      "修锋重缠"
+    ],
+    "E4": [
+      "完好",
+      "墨渍浸染"
+    ],
+    "E5": [
+      "完好",
+      "摔裂倾覆"
+    ],
+    "E6": [
+      "青年对手",
+      "改头换面"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+        "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+      },
+      "note": "错认硬样本：竹青发簪 vs 朱红丝绦。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，吴越提着月白长衫袖走进听雨画室，提起羊毫斗笔蘸墨试锋。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "画室梁上挂着一排五盏桐油罩灯，吴越逐一擦净灯罩。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "竹廊檐下悬着两只唤徒铜磬，吴越伸手轻叩，磬音清亮。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越检查羊毫斗笔的笔锋与丝线缠绕，确认无开叉。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越透过北窗，望向池面被风吹皱的墨色倒影。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "完好的羊毫斗笔搁在笔山上，笔锋映着桐油灯暖光。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越在画案旁坐下，喝了一口温茶。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处舟楫声起，他重新铺开半生熟宣。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他用淡墨先勾远山轮廓，线条如游丝。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "夜色渐深，他把未干的条幅挂到风口处晾。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "吴越翻开线装课徒画谱，用狼毫在空白页记下今日皴法要点。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他在画谱边角画下一道斧劈皴示意。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越合上课徒画谱，塞回画案下层抽屉。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "羊毫斗笔落纸的墨韵扫过他的侧脸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他撕下一角废宣，拭去砚边宿墨。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的竹廊洗笔池边，吴越迎向捧着松烟砚船赶来的身影。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "少年阿月把松烟砚船稳稳放上青石沿，竹青发簪微微晃动。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越指着画案右上角三只石色小碟，教阿月分辨石青与石绿。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿月蹲在洗笔池边，好奇地搅动一池淡墨水。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越向阿月讲解铜磬响两声就得停笔收锋。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿月回望完好的松烟砚船，眼里满是向往。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "竹影摇曳，两人沿竹廊走回听雨画室。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "宣纸库窄巷里，腕缠朱红丝绦的阿默从纸架阴影中回头。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿默踩着竹席缓步前行，玄色短褂格外显眼。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他与送纸伙计擦肩，朱红丝绦在纸卷反光里一闪。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿默敲了敲纸架，确认防潮席压稳。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他穿过窄巷尽头，走向裱画间。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "竹廊洗笔池边，阿月与阿默并肩而立：一个别竹青发簪，一个腕缠朱红丝绦。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿月把试锋废纸递给阿默，两人短暂相视。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿默替阿月理了理浅灰短褂领口，随即别开脸。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人沿竹廊反向走开，身影在竹影里交错。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一阵捣纸声起，廊上只剩洗笔池的涟漪。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的夜里，吴越独自在听雨画室值守。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他翻开课徒画谱，封面已被打翻的墨汁浸透、发皱模糊。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越用废宣擦拭羊毫斗笔笔管上的宿墨。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他凭着北窗，望向漆黑池面的一点渔火。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "羊毫斗笔在笔山上静置，丝线微微发硬。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "唤徒铜磬被夜风碰响半声，随即沉寂。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 1,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "春雨时节，吴越日复一日在画室勾皴点染。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一个雨夜，他裹紧月白长衫守在羊毫斗笔旁。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "盛夏正午，宣纸被潮气软化，他轮换烘干。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "秋雾弥漫，桐油灯的光在墨香里艰难穿行。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "除夕夜，吴越独自把课徒记录补齐到最后一页。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "开春，他重新研磨松烟，继续课徒示范。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "梅雨季前，吴越加固纸库的防潮席。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "霜降后，他在画室角落添了一小盆木炭。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一年雅集前，他逐幅检查待展条幅。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "雪夜停笔，吴越只留一盏桐油灯，守到天明。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "惊蛰后，他重新装订散页的课徒画谱附纸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "吴越更换笔帘，把洗净的笔挂去风干。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他检查洗笔池水位，舀去过浓的墨水。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "完好的羊毫斗笔再次被他提起，淡墨试锋一道。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "廊外传来捣纸的节奏，他抬头听了听。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越把废墨汁倒进陶瓮，盖上盖子。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "午休时他在竹廊下喝茶，茶烟绕过竹青。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "下午他又回到画案，继续皴一段远山。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "日落时分，他盖上砚池，锁上画室门。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "入夜前他再巡一圈纸库，确认无鼠患。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，吴越沿竹廊洗笔池巡查，松烟砚船仍搁在石沿。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 26,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E5",
+          "op": "recall_after_gap",
+          "gap": 36,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他蹲下检查松烟砚船船舷的浪纹刻线是否完好。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "画案右上角，先前那三只石色小碟仍摆在原处。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 42,
+          "last_seen": "seg_018",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一座紫檀笔床被抬过竹廊，雕卷云床面、并非松烟砚船。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越站在竹廊，记录昨夜潮气在宣纸上留下的波纹。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把砚船重新摆正，压上一张吸水纸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_060"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处市声渐起，晨雾开始散开。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "入夜，吴越回到听雨画室，翻开墨渍浸染的课徒画谱。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 27,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他对照旧页，补记今日课徒要点。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_066"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "羊毫斗笔被他短暂蘸墨，墨韵映出画谱皱起的封面。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他擦去灯罩内侧的油烟。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "池风起，窗纸轻响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越熄灭半排桐油灯，只留画案那一盏。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "暴雨中梁上忽然漏水，听雨画室一阵忙乱。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "积水逼近画案，桐油灯剧烈摇晃。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越扑救时羊毫斗笔笔锋开叉发硬，丝线松散沾满宿墨。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "笔锋开叉",
+            "appearance": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。"
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "案边，松烟砚船被撞翻，剧烈晃动。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一声脆响，松烟砚船摔裂，端砚碎成两半。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "摔裂倾覆",
+            "appearance": "榆木砚船从画案跌落摔裂，端砚碎成两半，墨汁倾洒一地。"
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越死死抓住笔锋开叉的羊毫斗笔不放。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "笔锋开叉",
+            "appearance": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。"
+          },
+          "gap": 2,
+          "last_seen": "seg_074"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "门外有人呼喊，雨声把喊声切碎。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "笔锋开叉",
+            "appearance": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。"
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "次日雨歇，吴越站在画室里凝视笔锋开叉的羊毫斗笔。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "笔锋开叉",
+            "appearance": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。"
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他用手指抚过开叉的笔毫，神情黯然。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "笔锋开叉",
+            "appearance": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。"
+          },
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他在课徒画谱空白页写下松烟砚船毁于漏雨的日期。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 9,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "墙上仍挂着松烟砚船的旧拓片，吴越久久凝望。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他取下梁上五盏桐油罩灯中的一盏，就着微光独坐。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 80,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "开叉的羊毫斗笔搁在笔山上，像受伤的鸟羽。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "笔锋开叉",
+            "appearance": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。"
+          },
+          "gap": 3,
+          "last_seen": "seg_080"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处排水的竹筒滴答作响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "笔锋开叉",
+            "appearance": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。"
+          },
+          "gap": 0,
+          "last_seen": "seg_084"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，吴越搬来刀具与生漆，准备修复羊毫斗笔。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "笔锋开叉",
+            "appearance": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。"
+          },
+          "gap": 0,
+          "last_seen": "seg_085"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他从笔匣取出一支狼毫小楷，略似斗笔却短小无刻字。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越修去开叉笔毫，重新缠紧米黄色丝线。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "笔锋开叉",
+            "appearance": "同一支羊毫斗笔笔锋开叉发硬，竹管裂纹渗墨，丝线松散沾满宿墨。"
+          },
+          "gap": 1,
+          "last_seen": "seg_086"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_089",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "竹管裂纹以生漆填平，羊毫斗笔笔锋再度聚拢。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "修锋重缠",
+            "appearance": "羊毫斗笔经修锋后笔尖重新聚拢，竹管裂纹以生漆填平，丝线重新缠紧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_090",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他淡墨试锋，线条再度平稳尖锐。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "修锋重缠",
+            "appearance": "羊毫斗笔经修锋后笔尖重新聚拢，竹管裂纹以生漆填平，丝线重新缠紧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_089"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_091",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越把狼毫小楷放回笔匣，不再混淆。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "修锋重缠",
+            "appearance": "羊毫斗笔经修锋后笔尖重新聚拢，竹管裂纹以生漆填平，丝线重新缠紧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_090"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_092",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "红木印箱车被推过竹廊，与已摔裂的松烟砚船毫不相同。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 26,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_093",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一名戴瓜皮帽的画院执事走进竹廊，与吴越并肩交谈，两人身形相仿。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_094",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "执事指着红木印箱车，说明借印安排。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E13",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_092",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_095",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "推车离开，吴越独自留在洗笔池边目送。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_096",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把石色小碟重新摆正，走回画室。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_097",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "宣纸库窄巷来了系浅褐发带的裱画学徒小荻，乍看竟有几分像少年阿月。",
+      "memory_probes": [
+        "false_friend",
+        "first_appearance",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall_after_gap",
+          "gap": 69,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_098",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小荻学着卷宣，吴越却摇摇头——她终究不是阿月。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_099",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小荻低头退开，窄巷只剩纸架的阴影。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_100",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，面色苍白、扶着画案似的吴越立在旧画廊废厅下。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "病弱扶案",
+            "appearance": "同一位吴越：面色苍白、月白长衫松垮，需扶着画案边缘缓行，指节因久病微颤。"
+          },
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_101",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他仰望剥落白墙上的挂钉痕迹，目光悠远。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "病弱扶案",
+            "appearance": "同一位吴越：面色苍白、月白长衫松垮，需扶着画案边缘缓行，指节因久病微颤。"
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_102",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处竹廊檐下那两只唤徒铜磬在风里轻响，吴越驻足倾听。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "病弱扶案",
+            "appearance": "同一位吴越：面色苍白、月白长衫松垮，需扶着画案边缘缓行，指节因久病微颤。"
+          },
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 98,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_103",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把掌心贴在空画轴堆上，似在告别。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "病弱扶案",
+            "appearance": "同一位吴越：面色苍白、月白长衫松垮，需扶着画案边缘缓行，指节因久病微颤。"
+          },
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_104",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "风过废厅，尘土轻轻扬起。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "病弱扶案",
+            "appearance": "同一位吴越：面色苍白、月白长衫松垮，需扶着画案边缘缓行，指节因久病微颤。"
+          },
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_105",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年阿月沿竹廊归来，快步走向旧画廊废厅。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 72,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_106",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿月在废厅下与病弱的吴越重逢，两人相扶。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "病弱扶案",
+            "appearance": "同一位吴越：面色苍白、月白长衫松垮，需扶着画案边缘缓行，指节因久病微颤。"
+          },
+          "gap": 1,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_107",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "画室竹榻旁，阿月握着吴越枯瘦的手。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "病弱扶案",
+            "appearance": "同一位吴越：面色苍白、月白长衫松垮，需扶着画案边缘缓行，指节因久病微颤。"
+          },
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_106"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_108",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吴越气息渐弱，最终阖上双眼，溘然长逝。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "离世",
+            "appearance": "吴越阖眼长逝，静静躺在画室竹榻上，面容安详、气息全无。"
+          },
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_107"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_109",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "窗外竹影静止，池风忽然静了一瞬。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_106"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_110",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "画室门后仍挂着吴越的月白长衫，阿月伸手轻轻抚过。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 18,
+          "last_seen": "seg_091"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_111",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "门柱旁，成年阿月伫立在新钉上的画室纪念木牌前。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_112",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿月指尖抚过木牌上刻着的吴越之名。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_113",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他低声念出松烟砚船毁损那页画谱的页码，像在应答。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 31,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_114",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "竹廊洗笔池清淤后，阿月在石沿写下松烟砚船四字又擦去。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_115",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他路过画室竹榻，看见吴越的旧笔帘搁在架上。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_113"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_116",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "池水轻响，阿月把竹青发簪握紧在掌心。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_114"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_117",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "改头换面的阿默从宣纸库赶来，与阿月在旧画廊废厅下短暂对视。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿默仍腕缠朱红丝绦，玄色短褂换成鸦青，神情更深沉。"
+          },
+          "gap": 84,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_109"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_118",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿月与阿默并肩立于空画轴旁：一个眉眼沉静，一个神情深沉。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿默仍腕缠朱红丝绦，玄色短褂换成鸦青，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_119",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿默仍腕缠朱红丝绦，阿月仍别竹青发簪。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿默仍腕缠朱红丝绦，玄色短褂换成鸦青，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_118"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_120",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人无言片刻，各自转身离开废厅。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿默仍腕缠朱红丝绦，玄色短褂换成鸦青，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_119"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿月：发间别竹青发簪，浅灰/月白衣装。",
+            "E6": "阿默：面容极似阿月，但腕缠朱红丝绦、罩玄色短褂。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_121",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前——那个在洗笔池边安放船形砚台、发间别竹青簪的少年，身影再度浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年学徒",
+            "appearance": "少年阿月：十四五岁、身形清瘦的画室学徒，发间别一支竹青发簪，穿浅灰短褂，眉眼清亮倔强。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_120",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "在洗笔池边安放船形砚台别竹青簪的少年",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_122",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场那一刻——画室里，一支特大号竹管斗笔第一次蘸墨试锋。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E3",
+          "op": "recall_after_gap",
+          "state": {
+            "label": "完好",
+            "appearance": "一支特大号羊毫斗笔，竹管刻着『听雨』二字，笔锋齐整饱满，笔根缠着米黄色丝线。",
+            "flashback": true
+          },
+          "gap": 30,
+          "last_seen": "seg_091",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次试锋的特大号竹管斗笔",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_123",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到纸库窄巷——那个腕缠朱红丝绦、罩玄色短褂的身影一闪而过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "青年对手",
+            "appearance": "与阿月面容极相似的青年画手阿默，却腕缠朱红丝绦，外罩玄色短褂，神情张扬。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_120",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "窄巷里腕缠朱红丝绦罩玄色短褂的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_124",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现画室梁上那一排五盏带罩的旧油灯。",
+      "memory_probes": [
+        "count_memory",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 40,
+          "last_seen": "seg_083",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "画室梁上那一排五盏带罩的旧油灯",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_125",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那条临水竹廊，青石洗笔池一如往昔。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_116",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时那条临水竹廊",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_126",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "阿月重新翻开那本墨渍浸染的课徒画谱，走进听雨画室。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 4,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_122"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "墨渍浸染",
+            "appearance": "同一本课徒画谱被打翻的砚池墨汁浸透，封面发皱，示范图糊成一团。"
+          },
+          "gap": 12,
+          "last_seen": "seg_113"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_127",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "画案右上角，先前那三只石色小碟依旧摆着。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 65,
+          "last_seen": "seg_061",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_128",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿月提起已修锋重缠的羊毫斗笔，墨韵再度铺开。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 1,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "修锋重缠",
+            "appearance": "羊毫斗笔经修锋后笔尖重新聚拢，竹管裂纹以生漆填平，丝线重新缠紧。"
+          },
+          "gap": 5,
+          "last_seen": "seg_122"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_129",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把长衫袖口挽紧，像吴越从前那样点头确认。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "修锋重缠",
+            "appearance": "羊毫斗笔经修锋后笔尖重新聚拢，竹管裂纹以生漆填平，丝线重新缠紧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_130",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "池面暮色里，新的一班唤徒铜磬轻响两声。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "修锋重缠",
+            "appearance": "羊毫斗笔经修锋后笔尖重新聚拢，竹管裂纹以生漆填平，丝线重新缠紧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_131",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿月在北窗前落下最后一笔远山。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿月：二十余岁、肩背舒展的青年画师，仍别竹青发簪，短褂换成月白罩衫，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "修锋重缠",
+            "appearance": "羊毫斗笔经修锋后笔尖重新聚拢，竹管裂纹以生漆填平，丝线重新缠紧。"
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_076"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_108"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 131,
+    "n_scenes": 22,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 265,
+      "transform": 8,
+      "persist": 55,
+      "recall_after_gap": 8
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 124,
+      "lookalike_disambiguation": 14,
+      "state_change": 8,
+      "persist_state": 44,
+      "long_gap_reappearance": 11,
+      "count_memory": 5,
+      "false_friend": 5,
+      "deprecation_avoidance": 15,
+      "reference_indirect": 9,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 11,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 14,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 9,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 15,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 304,
+      "5-29": 21,
+      ">=30": 11
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 98,
+      "at": "seg_102"
+    }
+  },
+  "warnings": []
+}

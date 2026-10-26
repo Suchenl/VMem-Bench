@@ -1,0 +1,19 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{Calibration of the identity-consistency metrics.} Positive controls pair two disjoint frame sets of the same clip; negative controls pair two different entities of the same kind and story. For the embeddings, the threshold is the Youden-optimal cut on these controls, fixed before any condition was scored. The VLM judge answers the same question twice with 0.993--1.000 exact agreement.}
+\label{tab:identity-calibration}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l r r r r r@{}}
+\toprule
+Metric & pos./neg. pairs & AUC & threshold & pos. median & neg. median \\
+\midrule
+DINOv3 crop & 385/389 & 1.000 & 0.67 & 0.96 & 0.19 \\
+ArcFace face & 201/157 & 0.997 & 0.35 & 0.84 & 0.11 \\
+MegaLoc scene & 200/200 & 1.000 & 0.66 & 0.89 & 0.07 \\
+DINOv3 scene & 200/200 & 1.000 & 0.84 & 0.98 & 0.17 \\
+\midrule
+VLM pairwise judge & \multicolumn{5}{l}{same when both visible: 0.98 (pos.), 0.78 (neg.); neg.\ not consistent: 0.93} \\
+\bottomrule
+\end{tabular}
+\end{table*}

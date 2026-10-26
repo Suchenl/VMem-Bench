@@ -1,0 +1,5326 @@
+{
+  "story_id": "0034_canal_boatman",
+  "gt_version": "trackB-gt-2.0",
+  "title": "运河船夫",
+  "premise": "石驳船屋与第三水闸上的师徒长剧。阿书与阿声外形极易错认；榆木舵柄完好→断裂劈裂→箍接修复；青雀号撞闸后须规避；数量记忆与假朋友、时序闪回贯穿。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0034_canal_boatman.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "卫然",
+      "kind": "character",
+      "states": {
+        "壮年掌舵": "四十多岁的运河船夫卫然，晒红脸膛，穿靛青短褂与草编凉鞋，腰间别竹制水尺，步伐稳健。",
+        "湿寒疲态": "同一位卫然：短褂湿透贴身、右膝缠着湿布，拄着竹篙缓行，眼神发沉。",
+        "离世": "卫然阖眼长逝，静静躺在船屋板床上，面容安详、气息全无。"
+      },
+      "initial_state": "壮年掌舵"
+    },
+    "E2": {
+      "name": "阿书",
+      "kind": "character",
+      "states": {
+        "少年学徒": "少年阿书：十四五岁、身形清瘦的船工学徒，发绳系一枚青瓷水鸟扣，穿偏大的靛青短褂，眉眼清亮倔强。",
+        "成年接班": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+      },
+      "initial_state": "少年学徒"
+    },
+    "E3": {
+      "name": "榆木舵柄",
+      "kind": "prop",
+      "states": {
+        "完好": "一根榆木舵柄，握处磨得发亮，柄尾刻浪纹，铜箍完好无锈。",
+        "断裂劈裂": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。",
+        "箍接修复": "榆木舵柄经箍接后重新装上铜箍，浪纹清理干净，可再掌舵。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "水闸趟簿",
+      "kind": "prop",
+      "states": {
+        "完好": "一本油布封面的水闸趟簿，记着过闸时间与水位，字迹工整。",
+        "河水泡烂": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+      },
+      "initial_state": "完好"
+    },
+    "E5": {
+      "name": "青雀号",
+      "kind": "prop",
+      "states": {
+        "完好": "一艘靛青篷船「青雀号」，船首雕青雀，舷侧挂旧轮胎护舷，舱里堆着粮袋。",
+        "撞闸沉没": "青雀号撞上闸门后船首破裂进水，青雀雕件折断，半沉进运河。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "阿声",
+      "kind": "character",
+      "states": {
+        "青年对手": "与阿书面容极相似的青年船工阿声，却戴朱红箬笠，短褂外罩烟灰背带，神情张扬。",
+        "改头换面": "改头换面后的阿声仍戴朱红箬笠，背带换成哑光黑，神情更深沉。"
+      },
+      "initial_state": "青年对手"
+    },
+    "E7": {
+      "name": "石驳船屋",
+      "kind": "location",
+      "appearance": "运河边的石驳船屋，青石码头接木跳板，屋里挂着斗笠与缆绳，河风带湿气。"
+    },
+    "E8": {
+      "name": "第三水闸",
+      "kind": "location",
+      "appearance": "运河第三水闸，闸门漆着编号，两侧石阶长满青苔，闸工棚亮着灯。"
+    },
+    "E9": {
+      "name": "纤道石巷",
+      "kind": "location",
+      "appearance": "旧纤道转入的石巷，两侧砖墙狭窄，地上有缆绳磨出的凹槽，阴影浓重。"
+    },
+    "E10": {
+      "name": "废弃船坞",
+      "kind": "location",
+      "appearance": "废弃船坞遗址，船台枕木腐朽，积水映出半截龙骨支架。"
+    },
+    "E11": {
+      "name": "船屋纪念木牌",
+      "kind": "prop",
+      "appearance": "一块钉在船屋门柱上的樟木牌，刻着『卫然』与开航年份，边角被河风磨亮。"
+    },
+    "E12": {
+      "name": "水位标尺",
+      "kind": "prop",
+      "appearance": "三根钉在闸口石壁上的红白水位标尺，分别标着警戒、常水位与枯水线。"
+    },
+    "E13": {
+      "name": "橙红机动驳船",
+      "kind": "prop",
+      "appearance": "一艘崭新的橙红机动驳船，船身喷『临时支援』，无青雀雕件，与青雀号绝不相同。"
+    },
+    "E14": {
+      "name": "闸口调度员",
+      "kind": "character",
+      "appearance": "一名精瘦的闸口调度员，戴大盖帽、穿灰蓝制服，身形与卫然有几分相似，肩章却是调度徽。"
+    },
+    "E15": {
+      "name": "船屋风灯",
+      "kind": "prop",
+      "appearance": "一排五盏船屋风灯，挂在石驳船屋横梁铁钩上，玻璃罩擦得锃亮。"
+    },
+    "E16": {
+      "name": "过闸铜锣",
+      "kind": "prop",
+      "appearance": "两面悬在闸工棚檐下的过闸铜锣，锣面有敲痕，放行时连响两声。"
+    },
+    "E17": {
+      "name": "小涟",
+      "kind": "character",
+      "appearance": "新来的实习纤工学徒小涟，系浅青头巾、穿崭新短褂，乍看与少年阿书神似，却下巴更尖、目光怯生。"
+    },
+    "E18": {
+      "name": "备用舵杆",
+      "kind": "prop",
+      "appearance": "一根备用舵杆，外形酷似舵柄却更粗短，无浪纹刻饰、无铜箍。"
+    },
+    "E19": {
+      "name": "灰篷货船",
+      "kind": "prop",
+      "appearance": "一艘灰篷货船，船身宽扁、无青雀雕件，与青雀号并不相同。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "壮年掌舵",
+      "湿寒疲态",
+      "离世"
+    ],
+    "E2": [
+      "少年学徒",
+      "成年接班"
+    ],
+    "E3": [
+      "完好",
+      "断裂劈裂",
+      "箍接修复"
+    ],
+    "E4": [
+      "完好",
+      "河水泡烂"
+    ],
+    "E5": [
+      "完好",
+      "撞闸沉没"
+    ],
+    "E6": [
+      "青年对手",
+      "改头换面"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+        "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+      },
+      "note": "错认硬样本：青瓷水鸟扣 vs 朱红箬笠。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，卫然踏着跳板走进石驳船屋，握住榆木舵柄试舵。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "船屋横梁上挂着一排五盏船屋风灯，卫然逐一擦净玻璃罩。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闸工棚檐下悬着两面过闸铜锣，卫然伸手轻敲，锣声沉闷。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然检查榆木舵柄的铜箍与浪纹，确认无裂。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_001"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然透过船屋门洞，望向运河暮色中的闸灯。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "完好的榆木舵柄靠在舱门边，握处映着风灯暖光。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然在门槛坐下，喝了一口烧酒。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处纤歌声起，他重新系紧腰间水尺。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "卫然翻开油布水闸趟簿，记下当日的过闸水位。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他在趟簿上画出闸口水流示意。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然合上水闸趟簿，塞回舱柜。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "榆木舵柄的木纹贴着他的掌心。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他撕下一角草纸，拭去水尺上的泥点。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的第三水闸，卫然迎向泊靠的靛青篷船青雀号。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "少年阿书跳下青雀号，发绳上的青瓷水鸟扣微微晃动。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然指着闸口三根水位标尺，教阿书辨认警戒与枯水线。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿书蹲在石阶青苔旁，好奇地摸过闸门编号漆。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然向阿书讲解过闸铜锣响两声才能进闸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿书回望完好的青雀号，眼里满是向往。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "河风猎猎，两人沿跳板走向石驳船屋。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "纤道石巷里，戴朱红箬笠的阿声从砖墙阴影中回头。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿声踩着缆绳凹槽缓步前行，烟灰背带格外显眼。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他与背纤的伙计擦肩，箬笠在反光里一闪。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿声敲了敲墙砖，确认缆桩无松。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他穿过石巷尽头，走向闸工棚。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "第三水闸石阶上，阿书与阿声并肩而立：一个系青瓷水鸟扣，一个戴朱红箬笠。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿书把备用手套递给阿声，两人短暂相视。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿声替阿书理了理偏大的短褂领口，随即别开脸。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人沿石阶反向走开，身影在闸灯下交错。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一阵放水声起，闸口只剩青苔湿亮。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的夜里，卫然独自在石驳船屋值守。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他翻开水闸趟簿，封面已被河水泡烂、发白起皱。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然用破布擦拭榆木舵柄握处的泥浆。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他凭着门洞，望向漆黑河面上的浮标灯。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "榆木舵柄靠在舱门边静置，铜箍微微发暗。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "过闸铜锣被夜风碰响半声，随即沉寂。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 1,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "春汛开河时，卫然日复一日在石驳船屋检修缆绳。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一个雨夜，他裹紧短褂守在榆木舵柄旁。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "盛夏正午，甲板烫脚，他轮换泼水降温。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "秋雾弥漫，风灯的光在水汽里艰难穿行。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "除夕夜，卫然独自把水闸趟簿补齐到最后一页。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "开春，他重新校准水尺，继续试航。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "雨季前，卫然加固跳板的防滑条。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "霜降后，他在船屋角落添了一小坛酒。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "又一年开闸前，他逐段检查缆桩磨损。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "雪夜停航，卫然只留一盏船屋风灯，守到天明。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "惊蛰后，他把晒干的篷布重新撑起。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "清明前后，他清扫废弃船坞入口的积水。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "谷雨时，他带学徒辨认新到的草袋装粮。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "立夏夜，他守着慢涨的水位直到过闸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "S6b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小满前后，他补漆船舷被缆绳磨白的地方。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "卫然更换跳板木楔，检查稳固。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他检查缆绳股数，重新盘好。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "完好的榆木舵柄再次被他握住，短促试舵三下。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闸口传来锣声，他抬头听了听。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然把废草屑扫进竹篓，盖上盖子。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "午休时他在船屋喝茶，茶烟绕过斗笠。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "下午他又出门，继续擦拭舷侧护舷。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "S6c",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "日落时分，他收跳板，锁上船屋。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，卫然沿第三水闸巡查，青雀号仍泊在闸外。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 29,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E5",
+          "op": "recall_after_gap",
+          "gap": 39,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他蹲下检查青雀号舷侧护舷是否磨损。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闸口石壁上，先前那三根水位标尺仍钉在原处。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 45,
+          "last_seen": "seg_016",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一艘灰篷货船驶过闸外，船身宽扁、并无青雀雕件。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然站在石阶，记录昨夜上涨的水位刻度。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把青雀号的缆绳重新盘好。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_061"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处早市的叫卖声隐约传来。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "入夜，卫然回到石驳船屋，翻开河水泡烂的水闸趟簿。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 7,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 12,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 30,
+          "last_seen": "seg_036"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他对照旧水位，补记今日过闸时间。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "榆木舵柄被他短暂握住，木纹映出趟簿皱白的封面。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他擦去水尺上的新泥。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "河风起，船屋板壁轻响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S7b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然熄灭半排船屋风灯，只留床位那一盏。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 0,
+          "last_seen": "seg_071"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "暴雨中水流忽然湍急，石驳船屋一阵忙乱。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "浪花打上跳板，风灯剧烈摇晃。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然掌舵时榆木舵柄中段劈裂，铜箍崩开。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "断裂劈裂",
+            "appearance": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闸口，青雀号被急流推向闸门，剧烈颠簸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 9,
+          "last_seen": "seg_066"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一声闷响，青雀号撞闸沉没，船首破裂进水。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "撞闸沉没",
+            "appearance": "青雀号撞上闸门后船首破裂进水，青雀雕件折断，半沉进运河。"
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然死死抓住劈裂的榆木舵柄不放。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断裂劈裂",
+            "appearance": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。"
+          },
+          "gap": 2,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "锣声乱响，闸工棚里全是喊声。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断裂劈裂",
+            "appearance": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "次日雨歇，卫然站在船屋里凝视断裂劈裂的榆木舵柄。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断裂劈裂",
+            "appearance": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他用手指抚过劈裂的木茬，神情黯然。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断裂劈裂",
+            "appearance": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_080"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他在水闸趟簿空白页写下青雀号撞闸的日期。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 9,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "墙上仍贴着青雀号的航线图，卫然久久凝望。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他取下横梁上五盏船屋风灯中的一盏，就着微光独坐。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 81,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "劈裂的榆木舵柄靠在舱门边，像断翅的鸟。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断裂劈裂",
+            "appearance": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。"
+          },
+          "gap": 3,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处打捞船轰鸣掠过闸口。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断裂劈裂",
+            "appearance": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_085"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，卫然搬来铜箍与刨子，准备修复榆木舵柄。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断裂劈裂",
+            "appearance": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_086"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他从舱底取出一根备用舵杆，酷似舵柄却更粗短无浪纹。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_089",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然箍接劈裂处，重新装上铜箍。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "断裂劈裂",
+            "appearance": "同一根榆木舵柄中段劈裂，铜箍崩开，浪纹刻线被泥糊住。"
+          },
+          "gap": 1,
+          "last_seen": "seg_087"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_090",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "浪纹清理干净，榆木舵柄恢复可掌舵。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "箍接修复",
+            "appearance": "榆木舵柄经箍接后重新装上铜箍，浪纹清理干净，可再掌舵。"
+          },
+          "gap": 0,
+          "last_seen": "seg_089"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_091",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他短促试舵，船头再度听话转向。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "箍接修复",
+            "appearance": "榆木舵柄经箍接后重新装上铜箍，浪纹清理干净，可再掌舵。"
+          },
+          "gap": 0,
+          "last_seen": "seg_090"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_092",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然把备用舵杆放回舱底，不再混淆。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "箍接修复",
+            "appearance": "榆木舵柄经箍接后重新装上铜箍，浪纹清理干净，可再掌舵。"
+          },
+          "gap": 0,
+          "last_seen": "seg_091"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_093",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "一艘橙红机动驳船驶入第三水闸外，与已沉没的青雀号毫不相同。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 15,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_094",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一名大盖帽灰蓝制服的闸口调度员走上石阶，与卫然并肩交谈，两人身形相仿。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_092"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_095",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "调度员指着橙红机动驳船，说明临时编组。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E13",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_093",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_096",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "驳船驶离，卫然独自留在闸口目送。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_097",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把水位标尺擦净，沿跳板走回船屋。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_098",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "纤道石巷来了系浅青头巾的实习纤工学徒小涟，乍看竟有几分像少年阿书。",
+      "memory_probes": [
+        "false_friend",
+        "first_appearance",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E9",
+          "op": "recall_after_gap",
+          "gap": 72,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_099",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小涟学着盘缆，卫然却摇摇头——她终究不是阿书。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_100",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "小涟低头退开，石巷只剩砖墙的阴影。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_101",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，短褂湿透、膝缠湿布的卫然拄着竹篙，立在废弃船坞下。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "湿寒疲态",
+            "appearance": "同一位卫然：短褂湿透贴身、右膝缠着湿布，拄着竹篙缓行，眼神发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_102",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他仰望腐朽枕木，目光悠远。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "湿寒疲态",
+            "appearance": "同一位卫然：短褂湿透贴身、右膝缠着湿布，拄着竹篙缓行，眼神发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_103",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处闸工棚檐下那两面过闸铜锣在风里轻响，卫然驻足倾听。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "湿寒疲态",
+            "appearance": "同一位卫然：短褂湿透贴身、右膝缠着湿布，拄着竹篙缓行，眼神发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 99,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_104",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把掌心贴在积水映出的龙骨上，似在告别。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "湿寒疲态",
+            "appearance": "同一位卫然：短褂湿透贴身、右膝缠着湿布，拄着竹篙缓行，眼神发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_105",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "河风卷起枯叶，船坞愈发安静。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "湿寒疲态",
+            "appearance": "同一位卫然：短褂湿透贴身、右膝缠着湿布，拄着竹篙缓行，眼神发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_106",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年阿书沿纤道归来，快步走向废弃船坞。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 75,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_107",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿书在船坞下与湿寒疲态的卫然重逢，两人相扶。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "湿寒疲态",
+            "appearance": "同一位卫然：短褂湿透贴身、右膝缠着湿布，拄着竹篙缓行，眼神发沉。"
+          },
+          "gap": 1,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_106"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_108",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "船屋板床旁，阿书握着卫然枯瘦的手。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "湿寒疲态",
+            "appearance": "同一位卫然：短褂湿透贴身、右膝缠着湿布，拄着竹篙缓行，眼神发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_107"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_109",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "卫然气息渐弱，最终阖上双眼，溘然长逝。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "离世",
+            "appearance": "卫然阖眼长逝，静静躺在船屋板床上，面容安详、气息全无。"
+          },
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_108"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_110",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "窗外河风静止，闸灯忽然静了一瞬。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_107"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_111",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "船屋门后仍挂着卫然的靛青短褂，阿书伸手轻轻抚过。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 18,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_112",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "门柱旁，成年阿书伫立在新钉上的船屋纪念木牌前。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_113",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿书指尖抚过木牌上刻着的卫然之名。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_112"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_114",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他低声念出青雀号撞闸那页趟簿的页码，像在应答。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "long_gap_reappearance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 31,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_115",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "第三水闸清淤后，阿书在空泊位写下青雀号三字又擦去。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 17,
+          "last_seen": "seg_097"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077",
+          "reference_indirect": true
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_116",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他路过船屋走廊，看见卫然的旧竹制水尺搁在挂钩上。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_114"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_117",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "夜色里，阿书对着空跳板低声复述卫然教过的过闸口令。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_118",
+      "scene_id": "S15b",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "河风里，阿书把青瓷水鸟扣握紧在掌心。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_115"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_119",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "改头换面的阿声从纤道赶来，与阿书在废弃船坞下短暂对视。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿声仍戴朱红箬笠，背带换成哑光黑，神情更深沉。"
+          },
+          "gap": 88,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_110"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_120",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿书与阿声并肩立于龙骨支架旁：一个眉眼沉静，一个神情深沉。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿声仍戴朱红箬笠，背带换成哑光黑，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_119"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_121",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿声仍戴朱红箬笠，阿书仍系青瓷水鸟扣。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_120"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿声仍戴朱红箬笠，背带换成哑光黑，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_120"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_120"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_122",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人无言片刻，各自转身离开船坞。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿声仍戴朱红箬笠，背带换成哑光黑，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿书：发绳系青瓷水鸟扣，靛青短褂。",
+            "E6": "阿声：面容极似阿书，但戴朱红箬笠、罩烟灰背带。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_123",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前——那个跳下靛青篷船、发绳系青瓷水鸟扣的少年，身影再度浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年学徒",
+            "appearance": "少年阿书：十四五岁、身形清瘦的船工学徒，发绳系一枚青瓷水鸟扣，穿偏大的靛青短褂，眉眼清亮倔强。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_122",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "跳下靛青篷船发绳系青瓷水鸟扣的少年",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_124",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场那一刻——船屋里，一根握处发亮的榆木柄第一次被握住试舵。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E3",
+          "op": "recall_after_gap",
+          "state": {
+            "label": "完好",
+            "appearance": "一根榆木舵柄，握处磨得发亮，柄尾刻浪纹，铜箍完好无锈。",
+            "flashback": true
+          },
+          "gap": 31,
+          "last_seen": "seg_092",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次试舵的握处发亮榆木柄",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_125",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到纤道石巷——那个戴朱红箬笠、罩烟灰背带的身影一闪而过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "青年对手",
+            "appearance": "与阿书面容极相似的青年船工阿声，却戴朱红箬笠，短褂外罩烟灰背带，神情张扬。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_122",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "石巷里戴朱红箬笠罩烟灰背带的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_126",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现船屋横梁上那一排五盏带罩的旧风灯。",
+      "memory_probes": [
+        "count_memory",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 41,
+          "last_seen": "seg_084",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "船屋横梁上一排五盏带罩的旧风灯",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_127",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那座编号闸门旁的石阶，青苔一如往昔。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_118",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时那座编号闸门旁的石阶",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_128",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "阿书重新翻开那本河水泡烂的水闸趟簿，走进石驳船屋。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 4,
+          "last_seen": "seg_123"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "河水泡烂",
+            "appearance": "同一本水闸趟簿被河水泡烂，封面发白起皱，字迹晕开。"
+          },
+          "gap": 13,
+          "last_seen": "seg_114"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_129",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闸口石壁上，先前那三根水位标尺依旧钉着。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 66,
+          "last_seen": "seg_062",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_130",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿书握住已箍接修复的榆木舵柄，船头再度听令。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 1,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "箍接修复",
+            "appearance": "榆木舵柄经箍接后重新装上铜箍，浪纹清理干净，可再掌舵。"
+          },
+          "gap": 5,
+          "last_seen": "seg_124"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_131",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "他把短褂袖口挽紧，像卫然从前那样点头确认。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "箍接修复",
+            "appearance": "榆木舵柄经箍接后重新装上铜箍，浪纹清理干净，可再掌舵。"
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_132",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "运河暮色里，新的一班过闸铜锣轻响两声。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "箍接修复",
+            "appearance": "榆木舵柄经箍接后重新装上铜箍，浪纹清理干净，可再掌舵。"
+          },
+          "gap": 0,
+          "last_seen": "seg_131"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_133",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿书在跳板上落下今日第一篙。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "箍接修复",
+            "appearance": "榆木舵柄经箍接后重新装上铜箍，浪纹清理干净，可再掌舵。"
+          },
+          "gap": 0,
+          "last_seen": "seg_132"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_134",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处闸灯一明一灭，像在应答。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年阿书：二十余岁、肩背更宽的船夫，仍系青瓷水鸟扣，短褂合身，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "箍接修复",
+            "appearance": "榆木舵柄经箍接后重新装上铜箍，浪纹清理干净，可再掌舵。"
+          },
+          "gap": 0,
+          "last_seen": "seg_133"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_077"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_109"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 134,
+    "n_scenes": 22,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 271,
+      "transform": 8,
+      "persist": 58,
+      "recall_after_gap": 8
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 127,
+      "lookalike_disambiguation": 14,
+      "state_change": 8,
+      "persist_state": 46,
+      "long_gap_reappearance": 12,
+      "count_memory": 5,
+      "false_friend": 5,
+      "deprecation_avoidance": 16,
+      "reference_indirect": 10,
+      "temporal_reference": 5
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 12,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 14,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 10,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 16,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 312,
+      "5-29": 21,
+      ">=30": 12
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 99,
+      "at": "seg_103"
+    }
+  },
+  "warnings": []
+}

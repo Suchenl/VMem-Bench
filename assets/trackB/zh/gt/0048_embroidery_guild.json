@@ -1,0 +1,7722 @@
+{
+  "story_id": "0048_embroidery_guild",
+  "gt_version": "trackB-gt-2.0",
+  "title": "绣坊针谱",
+  "premise": "江南绣坊的针法传承。阿绣与阿纹外形极易错认；双面绣屏完好→霉斑→揭裱重绣；花梨绣绷架毁折后须规避；数量记忆与假朋友、时序闪回贯穿。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0048_embroidery_guild.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "沈织",
+      "kind": "character",
+      "states": {
+        "壮年在岗": "四十余岁的绣坊坊主沈织，挽髻插银簪，穿月白对襟褂，指尖常沾丝线绒，目光细而稳。",
+        "疲惫负伤": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。",
+        "离岗谢幕": "沈织已离岗谢幕，绣楼只留她的月白旧褂与坊主牌，人影不再出现。"
+      },
+      "initial_state": "壮年在岗"
+    },
+    "E2": {
+      "name": "阿绣",
+      "kind": "character",
+      "states": {
+        "少年学徒": "少年时的阿绣：十四五岁、清瘦的绣坊学徒，右腕系姜黄腕巾，眉眼清亮倔强。",
+        "成年接班": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+      },
+      "initial_state": "少年学徒"
+    },
+    "E3": {
+      "name": "双面绣屏",
+      "kind": "prop",
+      "states": {
+        "完好": "一扇双面绣屏，绢面完好，正反两面同是牡丹与飞雀，针脚细密无跳线。",
+        "霉斑": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。",
+        "揭裱重绣": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "针法谱",
+      "kind": "prop",
+      "states": {
+        "完好": "一本绸面针法谱，内页画满劈丝与套针图示，封面干净。",
+        "染料污损": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+      },
+      "initial_state": "完好"
+    },
+    "E5": {
+      "name": "花梨绣绷架",
+      "kind": "prop",
+      "states": {
+        "完好": "一具花梨木绣绷架，榫卯完好，绷面平整，可固定大幅绣片。",
+        "毁折": "花梨绣绷架被砸毁折断，榫卯崩开，只剩散架的木条残骸。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "阿纹",
+      "kind": "character",
+      "states": {
+        "青年对手": "与阿绣面容体态极相似的阿纹，却别琥珀针插胸针，神情张扬爱抢花样。",
+        "改头换面": "改头换面后的阿纹仍别琥珀针插胸针，又戴上细金丝眼镜，神情更深沉。"
+      },
+      "initial_state": "青年对手"
+    },
+    "E7": {
+      "name": "绣楼明间",
+      "kind": "location",
+      "appearance": "临河绣楼明间，落地窗透进柔光，中央立着双面绣屏，长桌摆满色线与剪刀。"
+    },
+    "E8": {
+      "name": "染坊天井",
+      "kind": "location",
+      "appearance": "染坊天井，晾竿上挂着湿绸，石槽里泛着靛蓝水，空气带皂角味。"
+    },
+    "E9": {
+      "name": "绸庄夹弄",
+      "kind": "location",
+      "appearance": "通往绸庄的狭窄夹弄，两侧挂着灯笼幌子，青石板湿滑反光。"
+    },
+    "E10": {
+      "name": "废弃织机房",
+      "kind": "location",
+      "appearance": "废弃织机房，木梁倾斜，织机骨架积灰，窗外可见河埠。"
+    },
+    "E11": {
+      "name": "青砖记名碑",
+      "kind": "prop",
+      "appearance": "一块钉在织机房墙根的青砖记名碑，刻着『沈织』与年份，边缘剥落。"
+    },
+    "E12": {
+      "name": "瓷线轴",
+      "kind": "prop",
+      "appearance": "三枚青花瓷线轴，插在木托上，用来标出当日主色线。"
+    },
+    "E13": {
+      "name": "竹制晾衣架",
+      "kind": "prop",
+      "appearance": "一具竹制晾衣架，外形略像撑架却无绷面，横杆写着『晾绸』。"
+    },
+    "E14": {
+      "name": "行会管事张婶",
+      "kind": "character",
+      "appearance": "一名身形与沈织有几分相似的行会管事张婶，青褂、肩挎账册，发髻无银簪而别铜钗。"
+    },
+    "E15": {
+      "name": "琉璃罩灯",
+      "kind": "prop",
+      "appearance": "一排五盏挂在梁下的琉璃罩灯，灯罩淡青，擦得透亮。"
+    },
+    "E16": {
+      "name": "门楣铜铃",
+      "kind": "prop",
+      "appearance": "两只悬在门楣的小铜铃，风起时轻响。"
+    },
+    "E17": {
+      "name": "学徒小纨",
+      "kind": "character",
+      "appearance": "乍看与少年阿绣神似的学徒小纨，系浅粉腕巾而非姜黄腕巾，目光怯生。"
+    },
+    "E18": {
+      "name": "袖珍绣片镜框",
+      "kind": "prop",
+      "appearance": "一只袖珍绣片镜框，构图酷似绣屏牡丹却更小、只有单面。"
+    },
+    "E19": {
+      "name": "朱漆化妆匣推车",
+      "kind": "prop",
+      "appearance": "一辆朱漆化妆匣推车，匣面描金、无绢绣，侧写『戏班』字样。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "壮年在岗",
+      "疲惫负伤",
+      "离岗谢幕"
+    ],
+    "E2": [
+      "少年学徒",
+      "成年接班"
+    ],
+    "E3": [
+      "完好",
+      "霉斑",
+      "揭裱重绣"
+    ],
+    "E4": [
+      "完好",
+      "染料污损"
+    ],
+    "E5": [
+      "完好",
+      "毁折"
+    ],
+    "E6": [
+      "青年对手",
+      "改头换面"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+        "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+      },
+      "note": "错认硬样本：阿绣与阿纹外形相近，仅靠姜黄腕巾/琥珀针插胸针区分。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，沈织掀开绣楼明间的竹帘，把银簪重新插稳。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "绣楼明间里挂着一排五盏琉璃罩灯，沈织逐一擦亮它们。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "门侧悬着两只门楣铜铃，沈织伸手让它们轻轻鸣响。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织绕着双面绣屏检查正反两面的飞雀针脚。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织凭窗眺望染坊天井外渐暗的河埠灯火。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "完好的双面绣屏立在明间中央，琉璃灯光在绢面上微微流动。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在墙上补写今日用线量与绷面湿度。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把银簪取下又插回，确认发髻稳当。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织整理散落的色线团，按色谱重新排好。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在绣墩上坐下，揉了揉发酸的指节。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "沈织翻开针法谱，在劈丝与套针两栏补上今日针脚密度。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在飞雀翅羽图旁画一枚细针小圈，标出需要补针的羽边。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织合上针法谱，夹进绸布书套以免染气再熏到纸页。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "双面绣屏的反光扫过沈织的侧脸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织对照双面绣屏，用朱线在图样旁圈出跳线的飞雀翅羽。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把银针和剪线刀收回针插，免得划伤绢面。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的染坊天井，沈织迎向带着花梨绣绷架到来的少年阿绣。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣把花梨绣绷架撑开，逐个试紧榫卯。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织指着三只瓷线轴，教阿绣按深浅辨认当日主色线。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣蹲在染坊天井，看靛蓝水从湿绸边缘滴下。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织向阿绣讲解劈丝前洗手、湿绸避风、换色先收针的规矩。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣回望完好的花梨绣绷架，眼里满是向往。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织让阿绣上紧绷面，练习把绢边压进花梨木槽。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣把姜黄腕巾勒紧，在袖口默数沈织口述的针距。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "绸庄夹弄里，佩着琥珀针插胸针的阿纹从暗处回头张望。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿纹在绸庄夹弄中缓步前行，神情张扬。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿纹与过路人擦肩，琥珀针插胸针微微晃动。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿纹停在通道口，挑剔地评点绸样号牌的针脚画得太粗。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿纹把一截废线头踢到墙角。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿纹穿过灯笼幌子下的夹弄离去。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "染坊天井里，阿绣与阿纹并肩而立，一个带着姜黄腕巾、一个佩琥珀针插胸针。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣把捡来的银针帽递给阿纹，两人相视却神情不同。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿纹替阿绣理了理姜黄腕巾，又故意碰响自己的琥珀针插胸针。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣与阿纹沿染坊天井边缘慢走，影子叠在一起又分开。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣低头核对套针图，阿纹却四处张望。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣与阿纹在染坊天井口分别，各自走向相反方向。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的夜里，沈织独自在绣楼明间值守，双面绣屏的绢面微微反光。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织翻开针法谱，才发现它已染料污损，劈丝图示被紫斑晕开。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用软刷拂去双面绣屏边框上的浮灰。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织凭窗望向染坊天井外的夜色。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯光在双面绣屏上缓缓移动。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把吸墨纸夹进污损的针法谱，叹气关灯。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 1,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "沈织在绣楼明间擦拭双面绣屏边缘。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织更新墙上的当日备注。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把工具按编号重新排好。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织对照针法谱核对昨日记录。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "午后，沈织接到外部电话，眉头微皱。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在便签上写下暂缓事项，贴在显眼处。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把备用材料单独抽出归类。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "傍晚，沈织关掉多余的灯，只留中央一盏照着双面绣屏。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "沈织在绣楼明间铺开描图纸或对照表。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用色点标出需要加强的位置。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把纸张边缘固定，防止卷边。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织对照已污损的针法谱，努力辨认旧数字。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把饮品放远，生怕再溅到针法谱上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在墙上列出三条拟调整事项。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "窗外有动静，沈织抬头听了片刻。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用细绳把标签重新串起。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "巡视日，沈织走进染坊天井。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织小心试探地面或栏杆是否稳妥。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织记下需要修补的位置。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用手电照进昏暗角落。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织与路过的工作人员短暂交谈。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织避开堆放的杂物，绕到另一侧。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用卷尺或目测记录尺寸变化。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把结果写在袖口便签上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，沈织沿染坊天井巡查，花梨绣绷架停在原处。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 30,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E5",
+          "op": "recall_after_gap",
+          "gap": 43,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织蹲下检查花梨绣绷架的榫卯、绷面张力和木条裂纹。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织走到木托前，先前那三只瓷线轴仍按深浅顺序插着。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 49,
+          "last_seen": "seg_019",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "天井里架起竹制晾衣架，那横杆只挂湿绸、没有绷面和榫卯，绝非花梨绣绷架。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织站在染坊天井，在染缸旁记下湿度和绸面滴水方向。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把花梨绣绷架的楔子重新敲紧，绷面再次拉平。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织再次确认三只瓷线轴没有少一枚，主色线仍绕在轴上。",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_069",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在线轴木托侧面贴上巡查日期。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "灾变前夕，沈织把靠窗的材料全部收进柜中。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 32,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用防护布罩住双面绣屏。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织检查针法谱是否放进干燥抽屉。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织拧紧瓶盖与阀门，挪到高处。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处有异响，绣楼明间灯光闪了一下。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把五盏琉璃罩灯的线缆理顺。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织写下『明日停工』通知草稿。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_080"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织听听两只门楣铜铃是否被风吹响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "梅雨骤密，绣楼屋顶渗水，水珠砸向长桌。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一阵湿风掀起描图纸，潮气直扑绣屏。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "双面绣屏绢面生出灰绿霉斑，飞雀翅羽糊成一片。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "天井边，花梨绣绷架仍立在湿石板上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "倒塌的晾竿砸中花梨绣绷架，榫卯崩开，只剩散架残骸。",
+      "memory_probes": [
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "毁折",
+            "appearance": "花梨绣绷架被砸毁折断，榫卯崩开，只剩散架的木条残骸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_086"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "绣楼里，沈织扑向绣屏，徒手撑住正在受潮的绢面。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 2,
+          "last_seen": "seg_085"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_089",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织食指被绷针扎伤，血渗进纱布，仍死死护着绣屏。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_090",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "生霉的双面绣屏在潮湿空气里缓缓下垂一角。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_089"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_091",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "灾变次日，沈织站在绣楼明间里，凝视着已霉斑的双面绣屏。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_090"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_092",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用手指抚过双面绣屏上的损伤，神情黯然。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_091"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_093",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在修绣清单上记下花梨绣绷架被毁的日期。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_094",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "墙上仍钉着花梨绣绷架绷着牡丹底稿时的旧照片，沈织久久凝望。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_095",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织拧亮五盏琉璃罩灯中的一盏，就着光斑独坐。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 92,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_096",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "生霉的双面绣屏仍立在明间中央，糊开的飞雀翅羽触目惊心。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 3,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_097",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把渗血的包扎换新，继续清理落针和断榫碎屑。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_098",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把防潮绸布重新罩好，生怕绢面再吸潮。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 1,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_099",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清理周，沈织把断榫木屑和揭下的旧裱纸装进纸箱。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_098"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_100",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织提交请款单，申请补绢、抗霉药水和新榫料。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_099"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_101",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织每天仍来绣楼明间，盯着受损的双面绣屏出神。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_102",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用铅笔临摹尚可辨认的牡丹叶脉。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_101"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_103",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把污损的针法谱翻到空白页，改记请款进度。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_102"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_104",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣请假未归，绣楼明间只剩沈织一人的脚步声。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_103"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_105",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织习惯性望向天井里空出的绷架脚印。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_104"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_106",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在墙上列出揭裱重绣所需清单。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_105"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_107",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，沈织摊开补绢、绣线和裱刷，开始揭裱重绣双面绣屏。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 0,
+          "last_seen": "seg_106"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_108",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织取出袖珍绣片镜框，构图像绣屏牡丹，却只有单面、没有背面飞雀。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_109",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用裱刀揭开霉斑绢面，按原针路重绣飞雀翅羽。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "霉斑",
+            "appearance": "同一扇双面绣屏受潮生出灰绿霉斑，绢面发皱，飞雀翅羽糊成一片。"
+          },
+          "gap": 1,
+          "last_seen": "seg_107"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_110",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "最后一片补绢压平，双面绣屏完成揭裱重绣，屏角留下浅浅补绢痕。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_109"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_111",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "揭裱重绣后的双面绣屏牡丹与飞雀重新分明，沈织欣慰地望着它。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_110"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_112",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把袖珍绣片镜框推到一边，只让真正的双面绣屏立回明间中央。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_111"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_113",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "绣楼明间恢复安静，揭裱重绣后的双面绣屏独占中央。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_112"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_114",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "戏班推来朱漆化妆匣推车，匣面描金无绷面，与早已损毁的花梨绣绷架毫不相同。",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "long_gap_reappearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 39,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_115",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "行会管事张婶走进染坊天井，与沈织并肩交谈，两人身形相仿。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_116",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "行会管事张婶指着朱漆化妆匣推车，向沈织说明这辆推车只借天井过道、不进绣楼明间。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_114",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_115",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_117",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "朱漆化妆匣推车离开，沈织独自留在染坊天井目送。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_118",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "朱漆化妆匣推车在远端短暂停留，又继续前行。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_116",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_119",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "行会管事张婶临走前拍了拍沈织的肩，铜钗在灯下闪了一下。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_116",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_120",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "染坊天井来了个学徒小纨，乍看竟有几分像少年阿绣。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_121",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "学徒小纨学着绷紧色线，沈织却摇摇头——终究不是阿绣。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_120"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_120",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_122",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "学徒小纨怯生生地问套针该从哪一侧起针，沈织简短回答后让她去窗边分线。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_123",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织独自站在染坊天井，望着空空的花梨绣绷架停放处出神。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_122"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_122"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_124",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "揭裱重绣后的第一旬，沈织每日清晨先检查双面绣屏。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_123"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 10,
+          "last_seen": "seg_113"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_125",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把新记录写进污损后的针法谱空白页。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_124"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_126",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织拒绝再把危险物品放在边缘。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_125"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_127",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织与外部核对公告文案。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_126"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_128",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在绣楼明间练习更稳的操作手法。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_127"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_129",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "午后光线落在揭裱重绣后的双面绣屏上。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_130",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把门楣铜铃擦亮，却暂不敲响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_131",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织收到阿绣的明信片，压在灯座下未拆。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_132",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在绣楼明间重新绷紧色线卷。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_131"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_133",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织用软毛刷拂去双面绣屏边框灰尘。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_132"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_134",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把针法谱翻到劈丝图示那一页。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_133"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_135",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织检查琉璃罩灯灯芯是否需要修剪。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_134"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_136",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在染坊天井查看靛蓝水浓度。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_135"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_135"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_135"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_137",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把瓷线轴按深浅重新插回木托。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_136"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_136"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_136"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_138",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织剪去一根起毛的废丝线。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_137"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_137"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_137"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_139",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在窗边对光检查针脚密度。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_138"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_138"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_138"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_140",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把银簪重新插稳。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_139"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_139"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_139"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_141",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在账册上记下今日用线量。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_140"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_140"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_140"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_142",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把竹帘放下遮住西晒。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_141"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_141"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_141"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_143",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "年底封账，沈织把全年资料按月装订。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 60,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_144",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把污损的针法谱单独装进档案袋。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_143"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_145",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织打印修复前后的对比照片，夹进档案。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_144"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_146",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织清理台面，只留必要工具与一盏灯。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_145"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_147",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织给关键工具上油防锈。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_146"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_148",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在双面绣屏修复痕旁签了日期。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_147"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_147"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_147"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_147"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_149",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "窗外天气转冷，绣楼明间暖气或炉火发出轻响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_148"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_148"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_148"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_148"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_150",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织写完年度总结，封皮上只写简短主题。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_149"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_149"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_149"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_149"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_151",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，伤痕仍在、步履发沉的沈织拄着竹杖，立在废弃织机房。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_150"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_152",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织仰望废弃织机房的残迹，目光悠远。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_151"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_151"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_153",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "废弃织机房旁，那两只门楣铜铃被带回挂起，风里轻响。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_152"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_152"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 149,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_154",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把手掌贴在冰冷的织机木梁上，似在告别。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_153"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_153"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_155",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织缓缓坐下喘息片刻。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_154"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_154"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_156",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两只门楣铜铃再次轻响，沈织闭眼倾听，像听当年的开工铜铃。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_155"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_155"
+        },
+        {
+          "eid": "E16",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_153",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_157",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "沈织每日仍回绣楼明间，却更多时间坐着看双面绣屏。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_156"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_150"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 6,
+          "last_seen": "seg_150"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_158",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把竹杖靠在门边，行动比往日慢。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_157"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_157"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_157"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_159",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织让年轻助理代写备注，自己只做核对。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_158"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_158"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_158"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_160",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织把揭裱重绣后的双面绣屏拍给远方的阿绣。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_159"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_159"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_159"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_161",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织在污损针法谱末页写下『交班』却未落款。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_160"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_160"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_160"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_162",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织拒绝住院，坚持每周去废弃织机房坐一坐。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_161"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_161"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_161"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_163",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织擦拭青砖记名碑的样稿。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_162"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_162"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_162"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_164",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "夜里绣楼明间只留一盏灯，沈织在光圈里打盹。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_163"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_163"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_163"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_165",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年的阿绣沿废弃织机房归来，快步走向残迹。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 128,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_156"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_166",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣在废弃织机房与步履发沉的沈织重逢，两人相拥。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 1,
+          "last_seen": "seg_164"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_165"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_165"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_167",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "绣楼明间的床榻旁，阿绣握着沈织枯瘦的手。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位沈织的疲惫负伤之貌：对襟褂袖口烧焦、食指缠纱布，仍插着银簪，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_166"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_166"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_168",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "沈织气息渐弱，最终阖上双眼，溘然长逝。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "离岗谢幕",
+            "appearance": "沈织已离岗谢幕，绣楼只留她的月白旧褂与坊主牌，人影不再出现。"
+          },
+          "gap": 0,
+          "last_seen": "seg_167"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_167"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_169",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣在废弃织机房久久伫立，泪落在地面。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_168"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_166"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_170",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣把沈织的银簪插进自己的发髻。",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_169"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_171",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "绣楼明间门后仍挂着沈织的旧外套，阿绣伸手轻轻抚过。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_170"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_164"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_172",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "废弃织机房旁，成年阿绣伫立在新钉上的青砖记名碑前。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_171"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_169"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_173",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣的指尖抚过青砖记名碑上刻着的沈织之名。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_172"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_172"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_172"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_174",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣把一朵白菊放在青砖记名碑下缘。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_173"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_173"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_175",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "风过废弃织机房，阿绣低声念出牌上的年份。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_174"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_173"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_174"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_176",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "改头换面的成年阿纹赶来，与阿绣在废弃织机房紧紧相拥。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_175"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿纹仍别琥珀针插胸针，又戴上细金丝眼镜，神情更深沉。"
+          },
+          "gap": 139,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_175"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_177",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣与阿纹并肩立于青砖记名碑旁，一个眉眼沉静、一个神情深沉。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_176"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿纹仍别琥珀针插胸针，又戴上细金丝眼镜，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_176"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_176"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_178",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿纹触了触自己的琥珀针插胸针，又看阿绣发间的银簪。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_177"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿纹仍别琥珀针插胸针，又戴上细金丝眼镜，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_177"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_177"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_179",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人相视无言，望着彼此相似而又不同的脸。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_178"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿纹仍别琥珀针插胸针，又戴上细金丝眼镜，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_178"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_178"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_180",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣与阿纹一同走向尽头，影子并成一道。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_179"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿纹仍别琥珀针插胸针，又戴上细金丝眼镜，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_179"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_179"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿绣：带着姜黄腕巾，眉眼沉静/倔强。",
+            "E6": "阿纹：面容极似阿绣，但佩琥珀针插胸针，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_181",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前——那个在天井系着姜黄腕巾、穿针引线的少年，身影再度浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年学徒",
+            "appearance": "少年时的阿绣：十四五岁、清瘦的绣坊学徒，右腕系姜黄腕巾，眉眼清亮倔强。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_180",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "天井系姜黄腕巾的少年",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_182",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场的那一刻——绣楼里，一扇正反同图的牡丹飞雀绣屏第一次被展开。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_171"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "完好",
+            "appearance": "一扇双面绣屏，绢面完好，正反两面同是牡丹与飞雀，针脚细密无跳线。",
+            "flashback": true
+          },
+          "gap": 17,
+          "last_seen": "seg_164",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次展开的牡丹飞雀绣屏",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_183",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到当年的绸庄夹弄——那个别着琥珀针插胸针、快步抢花样的身影一闪而过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "青年对手",
+            "appearance": "与阿绣面容体态极相似的阿纹，却别琥珀针插胸针，神情张扬爱抢花样。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_180",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "当年夹弄里别琥珀针插胸针的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_184",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现绣楼梁下那一排五盏淡青旧灯。",
+      "memory_probes": [
+        "count_memory",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 88,
+          "last_seen": "seg_095",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "绣楼梁下那一排五盏淡青旧灯",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_185",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那片晾着湿绸的染坊院落，皂角味一如往昔。",
+      "memory_probes": [
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 61,
+          "last_seen": "seg_123",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时晾着湿绸的染坊院落",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_186",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "纸页翻开——那本尚无染料斑、画满劈丝图示的绸面针谱再次出现。",
+      "memory_probes": [
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "recall_after_gap",
+          "state": {
+            "label": "完好",
+            "appearance": "一本绸面针法谱，内页画满劈丝与套针图示，封面干净。",
+            "flashback": true
+          },
+          "gap": 35,
+          "last_seen": "seg_150",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "尚无染料斑的绸面针谱",
+            "resolves_to": "E4"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_187",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "阿绣重新翻开那本已染料污损的针法谱，走进绣楼明间。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 5,
+          "last_seen": "seg_181"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_182"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "染料污损",
+            "appearance": "同一本针法谱被染料污损，封面染开紫斑，图示晕开，夹着一张皱巴巴的吸墨纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_186"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_188",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "绣楼明间台面上，先前那三只瓷线轴依旧整齐。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_187"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 114,
+          "last_seen": "seg_073",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_189",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣接过双面绣屏的守望，修复痕在灯光下清晰可辨。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 1,
+          "last_seen": "seg_187"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_188"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 6,
+          "last_seen": "seg_182"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_190",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣拧亮五盏琉璃罩灯，光重新铺满空间。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_189"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_189"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_184",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_191",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿绣在揭裱重绣后的双面绣屏前站直，像沈织当年一样核对正反针脚。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿绣：二十余岁、指法沉稳的接班绣娘，仍系姜黄腕巾，眉眼沉静。"
+          },
+          "gap": 0,
+          "last_seen": "seg_190"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_190"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "揭裱重绣",
+            "appearance": "双面绣屏经揭裱重绣后牡丹重新分明，但屏角留着一道浅浅补绢痕，区别于最初完好态。"
+          },
+          "gap": 1,
+          "last_seen": "seg_189"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_168",
+          "reference_indirect": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 191,
+    "n_scenes": 26,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 386,
+      "transform": 8,
+      "persist": 115,
+      "recall_after_gap": 10
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 180,
+      "lookalike_disambiguation": 17,
+      "state_change": 8,
+      "persist_state": 90,
+      "long_gap_reappearance": 13,
+      "count_memory": 8,
+      "false_friend": 5,
+      "deprecation_avoidance": 14,
+      "reference_indirect": 8,
+      "temporal_reference": 6
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 13,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 17,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 14,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 6,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 484,
+      "5-29": 21,
+      ">=30": 14
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 149,
+      "at": "seg_153"
+    }
+  },
+  "warnings": []
+}

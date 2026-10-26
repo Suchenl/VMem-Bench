@@ -1,0 +1,7596 @@
+{
+  "story_id": "0047_cargo_crane_operator",
+  "gt_version": "trackB-gt-2.0",
+  "title": "码头吊机班",
+  "premise": "货运码头的吊机班传承。阿港与阿泊外形极易错认；主控台铭牌完好→进水短路→更换面板；黄吊钩总成坠落损毁后须规避；数量记忆与假朋友、时序闪回贯穿。仅作人读上下文，不喂给 SUT。",
+  "built_from": "gt_source/0047_cargo_crane_operator.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "周铁",
+      "kind": "character",
+      "states": {
+        "壮年在岗": "四十来岁的吊机班长周铁，寸头，穿橘红反光工装，耳罩挂在颈间，手指粗粝，眼神果断。",
+        "疲惫负伤": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。",
+        "离岗谢幕": "周铁已离岗谢幕，驾驶舱只留他的橘红旧工装与工牌，人影不再出现。"
+      },
+      "initial_state": "壮年在岗"
+    },
+    "E2": {
+      "name": "阿港",
+      "kind": "character",
+      "states": {
+        "少年学徒": "少年时的阿港：十六岁左右、清瘦的吊机学徒，左臂系姜黄臂章，安全帽偏大，眉眼清亮倔强。",
+        "成年接班": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+      },
+      "initial_state": "少年学徒"
+    },
+    "E3": {
+      "name": "主控台铭牌",
+      "kind": "prop",
+      "states": {
+        "完好": "一块铆在驾驶舱前的主控台铭牌，钢面完好，刻着额定吨位与出厂编号，指示灯齐全。",
+        "进水短路": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。",
+        "更换面板": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+      },
+      "initial_state": "完好"
+    },
+    "E4": {
+      "name": "班组日志",
+      "kind": "prop",
+      "states": {
+        "完好": "一本防水夹的班组日志，内页记着吊次与风速，封面干净。",
+        "机油污损": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+      },
+      "initial_state": "完好"
+    },
+    "E5": {
+      "name": "黄吊钩总成",
+      "kind": "prop",
+      "states": {
+        "完好": "一套亮黄吊钩总成，钩尖完好，防转环灵活，挂在臂端可正常起吊。",
+        "坠落损毁": "黄吊钩总成从臂端坠落砸裂，钩尖崩断，只剩扭曲残骸。"
+      },
+      "initial_state": "完好"
+    },
+    "E6": {
+      "name": "阿泊",
+      "kind": "character",
+      "states": {
+        "青年对手": "与阿港面容体态极相似的阿泊，却挂琥珀耳塞挂件，神情张扬爱抢操纵杆。",
+        "改头换面": "改头换面后的阿泊仍挂琥珀耳塞挂件，又戴上深色护目镜，神情更深沉。"
+      },
+      "initial_state": "青年对手"
+    },
+    "E7": {
+      "name": "吊机驾驶舱",
+      "kind": "location",
+      "appearance": "高空吊机驾驶舱，四面玻璃窗，前方是主控台铭牌与操纵杆，脚下是集装箱堆场。"
+    },
+    "E8": {
+      "name": "前沿泊位",
+      "kind": "location",
+      "appearance": "前沿泊位，潮汐味与柴油味混杂，地面画着黄黑斑马线，岸边停着待装货轮。"
+    },
+    "E9": {
+      "name": "集装箱巷道",
+      "kind": "location",
+      "appearance": "集装箱堆成的狭窄巷道，两侧箱门紧闭，应急灯把影子切成硬块。"
+    },
+    "E10": {
+      "name": "废弃轨吊基座",
+      "kind": "location",
+      "appearance": "废弃轨吊基座，混凝土桩裸露钢筋，锈轨延伸进杂草。"
+    },
+    "E11": {
+      "name": "铸铁班组牌",
+      "kind": "prop",
+      "appearance": "一块钉在轨吊基座上的铸铁班组牌，刻着『周铁』与年份，边缘起锈。"
+    },
+    "E12": {
+      "name": "安全锥桶",
+      "kind": "prop",
+      "appearance": "三只橙白相间的安全锥桶，摆在泊位警戒线内，用来标出吊装禁区。"
+    },
+    "E13": {
+      "name": "玩具吊臂模型",
+      "kind": "prop",
+      "appearance": "一具塑料玩具吊臂模型，外形略像吊具却无真实钩尖，底座写着『展示』。"
+    },
+    "E14": {
+      "name": "港区安全员老成",
+      "kind": "character",
+      "appearance": "一名身形与周铁有几分相似的港区安全员老成，黄制服、肩章反光条，帽徽是十字而非耳罩。"
+    },
+    "E15": {
+      "name": "舱内工作灯",
+      "kind": "prop",
+      "appearance": "一排五盏拧在舱顶的工作灯，灯罩乳白，玻璃擦亮。"
+    },
+    "E16": {
+      "name": "风速警报铃",
+      "kind": "prop",
+      "appearance": "两只装在舱侧的风速警报铃，风超标时尖锐鸣响。"
+    },
+    "E17": {
+      "name": "实习工小栈",
+      "kind": "character",
+      "appearance": "乍看与少年阿港神似的实习工小栈，系浅灰袖标而非姜黄臂章，目光怯生。"
+    },
+    "E18": {
+      "name": "袖珍控制面板模型",
+      "kind": "prop",
+      "appearance": "一块袖珍控制面板模型，布局酷似主控台却更小、无真实编号。"
+    },
+    "E19": {
+      "name": "橙灰叉车",
+      "kind": "prop",
+      "appearance": "一辆陌生的橙灰色叉车，货叉宽扁、无吊钩，侧门喷着『库区』字样。"
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "壮年在岗",
+      "疲惫负伤",
+      "离岗谢幕"
+    ],
+    "E2": [
+      "少年学徒",
+      "成年接班"
+    ],
+    "E3": [
+      "完好",
+      "进水短路",
+      "更换面板"
+    ],
+    "E4": [
+      "完好",
+      "机油污损"
+    ],
+    "E5": [
+      "完好",
+      "坠落损毁"
+    ],
+    "E6": [
+      "青年对手",
+      "改头换面"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+        "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+      },
+      "note": "错认硬样本：阿港与阿泊外形相近，仅靠姜黄臂章/琥珀耳塞挂件区分。"
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "黄昏，周铁爬进吊机驾驶舱，把耳罩挂到颈间。",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吊机驾驶舱里挂着一排五盏舱内工作灯，周铁逐一擦亮它们。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "门侧悬着两只风速警报铃，周铁伸手让它们轻轻鸣响。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁逐项核对主控台铭牌上的额定吨位指示灯。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁凭窗眺望前沿泊位外渐暗的海面与货轮灯火。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "完好的主控台铭牌铆在前方，指示灯在工作灯下稳定发亮。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在调度白板上补写夜班靠泊船名和风速上限。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把耳罩取下又挂回，确认线夹牢固。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁整理散落的对讲机电池，按班次重新排好。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在驾驶舱折叠椅上坐下，揉了揉发酸的肩颈。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "周铁翻开班组日志，按吊次、箱号、风速写下夜班交接。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在超风速那栏旁画红三角，标出需要停吊的阈值。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁合上班组日志，塞回防水夹并扣紧挂绳。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "主控台铭牌的反光扫过周铁的侧脸。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁对照主控台铭牌，用红笔圈出吨位编号旁忽明忽灭的指示灯。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把对讲机电池和扳手收进磁吸盒，免得滑进踏板缝。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清晨的前沿泊位，周铁迎向带着黄吊钩总成到来的少年阿港。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港把黄吊钩总成放在警戒线内，确认防转环朝上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁指着三只安全锥桶，教阿港用它们隔开回转半径和人行线。",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港蹲在前沿泊位，查看斑马线磨损和轮胎压痕。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁向阿港讲解风速超标停吊、指挥手势和先鸣笛后起钩的规矩。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港回望完好的黄吊钩总成，眼里满是向往。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁让阿港挂上模拟吊索，练习起钩前手势复诵。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港把姜黄臂章勒紧，在手套背面默背周铁口述的停吊风速。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "集装箱巷道里，佩着琥珀耳塞挂件的阿泊从暗处回头张望。",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿泊在集装箱巷道中缓步前行，神情张扬。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿泊与过路人擦肩，琥珀耳塞挂件微微晃动。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿泊停在箱门旁，挑剔地评点铅封编号贴得不正。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿泊把一根废扎带踢进排水沟。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿泊转身穿过红蓝集装箱之间的窄缝离去。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "前沿泊位里，阿港与阿泊并肩而立，一个带着姜黄臂章、一个佩琥珀耳塞挂件。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港把捡来的吊索护套递给阿泊，两人相视却神情不同。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿泊替阿港理了理姜黄臂章，又故意碰响自己的琥珀耳塞挂件。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港与阿泊沿前沿泊位边缘慢走，影子叠在一起又分开。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港低头核对吊次清单，阿泊却四处张望。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港与阿泊在前沿泊位口分别，各自走向相反方向。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数月后的夜里，周铁独自在吊机驾驶舱值守，主控台铭牌的指示灯低亮。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁翻开班组日志，才发现它已机油污损，吊次列被油渍糊住。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁擦拭主控台铭牌表面的盐雾和油点。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁凭窗望向前沿泊位外的夜色。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "灯光在主控台铭牌上缓缓移动。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把吸墨纸夹进污损的班组日志，叹气关灯。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 1,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "周铁在吊机驾驶舱擦拭主控台铭牌边缘。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁更新墙上的当日备注。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把工具按编号重新排好。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁对照班组日志核对昨日记录。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "午后，周铁接到外部电话，眉头微皱。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在便签上写下暂缓事项，贴在显眼处。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把备用材料单独抽出归类。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "傍晚，周铁关掉多余的灯，只留中央一盏照着主控台铭牌。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "周铁在吊机驾驶舱铺开描图纸或对照表。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁用色点标出需要加强的位置。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把纸张边缘固定，防止卷边。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁对照已污损的班组日志，努力辨认旧数字。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把饮品放远，生怕再溅到班组日志上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在墙上列出三条拟调整事项。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "窗外有动静，周铁抬头听了片刻。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁用细绳把标签重新串起。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "巡视日，周铁走进前沿泊位。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁小心试探地面或栏杆是否稳妥。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁记下需要修补的位置。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁用手电照进昏暗角落。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁与路过的工作人员短暂交谈。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁避开堆放的杂物，绕到另一侧。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁用卷尺或目测记录尺寸变化。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把结果写在袖口便签上。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "拂晓，周铁沿前沿泊位巡查，黄吊钩总成停在原处。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 30,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E5",
+          "op": "recall_after_gap",
+          "gap": 43,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁蹲下检查黄吊钩总成的防转环、保险舌和钩尖磨损。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁走到警戒线内，先前那三只安全锥桶仍呈三角布防。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_067"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 49,
+          "last_seen": "seg_019",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "维修棚边摆出塑料玩具吊臂模型，那模型没有真实钩尖和防转环，绝非黄吊钩总成。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁站在前沿泊位，在巡检表上记下斑马线磨损和风速牌读数。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁用吊索护套重新固定黄吊钩总成的保险舌。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_068"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁再次确认三只安全锥桶仍压在警戒线内，没有被叉车碰倒。",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_069",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在调度白板上写下巡查日期与班次。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "灾变前夕，周铁把靠窗的材料全部收进柜中。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 32,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁用防护布罩住主控台铭牌。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁检查班组日志是否放进干燥抽屉。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁拧紧瓶盖与阀门，挪到高处。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "远处有异响，吊机驾驶舱灯光闪了一下。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把五盏舱内工作灯的线缆理顺。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁写下『明日停工』通知草稿。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_080"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁听听两只风速警报铃是否被风吹响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "暴雨骤起，驾驶舱顶漏水，水珠砸向主控台。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "一阵侧风掀起舱内图纸，积水渗进铭牌缝隙。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_083"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "主控台铭牌进水短路，钢面发黑，指示灯全部熄灭。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "臂端，黄吊钩总成在狂风中剧烈甩动。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "防转环崩开，黄吊钩总成坠落砸裂，钩尖崩断成残骸。",
+      "memory_probes": [
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "坠落损毁",
+            "appearance": "黄吊钩总成从臂端坠落砸裂，钩尖崩断，只剩扭曲残骸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_086"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "驾驶舱里，周铁扑向操纵台，徒手按住进水的主控台铭牌区域。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_082"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 2,
+          "last_seen": "seg_085"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_089",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁左眉被甩动的对讲机砸破，血渗进纱布，仍死死护着面板。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_090",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "短路发黑的主控台铭牌在潮湿空气里冒出细微白烟。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_089"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_091",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "灾变次日，周铁站在吊机驾驶舱里，凝视着已进水短路的主控台铭牌。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_090"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_092",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁用手指抚过主控台铭牌上的损伤，神情黯然。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_091"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_093",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在事故复盘白板上记下黄吊钩总成被毁的日期。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_094",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "墙上仍钉着黄吊钩总成钩尖完好时起吊蓝箱的旧照片，周铁久久凝望。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_095",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁拧亮五盏舱内工作灯中的一盏，就着光斑独坐。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 92,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_096",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "短路发黑的主控台铭牌仍铆在操纵杆前方，损伤触目惊心。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 3,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_097",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把渗血的包扎换新，继续清理烧焦绝缘片和断裂保险销。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_098",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把防雨罩重新罩好，生怕水汽再次渗进面板。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 1,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_099",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "清理周，周铁把断裂保险销和碎塑壳装进纸箱。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_098"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_100",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁提交请款单，申请面板、指示灯和防水胶圈。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_099"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_101",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁每天仍来吊机驾驶舱，盯着受损的主控台铭牌出神。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_102",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁用铅笔抄下尚可辨认的额定吨位和出厂编号。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_101"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_103",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把污损的班组日志翻到空白页，改记请款进度。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_102"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_104",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港请假未归，吊机驾驶舱只剩周铁一人的脚步声。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_103"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_105",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁习惯性望向空空的臂端旧挂点。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_104"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_106",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在墙上列出更换面板所需清单。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_105"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_107",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "数周后，周铁拆下短路线路，搬来新铭牌面板和防水胶圈。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 0,
+          "last_seen": "seg_106"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_108",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁取出袖珍控制面板模型，它像主控台铭牌的缩小版，却没有额定吨位编号也不能通电。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_109",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁剥开焦黑线束，重接指示灯，再把重刻编号的新面板铆上。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "进水短路",
+            "appearance": "同一块主控台铭牌进水短路，钢面发黑，指示灯熄灭，编号被锈蚀糊住。"
+          },
+          "gap": 1,
+          "last_seen": "seg_107"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_110",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "最后一圈防水胶压实，主控台铭牌完成更换面板，边角留下浅浅焊痕。",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_109"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_111",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "更换面板后的主控台铭牌指示灯依次亮起，周铁欣慰地望着它。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_110"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_112",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把袖珍控制面板模型推到一边，只让真正的主控台铭牌铆回操纵杆前方。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_111"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_113",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吊机驾驶舱恢复安静，更换面板后的主控台铭牌独占中央。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_112"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_114",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "库区调度开来橙灰叉车，宽扁货叉贴地，与早已损毁的黄吊钩总成毫不相同。",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "long_gap_reappearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 39,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_115",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "港区安全员老成走进前沿泊位，与周铁并肩交谈，两人身形相仿。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_116",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "港区安全员老成指着橙灰叉车，向周铁说明叉车只搬托盘，不得替代臂端吊钩作业。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_114",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_115",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_117",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "橙灰叉车离开，周铁独自留在前沿泊位目送。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_118",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "橙灰叉车在远端短暂停留，又继续前行。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_116",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_119",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "港区安全员老成临走前拍了拍周铁的肩，十字帽徽在灯下闪了一下。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_116",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_120",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "前沿泊位来了个实习工小栈，乍看竟有几分像少年阿港。",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_121",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "实习工小栈学着比划起钩手势，周铁却摇摇头——终究不是阿港。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_120"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_120",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_122",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "实习工小栈怯生生地问风速多少停吊，周铁简短回答后让他去安全员岗亭取警戒带。",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_123",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁独自站在前沿泊位，望着空空的黄吊钩总成停放处出神。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_122"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_122"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_124",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "更换面板后的第一旬，周铁每日清晨先检查主控台铭牌。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_123"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 10,
+          "last_seen": "seg_113"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_125",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把新记录写进污损后的班组日志空白页。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_124"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_126",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁拒绝再把危险物品放在边缘。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_125"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_127",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁与外部核对公告文案。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_126"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_128",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在吊机驾驶舱练习更稳的操作手法。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_127"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_129",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "午后光线落在更换面板后的主控台铭牌上。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_130",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把风速警报铃擦亮，却暂不敲响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_131",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁收到阿港的明信片，压在灯座下未拆。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_132",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在吊机驾驶舱核对风速仪读数。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_131"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_133",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁用抹布擦去主控台铭牌边的盐雾。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_132"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_134",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把班组日志翻到本周吊次汇总页。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_133"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_135",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁检查舱内工作灯是否全部可亮。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_134"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_136",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在前沿泊位斑马线上重画一处磨损线。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_135"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_135"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_135"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_137",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把对讲机频道调回班组公用频。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_136"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_136"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_136"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_138",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁记录货轮靠泊的预计时刻。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_137"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_137"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_137"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_139",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁确认安全锥桶仍在警戒线内。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_138"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_138"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_138"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_140",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "年底封账，周铁把全年资料按月装订。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_139"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_139"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_139"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 57,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_141",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把污损的班组日志单独装进档案袋。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_140"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_140"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_140"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_140"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_142",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁打印修复前后的对比照片，夹进档案。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_141"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_141"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_141"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_141"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_143",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁清理台面，只留必要工具与一盏灯。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_142"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_144",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁给关键工具上油防锈。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_143"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_145",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在主控台铭牌修复痕旁签了日期。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_144"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_146",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "窗外天气转冷，吊机驾驶舱暖气或炉火发出轻响。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_145"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_147",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁写完年度总结，封皮上只写简短主题。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_146"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_148",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "多年后的黄昏，伤痕仍在、步履发沉的周铁拄着旧撬棍，立在废弃轨吊基座。",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_147"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_149",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁仰望废弃轨吊基座的残迹，目光悠远。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_148"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_148"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_150",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "废弃轨吊基座旁，那两只风速警报铃被带回挂起，风里轻响。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_149"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_149"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 146,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_151",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把手掌贴在冰冷的锈轨上，似在告别。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_150"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_150"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_152",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁缓缓坐下喘息片刻。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_151"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_151"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_153",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两只风速警报铃再次轻响，周铁闭眼倾听，像听当年的超风速警铃。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_152"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_152"
+        },
+        {
+          "eid": "E16",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_150",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_154",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "周铁每日仍回吊机驾驶舱，却更多时间坐着看主控台铭牌。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_153"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_147"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 6,
+          "last_seen": "seg_147"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_155",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把旧撬棍靠在门边，行动比往日慢。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_154"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_154"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_154"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_156",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁让年轻助理代写备注，自己只做核对。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_155"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_155"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_155"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_157",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁把更换面板后的主控台铭牌拍给远方的阿港。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_156"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_156"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_156"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_158",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁在污损班组日志末页写下『交班』却未落款。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_157"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_157"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_157"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_159",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁拒绝住院，坚持每周去废弃轨吊基座坐一坐。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_158"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_158"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_158"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_160",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁擦拭铸铁班组牌的样稿。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_159"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_159"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_159"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_161",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "夜里吊机驾驶舱只留一盏灯，周铁在光圈里打盹。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_160"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_160"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 0,
+          "last_seen": "seg_160"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_162",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "白日，成年的阿港沿废弃轨吊基座归来，快步走向残迹。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 125,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_153"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_163",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港在废弃轨吊基座与步履发沉的周铁重逢，两人相拥。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 1,
+          "last_seen": "seg_161"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_162"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_162"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_164",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "吊机驾驶舱的床榻旁，阿港握着周铁枯瘦的手。",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "疲惫负伤",
+            "appearance": "同一位周铁的疲惫负伤之貌：工装肩部烧蚀、左眉贴纱布，仍挂着耳罩，步履发沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_163"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_163"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_165",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "周铁气息渐弱，最终阖上双眼，溘然长逝。",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "离岗谢幕",
+            "appearance": "周铁已离岗谢幕，驾驶舱只留他的橘红旧工装与工牌，人影不再出现。"
+          },
+          "gap": 0,
+          "last_seen": "seg_164"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_164"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_166",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港在废弃轨吊基座久久伫立，泪落在地面。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_165"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_163"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_167",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港把周铁的耳罩挂到自己颈间。",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_166"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_168",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "吊机驾驶舱门后仍挂着周铁的旧外套，阿港伸手轻轻抚过。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_167"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_161"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_169",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "废弃轨吊基座旁，成年阿港伫立在新钉上的铸铁班组牌前。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_168"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_166"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_170",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港的指尖抚过铸铁班组牌上刻着的周铁之名。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_169"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_169"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_169"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_171",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港把一朵白菊放在铸铁班组牌下缘。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_170"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_170"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_172",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "风过废弃轨吊基座，阿港低声念出牌上的年份。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_171"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_170"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_171"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_173",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "改头换面的成年阿泊赶来，与阿港在废弃轨吊基座紧紧相拥。",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_172"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿泊仍挂琥珀耳塞挂件，又戴上深色护目镜，神情更深沉。"
+          },
+          "gap": 136,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_172"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_174",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港与阿泊并肩立于铸铁班组牌旁，一个眉眼沉静、一个神情深沉。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_173"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿泊仍挂琥珀耳塞挂件，又戴上深色护目镜，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_173"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_173"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_175",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿泊触了触自己的琥珀耳塞挂件，又看阿港颈间的旧耳罩。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_174"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿泊仍挂琥珀耳塞挂件，又戴上深色护目镜，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_174"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_174"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_176",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "两人相视无言，望着彼此相似而又不同的脸。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_175"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿泊仍挂琥珀耳塞挂件，又戴上深色护目镜，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_175"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_175"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_177",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港与阿泊一同走向尽头，影子并成一道。",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_176"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "改头换面",
+            "appearance": "改头换面后的阿泊仍挂琥珀耳塞挂件，又戴上深色护目镜，神情更深沉。"
+          },
+          "gap": 0,
+          "last_seen": "seg_176"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_176"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "阿港：带着姜黄臂章，眉眼沉静/倔强。",
+            "E6": "阿泊：面容极似阿港，但佩琥珀耳塞挂件，神情张扬或深沉。"
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_178",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "镜头回到多年前——那个在泊位系着姜黄臂章、仰望吊臂的少年，身影再度浮现。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "少年学徒",
+            "appearance": "少年时的阿港：十六岁左右、清瘦的吊机学徒，左臂系姜黄臂章，安全帽偏大，眉眼清亮倔强。",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_177",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "泊位系姜黄臂章的少年",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_179",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "重现开场的那一刻——驾驶舱里，一块刻着吨位编号的钢质铭牌第一次被点亮指示灯。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_168"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "完好",
+            "appearance": "一块铆在驾驶舱前的主控台铭牌，钢面完好，刻着额定吨位与出厂编号，指示灯齐全。",
+            "flashback": true
+          },
+          "gap": 17,
+          "last_seen": "seg_161",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "开场第一次点亮指示灯的钢质铭牌",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_180",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "闪回到当年的集装箱巷道——那个挂着琥珀耳塞挂件、抢步快跑的身影一闪而过。",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "青年对手",
+            "appearance": "与阿港面容体态极相似的阿泊，却挂琥珀耳塞挂件，神情张扬爱抢操纵杆。",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_177",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "当年巷道里挂琥珀耳塞挂件的身影",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_181",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "眼前又浮现驾驶舱顶那一排五盏乳白罩的旧顶灯。",
+      "memory_probes": [
+        "count_memory",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 85,
+          "last_seen": "seg_095",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "驾驶舱顶那一排五盏旧顶灯",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_182",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "回到初见时那片画着斑马线的码头前沿，柴油味一如往昔。",
+      "memory_probes": [
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 58,
+          "last_seen": "seg_123",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "初见时画着斑马线的码头前沿",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_183",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "纸页翻开——那本尚无机油渍、记满吊次与风速的防水夹日志再次出现。",
+      "memory_probes": [
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "recall_after_gap",
+          "state": {
+            "label": "完好",
+            "appearance": "一本防水夹的班组日志，内页记着吊次与风速，封面干净。",
+            "flashback": true
+          },
+          "gap": 35,
+          "last_seen": "seg_147",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "尚无机油渍的防水夹日志",
+            "resolves_to": "E4"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_184",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "阿港重新翻开那本已机油污损的班组日志，走进吊机驾驶舱。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 5,
+          "last_seen": "seg_178"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_179"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "机油污损",
+            "appearance": "同一本班组日志被机油污损，封面发亮发黏，字迹晕开，夹着一张皱巴巴的吸油纸。"
+          },
+          "gap": 0,
+          "last_seen": "seg_183"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_185",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "透过驾驶舱窗，前沿泊位上先前那三只安全锥桶依旧呈三角布防。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_184"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 111,
+          "last_seen": "seg_073",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_186",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港接过主控台铭牌的守望，修复痕在灯光下清晰可辨。",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 1,
+          "last_seen": "seg_184"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_185"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 6,
+          "last_seen": "seg_179"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_187",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港拧亮五盏舱内工作灯，光重新铺满空间。",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_186"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_186"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_181",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_188",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "阿港在更换面板后的主控台铭牌前站直，像周铁当年一样核对额定吨位和风速读数。",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "成年接班",
+            "appearance": "成年后的阿港：二十余岁、肩背宽厚的接班操作员，仍系姜黄臂章，眉眼沉稳。"
+          },
+          "gap": 0,
+          "last_seen": "seg_187"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_187"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "更换面板",
+            "appearance": "主控台铭牌经更换面板后编号重刻清晰，但边角留着一道浅浅焊痕，区别于最初完好态。"
+          },
+          "gap": 1,
+          "last_seen": "seg_186"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_087"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_165",
+          "reference_indirect": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 188,
+    "n_scenes": 26,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 380,
+      "transform": 8,
+      "persist": 112,
+      "recall_after_gap": 10
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 177,
+      "lookalike_disambiguation": 17,
+      "state_change": 8,
+      "persist_state": 87,
+      "long_gap_reappearance": 13,
+      "count_memory": 8,
+      "false_friend": 5,
+      "deprecation_avoidance": 14,
+      "reference_indirect": 8,
+      "temporal_reference": 6
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 13,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 17,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 14,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 6,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 475,
+      "5-29": 21,
+      ">=30": 14
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 146,
+      "at": "seg_150"
+    }
+  },
+  "warnings": []
+}

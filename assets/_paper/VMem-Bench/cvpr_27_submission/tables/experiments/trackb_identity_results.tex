@@ -1,0 +1,36 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{Track-B identity consistency.} No-memory value and each condition minus no memory; $N$ counts eligible events, while policy-specific detected/visible subsets determine the analyzed means (bold: paired story-bootstrap 95\% CI excludes zero). Embeddings: mean cosine similarity between the previous and current appearance (DINOv3 on the localized entity; MegaLoc on the whole frame for locations), over returns detected on both sides. VLM: share judged the same individual among returns visible in both clips (lenient, Table~\ref{tab:identity-calibration}). Returns are character and prop re-appearances after at least one segment away; returns changed are characters whose look changed after 30 or more segments, for which a higher similarity means the return looks more like its old look.}
+\label{tab:identity-results}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l r r *{5}{r}@{}}
+\toprule
+Stratum & \shortstack{Eligible\\$N$} & \shortstack{No\\memory} & \shortstack{Text\\$\Delta$} & \shortstack{Uniform\\$\Delta$} & \shortstack{DINO-key\\$\Delta$} & \shortstack{Frame\\$\Delta$} & \shortstack{Last-seen\\$\Delta$} \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{DINOv3 crop similarity (trackB-embed-1.0)}}\\
+All returns & 1130 & 0.35 & \textbf{+0.15} & \textbf{+0.21} & \textbf{+0.20} & \textbf{+0.21} & \textbf{+0.23} \\
+Characters & 486 & 0.27 & \textbf{+0.13} & \textbf{+0.20} & \textbf{+0.19} & \textbf{+0.18} & \textbf{+0.23} \\
+Props & 644 & 0.41 & \textbf{+0.16} & \textbf{+0.21} & \textbf{+0.21} & \textbf{+0.23} & \textbf{+0.22} \\
+Gap 1--4 & 688 & 0.30 & \textbf{+0.15} & \textbf{+0.22} & \textbf{+0.21} & \textbf{+0.21} & \textbf{+0.25} \\
+Gap 5--29 & 293 & 0.36 & \textbf{+0.16} & \textbf{+0.19} & \textbf{+0.19} & \textbf{+0.19} & \textbf{+0.17} \\
+Gap $\geq$30 & 149 & 0.53 & \textbf{+0.12} & \textbf{+0.18} & \textbf{+0.17} & \textbf{+0.20} & \textbf{+0.19} \\
+Returns changed, $\geq$30 & 61 & 0.19 & \textbf{+0.18} & \textbf{+0.20} & \textbf{+0.20} & \textbf{+0.15} & \textbf{+0.23} \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{VLM pairwise judge: same individual when visible in both (trackB-identity-1.0)}}\\
+All returns & 1130 & 0.84 & \textbf{+0.12} & \textbf{+0.12} & \textbf{+0.12} & \textbf{+0.12} & \textbf{+0.12} \\
+Characters & 486 & 0.77 & \textbf{+0.17} & \textbf{+0.17} & \textbf{+0.15} & \textbf{+0.15} & \textbf{+0.14} \\
+Props & 644 & 0.87 & \textbf{+0.11} & \textbf{+0.12} & \textbf{+0.12} & \textbf{+0.13} & \textbf{+0.12} \\
+Gap 1--4 & 688 & 0.85 & \textbf{+0.10} & \textbf{+0.11} & \textbf{+0.10} & \textbf{+0.10} & \textbf{+0.10} \\
+Gap 5--29 & 293 & 0.86 & \textbf{+0.11} & \textbf{+0.11} & \textbf{+0.12} & \textbf{+0.14} & \textbf{+0.11} \\
+Gap $\geq$30 & 149 & 0.80 & \textbf{+0.17} & \textbf{+0.19} & \textbf{+0.18} & \textbf{+0.19} & \textbf{+0.18} \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{ArcFace face similarity, characters}}\\
+Characters & 486 & 0.13 & +0.01 & \textbf{+0.06} & \textbf{+0.05} & \textbf{+0.04} & \textbf{+0.09} \\
+Returns changed, $\geq$30 & 61 & 0.06 & \textbf{+0.07} & \textbf{+0.08} & \textbf{+0.08} & \textbf{+0.08} & \textbf{+0.05} \\
+\midrule
+\multicolumn{8}{@{}l}{\textit{MegaLoc scene similarity, locations}}\\
+Locations & 425 & 0.11 & \textbf{+0.15} & \textbf{+0.21} & \textbf{+0.18} & \textbf{+0.19} & \textbf{+0.09} \\
+\bottomrule
+\end{tabular}
+\end{table*}

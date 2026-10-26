@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{Scope of neighboring visual-memory work.} Designs and evaluation goals reported in the cited papers, rather than scores under a shared protocol. SubjectAnchor explicitly includes inclusion/exclusion control; our distinction concerns evidence-stage diagnostics, current-state scoring, and prompt-information sensitivity. The final row describes the controlled retrieval study, not a newly trained generator.}
+\label{tab:nearby-memory-work}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.13\linewidth}
+                >{\raggedright\arraybackslash}p{0.27\linewidth}
+                >{\raggedright\arraybackslash}p{0.25\linewidth}
+                >{\raggedright\arraybackslash}p{0.29\linewidth}@{}}
+\toprule
+Work & Historical visual context & Learned conditioning & Reported evaluation focus \\
+\midrule
+OneStory\newline\citep{an2025onestory} & Semantically selected frames from earlier shots; compact global memory. & Fine-tuned I2V model with frame selection and an adaptive patch conditioner. & Character/environment consistency, shot quality, and semantic alignment in text- and image-conditioned multi-shot generation. \\
+StoryMem\newline\citep{zhang2025storymem} & Generated-shot keyframes selected semantically and filtered by aesthetic preference; dynamic memory bank. & LoRA-trained memory-to-video model using latent concatenation and negative temporal RoPE shifts. & ST-Bench: cross-shot consistency, global/single-shot prompt following, aesthetic quality, and human preference. \\
+SubjectAnchor\newline\citep{wang2026subjectanchor} & Subject-related precomputed keyframes traced to historical appearances. & Trained Wan2.2-I2V with subject-aware RoPE and partitioned memory attention. & Subject/prompt alignment, identity relative to first/previous appearances, visual quality, and inclusion/exclusion control. \\
+\bench\newline(this study) & Real-film evidence replay (Track-A); references from each policy's generated history (Track-B). & Shared FLUX.2/Wan2.2 pipeline across retrieval policies and controls; no newly trained memory architecture. & Reference coverage/precision before generation; required and forbidden appearances, current state, conditional appearance similarity, prompt stripping, and judge/backend sensitivity. \\
+\bottomrule
+\end{tabular}
+\end{table*}

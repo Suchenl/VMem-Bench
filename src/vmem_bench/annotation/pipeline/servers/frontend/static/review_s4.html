@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>S4 Segment 审核</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link rel="stylesheet" href="/static/css/review.css">
+</head>
+<body>
+  <div class="reviewShell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">S4 Human Review</div>
+        <h1 id="title">Segment 抽检审核</h1>
+      </div>
+      <div class="toolbarButtons">
+        <a class="buttonLink" href="/">返回控制台</a>
+        <button id="draftBtn" class="secondary">保存草稿</button>
+        <button id="saveBtn" class="primary">保存并应用</button>
+        <button id="continueBtn" class="warnBtn">继续跑 S5+</button>
+      </div>
+    </header>
+    <section class="reviewMeta panel">
+      <div id="meta" class="hint">加载中...</div>
+      <label>整片结论
+        <select id="filmVerdict">
+          <option value="accept">通过抽检，可继续</option>
+          <option value="reject_for_reannotation">拒绝，需重标</option>
+        </select>
+      </label>
+      <label>整片备注
+        <input id="filmReason" placeholder="可选：拒绝原因或抽检说明">
+      </label>
+    </section>
+    <div class="pager">
+      <button id="prevPage" class="secondary">上一页</button>
+      <span id="pageInfo">—</span>
+      <button id="nextPage" class="secondary">下一页</button>
+    </div>
+    <main id="cards" class="reviewCards"></main>
+    <div id="toast" class="toast" hidden></div>
+  </div>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/review_s4.js"></script>
+</body>
+</html>

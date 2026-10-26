@@ -1,0 +1,1082 @@
+{
+  "story_id": "0034_canal_boatman",
+  "title": "Canal Boatman",
+  "premise": "A long master-and-apprentice drama at the stone barge boathouse and Third Lock. Ashu and Asheng are easily confused by looks; the elm tiller goes intact→split→banded repaired; after Qingque hits the lock and sinks it must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "_state_note": "Entities with state machines use states; entities without use appearance. On transition inject only the current-state look.",
+  "entities": {
+    "E1": {
+      "name": "Wei Ran",
+      "kind": "character",
+      "states": {
+        "prime_steersman": "Canal boatman Wei Ran in his forties, sun-reddened face, indigo short jacket and woven-straw sandals, bamboo water gauge at the waist, steady stride.",
+        "damp_weary": "The same Wei Ran: jacket soaked clinging, right knee wrapped in wet cloth, walking slowly on a bamboo pole, eyes heavy.",
+        "deceased": "Wei Ran has closed his eyes in death, lying still on the boathouse plank bed, face peaceful, no breath left."
+      }
+    },
+    "E2": {
+      "name": "Ashu",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Young Ashu: a lean boatwright apprentice of fourteen or fifteen, a celadon water-bird clasp on the hair cord, oversized indigo short jacket, eyes bright and stubborn.",
+        "adult_successor": "Adult Ashu: a broader-shouldered boatman in his twenties, still with celadon water-bird clasp, jacket now fitted, eyes steady."
+      }
+    },
+    "E3": {
+      "name": "elm tiller",
+      "kind": "prop",
+      "states": {
+        "intact": "An elm tiller, grip polished bright, wave pattern carved at the butt, copper band intact without rust.",
+        "split_cracked": "The same elm tiller split mid-shaft, copper band sprung open, wave carving clogged with mud.",
+        "banded_repaired": "Elm tiller banded back together with a new copper band, wave pattern cleaned, ready to steer again."
+      }
+    },
+    "E4": {
+      "name": "lock passage log",
+      "kind": "prop",
+      "states": {
+        "intact": "An oilcloth-covered lock passage log noting passage times and water levels, handwriting neat.",
+        "river_soaked": "The same lock passage log soaked by river water; cover whitened and wrinkled, writing bled."
+      }
+    },
+    "E5": {
+      "name": "Qingque",
+      "kind": "prop",
+      "states": {
+        "intact": "An indigo-awning boat Qingque, a green sparrow carved on the bow, old tire fenders on the gunwales, grain sacks in the cabin.",
+        "lock_sunk": "Qingque hits the lock gate; bow cracks and takes water, sparrow carving snaps, half-sunk in the canal."
+      }
+    },
+    "E6": {
+      "name": "Asheng",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young boatman Asheng whose face closely resembles Ashu's, but wearing a vermilion bamboo hat, ash-gray suspenders over the jacket, manner bold.",
+        "remade_scarred": "Remade Asheng still wears the vermilion bamboo hat; suspenders now matte black, manner deeper."
+      }
+    },
+    "E7": {
+      "name": "stone barge boathouse",
+      "kind": "location",
+      "appearance": "A stone barge boathouse by the canal; blue-stone pier meets a wooden gangplank; bamboo hats and cables hang inside; river wind carries damp."
+    },
+    "E8": {
+      "name": "Third Lock",
+      "kind": "location",
+      "appearance": "Canal Third Lock; gate painted with a number, mossy stone steps on both sides, lock-workers' shed lit."
+    },
+    "E9": {
+      "name": "towpath stone alley",
+      "kind": "location",
+      "appearance": "A stone alley turned from the old towpath; narrow brick walls, cable-worn grooves in the ground, heavy shadow."
+    },
+    "E10": {
+      "name": "abandoned shipyard",
+      "kind": "location",
+      "appearance": "An abandoned shipyard ruin; rotting slipway ties, standing water mirroring a half keel frame."
+    },
+    "E11": {
+      "name": "boathouse memorial wood plaque",
+      "kind": "prop",
+      "appearance": "A camphor wood plaque nailed to the boathouse doorpost, engraved 'Wei Ran' and the launch year, edges polished by river wind."
+    },
+    "E12": {
+      "name": "water-level gauges",
+      "kind": "prop",
+      "appearance": "Three red-and-white water-level gauges nailed to the lock-mouth stone wall, marking warning, normal, and low-water lines."
+    },
+    "E13": {
+      "name": "orange-red motor barge",
+      "kind": "prop",
+      "appearance": "A brand-new orange-red motor barge sprayed 'Temporary Support', no sparrow carving—utterly unlike Qingque."
+    },
+    "E14": {
+      "name": "lock dispatcher",
+      "kind": "character",
+      "appearance": "A lean lock dispatcher in peaked cap and gray-blue uniform, build somewhat like Wei Ran's, but with a dispatch badge on the shoulder boards."
+    },
+    "E15": {
+      "name": "boathouse wind lamps",
+      "kind": "prop",
+      "appearance": "A row of five boathouse wind lamps hung on iron hooks on the stone barge boathouse beam, glass covers polished bright."
+    },
+    "E16": {
+      "name": "lock-passage copper gongs",
+      "kind": "prop",
+      "appearance": "Two lock-passage copper gongs hung under the lock-workers' shed eaves, faces scarred by strikes, ringing twice for clearance."
+    },
+    "E17": {
+      "name": "Xiaolian",
+      "kind": "character",
+      "appearance": "New tow apprentice Xiaolian, light-cyan headscarf, brand-new short jacket, at a glance resembling young Ashu, but sharper chin and shy eyes."
+    },
+    "E18": {
+      "name": "spare tiller shaft",
+      "kind": "prop",
+      "appearance": "A spare tiller shaft, shape close to the tiller but thicker and shorter, no wave carving and no copper band."
+    },
+    "E19": {
+      "name": "gray-awning freighter",
+      "kind": "prop",
+      "appearance": "A gray-awning freighter, body wide and flat, no sparrow carving—unlike Qingque."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_steersman",
+      "damp_weary",
+      "deceased"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "split_cracked",
+      "banded_repaired"
+    ],
+    "E4": [
+      "intact",
+      "river_soaked"
+    ],
+    "E5": [
+      "intact",
+      "lock_sunk"
+    ],
+    "E6": [
+      "young_rival",
+      "remade_scarred"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Ashu: celadon water-bird clasp on hair cord, indigo short jacket.",
+        "E6": "Asheng: face nearly identical to Ashu's, but vermilion bamboo hat and ash-gray suspenders."
+      },
+      "note": "Hard misID sample: celadon water-bird clasp vs vermilion bamboo hat."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Boathouse dusk (five wind lamps · two lock-passage gongs)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk Wei Ran steps the gangplank into the stone barge boathouse and grips the elm tiller for a test steer.",
+        {
+          "action": "A row of five boathouse wind lamps hangs on the boathouse beam; Wei Ran polishes each glass cover.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two lock-passage copper gongs hang under the lock-workers' shed eaves; Wei Ran taps lightly—the tone is dull.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Wei Ran checks the elm tiller's copper band and wave pattern, confirming no crack.",
+        "Through the boathouse doorway Wei Ran looks toward lock lamps in the canal dusk.",
+        {
+          "action": "The intact elm tiller leans by the cabin door; the grip catches warm wind-lamp light.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Wei Ran sits on the threshold and takes a sip of liquor.",
+        "Far off a tow-song rises; he reties the water gauge at his waist."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Filling the lock passage log",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Wei Ran opens the oilcloth lock passage log and notes that day's passage water level.",
+        "He sketches a lock-mouth current diagram in the passage log.",
+        "Wei Ran closes the lock passage log and tucks it back into the cabin cabinet.",
+        {
+          "action": "The elm tiller's grain presses against his palm.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "He tears a scrap of straw paper and wipes mud dots from the water gauge."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Lock greets the apprentice (three water-level gauges)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        {
+          "action": "At dawn at Third Lock, Wei Ran greets the indigo-awning boat Qingque coming alongside.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Young Ashu jumps down from Qingque; the celadon water-bird clasp on his hair cord sways.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Wei Ran points to the three water-level gauges at the lock mouth, teaching Ashu warning and low-water lines.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ashu crouches by mossy stone steps, curiously touching the lock-gate number paint.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Wei Ran explains to Ashu that the lock-passage copper gongs must ring twice before entering.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Ashu looks back at intact Qingque, eyes full of longing.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "River wind sharp; the two walk the gangplank toward the stone barge boathouse."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Towpath stone alley (Asheng alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "actions": [
+        "In the towpath stone alley, Asheng in a vermilion bamboo hat turns from brick-wall shadow.",
+        "Asheng steps slowly along cable grooves; ash-gray suspenders stand out.",
+        "He brushes past a tow mate; the bamboo hat flashes in reflected light.",
+        "Asheng knocks a wall brick to confirm the cable pile is not loose.",
+        "He crosses the alley end toward the lock-workers' shed."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "setting": "Lock misidentification shared frame",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "actions": [
+        "On Third Lock stone steps Ashu and Asheng stand side by side—one with celadon water-bird clasp, one in vermilion bamboo hat.",
+        "Ashu hands spare gloves to Asheng; they meet eyes briefly.",
+        "Asheng straightens Ashu's oversized jacket collar, then turns away.",
+        "They walk opposite ways down the steps; figures cross under lock lamps.",
+        "A rush of released water; only wet moss remains at the lock mouth."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "setting": "Passage log river-soaked",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Wei Ran alone stands watch in the stone barge boathouse.",
+        {
+          "action": "He opens the lock passage log; the cover is river-soaked, whitened and wrinkled.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "river_soaked"
+            }
+          ]
+        },
+        "Wei Ran wipes mud from the elm tiller grip with a rag.",
+        "Through the doorway he looks toward buoy lamps on the black river.",
+        {
+          "action": "The elm tiller leans quiet by the cabin door; the copper band has gone dull.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "A lock-passage copper gong half-rings in the night wind, then falls silent."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Years turn (filler · stretch the interval)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At spring flood opening Wei Ran day after day services cables in the stone barge boathouse.",
+        "Another rain night he wraps his jacket tight beside the elm tiller.",
+        "At midsummer noon the deck scorches; he takes turns dousing water to cool it.",
+        "In autumn fog wind-lamp light struggles through the vapor.",
+        "On New Year's Eve Wei Ran alone fills the lock passage log to the last page.",
+        "In early spring he recalibrates the water gauge and resumes trial runs.",
+        "Before rainy season Wei Ran reinforces gangplank anti-slip strips.",
+        "After Frost's Descent he adds a small jar of liquor in the boathouse corner.",
+        "Another year before lock opening he checks cable-pile wear section by section.",
+        "On a snow night of no sailing Wei Ran leaves only one boathouse wind lamp and watches until dawn.",
+        "After Jingzhe he re-spreads dried awning cloth.",
+        "Around Qingming he clears standing water at the abandoned shipyard entrance.",
+        "At Grain Rain he teaches the apprentice to read newly arrived straw grain sacks.",
+        "On Beginning of Summer night he watches the slow-rising water until lock passage.",
+        "Around Grain Buds he touch-paints gunwale spots rubbed white by cable."
+      ]
+    },
+    {
+      "id": "S6c",
+      "setting": "Daily steering (keep stretching the interval)",
+      "present": [
+        "E1",
+        "E7"
+      ],
+      "actions": [
+        "Wei Ran replaces gangplank wedges and checks they are firm.",
+        "He counts cable strands and recoils them neat.",
+        {
+          "action": "The intact elm tiller is gripped again; he gives three short test steers.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Gong sound from the lock mouth; he looks up to listen.",
+        "Wei Ran sweeps waste straw into a bamboo basket and covers it.",
+        "At noon break he drinks tea in the boathouse; tea smoke curls past a bamboo hat.",
+        "In the afternoon he goes out again to wipe the gunwale fenders.",
+        "At sunset he stows the gangplank and locks the boathouse."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Lock patrol (recall gauges · gray-awning freighter false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At daybreak Wei Ran patrols Third Lock; Qingque still lies outside the lock.",
+        {
+          "action": "He crouches to check whether Qingque's gunwale fenders are worn.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "On the lock-mouth stone wall those three water-level gauges are still nailed in place.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A gray-awning freighter passes outside the lock, body wide and flat—no sparrow carving.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Wei Ran stands on the stone steps and logs last night's risen water marks.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "He recoils Qingque's cables neat.",
+          "present": [
+            "E1",
+            "E8",
+            "E5"
+          ]
+        },
+        "Far off early-market cries come faintly."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Boathouse watch again",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "At nightfall Wei Ran returns to the stone barge boathouse and opens the river-soaked lock passage log.",
+        "He matches old levels and backfills today's passage time.",
+        {
+          "action": "He briefly grips the elm tiller; grain mirrors the passage log's wrinkled white cover.",
+          "present": [
+            "E1",
+            "E7",
+            "E3",
+            "E4"
+          ]
+        },
+        "He wipes new mud from the water gauge.",
+        "River wind rises; boathouse planks creak lightly.",
+        "Wei Ran kills half the row of boathouse wind lamps, leaving only the one by the bed."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Lock-strike accident (tiller split · Qingque sunk)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "In a downpour the current suddenly rushes; the stone barge boathouse bursts into scramble.",
+        "Spray hits the gangplank; wind lamps swing hard.",
+        {
+          "action": "While Wei Ran steers, the elm tiller splits mid-shaft; the copper band springs open.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "split_cracked"
+            }
+          ]
+        },
+        {
+          "action": "At the lock mouth Qingque is driven toward the gate by the torrent, jolting hard.",
+          "present": [
+            "E5",
+            "E8"
+          ]
+        },
+        {
+          "action": "A dull thud—Qingque hits the lock and sinks; the bow cracks and takes water.",
+          "present": [
+            "E5",
+            "E8"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "lock_sunk",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Wei Ran clutches the split elm tiller and will not let go.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Gongs clang wild; the lock-workers' shed fills with shouts."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (Qingque indirect · wind-lamp recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Next day the rain eases; Wei Ran stands in the boathouse staring at the split-cracked elm tiller.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "He fingertips the split wood grain, expression dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "On a blank page of the lock passage log he writes the date Qingque hit the lock.",
+          "present": [
+            "E1",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "On the wall still hangs Qingque's route chart; Wei Ran gazes at it a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "He takes one of the five boathouse wind lamps from the beam and sits alone in the faint light.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The split elm tiller leans by the cabin door like a bird with a broken wing.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Far off a salvage boat's roar skims the lock mouth."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Banded repair (third state · spare-shaft false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later Wei Ran brings copper bands and a plane to repair the elm tiller.",
+        {
+          "action": "He takes a spare tiller shaft from under the cabin; it resembles the tiller but is thicker, shorter, without wave pattern.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "Wei Ran bands the split and refits the copper band.",
+        {
+          "action": "Wave pattern cleaned; the elm tiller is ready to steer again.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "banded_repaired"
+            }
+          ]
+        },
+        "He gives a short test steer; the bow answers again.",
+        "Wei Ran stows the spare tiller shaft under the cabin so they will not be confused."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: motor barge and dispatcher",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "An orange-red motor barge enters outside Third Lock—nothing like the sunk Qingque.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "A lock dispatcher in peaked cap and gray-blue uniform climbs the stone steps and talks beside Wei Ran; the two builds are alike.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The dispatcher points at the orange-red motor barge to explain temporary grouping.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The barge steams off; Wei Ran alone at the lock mouth watches it go.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "He polishes the water-level gauges and walks the gangplank back to the boathouse."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: tow apprentice Xiaolian",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "In the towpath stone alley comes tow apprentice Xiaolian in a light-cyan headscarf; at a glance she somewhat resembles young Ashu.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaolian practices coiling cable; Wei Ran shakes his head—she is never Ashu.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaolian lowers her head and backs away; only brick-wall shadow remains in the alley."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Damp weary (gong long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "At dusk years later, Wei Ran with soaked jacket and wet-cloth knee leans on a bamboo pole under the abandoned shipyard.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "damp_weary"
+            }
+          ]
+        },
+        "He looks up at rotting ties, gaze far away.",
+        {
+          "action": "Those two lock-passage copper gongs under the distant shed eaves chime lightly in the wind; Wei Ran stops to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "He presses a palm to the keel mirrored in standing water, as if saying goodbye.",
+        "River wind lifts dead leaves; the shipyard grows quieter."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Ashu returns · Wei Ran dies",
+      "present": [
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day adult Ashu returns along the towpath and hurries toward the abandoned shipyard.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        {
+          "action": "Ashu reunites under the shipyard with damp-weary Wei Ran; they steady each other.",
+          "present": [
+            "E1",
+            "E2",
+            "E10"
+          ]
+        },
+        {
+          "action": "Beside the boathouse plank bed Ashu holds Wei Ran's thin hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Wei Ran's breath fades; he finally closes his eyes and passes away.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "deceased",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Outside the window river wind stills; lock lamps go quiet for an instant.",
+          "present": [
+            "E2",
+            "E10"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · wood plaque (indirect mention)",
+      "present": [
+        "E2",
+        "E7",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Wei Ran's indigo short jacket still hangs behind the boathouse door; Ashu reaches to stroke it lightly.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "By the doorpost adult Ashu stands before a newly nailed boathouse memorial wood plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "Ashu's fingertip traces Wei Ran's name engraved on the plaque.",
+          "present": [
+            "E2",
+            "E7",
+            "E11"
+          ]
+        },
+        {
+          "action": "He softly recites the passage-log page of Qingque's lock strike, as if answering.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15b",
+      "setting": "Naming the dead and destroyed again (indirect avoidance)",
+      "present": [
+        "E2",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "After Third Lock dredging Ashu writes Qingque's three characters on an empty berth then rubs them out.",
+          "present": [
+            "E2",
+            "E8"
+          ]
+        },
+        {
+          "action": "Passing the boathouse corridor he sees Wei Ran's old bamboo water gauge on a hook.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "In night Ashu softly repeats to the empty gangplank the lock-passage call Wei Ran taught.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        "In the river wind Ashu grips the celadon water-bird clasp in his palm."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Both reunite (long-range + shared frame)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Remade Asheng arrives from the towpath and briefly faces Ashu under the abandoned shipyard.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "remade_scarred"
+            }
+          ]
+        },
+        "Ashu and Asheng stand side by side by the keel frame—one calm-eyed, one deep-mannered.",
+        "Asheng still wears the vermilion bamboo hat; Ashu still has the celadon water-bird clasp.",
+        "They are silent a moment, then each turns and leaves the shipyard."
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      }
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal locate)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—that youth jumping from an indigo-awning boat with a celadon water-bird clasp on the hair cord appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth jumping from an indigo-awning boat with a celadon water-bird clasp on the hair cord",
+                "resolves_to": "E2"
+              },
+              "state": "young_apprentice"
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the boathouse, a bright-grip elm shaft is gripped for a test steer for the first time.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the bright-grip elm shaft first test-steered at the opening",
+                "resolves_to": "E3"
+              },
+              "state": "intact"
+            }
+          ]
+        },
+        {
+          "action": "Flash to the towpath stone alley—that figure in a vermilion bamboo hat with ash-gray suspenders slips past.",
+          "present": [
+            {
+              "eid": "E6",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in a vermilion bamboo hat with ash-gray suspenders in the stone alley",
+                "resolves_to": "E6"
+              },
+              "state": "young_rival"
+            }
+          ]
+        },
+        {
+          "action": "Again that row of five old shaded wind lamps on the boathouse beam.",
+          "present": [
+            {
+              "eid": "E15",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five old shaded wind lamps on the boathouse beam",
+                "resolves_to": "E15"
+              },
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Back to the stone steps by the numbered lock gate of first meeting, moss as before.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the stone steps by the numbered lock gate of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        }
+      ],
+      "_comment": "Temporal phrases only; no formal entity names; avoid deceased/destroyed."
+    },
+    {
+      "id": "S18",
+      "setting": "Closing (passage-log long range · gauge long range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Ashu reopens that river-soaked lock passage log and walks into the stone barge boathouse.",
+          "present": [
+            "E2",
+            "E7",
+            "E4"
+          ]
+        },
+        {
+          "action": "On the lock-mouth stone wall those three water-level gauges are still nailed.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Ashu grips the banded-repaired elm tiller; the bow answers again.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "He rolls his jacket cuffs tight and nods confirmation as Wei Ran once did.",
+        "In canal dusk a new shift of lock-passage copper gongs rings lightly twice.",
+        "Ashu plants today's first pole on the gangplank.",
+        "Far off lock lamps wink on and off as if answering."
+      ]
+    }
+  ]
+}

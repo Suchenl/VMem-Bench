@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{From observations to falsifiable design hypotheses.} Proposed interventions have not been implemented or validated here. Fix generation prefix, prompt, generator state, and seed. Match count for state/filtering tests; reading gates and budget tests intentionally vary access/count and must specify removed or added references. For write policies, match the prefix before write-back and follow the resulting trajectories. A seed match alone does not fix diverged histories.}
+\label{tab:directions}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.10\linewidth}
+                >{\raggedright\arraybackslash}p{0.27\linewidth}
+                >{\raggedright\arraybackslash}p{0.28\linewidth}
+                >{\raggedright\arraybackslash}p{0.27\linewidth}@{}}
+\toprule
+Decision & Observed evidence & Hypothesis to test & Result counting against it \\
+\midrule
+When to read & Prompt stripping changes no-memory presence substantially; the stripped retrieval gain is uncertain (Table~\ref{tab:nolook}). & Gate access when history adds information beyond the prompt and baseline context, compared with always reading. & Gating loses required appearances or valid-state fidelity without reducing interference; textual detail alone is an inadequate gate. \\
+Which moment & Changed returns can become more similar to their obsolete look (Table~\ref{tab:main-identity}). & Retrieve the instruction-valid entity state, allowing earlier states for flashbacks. & State-matched references do not improve requested-state correctness or damage identity continuity at the same budget. \\
+How much & Last-seen costs increase across unmatched reference-count strata (Table~\ref{tab:robustness}). & Fewer references reduce interference without losing needed evidence; vary count using explicitly specified additions. & The apparent cost increase disappears under the matched comparison; additional references improve recall without an exclusion cost. \\
+What to forget & Retrieval raises recall while reducing precision and avoidance (Sec.~\ref{sec:exp-trackb}). & Suppress unrequested content in useful references while retaining required identity/state cues. & Suppression fails to improve avoidance or loses useful identity/state evidence; removing more content is not automatically better. \\
+What to write & The earlier single-author audit assigns 29\% of sampled flagged misses to stored wrong renderings (App.~\ref{app:human-attribution}). & Reject or repair incorrect observations before write-back. & Rejecting history discards uniquely useful evidence and worsens later recall/state fidelity compared with retaining it. \\
+\bottomrule
+\end{tabular}
+\end{table*}

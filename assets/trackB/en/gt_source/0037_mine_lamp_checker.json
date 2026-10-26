@@ -1,0 +1,1051 @@
+{
+  "story_id": "0037_mine_lamp_checker",
+  "title": "Mine Lamp Checker",
+  "premise": "A long drama of a mine-lamp checker at the lamp room and shaft mouth. Xiaomei and Xiaotan are easily confused; the methane alarm goes intact-alarming→sensor-failed→calibrated-repaired; the mine rubber-tired vehicle crashes down the shaft and must be avoided; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "_comment": "Author layer: humans only write entities + state machines + per-scene timelines (present + handwritten action + semantic events). present items may be objects carrying confusable_with/count/anchor metadata. op/gap/probe/forbidden are derived by complete_gt.py.",
+  "segment_sec": 5.0,
+  "gap_long_threshold": 30,
+  "avoidance_probe_window": 4,
+  "probe_target_default": 5,
+  "entities": {
+    "E1": {
+      "name": "Han Lei",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Mine-lamp checker Han Lei around forty, orange helmet, deep-blue miner's clothes, methane alarm on the chest, rough hands.",
+        "weary_injured": "The same Han Lei: helmet brim cracked, left arm bandaged, miner's clothes thick with coal mud, still forcing his steps.",
+        "left_post": "Han Lei has left his post; only his old miner's clothes and orange helmet remain in the lamp room—he himself no longer appears."
+      }
+    },
+    "E2": {
+      "name": "Xiaomei",
+      "kind": "character",
+      "states": {
+        "young_apprentice": "Apprentice Xiaomei of fifteen or sixteen, yellow helmet, orange fluorescent armband, slight build but stubborn eyes.",
+        "adult_successor": "Xiaomei in his early twenties, still in yellow helmet and orange fluorescent armband, tall and steady."
+      }
+    },
+    "E3": {
+      "name": "methane alarm",
+      "kind": "prop",
+      "states": {
+        "intact_alarming": "A palm-sized methane alarm, yellow case red light, mine crest on the side, readout clear.",
+        "sensor_failed": "The same methane alarm with water-failed sensor, red light flashing wild, screen garbled.",
+        "calibrated_repaired": "After calibration and probe replacement the methane alarm alarms steadily again, maintenance sticker on the case."
+      }
+    },
+    "E4": {
+      "name": "inspection log",
+      "kind": "prop",
+      "states": {
+        "intact": "An oilcloth-cover inspection log packed with roadway numbers and gas readings.",
+        "coal_dust_stained": "The same inspection log muddied by coal slurry and water stains, writing blurred into black clumps."
+      }
+    },
+    "E5": {
+      "name": "mine rubber-tired vehicle",
+      "kind": "prop",
+      "states": {
+        "intact": "A dark-green mine rubber-tired vehicle, white 'Lamp-Check-03' sprayed on the nose, spare mine lamps in the rear bed.",
+        "shaft_wrecked": "After falling into the incline shaft, the mine rubber-tired vehicle has a twisted frame and wheels off—a wreck that can no longer drive."
+      }
+    },
+    "E6": {
+      "name": "Xiaotan",
+      "kind": "character",
+      "states": {
+        "young_rival": "Young Xiaotan close in build to Xiaomei, same yellow helmet but blue armband, coal scar on the chin, defiant look.",
+        "disguised": "Disguised Xiaotan still wears a blue armband, coal scar deeper, expression darker."
+      }
+    },
+    "E7": {
+      "name": "lamp-room workshop",
+      "kind": "location",
+      "appearance": "Lamp-room workshop: sheet-iron walls, long workbench, charging mine lamps hung on the walls, carbide smell in the air."
+    },
+    "E8": {
+      "name": "shaft-mouth shed",
+      "kind": "location",
+      "appearance": "Shaft-mouth shed: wooden posts and corrugated-iron roof, rubber-tired vehicle parked under the shed, cold gleam from the distant cage gate."
+    },
+    "E9": {
+      "name": "materials-store corridor",
+      "kind": "location",
+      "appearance": "Materials-store corridor: a long narrow concrete hall, pit props and rock bolts stacked on both sides, dim yellow ceiling lights."
+    },
+    "E10": {
+      "name": "abandoned air-shaft mouth",
+      "kind": "location",
+      "appearance": "Abandoned air-shaft mouth: rusted iron grate sealing the shaft, weeds around, No Entry sign standing."
+    },
+    "E11": {
+      "name": "bronze work badge",
+      "kind": "prop",
+      "appearance": "A bronze work badge nailed to the lamp-room door, engraved with Han Lei's work number and year, coal dust on the edges."
+    },
+    "E12": {
+      "name": "spare mine lamps",
+      "kind": "prop",
+      "appearance": "Three fully charged spare mine lamps side by side on the workshop iron rack, green tags on the heads."
+    },
+    "E13": {
+      "name": "yellow explosion-proof battery cart",
+      "kind": "prop",
+      "appearance": "A yellow explosion-proof battery cart, broad flat body, no 'Lamp-Check-03' lettering—unlike the dark-green rubber-tired vehicle."
+    },
+    "E14": {
+      "name": "safety inspector Lao Zhou",
+      "kind": "character",
+      "appearance": "Lean safety inspector Lao Zhou, white helmet, camouflage safety coveralls, build like Han Lei's but more rigid."
+    },
+    "E15": {
+      "name": "self-rescuers",
+      "kind": "prop",
+      "appearance": "A row of five compressed-oxygen self-rescuers hung on iron hooks in the lamp room, valves polished bright."
+    },
+    "E16": {
+      "name": "airdoor bells",
+      "kind": "prop",
+      "appearance": "Two copper bells hung above the airdoor, ringing when the airdoor opens and closes."
+    },
+    "E17": {
+      "name": "Xiaoxia",
+      "kind": "character",
+      "appearance": "Materials-store girl Xiaoxia in a light-brown hard hat; at a glance like young Xiaomei, shy gaze."
+    },
+    "E18": {
+      "name": "portable oxygen meter",
+      "kind": "prop",
+      "appearance": "A portable oxygen meter, smaller, black case blue screen—much like the methane alarm but measuring oxygen, not gas."
+    },
+    "E19": {
+      "name": "support worker Lao Wei",
+      "kind": "character",
+      "appearance": "Support worker Lao Wei, full beard, orange helmet muddied, build like Han Lei's but stockier."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_injured",
+      "left_post"
+    ],
+    "E2": [
+      "young_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact_alarming",
+      "sensor_failed",
+      "calibrated_repaired"
+    ],
+    "E4": [
+      "intact",
+      "coal_dust_stained"
+    ],
+    "E5": [
+      "intact",
+      "shaft_wrecked"
+    ],
+    "E6": [
+      "young_rival",
+      "disguised"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Xiaomei: yellow helmet, orange fluorescent armband.",
+        "E6": "Xiaotan: face nearly identical to Xiaomei, but blue armband, coal scar on the chin, defiant look."
+      },
+      "note": "Apprentice confuse: orange armband vs blue armband."
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "setting": "Lamp room at dusk (introduce five self-rescuers · two airdoor bells)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "At dusk, Han Lei pushes open the iron door into the lamp-room workshop and first checks the methane alarm on the bench.",
+        {
+          "action": "A row of five self-rescuers hangs on iron hooks in the lamp room; Han Lei tightens each valve in turn.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "Two airdoor bells hang above the airdoor; Han Lei reaches out and lets them ring softly for inspection.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Han Lei circles the workbench, checking whether mine-lamp charging docks are overheating.",
+        "Through the iron window Han Lei watches the dimming sky light at the shaft-mouth shed.",
+        {
+          "action": "The methane alarm's red light flashes steady; Han Lei records the baseline reading.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Han Lei sits on a wooden stool in the lamp-room corner and dozes."
+      ]
+    },
+    {
+      "id": "S2",
+      "setting": "Entering the inspection log",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Han Lei opens the inspection log and records that day's gas peaks for each roadway.",
+        "Han Lei draws a gas curve in the inspection log.",
+        "Han Lei closes the inspection log and returns it to the workbench iron box.",
+        {
+          "action": "The methane alarm beeps softly; Han Lei nods in confirmation.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Han Lei wipes coal ash from the log cover with a rag."
+      ]
+    },
+    {
+      "id": "S3",
+      "setting": "Shaft mouth meets the apprentice (introduce three spare mine lamps)",
+      "present": [
+        "E1",
+        "E8",
+        "E2",
+        "E5"
+      ],
+      "actions": [
+        "In the morning shaft-mouth shed, Han Lei greets young Xiaomei driving the mine rubber-tired vehicle in.",
+        {
+          "action": "Xiaomei jumps down from the rubber-tired vehicle and hangs the key on a shed post.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        {
+          "action": "Han Lei points to three spare mine lamps on the workshop iron rack, teaching Xiaomei to read the full-charge green tags.",
+          "present": [
+            "E1",
+            "E8",
+            "E2",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaomei crouches by the shaft-mouth shed, studying the cage iron gate with curiosity.",
+          "present": [
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Han Lei explains underground escape routes; Xiaomei nods seriously.",
+          "present": [
+            "E1",
+            "E8",
+            "E2"
+          ]
+        },
+        {
+          "action": "Xiaomei looks back at the parked dark-green rubber-tired vehicle, eyes tense and excited.",
+          "present": [
+            "E8",
+            "E2",
+            "E5"
+          ]
+        },
+        "Han Lei has Xiaomei first try on a self-rescuer facepiece on the surface."
+      ]
+    },
+    {
+      "id": "S4",
+      "setting": "Materials-store corridor (Xiaotan alone)",
+      "present": [
+        "E6",
+        "E9"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E6"
+        ]
+      },
+      "actions": [
+        "In the dim materials-store corridor, Xiaotan in a blue armband looks up from behind a pile of pit props.",
+        "Xiaotan counts numbers before a rock-bolt stack; the coal scar on his chin is clear.",
+        "Xiaotan argues with the storekeeper over a materials slip, defiant look.",
+        "Xiaotan carries a bundle of rock bolts through the corridor.",
+        "Xiaotan turns at the corridor's end; yellow-helmet glare flashes once."
+      ]
+    },
+    {
+      "id": "S5",
+      "setting": "Apprentices co-present",
+      "present": [
+        "E2",
+        "E6",
+        "E8"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        "Under the shaft-mouth shed, Xiaomei and Xiaotan stand side by side—one orange armband, one blue.",
+        "Xiaomei hands Xiaotan a spare mine lamp; the two check lamp numbers.",
+        "Xiaotan tightens Xiaomei's chin strap; the two walk slowly along the shed edge.",
+        "Xiaomei and Xiaotan part at the shaft mouth—one for the cage, one for the materials store.",
+        "Wind passes; their similar yellow helmets cross and separate in the shed shadow."
+      ]
+    },
+    {
+      "id": "S6",
+      "setting": "Inspection log coal-dust stained",
+      "present": [
+        "E1",
+        "E7",
+        "E3",
+        "E4"
+      ],
+      "actions": [
+        "Months later at night, Han Lei alone in the lamp room fills in readings.",
+        {
+          "action": "Han Lei opens the inspection log and finds underground coal slurry has blackened and wrinkled the cover.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E4",
+              "to": "coal_dust_stained"
+            }
+          ]
+        },
+        "Han Lei wipes coal ash from the methane alarm.",
+        "Through the iron window Han Lei gazes at the black shaft mouth.",
+        {
+          "action": "The methane alarm readout glows faintly; Han Lei stares at the numbers.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Han Lei slips blotting paper into the stained log and presses it under an iron ruler."
+      ]
+    },
+    {
+      "id": "S6b",
+      "setting": "Four-season underground routine (filler · stretch the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "In rainy season, Han Lei dries damp mine-lamp batteries one by one in the lamp room.",
+        "Han Lei brushes carbon from the charging docks with a bristle brush.",
+        "At dawn, Han Lei checks the shift roster in the shaft-mouth shed.",
+        "Han Lei hangs a raincoat on a shed post and listens to the cage cable creak.",
+        "In midsummer, Han Lei turns on the lamp-room exhaust fan to clear the carbide smell.",
+        "Han Lei zeros the methane alarm and records ambient temperature.",
+        "When autumn wind rises, Han Lei checks whether airdoor seal strips have aged.",
+        "Han Lei trial-writes new roadway codes on a blank page of the inspection log.",
+        "On a frosty night, Han Lei lights an emergency lamp and checks flashlight batteries.",
+        "Han Lei wraps the rubber-tired vehicle battery in a cotton blanket against overnight freeze.",
+        "On a heavy-snow day, Han Lei sweeps thin snow from the shaft-mouth shed stone steps.",
+        "Han Lei breathes on his hands and tightens self-rescuer valves.",
+        "At spring's start, Han Lei clears weeds from the abandoned air-shaft mouth.",
+        "Han Lei runs airtight tests on all five self-rescuers one by one.",
+        "Han Lei posts a new escape-route map on the lamp-room wall corner.",
+        "Around Dragon Boat Festival, Han Lei fumigates the materials store with sulfur smoke against damp and insects.",
+        "Han Lei resticks the green tags on the spare mine lamps.",
+        "Han Lei paces alone in the shaft-mouth shed, silently reciting escape callsigns.",
+        "After rain stops, Han Lei opens the lamp-room window and hears eave water drip into an iron bucket.",
+        "Han Lei replaces a worn helmet pad with a new one.",
+        "Another dusk, Han Lei sits by the alarm listening to the fan's low hum.",
+        "At night Han Lei rises and turns the lamp-room heater up one notch.",
+        "Han Lei wipes and trial-fits newly arrived lamp-head glass.",
+        "At the abandoned air-shaft mouth Han Lei wipes the No Entry sign.",
+        "Han Lei checks the rubber-tired vehicle chassis for cracks.",
+        "Han Lei marks hazard points on the roadway diagram.",
+        "Han Lei wrings out a coal-stained rag and hangs it under the rear eave.",
+        "On a full-moon night, Han Lei looks at the shaft mouth from the window; the iron door gleams cold.",
+        "Han Lei sorts the lamp rack so heads hang down to dry.",
+        "On the inspection-log flyleaf Han Lei writes the new season's lamp-check notes.",
+        "Han Lei polishes both airdoor bells bright.",
+        "Hearing forklift noise from the materials store, Han Lei keeps logging readings.",
+        "Han Lei glues a cracked toolbox shut.",
+        "In the lamp-room corner Han Lei stacks old lamp heads awaiting repair.",
+        "Han Lei shuts the iron door tight against night cold wind into the lamp room.",
+        "Another Qingming, Han Lei sets a bunch of wildflowers at the air-shaft mouth.",
+        "Han Lei rolls roadway drawings into a tube and binds them with a rubber band.",
+        "Han Lei tests the alarm buzz; the sound is clear and sharp.",
+        "Han Lei sits silent in the lamp room, listening to the fan moan a long while.",
+        "Han Lei cuts worn orange-armband cloth into rag stock."
+      ]
+    },
+    {
+      "id": "S7",
+      "setting": "Shaft-mouth patrol (recall spare lamps · battery-cart false friend)",
+      "present": [
+        "E1",
+        "E8",
+        "E5"
+      ],
+      "actions": [
+        "At dawn, Han Lei patrols the shaft-mouth shed; the dark-green rubber-tired vehicle sits under the shed.",
+        {
+          "action": "Han Lei crouches to check tire pressure on the rubber-tired vehicle.",
+          "present": [
+            "E8",
+            "E5"
+          ]
+        },
+        {
+          "action": "Han Lei walks to the workshop rack; those three spare mine lamps still show green tags side by side.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "A yellow explosion-proof battery cart passes the shaft mouth—broad flat body, not the lamp-check rubber-tired vehicle.",
+          "present": [
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            }
+          ]
+        },
+        {
+          "action": "Han Lei stands in the shaft-mouth shed, logging airdoor open-close counts.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        {
+          "action": "Han Lei hangs a wet raincoat on the shaft-mouth shed wooden rack.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Han Lei pats coal ash from his sleeve and looks back at the lamp-room light."
+      ]
+    },
+    {
+      "id": "S7b",
+      "setting": "Lamp-check routine continued (filler · keep stretching the gap)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "After Grain Rain, Han Lei teaches new workers airdoor signals in the shaft-mouth shed.",
+        "Han Lei refolds sun-dried raincoats into the iron cabinet.",
+        "In summer heat, Han Lei lays a wet cloth on the alarm case to cool it.",
+        "Han Lei checks the rubber-tired vehicle rear bed and moves damp lamp heads to the upper layer.",
+        "On an autumn night, Han Lei mends loose inspection-log pages under an emergency lamp.",
+        "Han Lei rotates all five self-rescuers out for inspection.",
+        "At first snow, Han Lei sweeps a narrow path at the lamp-room threshold.",
+        "Han Lei fully recharges the spare mine lamps.",
+        "Hearing copper bells ring softly, Han Lei keeps correcting the shift handover record.",
+        "Han Lei pushes open the shaft-mouth shed door so a draft clears the damp.",
+        "At the air-shaft mouth Han Lei hangs a rain tarp.",
+        "Han Lei puts a scorched fuse into an iron box.",
+        "At night Han Lei dreams of gas over-limit, wakes, and writes it in the log.",
+        "Han Lei rinses the lamp rack with clean water.",
+        "Han Lei wipes the escape map clean and renails it to the north wall.",
+        "Han Lei pulls weeds from shaft-mouth stone seams.",
+        "Han Lei hangs the self-rescuers back on iron hooks; number tags have faded some.",
+        "Before lights-out Han Lei takes one last look at the alarm's green light.",
+        "Han Lei wipes clean a yellow helmet an apprentice left in the lamp room and sets it aside.",
+        "Hearing the materials-store lock for closing, Han Lei rises and locks up.",
+        "By a charcoal fire Han Lei dries his gloves.",
+        "Han Lei shifts the airdoor bells aside to show the just-repaired airdoor.",
+        "Han Lei hangs dust-sampling filter membranes on a shed post to dry.",
+        "On the log's last page Han Lei draws a gas-depth comparison.",
+        "Han Lei silently recites tomorrow's roadway numbers and steps out of the air-shaft mouth.",
+        "Han Lei pushes the rubber-tired vehicle to the wall foot, clearing repair floor space.",
+        "Hearing a distant whistle, Han Lei blows out the emergency lamp.",
+        "Another rainy night, Han Lei alone keeps watch by the alarm until dawn.",
+        "Han Lei packs newly issued dust masks into paper bags."
+      ]
+    },
+    {
+      "id": "S8",
+      "setting": "Incline-shaft accident (alarm fails · vehicle crashes)",
+      "present": [
+        "E3",
+        "E7"
+      ],
+      "actions": [
+        "On a stormy night the incline shaft floods; lamp-room alarms blare suddenly.",
+        "In the shaking, methane-alarm readings jump wildly.",
+        {
+          "action": "After a piercing buzz, the methane alarm sensor fails from water; the red light flashes wild.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "sensor_failed"
+            }
+          ]
+        },
+        {
+          "action": "Outside the shaft-mouth shed, the dark-green rubber-tired vehicle skids out of control on the muddy slope.",
+          "present": [
+            "E5"
+          ]
+        },
+        {
+          "action": "The mine rubber-tired vehicle plunges into the incline shaft; frame twists, wheels drop off—utterly wrecked.",
+          "present": [
+            "E5"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E5",
+              "to": "shaft_wrecked",
+              "reason": "destroyed",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Han Lei lunges to the workbench and shields the failed methane alarm.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        "Rescue teams arrive with lamps; the shaft mouth is all mud."
+      ]
+    },
+    {
+      "id": "S9",
+      "setting": "Aftermath (vehicle indirect cue · self-rescuer recall)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "The next day, Han Lei stands in the lamp room staring at the failed methane alarm.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "Han Lei runs a finger over the garbled alarm screen, face dark.",
+          "present": [
+            "E1",
+            "E7",
+            "E3"
+          ]
+        },
+        {
+          "action": "In a blank of the inspection log Han Lei records the date the mine rubber-tired vehicle fell.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "A dispatch photo of the mine rubber-tired vehicle still hangs on the wall; Han Lei gazes a long time.",
+          "present": [
+            "E1",
+            "E7"
+          ]
+        },
+        {
+          "action": "Han Lei takes one of the five self-rescuers from the iron hooks and checks the facepiece seal.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E15",
+              "count": 5
+            }
+          ]
+        },
+        {
+          "action": "The failed methane alarm still flashes wild in fits; red light paints the iron wall.",
+          "present": [
+            "E7",
+            "E3"
+          ]
+        },
+        "Han Lei sets mud-caked boots at the door to drain."
+      ]
+    },
+    {
+      "id": "S10",
+      "setting": "Calibration repair (third state · oxygen-meter false friend)",
+      "present": [
+        "E1",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        "Weeks later, Han Lei brings an instrument tech to calibrate the methane alarm.",
+        {
+          "action": "From a case Han Lei takes a portable oxygen meter for comparison—smaller, black case blue screen.",
+          "present": [
+            "E1",
+            "E7",
+            {
+              "eid": "E18",
+              "confusable_with": "E3"
+            }
+          ]
+        },
+        "The tech replaces the probe and recalibrates zero.",
+        {
+          "action": "Calibration done, the methane alarm resumes steady alarming; a maintenance sticker is on the case.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E3",
+              "to": "calibrated_repaired"
+            }
+          ]
+        },
+        "The repaired alarm gives a clear short beep; Han Lei breathes out.",
+        "Han Lei walks out of the lamp room with the calibrated instrument for a field test."
+      ]
+    },
+    {
+      "id": "S11",
+      "setting": "False friends: battery cart and safety inspector",
+      "present": [
+        "E1",
+        "E8"
+      ],
+      "actions": [
+        {
+          "action": "To the shaft mouth comes support worker Lao Wei, orange helmet muddied, build close to Han Lei's.",
+          "present": [
+            "E8",
+            {
+              "eid": "E19",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "Then safety inspector Lao Zhou arrives too, white helmet and camouflage coveralls, talking beside Han Lei.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "Lao Zhou points at the yellow explosion-proof battery cart, asking if it belongs to the lamp-check team.",
+          "present": [
+            "E1",
+            "E8",
+            {
+              "eid": "E13",
+              "confusable_with": "E5"
+            },
+            {
+              "eid": "E14",
+              "confusable_with": "E1"
+            }
+          ]
+        },
+        {
+          "action": "The inspector leaves; Han Lei alone remains in the shaft-mouth shed.",
+          "present": [
+            "E1",
+            "E8"
+          ]
+        },
+        "Lao Wei shoulders pit props and bows farewell."
+      ]
+    },
+    {
+      "id": "S12",
+      "setting": "False friend: Xiaoxia who resembles Xiaomei",
+      "present": [
+        "E1",
+        "E9"
+      ],
+      "actions": [
+        {
+          "action": "From the materials store comes girl Xiaoxia in a light-brown hard hat; at a glance she somewhat resembles young Xiaomei.",
+          "present": [
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        {
+          "action": "Xiaoxia practices counting rock bolts; Han Lei shakes his head—she is not Xiaomei after all.",
+          "present": [
+            "E1",
+            "E9",
+            {
+              "eid": "E17",
+              "confusable_with": "E2"
+            }
+          ]
+        },
+        "Xiaoxia shyly lowers her head and sets her hard hat straight."
+      ]
+    },
+    {
+      "id": "S13",
+      "setting": "Weary injured (airdoor-bell long-range recall)",
+      "present": [
+        "E1",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "Years later at dusk, Han Lei with a bandaged left arm stands at the abandoned air-shaft mouth.",
+          "present": [
+            "E1",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E1",
+              "to": "weary_injured"
+            }
+          ]
+        },
+        "Han Lei looks up at the rusted iron grate, gaze far away.",
+        {
+          "action": "Those two copper bells moved to the air-shaft mouth for a trial ring; Han Lei pauses to listen.",
+          "present": [
+            "E1",
+            "E10",
+            {
+              "eid": "E16",
+              "count": 2
+            }
+          ]
+        },
+        "Han Lei lays a palm on the cold No Entry sign, as if saying goodbye.",
+        "Evening wind lifts his cracked helmet brim."
+      ]
+    },
+    {
+      "id": "S14",
+      "setting": "Xiaomei takes over · Han Lei leaves post",
+      "present": [
+        "E1",
+        "E2",
+        "E10"
+      ],
+      "actions": [
+        {
+          "action": "By day, adult Xiaomei returns along the side path and hurries toward the abandoned air-shaft mouth.",
+          "present": [
+            "E2",
+            "E10"
+          ],
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E2",
+              "to": "adult_successor"
+            }
+          ]
+        },
+        "At the air-shaft mouth Xiaomei reunites with injured Han Lei; the two embrace.",
+        {
+          "action": "Beside the lamp-room wooden bed, Xiaomei holds Han Lei's rough hand.",
+          "present": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "action": "Han Lei's breath fades; at last he closes his eyes and leaves his post.",
+          "present": [
+            "E1",
+            "E2"
+          ],
+          "events": [
+            {
+              "type": "remove",
+              "eid": "E1",
+              "to": "left_post",
+              "reason": "deceased",
+              "shown": true
+            }
+          ]
+        },
+        {
+          "action": "Xiaomei folds Han Lei's old miner's clothes and sets them by the pillow.",
+          "present": [
+            "E2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "setting": "Relics · bronze work badge (indirect cue)",
+      "present": [
+        "E2",
+        "E10",
+        "E11"
+      ],
+      "actions": [
+        {
+          "action": "Han Lei's orange helmet still hangs behind the lamp-room door; Xiaomei reaches out and gently strokes it.",
+          "present": [
+            "E2",
+            "E7"
+          ]
+        },
+        {
+          "action": "On the lamp-room door, Xiaomei stands before a newly nailed bronze work badge.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        {
+          "action": "Xiaomei's fingertips brush Han Lei's name engraved on the work badge.",
+          "present": [
+            "E2",
+            "E10",
+            "E11"
+          ]
+        },
+        "Xiaomei tucks a wildflower into an iron seam beside the badge."
+      ]
+    },
+    {
+      "id": "S16",
+      "setting": "Rival reunion (long-range + co-present)",
+      "present": [
+        "E2",
+        "E6",
+        "E10"
+      ],
+      "lookalike_present": {
+        "pair": [
+          "E2",
+          "E6"
+        ],
+        "members": [
+          "E2",
+          "E6"
+        ]
+      },
+      "actions": [
+        {
+          "action": "Disguised Xiaotan comes from the materials store and embraces Xiaomei tightly at the air-shaft mouth.",
+          "events": [
+            {
+              "type": "state_change",
+              "eid": "E6",
+              "to": "disguised"
+            }
+          ]
+        },
+        "Xiaomei and Xiaotan stand side by side at the air-shaft mouth—one calm-eyed, one deep in expression.",
+        "They look at each other without words, at similar yellow helmets.",
+        "Xiaotan cinches his blue armband; Xiaomei still wears the orange fluorescent armband."
+      ]
+    },
+    {
+      "id": "S17",
+      "setting": "Memory flashback (temporal grounding)",
+      "present": [],
+      "actions": [
+        {
+          "action": "The shot returns to years ago—the youth trying on a facepiece in the shaft-mouth shed appears again.",
+          "present": [
+            {
+              "eid": "E2",
+              "state": "young_apprentice",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the youth trying on a facepiece in the shaft-mouth shed",
+                "resolves_to": "E2"
+              }
+            }
+          ]
+        },
+        {
+          "action": "The opening moment returns—in the lamp room, a yellow-cased alarm first flashes red steady.",
+          "present": [
+            "E7",
+            {
+              "eid": "E3",
+              "state": "intact_alarming",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the yellow-cased alarm that first flashed red steady at the opening",
+                "resolves_to": "E3"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Flash back to that year's materials store—a figure in a blue armband with a coal scar on the chin flashes by.",
+          "present": [
+            {
+              "eid": "E6",
+              "state": "young_rival",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the figure in a blue armband in that year's materials store",
+                "resolves_to": "E6"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Before the eyes again: that row of five gleaming old breathers on the lamp-room iron hooks.",
+          "present": [
+            {
+              "eid": "E15",
+              "count": 5,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "that row of five self-rescuers on the lamp-room iron hooks",
+                "resolves_to": "E15"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Back to the corrugated shaft-mouth shed of first meeting; water drips from the iron roof, as it always did.",
+          "present": [
+            {
+              "eid": "E8",
+              "anchor": {
+                "type": "temporal",
+                "phrase": "the shaft-mouth shed of first meeting",
+                "resolves_to": "E8"
+              }
+            }
+          ]
+        },
+        {
+          "action": "Again the shot of those two copper bells ringing softly above the airdoor.",
+          "present": [
+            {
+              "eid": "E16",
+              "count": 2,
+              "anchor": {
+                "type": "temporal",
+                "phrase": "those two copper bells above the airdoor",
+                "resolves_to": "E16"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "setting": "Close (log long-range · spare-lamp long-range)",
+      "present": [
+        "E2",
+        "E7",
+        "E3"
+      ],
+      "actions": [
+        {
+          "action": "Xiaomei opens that coal-dust-stained inspection log again and walks into the lamp room.",
+          "present": [
+            "E2",
+            "E7",
+            {
+              "eid": "E4"
+            }
+          ]
+        },
+        {
+          "action": "On the workshop iron rack, those three spare mine lamps still show green tags side by side.",
+          "present": [
+            "E7",
+            {
+              "eid": "E12",
+              "count": 3
+            }
+          ]
+        },
+        {
+          "action": "Xiaomei takes the calibrated-repaired methane alarm and goes underground again for a test.",
+          "present": [
+            "E2",
+            "E7",
+            "E3"
+          ]
+        },
+        "Outside the shaft-mouth shed, new green sprouts from iron-grate seams.",
+        "Xiaomei cinches his yellow helmet; lamp-room lights come on again."
+      ]
+    }
+  ]
+}

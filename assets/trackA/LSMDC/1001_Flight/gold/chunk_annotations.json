@@ -1,0 +1,5807 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "1001_Flight",
+  "human_reviewed": true,
+  "chunks": [
+    {
+      "chunk_id": 0,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        0.0,
+        10.0
+      ],
+      "prompt": "一架涂有红白蓝三色条纹的客机从机场停机坪腾空而起，掠过停机坪上排列整齐的同款涂装飞机和亮着红灯的控制塔，飞向远处灯火通明的酒店。",
+      "present": [
+        "loc_001"
+      ],
+      "first_appearances": [
+        "loc_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_001",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 1,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        10.0,
+        25.0
+      ],
+      "prompt": "红发女子在酒店客房中起身走向窗户，床上躺着黑人机长，他身穿飞行员制服，左眼下方有伤痕，头部缠着绷带。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_001",
+        "char_002",
+        "loc_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        25.0,
+        40.0
+      ],
+      "prompt": "黑人机长在酒店客房中醒来，拿起床头柜上装有香烟的烟盒和空酒瓶旁的手机查看，表情痛苦地揉脸。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "prop_001",
+        "prop_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        40.0,
+        55.0
+      ],
+      "prompt": "黑人机长在酒店客房中坐起身，直接对着酒瓶喝酒。红发女子在窗边穿衣。黑人机长随后点燃一根香烟。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        55.0,
+        70.0
+      ],
+      "prompt": "黑人机长在酒店客房床上打电话，神情疲惫，红发女子赤裸站在窗边手持内衣，香烟在附近。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        70.0,
+        85.0
+      ],
+      "prompt": "黑人机长在酒店客房床上吸烟，同时打电话。红发女子在床边点燃香烟。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        85.0,
+        100.0
+      ],
+      "prompt": "在酒店客房中，红发女子爬上床，跨坐在仰面躺着的黑人机长身上，他手中仍夹着香烟。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        100.0,
+        115.0
+      ],
+      "prompt": "黑人机长在酒店客房中吸烟，随后将香烟按灭。",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        115.0,
+        126.0
+      ],
+      "prompt": "黑人机长在酒店客房内，手持香烟，俯身于床头柜上吸食毒品。",
+      "present": [
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        126.0,
+        141.0
+      ],
+      "prompt": "黑人机长在暴雨中的机场停机坪走向飞机。",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        141.0,
+        156.0
+      ],
+      "prompt": "黑人机长在机场停机坪的雨中走向飞机，准备登机。",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        156.0,
+        171.0
+      ],
+      "prompt": "男子进入飞机驾驶舱，脱下雨衣，坐在黑人机长位。副驾驶（char_003）向他打招呼。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_003",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_003",
+        "loc_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        171.0,
+        187.0
+      ],
+      "prompt": "黑人机长在飞机驾驶舱内摘下氧气面罩，揉搓头部，副驾驶注视着他。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_003",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        187.0,
+        202.0
+      ],
+      "prompt": "红发女子（char_002）在酒店客房（loc_002）中数着手中的钞票。",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        202.0,
+        217.0
+      ],
+      "prompt": "在酒店客房中，红发女子走到一辆银色轿车旁，打开车门坐进驾驶座。",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        217.0,
+        232.0
+      ],
+      "prompt": "在酒店客房中，红发女子在车内点燃香烟，使用翻盖手机通话，神情焦虑。",
+      "present": [
+        "char_002",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        232.0,
+        247.0
+      ],
+      "prompt": "在飞机客舱内，空乘员A，这位卷发女性，身穿深色制服上衣，与空乘员B关闭舱门；在飞机驾驶舱中，黑人机长推动油门杆，副驾驶配合，飞机加速起飞。",
+      "present": [
+        "char_001",
+        "char_003",
+        "char_004",
+        "char_005",
+        "loc_003",
+        "loc_004"
+      ],
+      "first_appearances": [
+        "char_004",
+        "char_005",
+        "loc_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        247.0,
+        262.0
+      ],
+      "prompt": "黑人机长与副驾驶在飞机驾驶舱内监控仪表，窗外雨幕模糊。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        262.0,
+        277.0
+      ],
+      "prompt": "黑人机长在飞机驾驶舱内手持航图核对路线，副驾驶配合操作仪表。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        277.0,
+        281.0
+      ],
+      "prompt": "空乘员B在飞机客舱过道行走，面带微笑。",
+      "present": [
+        "char_005",
+        "loc_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 20,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        281.0,
+        296.0
+      ],
+      "prompt": "在酒店客房中，红发女子下车，走进一栋砖砌公寓楼，上楼开门。",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 21,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        296.0,
+        311.0
+      ],
+      "prompt": "红发女子进入酒店客房，桌上散落着锡纸、打火机等物品。",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 22,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        311.0,
+        326.0
+      ],
+      "prompt": "黑人机长在飞机客舱的备餐区，将小瓶伏特加倒入酒瓶中。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 23,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        326.0,
+        334.0
+      ],
+      "prompt": "黑人机长在飞机客舱内喝下酒瓶里的饮料，空乘员A从旁经过与他短暂交流后进入驾驶舱。",
+      "present": [
+        "char_001",
+        "char_004",
+        "prop_001",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 24,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        334.0,
+        349.0
+      ],
+      "prompt": "红发女子在酒店客房中，手持一支装有浑浊液体的医用注射器，针尖微颤，凝视桌上家庭照片，神情痛苦犹豫。",
+      "present": [
+        "char_002",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "prop_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 25,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        349.0,
+        364.0
+      ],
+      "prompt": "红发女子在酒店客房中，用皮筋扎紧手臂，寻找血管，准备使用注射器。",
+      "present": [
+        "char_002",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 26,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        364.0,
+        379.0
+      ],
+      "prompt": "红发女子在酒店客房中，手持注射器，身体瘫软，眼神涣散。",
+      "present": [
+        "char_002",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 27,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        379.0,
+        398.0
+      ],
+      "prompt": "红发女子躺在酒店客房木地板上，意识模糊，手边有一小包白色粉末。",
+      "present": [
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 28,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        398.0,
+        413.0
+      ],
+      "prompt": "黑人机长在飞机驾驶舱内紧握操纵杆，副驾驶协助应对突发颠簸。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 29,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        413.0,
+        428.0
+      ],
+      "prompt": "飞机客舱内，空乘员A被甩倒，空乘员B在过道中安抚惊慌的乘客。",
+      "present": [
+        "char_004",
+        "char_005",
+        "loc_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 30,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        428.0,
+        443.0
+      ],
+      "prompt": "黑人机长在飞机驾驶舱内艰难操作，副驾驶在旁协助，飞机客舱完全倒置，乘客和物品被压在天花板上。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_003",
+        "loc_004"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 31,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        443.0,
+        458.0
+      ],
+      "prompt": "飞机驾驶舱尾部断裂，引擎起火。外部镜头展示飞机在空中翻滚坠落。",
+      "present": [
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 32,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        458.0,
+        473.0
+      ],
+      "prompt": "飞机客舱内灯光熄灭，应急灯亮起。乘客互相拉扯，有人受伤流血。",
+      "present": [
+        "loc_004",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 33,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        473.0,
+        488.0
+      ],
+      "prompt": "黑人机长在飞机驾驶舱内满头大汗，全力拉杆试图拉平飞机，副驾驶协助。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 34,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        488.0,
+        503.0
+      ],
+      "prompt": "黑人机长在飞机驾驶舱内操控仪表盘，选择田野作为迫降点。",
+      "present": [
+        "char_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 35,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        503.0,
+        523.0
+      ],
+      "prompt": "在坠机现场中，飞机重重砸在田野上，机身断裂，尘土飞扬。飞机驾驶舱内黑人机长被安全带勒住，失去意识。",
+      "present": [
+        "char_001",
+        "loc_003",
+        "loc_005"
+      ],
+      "first_appearances": [
+        "loc_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 36,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        523.0,
+        538.0
+      ],
+      "prompt": "飞机残骸冒着浓烟，救援人员穿着防护服跑向坠机现场。幸存者从残骸中爬出。",
+      "present": [
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 37,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        538.0,
+        553.0
+      ],
+      "prompt": "在坠机现场，黑人机长被救援人员从残骸中拖出，他满脸是血，眼神空洞。",
+      "present": [
+        "char_001",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 38,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        553.0,
+        568.0
+      ],
+      "prompt": "在坠机现场，黑人机长被急救人员抬上担架，送入救护车。",
+      "present": [
+        "char_001",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 39,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        568.0,
+        583.0
+      ],
+      "prompt": "黑人机长在医院病房病床上醒来，头部缠着绷带，电视播放坠机新闻，画面显示‘SOUTHJET 227 PASSENGER’。",
+      "present": [
+        "char_001",
+        "loc_006",
+        "loc_005"
+      ],
+      "first_appearances": [
+        "loc_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 40,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        583.0,
+        603.0
+      ],
+      "prompt": "黑人机长在医院病房内注视电视屏幕，屏幕上播放手机拍摄的飞机坠毁视频，飞机翻滚后撞向开阔草地，黑烟升腾，数人奔跑逃离。",
+      "present": [
+        "char_001",
+        "loc_006",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 41,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        603.0,
+        618.0
+      ],
+      "prompt": "律师/西装男（char_006）坐在医院病房（loc_006）床边，低头看手机，他身穿深色西装，领口系着深色衬衫，头发稀疏灰白，神情专注；黑人机长（char_001）躺在病床上，头部缠着绷带，注视着他。",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_006"
+      ],
+      "first_appearances": [
+        "char_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 42,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        618.0,
+        633.0
+      ],
+      "prompt": "几名身穿印有“NTSB”字样夹克的调查人员进入医院病房，向黑人机长表明身份，律师/西装男在旁陪同。",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 43,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        633.0,
+        648.0
+      ],
+      "prompt": "黑人机长躺在医院病房的病床上，头部缠着绷带、左眼被纱布遮盖，律师/西装男与医护人员围绕病床，其中律师/西装男正在记录情况。",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 44,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        648.0,
+        663.0
+      ],
+      "prompt": "调查人员离开医院病房。律师/西装男走向病床，与黑人机长低声交谈。",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 45,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        663.0,
+        688.0
+      ],
+      "prompt": "黑人机长在医院病房内，摘下氧气面罩，痛苦喘息，眼中含泪。",
+      "present": [
+        "char_001",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 46,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        688.0,
+        703.0
+      ],
+      "prompt": "胖朋友陪着律师/西装男走过医院病房走廊，进入医院病房。",
+      "present": [
+        "char_006",
+        "char_007",
+        "loc_006"
+      ],
+      "first_appearances": [
+        "char_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 47,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        703.0,
+        718.0
+      ],
+      "prompt": "胖朋友在医院病房中，将摄像机对准黑人机长，随后把手放在其缠着绷带的头上。",
+      "present": [
+        "char_001",
+        "char_007",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 48,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        718.0,
+        725.0
+      ],
+      "prompt": "牧师和胖朋友离开医院病房。黑人机长闭上眼睛，似乎精疲力竭。",
+      "present": [
+        "char_001",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 49,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        725.0,
+        740.0
+      ],
+      "prompt": "黑人机长在医院病房内，头部缠着绷带，从病床上坐起，眼神惊恐地环顾四周。",
+      "present": [
+        "char_001",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 50,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        740.0,
+        755.0
+      ],
+      "prompt": "在医院病房中，黑人机长在楼梯转角发现红发女子（char_002）也穿着病号服坐在台阶上。两人对视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 51,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        755.0,
+        770.0
+      ],
+      "prompt": "黑人机长在医院病房中点燃香烟并吸了一口，红发女子坐在楼梯上静静注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 52,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        770.0,
+        785.0
+      ],
+      "prompt": "红发女子坐在医院病房楼梯上，黑人机长在楼梯下吸烟，光头男病人推着输液架走上楼梯，看到他们后愣了一下，然后继续上楼。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 53,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        785.0,
+        804.0
+      ],
+      "prompt": "在医院病房中，红发女子突然掩面哭泣。黑人机长看着她，神情同情但克制。随后女子起身离开。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 54,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        804.0,
+        819.0
+      ],
+      "prompt": "胖朋友（char_007）驾驶汽车，黑人机长（char_001）坐在副驾驶，胖朋友递给他一袋物品。",
+      "present": [
+        "char_001",
+        "char_007",
+        "loc_007"
+      ],
+      "first_appearances": [
+        "loc_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 55,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        819.0,
+        838.0
+      ],
+      "prompt": "黑人机长驾驶的车子驶过‘Whitaker Crop Dusting Company’招牌，停在乡村小屋前，胖朋友在车旁等候。",
+      "present": [
+        "char_001",
+        "char_007",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 56,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        838.0,
+        853.0
+      ],
+      "prompt": "黑人机长拄着金属拐杖走向乡村小屋门口，拐杖的银色手柄在阳光下反光，他伸手触碰门框后推门而入。",
+      "present": [
+        "char_001",
+        "prop_005",
+        "loc_007"
+      ],
+      "first_appearances": [
+        "prop_005"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 57,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        853.0,
+        868.0
+      ],
+      "prompt": "在乡村小屋中，黑人机长拿起一个塑料袋，开始收集桌上的空酒瓶和杂物。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 58,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        868.0,
+        883.0
+      ],
+      "prompt": "黑人机长在乡村小屋中，拿起拐杖和塑料袋，走向厨房。",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 59,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        883.0,
+        898.0
+      ],
+      "prompt": "黑人机长在乡村小屋内，手持拐杖站立，低头沉思。",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 60,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        898.0,
+        913.0
+      ],
+      "prompt": "黑人机长在乡村小屋中，手持药瓶，走向吧台，凝视酒瓶。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 61,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        913.0,
+        928.0
+      ],
+      "prompt": "在乡村小屋中，黑人机长用拐杖支撑身体，走向卫生间，随后返回客厅，拿起酒瓶，操作音响设备。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 62,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        928.0,
+        943.0
+      ],
+      "prompt": "黑人机长用拐杖支撑身体，将一包大麻倒入乡村小屋的马桶冲走。",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 63,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        943.0,
+        962.0
+      ],
+      "prompt": "黑人机长在乡村小屋的洗手池旁倒掉啤酒罐，随后打开抽屉取出一袋烟丝，将其倒入马桶冲走。",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 64,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        962.0,
+        977.0
+      ],
+      "prompt": "在乡村小屋中，黑人机长推开谷仓大门，里面停着一架小型飞机螺旋桨飞机（prop_004），机身漆成深蓝与银灰相间，机翼下挂有备用油箱。他走近，伸手轻抚机身，指尖划过光滑的金属表面，动作带着熟悉与珍视。",
+      "present": [
+        "char_001",
+        "prop_004",
+        "loc_007"
+      ],
+      "first_appearances": [
+        "prop_004"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 65,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        977.0,
+        992.0
+      ],
+      "prompt": "黑人机长在乡村小屋内，将空酒瓶倒入水槽后，走向门口，准备离开。",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 66,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        992.0,
+        1007.0
+      ],
+      "prompt": "黑人机长走进乡村小屋，掀开小型飞机上的毯子，凝视机舱内物品。",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 67,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1007.0,
+        1026.0
+      ],
+      "prompt": "在乡村小屋中，黑人机长坐在电视机前，看着新闻里播放的事故现场画面和专家分析。他神情凝重。",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 68,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1026.0,
+        1041.0
+      ],
+      "prompt": "律师/西装男在听证会大厅中打电话，他身着深色西装、白色衬衫和图案领带，其他人神色严肃地听着。",
+      "present": [
+        "char_006",
+        "loc_009"
+      ],
+      "first_appearances": [
+        "loc_009"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 69,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1041.0,
+        1060.0
+      ],
+      "prompt": "律师/西装男在听证会大厅中接听电话，通话后转向众人。",
+      "present": [
+        "char_006",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 70,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1060.0,
+        1075.0
+      ],
+      "prompt": "黑人机长拄着拐杖走进听证会大厅内的餐厅，服务员引他入座。",
+      "present": [
+        "char_001",
+        "prop_005",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 71,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1075.0,
+        1090.0
+      ],
+      "prompt": "黑人机长在听证会大厅中与西装男对坐交谈，对方递给他一份文件。",
+      "present": [
+        "char_001",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 72,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1090.0,
+        1105.0
+      ],
+      "prompt": "黑人机长坐在听证会大厅的酒吧吧台前，酒保为他调制一杯橙色饮品，用到酒瓶。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 73,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1105.0,
+        1127.0
+      ],
+      "prompt": "黑人机长在听证会大厅端起酒瓶一饮而尽，神情凝重。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 74,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1127.0,
+        1142.0
+      ],
+      "prompt": "黑人机长在酒店客房的车里，拿起酒瓶直接饮用。",
+      "present": [
+        "char_001",
+        "prop_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 75,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1142.0,
+        1157.0
+      ],
+      "prompt": "黑人机长坐在酒店客房内，手持啤酒罐注视前方街道，红发女子未出现。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 76,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1157.0,
+        1177.0
+      ],
+      "prompt": "在酒店客房中，黑人机长拄着拐杖走向红发女子，女子看到他后没有躲避。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_005",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 77,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1177.0,
+        1192.0
+      ],
+      "prompt": "黑人机长在酒店客房后座拿起酒瓶饮用，随后走向公寓楼走廊，红发女子在旁注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 78,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1192.0,
+        1207.0
+      ],
+      "prompt": "黑人机长在酒店客房内喝百威啤酒，红发女子坐在副驾驶手握香烟。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 79,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1207.0,
+        1226.0
+      ],
+      "prompt": "在酒店客房中，黑人机长在车内吸烟，红发女子抱着篮子，车窗外景色飞逝。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 80,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1226.0,
+        1241.0
+      ],
+      "prompt": "黑人机长坐在乡村小屋的沙发上，手持酒瓶，腿上放着冰袋。红发女子走进来，手里拿着枕头。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 81,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1241.0,
+        1256.0
+      ],
+      "prompt": "红发女子在乡村小屋中坐在黑人机长脚边，为他处理受伤的腿，机长放松地靠在沙发上看着她。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 82,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1256.0,
+        1271.0
+      ],
+      "prompt": "红发女子在乡村小屋为手持酒杯的黑人机长按摩腿部，他神情放松。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 83,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1271.0,
+        1286.0
+      ],
+      "prompt": "在乡村小屋中，红发女子轻抚黑人机长缠着绷带的手臂，递给他酒杯，他饮后将杯子放回桌上。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 84,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1286.0,
+        1313.0
+      ],
+      "prompt": "在乡村小屋中，黑人机长凝视着熟睡的红发女子，神情温柔中带着忧虑。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 85,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1313.0,
+        1328.0
+      ],
+      "prompt": "在坠机现场中，律师/西装男走向木制平台，黑人机长拄拐杖站在平台旁。",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 86,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1328.0,
+        1348.0
+      ],
+      "prompt": "黑人机长站在高台上，用望远镜眺望下方坠机现场的残骸与调查人员，神情肃穆，律师/西装男在旁注视。",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_005"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_005",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 87,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1348.0,
+        1360.0
+      ],
+      "prompt": "律师/西装男在听证会大厅中站起来指着窗外或屏幕，似乎在指责或命令。",
+      "present": [
+        "char_006",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 88,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1360.0,
+        1375.0
+      ],
+      "prompt": "黑人机长坐在乡村小屋的沙发上，手持酒瓶饮酒，同时抽着香烟。红发女子推门进入，看到他后震惊地捂住嘴。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 89,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1375.0,
+        1390.0
+      ],
+      "prompt": "红发女子站在乡村小屋门口，注视着沙发上抽烟的黑人机长。机长低头操作遥控器，电视播放着户外场景。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 90,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1390.0,
+        1405.0
+      ],
+      "prompt": "红发女子跪在乡村小屋的地毯上，将手放在黑人机长的胸口，检查他的状况。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 91,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1405.0,
+        1428.0
+      ],
+      "prompt": "在乡村小屋中，黑人机长在毯子下痛苦地抽搐或颤抖。红发女子默默守护在他身边。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 92,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1428.0,
+        1443.0
+      ],
+      "prompt": "红发女子坐在乡村小屋门廊摇椅上，黑人机长从屋内走出，弯腰拾起物品。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 93,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1443.0,
+        1458.0
+      ],
+      "prompt": "黑人机长在乡村小屋的摇椅上坐下，红发女子坐在他身旁，两人交谈，气氛轻松。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 94,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1458.0,
+        1473.0
+      ],
+      "prompt": "红发女子在乡村小屋的门廊上点着香烟，黑人机长在旁注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 95,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1473.0,
+        1488.0
+      ],
+      "prompt": "教堂内举行葬礼，前方摆放着遇难女空乘的遗像和大量鲜花。人们穿着黑衣肃立，背景可见彩色玻璃窗，棺木静置在鲜花丛中。",
+      "present": [
+        "loc_008"
+      ],
+      "first_appearances": [
+        "loc_008"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_008",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 96,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1488.0,
+        1503.0
+      ],
+      "prompt": "黑人机长拄拐杖走进教堂，与前妻和儿子相遇，三人对视。儿子身着深色西装，系着领带，神情肃穆地跟在父亲身后。",
+      "present": [
+        "char_001",
+        "char_008",
+        "char_009",
+        "loc_008"
+      ],
+      "first_appearances": [
+        "char_008",
+        "char_009"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_008",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_008",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 97,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1503.0,
+        1518.0
+      ],
+      "prompt": "在教堂内，前妻含泪与黑人机长交谈，机长伸手轻抚她脸颊。",
+      "present": [
+        "char_001",
+        "char_009",
+        "loc_008"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_008",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 98,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1518.0,
+        1529.0
+      ],
+      "prompt": "黑人机长走向前妻，在教堂门口短暂相拥。",
+      "present": [
+        "char_001",
+        "char_009",
+        "loc_008"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_008",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 99,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1529.0,
+        1544.0
+      ],
+      "prompt": "在酒店客房中，黑人机长站在停车场，红发女子穿着药店制服走来，两人拥抱问候。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return",
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 100,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1544.0,
+        1550.0
+      ],
+      "prompt": "黑人机长在酒店客房中从盒中取出Zippo打火机点燃香烟，红发女子在旁注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_002",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 101,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1550.0,
+        1565.0
+      ],
+      "prompt": "在听证会大厅，黑人机长与红发女子并排坐着，众人举手回应主持人提问。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 102,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1565.0,
+        1572.0
+      ],
+      "prompt": "黑人机长在听证会大厅中突然起身，神情不安地走向出口。",
+      "present": [
+        "char_001",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 103,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1572.0,
+        1587.0
+      ],
+      "prompt": "黑人机长从停车场走向酒店客房门口，推门进入。",
+      "present": [
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 104,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1587.0,
+        1597.0
+      ],
+      "prompt": "黑人机长在酒店客房内看到电视播放南航227航班事故调查新闻，表情痛苦，随即转身快步走出酒店客房。",
+      "present": [
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 105,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1597.0,
+        1612.0
+      ],
+      "prompt": "黑人机长走进医院病房，看到副驾驶躺在病床上，旁边有家属陪伴。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 106,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1612.0,
+        1627.0
+      ],
+      "prompt": "黑人机长拄拐杖走进医院病房，走向病床边的副驾驶。",
+      "present": [
+        "char_001",
+        "char_003",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 107,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1627.0,
+        1640.0
+      ],
+      "prompt": "黑人机长在医院病房内，靠在椅子上，神情疲惫自责。",
+      "present": [
+        "char_001",
+        "loc_006"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_006",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 108,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1640.0,
+        1655.0
+      ],
+      "prompt": "红发女子走进乡村小屋的谷仓，黑人机长正修理小型飞机，随后两人拥抱。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_004",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_004",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 109,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1655.0,
+        1670.0
+      ],
+      "prompt": "黑人机长在乡村小屋内拿起酒瓶喝了起来，红发女子从卧室门口探身观望，未作阻止。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 110,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1670.0,
+        1685.0
+      ],
+      "prompt": "黑人机长在乡村小屋中放下酒瓶，走进卧室。红发女子跟在后面，两人在床边对视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 111,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1685.0,
+        1700.0
+      ],
+      "prompt": "在乡村小屋中，黑人机长与红发女子亲密相拥，额头轻触，彼此凝视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 112,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1700.0,
+        1719.0
+      ],
+      "prompt": "红发女子在乡村小屋中，将写有'Whip'的字条和香烟放在桌上。",
+      "present": [
+        "char_002",
+        "prop_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 113,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1719.0,
+        1734.0
+      ],
+      "prompt": "黑人机长在乡村小屋的客厅中央，看着桌上留下的字条和打火机，身旁放着一支香烟，屋里安静得可怕。",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 114,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1734.0,
+        1749.0
+      ],
+      "prompt": "黑人机长在乡村小屋中拿起字条，反复查看，随后走向窗边凝视外面的路。",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 115,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1749.0,
+        1762.0
+      ],
+      "prompt": "黑人机长在乡村小屋中，低头翻看纸张，随后转身走向门口。",
+      "present": [
+        "char_001",
+        "loc_007"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_007",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 116,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1762.0,
+        1777.0
+      ],
+      "prompt": "黑人机长走进机场停机坪的机库，里面停放着被重新组装起来的事故飞机残骸。",
+      "present": [
+        "char_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 117,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1777.0,
+        1790.0
+      ],
+      "prompt": "黑人机长站在机场停机坪的飞机残骸前，律师/西装男与另一名调查人员向他解释情况。",
+      "present": [
+        "char_001",
+        "char_006",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 118,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1790.0,
+        1805.0
+      ],
+      "prompt": "黑人机长驾驶汽车行驶在绿树成荫的郊区街道上，最终停在酒店客房前。",
+      "present": [
+        "char_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 119,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1805.0,
+        1820.0
+      ],
+      "prompt": "黑人机长拄着拐杖从车里走出，走向酒店客房。",
+      "present": [
+        "char_001",
+        "prop_005",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_005",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 120,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1820.0,
+        1835.0
+      ],
+      "prompt": "黑人机长在酒店客房中敲门，前妻开门后看到他，露出惊讶但欣慰的笑容。",
+      "present": [
+        "char_001",
+        "char_009",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_009",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 121,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1835.0,
+        1848.0
+      ],
+      "prompt": "儿子跑出酒店客房，扑向黑人机长并紧紧拥抱，黑人机长蹲下身用力回抱儿子，眼眶湿润。",
+      "present": [
+        "char_001",
+        "char_008",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 122,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1848.0,
+        1863.0
+      ],
+      "prompt": "黑人机长走进豪华酒店套房，律师/西装男和胖朋友已在室内等候。",
+      "present": [
+        "char_001",
+        "char_006",
+        "char_007",
+        "loc_011"
+      ],
+      "first_appearances": [
+        "loc_011"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 123,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1863.0,
+        1878.0
+      ],
+      "prompt": "黑人机长与胖朋友进入豪华酒店套房，两人握手并拥抱，黑人机长手持饮料罐，神情凝重，酒瓶与药丸在场。",
+      "present": [
+        "char_001",
+        "char_007",
+        "prop_001",
+        "prop_007",
+        "loc_011"
+      ],
+      "first_appearances": [
+        "prop_007"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_007",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 124,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1878.0,
+        1893.0
+      ],
+      "prompt": "黑人机长走向豪华酒店套房内的迷你吧，打开冰箱门，俯身查看里面摆放的迷你酒瓶，瓶身细长，标签在冷光下泛着微光。",
+      "present": [
+        "char_001",
+        "prop_006",
+        "loc_011"
+      ],
+      "first_appearances": [
+        "prop_006"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 125,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1893.0,
+        1900.0
+      ],
+      "prompt": "黑人机长在豪华酒店套房的迷你吧前查看饮料，随后坐在圆桌旁用餐，最后躺上床用遥控器。",
+      "present": [
+        "char_001",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 126,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1900.0,
+        1915.0
+      ],
+      "prompt": "黑人机长在豪华酒店套房的床上，用遥控器换台后又躺下，翻动纸袋，电子钟显示凌晨2:37。",
+      "present": [
+        "char_001",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 127,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1915.0,
+        1930.0
+      ],
+      "prompt": "黑人机长在豪华酒店套房的床上翻看文件，随后起身去卫生间，坐在马桶上抽烟。",
+      "present": [
+        "char_001",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 128,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1930.0,
+        1950.0
+      ],
+      "prompt": "黑人机长在豪华酒店套房内走向衣柜取衣，随后躺回床上，迷你酒瓶在旁。",
+      "present": [
+        "char_001",
+        "prop_006",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 129,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1950.0,
+        1965.0
+      ],
+      "prompt": "黑人机长在豪华酒店套房内，走向卧室门口。",
+      "present": [
+        "char_001",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 130,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1965.0,
+        1980.0
+      ],
+      "prompt": "黑人机长走进豪华酒店套房，走向落地窗前伫立。",
+      "present": [
+        "char_001",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 131,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1980.0,
+        1990.0
+      ],
+      "prompt": "黑人机长站在豪华酒店套房窗前凝视窗外城市夜景，律师/西装男和胖朋友在旁。",
+      "present": [
+        "char_001",
+        "char_006",
+        "char_007",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 132,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        1990.0,
+        2005.0
+      ],
+      "prompt": "黑人机长在豪华酒店套房的迷你吧内，从冰箱中取出迷你酒瓶并饮用，律师/西装男和胖朋友在旁观看。",
+      "present": [
+        "char_001",
+        "char_006",
+        "char_007",
+        "prop_006",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 133,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2005.0,
+        2020.0
+      ],
+      "prompt": "黑人机长在豪华酒店套房的迷你吧前，双手紧握迷你酒瓶，试图打开瓶盖。胖朋友站在冰箱旁，注视着他的动作。",
+      "present": [
+        "char_001",
+        "char_007",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 134,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2020.0,
+        2042.0
+      ],
+      "prompt": "黑人机长在豪华酒店套房的迷你吧前，从冰箱取出迷你酒瓶放在桌上，律师/西装男和胖朋友在旁观看。",
+      "present": [
+        "char_001",
+        "char_006",
+        "char_007",
+        "loc_011"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_007",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_011",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 135,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2042.0,
+        2057.0
+      ],
+      "prompt": "黑人机长在听证会大厅作证，调查女主管戴眼镜、穿红色西装外套，坐在主席台主持听证，大屏幕播放事故录像。",
+      "present": [
+        "char_001",
+        "char_010",
+        "loc_009"
+      ],
+      "first_appearances": [
+        "char_010"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 136,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2057.0,
+        2072.0
+      ],
+      "prompt": "调查女主管在听证会大厅中站起来，向黑人机长提问，语气平和但问题尖锐。",
+      "present": [
+        "char_001",
+        "char_010",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 137,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2072.0,
+        2087.0
+      ],
+      "prompt": "在听证会大厅，调查女主管向黑人机长展示从驾驶舱残骸中找到的迷你酒瓶照片，黑人机长看到后脸色大变。",
+      "present": [
+        "char_001",
+        "char_010",
+        "prop_006",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_006",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 138,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2087.0,
+        2102.0
+      ],
+      "prompt": "在听证会大厅中，黑人机长矢口否认那是他的酒，声称不知道它怎么会在驾驶舱，声音颤抖，眼神躲闪，调查女主管在旁注视。",
+      "present": [
+        "char_001",
+        "char_010",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 139,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2102.0,
+        2117.0
+      ],
+      "prompt": "调查女主管在听证会大厅中向黑人机长出示血液检测报告，显示其体内酒精含量超标，全场哗然。",
+      "present": [
+        "char_001",
+        "char_010",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 140,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2117.0,
+        2132.0
+      ],
+      "prompt": "黑人机长在听证会大厅中，面对铁证，心理防线崩溃，低头哽咽承认自己当时确实喝了酒，调查女主管在场。",
+      "present": [
+        "char_001",
+        "char_010",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 141,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2132.0,
+        2150.0
+      ],
+      "prompt": "黑人机长被法警带离听证会大厅，走过长长的走廊，背影落寞。",
+      "present": [
+        "char_001",
+        "loc_009"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_009",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 142,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2150.0,
+        2165.0
+      ],
+      "prompt": "黑人机长在监狱的活动室里，穿着深蓝色囚服，袖口有白色条纹，坐在长桌旁参加互助小组会议，认真听着别人发言。",
+      "present": [
+        "char_001",
+        "loc_010"
+      ],
+      "first_appearances": [
+        "loc_010"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 143,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2165.0,
+        2180.0
+      ],
+      "prompt": "黑人机长在监狱里坐在牢房的书桌前写信或做笔记，桌上摆满书籍和家人的照片。",
+      "present": [
+        "char_001",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 144,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2180.0,
+        2195.0
+      ],
+      "prompt": "黑人机长在监狱中，镜头扫过墙上的照片，有他和儿子的合影，有红发女子的照片，还有戒酒纪念章。",
+      "present": [
+        "char_001",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 145,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2195.0,
+        2210.0
+      ],
+      "prompt": "黑人机长在监狱的操场上散步，阳光很好，他看起来比之前平静了许多。",
+      "present": [
+        "char_001",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 146,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2210.0,
+        2225.0
+      ],
+      "prompt": "在监狱的探视区，儿子来到，黑人机长看到他，脸上露出了久违的笑容。",
+      "present": [
+        "char_001",
+        "char_008",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 147,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2225.0,
+        2240.0
+      ],
+      "prompt": "黑人机长在监狱的听证会上发言，喝完水后继续陈述，儿子在旁注视。",
+      "present": [
+        "char_001",
+        "char_008",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 148,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2240.0,
+        2255.0
+      ],
+      "prompt": "黑人机长站在监狱探视区，目送儿子离开，眼神充满希望和爱意。",
+      "present": [
+        "char_001",
+        "char_008",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_008",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 149,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2255.0,
+        2270.0
+      ],
+      "prompt": "黑人机长在监狱内，从走廊走向书桌前坐下。",
+      "present": [
+        "char_001",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 150,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2270.0,
+        2285.0
+      ],
+      "prompt": "黑人机长在监狱牢房内，于书桌前低头书写，桌上散落书籍与文具。",
+      "present": [
+        "char_001",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 151,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2285.0,
+        2292.0
+      ],
+      "prompt": "黑人机长在监狱中抬头，阳光照在脸上，眼神流露出平静与希望。",
+      "present": [
+        "char_001",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 152,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2292.0,
+        2307.0
+      ],
+      "prompt": "黑人机长在监狱操场围栏边与狱友拥抱，随后转身离开。",
+      "present": [
+        "char_001",
+        "loc_010",
+        "char_011"
+      ],
+      "first_appearances": [
+        "char_011"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_011",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 153,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2307.0,
+        2322.0
+      ],
+      "prompt": "黑人机长在监狱里与狱友相对而坐交谈并翻阅笔记本。",
+      "present": [
+        "char_001",
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 154,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        2322.0,
+        2334.0
+      ],
+      "prompt": "画面慢慢变暗，演职员表开始滚动。背景音乐缓缓响起。",
+      "present": [
+        "loc_010"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_010",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    }
+  ]
+}

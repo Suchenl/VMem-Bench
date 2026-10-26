@@ -1,0 +1,7118 @@
+{
+  "story_id": "0045_tide_pool_naturalist",
+  "gt_version": "trackB-gt-2.0",
+  "title": "Tide-Pool Specimen Chronicle",
+  "premise": "An intertidal inheritance at a seaside specimen room. Achao and Axi are easily confused; the intertidal specimen case goes intact→seawater-corroded→resealed; the glass-bottom observation boat must be avoided after it sinks; count memory, false friends, and temporal flashbacks run throughout. Human-readable context only; never fed to the SUT.",
+  "built_from": "gt_source/0045_tide_pool_naturalist.json",
+  "params": {
+    "segment_sec": 5.0,
+    "gap_long_threshold": 30,
+    "avoidance_probe_window": 4
+  },
+  "entities": {
+    "E1": {
+      "name": "Shen Yu",
+      "kind": "character",
+      "states": {
+        "prime_on_duty": "Naturalist Shen Yu in his forties, skin honey-tanned by sea wind, khaki vest and rubber boots, magnifying glass and sampling spoon at his belt.",
+        "weary_injured": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud.",
+        "retired_away": "Shen Yu has retired and departed; only his old khaki vest and name tag remain in the specimen room—he himself no longer appears."
+      },
+      "initial_state": "prime_on_duty"
+    },
+    "E2": {
+      "name": "Achao",
+      "kind": "character",
+      "states": {
+        "youth_apprentice": "Young Achao: a lean tide-pool apprentice of fourteen or fifteen, sea-green kelp cord in his hair, wet trouser cuffs, bright stubborn eyes.",
+        "adult_successor": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+      },
+      "initial_state": "youth_apprentice"
+    },
+    "E3": {
+      "name": "intertidal specimen case",
+      "kind": "prop",
+      "states": {
+        "intact": "An oak intertidal specimen case with intact glass lid, compartments holding starfish, limpets, and dried seaweed, labels neat.",
+        "seawater_corroded": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine.",
+        "resealed": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+      },
+      "initial_state": "intact"
+    },
+    "E4": {
+      "name": "tide observation log",
+      "kind": "prop",
+      "states": {
+        "intact": "A waterproof-cloth tide observation log, pages filled with tide-height curves and species sketches, corners clean.",
+        "salt_frost_damaged": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+      },
+      "initial_state": "intact"
+    },
+    "E5": {
+      "name": "glass-bottom observation boat",
+      "kind": "prop",
+      "states": {
+        "intact": "A pale-green glass-bottom observation boat, white wave lines painted on the gunwales, transparent hull for looking down into tide pools.",
+        "reef_wrecked": "The glass-bottom observation boat reef-struck with hull shattered, half-sunk in foam among the rocks, only a listing wreck left."
+      },
+      "initial_state": "intact"
+    },
+    "E6": {
+      "name": "Axi",
+      "kind": "character",
+      "states": {
+        "youth_rival": "Axi, face and build extremely similar to Achao, but wearing an amber conch brooch, bold and eager to dive first.",
+        "remade_return": "Remade Axi still wears the amber conch brooch, now with dive goggles pushed up on the forehead, expression deeper and quieter."
+      },
+      "initial_state": "youth_rival"
+    },
+    "E7": {
+      "name": "seaside specimen room",
+      "kind": "location",
+      "appearance": "A seaside wooden-house specimen room: sea charts and tide tables on the wall, specimen cases on a long table, breaking surf outside the window."
+    },
+    "E8": {
+      "name": "rocky-shore tide pool",
+      "kind": "location",
+      "appearance": "Rocky-shore tide pools exposed at ebb tide, clear pooled water, anemones and small crabs in crevices, footing slick underfoot."
+    },
+    "E9": {
+      "name": "breakwater passage",
+      "kind": "location",
+      "appearance": "A narrow passage inside the breakwater, barnacles on both walls, ankle-deep at high tide, emergency lights dim yellow."
+    },
+    "E10": {
+      "name": "abandoned lighthouse base",
+      "kind": "location",
+      "appearance": "The basalt base of an abandoned lighthouse, steps crumbling, copper-green railing broken, new tide pools visible in the distance."
+    },
+    "E11": {
+      "name": "basalt memorial plaque",
+      "kind": "prop",
+      "appearance": "A basalt memorial plaque nailed to the lighthouse base, engraved with Shen Yu's name and years, surface crusted with salt crystals."
+    },
+    "E12": {
+      "name": "glass marker buoys",
+      "kind": "prop",
+      "appearance": "Three palm-sized green glass marker buoys tied in a string with hemp rope to mark fixed observation points."
+    },
+    "E13": {
+      "name": "plastic tourist pedal boat",
+      "kind": "prop",
+      "appearance": "A plastic tourist pedal boat, boat-shaped but with no glass bottom, hull stenciled 'Tourist'."
+    },
+    "E14": {
+      "name": "Inspector Han",
+      "kind": "character",
+      "appearance": "Coastal patrol inspector Han, build somewhat resembling Shen Yu, deep-blue uniform and silver shoulder bars, cap badge an anchor—not a magnifying glass."
+    },
+    "E15": {
+      "name": "specimen-cabinet spotlights",
+      "kind": "prop",
+      "appearance": "A row of five small spotlights clipped to specimen cabinets, frosted white shades, numbers stamped on the metal clips."
+    },
+    "E16": {
+      "name": "fog-bell hand cranks",
+      "kind": "prop",
+      "appearance": "Two brass fog-bell hand cranks hung on the specimen-room lintel, low short notes when cranked."
+    },
+    "E17": {
+      "name": "volunteer Xiaozhu",
+      "kind": "character",
+      "appearance": "Volunteer Xiaozhu, at a glance somewhat like young Achao, light-brown hair band instead of sea-green kelp cord, shy gaze."
+    },
+    "E18": {
+      "name": "miniature display case",
+      "kind": "prop",
+      "appearance": "A miniature display case, compartment layout much like the specimen case but smaller, no real labels, acrylic lid."
+    },
+    "E19": {
+      "name": "orange-red rescue jet ski",
+      "kind": "prop",
+      "appearance": "An unfamiliar orange-red rescue jet ski, short squat hull, no glass bottom, 'Coastal Rescue' on the side."
+    }
+  },
+  "state_machines": {
+    "E1": [
+      "prime_on_duty",
+      "weary_injured",
+      "retired_away"
+    ],
+    "E2": [
+      "youth_apprentice",
+      "adult_successor"
+    ],
+    "E3": [
+      "intact",
+      "seawater_corroded",
+      "resealed"
+    ],
+    "E4": [
+      "intact",
+      "salt_frost_damaged"
+    ],
+    "E5": [
+      "intact",
+      "reef_wrecked"
+    ],
+    "E6": [
+      "youth_rival",
+      "remade_return"
+    ]
+  },
+  "lookalike_pairs": [
+    {
+      "pair": [
+        "E2",
+        "E6"
+      ],
+      "features": {
+        "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+        "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+      },
+      "note": "Hard confuse sample: Achao and Axi look alike; distinguish only by kelp cord vs amber conch brooch."
+    }
+  ],
+  "segments": [
+    {
+      "segment_id": "seg_001",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dusk, Shen Yu pushes open the seaside specimen room's wooden door and sets his sampling spoon on the long table.",
+      "memory_probes": [
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "introduce"
+        },
+        {
+          "eid": "E7",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_002",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A row of five specimen-cabinet spotlights clips to the cabinets; Shen Yu turns each on and wipes the shades clean.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_001"
+        },
+        {
+          "eid": "E15",
+          "op": "introduce",
+          "count": 5
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_003",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Two brass fog-bell hand cranks hang on the lintel; Shen Yu cranks one lightly, and short notes echo through the wooden room.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_002"
+        },
+        {
+          "eid": "E16",
+          "op": "introduce",
+          "count": 2
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_004",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu opens the intertidal specimen case and checks every starfish and limpet label.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_003"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_005",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu gazes through the window at the darkening sea line beyond the rocky-shore tide pool.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_004"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_006",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The intact intertidal specimen case rests at the center of the long table, glass lid reflecting the spotlight glow.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E3",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_007",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu notes today's low-tide times beside the wall chart.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_005"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_006"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_008",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu unhooks the magnifying glass from his belt and hangs it back, checking the lens for salt haze.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_007"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_009",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu sorts scattered sample bottles and reorders them by tide level.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_008"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_010",
+      "scene_id": "S1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu sits in the specimen room's wicker chair and rubs shoulders stiff from sea wind.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_009"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_011",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Shen Yu opens the tide observation log and records today's tide height and water temperature.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_010"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_006"
+        },
+        {
+          "eid": "E4",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_012",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu sketches a newly seen anemone in the tide observation log.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_011"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_013",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu closes the tide observation log and tucks it into a drawer.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_012"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_014",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Glare from the intertidal specimen case glass sweeps across Shen Yu's profile.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_015",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu circles worn label compartments on the specimen case in red ink.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_014"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_013"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_016",
+      "scene_id": "S2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu tightens the ink bottle cap and moves it away from the damp windowsill.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_015"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_017",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On the morning rocky-shore tide pool, Shen Yu greets young Achao as he poles the glass-bottom observation boat to shore.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E8",
+          "op": "introduce"
+        },
+        {
+          "eid": "E2",
+          "op": "introduce"
+        },
+        {
+          "eid": "E5",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_018",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao jumps down from the glass-bottom observation boat and ties the hawser to a basalt spike.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_017"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_019",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu points to the three green glass marker buoys, teaching Achao to read the fixed observation points.",
+      "memory_probes": [
+        "continuity",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_017"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_018"
+        },
+        {
+          "eid": "E12",
+          "op": "introduce",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_020",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao crouches by a tide-pool puddle, studying an anemone's tentacles with curiosity.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_019"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_021",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu explains to Achao how current and tidal range change the species in the pool.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_019"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_020"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_022",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao looks back at the intact glass-bottom observation boat, eyes full of longing.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_018"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_023",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu has Achao lean over the gunwale and peer through the glass bottom at gobies in the rock crevices.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_021"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_022"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_024",
+      "scene_id": "S3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao tightens his sea-green kelp cord and carefully notes the tide level Shen Yu recites.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_025",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In the breakwater passage, Axi wearing an amber conch brooch glances back from behind the barnacle wall.",
+      "memory_probes": [
+        "first_appearance",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "introduce"
+        },
+        {
+          "eid": "E9",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_026",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Axi strides through ankle-deep water in the passage, boldly swinging a net bag.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_025"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_027",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Axi brushes past a bucket-carrying fisherman; the amber conch brooch sways under the emergency light.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_026"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_028",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Axi stops at the passage mouth, critiquing the handwriting on a temporary observation sign.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_027"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_029",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Axi kicks a loose barnacle shell into the water.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_028"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_030",
+      "scene_id": "S4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Axi crosses the passage and vanishes into the surf beyond the breakwater.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        },
+        {
+          "eid": "E9",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_029"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E2",
+          "reason": "lookalike_absent",
+          "grounded_by": "lookalike:E2/E6"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_031",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At the rocky-shore tide pool, Achao and Axi stand side by side—one with sea-green kelp cord, one with amber conch brooch.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_024"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_030"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_024"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_032",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao hands Axi a small limpet he found; the two look at each other with different expressions.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_031"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_033",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Axi straightens Achao's kelp cord and deliberately rattles her brooch.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_032"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_034",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao and Axi walk slowly along the pool edge, footprints overlapping then parting on wet sand.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_033"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_035",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao checks a sketch while Axi jumps into a deeper puddle.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_034"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_036",
+      "scene_id": "S5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao and Axi part at the pool mouth, each walking opposite ways.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E6",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_035"
+        }
+      ],
+      "forbidden": [],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_037",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Months later at night, Shen Yu keeps watch alone in the specimen room; the intertidal specimen case sits quietly on the table.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 13,
+          "last_seen": "seg_023"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        },
+        {
+          "eid": "E4",
+          "op": "recall",
+          "gap": 20,
+          "last_seen": "seg_016"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_038",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu opens the tide observation log and finds the cover salt-frosted white, writing blurred.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_037"
+        },
+        {
+          "eid": "E4",
+          "op": "transform",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_037"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_039",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu wipes water fog from the intertidal specimen case glass lid.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_038"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_038"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_040",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu gazes through the window at the black tide pool and distant lights.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_039"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_039"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_041",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Spotlight pools drift slowly across the intertidal specimen case glass.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_042",
+      "scene_id": "S6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu slips blotting paper into the damaged tide observation log, sighs, and turns off the light.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_040"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_041"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 1,
+          "last_seen": "seg_040"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_043",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On a spring-tide week morning, Shen Yu marks the highest tide on the wall chart.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_044",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu moves fragile specimens into an inner cabinet.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_043"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_045",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu rinses salt crystals from the sampling spoon with fresh water.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_044"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_046",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu checks the intertidal specimen case, verifying each starfish arm is intact.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_045"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_047",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In the afternoon, Shen Yu takes a coastal patrol call in the specimen room, brow furrowed.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_046"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_048",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu writes 'Hold off diving' on a note and tapes it to the door.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_047"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_049",
+      "scene_id": "F1",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu reorders sample bottles and pulls deep-water samples aside.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_048"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_050",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "During species-registration fortnight, Shen Yu spreads tracing paper beside the intertidal specimen case.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_049"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_051",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu marks new limpet sites with orange dots.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_050"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_052",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu weights the tracing-paper edges with stones.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_051"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_053",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu tries to read old numbers in the salt-frost-damaged tide observation log.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_052"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_054",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu moves his teacup farther away, afraid of splashing the pages again.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_053"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_055",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu lists three observation routes to adjust on the wall.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_054"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_056",
+      "scene_id": "F2",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Waves grow louder outside; Shen Yu pauses and listens.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_055"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_057",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On rocky-shore patrol day, Shen Yu puts on a straw hat and walks into the tide-pool zone.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_056"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_058",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu probes slick rock with a bamboo staff.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_057"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_059",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu notes where tourists kicked apart a stone pile.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_058"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_060",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu shines a flashlight into a deep puddle.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_059"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_061",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu talks briefly with fishermen at the breakwater mouth.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_060"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_062",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu avoids sharp oyster shells and circles to the far side of the pool.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_061"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_063",
+      "scene_id": "F3",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu measures the width of a newly collapsed rock crevice with a tape measure.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_062"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_064",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At dawn, Shen Yu patrols the rocky-shore tide pool; the glass-bottom observation boat moors in the shallow bay.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 27,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E5",
+          "op": "recall_after_gap",
+          "gap": 40,
+          "last_seen": "seg_023"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_065",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu crouches to inspect scratches on the glass-bottom observation boat hull.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_064"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_066",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu walks to the rock spike; those three green glass marker buoys are still tied in place.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_064"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_065"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 46,
+          "last_seen": "seg_019",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_067",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A plastic tourist pedal boat stenciled 'Tourist' crosses the shallow bay—no glass bottom, nothing like the observation boat.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E13",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_068",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu stands at the tide-pool edge, recording rock crevices exposed after the ebb.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_066"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_067"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_069",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu retightens the glass-bottom observation boat hawser.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_068"
+        },
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_065"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_070",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu confirms again that none of the three glass marker buoys is missing.",
+      "memory_probes": [
+        "continuity",
+        "count_memory"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E12",
+          "op": "recall",
+          "gap": 3,
+          "last_seen": "seg_066",
+          "count": 3
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_071",
+      "scene_id": "S7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu writes the patrol date on the wooden sign at the pool mouth.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_069"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_070"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_072",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "On the eve of the storm, Shen Yu stows all window-side charts in cabinets.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_063"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 29,
+          "last_seen": "seg_042"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_073",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu covers the intertidal specimen case with waterproof cloth against damp and spray.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_072"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_072"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_074",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu checks that the tide observation log is in a dry drawer.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_073"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_073"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_075",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu tightens the ink bottle cap and moves it higher.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_074"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_074"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_076",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Distant thunder rolls; specimen-room lights flicker once.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_075"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_075"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_077",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu untangles the five specimen-cabinet spotlight cords.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_076"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_076"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_078",
+      "scene_id": "F4",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu drafts a 'Testing suspended tomorrow' notice on the door.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_077"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_077"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_079",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The storm rises suddenly; the specimen-room roof leaks and brine splashes the desktop.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_080",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "A draft lifts tracing paper; the intertidal specimen case clasp pops open.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_079"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_081",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Seawater floods the case; the intertidal specimen case glass fogs and label ink bleeds.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_080"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_080"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_082",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In the shallow bay, the glass-bottom observation boat pitches hard in giant waves.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "recall",
+          "gap": 12,
+          "last_seen": "seg_069"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_083",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Hidden reef tears the hull; the glass-bottom observation boat half-sinks in foam among the rocks.",
+      "memory_probes": [
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E5",
+          "op": "transform",
+          "state": {
+            "label": "reef_wrecked",
+            "appearance": "The glass-bottom observation boat reef-struck with hull shattered, half-sunk in foam among the rocks, only a listing wreck left."
+          },
+          "gap": 0,
+          "last_seen": "seg_082"
+        }
+      ],
+      "forbidden": []
+    },
+    {
+      "segment_id": "seg_084",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "In the specimen room, Shen Yu lunges for the long table and presses down on the flooding intertidal specimen case.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_078"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_081"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 2,
+          "last_seen": "seg_081"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_085",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shattered glass cuts Shen Yu's calf; blood seeps through the waterproof bandage as he still shields the case.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_084"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_084"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_086",
+      "scene_id": "S8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The corroding intertidal specimen case slowly beads with moisture in the damp air.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_085"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_087",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The day after the storm, Shen Yu stands in the seaside specimen room, staring at the seawater-corroded intertidal specimen case.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_085"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_086"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_086"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_088",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu runs a finger over salt stains on the intertidal specimen case, face dark.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_087"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_087"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_089",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the anomaly column, Shen Yu clips a wreck note marking the date the glass-bottom observation boat reef-wrecked.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_090",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "An old photo taken through the glass bottom still hangs on the wall—gobies in the rock crevices; Shen Yu gazes a long time.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_089"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_091",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu turns on one of the five specimen-cabinet spotlights and sits alone in its pool of light.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_090"
+        },
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 88,
+          "last_seen": "seg_002",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_092",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The damaged intertidal specimen case still sits on the table, glass fog in plain sight.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 3,
+          "last_seen": "seg_088"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_093",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu changes the blood-soaked bandage and keeps clearing shattered glass.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_091"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_094",
+      "scene_id": "S9",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu covers everything again with waterproof cloth, afraid damp will reach the intertidal specimen case once more.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_093"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 1,
+          "last_seen": "seg_092"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_095",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "During cleanup week, Shen Yu packs shattered glass into cardboard boxes.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_094"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_094"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_096",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu submits a funding request to the coastal patrol station for sealing materials.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_095"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_095"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_097",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu still comes to the specimen room daily, staring at the corroded intertidal specimen case.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_096"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_096"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_098",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu traces still-legible labels onto transparent paper in pencil.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_097"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_097"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_099",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu turns the damaged tide observation log to a blank page and logs funding progress instead.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_098"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_098"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_100",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao is on leave and has not returned; only Shen Yu's footsteps echo in the specimen room.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_099"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_099"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_101",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu habitually touches the empty mooring spike where the boat once tied.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_100"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_100"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_102",
+      "scene_id": "F5",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu lists supplies needed for resealing on the wall.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_101"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_101"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_103",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Weeks later, Shen Yu brings silicone and new labels and begins resealing the intertidal specimen case.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_102"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 0,
+          "last_seen": "seg_102"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_104",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu takes a miniature display case from a cardboard box—it closely resembles the specimen case but is smaller, with no real labels.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_103"
+        },
+        {
+          "eid": "E18",
+          "op": "introduce",
+          "confusable_with": "E3"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_105",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu carefully drains pooled water, relabels compartments, and seals the glass lid.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_104"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "seawater_corroded",
+            "appearance": "The same specimen case flooded with seawater: glass lid fogged, label ink bled, compartments pooling with brine."
+          },
+          "gap": 1,
+          "last_seen": "seg_103"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_106",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The last silicone bead dries; the intertidal specimen case is resealed, a pale white salt stain on one corner.",
+      "memory_probes": [
+        "continuity",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_105"
+        },
+        {
+          "eid": "E3",
+          "op": "transform",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_105"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_107",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The resealed intertidal specimen case is readable again under the light; Shen Yu watches it with relief.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_106"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_106"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_108",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu pushes the miniature display case aside and centers the true intertidal specimen case on the salt-stain alignment line.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_107"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_107"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_109",
+      "scene_id": "S10",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The specimen room falls quiet; the resealed intertidal specimen case alone occupies the center of the long table.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_108"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_110",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "An orange-red rescue jet ski enters the shallow bay, nothing like the long-sunk glass-bottom observation boat.",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "false_friend",
+        "first_appearance",
+        "long_gap_reappearance",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 38,
+          "last_seen": "seg_071"
+        },
+        {
+          "eid": "E19",
+          "op": "introduce",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_111",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Coastal patrol Inspector Han with silver shoulder bars walks the rocky shore and talks beside Shen Yu; the two are similar in build.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_108"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_110"
+        },
+        {
+          "eid": "E14",
+          "op": "introduce",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_112",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Inspector Han points at the orange-red rescue jet ski, explaining the new patrol sector to Shen Yu.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_110",
+          "confusable_with": "E5"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_111",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_113",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The jet ski sounds its horn and leaves; Shen Yu alone on the rocky-shore tide pool watches it go.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_112"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_112"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_114",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The orange-red rescue jet ski pauses briefly at the far breakwater head, then moves on.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E19",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_112",
+          "confusable_with": "E5"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_115",
+      "scene_id": "S11",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Before leaving, Inspector Han claps Shen Yu's shoulder; the anchor cap badge flashes under the light.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_113"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_114"
+        },
+        {
+          "eid": "E14",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_112",
+          "confusable_with": "E1"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_116",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At the rocky-shore tide pool comes volunteer Xiaozhu with a light-brown hair band—at a glance somewhat like young Achao.",
+      "memory_probes": [
+        "continuity",
+        "false_friend",
+        "first_appearance"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E17",
+          "op": "introduce",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_117",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiaozhu tries to tie a hawser; Shen Yu shakes his head—she is not Achao after all.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_115"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_116",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_118",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Xiaozhu shyly asks whether anemones are poisonous; Shen Yu answers briefly and sends her to help in the specimen room.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117"
+        },
+        {
+          "eid": "E17",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_117",
+          "confusable_with": "E2"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_119",
+      "scene_id": "S12",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu alone on the rocky shore stares at the empty mooring spike.",
+      "memory_probes": [
+        "continuity"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_118"
+        },
+        {
+          "eid": "E8",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_118"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_120",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The first fortnight after resealing, Shen Yu checks the intertidal specimen case clasp every morning.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_119"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_109"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 10,
+          "last_seen": "seg_109"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_121",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu logs new labels on blank pages of the damaged tide observation log.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_120"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_120"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_120"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_122",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu refuses to leave ink on the windowsill again.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_121"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_121"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_123",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu checks no-harvest zone notices with fishermen.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_122"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_122"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_122"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_124",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu practices steadier sampling technique in the specimen room.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_123"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_123"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_123"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_125",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Afternoon sun through the wooden window falls on the resealed intertidal specimen case.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_124"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_124"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_126",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu polishes the fog-bell hand cranks but does not crank them yet.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_125"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_125"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_127",
+      "scene_id": "F6",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu receives a postcard from Achao and leaves it unopened under a spotlight base.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_126"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_126"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_128",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "At year-end closing, Shen Yu binds tracing paper by month.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_127"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 49,
+          "last_seen": "seg_078"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_129",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu puts the salt-frost-damaged tide observation log alone into an archive sleeve.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_128"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_130",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu prints before-and-after resealing photos and clips them into the archive.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_129"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_131",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu clears the long table, leaving only magnifying glass and one spotlight.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_130"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_132",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu oils the sampling spoon thinly against rust.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_131"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_131"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_133",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu signs a date beside the intertidal specimen case salt stain.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_132"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_132"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_134",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Fine snow falls outside; the specimen-room stove hums softly.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_133"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_133"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_135",
+      "scene_id": "F7",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu finishes the annual summary; the cover bears only the word 'Tide Pool'.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_134"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_134"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_136",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Years later at dusk, Shen Yu with a scarred calf and heavy steps leans on a bamboo staff at the abandoned lighthouse base.",
+      "memory_probes": [
+        "first_appearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_135"
+        },
+        {
+          "eid": "E10",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_137",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu looks up at the broken copper-green railing, gaze distant.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_136"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_136"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_138",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the base, the two brass fog-bell hand cranks he brought back hang on a stone pillar, chiming softly in the wind.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_137"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_137"
+        },
+        {
+          "eid": "E16",
+          "op": "recall_after_gap",
+          "gap": 134,
+          "last_seen": "seg_003",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_139",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu presses a palm to the basalt base as if saying goodbye.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_138"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_138"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_140",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu slowly sits on the crumbling steps and catches his breath.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_139"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_139"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_141",
+      "scene_id": "S13",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The two fog-bell hand cranks chime again; Shen Yu closes his eyes and listens, as if hearing the old fog alert. (fog-bell hand cranks visible)",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_140"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_140"
+        },
+        {
+          "eid": "E16",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_138",
+          "count": 2
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_142",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Shen Yu still returns to the specimen room daily but spends more time sitting and watching the intertidal specimen case.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_141"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_135"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 6,
+          "last_seen": "seg_135"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_143",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu leans his bamboo staff by the door; he moves slower than before.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_142"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_142"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_144",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu has a young assistant write the tide chart while he only checks.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_143"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_143"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_145",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu sends Achao photos of the resealed intertidal specimen case.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_144"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_144"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_146",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu writes 'Handover' on the last page of the damaged tide observation log but leaves no signature.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_145"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_145"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_147",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu refuses hospitalization and insists on sitting at the lighthouse base each week.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_146"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_146"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_148",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu polishes a draft of the basalt memorial plaque.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_147"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_147"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_147"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_149",
+      "scene_id": "F8",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "At night the specimen room keeps only one light; Shen Yu dozes inside its circle.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_148"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_148"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 0,
+          "last_seen": "seg_148"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_150",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "In daylight, adult Achao returns along the abandoned lighthouse base and walks quickly toward the steps.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "transform",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 113,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 8,
+          "last_seen": "seg_141"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_151",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao reunites with slow-stepping Shen Yu at the base; the two embrace.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 1,
+          "last_seen": "seg_149"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_150"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_150"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_152",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the cot in the specimen room, Achao holds Shen Yu's thin hand.",
+      "memory_probes": [
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "persist",
+          "state": {
+            "label": "weary_injured",
+            "appearance": "The same Shen Yu weary and injured: vest torn, waterproof bandage on his calf, magnifying glass still at his belt, steps dragging through mud."
+          },
+          "gap": 0,
+          "last_seen": "seg_151"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_151"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_153",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Shen Yu's breath fades; he finally closes his eyes and passes away.",
+      "memory_probes": [
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E1",
+          "op": "transform",
+          "state": {
+            "label": "retired_away",
+            "appearance": "Shen Yu has retired and departed; only his old khaki vest and name tag remain in the specimen room—he himself no longer appears."
+          },
+          "gap": 0,
+          "last_seen": "seg_152"
+        },
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_152"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_154",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao stands long at the lighthouse base, tears falling on salt crystals.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_153"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_151"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_155",
+      "scene_id": "S14",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao hangs Shen Yu's magnifying glass at his own belt.",
+      "memory_probes": [
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_154"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_156",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Behind the specimen-room door still hangs Shen Yu's old khaki sampling vest, magnifying-glass cord peeking from the pocket; Achao touches it gently.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_155"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 6,
+          "last_seen": "seg_149"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_157",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Beside the lighthouse base, adult Achao stands before the newly nailed basalt memorial plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "first_appearance",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_156"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 2,
+          "last_seen": "seg_154"
+        },
+        {
+          "eid": "E11",
+          "op": "introduce"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_158",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao's fingertips trace the name Shen Yu carved on the basalt memorial plaque.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_157"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_157"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_157"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153",
+          "reference_indirect": true
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_159",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao places a white chrysanthemum at the lower edge of the basalt memorial plaque.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_158"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_158"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_160",
+      "scene_id": "S15",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Wind crosses the base; Achao quietly reads the year on the plaque.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_159"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 1,
+          "last_seen": "seg_158"
+        },
+        {
+          "eid": "E11",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_159"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_161",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Adult Axi with dive goggles pushed up on her forehead hurries from beyond the breakwater and embraces Achao tightly at the lighthouse base.",
+      "memory_probes": [
+        "continuity",
+        "long_gap_reappearance",
+        "lookalike_disambiguation",
+        "persist_state",
+        "state_change"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_160"
+        },
+        {
+          "eid": "E6",
+          "op": "transform",
+          "state": {
+            "label": "remade_return",
+            "appearance": "Remade Axi still wears the amber conch brooch, now with dive goggles pushed up on the forehead, expression deeper and quieter."
+          },
+          "gap": 124,
+          "last_seen": "seg_036"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_160"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_162",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao and Axi stand side by side beside the memorial plaque—one calm-eyed, one deep-eyed.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_161"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "remade_return",
+            "appearance": "Remade Axi still wears the amber conch brooch, now with dive goggles pushed up on the forehead, expression deeper and quieter."
+          },
+          "gap": 0,
+          "last_seen": "seg_161"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_161"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_163",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Axi touches her amber conch brooch and glances at the magnifying glass on Achao's belt.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_162"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "remade_return",
+            "appearance": "Remade Axi still wears the amber conch brooch, now with dive goggles pushed up on the forehead, expression deeper and quieter."
+          },
+          "gap": 0,
+          "last_seen": "seg_162"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_162"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_164",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The two look at each other in silence, studying faces alike yet different.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_163"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "remade_return",
+            "appearance": "Remade Axi still wears the amber conch brooch, now with dive goggles pushed up on the forehead, expression deeper and quieter."
+          },
+          "gap": 0,
+          "last_seen": "seg_163"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_163"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_165",
+      "scene_id": "S16",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao and Axi walk together toward the far tide pool, shadows merging into one.",
+      "memory_probes": [
+        "continuity",
+        "lookalike_disambiguation",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_164"
+        },
+        {
+          "eid": "E6",
+          "op": "persist",
+          "state": {
+            "label": "remade_return",
+            "appearance": "Remade Axi still wears the amber conch brooch, now with dive goggles pushed up on the forehead, expression deeper and quieter."
+          },
+          "gap": 0,
+          "last_seen": "seg_164"
+        },
+        {
+          "eid": "E10",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_164"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ],
+      "lookalike_active": [
+        {
+          "pair": [
+            "E2",
+            "E6"
+          ],
+          "features": {
+            "E2": "Achao: sea-green kelp cord in hair, calm/stubborn eyes.",
+            "E6": "Axi: face extremely similar to Achao, but amber conch brooch, bold or deep expression."
+          },
+          "present_members": [
+            "E2",
+            "E6"
+          ]
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_166",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "The camera returns years ago—the boy with sea-green cord in his hair who jumped from the small boat appears again at the tide pool.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "recall",
+          "state": {
+            "label": "youth_apprentice",
+            "appearance": "Young Achao: a lean tide-pool apprentice of fourteen or fifteen, sea-green kelp cord in his hair, wet trouser cuffs, bright stubborn eyes.",
+            "flashback": true
+          },
+          "gap": 0,
+          "last_seen": "seg_165",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "Boy with sea-green cord at the tide pool",
+            "resolves_to": "E2"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_167",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "The opening moment returns—in the specimen room, a compartmented oak glass case is placed on the long table for the first time.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 10,
+          "last_seen": "seg_156"
+        },
+        {
+          "eid": "E3",
+          "op": "recall",
+          "state": {
+            "label": "intact",
+            "appearance": "An oak intertidal specimen case with intact glass lid, compartments holding starfish, limpets, and dried seaweed, labels neat.",
+            "flashback": true
+          },
+          "gap": 17,
+          "last_seen": "seg_149",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "Compartmented oak glass case first placed on the long table at the opening",
+            "resolves_to": "E3"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_168",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Flash back to the breakwater passage that year—the figure with amber conch brooch swinging a net bag flashes past.",
+      "memory_probes": [
+        "continuity",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E6",
+          "op": "recall",
+          "state": {
+            "label": "youth_rival",
+            "appearance": "Axi, face and build extremely similar to Achao, but wearing an amber conch brooch, bold and eager to dive first.",
+            "flashback": true
+          },
+          "gap": 2,
+          "last_seen": "seg_165",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "Figure with amber conch brooch in the passage that year",
+            "resolves_to": "E6"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_169",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Before the eyes rises that row of five old lamps with frosted shades on the specimen cabinets.",
+      "memory_probes": [
+        "count_memory",
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E15",
+          "op": "recall_after_gap",
+          "gap": 77,
+          "last_seen": "seg_091",
+          "count": 5,
+          "anchor": {
+            "type": "temporal",
+            "phrase": "That row of five old lamps on the specimen cabinets",
+            "resolves_to": "E15"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_170",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Return to the rocky-shore puddle at first meeting—anemone tentacles unchanged as ever.",
+      "memory_probes": [
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E8",
+          "op": "recall_after_gap",
+          "gap": 50,
+          "last_seen": "seg_119",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "Rocky-shore puddle at first meeting after the ebb",
+            "resolves_to": "E8"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_171",
+      "scene_id": "S17",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Pages turn—the waterproof-cloth log with tide curves and no salt frost yet appears again.",
+      "memory_probes": [
+        "long_gap_reappearance",
+        "temporal_reference"
+      ],
+      "cast": [
+        {
+          "eid": "E4",
+          "op": "recall_after_gap",
+          "state": {
+            "label": "intact",
+            "appearance": "A waterproof-cloth tide observation log, pages filled with tide-height curves and species sketches, corners clean.",
+            "flashback": true
+          },
+          "gap": 35,
+          "last_seen": "seg_135",
+          "anchor": {
+            "type": "temporal",
+            "phrase": "Waterproof-cloth log not yet salt-frosted",
+            "resolves_to": "E4"
+          }
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_172",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "cut",
+      "action": "Achao reopens the salt-frost-damaged tide observation log and walks into the seaside specimen room.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 5,
+          "last_seen": "seg_166"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 4,
+          "last_seen": "seg_167"
+        },
+        {
+          "eid": "E4",
+          "op": "persist",
+          "state": {
+            "label": "salt_frost_damaged",
+            "appearance": "The same tide observation log covered in salt frost: cover whitened and curling, writing blurred, a crumpled blotting sheet tucked inside."
+          },
+          "gap": 0,
+          "last_seen": "seg_171"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_173",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "On the specimen-room counter, those three green glass marker buoys are still tied in a string.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "long_gap_reappearance"
+      ],
+      "cast": [
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_172"
+        },
+        {
+          "eid": "E12",
+          "op": "recall_after_gap",
+          "gap": 102,
+          "last_seen": "seg_070",
+          "count": 3
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_174",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao takes up watch over the intertidal specimen case; the corner salt stain is clear under the light.",
+      "memory_probes": [
+        "continuity",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 1,
+          "last_seen": "seg_172"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_173"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 6,
+          "last_seen": "seg_167"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_175",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao turns on all five specimen-cabinet spotlights; light fills the long table again.",
+      "memory_probes": [
+        "continuity",
+        "count_memory",
+        "persist_state"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_174"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_174"
+        },
+        {
+          "eid": "E15",
+          "op": "recall",
+          "gap": 5,
+          "last_seen": "seg_169",
+          "count": 5
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153"
+        }
+      ]
+    },
+    {
+      "segment_id": "seg_176",
+      "scene_id": "S18",
+      "duration_sec": 5.0,
+      "transition": "continue",
+      "action": "Achao stands straight before the resealed intertidal specimen case and checks labels and salt stain compartment by compartment, as Shen Yu once did.",
+      "memory_probes": [
+        "continuity",
+        "deprecation_avoidance",
+        "persist_state",
+        "reference_indirect"
+      ],
+      "cast": [
+        {
+          "eid": "E2",
+          "op": "persist",
+          "state": {
+            "label": "adult_successor",
+            "appearance": "Adult Achao: a sturdy successor observer in his twenties, still wearing the sea-green kelp cord, eyes steady and calm."
+          },
+          "gap": 0,
+          "last_seen": "seg_175"
+        },
+        {
+          "eid": "E7",
+          "op": "recall",
+          "gap": 0,
+          "last_seen": "seg_175"
+        },
+        {
+          "eid": "E3",
+          "op": "persist",
+          "state": {
+            "label": "resealed",
+            "appearance": "After resealing, the specimen case has clear relabeled compartments, but a pale white salt stain on one corner distinguishes it from the original intact state."
+          },
+          "gap": 1,
+          "last_seen": "seg_174"
+        }
+      ],
+      "forbidden": [
+        {
+          "eid": "E5",
+          "reason": "destroyed",
+          "grounded_by": "seg_083"
+        },
+        {
+          "eid": "E1",
+          "reason": "deceased",
+          "grounded_by": "seg_153",
+          "reference_indirect": true
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "n_segments": 176,
+    "n_scenes": 26,
+    "n_entities": 19,
+    "kind_counts": {
+      "character": 5,
+      "prop": 10,
+      "location": 4
+    },
+    "n_state_threads": 6,
+    "n_removals": 2,
+    "op_counts": {
+      "introduce": 19,
+      "recall": 353,
+      "transform": 8,
+      "persist": 103,
+      "recall_after_gap": 9
+    },
+    "probe_counts": {
+      "first_appearance": 15,
+      "continuity": 165,
+      "lookalike_disambiguation": 17,
+      "state_change": 8,
+      "persist_state": 78,
+      "long_gap_reappearance": 12,
+      "count_memory": 8,
+      "false_friend": 5,
+      "deprecation_avoidance": 12,
+      "reference_indirect": 6,
+      "temporal_reference": 6
+    },
+    "hard_probe_balance": {
+      "long_gap_reappearance": {
+        "count": 12,
+        "target": 5,
+        "ok": true
+      },
+      "state_change": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "lookalike_disambiguation": {
+        "count": 17,
+        "target": 5,
+        "ok": true
+      },
+      "reference_indirect": {
+        "count": 6,
+        "target": 5,
+        "ok": true
+      },
+      "deprecation_avoidance": {
+        "count": 12,
+        "target": 5,
+        "ok": true
+      },
+      "count_memory": {
+        "count": 8,
+        "target": 5,
+        "ok": true
+      },
+      "false_friend": {
+        "count": 5,
+        "target": 5,
+        "ok": true
+      },
+      "temporal_reference": {
+        "count": 6,
+        "target": 5,
+        "ok": true
+      }
+    },
+    "gap_histogram": {
+      "1-4": 438,
+      "5-29": 23,
+      ">=30": 12
+    },
+    "longest_gap": {
+      "eid": "E16",
+      "gap": 134,
+      "at": "seg_138"
+    }
+  },
+  "warnings": []
+}

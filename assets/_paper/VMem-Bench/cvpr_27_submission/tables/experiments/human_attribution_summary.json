@@ -1,0 +1,587 @@
+{
+ "n_scored_units": 224,
+ "repeat": {
+  "n": 22,
+  "same_all_answers": 18,
+  "same_cause": 20
+ },
+ "median_seconds_per_item": 11.1,
+ "failures": {
+  "text_frame": {
+   "n": 38,
+   "n_resolved": 36,
+   "counts": {
+    "history": 15,
+    "selection": 8,
+    "evaluator": 12,
+    "unresolved": 2,
+    "synthesis": 1
+   },
+   "subtypes": {
+    "keyframe_loss": 1
+   },
+   "share": {
+    "history": 0.44623665051826833,
+    "selection": 0.2799996200715111,
+    "synthesis": 0.00516129272613574,
+    "evaluator": 0.268602436684085
+   },
+   "ci95": {
+    "history": [
+     0.2251613616358331,
+     0.6622122508296633
+    ],
+    "selection": [
+     0.0861889920096625,
+     0.49567909820640227
+    ],
+    "synthesis": [
+     0.0,
+     0.015904564031557423
+    ],
+    "evaluator": [
+     0.09862567636092678,
+     0.4739566983397316
+    ]
+   }
+  },
+  "seg_uniform": {
+   "n": 38,
+   "n_resolved": 38,
+   "counts": {
+    "evaluator": 14,
+    "history": 9,
+    "synthesis": 3,
+    "selection": 12
+   },
+   "subtypes": {
+    "keyframe_loss": 3
+   },
+   "share": {
+    "history": 0.3394854349763741,
+    "selection": 0.34619759941333006,
+    "synthesis": 0.09004444487648193,
+    "evaluator": 0.22427252073381365
+   },
+   "ci95": {
+    "history": [
+     0.15180393955091379,
+     0.5342404441177884
+    ],
+    "selection": [
+     0.1763160155151189,
+     0.5001683145376183
+    ],
+    "synthesis": [
+     0.0,
+     0.20595219188703126
+    ],
+    "evaluator": [
+     0.07003800061753261,
+     0.4265953566263707
+    ]
+   }
+  },
+  "seg_dinokey": {
+   "n": 38,
+   "n_resolved": 35,
+   "counts": {
+    "evaluator": 11,
+    "selection": 14,
+    "synthesis": 5,
+    "unresolved": 3,
+    "history": 5
+   },
+   "subtypes": {
+    "keyframe_loss": 5
+   },
+   "share": {
+    "history": 0.13057155379818025,
+    "selection": 0.44381627697802456,
+    "synthesis": 0.1763965646525717,
+    "evaluator": 0.24921560457122346
+   },
+   "ci95": {
+    "history": [
+     0.015757624539020094,
+     0.28771174605621747
+    ],
+    "selection": [
+     0.22612133449622013,
+     0.6428164732651099
+    ],
+    "synthesis": [
+     0.04080368438679956,
+     0.34166137662013313
+    ],
+    "evaluator": [
+     0.0956572651701006,
+     0.4310446665219458
+    ]
+   }
+  },
+  "seg_frame": {
+   "n": 38,
+   "n_resolved": 38,
+   "counts": {
+    "history": 9,
+    "selection": 14,
+    "evaluator": 13,
+    "synthesis": 2
+   },
+   "subtypes": {
+    "keyframe_loss": 2
+   },
+   "share": {
+    "history": 0.25219828915299347,
+    "selection": 0.3837945612202816,
+    "synthesis": 0.01947232608654623,
+    "evaluator": 0.3445348235401789
+   },
+   "ci95": {
+    "history": [
+     0.083704164602472,
+     0.44768200573139877
+    ],
+    "selection": [
+     0.191748162359456,
+     0.5948245297904008
+    ],
+    "synthesis": [
+     0.0,
+     0.05518341726688461
+    ],
+    "evaluator": [
+     0.1482865684183197,
+     0.5647923516592235
+    ]
+   }
+  },
+  "pooled": {
+   "n": 152,
+   "n_resolved": 147,
+   "counts": {
+    "evaluator": 50,
+    "history": 38,
+    "selection": 48,
+    "synthesis": 11,
+    "unresolved": 5
+   },
+   "subtypes": {
+    "keyframe_loss": 11
+   },
+   "share": {
+    "history": 0.29252907002501516,
+    "selection": 0.3634832001567984,
+    "synthesis": 0.07373889308615232,
+    "evaluator": 0.27024883673203387
+   },
+   "ci95": {
+    "history": [
+     0.2180489993838211,
+     0.3703858536963406
+    ],
+    "selection": [
+     0.26725278195323876,
+     0.4547304298489342
+    ],
+    "synthesis": [
+     0.030818931718658196,
+     0.12952628763889074
+    ],
+    "evaluator": [
+     0.18236649817927805,
+     0.36374041633564247
+    ]
+   }
+  }
+ },
+ "forbidden": {
+  "text_frame": {
+   "n": 10,
+   "n_resolved": 10,
+   "counts": {
+    "evaluator": 4,
+    "context": 6
+   },
+   "subtypes": {},
+   "share": {
+    "context": 0.6000000000000001,
+    "generator": 0.0,
+    "evaluator": 0.4
+   },
+   "ci95": {
+    "context": [
+     0.22222222222222224,
+     0.9090909090909092
+    ],
+    "generator": [
+     0.0,
+     0.0
+    ],
+    "evaluator": [
+     0.09090909090909093,
+     0.7777777777777779
+    ]
+   }
+  },
+  "seg_uniform": {
+   "n": 10,
+   "n_resolved": 9,
+   "counts": {
+    "unresolved": 1,
+    "context": 9
+   },
+   "subtypes": {},
+   "share": {
+    "context": 1.0,
+    "generator": 0.0,
+    "evaluator": 0.0
+   },
+   "ci95": {
+    "context": [
+     1.0,
+     1.0
+    ],
+    "generator": [
+     0.0,
+     0.0
+    ],
+    "evaluator": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "seg_dinokey": {
+   "n": 10,
+   "n_resolved": 9,
+   "counts": {
+    "unresolved": 1,
+    "evaluator": 4,
+    "context": 5
+   },
+   "subtypes": {},
+   "share": {
+    "context": 0.5555555555555555,
+    "generator": 0.0,
+    "evaluator": 0.44444444444444436
+   },
+   "ci95": {
+    "context": [
+     0.22222222222222218,
+     0.8888888888888888
+    ],
+    "generator": [
+     0.0,
+     0.0
+    ],
+    "evaluator": [
+     0.11111111111111109,
+     0.7777777777777778
+    ]
+   }
+  },
+  "seg_frame": {
+   "n": 10,
+   "n_resolved": 9,
+   "counts": {
+    "context": 6,
+    "unresolved": 1,
+    "evaluator": 3
+   },
+   "subtypes": {},
+   "share": {
+    "context": 0.6666666666666666,
+    "generator": 0.0,
+    "evaluator": 0.3333333333333333
+   },
+   "ci95": {
+    "context": [
+     0.3333333333333333,
+     0.9000000000000001
+    ],
+    "generator": [
+     0.0,
+     0.0
+    ],
+    "evaluator": [
+     0.1,
+     0.6666666666666666
+    ]
+   }
+  },
+  "pooled": {
+   "n": 40,
+   "n_resolved": 37,
+   "counts": {
+    "context": 26,
+    "evaluator": 11,
+    "unresolved": 3
+   },
+   "subtypes": {},
+   "share": {
+    "context": 0.7094956310651731,
+    "generator": 0.0,
+    "evaluator": 0.29050436893482673
+   },
+   "ci95": {
+    "context": [
+     0.5265443534928788,
+     0.85999396172574
+    ],
+    "generator": [
+     0.0,
+     0.0
+    ],
+    "evaluator": [
+     0.14000603827425992,
+     0.47345564650712085
+    ]
+   }
+  }
+ },
+ "controls": {
+  "text_frame": {
+   "n": 8,
+   "confirmed": 7
+  },
+  "seg_uniform": {
+   "n": 8,
+   "confirmed": 8
+  },
+  "seg_dinokey": {
+   "n": 8,
+   "confirmed": 8
+  },
+  "seg_frame": {
+   "n": 8,
+   "confirmed": 5
+  },
+  "pooled": {
+   "n": 32,
+   "confirmed": 28
+  }
+ },
+ "failures_by_stratum": {
+  "miss_long": {
+   "n": 32,
+   "n_resolved": 32,
+   "counts": {
+    "evaluator": 17,
+    "selection": 6,
+    "history": 7,
+    "synthesis": 2
+   },
+   "subtypes": {
+    "keyframe_loss": 2
+   },
+   "share": {
+    "history": 0.24999995714278958,
+    "selection": 0.175000045000047,
+    "synthesis": 0.06785716336735524,
+    "evaluator": 0.5071428344898085
+   },
+   "ci95": {
+    "history": [
+     0.08064516616803442,
+     0.41791038039641787
+    ],
+    "selection": [
+     0.04067794369434375,
+     0.3483147545765382
+    ],
+    "synthesis": [
+     0.0,
+     0.16607779871146253
+    ],
+    "evaluator": [
+     0.3205574284257188,
+     0.7057056553850922
+    ]
+   }
+  },
+  "miss_mid": {
+   "n": 34,
+   "n_resolved": 34,
+   "counts": {
+    "history": 12,
+    "evaluator": 7,
+    "selection": 14,
+    "synthesis": 1
+   },
+   "subtypes": {
+    "keyframe_loss": 1
+   },
+   "share": {
+    "history": 0.3739539748953976,
+    "selection": 0.38912133891213396,
+    "synthesis": 0.021966527196652725,
+    "evaluator": 0.21495815899581594
+   },
+   "ci95": {
+    "history": [
+     0.18708971553610512,
+     0.5394540942928042
+    ],
+    "selection": [
+     0.2123995407577498,
+     0.5926860025220683
+    ],
+    "synthesis": [
+     0.0,
+     0.06844106463878329
+    ],
+    "evaluator": [
+     0.08347529812606476,
+     0.35340022296544055
+    ]
+   }
+  },
+  "miss_near": {
+   "n": 32,
+   "n_resolved": 32,
+   "counts": {
+    "history": 6,
+    "selection": 18,
+    "synthesis": 4,
+    "evaluator": 4
+   },
+   "subtypes": {
+    "keyframe_loss": 4
+   },
+   "share": {
+    "history": 0.20528854355608778,
+    "selection": 0.5394233453977116,
+    "synthesis": 0.1302881110462004,
+    "evaluator": 0.125
+   },
+   "ci95": {
+    "history": [
+     0.06550882502283616,
+     0.3302856086846188
+    ],
+    "selection": [
+     0.37137022763133637,
+     0.7104175877216256
+    ],
+    "synthesis": [
+     0.026550172865556908,
+     0.28147643014649903
+    ],
+    "evaluator": [
+     0.0,
+     0.283422359470054
+    ]
+   }
+  },
+  "miss_temporal": {
+   "n": 14,
+   "n_resolved": 13,
+   "counts": {
+    "evaluator": 9,
+    "unresolved": 1,
+    "synthesis": 2,
+    "selection": 2
+   },
+   "subtypes": {
+    "keyframe_loss": 2
+   },
+   "share": {
+    "history": 0.0,
+    "selection": 0.13749998312500591,
+    "synthesis": 0.17499998875000394,
+    "evaluator": 0.6875000281249901
+   },
+   "ci95": {
+    "history": [
+     0.0,
+     0.0
+    ],
+    "selection": [
+     0.0,
+     0.35897431262328844
+    ],
+    "synthesis": [
+     0.0,
+     0.4347826597353353
+    ],
+    "evaluator": [
+     0.3855422161416617,
+     0.9350649274751252
+    ]
+   }
+  },
+  "wrong_lookalike": {
+   "n": 1,
+   "n_resolved": 1,
+   "counts": {
+    "evaluator": 1
+   },
+   "subtypes": {},
+   "share": {
+    "history": 0.0,
+    "selection": 0.0,
+    "synthesis": 0.0,
+    "evaluator": 1.0
+   },
+   "ci95": {
+    "history": [
+     0.0,
+     0.0
+    ],
+    "selection": [
+     0.0,
+     0.0
+    ],
+    "synthesis": [
+     0.0,
+     0.0
+    ],
+    "evaluator": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "wrong_state": {
+   "n": 39,
+   "n_resolved": 35,
+   "counts": {
+    "history": 13,
+    "synthesis": 2,
+    "unresolved": 4,
+    "selection": 8,
+    "evaluator": 12
+   },
+   "subtypes": {
+    "keyframe_loss": 2
+   },
+   "share": {
+    "history": 0.3373891709118251,
+    "selection": 0.2616078803234865,
+    "synthesis": 0.04995192831012733,
+    "evaluator": 0.35105102045456094
+   },
+   "ci95": {
+    "history": [
+     0.22452252857342075,
+     0.461447688553641
+    ],
+    "selection": [
+     0.12417279439040896,
+     0.3993852982242363
+    ],
+    "synthesis": [
+     0.0,
+     0.12821909863650993
+    ],
+    "evaluator": [
+     0.18789343927058902,
+     0.5234755034051699
+    ]
+   }
+  }
+ },
+ "source": "results/human_attribution/v3 (sealed_manifest.json + labels), scripts/human_attribution/analyze.py"
+}

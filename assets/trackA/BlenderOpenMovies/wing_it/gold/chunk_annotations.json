@@ -1,0 +1,789 @@
+{
+  "schema_version": "2.0.0",
+  "movie_id": "wing_it",
+  "human_reviewed": true,
+  "chunks": [
+    {
+      "chunk_id": 0,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        0.0,
+        7.0
+      ],
+      "prompt": "Blender标志在黑色背景上显现，随后切换至蓝色工程图纸风格标题画面，显示'WING IT! a Pet Project'。",
+      "present": [
+        "loc_002"
+      ],
+      "first_appearances": [
+        "loc_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "loc_002",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 1,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        7.0,
+        18.0
+      ],
+      "prompt": "灰猫飞行员，身着蓝色飞行服、头戴红色护目镜，正坐在驾驶舱内，用前爪操控控制台杆，调整仪表盘，蓝色眼睛专注地凝视前方。",
+      "present": [
+        "char_001",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [
+        "char_001",
+        "prop_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 2,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        18.0,
+        29.0
+      ],
+      "prompt": "棕狗宇航员进入谷仓，白鸡在周围活动，拼凑飞行器停在谷仓内部。",
+      "present": [
+        "char_002",
+        "char_003",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "char_002",
+        "char_003",
+        "loc_001",
+        "prop_001"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 3,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        29.0,
+        35.0
+      ],
+      "prompt": "灰猫飞行员手持红色剪贴板，上面贴着手绘的检查清单，他低头核对时表情从满意转为惊讶。",
+      "present": [
+        "char_001",
+        "prop_002",
+        "loc_001"
+      ],
+      "first_appearances": [
+        "prop_002"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_002",
+          "requirement": "introduce",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 4,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        35.0,
+        46.0
+      ],
+      "prompt": "棕狗宇航员透过圆形窗户凝视驾驶舱，灰猫飞行员在控制台旁惊恐后退。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return"
+      ]
+    },
+    {
+      "chunk_id": 5,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        46.0,
+        58.0
+      ],
+      "prompt": "棕狗宇航员在拼凑飞行器的控制台前兴奋操作，触发喇叭与滑梯等机关。",
+      "present": [
+        "char_002",
+        "prop_001",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 6,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        58.0,
+        73.0
+      ],
+      "prompt": "灰猫飞行员冲向控制台试图阻止棕狗宇航员，却被棕狗宇航员推开，棕狗宇航员随后按下控制台上的红色按钮。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_003",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 7,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        73.0,
+        89.0
+      ],
+      "prompt": "棕狗宇航员冲出谷仓内部，拼凑飞行器引擎启动喷出浓烟，撞破屋顶飞向天空，灰猫飞行员在谷仓内惊慌观望。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_001",
+        "loc_002"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_002",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance",
+        "scene-return",
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 8,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        89.0,
+        104.0
+      ],
+      "prompt": "灰猫飞行员在拼凑飞行器驾驶舱内惊慌失措，棕狗宇航员紧握操纵杆，飞行器在天空中高速穿行。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_003"
+      ],
+      "first_appearances": [
+        "loc_003"
+      ],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "introduce",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 9,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        104.0,
+        112.0
+      ],
+      "prompt": "灰猫飞行员和棕狗宇航员在控制台前惊慌，白鸡突然飞入驾驶舱。",
+      "present": [
+        "char_001",
+        "char_002",
+        "char_003",
+        "prop_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 10,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        112.0,
+        127.0
+      ],
+      "prompt": "棕狗宇航员在控制台前操作，拼凑飞行器在天空中不稳定地飞行，灰猫飞行员在驾驶舱内注视。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "prop_003",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_003",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "re-appearance"
+      ]
+    },
+    {
+      "chunk_id": 11,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        127.0,
+        142.0
+      ],
+      "prompt": "拼凑飞行器展开类似翅膀的结构，在空中滑翔，灰猫飞行员与棕狗宇航员在驾驶舱内继续挣扎控制。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 12,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        142.0,
+        157.0
+      ],
+      "prompt": "灰猫飞行员手持红色剪贴板，与棕狗宇航员在拼凑飞行器驾驶舱内，面对失控的飞行器，表情从惊恐转为无奈接受现实。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 13,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        157.0,
+        163.0
+      ],
+      "prompt": "灰猫飞行员与棕狗宇航员在拼凑飞行器内，飞行器在天空中快速向地面坠落。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_003"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_003",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 14,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        163.0,
+        178.0
+      ],
+      "prompt": "在谷仓内部，棕狗宇航员从拼凑飞行器残骸中钻出，举着红色剪贴板欢呼，灰猫飞行员惊恐跑来。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "scene-return",
+        "state-change"
+      ]
+    },
+    {
+      "chunk_id": 15,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        178.0,
+        183.0
+      ],
+      "prompt": "灰猫飞行员与棕狗宇航员在谷仓内部的废墟中围绕拼凑飞行器互动，随后画面出现'The End'字样。",
+      "present": [
+        "char_001",
+        "char_002",
+        "prop_001",
+        "loc_001"
+      ],
+      "first_appearances": [],
+      "gold_instructions": [
+        {
+          "entity_id": "char_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "char_002",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "prop_001",
+          "requirement": "continuity",
+          "note": ""
+        },
+        {
+          "entity_id": "loc_001",
+          "requirement": "continuity",
+          "note": ""
+        }
+      ],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 16,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        183.0,
+        198.0
+      ],
+      "prompt": "显示Blender软件界面，展示动画制作过程，包括线稿绘制和3D建模",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 17,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        198.0,
+        213.0
+      ],
+      "prompt": "继续展示Blender中的动画制作过程，包括角色绑定和特效制作",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 18,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        213.0,
+        228.0
+      ],
+      "prompt": "展示几何节点、烟雾模拟等技术实现过程，同时滚动显示制作人员名单",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    },
+    {
+      "chunk_id": 19,
+      "shot_span": [],
+      "frame_span": [],
+      "seconds_span": [
+        228.0,
+        237.0
+      ],
+      "prompt": "显示特别感谢信息和开源声明，最后出现许可信息",
+      "present": [],
+      "first_appearances": [],
+      "gold_instructions": [],
+      "forbidden": [],
+      "prompt_completeness": {},
+      "scenario_tags": [
+        "none"
+      ]
+    }
+  ]
+}

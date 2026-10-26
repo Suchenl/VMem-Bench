@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stage 成果检视</title>
+  <link rel="stylesheet" href="/static/css/app.css">
+  <link rel="stylesheet" href="/static/css/review.css">
+</head>
+<body>
+  <div class="reviewShell">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Stage Inspect</div>
+        <h1 id="title">阶段成果</h1>
+      </div>
+      <div class="toolbarButtons">
+        <a class="buttonLink" href="/">返回控制台</a>
+        <button id="rerunS5Btn" class="warnBtn" type="button" title="只清 S5/S6 并从 after_s4 重跑 crop 采集" hidden>重跑 S5</button>
+        <button id="rerunBtn" class="secondary" type="button" title="清空整个 tmp/pipeline 并从 S2 重跑" hidden>重跑本样本</button>
+        <button id="refreshBtn" class="secondary" type="button">立即刷新</button>
+        <label class="check" style="margin:0" id="autoRefreshWrap" hidden>
+          <input id="autoRefresh" type="checkbox" checked>
+          <span>自动刷新</span>
+        </label>
+        <a class="buttonLink" id="deepLink" hidden href="#">打开专用审核页</a>
+      </div>
+    </header>
+    <section class="reviewMeta panel">
+      <div id="meta" class="hint">加载中...</div>
+      <div id="stageTabs" class="rowActions"></div>
+      <div id="progressPanel" hidden>
+        <div class="progressBarWrap">
+          <div id="progressBar" class="progressBar"></div>
+        </div>
+        <div id="progressText" class="hint"></div>
+      </div>
+    </section>
+    <section class="panel" style="margin:0 18px;padding:14px 16px">
+      <div class="panelTitle"><strong>摘要</strong></div>
+      <pre id="summary" class="log" style="max-height:180px">—</pre>
+    </section>
+    <section class="panel" style="margin:0 18px;padding:14px 16px">
+      <div class="panelTitle"><strong>产物文件</strong></div>
+      <div id="files" class="hint">—</div>
+    </section>
+    <main id="highlights" class="reviewCards"></main>
+    <div id="toast" class="toast" hidden></div>
+  </div>
+  <script src="/static/js/api.js?v=20260722sso3"></script>
+  <script src="/static/js/review_stage.js?v=20260721s7g"></script>
+</body>
+</html>

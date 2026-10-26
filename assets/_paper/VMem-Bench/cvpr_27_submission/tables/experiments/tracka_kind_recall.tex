@@ -1,0 +1,23 @@
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.05}
+\captionsetup{hypcap=false}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}l ccc ccc@{}}
+\toprule
+& \multicolumn{3}{c}{\textbf{\dblender}} & \multicolumn{3}{c}{\textbf{\dlsmdc}} \\
+\cmidrule(lr){2-4}\cmidrule(l){5-7}
+System & Char. & Prop & Loc. & Char. & Prop & Loc. \\
+\midrule
+Text-frame       & $0.843$ & 0.830 & 0.788 & $0.798$ & $\underline{0.772}$ & 0.794 \\
+Seg+uniform      & 0.862 & $0.811$ & $0.774$ & 0.806 & $0.684$ & $0.739$ \\
+Seg+DINO-key     & $\underline{0.928}$ & $\underline{0.877}$ & $\underline{0.847}$ & $\underline{0.861}$ & 0.767 & $\underline{0.824}$ \\
+Seg+frame        & $0.847$ & $0.774$ & $0.774$ & $0.800$ & $0.668$ & $0.750$ \\
+LongLive-RAG     & $0.577$ & $0.501$ & $0.571$ & $0.521$ & $0.329$ & $0.508$ \\
+MemFlow          & $0.506$ & $0.342$ & $0.540$ & $0.583$ & $0.281$ & $0.452$ \\
+\bottomrule
+\end{tabular}%
+}
+\captionof{table}{\textbf{Kind-wise Track-A continuity recall.} Underlines mark column maxima.}
+\label{tab:kind-recall}

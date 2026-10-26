@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{\textbf{A checklist for evaluating visual-memory utility.} Actions motivated by existing findings, not new experimental results. The checks distinguish information contribution, temporal validity, and unwanted content while retaining evidence-stage, quality, and uncertainty controls.}
+\label{tab:reader-checklist}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}
+                >{\raggedright\arraybackslash}p{0.43\linewidth}
+                >{\raggedright\arraybackslash}p{0.34\linewidth}@{}}
+\toprule
+Assessment & What to report or compare & Interpretation boundary \\
+\midrule
+Information contribution & Include no memory with the same non-memory inputs; record what appearance information the prompt and any baseline context supply. Where possible, contrast matched prompts with and without that information (Table~\ref{tab:nolook}). & Long absence alone does not show memory was needed. Our stripping test does not establish a reliable retrieval benefit or validate a reading gate. \\
+Temporal validity & Report description-matching presence and required state alongside previous-appearance similarity; retain detection/visibility conditions (Table~\ref{tab:main-identity}). & Old resemblance can reward an obsolete look. More recent is not always more valid: flashbacks may require an earlier state. \\
+Unwanted content & Report precision and forbidden-entity avoidance with recall, using the same story requirements (Table~\ref{tab:trackb-results}; Sec.~\ref{sec:exp-trackb}). & A recall gain can coincide with extra entities. Whole-policy differences do not isolate a reference's causal contribution. \\
+Evidence versus use & Inspect selected-reference coverage/precision separately from generated outcomes; use matched instances if relating the two (Table~\ref{tab:main-results}). & Our Track-A and Track-B use different stories; do not infer a per-story correlation or downstream benefit from Track-A alone. \\
+Perceptual quality & Retain clip-quality metrics and entity-level outcomes with explicit aggregation and denominators (Table~\ref{tab:main-quality}). & Within-clip stability is not entity correctness. Weak measured correlation does not establish independence. \\
+Uncertainty and controls & State rollout/seed counts, resampling units, judge agreement, budget, and whether the generator is shared (Table~\ref{tab:main-sensitivity}). & Story CIs condition on observed rollouts. Judge-sensitive strata, variable-budget Last-seen, and native-generator rows require separate interpretation. \\
+\bottomrule
+\end{tabular}
+\end{table*}
