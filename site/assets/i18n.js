@@ -5,7 +5,7 @@
     'Skip to content':'跳至正文',
     'Main navigation':'主导航',
     'Examples':'案例', 'Results':'结果', 'Benchmark':'基准', 'Resources':'资源',
-    'Paper · forthcoming':'论文 · 即将发布',
+    'Read the paper':'阅读论文', 'Read the paper ↗':'阅读论文 ↗', 'arXiv:2610.35001 · Read the paper and download the PDF.':'arXiv:2610.35001 · 阅读论文并下载 PDF。',
     'VISUAL MEMORY · LONG-VIDEO GENERATION':'视觉记忆 · 长视频生成',
     'More memory.':'更多记忆。', 'Better videos?':'更好的视频？',
     'A relevant past can be wrong for the present.':'与过去相关，不代表适用于当下。',
