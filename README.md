@@ -4,7 +4,7 @@ A benchmark for visual memory in causal long-video generation. Track A evaluates
 reference selection before generation; Track B evaluates the entities and states
 that appear in generated video.
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-007ec6?style=flat)](LICENSE) [![arXiv](https://img.shields.io/badge/arXiv-2610.35001-b31b1b?style=flat)](https://arxiv.org/abs/2610.35001) [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97-Dataset-FFD21E?style=flat)](https://huggingface.co/datasets/Suchenl/VMem-Bench) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-FFD21E?style=flat)](https://huggingface.co/papers/2610.35001) [![Project Page](https://img.shields.io/badge/%F0%9F%8C%90-Project%20Page-2563EB?style=flat)](https://suchenl.github.io/VMem-Bench/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-007ec6?style=flat)](LICENSE) [![arXiv](https://img.shields.io/badge/arXiv-2610.35001-b31b1b?style=flat)](https://arxiv.org/abs/2610.35001) [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97-Dataset-FFD21E?style=flat)](https://huggingface.co/datasets/Suchenl/VMem-Bench) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-FFD21E?style=flat)](https://huggingface.co/papers/2610.35001) [![Project Page](https://img.shields.io/badge/Project-Page-E6550D?style=flat&logo=googlechrome&logoColor=white)](https://suchenl.github.io/VMem-Bench/)
 
 [中文说明](README.zh.md)
 
@@ -65,6 +65,22 @@ tests/          code tests
 assets/         lightweight input fixtures and authoring scripts
 docs/           setup and evaluation instructions
 site/           GitHub Pages project site
+```
+
+## Citation
+
+If you use VMem-Bench in your research, please cite the accompanying arXiv preprint. GitHub also provides **Cite this repository** using [CITATION.cff](CITATION.cff).
+
+```bibtex
+@misc{chen2026vmembench,
+  title={More Memory, Better Videos? A Controlled Study of Visual Memory in Long-Video Generation},
+  author={Chen, Yuzhuo and Shi, Huafeng and Wang, Xinyu and Xu, Yulong and Wang, Yucheng and Hong, Haoqin and Zhang, Guoxin and Ma, Zehua and Zhang, Weiming},
+  year={2026},
+  eprint={2610.35001},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV},
+  url={https://arxiv.org/abs/2610.35001}
+}
 ```
 
 ## License
