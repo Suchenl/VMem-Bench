@@ -4,8 +4,10 @@ A benchmark for visual memory in causal long-video generation. Track A evaluates
 reference selection before generation; Track B evaluates the entities and states
 that appear in generated video.
 
-[Project page](https://suchenl.github.io/VMem-Bench/) ·
+[Project Page](https://suchenl.github.io/VMem-Bench/) ·
+[Paper](https://arxiv.org/abs/2610.35001) ·
 [Dataset](https://huggingface.co/datasets/Suchenl/VMem-Bench) ·
+[Hugging Face](https://huggingface.co/papers/2610.35001) ·
 [中文说明](README.zh.md)
 
 ## Install and try the interface
