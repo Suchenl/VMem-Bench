@@ -69,3 +69,14 @@ html:lang(zh-CN) .hero h1{font-size:clamp(48px,7.2vw,96px)}
 html:lang(zh-CN) .metric-name{line-height:1.4}
 @media(max-width:800px){.nav-inner{gap:12px}.nav-paper{display:none}.language-switch{margin-left:auto}.nav-links{margin-left:auto;gap:16px}}
 @media(max-width:480px){.nav-inner{gap:8px}.language-switch button{padding:5px 8px}.language-switch{margin-left:auto}}
+
+
+/* Video overview: responsive YouTube embed beneath the hero. */
+.video-section{display:grid;grid-template-columns:minmax(0,.68fr) minmax(0,1.32fr);align-items:center;gap:clamp(22px,5vw,70px);padding-top:24px;padding-bottom:76px}
+.video-copy h2{font-size:clamp(27px,3.2vw,43px);font-weight:590;letter-spacing:-.045em;line-height:1.12;margin:18px 0}
+.video-copy p:not(.eyebrow){font-size:14px;color:var(--ink-3);line-height:1.7;max-width:350px}
+.video-external{display:inline-flex;margin-top:18px;font-size:13px;font-weight:650;color:var(--orange);text-decoration:none}
+.video-external:hover{text-decoration:underline;text-underline-offset:4px}
+.video-frame{aspect-ratio:16/9;background:#191919;border:1px solid #e6e5e3;border-radius:14px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,.08)}
+.video-frame iframe{display:block;width:100%;height:100%;border:0}
+@media(max-width:780px){.video-section{grid-template-columns:1fr;gap:22px;padding-bottom:52px}.video-copy h2{font-size:clamp(25px,6vw,36px)}}
