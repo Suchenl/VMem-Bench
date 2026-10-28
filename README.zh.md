@@ -2,9 +2,15 @@
 
 面向因果长视频生成的视觉记忆评测。Track A 评估生成前选到的参考，Track B 评估生成视频中的实体、状态和排除要求。
 
-[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-007ec6?style=flat)](LICENSE) [![arXiv](https://img.shields.io/badge/arXiv-2610.35001-b31b1b?style=flat)](https://arxiv.org/abs/2610.35001) [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97-Dataset-FFD21E?style=flat)](https://huggingface.co/datasets/Suchenl/VMem-Bench) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-FFD21E?style=flat)](https://huggingface.co/papers/2610.35001) [![Project Page](https://img.shields.io/badge/Project-Page-E6550D?style=flat&logo=googlechrome&logoColor=white)](https://suchenl.github.io/VMem-Bench/)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-007ec6?style=flat)](LICENSE) [![arXiv](https://img.shields.io/badge/arXiv-2610.35001-b31b1b?style=flat)](https://arxiv.org/abs/2610.35001) [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97-Dataset-FFD21E?style=flat)](https://huggingface.co/datasets/Suchenl/VMem-Bench) [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97-Hugging%20Face-FFD21E?style=flat)](https://huggingface.co/papers/2610.35001) [![Project Page](https://img.shields.io/badge/Project-Page-E6550D?style=flat&logo=googlechrome&logoColor=white)](https://suchenl.github.io/VMem-Bench/) [![Video](https://img.shields.io/badge/Video-YouTube-FF0033?style=flat&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=8R2ARyxVRBE)
 
 [English](README.md)
+
+## 视频介绍
+
+VMem-Bench 视频介绍（YouTube）：
+
+[![VMem-Bench video overview on YouTube](https://img.youtube.com/vi/8R2ARyxVRBE/hqdefault.jpg)](https://www.youtube.com/watch?v=8R2ARyxVRBE)
 
 ## 快速开始
 
