@@ -123,6 +123,14 @@
     document.title = language === 'zh-CN' ? 'VMem-Bench — 更多记忆，更好的视频？' : 'VMem-Bench — More Memory, Better Videos?';
     originals.forEach(({node,text,key}) => { node.textContent = text.replace(key,t(key)); });
     attributes.forEach(({node,attr,value}) => node.setAttribute(attr,t(value)));
+    // Keep the third-party YouTube player locale in sync with the page language.
+    // Text inside an iframe is not accessible to the site's translation walker.
+    const videoPlayer = document.querySelector('iframe[data-video-player="youtube"]');
+    if (videoPlayer) {
+      const playerUrl = 'https://www.youtube-nocookie.com/embed/8R2ARyxVRBE?hl=' + (language === 'zh-CN' ? 'zh-CN' : 'en');
+      if (videoPlayer.getAttribute('src') !== playerUrl) videoPlayer.setAttribute('src', playerUrl);
+      videoPlayer.setAttribute('title', t('VMem-Bench video overview'));
+    }
     document.querySelectorAll('[data-lang]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.lang === language)));
     try { localStorage.setItem('vmem-language',language); } catch (_) {}
     document.dispatchEvent(new CustomEvent('vmem-language-change'));
