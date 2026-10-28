@@ -2,7 +2,7 @@
 
 面向因果长视频生成的视觉记忆评测。Track A 评估生成前选到的参考，Track B 评估生成视频中的实体、状态和排除要求。
 
-[项目主页](https://suchenl.github.io/VMem-Bench/) · [数据集](https://huggingface.co/datasets/Suchenl/VMem-Bench) · [English](README.md)
+[项目主页](https://suchenl.github.io/VMem-Bench/) · [论文](https://arxiv.org/abs/2610.35001) · [数据集](https://huggingface.co/datasets/Suchenl/VMem-Bench) · [Hugging Face](https://huggingface.co/papers/2610.35001) · [English](README.md)
 
 ## 快速开始
 
